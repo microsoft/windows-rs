@@ -446,17 +446,6 @@ impl ::core::clone::Clone for AnalyticsVersionInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AnalyticsVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnalyticsVersionInfo {}
-impl ::core::fmt::Debug for AnalyticsVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnalyticsVersionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.AnalyticsVersionInfo;{926130b8-9955-4c74-bdc1-7cd0decf9b03})");
     type DefaultType = ::core::option::Option<Self>;
@@ -577,17 +566,6 @@ impl HardwareToken {
 impl ::core::clone::Clone for HardwareToken {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HardwareToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HardwareToken {}
-impl ::core::fmt::Debug for HardwareToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HardwareToken").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HardwareToken {
@@ -926,17 +904,6 @@ impl ::core::clone::Clone for SystemIdentificationInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemIdentificationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemIdentificationInfo {}
-impl ::core::fmt::Debug for SystemIdentificationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemIdentificationInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Profile.SystemIdentificationInfo;{0c659e7d-c3c2-4d33-a2df-21bc41916eb3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1009,17 +976,6 @@ impl UnsupportedAppRequirement {
 impl ::core::clone::Clone for UnsupportedAppRequirement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UnsupportedAppRequirement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnsupportedAppRequirement {}
-impl ::core::fmt::Debug for UnsupportedAppRequirement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnsupportedAppRequirement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
@@ -1106,18 +1062,8 @@ impl ::core::clone::Clone for PlatformDataCollectionLevel {
         *self
     }
 }
-impl ::core::default::Default for PlatformDataCollectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDataCollectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.PlatformDataCollectionLevel;i4)");
@@ -1142,18 +1088,8 @@ impl ::core::clone::Clone for SystemIdentificationSource {
         *self
     }
 }
-impl ::core::default::Default for SystemIdentificationSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemIdentificationSource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemIdentificationSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemIdentificationSource;i4)");
@@ -1177,18 +1113,8 @@ impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
         *self
     }
 }
-impl ::core::default::Default for SystemOutOfBoxExperienceState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.SystemOutOfBoxExperienceState;i4)");
@@ -1211,46 +1137,8 @@ impl ::core::clone::Clone for UnsupportedAppRequirementReasons {
         *self
     }
 }
-impl ::core::default::Default for UnsupportedAppRequirementReasons {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnsupportedAppRequirementReasons {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for UnsupportedAppRequirementReasons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UnsupportedAppRequirementReasons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UnsupportedAppRequirementReasons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UnsupportedAppRequirementReasons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UnsupportedAppRequirementReasons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
@@ -1261,3 +1149,5 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -166,17 +166,6 @@ impl ::core::clone::Clone for IContactInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IContactInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactInformation {}
-impl ::core::fmt::Debug for IContactInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IContactInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e2b51ffc-e792-4ab7-b15b-f2e078664dea}");
     type DefaultType = ::core::option::Option<Self>;
@@ -253,17 +242,6 @@ impl IContactInformation2 {
 impl ::core::clone::Clone for IContactInformation2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactInformation2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactInformation2 {}
-impl ::core::fmt::Debug for IContactInformation2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactInformation2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactInformation2 {
@@ -609,17 +587,6 @@ impl ::core::clone::Clone for ContactAddress {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactAddress {}
-impl ::core::fmt::Debug for ContactAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactAddress;{5f24f927-94a9-44a2-a155-2d0b37d1dccd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -675,17 +642,6 @@ impl ContactChangeRecord {
 impl ::core::clone::Clone for ContactChangeRecord {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactChangeRecord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactChangeRecord {}
-impl ::core::fmt::Debug for ContactChangeRecord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactChangeRecord").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactChangeRecord {
@@ -854,17 +810,6 @@ impl ::core::clone::Clone for ContactInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactInformation {}
-impl ::core::fmt::Debug for ContactInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactInformation;{e2b51ffc-e792-4ab7-b15b-f2e078664dea})");
     type DefaultType = ::core::option::Option<Self>;
@@ -940,17 +885,6 @@ impl ::core::clone::Clone for ContactQueryOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQueryOptions {}
-impl ::core::fmt::Debug for ContactQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactQueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryOptions;{580cab76-3f31-46c1-9a50-424a53dacae3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1012,17 +946,6 @@ impl ContactQueryResult {
 impl ::core::clone::Clone for ContactQueryResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQueryResult {}
-impl ::core::fmt::Debug for ContactQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactQueryResult {
@@ -1170,17 +1093,6 @@ impl ContactStore {
 impl ::core::clone::Clone for ContactStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactStore {}
-impl ::core::fmt::Debug for ContactStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStore").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactStore {
@@ -1631,17 +1543,6 @@ impl ::core::clone::Clone for StoredContact {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StoredContact {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoredContact {}
-impl ::core::fmt::Debug for StoredContact {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoredContact").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StoredContact {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.StoredContact;{b070b7b1-263d-4e71-abe7-591d2466570e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1714,18 +1615,8 @@ impl ::core::clone::Clone for ContactChangeType {
         *self
     }
 }
-impl ::core::default::Default for ContactChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ContactChangeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ContactChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactChangeType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ContactChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactChangeType;i4)");
@@ -1749,18 +1640,8 @@ impl ::core::clone::Clone for ContactQueryResultOrdering {
         *self
     }
 }
-impl ::core::default::Default for ContactQueryResultOrdering {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ContactQueryResultOrdering {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ContactQueryResultOrdering {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryResultOrdering").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ContactQueryResultOrdering {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactQueryResultOrdering;i4)");
@@ -1783,18 +1664,8 @@ impl ::core::clone::Clone for ContactStoreApplicationAccessMode {
         *self
     }
 }
-impl ::core::default::Default for ContactStoreApplicationAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ContactStoreApplicationAccessMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ContactStoreApplicationAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStoreApplicationAccessMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ContactStoreApplicationAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreApplicationAccessMode;i4)");
@@ -1817,18 +1688,8 @@ impl ::core::clone::Clone for ContactStoreSystemAccessMode {
         *self
     }
 }
-impl ::core::default::Default for ContactStoreSystemAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ContactStoreSystemAccessMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ContactStoreSystemAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStoreSystemAccessMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ContactStoreSystemAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.ContactStoreSystemAccessMode;i4)");
@@ -1851,18 +1712,8 @@ impl ::core::clone::Clone for VCardFormat {
         *self
     }
 }
-impl ::core::default::Default for VCardFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VCardFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VCardFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VCardFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VCardFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.PersonalInformation.VCardFormat;i4)");
@@ -1873,3 +1724,5 @@ unsafe impl ::windows::core::RuntimeType for VCardFormat {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

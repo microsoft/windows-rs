@@ -262,20 +262,6 @@ impl ::core::clone::Clone for PhoneCallOrigin {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PhoneCallOrigin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PhoneCallOrigin {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PhoneCallOrigin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallOrigin").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -365,3 +351,5 @@ impl ::windows::core::RuntimeName for PhoneCallOriginManager {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

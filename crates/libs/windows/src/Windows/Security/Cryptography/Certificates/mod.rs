@@ -1188,17 +1188,6 @@ impl ::core::clone::Clone for Certificate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Certificate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Certificate {}
-impl ::core::fmt::Debug for Certificate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Certificate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Certificate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.Certificate;{333f740c-04d8-43b3-b278-8c5fcc9be5a0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1249,17 +1238,6 @@ impl CertificateChain {
 impl ::core::clone::Clone for CertificateChain {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CertificateChain {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateChain {}
-impl ::core::fmt::Debug for CertificateChain {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateChain").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CertificateChain {
@@ -1403,17 +1381,6 @@ impl ::core::clone::Clone for CertificateExtension {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CertificateExtension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateExtension {}
-impl ::core::fmt::Debug for CertificateExtension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateExtension").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CertificateExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateExtension;{84cf0656-a9e6-454d-8e45-2ea7c4bcd53b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1538,17 +1505,6 @@ impl ::core::clone::Clone for CertificateKeyUsages {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CertificateKeyUsages {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateKeyUsages {}
-impl ::core::fmt::Debug for CertificateKeyUsages {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateKeyUsages").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CertificateKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateKeyUsages;{6ac6206f-e1cf-486a-b485-a69c83e46fd1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1669,17 +1625,6 @@ impl CertificateQuery {
 impl ::core::clone::Clone for CertificateQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CertificateQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateQuery {}
-impl ::core::fmt::Debug for CertificateQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateQuery").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CertificateQuery {
@@ -1930,17 +1875,6 @@ impl ::core::clone::Clone for CertificateRequestProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CertificateRequestProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateRequestProperties {}
-impl ::core::fmt::Debug for CertificateRequestProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateRequestProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CertificateRequestProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateRequestProperties;{487e84f6-94e2-4dce-8833-1a700a37a29a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1983,17 +1917,6 @@ impl CertificateStore {
 impl ::core::clone::Clone for CertificateStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CertificateStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateStore {}
-impl ::core::fmt::Debug for CertificateStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateStore").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CertificateStore {
@@ -2166,17 +2089,6 @@ impl ::core::clone::Clone for ChainBuildingParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ChainBuildingParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChainBuildingParameters {}
-impl ::core::fmt::Debug for ChainBuildingParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChainBuildingParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ChainBuildingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainBuildingParameters;{422ba922-7c8d-47b7-b59b-b12703733ac3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2237,17 +2149,6 @@ impl ChainValidationParameters {
 impl ::core::clone::Clone for ChainValidationParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ChainValidationParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChainValidationParameters {}
-impl ::core::fmt::Debug for ChainValidationParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChainValidationParameters").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ChainValidationParameters {
@@ -2349,17 +2250,6 @@ impl ::core::clone::Clone for CmsAttachedSignature {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CmsAttachedSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CmsAttachedSignature {}
-impl ::core::fmt::Debug for CmsAttachedSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CmsAttachedSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CmsAttachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsAttachedSignature;{61899d9d-3757-4ecb-bddc-0ca357d7a936})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2458,17 +2348,6 @@ impl ::core::clone::Clone for CmsDetachedSignature {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CmsDetachedSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CmsDetachedSignature {}
-impl ::core::fmt::Debug for CmsDetachedSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CmsDetachedSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CmsDetachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsDetachedSignature;{0f1ef154-f65e-4536-8339-5944081db2ca})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2534,17 +2413,6 @@ impl ::core::clone::Clone for CmsSignerInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CmsSignerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CmsSignerInfo {}
-impl ::core::fmt::Debug for CmsSignerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CmsSignerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CmsSignerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsSignerInfo;{50d020db-1d2f-4c1a-b5c5-d0188ff91f47})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2597,17 +2465,6 @@ impl CmsTimestampInfo {
 impl ::core::clone::Clone for CmsTimestampInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CmsTimestampInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CmsTimestampInfo {}
-impl ::core::fmt::Debug for CmsTimestampInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CmsTimestampInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CmsTimestampInfo {
@@ -2880,17 +2737,6 @@ impl ::core::clone::Clone for PfxImportParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PfxImportParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PfxImportParameters {}
-impl ::core::fmt::Debug for PfxImportParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PfxImportParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PfxImportParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.PfxImportParameters;{680d3511-9a08-47c8-864a-2edd4d8eb46c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3072,17 +2918,6 @@ impl ::core::clone::Clone for SubjectAlternativeNameInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SubjectAlternativeNameInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SubjectAlternativeNameInfo {}
-impl ::core::fmt::Debug for SubjectAlternativeNameInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SubjectAlternativeNameInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SubjectAlternativeNameInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo;{582859f1-569d-4c20-be7b-4e1c9a0bc52b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3157,17 +2992,6 @@ impl ::core::clone::Clone for UserCertificateEnrollmentManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserCertificateEnrollmentManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserCertificateEnrollmentManager {}
-impl ::core::fmt::Debug for UserCertificateEnrollmentManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserCertificateEnrollmentManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserCertificateEnrollmentManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager;{96313718-22e1-4819-b20b-ab46a6eca06e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3222,17 +3046,6 @@ impl ::core::clone::Clone for UserCertificateStore {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserCertificateStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserCertificateStore {}
-impl ::core::fmt::Debug for UserCertificateStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserCertificateStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserCertificateStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateStore;{c9fb1d83-789f-4b4e-9180-045a757aac6d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3268,18 +3081,8 @@ impl ::core::clone::Clone for CertificateChainPolicy {
         *self
     }
 }
-impl ::core::default::Default for CertificateChainPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CertificateChainPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CertificateChainPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
@@ -3314,18 +3117,8 @@ impl ::core::clone::Clone for ChainValidationResult {
         *self
     }
 }
-impl ::core::default::Default for ChainValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ChainValidationResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ChainValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
@@ -3351,46 +3144,8 @@ impl ::core::clone::Clone for EnrollKeyUsages {
         *self
     }
 }
-impl ::core::default::Default for EnrollKeyUsages {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EnrollKeyUsages {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EnrollKeyUsages {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EnrollKeyUsages {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EnrollKeyUsages {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EnrollKeyUsages {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EnrollKeyUsages {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EnrollKeyUsages {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
@@ -3413,18 +3168,8 @@ impl ::core::clone::Clone for ExportOption {
         *self
     }
 }
-impl ::core::default::Default for ExportOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ExportOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ExportOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExportOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ExportOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
@@ -3447,46 +3192,8 @@ impl ::core::clone::Clone for InstallOptions {
         *self
     }
 }
-impl ::core::default::Default for InstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InstallOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InstallOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InstallOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InstallOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InstallOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InstallOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InstallOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InstallOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
@@ -3511,18 +3218,8 @@ impl ::core::clone::Clone for KeyProtectionLevel {
         *self
     }
 }
-impl ::core::default::Default for KeyProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyProtectionLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
@@ -3546,18 +3243,8 @@ impl ::core::clone::Clone for KeySize {
         *self
     }
 }
-impl ::core::default::Default for KeySize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeySize {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeySize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeySize").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KeySize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
@@ -3583,18 +3270,8 @@ impl ::core::clone::Clone for SignatureValidationResult {
         *self
     }
 }
-impl ::core::default::Default for SignatureValidationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SignatureValidationResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SignatureValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
@@ -3605,3 +3282,5 @@ unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

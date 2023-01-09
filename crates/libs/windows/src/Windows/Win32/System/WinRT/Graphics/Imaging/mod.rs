@@ -16,17 +16,6 @@ impl ::core::clone::Clone for ISoftwareBitmapNative {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISoftwareBitmapNative {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISoftwareBitmapNative {}
-impl ::core::fmt::Debug for ISoftwareBitmapNative {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISoftwareBitmapNative").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNative_Vtbl;
 }
@@ -72,17 +61,6 @@ impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISoftwareBitmapNativeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISoftwareBitmapNativeFactory {}
-impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISoftwareBitmapNativeFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactory_Vtbl;
 }
@@ -106,3 +84,5 @@ pub struct ISoftwareBitmapNativeFactory_Vtbl {
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

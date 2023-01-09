@@ -229,17 +229,6 @@ impl ::core::clone::Clone for ResourceLoader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceLoader {}
-impl ::core::fmt::Debug for ResourceLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceLoader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.ResourceLoader;{08524908-16ef-45ad-a602-293637d7e61a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -261,3 +250,5 @@ unsafe impl ::core::marker::Send for ResourceLoader {}
 unsafe impl ::core::marker::Sync for ResourceLoader {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -152,18 +152,8 @@ impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
         *self
     }
 }
-impl ::core::default::Default for TBS_COMMAND_LOCALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TBS_COMMAND_LOCALITY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[repr(transparent)]
@@ -185,18 +175,8 @@ impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
         *self
     }
 }
-impl ::core::default::Default for TBS_COMMAND_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TBS_COMMAND_PRIORITY").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -209,24 +189,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS {
         *self
     }
 }
-impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS {}
-impl ::core::default::Default for TBS_CONTEXT_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -243,11 +207,6 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
     type Abi = Self;
 }
-impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub union TBS_CONTEXT_PARAMS2_0 {
@@ -263,11 +222,6 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub struct TBS_CONTEXT_PARAMS2_0_0 {
@@ -279,24 +233,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for TBS_CONTEXT_PARAMS2_0_0 {}
-impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -312,24 +250,8 @@ impl ::core::clone::Clone for TPM_DEVICE_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for TPM_DEVICE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.structVersion == other.structVersion && self.tpmVersion == other.tpmVersion && self.tpmInterfaceType == other.tpmInterfaceType && self.tpmImpRevision == other.tpmImpRevision
-    }
-}
-impl ::core::cmp::Eq for TPM_DEVICE_INFO {}
-impl ::core::default::Default for TPM_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
@@ -343,24 +265,10 @@ impl ::core::clone::Clone for TPM_WNF_PROVISIONING {
         *self
     }
 }
-impl ::core::fmt::Debug for TPM_WNF_PROVISIONING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TPM_WNF_PROVISIONING {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
-    fn eq(&self, other: &Self) -> bool {
-        self.status == other.status && self.message == other.message
-    }
-}
-impl ::core::cmp::Eq for TPM_WNF_PROVISIONING {}
-impl ::core::default::Default for TPM_WNF_PROVISIONING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

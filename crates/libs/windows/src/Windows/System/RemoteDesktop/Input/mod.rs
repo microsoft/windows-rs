@@ -82,17 +82,6 @@ impl ::core::clone::Clone for RemoteTextConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteTextConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteTextConnection {}
-impl ::core::fmt::Debug for RemoteTextConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteTextConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -200,17 +189,6 @@ impl ::core::clone::Clone for RemoteTextConnectionDataHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteTextConnectionDataHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteTextConnectionDataHandler {}
-impl ::core::fmt::Debug for RemoteTextConnectionDataHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteTextConnectionDataHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for RemoteTextConnectionDataHandler {
     type Vtable = RemoteTextConnectionDataHandler_Vtbl;
 }
@@ -232,3 +210,5 @@ pub struct RemoteTextConnectionDataHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -606,17 +606,6 @@ impl ::core::clone::Clone for IAppointmentParticipant {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppointmentParticipant {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentParticipant {}
-impl ::core::fmt::Debug for IAppointmentParticipant {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentParticipant").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAppointmentParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{615e2902-9718-467b-83fb-b293a19121de}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1392,17 +1381,6 @@ impl ::core::clone::Clone for Appointment {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Appointment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Appointment {}
-impl ::core::fmt::Debug for Appointment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Appointment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Appointment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.Appointment;{dd002f2f-2bdd-4076-90a3-22c275312965})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1802,17 +1780,6 @@ impl ::core::clone::Clone for AppointmentCalendar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendar {}
-impl ::core::fmt::Debug for AppointmentCalendar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendar;{5273819d-8339-3d4f-a02f-64084452bb5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1907,17 +1874,6 @@ impl ::core::clone::Clone for AppointmentCalendarSyncManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarSyncManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarSyncManager {}
-impl ::core::fmt::Debug for AppointmentCalendarSyncManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarSyncManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager;{2b21b3a0-4aff-4392-bc5f-5645ffcffb17})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1961,17 +1917,6 @@ impl AppointmentConflictResult {
 impl ::core::clone::Clone for AppointmentConflictResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentConflictResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentConflictResult {}
-impl ::core::fmt::Debug for AppointmentConflictResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentConflictResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictResult {
@@ -2024,17 +1969,6 @@ impl AppointmentException {
 impl ::core::clone::Clone for AppointmentException {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentException {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentException {}
-impl ::core::fmt::Debug for AppointmentException {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentException").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentException {
@@ -2115,17 +2049,6 @@ impl AppointmentInvitee {
 impl ::core::clone::Clone for AppointmentInvitee {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentInvitee {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentInvitee {}
-impl ::core::fmt::Debug for AppointmentInvitee {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentInvitee").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentInvitee {
@@ -2436,17 +2359,6 @@ impl ::core::clone::Clone for AppointmentManagerForUser {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentManagerForUser {}
-impl ::core::fmt::Debug for AppointmentManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentManagerForUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentManagerForUser;{70261423-73cc-4660-b318-b01365302a03})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2503,17 +2415,6 @@ impl AppointmentOrganizer {
 impl ::core::clone::Clone for AppointmentOrganizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentOrganizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentOrganizer {}
-impl ::core::fmt::Debug for AppointmentOrganizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentOrganizer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentOrganizer {
@@ -2875,17 +2776,6 @@ impl ::core::clone::Clone for AppointmentRecurrence {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentRecurrence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentRecurrence {}
-impl ::core::fmt::Debug for AppointmentRecurrence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentRecurrence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentRecurrence;{d87b3e83-15a6-487b-b959-0c361e60e954})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3133,17 +3023,6 @@ impl ::core::clone::Clone for AppointmentStore {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStore {}
-impl ::core::fmt::Debug for AppointmentStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStore;{a461918c-7a47-4d96-96c9-15cd8a05a735})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3194,17 +3073,6 @@ impl ::core::clone::Clone for AppointmentStoreChange {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentStoreChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChange {}
-impl ::core::fmt::Debug for AppointmentStoreChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChange;{a5a6e035-0a33-3654-8463-b543e90c3b79})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3249,17 +3117,6 @@ impl AppointmentStoreChangeReader {
 impl ::core::clone::Clone for AppointmentStoreChangeReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentStoreChangeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChangeReader {}
-impl ::core::fmt::Debug for AppointmentStoreChangeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChangeReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
@@ -3313,17 +3170,6 @@ impl ::core::clone::Clone for AppointmentStoreChangeTracker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentStoreChangeTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChangeTracker {}
-impl ::core::fmt::Debug for AppointmentStoreChangeTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChangeTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker;{1b25f4b1-8ece-4f17-93c8-e6412458fd5c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3355,17 +3201,6 @@ impl AppointmentStoreChangedDeferral {
 impl ::core::clone::Clone for AppointmentStoreChangedDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentStoreChangedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChangedDeferral {}
-impl ::core::fmt::Debug for AppointmentStoreChangedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChangedDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
@@ -3404,17 +3239,6 @@ impl ::core::clone::Clone for AppointmentStoreChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentStoreChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChangedEventArgs {}
-impl ::core::fmt::Debug for AppointmentStoreChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs;{2285f8b9-0791-417e-bfea-cc6d41636c8c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3441,17 +3265,6 @@ impl AppointmentStoreNotificationTriggerDetails {}
 impl ::core::clone::Clone for AppointmentStoreNotificationTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentStoreNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreNotificationTriggerDetails {}
-impl ::core::fmt::Debug for AppointmentStoreNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreNotificationTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
@@ -3530,17 +3343,6 @@ impl ::core::clone::Clone for FindAppointmentsOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FindAppointmentsOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindAppointmentsOptions {}
-impl ::core::fmt::Debug for FindAppointmentsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAppointmentsOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FindAppointmentsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.FindAppointmentsOptions;{55f7dc55-9942-3086-82b5-2cb29f64d5f5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3577,18 +3379,8 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
         *self
     }
 }
-impl ::core::default::Default for AppointmentBusyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentBusyStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentBusyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentBusyStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentBusyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentBusyStatus;i4)");
@@ -3613,18 +3405,8 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
         *self
     }
 }
-impl ::core::default::Default for AppointmentCalendarOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppReadAccess {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarOtherAppReadAccess").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess;i4)");
@@ -3648,18 +3430,8 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
         *self
     }
 }
-impl ::core::default::Default for AppointmentCalendarOtherAppWriteAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppWriteAccess {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarOtherAppWriteAccess").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess;i4)");
@@ -3687,18 +3459,8 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
         *self
     }
 }
-impl ::core::default::Default for AppointmentCalendarSyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentCalendarSyncStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarSyncStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus;i4)");
@@ -3722,18 +3484,8 @@ impl ::core::clone::Clone for AppointmentConflictType {
         *self
     }
 }
-impl ::core::default::Default for AppointmentConflictType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentConflictType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentConflictType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentConflictType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentConflictType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentConflictType;i4)");
@@ -3762,46 +3514,8 @@ impl ::core::clone::Clone for AppointmentDaysOfWeek {
         *self
     }
 }
-impl ::core::default::Default for AppointmentDaysOfWeek {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentDaysOfWeek {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentDaysOfWeek {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentDaysOfWeek").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AppointmentDaysOfWeek {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AppointmentDaysOfWeek {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AppointmentDaysOfWeek {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek;u4)");
@@ -3824,18 +3538,8 @@ impl ::core::clone::Clone for AppointmentDetailsKind {
         *self
     }
 }
-impl ::core::default::Default for AppointmentDetailsKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentDetailsKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentDetailsKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentDetailsKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentDetailsKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentDetailsKind;i4)");
@@ -3861,18 +3565,8 @@ impl ::core::clone::Clone for AppointmentParticipantResponse {
         *self
     }
 }
-impl ::core::default::Default for AppointmentParticipantResponse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentParticipantResponse {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentParticipantResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentParticipantResponse").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantResponse;i4)");
@@ -3896,18 +3590,8 @@ impl ::core::clone::Clone for AppointmentParticipantRole {
         *self
     }
 }
-impl ::core::default::Default for AppointmentParticipantRole {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentParticipantRole {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentParticipantRole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentParticipantRole").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentParticipantRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentParticipantRole;i4)");
@@ -3934,18 +3618,8 @@ impl ::core::clone::Clone for AppointmentRecurrenceUnit {
         *self
     }
 }
-impl ::core::default::Default for AppointmentRecurrenceUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentRecurrenceUnit {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentRecurrenceUnit").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit;i4)");
@@ -3968,18 +3642,8 @@ impl ::core::clone::Clone for AppointmentSensitivity {
         *self
     }
 }
-impl ::core::default::Default for AppointmentSensitivity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentSensitivity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentSensitivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentSensitivity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentSensitivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSensitivity;i4)");
@@ -4003,18 +3667,8 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
         *self
     }
 }
-impl ::core::default::Default for AppointmentStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentStoreAccessType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreAccessType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreAccessType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreAccessType;i4)");
@@ -4042,18 +3696,8 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
         *self
     }
 }
-impl ::core::default::Default for AppointmentStoreChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentStoreChangeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentStoreChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreChangeType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentStoreChangeType;i4)");
@@ -4076,18 +3720,8 @@ impl ::core::clone::Clone for AppointmentSummaryCardView {
         *self
     }
 }
-impl ::core::default::Default for AppointmentSummaryCardView {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentSummaryCardView {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentSummaryCardView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentSummaryCardView").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentSummaryCardView;i4)");
@@ -4113,18 +3747,8 @@ impl ::core::clone::Clone for AppointmentWeekOfMonth {
         *self
     }
 }
-impl ::core::default::Default for AppointmentWeekOfMonth {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppointmentWeekOfMonth {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppointmentWeekOfMonth {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentWeekOfMonth").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth;i4)");
@@ -4147,46 +3771,8 @@ impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
         *self
     }
 }
-impl ::core::default::Default for FindAppointmentCalendarsOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FindAppointmentCalendarsOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FindAppointmentCalendarsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAppointmentCalendarsOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FindAppointmentCalendarsOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FindAppointmentCalendarsOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FindAppointmentCalendarsOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions;u4)");
@@ -4210,18 +3796,8 @@ impl ::core::clone::Clone for RecurrenceType {
         *self
     }
 }
-impl ::core::default::Default for RecurrenceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RecurrenceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RecurrenceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RecurrenceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RecurrenceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Appointments.RecurrenceType;i4)");
@@ -4232,3 +3808,5 @@ unsafe impl ::windows::core::RuntimeType for RecurrenceType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

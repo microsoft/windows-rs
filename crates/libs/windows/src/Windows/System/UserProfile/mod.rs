@@ -461,17 +461,6 @@ impl ::core::clone::Clone for AdvertisingManagerForUser {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AdvertisingManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvertisingManagerForUser {}
-impl ::core::fmt::Debug for AdvertisingManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvertisingManagerForUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
     type DefaultType = ::core::option::Option<Self>;
@@ -539,17 +528,6 @@ impl ::core::clone::Clone for AssignedAccessSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AssignedAccessSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AssignedAccessSettings {}
-impl ::core::fmt::Debug for AssignedAccessSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AssignedAccessSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AssignedAccessSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -608,17 +586,6 @@ impl DiagnosticsSettings {
 impl ::core::clone::Clone for DiagnosticsSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DiagnosticsSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticsSettings {}
-impl ::core::fmt::Debug for DiagnosticsSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticsSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticsSettings {
@@ -701,17 +668,6 @@ impl FirstSignInSettings {
 impl ::core::clone::Clone for FirstSignInSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FirstSignInSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FirstSignInSettings {}
-impl ::core::fmt::Debug for FirstSignInSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FirstSignInSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FirstSignInSettings {
@@ -952,17 +908,6 @@ impl GlobalizationPreferencesForUser {
 impl ::core::clone::Clone for GlobalizationPreferencesForUser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GlobalizationPreferencesForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalizationPreferencesForUser {}
-impl ::core::fmt::Debug for GlobalizationPreferencesForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalizationPreferencesForUser").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
@@ -1257,17 +1202,6 @@ impl ::core::clone::Clone for UserProfilePersonalizationSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserProfilePersonalizationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserProfilePersonalizationSettings {}
-impl ::core::fmt::Debug for UserProfilePersonalizationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserProfilePersonalizationSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1307,20 +1241,8 @@ impl ::core::clone::Clone for AccountPictureKind {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for AccountPictureKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for AccountPictureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountPictureKind").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
@@ -1353,20 +1275,8 @@ impl ::core::clone::Clone for SetAccountPictureResult {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for SetAccountPictureResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SetAccountPictureResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
@@ -1391,18 +1301,8 @@ impl ::core::clone::Clone for SetImageFeedResult {
         *self
     }
 }
-impl ::core::default::Default for SetImageFeedResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SetImageFeedResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SetImageFeedResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetImageFeedResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
@@ -1413,3 +1313,5 @@ unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

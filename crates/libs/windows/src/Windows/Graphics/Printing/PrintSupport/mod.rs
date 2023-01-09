@@ -375,17 +375,6 @@ impl ::core::clone::Clone for PrintSupportExtensionSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSupportExtensionSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportExtensionSession {}
-impl ::core::fmt::Debug for PrintSupportExtensionSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportExtensionSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession;{eea45f1a-f4c6-54b3-a0b8-a559839aa4c3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -420,17 +409,6 @@ impl PrintSupportExtensionTriggerDetails {
 impl ::core::clone::Clone for PrintSupportExtensionTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintSupportExtensionTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportExtensionTriggerDetails {}
-impl ::core::fmt::Debug for PrintSupportExtensionTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportExtensionTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionTriggerDetails {
@@ -522,17 +500,6 @@ impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesChangedEventArg
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
-impl ::core::fmt::Debug for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportPrintDeviceCapabilitiesChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs;{15969bf0-9028-5722-8a37-7d7c34b41dd6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -579,17 +546,6 @@ impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
 impl ::core::clone::Clone for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
-impl ::core::fmt::Debug for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportPrintDeviceCapabilitiesUpdatePolicy").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
@@ -650,17 +606,6 @@ impl ::core::clone::Clone for PrintSupportPrintTicketElement {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSupportPrintTicketElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportPrintTicketElement {}
-impl ::core::fmt::Debug for PrintSupportPrintTicketElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportPrintTicketElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintTicketElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement;{4b2a4489-730d-5be7-80e6-8332941abf13})");
     type DefaultType = ::core::option::Option<Self>;
@@ -710,17 +655,6 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
 impl ::core::clone::Clone for PrintSupportPrintTicketValidationRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportPrintTicketValidationRequestedEventArgs {}
-impl ::core::fmt::Debug for PrintSupportPrintTicketValidationRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportPrintTicketValidationRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {
@@ -822,17 +756,6 @@ impl ::core::clone::Clone for PrintSupportPrinterSelectedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSupportPrinterSelectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportPrinterSelectedEventArgs {}
-impl ::core::fmt::Debug for PrintSupportPrinterSelectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportPrinterSelectedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSupportPrinterSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs;{7b1cb7d9-a8a4-5c09-adb2-66165f817977})");
     type DefaultType = ::core::option::Option<Self>;
@@ -878,17 +801,6 @@ impl PrintSupportSessionInfo {
 impl ::core::clone::Clone for PrintSupportSessionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintSupportSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportSessionInfo {}
-impl ::core::fmt::Debug for PrintSupportSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportSessionInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintSupportSessionInfo {
@@ -970,17 +882,6 @@ impl PrintSupportSettingsActivatedEventArgs {
 impl ::core::clone::Clone for PrintSupportSettingsActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintSupportSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for PrintSupportSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportSettingsActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsActivatedEventArgs {
@@ -1092,17 +993,6 @@ impl ::core::clone::Clone for PrintSupportSettingsUISession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSupportSettingsUISession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSupportSettingsUISession {}
-impl ::core::fmt::Debug for PrintSupportSettingsUISession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSupportSettingsUISession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsUISession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession;{c6da2251-83c3-55e4-a0f8-5de8b062adbf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1136,18 +1026,8 @@ impl ::core::clone::Clone for SettingsLaunchKind {
         *self
     }
 }
-impl ::core::default::Default for SettingsLaunchKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SettingsLaunchKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SettingsLaunchKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SettingsLaunchKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.SettingsLaunchKind;i4)");
@@ -1171,18 +1051,8 @@ impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
         *self
     }
 }
-impl ::core::default::Default for WorkflowPrintTicketValidationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WorkflowPrintTicketValidationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
@@ -1193,3 +1063,5 @@ unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationStatus
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

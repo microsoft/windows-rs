@@ -16,17 +16,6 @@ impl ::core::clone::Clone for IFindSimilarResults {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFindSimilarResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFindSimilarResults {}
-impl ::core::fmt::Debug for IFindSimilarResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFindSimilarResults").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFindSimilarResults {
     type Vtable = IFindSimilarResults_Vtbl;
 }
@@ -57,17 +46,6 @@ impl IRdcComparator {
 impl ::core::clone::Clone for IRdcComparator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRdcComparator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcComparator {}
-impl ::core::fmt::Debug for IRdcComparator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcComparator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRdcComparator {
@@ -109,17 +87,6 @@ impl ::core::clone::Clone for IRdcFileReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRdcFileReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcFileReader {}
-impl ::core::fmt::Debug for IRdcFileReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcFileReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IRdcFileReader {
     type Vtable = IRdcFileReader_Vtbl;
 }
@@ -141,19 +108,6 @@ pub struct IRdcFileReader_Vtbl {
 #[repr(transparent)]
 pub struct IRdcFileWriter(::windows::core::IUnknown);
 impl IRdcFileWriter {
-    pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFileSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), offsetfilestart, bytestoread, bytesactuallyread, buffer, eof).ok()
-    }
-    pub unsafe fn GetFilePosition(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFilePosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows::core::Result<u8> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), offsetfilestart, bytestowrite, result__.as_mut_ptr()).from_abi(result__)
@@ -169,17 +123,6 @@ impl IRdcFileWriter {
 impl ::core::clone::Clone for IRdcFileWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRdcFileWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcFileWriter {}
-impl ::core::fmt::Debug for IRdcFileWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcFileWriter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRdcFileWriter {
@@ -217,17 +160,6 @@ impl IRdcGenerator {
 impl ::core::clone::Clone for IRdcGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRdcGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcGenerator {}
-impl ::core::fmt::Debug for IRdcGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcGenerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRdcGenerator {
@@ -271,17 +203,6 @@ impl ::core::clone::Clone for IRdcGeneratorFilterMaxParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRdcGeneratorFilterMaxParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcGeneratorFilterMaxParameters {}
-impl ::core::fmt::Debug for IRdcGeneratorFilterMaxParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcGeneratorFilterMaxParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IRdcGeneratorFilterMaxParameters {
     type Vtable = IRdcGeneratorFilterMaxParameters_Vtbl;
 }
@@ -320,17 +241,6 @@ impl IRdcGeneratorParameters {
 impl ::core::clone::Clone for IRdcGeneratorParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRdcGeneratorParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcGeneratorParameters {}
-impl ::core::fmt::Debug for IRdcGeneratorParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcGeneratorParameters").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRdcGeneratorParameters {
@@ -392,17 +302,6 @@ impl ::core::clone::Clone for IRdcLibrary {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRdcLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcLibrary {}
-impl ::core::fmt::Debug for IRdcLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcLibrary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IRdcLibrary {
     type Vtable = IRdcLibrary_Vtbl;
 }
@@ -441,17 +340,6 @@ impl ::core::clone::Clone for IRdcSignatureReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRdcSignatureReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcSignatureReader {}
-impl ::core::fmt::Debug for IRdcSignatureReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcSignatureReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IRdcSignatureReader {
     type Vtable = IRdcSignatureReader_Vtbl;
 }
@@ -484,17 +372,6 @@ impl IRdcSimilarityGenerator {
 impl ::core::clone::Clone for IRdcSimilarityGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRdcSimilarityGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRdcSimilarityGenerator {}
-impl ::core::fmt::Debug for IRdcSimilarityGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRdcSimilarityGenerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRdcSimilarityGenerator {
@@ -566,17 +443,6 @@ impl ISimilarity {
 impl ::core::clone::Clone for ISimilarity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISimilarity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarity {}
-impl ::core::fmt::Debug for ISimilarity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISimilarity {
@@ -659,17 +525,6 @@ impl ::core::clone::Clone for ISimilarityFileIdTable {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISimilarityFileIdTable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityFileIdTable {}
-impl ::core::fmt::Debug for ISimilarityFileIdTable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityFileIdTable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISimilarityFileIdTable {
     type Vtable = ISimilarityFileIdTable_Vtbl;
 }
@@ -711,17 +566,6 @@ impl ::core::clone::Clone for ISimilarityReportProgress {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISimilarityReportProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityReportProgress {}
-impl ::core::fmt::Debug for ISimilarityReportProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityReportProgress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISimilarityReportProgress {
     type Vtable = ISimilarityReportProgress_Vtbl;
 }
@@ -748,17 +592,6 @@ impl ISimilarityTableDumpState {
 impl ::core::clone::Clone for ISimilarityTableDumpState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISimilarityTableDumpState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityTableDumpState {}
-impl ::core::fmt::Debug for ISimilarityTableDumpState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityTableDumpState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISimilarityTableDumpState {
@@ -803,17 +636,6 @@ impl ISimilarityTraitsMappedView {
 impl ::core::clone::Clone for ISimilarityTraitsMappedView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISimilarityTraitsMappedView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityTraitsMappedView {}
-impl ::core::fmt::Debug for ISimilarityTraitsMappedView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityTraitsMappedView").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISimilarityTraitsMappedView {
@@ -870,17 +692,6 @@ impl ISimilarityTraitsMapping {
 impl ::core::clone::Clone for ISimilarityTraitsMapping {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISimilarityTraitsMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityTraitsMapping {}
-impl ::core::fmt::Debug for ISimilarityTraitsMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityTraitsMapping").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISimilarityTraitsMapping {
@@ -952,17 +763,6 @@ impl ISimilarityTraitsTable {
 impl ::core::clone::Clone for ISimilarityTraitsTable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISimilarityTraitsTable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimilarityTraitsTable {}
-impl ::core::fmt::Debug for ISimilarityTraitsTable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimilarityTraitsTable").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISimilarityTraitsTable {
@@ -1086,18 +886,8 @@ impl ::core::clone::Clone for GeneratorParametersType {
         *self
     }
 }
-impl ::core::default::Default for GeneratorParametersType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeneratorParametersType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeneratorParametersType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeneratorParametersType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
@@ -1131,18 +921,8 @@ impl ::core::clone::Clone for RDC_ErrorCode {
         *self
     }
 }
-impl ::core::default::Default for RDC_ErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RDC_ErrorCode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RDC_ErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RDC_ErrorCode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
@@ -1160,18 +940,8 @@ impl ::core::clone::Clone for RdcCreatedTables {
         *self
     }
 }
-impl ::core::default::Default for RdcCreatedTables {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RdcCreatedTables {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RdcCreatedTables {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RdcCreatedTables").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
@@ -1189,18 +959,8 @@ impl ::core::clone::Clone for RdcMappingAccessMode {
         *self
     }
 }
-impl ::core::default::Default for RdcMappingAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RdcMappingAccessMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RdcMappingAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RdcMappingAccessMode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 #[repr(transparent)]
@@ -1220,18 +980,8 @@ impl ::core::clone::Clone for RdcNeedType {
         *self
     }
 }
-impl ::core::default::Default for RdcNeedType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RdcNeedType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RdcNeedType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RdcNeedType").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1245,24 +995,8 @@ impl ::core::clone::Clone for FindSimilarFileIndexResults {
         *self
     }
 }
-impl ::core::fmt::Debug for FindSimilarFileIndexResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FindSimilarFileIndexResults").field("m_FileIndex", &self.m_FileIndex).field("m_MatchCount", &self.m_MatchCount).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FindSimilarFileIndexResults {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FindSimilarFileIndexResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileIndex == other.m_FileIndex && self.m_MatchCount == other.m_MatchCount
-    }
-}
-impl ::core::cmp::Eq for FindSimilarFileIndexResults {}
-impl ::core::default::Default for FindSimilarFileIndexResults {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1277,24 +1011,8 @@ impl ::core::clone::Clone for RdcBufferPointer {
         *self
     }
 }
-impl ::core::fmt::Debug for RdcBufferPointer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RdcBufferPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RdcBufferPointer {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RdcBufferPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl ::core::cmp::Eq for RdcBufferPointer {}
-impl ::core::default::Default for RdcBufferPointer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1309,24 +1027,8 @@ impl ::core::clone::Clone for RdcNeed {
         *self
     }
 }
-impl ::core::fmt::Debug for RdcNeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RdcNeed").field("m_BlockType", &self.m_BlockType).field("m_FileOffset", &self.m_FileOffset).field("m_BlockLength", &self.m_BlockLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RdcNeed {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RdcNeed {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_BlockType == other.m_BlockType && self.m_FileOffset == other.m_FileOffset && self.m_BlockLength == other.m_BlockLength
-    }
-}
-impl ::core::cmp::Eq for RdcNeed {}
-impl ::core::default::Default for RdcNeed {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1341,24 +1043,8 @@ impl ::core::clone::Clone for RdcNeedPointer {
         *self
     }
 }
-impl ::core::fmt::Debug for RdcNeedPointer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RdcNeedPointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RdcNeedPointer {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RdcNeedPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl ::core::cmp::Eq for RdcNeedPointer {}
-impl ::core::default::Default for RdcNeedPointer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1372,24 +1058,8 @@ impl ::core::clone::Clone for RdcSignature {
         *self
     }
 }
-impl ::core::fmt::Debug for RdcSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RdcSignature").field("m_Signature", &self.m_Signature).field("m_BlockLength", &self.m_BlockLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RdcSignature {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RdcSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Signature == other.m_Signature && self.m_BlockLength == other.m_BlockLength
-    }
-}
-impl ::core::cmp::Eq for RdcSignature {}
-impl ::core::default::Default for RdcSignature {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1404,24 +1074,8 @@ impl ::core::clone::Clone for RdcSignaturePointer {
         *self
     }
 }
-impl ::core::fmt::Debug for RdcSignaturePointer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RdcSignaturePointer").field("m_Size", &self.m_Size).field("m_Used", &self.m_Used).field("m_Data", &self.m_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RdcSignaturePointer {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RdcSignaturePointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Size == other.m_Size && self.m_Used == other.m_Used && self.m_Data == other.m_Data
-    }
-}
-impl ::core::cmp::Eq for RdcSignaturePointer {}
-impl ::core::default::Default for RdcSignaturePointer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1434,24 +1088,8 @@ impl ::core::clone::Clone for SimilarityData {
         *self
     }
 }
-impl ::core::fmt::Debug for SimilarityData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SimilarityData").field("m_Data", &self.m_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SimilarityData {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SimilarityData {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Data == other.m_Data
-    }
-}
-impl ::core::cmp::Eq for SimilarityData {}
-impl ::core::default::Default for SimilarityData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1465,24 +1103,8 @@ impl ::core::clone::Clone for SimilarityDumpData {
         *self
     }
 }
-impl ::core::fmt::Debug for SimilarityDumpData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SimilarityDumpData").field("m_FileIndex", &self.m_FileIndex).field("m_Data", &self.m_Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SimilarityDumpData {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SimilarityDumpData {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileIndex == other.m_FileIndex && self.m_Data == other.m_Data
-    }
-}
-impl ::core::cmp::Eq for SimilarityDumpData {}
-impl ::core::default::Default for SimilarityDumpData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1495,24 +1117,8 @@ impl ::core::clone::Clone for SimilarityFileId {
         *self
     }
 }
-impl ::core::fmt::Debug for SimilarityFileId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SimilarityFileId").field("m_FileId", &self.m_FileId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SimilarityFileId {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SimilarityFileId {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_FileId == other.m_FileId
-    }
-}
-impl ::core::cmp::Eq for SimilarityFileId {}
-impl ::core::default::Default for SimilarityFileId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
@@ -1526,24 +1132,10 @@ impl ::core::clone::Clone for SimilarityMappedViewInfo {
         *self
     }
 }
-impl ::core::fmt::Debug for SimilarityMappedViewInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SimilarityMappedViewInfo").field("m_Data", &self.m_Data).field("m_Length", &self.m_Length).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SimilarityMappedViewInfo {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SimilarityMappedViewInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.m_Data == other.m_Data && self.m_Length == other.m_Length
-    }
-}
-impl ::core::cmp::Eq for SimilarityMappedViewInfo {}
-impl ::core::default::Default for SimilarityMappedViewInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

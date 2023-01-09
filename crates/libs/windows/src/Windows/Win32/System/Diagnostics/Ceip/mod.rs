@@ -7,3 +7,5 @@ pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -768,17 +768,6 @@ impl ::core::clone::Clone for SpatialAnchor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialAnchor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchor {}
-impl ::core::fmt::Debug for SpatialAnchor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchor;{0529e5ce-1d34-3702-bcec-eabff578a869})");
     type DefaultType = ::core::option::Option<Self>;
@@ -827,17 +816,6 @@ impl SpatialAnchorExportSufficiency {
 impl ::core::clone::Clone for SpatialAnchorExportSufficiency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialAnchorExportSufficiency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchorExportSufficiency {}
-impl ::core::fmt::Debug for SpatialAnchorExportSufficiency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorExportSufficiency").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportSufficiency {
@@ -910,17 +888,6 @@ impl ::core::clone::Clone for SpatialAnchorExporter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialAnchorExporter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchorExporter {}
-impl ::core::fmt::Debug for SpatialAnchorExporter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorExporter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExporter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExporter;{9a2a4338-24fb-4269-89c5-88304aeef20f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -979,17 +946,6 @@ impl ::core::clone::Clone for SpatialAnchorRawCoordinateSystemAdjustedEventArgs 
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
-impl ::core::fmt::Debug for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorRawCoordinateSystemAdjustedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs;{a1e81eb8-56c7-3117-a2e4-81e0fcf28e00})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1041,17 +997,6 @@ impl SpatialAnchorStore {
 impl ::core::clone::Clone for SpatialAnchorStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialAnchorStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchorStore {}
-impl ::core::fmt::Debug for SpatialAnchorStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorStore").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorStore {
@@ -1170,17 +1115,6 @@ impl ::core::clone::Clone for SpatialBoundingVolume {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialBoundingVolume {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialBoundingVolume {}
-impl ::core::fmt::Debug for SpatialBoundingVolume {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialBoundingVolume").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialBoundingVolume {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialBoundingVolume;{fb2065da-68c3-33df-b7af-4c787207999c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1217,17 +1151,6 @@ impl SpatialCoordinateSystem {
 impl ::core::clone::Clone for SpatialCoordinateSystem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialCoordinateSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialCoordinateSystem {}
-impl ::core::fmt::Debug for SpatialCoordinateSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialCoordinateSystem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialCoordinateSystem {
@@ -1301,17 +1224,6 @@ impl ::core::clone::Clone for SpatialEntity {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntity {}
-impl ::core::fmt::Debug for SpatialEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialEntity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntity;{166de955-e1eb-454c-ba08-e6c0668ddc65})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1348,17 +1260,6 @@ impl ::core::clone::Clone for SpatialEntityAddedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialEntityAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityAddedEventArgs {}
-impl ::core::fmt::Debug for SpatialEntityAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityAddedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityAddedEventArgs;{a397f49b-156a-4707-ac2c-d31d570ed399})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1393,17 +1294,6 @@ impl SpatialEntityRemovedEventArgs {
 impl ::core::clone::Clone for SpatialEntityRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialEntityRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityRemovedEventArgs {}
-impl ::core::fmt::Debug for SpatialEntityRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityRemovedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialEntityRemovedEventArgs {
@@ -1479,17 +1369,6 @@ impl ::core::clone::Clone for SpatialEntityStore {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialEntityStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityStore {}
-impl ::core::fmt::Debug for SpatialEntityStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityStore;{329788ba-e513-4f06-889d-1be30ecf43e6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1524,17 +1403,6 @@ impl SpatialEntityUpdatedEventArgs {
 impl ::core::clone::Clone for SpatialEntityUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialEntityUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityUpdatedEventArgs {}
-impl ::core::fmt::Debug for SpatialEntityUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialEntityUpdatedEventArgs {
@@ -1641,17 +1509,6 @@ impl ::core::clone::Clone for SpatialEntityWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialEntityWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityWatcher {}
-impl ::core::fmt::Debug for SpatialEntityWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityWatcher;{b3b85fa0-6d5e-4bbc-805d-5fe5b9ba1959})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1751,17 +1608,6 @@ impl SpatialLocation {
 impl ::core::clone::Clone for SpatialLocation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLocation {}
-impl ::core::fmt::Debug for SpatialLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialLocation {
@@ -1916,17 +1762,6 @@ impl ::core::clone::Clone for SpatialLocator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLocator {}
-impl ::core::fmt::Debug for SpatialLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialLocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocator;{f6478925-9e0c-3bb6-997e-b64ecca24cf4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2006,17 +1841,6 @@ impl ::core::clone::Clone for SpatialLocatorAttachedFrameOfReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialLocatorAttachedFrameOfReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLocatorAttachedFrameOfReference {}
-impl ::core::fmt::Debug for SpatialLocatorAttachedFrameOfReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocatorAttachedFrameOfReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference;{e1774ef6-1f4f-499c-9625-ef5e6ed7a048})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2055,17 +1879,6 @@ impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
 impl ::core::clone::Clone for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
-impl ::core::fmt::Debug for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocatorPositionalTrackingDeactivatingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -2166,17 +1979,6 @@ impl ::core::clone::Clone for SpatialStageFrameOfReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialStageFrameOfReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialStageFrameOfReference {}
-impl ::core::fmt::Debug for SpatialStageFrameOfReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialStageFrameOfReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialStageFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStageFrameOfReference;{7a8a3464-ad0d-4590-ab86-33062b674926})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2213,17 +2015,6 @@ impl ::core::clone::Clone for SpatialStationaryFrameOfReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialStationaryFrameOfReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialStationaryFrameOfReference {}
-impl ::core::fmt::Debug for SpatialStationaryFrameOfReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialStationaryFrameOfReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialStationaryFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStationaryFrameOfReference;{09dbccb9-bcf8-3e7f-be7e-7edccbb178a8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2257,18 +2048,8 @@ impl ::core::clone::Clone for SpatialAnchorExportPurpose {
         *self
     }
 }
-impl ::core::default::Default for SpatialAnchorExportPurpose {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
@@ -2295,18 +2076,8 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for SpatialEntityWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
@@ -2332,18 +2103,8 @@ impl ::core::clone::Clone for SpatialLocatability {
         *self
     }
 }
-impl ::core::default::Default for SpatialLocatability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialLocatability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialLocatability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
@@ -2366,18 +2127,8 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
         *self
     }
 }
-impl ::core::default::Default for SpatialLookDirectionRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialLookDirectionRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
@@ -2400,18 +2151,8 @@ impl ::core::clone::Clone for SpatialMovementRange {
         *self
     }
 }
-impl ::core::default::Default for SpatialMovementRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialMovementRange {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialMovementRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
@@ -2436,18 +2177,8 @@ impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for SpatialPerceptionAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
@@ -2472,12 +2203,6 @@ impl ::core::clone::Clone for SpatialBoundingBox {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingBox").field("Center", &self.Center).field("Extents", &self.Extents).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingBox {
     type Abi = Self;
 }
@@ -2487,20 +2212,6 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingBox {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Extents == other.Extents
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingBox {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2523,12 +2234,6 @@ impl ::core::clone::Clone for SpatialBoundingFrustum {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingFrustum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingFrustum").field("Near", &self.Near).field("Far", &self.Far).field("Right", &self.Right).field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingFrustum {
     type Abi = Self;
 }
@@ -2538,20 +2243,6 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingFrustum {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingFrustum {
-    fn eq(&self, other: &Self) -> bool {
-        self.Near == other.Near && self.Far == other.Far && self.Right == other.Right && self.Left == other.Left && self.Top == other.Top && self.Bottom == other.Bottom
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingFrustum {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingFrustum {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2571,12 +2262,6 @@ impl ::core::clone::Clone for SpatialBoundingOrientedBox {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingOrientedBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingOrientedBox").field("Center", &self.Center).field("Extents", &self.Extents).field("Orientation", &self.Orientation).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingOrientedBox {
     type Abi = Self;
 }
@@ -2586,20 +2271,6 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingOrientedBox {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingOrientedBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Extents == other.Extents && self.Orientation == other.Orientation
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingOrientedBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingOrientedBox {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2618,12 +2289,6 @@ impl ::core::clone::Clone for SpatialBoundingSphere {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingSphere {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingSphere").field("Center", &self.Center).field("Radius", &self.Radius).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialBoundingSphere {
     type Abi = Self;
 }
@@ -2633,20 +2298,6 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingSphere {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingSphere {
-    fn eq(&self, other: &Self) -> bool {
-        self.Center == other.Center && self.Radius == other.Radius
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingSphere {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingSphere {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2665,12 +2316,6 @@ impl ::core::clone::Clone for SpatialRay {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialRay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialRay").field("Origin", &self.Origin).field("Direction", &self.Direction).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for SpatialRay {
     type Abi = Self;
 }
@@ -2682,19 +2327,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRay {
         Ok(*from)
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialRay {
-    fn eq(&self, other: &Self) -> bool {
-        self.Origin == other.Origin && self.Direction == other.Direction
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialRay {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialRay {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

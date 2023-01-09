@@ -290,17 +290,6 @@ impl ::core::clone::Clone for GameSaveBlobGetResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameSaveBlobGetResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveBlobGetResult {}
-impl ::core::fmt::Debug for GameSaveBlobGetResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveBlobGetResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameSaveBlobGetResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveBlobGetResult;{917281e0-7201-4953-aa2c-4008f03aef45})");
     type DefaultType = ::core::option::Option<Self>;
@@ -342,17 +331,6 @@ impl GameSaveBlobInfo {
 impl ::core::clone::Clone for GameSaveBlobInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveBlobInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveBlobInfo {}
-impl ::core::fmt::Debug for GameSaveBlobInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveBlobInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfo {
@@ -398,17 +376,6 @@ impl GameSaveBlobInfoGetResult {
 impl ::core::clone::Clone for GameSaveBlobInfoGetResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveBlobInfoGetResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveBlobInfoGetResult {}
-impl ::core::fmt::Debug for GameSaveBlobInfoGetResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveBlobInfoGetResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfoGetResult {
@@ -465,17 +432,6 @@ impl GameSaveBlobInfoQuery {
 impl ::core::clone::Clone for GameSaveBlobInfoQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveBlobInfoQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveBlobInfoQuery {}
-impl ::core::fmt::Debug for GameSaveBlobInfoQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveBlobInfoQuery").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveBlobInfoQuery {
@@ -584,17 +540,6 @@ impl ::core::clone::Clone for GameSaveContainer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameSaveContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveContainer {}
-impl ::core::fmt::Debug for GameSaveContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameSaveContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainer;{c3c08f89-563f-4ecd-9c6f-33fd0e323d10})");
     type DefaultType = ::core::option::Option<Self>;
@@ -661,17 +606,6 @@ impl ::core::clone::Clone for GameSaveContainerInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameSaveContainerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveContainerInfo {}
-impl ::core::fmt::Debug for GameSaveContainerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveContainerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfo;{b7e27300-155d-4bb4-b2ba-930306f391b5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -715,17 +649,6 @@ impl GameSaveContainerInfoGetResult {
 impl ::core::clone::Clone for GameSaveContainerInfoGetResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveContainerInfoGetResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveContainerInfoGetResult {}
-impl ::core::fmt::Debug for GameSaveContainerInfoGetResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveContainerInfoGetResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfoGetResult {
@@ -784,17 +707,6 @@ impl ::core::clone::Clone for GameSaveContainerInfoQuery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameSaveContainerInfoQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveContainerInfoQuery {}
-impl ::core::fmt::Debug for GameSaveContainerInfoQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveContainerInfoQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameSaveContainerInfoQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveContainerInfoQuery;{3c94e863-6f80-4327-9327-ffc11afd42b3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -829,17 +741,6 @@ impl GameSaveOperationResult {
 impl ::core::clone::Clone for GameSaveOperationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveOperationResult {}
-impl ::core::fmt::Debug for GameSaveOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveOperationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveOperationResult {
@@ -949,17 +850,6 @@ impl ::core::clone::Clone for GameSaveProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameSaveProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveProvider {}
-impl ::core::fmt::Debug for GameSaveProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameSaveProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.XboxLive.Storage.GameSaveProvider;{90a60394-80fe-4211-97f8-a5de14dd95d2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1001,17 +891,6 @@ impl GameSaveProviderGetResult {
 impl ::core::clone::Clone for GameSaveProviderGetResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameSaveProviderGetResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveProviderGetResult {}
-impl ::core::fmt::Debug for GameSaveProviderGetResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveProviderGetResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveProviderGetResult {
@@ -1060,18 +939,8 @@ impl ::core::clone::Clone for GameSaveErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for GameSaveErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameSaveErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameSaveErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
@@ -1082,3 +951,5 @@ unsafe impl ::windows::core::RuntimeType for GameSaveErrorStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

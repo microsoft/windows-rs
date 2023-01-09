@@ -94,17 +94,6 @@ impl ::core::clone::Clone for InstalledDesktopApp {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InstalledDesktopApp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InstalledDesktopApp {}
-impl ::core::fmt::Debug for InstalledDesktopApp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InstalledDesktopApp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InstalledDesktopApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -148,3 +137,5 @@ unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

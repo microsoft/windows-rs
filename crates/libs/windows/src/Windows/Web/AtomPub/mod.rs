@@ -363,17 +363,6 @@ impl ::core::clone::Clone for AtomPubClient {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AtomPubClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AtomPubClient {}
-impl ::core::fmt::Debug for AtomPubClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AtomPubClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AtomPubClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.AtomPubClient;{35392c38-cded-4d4c-9637-05f15c1c9406})");
     type DefaultType = ::core::option::Option<Self>;
@@ -563,17 +552,6 @@ impl ::core::clone::Clone for ResourceCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceCollection {}
-impl ::core::fmt::Debug for ResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.ResourceCollection;{7f5fd609-bc88-41d4-88fa-3de6704d428e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -734,17 +712,6 @@ impl ServiceDocument {
 impl ::core::clone::Clone for ServiceDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ServiceDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServiceDocument {}
-impl ::core::fmt::Debug for ServiceDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServiceDocument").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ServiceDocument {
@@ -918,17 +885,6 @@ impl ::core::clone::Clone for Workspace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Workspace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Workspace {}
-impl ::core::fmt::Debug for Workspace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Workspace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Workspace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.AtomPub.Workspace;{b41da63b-a4b8-4036-89c5-83c31266ba49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -972,3 +928,5 @@ unsafe impl ::core::marker::Send for Workspace {}
 unsafe impl ::core::marker::Sync for Workspace {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

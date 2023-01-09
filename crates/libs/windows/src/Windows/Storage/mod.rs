@@ -888,17 +888,6 @@ impl ::core::clone::Clone for IStorageFile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFile {}
-impl ::core::fmt::Debug for IStorageFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
     type DefaultType = ::core::option::Option<Self>;
@@ -988,17 +977,6 @@ impl ::core::clone::Clone for IStorageFile2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageFile2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFile2 {}
-impl ::core::fmt::Debug for IStorageFile2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFile2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageFile2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1041,17 +1019,6 @@ impl IStorageFilePropertiesWithAvailability {
 impl ::core::clone::Clone for IStorageFilePropertiesWithAvailability {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageFilePropertiesWithAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFilePropertiesWithAvailability {}
-impl ::core::fmt::Debug for IStorageFilePropertiesWithAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFilePropertiesWithAvailability").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFilePropertiesWithAvailability {
@@ -1331,17 +1298,6 @@ impl ::core::clone::Clone for IStorageFolder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageFolder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFolder {}
-impl ::core::fmt::Debug for IStorageFolder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFolder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1418,17 +1374,6 @@ impl IStorageFolder2 {
 impl ::core::clone::Clone for IStorageFolder2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageFolder2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageFolder2 {}
-impl ::core::fmt::Debug for IStorageFolder2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageFolder2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStorageFolder2 {
@@ -1595,17 +1540,6 @@ impl IStorageItem {
 impl ::core::clone::Clone for IStorageItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItem {}
-impl ::core::fmt::Debug for IStorageItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItem {
@@ -1786,17 +1720,6 @@ impl ::core::clone::Clone for IStorageItem2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageItem2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItem2 {}
-impl ::core::fmt::Debug for IStorageItem2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItem2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageItem2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1886,17 +1809,6 @@ impl IStorageItemProperties {
 impl ::core::clone::Clone for IStorageItemProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageItemProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemProperties {}
-impl ::core::fmt::Debug for IStorageItemProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties {
@@ -2050,17 +1962,6 @@ impl ::core::clone::Clone for IStorageItemProperties2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageItemProperties2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemProperties2 {}
-impl ::core::fmt::Debug for IStorageItemProperties2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemProperties2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2183,17 +2084,6 @@ impl ::core::convert::TryFrom<&IStorageItemPropertiesWithProvider> for ::windows
 impl ::core::clone::Clone for IStorageItemPropertiesWithProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageItemPropertiesWithProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemPropertiesWithProvider {}
-impl ::core::fmt::Debug for IStorageItemPropertiesWithProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemPropertiesWithProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStorageItemPropertiesWithProvider {
@@ -2525,17 +2415,6 @@ impl IStreamedFileDataRequest {
 impl ::core::clone::Clone for IStreamedFileDataRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStreamedFileDataRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStreamedFileDataRequest {}
-impl ::core::fmt::Debug for IStreamedFileDataRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStreamedFileDataRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStreamedFileDataRequest {
@@ -2900,17 +2779,6 @@ impl ::core::clone::Clone for AppDataPaths {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppDataPaths {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDataPaths {}
-impl ::core::fmt::Debug for AppDataPaths {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDataPaths").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3095,17 +2963,6 @@ impl ::core::clone::Clone for ApplicationData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationData {}
-impl ::core::fmt::Debug for ApplicationData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3249,20 +3106,6 @@ impl ApplicationDataCompositeValue {
 impl ::core::clone::Clone for ApplicationDataCompositeValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ApplicationDataCompositeValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ApplicationDataCompositeValue {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ApplicationDataCompositeValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataCompositeValue").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -3454,17 +3297,6 @@ impl ::core::clone::Clone for ApplicationDataContainer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationDataContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataContainer {}
-impl ::core::fmt::Debug for ApplicationDataContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationDataContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3601,20 +3433,6 @@ impl ApplicationDataContainerSettings {
 impl ::core::clone::Clone for ApplicationDataContainerSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ApplicationDataContainerSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ApplicationDataContainerSettings {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ApplicationDataContainerSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataContainerSettings").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -4379,17 +4197,6 @@ impl ::core::clone::Clone for SetVersionDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SetVersionDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetVersionDeferral {}
-impl ::core::fmt::Debug for SetVersionDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetVersionDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SetVersionDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4438,17 +4245,6 @@ impl SetVersionRequest {
 impl ::core::clone::Clone for SetVersionRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SetVersionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetVersionRequest {}
-impl ::core::fmt::Debug for SetVersionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetVersionRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SetVersionRequest {
@@ -4936,17 +4732,6 @@ impl StorageFile {
 impl ::core::clone::Clone for StorageFile {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorageFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageFile {}
-impl ::core::fmt::Debug for StorageFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageFile").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorageFile {
@@ -5650,17 +5435,6 @@ impl ::core::clone::Clone for StorageFolder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageFolder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageFolder {}
-impl ::core::fmt::Debug for StorageFolder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageFolder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5934,17 +5708,6 @@ impl ::core::clone::Clone for StorageLibrary {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibrary {}
-impl ::core::fmt::Debug for StorageLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibrary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibrary {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6009,17 +5772,6 @@ impl ::core::clone::Clone for StorageLibraryChange {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChange {}
-impl ::core::fmt::Debug for StorageLibraryChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6074,17 +5826,6 @@ impl ::core::clone::Clone for StorageLibraryChangeReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryChangeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeReader {}
-impl ::core::fmt::Debug for StorageLibraryChangeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6137,17 +5878,6 @@ impl ::core::clone::Clone for StorageLibraryChangeTracker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryChangeTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeTracker {}
-impl ::core::fmt::Debug for StorageLibraryChangeTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6195,17 +5925,6 @@ impl ::core::clone::Clone for StorageLibraryChangeTrackerOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeTrackerOptions {}
-impl ::core::fmt::Debug for StorageLibraryChangeTrackerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeTrackerOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6244,17 +5963,6 @@ impl StorageLibraryLastChangeId {
 impl ::core::clone::Clone for StorageLibraryLastChangeId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorageLibraryLastChangeId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryLastChangeId {}
-impl ::core::fmt::Debug for StorageLibraryLastChangeId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryLastChangeId").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryLastChangeId {
@@ -6309,17 +6017,6 @@ impl ::core::clone::Clone for StorageProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProvider {}
-impl ::core::fmt::Debug for StorageProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6369,17 +6066,6 @@ impl StorageStreamTransaction {
 impl ::core::clone::Clone for StorageStreamTransaction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorageStreamTransaction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageStreamTransaction {}
-impl ::core::fmt::Debug for StorageStreamTransaction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageStreamTransaction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorageStreamTransaction {
@@ -6464,20 +6150,6 @@ impl StreamedFileDataRequest {
 impl ::core::clone::Clone for StreamedFileDataRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::PartialEq for StreamedFileDataRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::Eq for StreamedFileDataRequest {}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::fmt::Debug for StreamedFileDataRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamedFileDataRequest").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -6583,17 +6255,6 @@ impl SystemAudioProperties {
 impl ::core::clone::Clone for SystemAudioProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemAudioProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemAudioProperties {}
-impl ::core::fmt::Debug for SystemAudioProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemAudioProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemAudioProperties {
@@ -6748,17 +6409,6 @@ impl ::core::clone::Clone for SystemDataPaths {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemDataPaths {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemDataPaths {}
-impl ::core::fmt::Debug for SystemDataPaths {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemDataPaths").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6802,17 +6452,6 @@ impl ::core::clone::Clone for SystemGPSProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemGPSProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemGPSProperties {}
-impl ::core::fmt::Debug for SystemGPSProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemGPSProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemGPSProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6854,17 +6493,6 @@ impl SystemImageProperties {
 impl ::core::clone::Clone for SystemImageProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemImageProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemImageProperties {}
-impl ::core::fmt::Debug for SystemImageProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemImageProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemImageProperties {
@@ -6936,17 +6564,6 @@ impl SystemMediaProperties {
 impl ::core::clone::Clone for SystemMediaProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemMediaProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMediaProperties {}
-impl ::core::fmt::Debug for SystemMediaProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMediaProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemMediaProperties {
@@ -7034,17 +6651,6 @@ impl ::core::clone::Clone for SystemMusicProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemMusicProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMusicProperties {}
-impl ::core::fmt::Debug for SystemMusicProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMusicProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemMusicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7107,17 +6713,6 @@ impl SystemPhotoProperties {
 impl ::core::clone::Clone for SystemPhotoProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemPhotoProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemPhotoProperties {}
-impl ::core::fmt::Debug for SystemPhotoProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemPhotoProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemPhotoProperties {
@@ -7272,17 +6867,6 @@ impl SystemVideoProperties {
 impl ::core::clone::Clone for SystemVideoProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemVideoProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemVideoProperties {}
-impl ::core::fmt::Debug for SystemVideoProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemVideoProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemVideoProperties {
@@ -7466,17 +7050,6 @@ impl ::core::clone::Clone for UserDataPaths {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataPaths {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataPaths {}
-impl ::core::fmt::Debug for UserDataPaths {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataPaths").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7510,18 +7083,8 @@ impl ::core::clone::Clone for ApplicationDataCreateDisposition {
         *self
     }
 }
-impl ::core::default::Default for ApplicationDataCreateDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationDataCreateDisposition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationDataCreateDisposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataCreateDisposition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataCreateDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataCreateDisposition;i4)");
@@ -7547,18 +7110,8 @@ impl ::core::clone::Clone for ApplicationDataLocality {
         *self
     }
 }
-impl ::core::default::Default for ApplicationDataLocality {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationDataLocality {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationDataLocality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataLocality").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationDataLocality {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.ApplicationDataLocality;i4)");
@@ -7583,18 +7136,8 @@ impl ::core::clone::Clone for CreationCollisionOption {
         *self
     }
 }
-impl ::core::default::Default for CreationCollisionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CreationCollisionOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CreationCollisionOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreationCollisionOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CreationCollisionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.CreationCollisionOption;i4)");
@@ -7617,18 +7160,8 @@ impl ::core::clone::Clone for FileAccessMode {
         *self
     }
 }
-impl ::core::default::Default for FileAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FileAccessMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FileAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileAccessMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FileAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAccessMode;i4)");
@@ -7655,46 +7188,8 @@ impl ::core::clone::Clone for FileAttributes {
         *self
     }
 }
-impl ::core::default::Default for FileAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FileAttributes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FileAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileAttributes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FileAttributes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FileAttributes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FileAttributes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FileAttributes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FileAttributes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FileAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.FileAttributes;u4)");
@@ -7732,18 +7227,8 @@ impl ::core::clone::Clone for KnownFolderId {
         *self
     }
 }
-impl ::core::default::Default for KnownFolderId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KnownFolderId {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KnownFolderId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KnownFolderId").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KnownFolderId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFolderId;i4)");
@@ -7770,18 +7255,8 @@ impl ::core::clone::Clone for KnownFoldersAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for KnownFoldersAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KnownFoldersAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KnownFoldersAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KnownFoldersAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KnownFoldersAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownFoldersAccessStatus;i4)");
@@ -7806,18 +7281,8 @@ impl ::core::clone::Clone for KnownLibraryId {
         *self
     }
 }
-impl ::core::default::Default for KnownLibraryId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KnownLibraryId {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KnownLibraryId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KnownLibraryId").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KnownLibraryId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.KnownLibraryId;i4)");
@@ -7841,18 +7306,8 @@ impl ::core::clone::Clone for NameCollisionOption {
         *self
     }
 }
-impl ::core::default::Default for NameCollisionOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NameCollisionOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NameCollisionOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NameCollisionOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NameCollisionOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.NameCollisionOption;i4)");
@@ -7875,18 +7330,8 @@ impl ::core::clone::Clone for StorageDeleteOption {
         *self
     }
 }
-impl ::core::default::Default for StorageDeleteOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StorageDeleteOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageDeleteOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageDeleteOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StorageDeleteOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageDeleteOption;i4)");
@@ -7910,46 +7355,8 @@ impl ::core::clone::Clone for StorageItemTypes {
         *self
     }
 }
-impl ::core::default::Default for StorageItemTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StorageItemTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageItemTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StorageItemTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StorageItemTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StorageItemTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StorageItemTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StorageItemTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StorageItemTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageItemTypes;u4)");
@@ -7980,18 +7387,8 @@ impl ::core::clone::Clone for StorageLibraryChangeType {
         *self
     }
 }
-impl ::core::default::Default for StorageLibraryChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StorageLibraryChangeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageLibraryChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageLibraryChangeType;i4)");
@@ -8015,46 +7412,8 @@ impl ::core::clone::Clone for StorageOpenOptions {
         *self
     }
 }
-impl ::core::default::Default for StorageOpenOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StorageOpenOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StorageOpenOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageOpenOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StorageOpenOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StorageOpenOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StorageOpenOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StorageOpenOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StorageOpenOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StorageOpenOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StorageOpenOptions;u4)");
@@ -8078,18 +7437,8 @@ impl ::core::clone::Clone for StreamedFileFailureMode {
         *self
     }
 }
-impl ::core::default::Default for StreamedFileFailureMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StreamedFileFailureMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StreamedFileFailureMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamedFileFailureMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StreamedFileFailureMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.StreamedFileFailureMode;i4)");
@@ -8152,17 +7501,6 @@ impl<F: FnMut(&::core::option::Option<SetVersionRequest>) -> ::windows::core::Re
 impl ::core::clone::Clone for ApplicationDataSetVersionHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationDataSetVersionHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataSetVersionHandler {}
-impl ::core::fmt::Debug for ApplicationDataSetVersionHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataSetVersionHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ApplicationDataSetVersionHandler {
@@ -8248,20 +7586,6 @@ impl ::core::clone::Clone for StreamedFileDataRequestedHandler {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::PartialEq for StreamedFileDataRequestedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::Eq for StreamedFileDataRequestedHandler {}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::fmt::Debug for StreamedFileDataRequestedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamedFileDataRequestedHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Vtable for StreamedFileDataRequestedHandler {
     type Vtable = StreamedFileDataRequestedHandler_Vtbl;
 }
@@ -8289,3 +7613,5 @@ pub struct StreamedFileDataRequestedHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

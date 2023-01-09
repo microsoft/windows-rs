@@ -993,46 +993,8 @@ impl ::core::clone::Clone for CONSOLE_CHARACTER_ATTRIBUTES {
         *self
     }
 }
-impl ::core::default::Default for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_CHARACTER_ATTRIBUTES {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONSOLE_CHARACTER_ATTRIBUTES").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CONSOLE_CHARACTER_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONSOLE_CHARACTER_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONSOLE_CHARACTER_ATTRIBUTES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[repr(transparent)]
@@ -1074,46 +1036,8 @@ impl ::core::clone::Clone for CONSOLE_MODE {
         *self
     }
 }
-impl ::core::default::Default for CONSOLE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CONSOLE_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONSOLE_MODE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CONSOLE_MODE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONSOLE_MODE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONSOLE_MODE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONSOLE_MODE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONSOLE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 #[repr(transparent)]
@@ -1131,18 +1055,8 @@ impl ::core::clone::Clone for STD_HANDLE {
         *self
     }
 }
-impl ::core::default::Default for STD_HANDLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for STD_HANDLE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for STD_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STD_HANDLE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -1163,12 +1077,6 @@ impl ::core::clone::Clone for CHAR_INFO {
 unsafe impl ::windows::core::Abi for CHAR_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHAR_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1188,12 +1096,6 @@ impl ::core::clone::Clone for CHAR_INFO_0 {
 unsafe impl ::windows::core::Abi for CHAR_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHAR_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1210,28 +1112,8 @@ impl ::core::clone::Clone for CONSOLE_CURSOR_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONSOLE_CURSOR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_CURSOR_INFO").field("dwSize", &self.dwSize).field("bVisible", &self.bVisible).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONSOLE_CURSOR_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONSOLE_CURSOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.bVisible == other.bVisible
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONSOLE_CURSOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CONSOLE_CURSOR_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1245,24 +1127,8 @@ impl ::core::clone::Clone for CONSOLE_FONT_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_FONT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_FONT_INFO").field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_FONT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.nFont == other.nFont && self.dwFontSize == other.dwFontSize
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_FONT_INFO {}
-impl ::core::default::Default for CONSOLE_FONT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1280,24 +1146,8 @@ impl ::core::clone::Clone for CONSOLE_FONT_INFOEX {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_FONT_INFOEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_FONT_INFOEX").field("cbSize", &self.cbSize).field("nFont", &self.nFont).field("dwFontSize", &self.dwFontSize).field("FontFamily", &self.FontFamily).field("FontWeight", &self.FontWeight).field("FaceName", &self.FaceName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_FONT_INFOEX {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_FONT_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.nFont == other.nFont && self.dwFontSize == other.dwFontSize && self.FontFamily == other.FontFamily && self.FontWeight == other.FontWeight && self.FaceName == other.FaceName
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_FONT_INFOEX {}
-impl ::core::default::Default for CONSOLE_FONT_INFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1313,24 +1163,8 @@ impl ::core::clone::Clone for CONSOLE_HISTORY_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_HISTORY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_HISTORY_INFO").field("cbSize", &self.cbSize).field("HistoryBufferSize", &self.HistoryBufferSize).field("NumberOfHistoryBuffers", &self.NumberOfHistoryBuffers).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_HISTORY_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_HISTORY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.HistoryBufferSize == other.HistoryBufferSize && self.NumberOfHistoryBuffers == other.NumberOfHistoryBuffers && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_HISTORY_INFO {}
-impl ::core::default::Default for CONSOLE_HISTORY_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1346,24 +1180,8 @@ impl ::core::clone::Clone for CONSOLE_READCONSOLE_CONTROL {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_READCONSOLE_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_READCONSOLE_CONTROL").field("nLength", &self.nLength).field("nInitialChars", &self.nInitialChars).field("dwCtrlWakeupMask", &self.dwCtrlWakeupMask).field("dwControlKeyState", &self.dwControlKeyState).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_READCONSOLE_CONTROL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_READCONSOLE_CONTROL {
-    fn eq(&self, other: &Self) -> bool {
-        self.nLength == other.nLength && self.nInitialChars == other.nInitialChars && self.dwCtrlWakeupMask == other.dwCtrlWakeupMask && self.dwControlKeyState == other.dwControlKeyState
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_READCONSOLE_CONTROL {}
-impl ::core::default::Default for CONSOLE_READCONSOLE_CONTROL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1380,24 +1198,8 @@ impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFO").field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_SCREEN_BUFFER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwCursorPosition == other.dwCursorPosition && self.wAttributes == other.wAttributes && self.srWindow == other.srWindow && self.dwMaximumWindowSize == other.dwMaximumWindowSize
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_SCREEN_BUFFER_INFO {}
-impl ::core::default::Default for CONSOLE_SCREEN_BUFFER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -1422,28 +1224,8 @@ impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_SCREEN_BUFFER_INFOEX").field("cbSize", &self.cbSize).field("dwSize", &self.dwSize).field("dwCursorPosition", &self.dwCursorPosition).field("wAttributes", &self.wAttributes).field("srWindow", &self.srWindow).field("dwMaximumWindowSize", &self.dwMaximumWindowSize).field("wPopupAttributes", &self.wPopupAttributes).field("bFullscreenSupported", &self.bFullscreenSupported).field("ColorTable", &self.ColorTable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONSOLE_SCREEN_BUFFER_INFOEX {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwSize == other.dwSize && self.dwCursorPosition == other.dwCursorPosition && self.wAttributes == other.wAttributes && self.srWindow == other.srWindow && self.dwMaximumWindowSize == other.dwMaximumWindowSize && self.wPopupAttributes == other.wPopupAttributes && self.bFullscreenSupported == other.bFullscreenSupported && self.ColorTable == other.ColorTable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONSOLE_SCREEN_BUFFER_INFOEX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CONSOLE_SCREEN_BUFFER_INFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1458,24 +1240,8 @@ impl ::core::clone::Clone for CONSOLE_SELECTION_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CONSOLE_SELECTION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONSOLE_SELECTION_INFO").field("dwFlags", &self.dwFlags).field("dwSelectionAnchor", &self.dwSelectionAnchor).field("srSelection", &self.srSelection).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONSOLE_SELECTION_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONSOLE_SELECTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.dwSelectionAnchor == other.dwSelectionAnchor && self.srSelection == other.srSelection
-    }
-}
-impl ::core::cmp::Eq for CONSOLE_SELECTION_INFO {}
-impl ::core::default::Default for CONSOLE_SELECTION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1489,24 +1255,8 @@ impl ::core::clone::Clone for COORD {
         *self
     }
 }
-impl ::core::fmt::Debug for COORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COORD").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COORD {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl ::core::cmp::Eq for COORD {}
-impl ::core::default::Default for COORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -1523,28 +1273,8 @@ impl ::core::clone::Clone for FOCUS_EVENT_RECORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FOCUS_EVENT_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FOCUS_EVENT_RECORD").field("bSetFocus", &self.bSetFocus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FOCUS_EVENT_RECORD {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FOCUS_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.bSetFocus == other.bSetFocus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FOCUS_EVENT_RECORD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FOCUS_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1597,12 +1327,6 @@ impl ::core::clone::Clone for INPUT_RECORD {
 unsafe impl ::windows::core::Abi for INPUT_RECORD {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for INPUT_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1624,12 +1348,6 @@ impl ::core::clone::Clone for INPUT_RECORD_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INPUT_RECORD_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for INPUT_RECORD_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -1654,12 +1372,6 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD {
 unsafe impl ::windows::core::Abi for KEY_EVENT_RECORD {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for KEY_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1679,12 +1391,6 @@ impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
 unsafe impl ::windows::core::Abi for KEY_EVENT_RECORD_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for KEY_EVENT_RECORD_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub struct MENU_EVENT_RECORD {
@@ -1696,24 +1402,8 @@ impl ::core::clone::Clone for MENU_EVENT_RECORD {
         *self
     }
 }
-impl ::core::fmt::Debug for MENU_EVENT_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MENU_EVENT_RECORD").field("dwCommandId", &self.dwCommandId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MENU_EVENT_RECORD {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MENU_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCommandId == other.dwCommandId
-    }
-}
-impl ::core::cmp::Eq for MENU_EVENT_RECORD {}
-impl ::core::default::Default for MENU_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1729,24 +1419,8 @@ impl ::core::clone::Clone for MOUSE_EVENT_RECORD {
         *self
     }
 }
-impl ::core::fmt::Debug for MOUSE_EVENT_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSE_EVENT_RECORD").field("dwMousePosition", &self.dwMousePosition).field("dwButtonState", &self.dwButtonState).field("dwControlKeyState", &self.dwControlKeyState).field("dwEventFlags", &self.dwEventFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MOUSE_EVENT_RECORD {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MOUSE_EVENT_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwMousePosition == other.dwMousePosition && self.dwButtonState == other.dwButtonState && self.dwControlKeyState == other.dwControlKeyState && self.dwEventFlags == other.dwEventFlags
-    }
-}
-impl ::core::cmp::Eq for MOUSE_EVENT_RECORD {}
-impl ::core::default::Default for MOUSE_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1762,24 +1436,8 @@ impl ::core::clone::Clone for SMALL_RECT {
         *self
     }
 }
-impl ::core::fmt::Debug for SMALL_RECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SMALL_RECT").field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SMALL_RECT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SMALL_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Top == other.Top && self.Right == other.Right && self.Bottom == other.Bottom
-    }
-}
-impl ::core::cmp::Eq for SMALL_RECT {}
-impl ::core::default::Default for SMALL_RECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1792,27 +1450,13 @@ impl ::core::clone::Clone for WINDOW_BUFFER_SIZE_RECORD {
         *self
     }
 }
-impl ::core::fmt::Debug for WINDOW_BUFFER_SIZE_RECORD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WINDOW_BUFFER_SIZE_RECORD").field("dwSize", &self.dwSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WINDOW_BUFFER_SIZE_RECORD {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WINDOW_BUFFER_SIZE_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-    }
-}
-impl ::core::cmp::Eq for WINDOW_BUFFER_SIZE_RECORD {}
-impl ::core::default::Default for WINDOW_BUFFER_SIZE_RECORD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHANDLER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

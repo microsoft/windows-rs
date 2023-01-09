@@ -160,3 +160,5 @@ unsafe impl ::windows::core::Abi for JET_TABLEID {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

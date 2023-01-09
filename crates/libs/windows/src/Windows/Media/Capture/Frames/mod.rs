@@ -662,17 +662,6 @@ impl ::core::clone::Clone for AudioMediaFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioMediaFrame {}
-impl ::core::fmt::Debug for AudioMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioMediaFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
     type DefaultType = ::core::option::Option<Self>;
@@ -716,17 +705,6 @@ impl BufferMediaFrame {
 impl ::core::clone::Clone for BufferMediaFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BufferMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BufferMediaFrame {}
-impl ::core::fmt::Debug for BufferMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BufferMediaFrame").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
@@ -802,17 +780,6 @@ impl ::core::clone::Clone for DepthMediaFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DepthMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DepthMediaFrame {}
-impl ::core::fmt::Debug for DepthMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DepthMediaFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -854,17 +821,6 @@ impl DepthMediaFrameFormat {
 impl ::core::clone::Clone for DepthMediaFrameFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DepthMediaFrameFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DepthMediaFrameFormat {}
-impl ::core::fmt::Debug for DepthMediaFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DepthMediaFrameFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
@@ -917,17 +873,6 @@ impl ::core::clone::Clone for InfraredMediaFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InfraredMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InfraredMediaFrame {}
-impl ::core::fmt::Debug for InfraredMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InfraredMediaFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InfraredMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.InfraredMediaFrame;{3fd13503-004b-4f0e-91ac-465299b41658})");
     type DefaultType = ::core::option::Option<Self>;
@@ -954,17 +899,6 @@ impl MediaFrameArrivedEventArgs {}
 impl ::core::clone::Clone for MediaFrameArrivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaFrameArrivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameArrivedEventArgs {}
-impl ::core::fmt::Debug for MediaFrameArrivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameArrivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameArrivedEventArgs {
@@ -1042,17 +976,6 @@ impl MediaFrameFormat {
 impl ::core::clone::Clone for MediaFrameFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaFrameFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameFormat {}
-impl ::core::fmt::Debug for MediaFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameFormat {
@@ -1139,17 +1062,6 @@ impl MediaFrameReader {
 impl ::core::clone::Clone for MediaFrameReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaFrameReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameReader {}
-impl ::core::fmt::Debug for MediaFrameReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameReader {
@@ -1280,17 +1192,6 @@ impl ::core::clone::Clone for MediaFrameReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaFrameReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameReference {}
-impl ::core::fmt::Debug for MediaFrameReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaFrameReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameReference;{f6b88641-f0dc-4044-8dc9-961cedd05bad})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1405,17 +1306,6 @@ impl ::core::clone::Clone for MediaFrameSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaFrameSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSource {}
-impl ::core::fmt::Debug for MediaFrameSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSource;{d6782953-90db-46a8-8add-2aa884a8d253})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1506,17 +1396,6 @@ impl ::core::clone::Clone for MediaFrameSourceController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaFrameSourceController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceController {}
-impl ::core::fmt::Debug for MediaFrameSourceController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceController;{6d076635-316d-4b8f-b7b6-eeb04a8c6525})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1558,17 +1437,6 @@ impl MediaFrameSourceGetPropertyResult {
 impl ::core::clone::Clone for MediaFrameSourceGetPropertyResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaFrameSourceGetPropertyResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceGetPropertyResult {}
-impl ::core::fmt::Debug for MediaFrameSourceGetPropertyResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceGetPropertyResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyResult {
@@ -1648,17 +1516,6 @@ impl MediaFrameSourceGroup {
 impl ::core::clone::Clone for MediaFrameSourceGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaFrameSourceGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceGroup {}
-impl ::core::fmt::Debug for MediaFrameSourceGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGroup {
@@ -1777,17 +1634,6 @@ impl ::core::clone::Clone for MediaFrameSourceInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaFrameSourceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceInfo {}
-impl ::core::fmt::Debug for MediaFrameSourceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MediaFrameSourceInfo;{87bdc9cd-4601-408f-91cf-038318cd0af3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1814,17 +1660,6 @@ impl MultiSourceMediaFrameArrivedEventArgs {}
 impl ::core::clone::Clone for MultiSourceMediaFrameArrivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MultiSourceMediaFrameArrivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MultiSourceMediaFrameArrivedEventArgs {}
-impl ::core::fmt::Debug for MultiSourceMediaFrameArrivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameArrivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
@@ -1913,17 +1748,6 @@ impl ::core::clone::Clone for MultiSourceMediaFrameReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MultiSourceMediaFrameReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MultiSourceMediaFrameReader {}
-impl ::core::fmt::Debug for MultiSourceMediaFrameReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.MultiSourceMediaFrameReader;{8d144402-f763-488d-98f2-b437bcf075e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1986,17 +1810,6 @@ impl MultiSourceMediaFrameReference {
 impl ::core::clone::Clone for MultiSourceMediaFrameReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MultiSourceMediaFrameReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MultiSourceMediaFrameReference {}
-impl ::core::fmt::Debug for MultiSourceMediaFrameReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameReference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReference {
@@ -2112,17 +1925,6 @@ impl ::core::clone::Clone for VideoMediaFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoMediaFrame {}
-impl ::core::fmt::Debug for VideoMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoMediaFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoMediaFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrame;{00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2180,17 +1982,6 @@ impl ::core::clone::Clone for VideoMediaFrameFormat {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoMediaFrameFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoMediaFrameFormat {}
-impl ::core::fmt::Debug for VideoMediaFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoMediaFrameFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoMediaFrameFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.VideoMediaFrameFormat;{46027fc0-d71b-45c7-8f14-6d9a0ae604e4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2224,18 +2015,8 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
         *self
     }
 }
-impl ::core::default::Default for MediaFrameReaderAcquisitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
@@ -2261,18 +2042,8 @@ impl ::core::clone::Clone for MediaFrameReaderStartStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
@@ -2299,18 +2070,8 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaFrameSourceGetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
@@ -2338,18 +2099,8 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
         *self
     }
 }
-impl ::core::default::Default for MediaFrameSourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
@@ -2376,18 +2127,8 @@ impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaFrameSourceSetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
@@ -2413,18 +2154,8 @@ impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
         *self
     }
 }
-impl ::core::default::Default for MultiSourceMediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
@@ -2435,3 +2166,5 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartSta
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

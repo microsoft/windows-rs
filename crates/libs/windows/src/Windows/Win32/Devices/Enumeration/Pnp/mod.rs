@@ -108,17 +108,6 @@ impl ::core::clone::Clone for IUPnPAddressFamilyControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPAddressFamilyControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPAddressFamilyControl {}
-impl ::core::fmt::Debug for IUPnPAddressFamilyControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPAddressFamilyControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPAddressFamilyControl {
     type Vtable = IUPnPAddressFamilyControl_Vtbl;
 }
@@ -144,17 +133,6 @@ impl IUPnPAsyncResult {
 impl ::core::clone::Clone for IUPnPAsyncResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPAsyncResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPAsyncResult {}
-impl ::core::fmt::Debug for IUPnPAsyncResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPAsyncResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPAsyncResult {
@@ -217,20 +195,6 @@ impl ::core::clone::Clone for IUPnPDescriptionDocument {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPDescriptionDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPDescriptionDocument {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPDescriptionDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDescriptionDocument").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IUPnPDescriptionDocument {
     type Vtable = IUPnPDescriptionDocument_Vtbl;
 }
@@ -269,17 +233,6 @@ impl IUPnPDescriptionDocumentCallback {
 impl ::core::clone::Clone for IUPnPDescriptionDocumentCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPDescriptionDocumentCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDescriptionDocumentCallback {}
-impl ::core::fmt::Debug for IUPnPDescriptionDocumentCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDescriptionDocumentCallback").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPDescriptionDocumentCallback {
@@ -398,20 +351,6 @@ impl ::core::clone::Clone for IUPnPDevice {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPDevice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDevice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IUPnPDevice {
     type Vtable = IUPnPDevice_Vtbl;
 }
@@ -482,17 +421,6 @@ impl ::core::clone::Clone for IUPnPDeviceControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPDeviceControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceControl {}
-impl ::core::fmt::Debug for IUPnPDeviceControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPDeviceControl {
     type Vtable = IUPnPDeviceControl_Vtbl;
 }
@@ -524,17 +452,6 @@ impl ::core::clone::Clone for IUPnPDeviceControlHttpHeaders {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPDeviceControlHttpHeaders {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceControlHttpHeaders {}
-impl ::core::fmt::Debug for IUPnPDeviceControlHttpHeaders {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceControlHttpHeaders").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPDeviceControlHttpHeaders {
     type Vtable = IUPnPDeviceControlHttpHeaders_Vtbl;
 }
@@ -562,17 +479,6 @@ impl ::core::clone::Clone for IUPnPDeviceDocumentAccess {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceDocumentAccess {}
-impl ::core::fmt::Debug for IUPnPDeviceDocumentAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceDocumentAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPDeviceDocumentAccess {
     type Vtable = IUPnPDeviceDocumentAccess_Vtbl;
 }
@@ -598,17 +504,6 @@ impl IUPnPDeviceDocumentAccessEx {
 impl ::core::clone::Clone for IUPnPDeviceDocumentAccessEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccessEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceDocumentAccessEx {}
-impl ::core::fmt::Debug for IUPnPDeviceDocumentAccessEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceDocumentAccessEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPDeviceDocumentAccessEx {
@@ -664,20 +559,6 @@ impl ::core::clone::Clone for IUPnPDeviceFinder {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPDeviceFinder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPDeviceFinder {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPDeviceFinder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceFinder").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IUPnPDeviceFinder {
     type Vtable = IUPnPDeviceFinder_Vtbl;
 }
@@ -721,17 +602,6 @@ impl ::core::clone::Clone for IUPnPDeviceFinderAddCallbackWithInterface {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPDeviceFinderAddCallbackWithInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceFinderAddCallbackWithInterface {}
-impl ::core::fmt::Debug for IUPnPDeviceFinderAddCallbackWithInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceFinderAddCallbackWithInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPDeviceFinderAddCallbackWithInterface {
     type Vtable = IUPnPDeviceFinderAddCallbackWithInterface_Vtbl;
 }
@@ -772,17 +642,6 @@ impl ::core::clone::Clone for IUPnPDeviceFinderCallback {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPDeviceFinderCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceFinderCallback {}
-impl ::core::fmt::Debug for IUPnPDeviceFinderCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceFinderCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPDeviceFinderCallback {
     type Vtable = IUPnPDeviceFinderCallback_Vtbl;
 }
@@ -815,17 +674,6 @@ impl IUPnPDeviceProvider {
 impl ::core::clone::Clone for IUPnPDeviceProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPDeviceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPDeviceProvider {}
-impl ::core::fmt::Debug for IUPnPDeviceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDeviceProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPDeviceProvider {
@@ -871,20 +719,6 @@ impl ::core::clone::Clone for IUPnPDevices {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPDevices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPDevices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IUPnPDevices {
     type Vtable = IUPnPDevices_Vtbl;
 }
@@ -921,17 +755,6 @@ impl IUPnPEventSink {
 impl ::core::clone::Clone for IUPnPEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPEventSink {}
-impl ::core::fmt::Debug for IUPnPEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPEventSink {
@@ -973,17 +796,6 @@ impl ::core::clone::Clone for IUPnPEventSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPEventSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPEventSource {}
-impl ::core::fmt::Debug for IUPnPEventSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPEventSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPEventSource {
     type Vtable = IUPnPEventSource_Vtbl;
 }
@@ -1009,17 +821,6 @@ impl IUPnPHttpHeaderControl {
 impl ::core::clone::Clone for IUPnPHttpHeaderControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPHttpHeaderControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPHttpHeaderControl {}
-impl ::core::fmt::Debug for IUPnPHttpHeaderControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPHttpHeaderControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPHttpHeaderControl {
@@ -1074,17 +875,6 @@ impl ::core::clone::Clone for IUPnPRegistrar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPRegistrar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPRegistrar {}
-impl ::core::fmt::Debug for IUPnPRegistrar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPRegistrar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPRegistrar {
     type Vtable = IUPnPRegistrar_Vtbl;
 }
@@ -1128,17 +918,6 @@ impl ::core::clone::Clone for IUPnPRemoteEndpointInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPRemoteEndpointInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPRemoteEndpointInfo {}
-impl ::core::fmt::Debug for IUPnPRemoteEndpointInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPRemoteEndpointInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPRemoteEndpointInfo {
     type Vtable = IUPnPRemoteEndpointInfo_Vtbl;
 }
@@ -1171,17 +950,6 @@ impl IUPnPReregistrar {
 impl ::core::clone::Clone for IUPnPReregistrar {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPReregistrar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPReregistrar {}
-impl ::core::fmt::Debug for IUPnPReregistrar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPReregistrar").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPReregistrar {
@@ -1239,20 +1007,6 @@ impl IUPnPService {
 impl ::core::clone::Clone for IUPnPService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPService {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPService").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1343,17 +1097,6 @@ impl ::core::clone::Clone for IUPnPServiceAsync {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPServiceAsync {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPServiceAsync {}
-impl ::core::fmt::Debug for IUPnPServiceAsync {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPServiceAsync").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPServiceAsync {
     type Vtable = IUPnPServiceAsync_Vtbl;
 }
@@ -1411,17 +1154,6 @@ impl ::core::clone::Clone for IUPnPServiceCallback {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPServiceCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPServiceCallback {}
-impl ::core::fmt::Debug for IUPnPServiceCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPServiceCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPServiceCallback {
     type Vtable = IUPnPServiceCallback_Vtbl;
 }
@@ -1460,17 +1192,6 @@ impl ::core::clone::Clone for IUPnPServiceDocumentAccess {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUPnPServiceDocumentAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPServiceDocumentAccess {}
-impl ::core::fmt::Debug for IUPnPServiceDocumentAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPServiceDocumentAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUPnPServiceDocumentAccess {
     type Vtable = IUPnPServiceDocumentAccess_Vtbl;
 }
@@ -1496,17 +1217,6 @@ impl IUPnPServiceEnumProperty {
 impl ::core::clone::Clone for IUPnPServiceEnumProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUPnPServiceEnumProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUPnPServiceEnumProperty {}
-impl ::core::fmt::Debug for IUPnPServiceEnumProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPServiceEnumProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUPnPServiceEnumProperty {
@@ -1548,20 +1258,6 @@ impl IUPnPServices {
 impl ::core::clone::Clone for IUPnPServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPServices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPServices").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1718,18 +1414,8 @@ impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
         *self
     }
 }
-impl ::core::default::Default for SW_DEVICE_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SW_DEVICE_CAPABILITIES").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
@@ -1747,18 +1433,8 @@ impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
         *self
     }
 }
-impl ::core::default::Default for SW_DEVICE_LIFETIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SW_DEVICE_LIFETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SW_DEVICE_LIFETIME").field(&self.0).finish()
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1815,30 +1491,12 @@ impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SW_DEVICE_CREATE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SW_DEVICE_CREATE_INFO").field("cbSize", &self.cbSize).field("pszInstanceId", &self.pszInstanceId).field("pszzHardwareIds", &self.pszzHardwareIds).field("pszzCompatibleIds", &self.pszzCompatibleIds).field("pContainerId", &self.pContainerId).field("CapabilityFlags", &self.CapabilityFlags).field("pszDeviceDescription", &self.pszDeviceDescription).field("pszDeviceLocation", &self.pszDeviceLocation).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::core::Abi for SW_DEVICE_CREATE_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for SW_DEVICE_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pszInstanceId == other.pszInstanceId && self.pszzHardwareIds == other.pszzHardwareIds && self.pszzCompatibleIds == other.pszzCompatibleIds && self.pContainerId == other.pContainerId && self.CapabilityFlags == other.CapabilityFlags && self.pszDeviceDescription == other.pszDeviceDescription && self.pszDeviceLocation == other.pszDeviceLocation && self.pSecurityDescriptor == other.pSecurityDescriptor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for SW_DEVICE_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows::core::PCWSTR) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

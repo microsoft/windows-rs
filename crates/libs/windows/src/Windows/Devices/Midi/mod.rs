@@ -139,17 +139,6 @@ impl ::core::clone::Clone for IMidiMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMidiMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMidiMessage {}
-impl ::core::fmt::Debug for IMidiMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMidiMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IMidiMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79767945-1094-4283-9be0-289fc0ee8334}");
     type DefaultType = ::core::option::Option<Self>;
@@ -318,17 +307,6 @@ impl ::core::convert::TryFrom<&IMidiOutPort> for ::windows::core::InParam<super:
 impl ::core::clone::Clone for IMidiOutPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMidiOutPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMidiOutPort {}
-impl ::core::fmt::Debug for IMidiOutPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMidiOutPort").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IMidiOutPort {
@@ -665,17 +643,6 @@ impl ::core::clone::Clone for MidiActiveSensingMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiActiveSensingMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiActiveSensingMessage {}
-impl ::core::fmt::Debug for MidiActiveSensingMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiActiveSensingMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiActiveSensingMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiActiveSensingMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
     type DefaultType = ::core::option::Option<Self>;
@@ -774,17 +741,6 @@ impl ::core::clone::Clone for MidiChannelPressureMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiChannelPressureMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiChannelPressureMessage {}
-impl ::core::fmt::Debug for MidiChannelPressureMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiChannelPressureMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiChannelPressureMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiChannelPressureMessage;{be1fa860-62b4-4d52-a37e-92e54d35b909})");
     type DefaultType = ::core::option::Option<Self>;
@@ -863,17 +819,6 @@ impl MidiContinueMessage {
 impl ::core::clone::Clone for MidiContinueMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiContinueMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiContinueMessage {}
-impl ::core::fmt::Debug for MidiContinueMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiContinueMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiContinueMessage {
@@ -981,17 +926,6 @@ impl ::core::clone::Clone for MidiControlChangeMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiControlChangeMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiControlChangeMessage {}
-impl ::core::fmt::Debug for MidiControlChangeMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiControlChangeMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiControlChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiControlChangeMessage;{b7e15f83-780d-405f-b781-3e1598c97f40})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1087,17 +1021,6 @@ impl ::core::clone::Clone for MidiInPort {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiInPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiInPort {}
-impl ::core::fmt::Debug for MidiInPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiInPort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiInPort {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiInPort;{d5c1d9db-971a-4eaf-a23d-ea19fe607ff9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1154,17 +1077,6 @@ impl MidiMessageReceivedEventArgs {
 impl ::core::clone::Clone for MidiMessageReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiMessageReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiMessageReceivedEventArgs {}
-impl ::core::fmt::Debug for MidiMessageReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiMessageReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiMessageReceivedEventArgs {
@@ -1251,17 +1163,6 @@ impl MidiNoteOffMessage {
 impl ::core::clone::Clone for MidiNoteOffMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiNoteOffMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiNoteOffMessage {}
-impl ::core::fmt::Debug for MidiNoteOffMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiNoteOffMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiNoteOffMessage {
@@ -1369,17 +1270,6 @@ impl ::core::clone::Clone for MidiNoteOnMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiNoteOnMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiNoteOnMessage {}
-impl ::core::fmt::Debug for MidiNoteOnMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiNoteOnMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiNoteOnMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiNoteOnMessage;{e0224af5-6181-46dd-afa2-410004c057aa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1476,17 +1366,6 @@ impl MidiOutPort {
 impl ::core::clone::Clone for MidiOutPort {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiOutPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiOutPort {}
-impl ::core::fmt::Debug for MidiOutPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiOutPort").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiOutPort {
@@ -1609,17 +1488,6 @@ impl ::core::clone::Clone for MidiPitchBendChangeMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiPitchBendChangeMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiPitchBendChangeMessage {}
-impl ::core::fmt::Debug for MidiPitchBendChangeMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiPitchBendChangeMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiPitchBendChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPitchBendChangeMessage;{29df4cb1-2e9f-4faf-8c2b-9cb82a9079ca})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1725,17 +1593,6 @@ impl ::core::clone::Clone for MidiPolyphonicKeyPressureMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiPolyphonicKeyPressureMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiPolyphonicKeyPressureMessage {}
-impl ::core::fmt::Debug for MidiPolyphonicKeyPressureMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiPolyphonicKeyPressureMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiPolyphonicKeyPressureMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage;{1f7337fe-ace8-48a0-868e-7cdbf20f04d6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1834,17 +1691,6 @@ impl ::core::clone::Clone for MidiProgramChangeMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiProgramChangeMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiProgramChangeMessage {}
-impl ::core::fmt::Debug for MidiProgramChangeMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiProgramChangeMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiProgramChangeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiProgramChangeMessage;{9cbb3c78-7a3e-4327-aa98-20b8e4485af8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1934,17 +1780,6 @@ impl MidiSongPositionPointerMessage {
 impl ::core::clone::Clone for MidiSongPositionPointerMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiSongPositionPointerMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiSongPositionPointerMessage {}
-impl ::core::fmt::Debug for MidiSongPositionPointerMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiSongPositionPointerMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiSongPositionPointerMessage {
@@ -2038,17 +1873,6 @@ impl ::core::clone::Clone for MidiSongSelectMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiSongSelectMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiSongSelectMessage {}
-impl ::core::fmt::Debug for MidiSongSelectMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiSongSelectMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiSongSelectMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSongSelectMessage;{49f0f27f-6d83-4741-a5bf-4629f6be974f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2129,17 +1953,6 @@ impl ::core::clone::Clone for MidiStartMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiStartMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiStartMessage {}
-impl ::core::fmt::Debug for MidiStartMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiStartMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiStartMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiStartMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2218,17 +2031,6 @@ impl MidiStopMessage {
 impl ::core::clone::Clone for MidiStopMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiStopMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiStopMessage {}
-impl ::core::fmt::Debug for MidiStopMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiStopMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiStopMessage {
@@ -2359,17 +2161,6 @@ impl ::core::clone::Clone for MidiSynthesizer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiSynthesizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiSynthesizer {}
-impl ::core::fmt::Debug for MidiSynthesizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiSynthesizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiSynthesizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSynthesizer;{f0da155e-db90-405f-b8ae-21d2e17f2e45})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2482,17 +2273,6 @@ impl ::core::clone::Clone for MidiSystemExclusiveMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiSystemExclusiveMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiSystemExclusiveMessage {}
-impl ::core::fmt::Debug for MidiSystemExclusiveMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiSystemExclusiveMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiSystemExclusiveMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiSystemExclusiveMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2571,17 +2351,6 @@ impl MidiSystemResetMessage {
 impl ::core::clone::Clone for MidiSystemResetMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiSystemResetMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiSystemResetMessage {}
-impl ::core::fmt::Debug for MidiSystemResetMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiSystemResetMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiSystemResetMessage {
@@ -2682,17 +2451,6 @@ impl ::core::clone::Clone for MidiTimeCodeMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiTimeCodeMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiTimeCodeMessage {}
-impl ::core::fmt::Debug for MidiTimeCodeMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiTimeCodeMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiTimeCodeMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTimeCodeMessage;{0bf7087d-fa63-4a1c-8deb-c0e87796a6d7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2771,17 +2529,6 @@ impl MidiTimingClockMessage {
 impl ::core::clone::Clone for MidiTimingClockMessage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MidiTimingClockMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiTimingClockMessage {}
-impl ::core::fmt::Debug for MidiTimingClockMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiTimingClockMessage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MidiTimingClockMessage {
@@ -2864,17 +2611,6 @@ impl ::core::clone::Clone for MidiTuneRequestMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MidiTuneRequestMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MidiTuneRequestMessage {}
-impl ::core::fmt::Debug for MidiTuneRequestMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiTuneRequestMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MidiTuneRequestMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Midi.MidiTuneRequestMessage;{79767945-1094-4283-9be0-289fc0ee8334})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2945,18 +2681,8 @@ impl ::core::clone::Clone for MidiMessageType {
         *self
     }
 }
-impl ::core::default::Default for MidiMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MidiMessageType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MidiMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MidiMessageType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MidiMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
@@ -2967,3 +2693,5 @@ unsafe impl ::windows::core::RuntimeType for MidiMessageType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -110,17 +110,6 @@ impl ::core::clone::Clone for CoreAppWindowPreview {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreAppWindowPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAppWindowPreview {}
-impl ::core::fmt::Debug for CoreAppWindowPreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAppWindowPreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreAppWindowPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.CoreAppWindowPreview;{a4f6e665-365e-5fde-87a5-9543c3a15aa8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -168,17 +157,6 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
 impl ::core::clone::Clone for SystemNavigationCloseRequestedPreviewEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemNavigationCloseRequestedPreviewEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemNavigationCloseRequestedPreviewEventArgs {}
-impl ::core::fmt::Debug for SystemNavigationCloseRequestedPreviewEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemNavigationCloseRequestedPreviewEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
@@ -236,17 +214,6 @@ impl ::core::clone::Clone for SystemNavigationManagerPreview {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemNavigationManagerPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemNavigationManagerPreview {}
-impl ::core::fmt::Debug for SystemNavigationManagerPreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemNavigationManagerPreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemNavigationManagerPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.Preview.SystemNavigationManagerPreview;{ec5f0488-6425-4777-a536-cb5634427f0d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -268,3 +235,5 @@ unsafe impl ::core::marker::Send for SystemNavigationManagerPreview {}
 unsafe impl ::core::marker::Sync for SystemNavigationManagerPreview {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

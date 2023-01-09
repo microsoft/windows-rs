@@ -218,12 +218,6 @@ impl ::core::clone::Clone for GLOBALENTRY {
 unsafe impl ::windows::core::Abi for GLOBALENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GLOBALENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -242,28 +236,8 @@ impl ::core::clone::Clone for IMAGE_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IMAGE_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGE_NOTE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for IMAGE_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for IMAGE_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for IMAGE_NOTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
@@ -288,12 +262,6 @@ impl ::core::clone::Clone for MODULEENTRY {
 unsafe impl ::windows::core::Abi for MODULEENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MODULEENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -315,28 +283,8 @@ impl ::core::clone::Clone for SEGMENT_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SEGMENT_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SEGMENT_NOTE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SEGMENT_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SEGMENT_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SEGMENT_NOTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
@@ -355,28 +303,8 @@ impl ::core::clone::Clone for TEMP_BP_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TEMP_BP_NOTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TEMP_BP_NOTE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Seg == other.Seg && self.Offset == other.Offset && self.bPM == other.bPM
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TEMP_BP_NOTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TEMP_BP_NOTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_System_Kernel\"`*"]
@@ -421,58 +349,8 @@ impl ::core::clone::Clone for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDMCONTEXT")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .field("ExtendedRegisters", &self.ExtendedRegisters)
-            .finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for VDMCONTEXT {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::PartialEq for VDMCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs && self.ExtendedRegisters == other.ExtendedRegisters
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::Eq for VDMCONTEXT {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_System_Kernel\"`*"]
@@ -512,53 +390,8 @@ impl ::core::clone::Clone for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDMCONTEXT_WITHOUT_XSAVE")
-            .field("ContextFlags", &self.ContextFlags)
-            .field("Dr0", &self.Dr0)
-            .field("Dr1", &self.Dr1)
-            .field("Dr2", &self.Dr2)
-            .field("Dr3", &self.Dr3)
-            .field("Dr6", &self.Dr6)
-            .field("Dr7", &self.Dr7)
-            .field("FloatSave", &self.FloatSave)
-            .field("SegGs", &self.SegGs)
-            .field("SegFs", &self.SegFs)
-            .field("SegEs", &self.SegEs)
-            .field("SegDs", &self.SegDs)
-            .field("Edi", &self.Edi)
-            .field("Esi", &self.Esi)
-            .field("Ebx", &self.Ebx)
-            .field("Edx", &self.Edx)
-            .field("Ecx", &self.Ecx)
-            .field("Eax", &self.Eax)
-            .field("Ebp", &self.Ebp)
-            .field("Eip", &self.Eip)
-            .field("SegCs", &self.SegCs)
-            .field("EFlags", &self.EFlags)
-            .field("Esp", &self.Esp)
-            .field("SegSs", &self.SegSs)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for VDMCONTEXT_WITHOUT_XSAVE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.Dr0 == other.Dr0 && self.Dr1 == other.Dr1 && self.Dr2 == other.Dr2 && self.Dr3 == other.Dr3 && self.Dr6 == other.Dr6 && self.Dr7 == other.Dr7 && self.FloatSave == other.FloatSave && self.SegGs == other.SegGs && self.SegFs == other.SegFs && self.SegEs == other.SegEs && self.SegDs == other.SegDs && self.Edi == other.Edi && self.Esi == other.Esi && self.Ebx == other.Ebx && self.Edx == other.Edx && self.Ecx == other.Ecx && self.Eax == other.Eax && self.Ebp == other.Ebp && self.Eip == other.Eip && self.SegCs == other.SegCs && self.EFlags == other.EFlags && self.Esp == other.Esp && self.SegSs == other.SegSs
-    }
-}
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::cmp::Eq for VDMCONTEXT_WITHOUT_XSAVE {}
-#[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for VDMCONTEXT_WITHOUT_XSAVE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
@@ -580,12 +413,6 @@ impl ::core::clone::Clone for VDMLDT_ENTRY {
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -605,12 +432,6 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -626,28 +447,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDMLDT_ENTRY_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`*"]
@@ -667,28 +468,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDMLDT_ENTRY_0_1").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
@@ -710,28 +491,8 @@ impl ::core::clone::Clone for VDM_SEGINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for VDM_SEGINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for VDM_SEGINFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for VDM_SEGINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for VDM_SEGINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for VDM_SEGINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`, `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
@@ -837,3 +598,5 @@ pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" f
 pub type VDMTERMINATETASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

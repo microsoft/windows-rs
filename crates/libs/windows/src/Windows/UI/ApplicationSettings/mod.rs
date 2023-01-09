@@ -494,17 +494,6 @@ impl ::core::clone::Clone for AccountsSettingsPane {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AccountsSettingsPane {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccountsSettingsPane {}
-impl ::core::fmt::Debug for AccountsSettingsPane {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountsSettingsPane").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPane;{81ea942c-4f09-4406-a538-838d9b14b7e6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -595,17 +584,6 @@ impl ::core::clone::Clone for AccountsSettingsPaneCommandsRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AccountsSettingsPaneCommandsRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccountsSettingsPaneCommandsRequestedEventArgs {}
-impl ::core::fmt::Debug for AccountsSettingsPaneCommandsRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountsSettingsPaneCommandsRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs;{3b68c099-db19-45d0-9abf-95d3773c9330})");
     type DefaultType = ::core::option::Option<Self>;
@@ -635,17 +613,6 @@ impl AccountsSettingsPaneEventDeferral {
 impl ::core::clone::Clone for AccountsSettingsPaneEventDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccountsSettingsPaneEventDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccountsSettingsPaneEventDeferral {}
-impl ::core::fmt::Debug for AccountsSettingsPaneEventDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccountsSettingsPaneEventDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneEventDeferral {
@@ -710,17 +677,6 @@ impl CredentialCommand {
 impl ::core::clone::Clone for CredentialCommand {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CredentialCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CredentialCommand {}
-impl ::core::fmt::Debug for CredentialCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialCommand").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CredentialCommand {
@@ -831,20 +787,6 @@ impl ::core::clone::Clone for SettingsCommand {
     }
 }
 #[cfg(feature = "UI_Popups")]
-impl ::core::cmp::PartialEq for SettingsCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "UI_Popups")]
-impl ::core::cmp::Eq for SettingsCommand {}
-#[cfg(feature = "UI_Popups")]
-impl ::core::fmt::Debug for SettingsCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsCommand").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::core::RuntimeType for SettingsCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsCommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -944,20 +886,6 @@ impl ::core::clone::Clone for SettingsPane {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SettingsPane {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SettingsPane {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsPane {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsPane").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPane;{b1cd0932-4570-4c69-8d38-89446561ace0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1002,20 +930,6 @@ impl ::core::clone::Clone for SettingsPaneCommandsRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SettingsPaneCommandsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SettingsPaneCommandsRequest {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsPaneCommandsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsPaneCommandsRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest;{44df23ae-5d6e-4068-a168-f47643182114})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1057,20 +971,6 @@ impl SettingsPaneCommandsRequestedEventArgs {
 impl ::core::clone::Clone for SettingsPaneCommandsRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SettingsPaneCommandsRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SettingsPaneCommandsRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsPaneCommandsRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsPaneCommandsRequestedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1141,17 +1041,6 @@ impl ::core::clone::Clone for WebAccountCommand {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAccountCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountCommand {}
-impl ::core::fmt::Debug for WebAccountCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebAccountCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountCommand;{caa39398-9cfa-4246-b0c4-a913a3896541})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1184,17 +1073,6 @@ impl WebAccountInvokedArgs {
 impl ::core::clone::Clone for WebAccountInvokedArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccountInvokedArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountInvokedArgs {}
-impl ::core::fmt::Debug for WebAccountInvokedArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountInvokedArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountInvokedArgs {
@@ -1253,17 +1131,6 @@ impl ::core::clone::Clone for WebAccountProviderCommand {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderCommand {}
-impl ::core::fmt::Debug for WebAccountProviderCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.WebAccountProviderCommand;{d69bdd9a-a0a6-4e9b-88dc-c71e757a3501})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1300,20 +1167,8 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for SettingsEdgeLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SettingsEdgeLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SettingsEdgeLocation").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
@@ -1341,46 +1196,8 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
-impl ::core::default::Default for SupportedWebAccountActions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SupportedWebAccountActions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SupportedWebAccountActions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SupportedWebAccountActions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SupportedWebAccountActions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SupportedWebAccountActions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SupportedWebAccountActions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.SupportedWebAccountActions;u4)");
@@ -1406,18 +1223,8 @@ impl ::core::clone::Clone for WebAccountAction {
         *self
     }
 }
-impl ::core::default::Default for WebAccountAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountAction {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountAction").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ApplicationSettings.WebAccountAction;i4)");
@@ -1480,17 +1287,6 @@ impl<F: FnMut(&::core::option::Option<CredentialCommand>) -> ::windows::core::Re
 impl ::core::clone::Clone for CredentialCommandCredentialDeletedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CredentialCommandCredentialDeletedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CredentialCommandCredentialDeletedHandler {}
-impl ::core::fmt::Debug for CredentialCommandCredentialDeletedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialCommandCredentialDeletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for CredentialCommandCredentialDeletedHandler {
@@ -1568,17 +1364,6 @@ impl ::core::clone::Clone for WebAccountCommandInvokedHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAccountCommandInvokedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountCommandInvokedHandler {}
-impl ::core::fmt::Debug for WebAccountCommandInvokedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountCommandInvokedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for WebAccountCommandInvokedHandler {
     type Vtable = WebAccountCommandInvokedHandler_Vtbl;
 }
@@ -1654,17 +1439,6 @@ impl ::core::clone::Clone for WebAccountProviderCommandInvokedHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProviderCommandInvokedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderCommandInvokedHandler {}
-impl ::core::fmt::Debug for WebAccountProviderCommandInvokedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderCommandInvokedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for WebAccountProviderCommandInvokedHandler {
     type Vtable = WebAccountProviderCommandInvokedHandler_Vtbl;
 }
@@ -1686,3 +1460,5 @@ pub struct WebAccountProviderCommandInvokedHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

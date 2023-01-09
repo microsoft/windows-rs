@@ -1202,17 +1202,6 @@ impl ::core::clone::Clone for ILauncherViewOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILauncherViewOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILauncherViewOptions {}
-impl ::core::fmt::Debug for ILauncherViewOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILauncherViewOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILauncherViewOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8a9b29f1-7ca7-49de-9bd3-3c5b7184f616}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1897,17 +1886,6 @@ impl ::core::clone::Clone for AppActivationResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppActivationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppActivationResult {}
-impl ::core::fmt::Debug for AppActivationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppActivationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppActivationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppActivationResult;{6b528900-f46e-4eb0-aa6c-38af557cf9ed})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2027,17 +2005,6 @@ impl ::core::clone::Clone for AppDiagnosticInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfo {}
-impl ::core::fmt::Debug for AppDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfo;{e348a69a-8889-4ca3-be07-d5ffff5f0804})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2142,17 +2109,6 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfoWatcher {}
-impl ::core::fmt::Debug for AppDiagnosticInfoWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfoWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcher;{75575070-01d3-489a-9325-52f9cc6ede0a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2189,17 +2145,6 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcherEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfoWatcherEventArgs {}
-impl ::core::fmt::Debug for AppDiagnosticInfoWatcherEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfoWatcherEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppDiagnosticInfoWatcherEventArgs;{7017c716-e1da-4c65-99df-046dff5be71a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2234,17 +2179,6 @@ impl AppExecutionStateChangeResult {
 impl ::core::clone::Clone for AppExecutionStateChangeResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppExecutionStateChangeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppExecutionStateChangeResult {}
-impl ::core::fmt::Debug for AppExecutionStateChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppExecutionStateChangeResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppExecutionStateChangeResult {
@@ -2311,17 +2245,6 @@ impl ::core::clone::Clone for AppMemoryReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppMemoryReport {}
-impl ::core::fmt::Debug for AppMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppMemoryReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppMemoryReport;{6d65339b-4d6f-45bc-9c5e-e49b3ff2758d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2363,17 +2286,6 @@ impl AppMemoryUsageLimitChangingEventArgs {
 impl ::core::clone::Clone for AppMemoryUsageLimitChangingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppMemoryUsageLimitChangingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppMemoryUsageLimitChangingEventArgs {}
-impl ::core::fmt::Debug for AppMemoryUsageLimitChangingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppMemoryUsageLimitChangingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLimitChangingEventArgs {
@@ -2431,17 +2343,6 @@ impl AppResourceGroupBackgroundTaskReport {
 impl ::core::clone::Clone for AppResourceGroupBackgroundTaskReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppResourceGroupBackgroundTaskReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupBackgroundTaskReport {}
-impl ::core::fmt::Debug for AppResourceGroupBackgroundTaskReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupBackgroundTaskReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupBackgroundTaskReport {
@@ -2544,17 +2445,6 @@ impl AppResourceGroupInfo {
 impl ::core::clone::Clone for AppResourceGroupInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppResourceGroupInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfo {}
-impl ::core::fmt::Debug for AppResourceGroupInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfo {
@@ -2676,17 +2566,6 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcher {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcher;{d9b0a0fd-6e5a-4c72-8b17-09fec4a212bd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2732,17 +2611,6 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcherEventArgs {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcherEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcherEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupInfoWatcherEventArgs;{7a787637-6302-4d2f-bf89-1c12d0b2a6b9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2786,17 +2654,6 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
 impl ::core::clone::Clone for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcherExecutionStateChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -2856,17 +2713,6 @@ impl ::core::clone::Clone for AppResourceGroupMemoryReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppResourceGroupMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupMemoryReport {}
-impl ::core::fmt::Debug for AppResourceGroupMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupMemoryReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppResourceGroupMemoryReport;{2c8c06b1-7db1-4c51-a225-7fae2d49e431})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2908,17 +2754,6 @@ impl AppResourceGroupStateReport {
 impl ::core::clone::Clone for AppResourceGroupStateReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppResourceGroupStateReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupStateReport {}
-impl ::core::fmt::Debug for AppResourceGroupStateReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupStateReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupStateReport {
@@ -2988,17 +2823,6 @@ impl AppUriHandlerHost {
 impl ::core::clone::Clone for AppUriHandlerHost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppUriHandlerHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerHost {}
-impl ::core::fmt::Debug for AppUriHandlerHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerHost").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerHost {
@@ -3092,17 +2916,6 @@ impl ::core::clone::Clone for AppUriHandlerRegistration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppUriHandlerRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerRegistration {}
-impl ::core::fmt::Debug for AppUriHandlerRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.AppUriHandlerRegistration;{6f73aeb1-4569-5c3f-9ba0-99123eea32c3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3185,17 +2998,6 @@ impl AppUriHandlerRegistrationManager {
 impl ::core::clone::Clone for AppUriHandlerRegistrationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppUriHandlerRegistrationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppUriHandlerRegistrationManager {}
-impl ::core::fmt::Debug for AppUriHandlerRegistrationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppUriHandlerRegistrationManager").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistrationManager {
@@ -3313,17 +3115,6 @@ impl ::core::clone::Clone for DispatcherQueue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueue {}
-impl ::core::fmt::Debug for DispatcherQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueue;{603e88e4-a338-4ffe-a457-a5cfb9ceb899})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3380,17 +3171,6 @@ impl ::core::clone::Clone for DispatcherQueueController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueController {}
-impl ::core::fmt::Debug for DispatcherQueueController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueController;{22f34e66-50db-4e36-a98d-61c01b384d20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3427,17 +3207,6 @@ impl DispatcherQueueShutdownStartingEventArgs {
 impl ::core::clone::Clone for DispatcherQueueShutdownStartingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DispatcherQueueShutdownStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueShutdownStartingEventArgs {}
-impl ::core::fmt::Debug for DispatcherQueueShutdownStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueShutdownStartingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueShutdownStartingEventArgs {
@@ -3525,17 +3294,6 @@ impl ::core::clone::Clone for DispatcherQueueTimer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueTimer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueTimer {}
-impl ::core::fmt::Debug for DispatcherQueueTimer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueTimer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DispatcherQueueTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.DispatcherQueueTimer;{5feabb1d-a31c-4727-b1ac-37454649d56a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3594,17 +3352,6 @@ impl FolderLauncherOptions {
 impl ::core::clone::Clone for FolderLauncherOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FolderLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderLauncherOptions {}
-impl ::core::fmt::Debug for FolderLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderLauncherOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FolderLauncherOptions {
@@ -3746,17 +3493,6 @@ impl LaunchUriResult {
 impl ::core::clone::Clone for LaunchUriResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LaunchUriResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchUriResult {}
-impl ::core::fmt::Debug for LaunchUriResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchUriResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchUriResult {
@@ -4207,17 +3943,6 @@ impl ::core::clone::Clone for LauncherOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LauncherOptions {}
-impl ::core::fmt::Debug for LauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LauncherOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.LauncherOptions;{bafa21d8-b071-4cd8-853e-341203e557d3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4317,17 +4042,6 @@ impl LauncherUIOptions {
 impl ::core::clone::Clone for LauncherUIOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LauncherUIOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LauncherUIOptions {}
-impl ::core::fmt::Debug for LauncherUIOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LauncherUIOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LauncherUIOptions {
@@ -4570,17 +4284,6 @@ impl ::core::clone::Clone for ProcessLauncherOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessLauncherOptions {}
-impl ::core::fmt::Debug for ProcessLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessLauncherOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessLauncherOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProcessLauncherOptions;{3080b9cf-f444-4a83-beaf-a549a0f3229c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4615,17 +4318,6 @@ impl ProcessLauncherResult {
 impl ::core::clone::Clone for ProcessLauncherResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessLauncherResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessLauncherResult {}
-impl ::core::fmt::Debug for ProcessLauncherResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessLauncherResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessLauncherResult {
@@ -4671,17 +4363,6 @@ impl ::core::clone::Clone for ProcessMemoryReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessMemoryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryReport {}
-impl ::core::fmt::Debug for ProcessMemoryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.ProcessMemoryReport;{087305a8-9b70-4782-8741-3a982b6ce5e4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4715,17 +4396,6 @@ impl ProtocolForResultsOperation {
 impl ::core::clone::Clone for ProtocolForResultsOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProtocolForResultsOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtocolForResultsOperation {}
-impl ::core::fmt::Debug for ProtocolForResultsOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtocolForResultsOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProtocolForResultsOperation {
@@ -4822,17 +4492,6 @@ impl RemoteLauncherOptions {
 impl ::core::clone::Clone for RemoteLauncherOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteLauncherOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteLauncherOptions {}
-impl ::core::fmt::Debug for RemoteLauncherOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteLauncherOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteLauncherOptions {
@@ -5064,17 +4723,6 @@ impl ::core::clone::Clone for User {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for User {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for User {}
-impl ::core::fmt::Debug for User {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("User").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for User {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.User;{df9a26c6-e746-4bcd-b5d4-120103c4209b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5106,17 +4754,6 @@ impl UserAuthenticationStatusChangeDeferral {
 impl ::core::clone::Clone for UserAuthenticationStatusChangeDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserAuthenticationStatusChangeDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAuthenticationStatusChangeDeferral {}
-impl ::core::fmt::Debug for UserAuthenticationStatusChangeDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationStatusChangeDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangeDeferral {
@@ -5176,17 +4813,6 @@ impl ::core::clone::Clone for UserAuthenticationStatusChangingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserAuthenticationStatusChangingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAuthenticationStatusChangingEventArgs {}
-impl ::core::fmt::Debug for UserAuthenticationStatusChangingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationStatusChangingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserAuthenticationStatusChangingEventArgs;{8c030f28-a711-4c1e-ab48-04179c15938f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5230,17 +4856,6 @@ impl UserChangedEventArgs {
 impl ::core::clone::Clone for UserChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserChangedEventArgs {}
-impl ::core::fmt::Debug for UserChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserChangedEventArgs {
@@ -5324,17 +4939,6 @@ impl ::core::clone::Clone for UserDeviceAssociationChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDeviceAssociationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDeviceAssociationChangedEventArgs {}
-impl ::core::fmt::Debug for UserDeviceAssociationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDeviceAssociationChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDeviceAssociationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserDeviceAssociationChangedEventArgs;{bd1f6f6c-bb5d-4d7b-a5f0-c8cd11a38d42})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5411,17 +5015,6 @@ impl UserPicker {
 impl ::core::clone::Clone for UserPicker {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserPicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserPicker {}
-impl ::core::fmt::Debug for UserPicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserPicker").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserPicker {
@@ -5573,17 +5166,6 @@ impl ::core::clone::Clone for UserWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserWatcher {}
-impl ::core::fmt::Debug for UserWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserWatcher;{155eb23b-242a-45e0-a2e9-3171fc6a7fbb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5621,18 +5203,8 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for AppDiagnosticInfoWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppDiagnosticInfoWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppDiagnosticInfoWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDiagnosticInfoWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppDiagnosticInfoWatcherStatus;i4)");
@@ -5657,18 +5229,8 @@ impl ::core::clone::Clone for AppMemoryUsageLevel {
         *self
     }
 }
-impl ::core::default::Default for AppMemoryUsageLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppMemoryUsageLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppMemoryUsageLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppMemoryUsageLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppMemoryUsageLevel;i4)");
@@ -5692,18 +5254,8 @@ impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
         *self
     }
 }
-impl ::core::default::Default for AppResourceGroupEnergyQuotaState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppResourceGroupEnergyQuotaState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppResourceGroupEnergyQuotaState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupEnergyQuotaState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupEnergyQuotaState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupEnergyQuotaState;i4)");
@@ -5729,18 +5281,8 @@ impl ::core::clone::Clone for AppResourceGroupExecutionState {
         *self
     }
 }
-impl ::core::default::Default for AppResourceGroupExecutionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppResourceGroupExecutionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppResourceGroupExecutionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupExecutionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupExecutionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupExecutionState;i4)");
@@ -5767,18 +5309,8 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for AppResourceGroupInfoWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppResourceGroupInfoWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppResourceGroupInfoWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppResourceGroupInfoWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AppResourceGroupInfoWatcherStatus;i4)");
@@ -5802,18 +5334,8 @@ impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
         *self
     }
 }
-impl ::core::default::Default for AutoUpdateTimeZoneStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AutoUpdateTimeZoneStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AutoUpdateTimeZoneStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoUpdateTimeZoneStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AutoUpdateTimeZoneStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.AutoUpdateTimeZoneStatus;i4)");
@@ -5838,18 +5360,8 @@ impl ::core::clone::Clone for DiagnosticAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for DiagnosticAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DiagnosticAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DiagnosticAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.DiagnosticAccessStatus;i4)");
@@ -5873,18 +5385,8 @@ impl ::core::clone::Clone for DispatcherQueuePriority {
         *self
     }
 }
-impl ::core::default::Default for DispatcherQueuePriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DispatcherQueuePriority {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DispatcherQueuePriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueuePriority").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DispatcherQueuePriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.DispatcherQueuePriority;i4)");
@@ -5910,18 +5412,8 @@ impl ::core::clone::Clone for LaunchFileStatus {
         *self
     }
 }
-impl ::core::default::Default for LaunchFileStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LaunchFileStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LaunchFileStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchFileStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchFileStatus;i4)");
@@ -5947,18 +5439,8 @@ impl ::core::clone::Clone for LaunchQuerySupportStatus {
         *self
     }
 }
-impl ::core::default::Default for LaunchQuerySupportStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LaunchQuerySupportStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LaunchQuerySupportStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchQuerySupportStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportStatus;i4)");
@@ -5981,18 +5463,8 @@ impl ::core::clone::Clone for LaunchQuerySupportType {
         *self
     }
 }
-impl ::core::default::Default for LaunchQuerySupportType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LaunchQuerySupportType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LaunchQuerySupportType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchQuerySupportType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchQuerySupportType;i4)");
@@ -6017,18 +5489,8 @@ impl ::core::clone::Clone for LaunchUriStatus {
         *self
     }
 }
-impl ::core::default::Default for LaunchUriStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LaunchUriStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LaunchUriStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchUriStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchUriStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.LaunchUriStatus;i4)");
@@ -6051,18 +5513,8 @@ impl ::core::clone::Clone for PowerState {
         *self
     }
 }
-impl ::core::default::Default for PowerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PowerState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PowerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PowerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.PowerState;i4)");
@@ -6090,18 +5542,8 @@ impl ::core::clone::Clone for ProcessorArchitecture {
         *self
     }
 }
-impl ::core::default::Default for ProcessorArchitecture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProcessorArchitecture {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProcessorArchitecture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessorArchitecture").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessorArchitecture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.ProcessorArchitecture;i4)");
@@ -6130,18 +5572,8 @@ impl ::core::clone::Clone for RemoteLaunchUriStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteLaunchUriStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteLaunchUriStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteLaunchUriStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteLaunchUriStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteLaunchUriStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteLaunchUriStatus;i4)");
@@ -6164,18 +5596,8 @@ impl ::core::clone::Clone for ShutdownKind {
         *self
     }
 }
-impl ::core::default::Default for ShutdownKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ShutdownKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ShutdownKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShutdownKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ShutdownKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.ShutdownKind;i4)");
@@ -6199,18 +5621,8 @@ impl ::core::clone::Clone for UserAgeConsentGroup {
         *self
     }
 }
-impl ::core::default::Default for UserAgeConsentGroup {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserAgeConsentGroup {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserAgeConsentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAgeConsentGroup").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserAgeConsentGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentGroup;i4)");
@@ -6236,18 +5648,8 @@ impl ::core::clone::Clone for UserAgeConsentResult {
         *self
     }
 }
-impl ::core::default::Default for UserAgeConsentResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserAgeConsentResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserAgeConsentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAgeConsentResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserAgeConsentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAgeConsentResult;i4)");
@@ -6271,18 +5673,8 @@ impl ::core::clone::Clone for UserAuthenticationStatus {
         *self
     }
 }
-impl ::core::default::Default for UserAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserAuthenticationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserAuthenticationStatus;i4)");
@@ -6307,18 +5699,8 @@ impl ::core::clone::Clone for UserPictureSize {
         *self
     }
 }
-impl ::core::default::Default for UserPictureSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserPictureSize {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserPictureSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserPictureSize").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserPictureSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserPictureSize;i4)");
@@ -6344,18 +5726,8 @@ impl ::core::clone::Clone for UserType {
         *self
     }
 }
-impl ::core::default::Default for UserType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserType;i4)");
@@ -6382,18 +5754,8 @@ impl ::core::clone::Clone for UserWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for UserWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherStatus;i4)");
@@ -6416,18 +5778,8 @@ impl ::core::clone::Clone for UserWatcherUpdateKind {
         *self
     }
 }
-impl ::core::default::Default for UserWatcherUpdateKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserWatcherUpdateKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserWatcherUpdateKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserWatcherUpdateKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserWatcherUpdateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserWatcherUpdateKind;i4)");
@@ -6620,18 +5972,8 @@ impl ::core::clone::Clone for VirtualKey {
         *self
     }
 }
-impl ::core::default::Default for VirtualKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VirtualKey {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VirtualKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VirtualKey").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VirtualKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKey;i4)");
@@ -6657,46 +5999,8 @@ impl ::core::clone::Clone for VirtualKeyModifiers {
         *self
     }
 }
-impl ::core::default::Default for VirtualKeyModifiers {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VirtualKeyModifiers {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VirtualKeyModifiers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VirtualKeyModifiers").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VirtualKeyModifiers {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VirtualKeyModifiers {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VirtualKeyModifiers {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VirtualKeyModifiers {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VirtualKeyModifiers {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VirtualKeyModifiers {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.VirtualKeyModifiers;u4)");
@@ -6761,17 +6065,6 @@ impl ::core::clone::Clone for DispatcherQueueHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DispatcherQueueHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueHandler {}
-impl ::core::fmt::Debug for DispatcherQueueHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DispatcherQueueHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for DispatcherQueueHandler {
     type Vtable = DispatcherQueueHandler_Vtbl;
 }
@@ -6793,3 +6086,5 @@ pub struct DispatcherQueueHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

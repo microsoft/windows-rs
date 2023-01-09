@@ -35,3 +35,5 @@ impl ::windows::core::RuntimeName for InteractiveSession {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

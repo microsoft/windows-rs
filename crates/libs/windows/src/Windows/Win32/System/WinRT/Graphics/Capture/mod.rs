@@ -29,17 +29,6 @@ impl ::core::clone::Clone for IGraphicsCaptureItemInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGraphicsCaptureItemInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGraphicsCaptureItemInterop {}
-impl ::core::fmt::Debug for IGraphicsCaptureItemInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGraphicsCaptureItemInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInterop_Vtbl;
 }
@@ -61,3 +50,5 @@ pub struct IGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -243,18 +243,8 @@ impl ::core::clone::Clone for POINTER_BUTTON_CHANGE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for POINTER_BUTTON_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for POINTER_BUTTON_CHANGE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("POINTER_BUTTON_CHANGE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
@@ -304,46 +294,8 @@ impl ::core::clone::Clone for POINTER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for POINTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for POINTER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for POINTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("POINTER_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for POINTER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for POINTER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POINTER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POINTER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for POINTER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 #[repr(transparent)]
@@ -361,18 +313,8 @@ impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
         *self
     }
 }
-impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TOUCH_FEEDBACK_MODE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
@@ -388,24 +330,8 @@ impl ::core::clone::Clone for INPUT_INJECTION_VALUE {
         *self
     }
 }
-impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.page == other.page && self.usage == other.usage && self.value == other.value && self.index == other.index
-    }
-}
-impl ::core::cmp::Eq for INPUT_INJECTION_VALUE {}
-impl ::core::default::Default for INPUT_INJECTION_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
@@ -421,11 +347,6 @@ impl ::core::clone::Clone for INPUT_TRANSFORM {
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
     type Abi = Self;
 }
-impl ::core::default::Default for INPUT_TRANSFORM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub union INPUT_TRANSFORM_0 {
@@ -440,11 +361,6 @@ impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
 }
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for INPUT_TRANSFORM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
@@ -472,24 +388,8 @@ impl ::core::clone::Clone for INPUT_TRANSFORM_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._11 == other._11 && self._12 == other._12 && self._13 == other._13 && self._14 == other._14 && self._21 == other._21 && self._22 == other._22 && self._23 == other._23 && self._24 == other._24 && self._31 == other._31 && self._32 == other._32 && self._33 == other._33 && self._34 == other._34 && self._41 == other._41 && self._42 == other._42 && self._43 == other._43 && self._44 == other._44
-    }
-}
-impl ::core::cmp::Eq for INPUT_TRANSFORM_0_0 {}
-impl ::core::default::Default for INPUT_TRANSFORM_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -521,45 +421,8 @@ impl ::core::clone::Clone for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for POINTER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTER_INFO")
-            .field("pointerType", &self.pointerType)
-            .field("pointerId", &self.pointerId)
-            .field("frameId", &self.frameId)
-            .field("pointerFlags", &self.pointerFlags)
-            .field("sourceDevice", &self.sourceDevice)
-            .field("hwndTarget", &self.hwndTarget)
-            .field("ptPixelLocation", &self.ptPixelLocation)
-            .field("ptHimetricLocation", &self.ptHimetricLocation)
-            .field("ptPixelLocationRaw", &self.ptPixelLocationRaw)
-            .field("ptHimetricLocationRaw", &self.ptHimetricLocationRaw)
-            .field("dwTime", &self.dwTime)
-            .field("historyCount", &self.historyCount)
-            .field("InputData", &self.InputData)
-            .field("dwKeyStates", &self.dwKeyStates)
-            .field("PerformanceCount", &self.PerformanceCount)
-            .field("ButtonChangeType", &self.ButtonChangeType)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for POINTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerType == other.pointerType && self.pointerId == other.pointerId && self.frameId == other.frameId && self.pointerFlags == other.pointerFlags && self.sourceDevice == other.sourceDevice && self.hwndTarget == other.hwndTarget && self.ptPixelLocation == other.ptPixelLocation && self.ptHimetricLocation == other.ptHimetricLocation && self.ptPixelLocationRaw == other.ptPixelLocationRaw && self.ptHimetricLocationRaw == other.ptHimetricLocationRaw && self.dwTime == other.dwTime && self.historyCount == other.historyCount && self.InputData == other.InputData && self.dwKeyStates == other.dwKeyStates && self.PerformanceCount == other.PerformanceCount && self.ButtonChangeType == other.ButtonChangeType
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for POINTER_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for POINTER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -582,28 +445,8 @@ impl ::core::clone::Clone for POINTER_PEN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for POINTER_PEN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTER_PEN_INFO").field("pointerInfo", &self.pointerInfo).field("penFlags", &self.penFlags).field("penMask", &self.penMask).field("pressure", &self.pressure).field("rotation", &self.rotation).field("tiltX", &self.tiltX).field("tiltY", &self.tiltY).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_PEN_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerInfo == other.pointerInfo && self.penFlags == other.penFlags && self.penMask == other.penMask && self.pressure == other.pressure && self.rotation == other.rotation && self.tiltX == other.tiltX && self.tiltY == other.tiltY
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for POINTER_PEN_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for POINTER_PEN_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -626,28 +469,10 @@ impl ::core::clone::Clone for POINTER_TOUCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTER_TOUCH_INFO").field("pointerInfo", &self.pointerInfo).field("touchFlags", &self.touchFlags).field("touchMask", &self.touchMask).field("rcContact", &self.rcContact).field("rcContactRaw", &self.rcContactRaw).field("orientation", &self.orientation).field("pressure", &self.pressure).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for POINTER_TOUCH_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pointerInfo == other.pointerInfo && self.touchFlags == other.touchFlags && self.touchMask == other.touchMask && self.rcContact == other.rcContact && self.rcContactRaw == other.rcContactRaw && self.orientation == other.orientation && self.pressure == other.pressure
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for POINTER_TOUCH_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for POINTER_TOUCH_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

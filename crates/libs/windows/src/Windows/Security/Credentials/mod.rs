@@ -224,17 +224,6 @@ impl ::core::clone::Clone for IWebAccount {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebAccount {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccount {}
-impl ::core::fmt::Debug for IWebAccount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccount").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
     type DefaultType = ::core::option::Option<Self>;
@@ -446,17 +435,6 @@ impl ::core::clone::Clone for KeyCredential {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for KeyCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredential {}
-impl ::core::fmt::Debug for KeyCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredential").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for KeyCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
     type DefaultType = ::core::option::Option<Self>;
@@ -509,17 +487,6 @@ impl KeyCredentialAttestationResult {
 impl ::core::clone::Clone for KeyCredentialAttestationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for KeyCredentialAttestationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialAttestationResult {}
-impl ::core::fmt::Debug for KeyCredentialAttestationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialAttestationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationResult {
@@ -619,17 +586,6 @@ impl ::core::clone::Clone for KeyCredentialOperationResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for KeyCredentialOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialOperationResult {}
-impl ::core::fmt::Debug for KeyCredentialOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialOperationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
     type DefaultType = ::core::option::Option<Self>;
@@ -671,17 +627,6 @@ impl KeyCredentialRetrievalResult {
 impl ::core::clone::Clone for KeyCredentialRetrievalResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for KeyCredentialRetrievalResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialRetrievalResult {}
-impl ::core::fmt::Debug for KeyCredentialRetrievalResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialRetrievalResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for KeyCredentialRetrievalResult {
@@ -775,17 +720,6 @@ impl PasswordCredential {
 impl ::core::clone::Clone for PasswordCredential {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PasswordCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PasswordCredential {}
-impl ::core::fmt::Debug for PasswordCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PasswordCredential").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PasswordCredential {
@@ -909,20 +843,6 @@ impl PasswordCredentialPropertyStore {
 impl ::core::clone::Clone for PasswordCredentialPropertyStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for PasswordCredentialPropertyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for PasswordCredentialPropertyStore {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for PasswordCredentialPropertyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PasswordCredentialPropertyStore").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1114,17 +1034,6 @@ impl ::core::clone::Clone for PasswordVault {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PasswordVault {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PasswordVault {}
-impl ::core::fmt::Debug for PasswordVault {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PasswordVault").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PasswordVault {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1227,17 +1136,6 @@ impl WebAccount {
 impl ::core::clone::Clone for WebAccount {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccount {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccount {}
-impl ::core::fmt::Debug for WebAccount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccount").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccount {
@@ -1354,17 +1252,6 @@ impl ::core::clone::Clone for WebAccountProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAccountProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProvider {}
-impl ::core::fmt::Debug for WebAccountProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebAccountProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1400,18 +1287,8 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
         *self
     }
 }
-impl ::core::default::Default for KeyCredentialAttestationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialAttestationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialAttestationStatus;i4)");
@@ -1434,18 +1311,8 @@ impl ::core::clone::Clone for KeyCredentialCreationOption {
         *self
     }
 }
-impl ::core::default::Default for KeyCredentialCreationOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyCredentialCreationOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialCreationOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KeyCredentialCreationOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialCreationOption;i4)");
@@ -1473,18 +1340,8 @@ impl ::core::clone::Clone for KeyCredentialStatus {
         *self
     }
 }
-impl ::core::default::Default for KeyCredentialStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyCredentialStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for KeyCredentialStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.KeyCredentialStatus;i4)");
@@ -1509,18 +1366,8 @@ impl ::core::clone::Clone for WebAccountPictureSize {
         *self
     }
 }
-impl ::core::default::Default for WebAccountPictureSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountPictureSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountPictureSize").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountPictureSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountPictureSize;i4)");
@@ -1544,18 +1391,8 @@ impl ::core::clone::Clone for WebAccountState {
         *self
     }
 }
-impl ::core::default::Default for WebAccountState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebAccountState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.WebAccountState;i4)");
@@ -1566,3 +1403,5 @@ unsafe impl ::windows::core::RuntimeType for WebAccountState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

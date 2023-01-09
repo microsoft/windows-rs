@@ -24,17 +24,6 @@ impl ::core::clone::Clone for IDDEInitializer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDDEInitializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDDEInitializer {}
-impl ::core::fmt::Debug for IDDEInitializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDDEInitializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDDEInitializer {
     type Vtable = IDDEInitializer_Vtbl;
 }
@@ -66,18 +55,10 @@ impl ::core::clone::Clone for CreateProcessMethod {
         *self
     }
 }
-impl ::core::default::Default for CreateProcessMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CreateProcessMethod {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for CreateProcessMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateProcessMethod").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

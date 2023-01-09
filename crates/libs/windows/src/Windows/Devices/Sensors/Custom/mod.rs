@@ -210,17 +210,6 @@ impl ::core::clone::Clone for CustomSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CustomSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensor {}
-impl ::core::fmt::Debug for CustomSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CustomSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
     type DefaultType = ::core::option::Option<Self>;
@@ -277,17 +266,6 @@ impl ::core::clone::Clone for CustomSensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CustomSensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensorReading {}
-impl ::core::fmt::Debug for CustomSensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CustomSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
     type DefaultType = ::core::option::Option<Self>;
@@ -324,17 +302,6 @@ impl ::core::clone::Clone for CustomSensorReadingChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CustomSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for CustomSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensorReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -356,3 +323,5 @@ unsafe impl ::core::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

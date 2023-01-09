@@ -311,17 +311,6 @@ impl ::core::clone::Clone for IInkPointFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IInkPointFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkPointFactory {}
-impl ::core::fmt::Debug for IInkPointFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkPointFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IInkPointFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
     type DefaultType = ::core::option::Option<Self>;
@@ -539,17 +528,6 @@ impl ::core::clone::Clone for IInkPresenterRulerFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IInkPresenterRulerFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkPresenterRulerFactory {}
-impl ::core::fmt::Debug for IInkPresenterRulerFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkPresenterRulerFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
     type DefaultType = ::core::option::Option<Self>;
@@ -633,17 +611,6 @@ impl IInkPresenterStencil {
 impl ::core::clone::Clone for IInkPresenterStencil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInkPresenterStencil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkPresenterStencil {}
-impl ::core::fmt::Debug for IInkPresenterStencil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkPresenterStencil").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IInkPresenterStencil {
@@ -751,17 +718,6 @@ impl IInkRecognizerContainer {
 impl ::core::clone::Clone for IInkRecognizerContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInkRecognizerContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkRecognizerContainer {}
-impl ::core::fmt::Debug for IInkRecognizerContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkRecognizerContainer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IInkRecognizerContainer {
@@ -1085,17 +1041,6 @@ impl IInkStrokeContainer {
 impl ::core::clone::Clone for IInkStrokeContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInkStrokeContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInkStrokeContainer {}
-impl ::core::fmt::Debug for IInkStrokeContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInkStrokeContainer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IInkStrokeContainer {
@@ -1599,17 +1544,6 @@ impl ::core::clone::Clone for InkDrawingAttributes {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkDrawingAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkDrawingAttributes {}
-impl ::core::fmt::Debug for InkDrawingAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkDrawingAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1648,17 +1582,6 @@ impl InkDrawingAttributesPencilProperties {
 impl ::core::clone::Clone for InkDrawingAttributesPencilProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkDrawingAttributesPencilProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkDrawingAttributesPencilProperties {}
-impl ::core::fmt::Debug for InkDrawingAttributesPencilProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkDrawingAttributesPencilProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesPencilProperties {
@@ -1723,17 +1646,6 @@ impl ::core::clone::Clone for InkInputConfiguration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkInputConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkInputConfiguration {}
-impl ::core::fmt::Debug for InkInputConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkInputConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1783,17 +1695,6 @@ impl InkInputProcessingConfiguration {
 impl ::core::clone::Clone for InkInputProcessingConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkInputProcessingConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkInputProcessingConfiguration {}
-impl ::core::fmt::Debug for InkInputProcessingConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputProcessingConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
@@ -2025,17 +1926,6 @@ impl ::core::clone::Clone for InkManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkManager {}
-impl ::core::fmt::Debug for InkManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2138,17 +2028,6 @@ impl ::core::clone::Clone for InkModelerAttributes {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkModelerAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkModelerAttributes {}
-impl ::core::fmt::Debug for InkModelerAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkModelerAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkModelerAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2239,17 +2118,6 @@ impl InkPoint {
 impl ::core::clone::Clone for InkPoint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPoint {}
-impl ::core::fmt::Debug for InkPoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPoint").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkPoint {
@@ -2407,17 +2275,6 @@ impl InkPresenter {
 impl ::core::clone::Clone for InkPresenter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkPresenter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPresenter {}
-impl ::core::fmt::Debug for InkPresenter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkPresenter {
@@ -2592,17 +2449,6 @@ impl ::core::clone::Clone for InkPresenterProtractor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkPresenterProtractor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPresenterProtractor {}
-impl ::core::fmt::Debug for InkPresenterProtractor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterProtractor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkPresenterProtractor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2761,17 +2607,6 @@ impl ::core::clone::Clone for InkPresenterRuler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkPresenterRuler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPresenterRuler {}
-impl ::core::fmt::Debug for InkPresenterRuler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterRuler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkPresenterRuler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2847,17 +2682,6 @@ impl ::core::clone::Clone for InkRecognitionResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkRecognitionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkRecognitionResult {}
-impl ::core::fmt::Debug for InkRecognitionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkRecognitionResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2892,17 +2716,6 @@ impl InkRecognizer {
 impl ::core::clone::Clone for InkRecognizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkRecognizer {}
-impl ::core::fmt::Debug for InkRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkRecognizer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkRecognizer {
@@ -2959,17 +2772,6 @@ impl InkRecognizerContainer {
 impl ::core::clone::Clone for InkRecognizerContainer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkRecognizerContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkRecognizerContainer {}
-impl ::core::fmt::Debug for InkRecognizerContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkRecognizerContainer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkRecognizerContainer {
@@ -3148,17 +2950,6 @@ impl ::core::clone::Clone for InkStroke {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkStroke {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStroke {}
-impl ::core::fmt::Debug for InkStroke {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStroke").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3258,17 +3049,6 @@ impl InkStrokeBuilder {
 impl ::core::clone::Clone for InkStrokeBuilder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkStrokeBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokeBuilder {}
-impl ::core::fmt::Debug for InkStrokeBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokeBuilder").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkStrokeBuilder {
@@ -3466,17 +3246,6 @@ impl ::core::clone::Clone for InkStrokeContainer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkStrokeContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokeContainer {}
-impl ::core::fmt::Debug for InkStrokeContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokeContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3590,17 +3359,6 @@ impl ::core::clone::Clone for InkStrokeInput {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkStrokeInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokeInput {}
-impl ::core::fmt::Debug for InkStrokeInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokeInput").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkStrokeInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3685,17 +3443,6 @@ impl ::core::clone::Clone for InkStrokeRenderingSegment {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkStrokeRenderingSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokeRenderingSegment {}
-impl ::core::fmt::Debug for InkStrokeRenderingSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokeRenderingSegment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3734,17 +3481,6 @@ impl ::core::clone::Clone for InkStrokesCollectedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkStrokesCollectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokesCollectedEventArgs {}
-impl ::core::fmt::Debug for InkStrokesCollectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokesCollectedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3779,17 +3515,6 @@ impl InkStrokesErasedEventArgs {
 impl ::core::clone::Clone for InkStrokesErasedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkStrokesErasedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkStrokesErasedEventArgs {}
-impl ::core::fmt::Debug for InkStrokesErasedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkStrokesErasedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
@@ -3830,17 +3555,6 @@ impl InkSynchronizer {
 impl ::core::clone::Clone for InkSynchronizer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InkSynchronizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkSynchronizer {}
-impl ::core::fmt::Debug for InkSynchronizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkSynchronizer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InkSynchronizer {
@@ -3982,17 +3696,6 @@ impl ::core::clone::Clone for InkUnprocessedInput {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkUnprocessedInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkUnprocessedInput {}
-impl ::core::fmt::Debug for InkUnprocessedInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkUnprocessedInput").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkUnprocessedInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4079,17 +3782,6 @@ impl ::core::clone::Clone for PenAndInkSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PenAndInkSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenAndInkSettings {}
-impl ::core::fmt::Debug for PenAndInkSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenAndInkSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PenAndInkSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4124,18 +3816,8 @@ impl ::core::clone::Clone for HandwritingLineHeight {
         *self
     }
 }
-impl ::core::default::Default for HandwritingLineHeight {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HandwritingLineHeight {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HandwritingLineHeight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandwritingLineHeight").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HandwritingLineHeight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.HandwritingLineHeight;i4)");
@@ -4158,18 +3840,8 @@ impl ::core::clone::Clone for InkDrawingAttributesKind {
         *self
     }
 }
-impl ::core::default::Default for InkDrawingAttributesKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkDrawingAttributesKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkDrawingAttributesKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkDrawingAttributesKind;i4)");
@@ -4193,18 +3865,8 @@ impl ::core::clone::Clone for InkHighContrastAdjustment {
         *self
     }
 }
-impl ::core::default::Default for InkHighContrastAdjustment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkHighContrastAdjustment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkHighContrastAdjustment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkHighContrastAdjustment;i4)");
@@ -4228,18 +3890,8 @@ impl ::core::clone::Clone for InkInputProcessingMode {
         *self
     }
 }
-impl ::core::default::Default for InkInputProcessingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkInputProcessingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkInputProcessingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputProcessingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputProcessingMode;i4)");
@@ -4262,18 +3914,8 @@ impl ::core::clone::Clone for InkInputRightDragAction {
         *self
     }
 }
-impl ::core::default::Default for InkInputRightDragAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkInputRightDragAction {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkInputRightDragAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkInputRightDragAction").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkInputRightDragAction;i4)");
@@ -4297,18 +3939,8 @@ impl ::core::clone::Clone for InkManipulationMode {
         *self
     }
 }
-impl ::core::default::Default for InkManipulationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkManipulationMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkManipulationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkManipulationMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkManipulationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkManipulationMode;i4)");
@@ -4331,18 +3963,8 @@ impl ::core::clone::Clone for InkPersistenceFormat {
         *self
     }
 }
-impl ::core::default::Default for InkPersistenceFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkPersistenceFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPersistenceFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPersistenceFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkPersistenceFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPersistenceFormat;i4)");
@@ -4365,18 +3987,8 @@ impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
         *self
     }
 }
-impl ::core::default::Default for InkPresenterPredefinedConfiguration {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterPredefinedConfiguration").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterPredefinedConfiguration;i4)");
@@ -4400,18 +4012,8 @@ impl ::core::clone::Clone for InkPresenterStencilKind {
         *self
     }
 }
-impl ::core::default::Default for InkPresenterStencilKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkPresenterStencilKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkPresenterStencilKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkPresenterStencilKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkPresenterStencilKind;i4)");
@@ -4435,18 +4037,8 @@ impl ::core::clone::Clone for InkRecognitionTarget {
         *self
     }
 }
-impl ::core::default::Default for InkRecognitionTarget {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InkRecognitionTarget {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InkRecognitionTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkRecognitionTarget").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InkRecognitionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.InkRecognitionTarget;i4)");
@@ -4469,18 +4061,8 @@ impl ::core::clone::Clone for PenHandedness {
         *self
     }
 }
-impl ::core::default::Default for PenHandedness {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PenHandedness {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PenHandedness {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenHandedness").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PenHandedness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenHandedness;i4)");
@@ -4503,18 +4085,8 @@ impl ::core::clone::Clone for PenTipShape {
         *self
     }
 }
-impl ::core::default::Default for PenTipShape {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PenTipShape {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PenTipShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTipShape").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PenTipShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.PenTipShape;i4)");
@@ -4525,3 +4097,5 @@ unsafe impl ::windows::core::RuntimeType for PenTipShape {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

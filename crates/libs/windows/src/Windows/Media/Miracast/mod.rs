@@ -587,17 +587,6 @@ impl ::core::clone::Clone for MiracastReceiver {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiver {}
-impl ::core::fmt::Debug for MiracastReceiver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiver;{7a315258-e444-51b4-aff7-b88daa1229e0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -639,17 +628,6 @@ impl MiracastReceiverApplySettingsResult {
 impl ::core::clone::Clone for MiracastReceiverApplySettingsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverApplySettingsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverApplySettingsResult {}
-impl ::core::fmt::Debug for MiracastReceiverApplySettingsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverApplySettingsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsResult {
@@ -749,17 +727,6 @@ impl ::core::clone::Clone for MiracastReceiverConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverConnection {}
-impl ::core::fmt::Debug for MiracastReceiverConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnection;{704b2f36-d2e5-551f-a854-f822b7917d28})");
     type DefaultType = ::core::option::Option<Self>;
@@ -832,17 +799,6 @@ impl MiracastReceiverConnectionCreatedEventArgs {
 impl ::core::clone::Clone for MiracastReceiverConnectionCreatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverConnectionCreatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverConnectionCreatedEventArgs {}
-impl ::core::fmt::Debug for MiracastReceiverConnectionCreatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverConnectionCreatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
@@ -938,17 +894,6 @@ impl ::core::clone::Clone for MiracastReceiverCursorImageChannel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverCursorImageChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverCursorImageChannel {}
-impl ::core::fmt::Debug for MiracastReceiverCursorImageChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverCursorImageChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannel;{d9ac332d-723a-5a9d-b90a-81153efa2a0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1004,17 +949,6 @@ impl ::core::clone::Clone for MiracastReceiverCursorImageChannelSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverCursorImageChannelSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverCursorImageChannelSettings {}
-impl ::core::fmt::Debug for MiracastReceiverCursorImageChannelSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverCursorImageChannelSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings;{ccdbedff-bd00-5b9c-8e4c-00cacf86b634})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1049,17 +983,6 @@ impl MiracastReceiverDisconnectedEventArgs {
 impl ::core::clone::Clone for MiracastReceiverDisconnectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverDisconnectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverDisconnectedEventArgs {}
-impl ::core::fmt::Debug for MiracastReceiverDisconnectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverDisconnectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
@@ -1142,17 +1065,6 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverGameControllerDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverGameControllerDevice {}
-impl ::core::fmt::Debug for MiracastReceiverGameControllerDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverGameControllerDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverGameControllerDevice;{2d7171e8-bed4-5118-a058-e2477eb5888d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1194,17 +1106,6 @@ impl MiracastReceiverInputDevices {
 impl ::core::clone::Clone for MiracastReceiverInputDevices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverInputDevices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverInputDevices {}
-impl ::core::fmt::Debug for MiracastReceiverInputDevices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverInputDevices").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverInputDevices {
@@ -1276,17 +1177,6 @@ impl ::core::clone::Clone for MiracastReceiverKeyboardDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverKeyboardDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverKeyboardDevice {}
-impl ::core::fmt::Debug for MiracastReceiverKeyboardDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverKeyboardDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverKeyboardDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverKeyboardDevice;{beb67272-06c0-54ff-ac96-217464ff2501})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1346,17 +1236,6 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
 impl ::core::clone::Clone for MiracastReceiverMediaSourceCreatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverMediaSourceCreatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverMediaSourceCreatedEventArgs {}
-impl ::core::fmt::Debug for MiracastReceiverMediaSourceCreatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverMediaSourceCreatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
@@ -1477,17 +1356,6 @@ impl ::core::clone::Clone for MiracastReceiverSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverSession {}
-impl ::core::fmt::Debug for MiracastReceiverSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSession;{1d2bcdb4-ef8b-5209-bfc9-c32116504803})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1551,17 +1419,6 @@ impl MiracastReceiverSessionStartResult {
 impl ::core::clone::Clone for MiracastReceiverSessionStartResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverSessionStartResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverSessionStartResult {}
-impl ::core::fmt::Debug for MiracastReceiverSessionStartResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverSessionStartResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartResult {
@@ -1648,17 +1505,6 @@ impl ::core::clone::Clone for MiracastReceiverSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverSettings {}
-impl ::core::fmt::Debug for MiracastReceiverSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSettings;{57cd2f24-c55a-5fbe-9464-eb05307705dd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1723,17 +1569,6 @@ impl MiracastReceiverStatus {
 impl ::core::clone::Clone for MiracastReceiverStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverStatus {}
-impl ::core::fmt::Debug for MiracastReceiverStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStatus {
@@ -1805,17 +1640,6 @@ impl ::core::clone::Clone for MiracastReceiverStreamControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastReceiverStreamControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverStreamControl {}
-impl ::core::fmt::Debug for MiracastReceiverStreamControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverStreamControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStreamControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStreamControl;{38ea2d8b-2769-5ad7-8a8a-254b9df7ba82})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1869,17 +1693,6 @@ impl MiracastReceiverVideoStreamSettings {
 impl ::core::clone::Clone for MiracastReceiverVideoStreamSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MiracastReceiverVideoStreamSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverVideoStreamSettings {}
-impl ::core::fmt::Debug for MiracastReceiverVideoStreamSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverVideoStreamSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverVideoStreamSettings {
@@ -1958,17 +1771,6 @@ impl ::core::clone::Clone for MiracastTransmitter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MiracastTransmitter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastTransmitter {}
-impl ::core::fmt::Debug for MiracastTransmitter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastTransmitter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MiracastTransmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastTransmitter;{342d79fd-2e64-5508-8a30-833d1eac70d0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2008,18 +1810,8 @@ impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverApplySettingsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverApplySettingsStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
@@ -2044,18 +1836,8 @@ impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverAuthorizationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverAuthorizationMethod").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
@@ -2084,18 +1866,8 @@ impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverDisconnectReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverDisconnectReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
@@ -2118,18 +1890,8 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverGameControllerDeviceUsageMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverGameControllerDeviceUsageMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
@@ -2156,18 +1918,8 @@ impl ::core::clone::Clone for MiracastReceiverListeningStatus {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverListeningStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverListeningStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
@@ -2192,18 +1944,8 @@ impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverSessionStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverSessionStartStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
@@ -2228,18 +1970,8 @@ impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
         *self
     }
 }
-impl ::core::default::Default for MiracastReceiverWiFiStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastReceiverWiFiStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
@@ -2264,18 +1996,8 @@ impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
         *self
     }
 }
-impl ::core::default::Default for MiracastTransmitterAuthorizationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MiracastTransmitterAuthorizationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MiracastTransmitterAuthorizationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
@@ -2286,3 +2008,5 @@ unsafe impl ::windows::core::RuntimeType for MiracastTransmitterAuthorizationSta
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

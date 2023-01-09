@@ -402,17 +402,6 @@ impl ::core::clone::Clone for IXmlCharacterData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXmlCharacterData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlCharacterData {}
-impl ::core::fmt::Debug for IXmlCharacterData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlCharacterData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
     type DefaultType = ::core::option::Option<Self>;
@@ -968,17 +957,6 @@ impl ::core::clone::Clone for IXmlNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXmlNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNode {}
-impl ::core::fmt::Debug for IXmlNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1081,17 +1059,6 @@ impl ::core::clone::Clone for IXmlNodeSelector {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXmlNodeSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNodeSelector {}
-impl ::core::fmt::Debug for IXmlNodeSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNodeSelector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1141,17 +1108,6 @@ impl IXmlNodeSerializer {
 impl ::core::clone::Clone for IXmlNodeSerializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IXmlNodeSerializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNodeSerializer {}
-impl ::core::fmt::Debug for IXmlNodeSerializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNodeSerializer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IXmlNodeSerializer {
@@ -1557,17 +1513,6 @@ impl ::core::clone::Clone for IXmlText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXmlText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlText {}
-impl ::core::fmt::Debug for IXmlText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IXmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1846,17 +1791,6 @@ impl DtdEntity {
 impl ::core::clone::Clone for DtdEntity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DtdEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtdEntity {}
-impl ::core::fmt::Debug for DtdEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtdEntity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DtdEntity {
@@ -2187,17 +2121,6 @@ impl DtdNotation {
 impl ::core::clone::Clone for DtdNotation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DtdNotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtdNotation {}
-impl ::core::fmt::Debug for DtdNotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtdNotation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DtdNotation {
@@ -2539,17 +2462,6 @@ impl XmlAttribute {
 impl ::core::clone::Clone for XmlAttribute {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlAttribute {}
-impl ::core::fmt::Debug for XmlAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlAttribute").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlAttribute {
@@ -2914,17 +2826,6 @@ impl XmlCDataSection {
 impl ::core::clone::Clone for XmlCDataSection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlCDataSection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlCDataSection {}
-impl ::core::fmt::Debug for XmlCDataSection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlCDataSection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlCDataSection {
@@ -3320,17 +3221,6 @@ impl XmlComment {
 impl ::core::clone::Clone for XmlComment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlComment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlComment {}
-impl ::core::fmt::Debug for XmlComment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlComment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlComment {
@@ -3890,17 +3780,6 @@ impl ::core::clone::Clone for XmlDocument {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocument {}
-impl ::core::fmt::Debug for XmlDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4215,17 +4094,6 @@ impl XmlDocumentFragment {
 impl ::core::clone::Clone for XmlDocumentFragment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlDocumentFragment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocumentFragment {}
-impl ::core::fmt::Debug for XmlDocumentFragment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocumentFragment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlDocumentFragment {
@@ -4565,17 +4433,6 @@ impl ::core::clone::Clone for XmlDocumentType {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlDocumentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocumentType {}
-impl ::core::fmt::Debug for XmlDocumentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocumentType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlDocumentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4670,17 +4527,6 @@ impl XmlDomImplementation {
 impl ::core::clone::Clone for XmlDomImplementation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlDomImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDomImplementation {}
-impl ::core::fmt::Debug for XmlDomImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDomImplementation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlDomImplementation {
@@ -5033,17 +4879,6 @@ impl ::core::clone::Clone for XmlElement {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlElement {}
-impl ::core::fmt::Debug for XmlElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5360,17 +5195,6 @@ impl ::core::clone::Clone for XmlEntityReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlEntityReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlEntityReference {}
-impl ::core::fmt::Debug for XmlEntityReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlEntityReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlEntityReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5519,17 +5343,6 @@ impl ::core::clone::Clone for XmlLoadSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlLoadSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlLoadSettings {}
-impl ::core::fmt::Debug for XmlLoadSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlLoadSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlLoadSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5676,17 +5489,6 @@ impl XmlNamedNodeMap {
 impl ::core::clone::Clone for XmlNamedNodeMap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlNamedNodeMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlNamedNodeMap {}
-impl ::core::fmt::Debug for XmlNamedNodeMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlNamedNodeMap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlNamedNodeMap {
@@ -5839,17 +5641,6 @@ impl XmlNodeList {
 impl ::core::clone::Clone for XmlNodeList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlNodeList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlNodeList {}
-impl ::core::fmt::Debug for XmlNodeList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlNodeList").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlNodeList {
@@ -6187,17 +5978,6 @@ impl XmlProcessingInstruction {
 impl ::core::clone::Clone for XmlProcessingInstruction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for XmlProcessingInstruction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlProcessingInstruction {}
-impl ::core::fmt::Debug for XmlProcessingInstruction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlProcessingInstruction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for XmlProcessingInstruction {
@@ -6564,17 +6344,6 @@ impl ::core::clone::Clone for XmlText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XmlText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlText {}
-impl ::core::fmt::Debug for XmlText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6714,18 +6483,8 @@ impl ::core::clone::Clone for NodeType {
         *self
     }
 }
-impl ::core::default::Default for NodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NodeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NodeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NodeType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NodeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Xml.Dom.NodeType;i4)");
@@ -6736,3 +6495,5 @@ unsafe impl ::windows::core::RuntimeType for NodeType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

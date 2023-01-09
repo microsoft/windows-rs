@@ -112,17 +112,6 @@ impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILowLevelDevicesAggregateProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILowLevelDevicesAggregateProvider {}
-impl ::core::fmt::Debug for ILowLevelDevicesAggregateProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILowLevelDevicesAggregateProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a73e561c-aac1-4ec7-a852-479f7060d01f}");
     type DefaultType = ::core::option::Option<Self>;
@@ -289,17 +278,6 @@ impl ::core::clone::Clone for LowLevelDevicesAggregateProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LowLevelDevicesAggregateProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LowLevelDevicesAggregateProvider {}
-impl ::core::fmt::Debug for LowLevelDevicesAggregateProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LowLevelDevicesAggregateProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LowLevelDevicesAggregateProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesAggregateProvider;{a73e561c-aac1-4ec7-a852-479f7060d01f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -366,17 +344,6 @@ impl ::core::clone::Clone for LowLevelDevicesController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LowLevelDevicesController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LowLevelDevicesController {}
-impl ::core::fmt::Debug for LowLevelDevicesController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LowLevelDevicesController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LowLevelDevicesController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.LowLevelDevicesController;{2ec23dd4-179b-45de-9b39-3ae02527de52})");
     type DefaultType = ::core::option::Option<Self>;
@@ -398,3 +365,5 @@ unsafe impl ::core::marker::Send for LowLevelDevicesController {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesController {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

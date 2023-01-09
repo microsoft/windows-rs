@@ -6,3 +6,5 @@ pub mod Direct2D;
 pub mod Imaging;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

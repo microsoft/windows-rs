@@ -371,17 +371,6 @@ impl ::core::clone::Clone for UserDataTaskDataProviderConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskDataProviderConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskDataProviderConnection {}
-impl ::core::fmt::Debug for UserDataTaskDataProviderConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskDataProviderConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection;{9ff39d1d-a447-428b-afe9-e5402bdeb041})");
     type DefaultType = ::core::option::Option<Self>;
@@ -416,17 +405,6 @@ impl UserDataTaskDataProviderTriggerDetails {
 impl ::core::clone::Clone for UserDataTaskDataProviderTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataTaskDataProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskDataProviderTriggerDetails {}
-impl ::core::fmt::Debug for UserDataTaskDataProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskDataProviderTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataTaskDataProviderTriggerDetails {
@@ -490,17 +468,6 @@ impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListCompleteTaskRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListCompleteTaskRequest {}
-impl ::core::fmt::Debug for UserDataTaskListCompleteTaskRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListCompleteTaskRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest;{f65e14a3-1a42-49da-8552-2873e52c55eb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -544,17 +511,6 @@ impl UserDataTaskListCompleteTaskRequestEventArgs {
 impl ::core::clone::Clone for UserDataTaskListCompleteTaskRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataTaskListCompleteTaskRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListCompleteTaskRequestEventArgs {}
-impl ::core::fmt::Debug for UserDataTaskListCompleteTaskRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListCompleteTaskRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListCompleteTaskRequestEventArgs {
@@ -618,17 +574,6 @@ impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListCreateOrUpdateTaskRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListCreateOrUpdateTaskRequest {}
-impl ::core::fmt::Debug for UserDataTaskListCreateOrUpdateTaskRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListCreateOrUpdateTaskRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest;{2133772c-55c2-4300-8279-04326e07cce4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -672,17 +617,6 @@ impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
 impl ::core::clone::Clone for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
-impl ::core::fmt::Debug for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListCreateOrUpdateTaskRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -746,17 +680,6 @@ impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListDeleteTaskRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListDeleteTaskRequest {}
-impl ::core::fmt::Debug for UserDataTaskListDeleteTaskRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListDeleteTaskRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest;{4b863c68-7657-4f3d-b074-d47ec8df07e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -800,17 +723,6 @@ impl UserDataTaskListDeleteTaskRequestEventArgs {
 impl ::core::clone::Clone for UserDataTaskListDeleteTaskRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataTaskListDeleteTaskRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListDeleteTaskRequestEventArgs {}
-impl ::core::fmt::Debug for UserDataTaskListDeleteTaskRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListDeleteTaskRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListDeleteTaskRequestEventArgs {
@@ -874,17 +786,6 @@ impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListSkipOccurrenceRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSkipOccurrenceRequest {}
-impl ::core::fmt::Debug for UserDataTaskListSkipOccurrenceRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListSkipOccurrenceRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest;{ab87e34d-1cd3-431c-9f58-089aa4338d85})");
     type DefaultType = ::core::option::Option<Self>;
@@ -928,17 +829,6 @@ impl UserDataTaskListSkipOccurrenceRequestEventArgs {
 impl ::core::clone::Clone for UserDataTaskListSkipOccurrenceRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSkipOccurrenceRequestEventArgs {}
-impl ::core::fmt::Debug for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListSkipOccurrenceRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -995,17 +885,6 @@ impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListSyncManagerSyncRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSyncManagerSyncRequest {}
-impl ::core::fmt::Debug for UserDataTaskListSyncManagerSyncRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListSyncManagerSyncRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest;{40a73807-7590-4149-ae19-b211431a9f48})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1051,17 +930,6 @@ impl ::core::clone::Clone for UserDataTaskListSyncManagerSyncRequestEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSyncManagerSyncRequestEventArgs {}
-impl ::core::fmt::Debug for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataTaskListSyncManagerSyncRequestEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs;{8ead1c12-768e-43bd-8385-5cdc351ffdea})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1083,3 +951,5 @@ unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEvent
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

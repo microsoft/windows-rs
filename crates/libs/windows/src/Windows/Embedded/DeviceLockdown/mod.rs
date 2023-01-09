@@ -94,17 +94,6 @@ impl ::core::clone::Clone for DeviceLockdownProfileInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeviceLockdownProfileInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceLockdownProfileInformation {}
-impl ::core::fmt::Debug for DeviceLockdownProfileInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceLockdownProfileInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
     type DefaultType = ::core::option::Option<Self>;
@@ -126,3 +115,5 @@ unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

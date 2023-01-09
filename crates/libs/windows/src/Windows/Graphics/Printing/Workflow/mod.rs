@@ -749,17 +749,6 @@ impl ::core::clone::Clone for PrintWorkflowBackgroundSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowBackgroundSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowBackgroundSession {}
-impl ::core::fmt::Debug for PrintWorkflowBackgroundSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowBackgroundSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession;{5b7913ba-0c5e-528a-7458-86a46cbddc45})");
     type DefaultType = ::core::option::Option<Self>;
@@ -818,17 +807,6 @@ impl ::core::clone::Clone for PrintWorkflowBackgroundSetupRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowBackgroundSetupRequestedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowBackgroundSetupRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs;{43e97342-1750-59c9-61fb-383748a20362})");
     type DefaultType = ::core::option::Option<Self>;
@@ -881,17 +859,6 @@ impl PrintWorkflowConfiguration {
 impl ::core::clone::Clone for PrintWorkflowConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowConfiguration {}
-impl ::core::fmt::Debug for PrintWorkflowConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowConfiguration {
@@ -964,17 +931,6 @@ impl ::core::clone::Clone for PrintWorkflowForegroundSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowForegroundSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowForegroundSession {}
-impl ::core::fmt::Debug for PrintWorkflowForegroundSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowForegroundSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession;{c79b63d0-f8ec-4ceb-953a-c8876157dd33})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1027,17 +983,6 @@ impl PrintWorkflowForegroundSetupRequestedEventArgs {
 impl ::core::clone::Clone for PrintWorkflowForegroundSetupRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowForegroundSetupRequestedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowForegroundSetupRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowForegroundSetupRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -1110,17 +1055,6 @@ impl PrintWorkflowJobActivatedEventArgs {
 impl ::core::clone::Clone for PrintWorkflowJobActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowJobActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobActivatedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowJobActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
@@ -1237,17 +1171,6 @@ impl ::core::clone::Clone for PrintWorkflowJobBackgroundSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowJobBackgroundSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobBackgroundSession {}
-impl ::core::fmt::Debug for PrintWorkflowJobBackgroundSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobBackgroundSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobBackgroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession;{c5ec6ad8-20c9-5d51-8507-2734b46f96c5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1298,17 +1221,6 @@ impl PrintWorkflowJobNotificationEventArgs {
 impl ::core::clone::Clone for PrintWorkflowJobNotificationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowJobNotificationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobNotificationEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowJobNotificationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobNotificationEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
@@ -1369,17 +1281,6 @@ impl ::core::clone::Clone for PrintWorkflowJobStartingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowJobStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobStartingEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowJobStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobStartingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs;{e3d99ba8-31ad-5e09-b0d7-601b97f161ad})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1414,17 +1315,6 @@ impl PrintWorkflowJobTriggerDetails {
 impl ::core::clone::Clone for PrintWorkflowJobTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowJobTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobTriggerDetails {}
-impl ::core::fmt::Debug for PrintWorkflowJobTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobTriggerDetails {
@@ -1497,17 +1387,6 @@ impl ::core::clone::Clone for PrintWorkflowJobUISession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowJobUISession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobUISession {}
-impl ::core::fmt::Debug for PrintWorkflowJobUISession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobUISession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobUISession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession;{00c8736b-7637-5687-a302-0f664d2aac65})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1554,17 +1433,6 @@ impl ::core::clone::Clone for PrintWorkflowObjectModelSourceFileContent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowObjectModelSourceFileContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowObjectModelSourceFileContent {}
-impl ::core::fmt::Debug for PrintWorkflowObjectModelSourceFileContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowObjectModelSourceFileContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent;{c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1591,17 +1459,6 @@ impl PrintWorkflowObjectModelTargetPackage {}
 impl ::core::clone::Clone for PrintWorkflowObjectModelTargetPackage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowObjectModelTargetPackage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowObjectModelTargetPackage {}
-impl ::core::fmt::Debug for PrintWorkflowObjectModelTargetPackage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowObjectModelTargetPackage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
@@ -1663,17 +1520,6 @@ impl ::core::clone::Clone for PrintWorkflowPdlConverter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPdlConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlConverter {}
-impl ::core::fmt::Debug for PrintWorkflowPdlConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlConverter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter;{40604b62-0ae4-51f1-818f-731dc0b005ab})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1731,17 +1577,6 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
 impl ::core::clone::Clone for PrintWorkflowPdlDataAvailableEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowPdlDataAvailableEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlDataAvailableEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowPdlDataAvailableEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlDataAvailableEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
@@ -1880,17 +1715,6 @@ impl ::core::clone::Clone for PrintWorkflowPdlModificationRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPdlModificationRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlModificationRequestedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowPdlModificationRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlModificationRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs;{1a339a61-2e13-5edd-a707-ceec61d7333b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1945,17 +1769,6 @@ impl ::core::clone::Clone for PrintWorkflowPdlSourceContent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPdlSourceContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlSourceContent {}
-impl ::core::fmt::Debug for PrintWorkflowPdlSourceContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlSourceContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent;{92f7fc41-32b8-56ab-845e-b1e68b3aedd5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1996,17 +1809,6 @@ impl PrintWorkflowPdlTargetStream {
 impl ::core::clone::Clone for PrintWorkflowPdlTargetStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowPdlTargetStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlTargetStream {}
-impl ::core::fmt::Debug for PrintWorkflowPdlTargetStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlTargetStream").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlTargetStream {
@@ -2122,17 +1924,6 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJob {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPrinterJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPrinterJob {}
-impl ::core::fmt::Debug for PrintWorkflowPrinterJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPrinterJob").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob;{12009f94-0d14-5443-bc09-250311ce570b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2185,17 +1976,6 @@ impl ::core::clone::Clone for PrintWorkflowSourceContent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSourceContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSourceContent {}
-impl ::core::fmt::Debug for PrintWorkflowSourceContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSourceContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSourceContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent;{1a28c641-ceb1-4533-bb73-fbe63eefdb18})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2234,17 +2014,6 @@ impl ::core::clone::Clone for PrintWorkflowSpoolStreamContent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSpoolStreamContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSpoolStreamContent {}
-impl ::core::fmt::Debug for PrintWorkflowSpoolStreamContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSpoolStreamContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSpoolStreamContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent;{72e55ece-e406-4b74-84e1-3ff3fdcdaf70})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2281,17 +2050,6 @@ impl PrintWorkflowStreamTarget {
 impl ::core::clone::Clone for PrintWorkflowStreamTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowStreamTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowStreamTarget {}
-impl ::core::fmt::Debug for PrintWorkflowStreamTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowStreamTarget").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowStreamTarget {
@@ -2348,17 +2106,6 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSubmittedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSubmittedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowSubmittedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSubmittedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs;{3add0a41-3794-5569-5c87-40e8ff720f83})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2406,17 +2153,6 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSubmittedOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSubmittedOperation {}
-impl ::core::fmt::Debug for PrintWorkflowSubmittedOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSubmittedOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation;{2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2460,17 +2196,6 @@ impl ::core::clone::Clone for PrintWorkflowTarget {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowTarget {}
-impl ::core::fmt::Debug for PrintWorkflowTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowTarget;{29da276c-0a73-5aed-4f3d-970d3251f057})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2505,17 +2230,6 @@ impl PrintWorkflowTriggerDetails {
 impl ::core::clone::Clone for PrintWorkflowTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowTriggerDetails {}
-impl ::core::fmt::Debug for PrintWorkflowTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowTriggerDetails {
@@ -2588,17 +2302,6 @@ impl PrintWorkflowUIActivatedEventArgs {
 impl ::core::clone::Clone for PrintWorkflowUIActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintWorkflowUIActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowUIActivatedEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowUIActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowUIActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
@@ -2690,17 +2393,6 @@ impl ::core::clone::Clone for PrintWorkflowUILauncher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowUILauncher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowUILauncher {}
-impl ::core::fmt::Debug for PrintWorkflowUILauncher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowUILauncher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUILauncher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher;{64e9e22f-14cc-5828-96fb-39163fb6c378})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2746,17 +2438,6 @@ impl ::core::clone::Clone for PrintWorkflowXpsDataAvailableEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintWorkflowXpsDataAvailableEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowXpsDataAvailableEventArgs {}
-impl ::core::fmt::Debug for PrintWorkflowXpsDataAvailableEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowXpsDataAvailableEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs;{4d11c331-54d1-434e-be0e-82c5fa58e5b2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2794,46 +2475,8 @@ impl ::core::clone::Clone for PdlConversionHostBasedProcessingOperations {
         *self
     }
 }
-impl ::core::default::Default for PdlConversionHostBasedProcessingOperations {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PdlConversionHostBasedProcessingOperations {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PdlConversionHostBasedProcessingOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdlConversionHostBasedProcessingOperations").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PdlConversionHostBasedProcessingOperations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PdlConversionHostBasedProcessingOperations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PdlConversionHostBasedProcessingOperations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PdlConversionHostBasedProcessingOperations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PdlConversionHostBasedProcessingOperations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PdlConversionHostBasedProcessingOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
@@ -2857,18 +2500,8 @@ impl ::core::clone::Clone for PrintWorkflowAttributesMergePolicy {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowAttributesMergePolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowAttributesMergePolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowAttributesMergePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowAttributesMergePolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowAttributesMergePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
@@ -2891,18 +2524,8 @@ impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowJobAbortReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
@@ -2926,18 +2549,8 @@ impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowPdlConversionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
@@ -2962,18 +2575,8 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowPrinterJobStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
@@ -2999,18 +2602,8 @@ impl ::core::clone::Clone for PrintWorkflowSessionStatus {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowSessionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
@@ -3034,18 +2627,8 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowSubmittedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
@@ -3070,18 +2653,8 @@ impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
         *self
     }
 }
-impl ::core::default::Default for PrintWorkflowUICompletionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
@@ -3092,3 +2665,5 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

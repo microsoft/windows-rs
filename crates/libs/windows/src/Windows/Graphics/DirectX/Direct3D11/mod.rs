@@ -41,17 +41,6 @@ impl ::core::clone::Clone for IDirect3DDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDirect3DDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirect3DDevice {}
-impl ::core::fmt::Debug for IDirect3DDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirect3DDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
     type DefaultType = ::core::option::Option<Self>;
@@ -117,17 +106,6 @@ impl ::core::clone::Clone for IDirect3DSurface {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDirect3DSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirect3DSurface {}
-impl ::core::fmt::Debug for IDirect3DSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirect3DSurface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
     type DefaultType = ::core::option::Option<Self>;
@@ -169,46 +147,8 @@ impl ::core::clone::Clone for Direct3DBindings {
         *self
     }
 }
-impl ::core::default::Default for Direct3DBindings {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Direct3DBindings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3DBindings").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for Direct3DBindings {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for Direct3DBindings {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for Direct3DBindings {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for Direct3DBindings {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for Direct3DBindings {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DBindings;u4)");
@@ -233,18 +173,8 @@ impl ::core::clone::Clone for Direct3DUsage {
         *self
     }
 }
-impl ::core::default::Default for Direct3DUsage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DUsage {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Direct3DUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3DUsage").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.Direct3D11.Direct3DUsage;i4)");
@@ -265,11 +195,6 @@ impl ::core::clone::Clone for Direct3DMultisampleDescription {
         *self
     }
 }
-impl ::core::fmt::Debug for Direct3DMultisampleDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Direct3DMultisampleDescription").field("Count", &self.Count).field("Quality", &self.Quality).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DMultisampleDescription {
     type Abi = Self;
 }
@@ -278,17 +203,6 @@ unsafe impl ::windows::core::RuntimeType for Direct3DMultisampleDescription {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Direct3DMultisampleDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Quality == other.Quality
-    }
-}
-impl ::core::cmp::Eq for Direct3DMultisampleDescription {}
-impl ::core::default::Default for Direct3DMultisampleDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -305,11 +219,6 @@ impl ::core::clone::Clone for Direct3DSurfaceDescription {
         *self
     }
 }
-impl ::core::fmt::Debug for Direct3DSurfaceDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Direct3DSurfaceDescription").field("Width", &self.Width).field("Height", &self.Height).field("Format", &self.Format).field("MultisampleDescription", &self.MultisampleDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Direct3DSurfaceDescription {
     type Abi = Self;
 }
@@ -320,16 +229,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3DSurfaceDescription {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for Direct3DSurfaceDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height && self.Format == other.Format && self.MultisampleDescription == other.MultisampleDescription
-    }
-}
-impl ::core::cmp::Eq for Direct3DSurfaceDescription {}
-impl ::core::default::Default for Direct3DSurfaceDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

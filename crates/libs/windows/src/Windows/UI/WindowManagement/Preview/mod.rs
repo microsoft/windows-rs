@@ -50,17 +50,6 @@ impl ::core::clone::Clone for WindowManagementPreview {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowManagementPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowManagementPreview {}
-impl ::core::fmt::Debug for WindowManagementPreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowManagementPreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.Preview.WindowManagementPreview;{4ef55b0d-561d-513c-a67c-2c02b69cef41})");
     type DefaultType = ::core::option::Option<Self>;
@@ -82,3 +71,5 @@ unsafe impl ::core::marker::Send for WindowManagementPreview {}
 unsafe impl ::core::marker::Sync for WindowManagementPreview {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

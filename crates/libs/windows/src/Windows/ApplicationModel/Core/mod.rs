@@ -216,17 +216,6 @@ impl ::core::clone::Clone for ICoreApplicationUnhandledError {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICoreApplicationUnhandledError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreApplicationUnhandledError {}
-impl ::core::fmt::Debug for ICoreApplicationUnhandledError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreApplicationUnhandledError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICoreApplicationUnhandledError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -494,17 +483,6 @@ impl ::core::clone::Clone for IFrameworkView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFrameworkView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFrameworkView {}
-impl ::core::fmt::Debug for IFrameworkView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFrameworkView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IFrameworkView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
     type DefaultType = ::core::option::Option<Self>;
@@ -547,17 +525,6 @@ impl IFrameworkViewSource {
 impl ::core::clone::Clone for IFrameworkViewSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFrameworkViewSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFrameworkViewSource {}
-impl ::core::fmt::Debug for IFrameworkViewSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFrameworkViewSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IFrameworkViewSource {
@@ -675,17 +642,6 @@ impl AppListEntry {
 impl ::core::clone::Clone for AppListEntry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppListEntry {}
-impl ::core::fmt::Debug for AppListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppListEntry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppListEntry {
@@ -1054,17 +1010,6 @@ impl ::core::clone::Clone for CoreApplicationView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreApplicationView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreApplicationView {}
-impl ::core::fmt::Debug for CoreApplicationView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreApplicationView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreApplicationView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationView;{638bb2db-451d-4661-b099-414f34ffb9f1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1161,17 +1106,6 @@ impl ::core::clone::Clone for CoreApplicationViewTitleBar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreApplicationViewTitleBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreApplicationViewTitleBar {}
-impl ::core::fmt::Debug for CoreApplicationViewTitleBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreApplicationViewTitleBar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreApplicationViewTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar;{006d35e3-e1f1-431b-9508-29b96926ac53})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1206,17 +1140,6 @@ impl HostedViewClosingEventArgs {
 impl ::core::clone::Clone for HostedViewClosingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HostedViewClosingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HostedViewClosingEventArgs {}
-impl ::core::fmt::Debug for HostedViewClosingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostedViewClosingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HostedViewClosingEventArgs {
@@ -1259,17 +1182,6 @@ impl ::core::clone::Clone for UnhandledError {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UnhandledError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnhandledError {}
-impl ::core::fmt::Debug for UnhandledError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnhandledError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UnhandledError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledError;{9459b726-53b5-4686-9eaf-fa8162dc3980})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1304,17 +1216,6 @@ impl UnhandledErrorDetectedEventArgs {
 impl ::core::clone::Clone for UnhandledErrorDetectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UnhandledErrorDetectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnhandledErrorDetectedEventArgs {}
-impl ::core::fmt::Debug for UnhandledErrorDetectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnhandledErrorDetectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UnhandledErrorDetectedEventArgs {
@@ -1352,18 +1253,8 @@ impl ::core::clone::Clone for AppRestartFailureReason {
         *self
     }
 }
-impl ::core::default::Default for AppRestartFailureReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppRestartFailureReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppRestartFailureReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRestartFailureReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppRestartFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
@@ -1374,3 +1265,5 @@ unsafe impl ::windows::core::RuntimeType for AppRestartFailureReason {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

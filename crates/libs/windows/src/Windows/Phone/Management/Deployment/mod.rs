@@ -221,17 +221,6 @@ impl ::core::clone::Clone for Enterprise {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Enterprise {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Enterprise {}
-impl ::core::fmt::Debug for Enterprise {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Enterprise").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Enterprise {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
     type DefaultType = ::core::option::Option<Self>;
@@ -323,17 +312,6 @@ impl EnterpriseEnrollmentResult {
 impl ::core::clone::Clone for EnterpriseEnrollmentResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EnterpriseEnrollmentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseEnrollmentResult {}
-impl ::core::fmt::Debug for EnterpriseEnrollmentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentResult {
@@ -471,17 +449,6 @@ impl ::core::clone::Clone for PackageInstallResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageInstallResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageInstallResult {}
-impl ::core::fmt::Debug for PackageInstallResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageInstallResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageInstallResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -514,18 +481,8 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
         *self
     }
 }
-impl ::core::default::Default for EnterpriseEnrollmentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseEnrollmentStatus;i4)");
@@ -550,18 +507,8 @@ impl ::core::clone::Clone for EnterpriseStatus {
         *self
     }
 }
-impl ::core::default::Default for EnterpriseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EnterpriseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EnterpriseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
@@ -572,3 +519,5 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

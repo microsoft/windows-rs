@@ -209,17 +209,6 @@ impl ::core::clone::Clone for IHttpFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHttpFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpFilter {}
-impl ::core::fmt::Debug for IHttpFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IHttpFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a4cb6dd5-0902-439e-bfd7-e12552b165ce}");
     type DefaultType = ::core::option::Option<Self>;
@@ -496,17 +485,6 @@ impl ::core::clone::Clone for HttpBaseProtocolFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpBaseProtocolFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpBaseProtocolFilter {}
-impl ::core::fmt::Debug for HttpBaseProtocolFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpBaseProtocolFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpBaseProtocolFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpBaseProtocolFilter;{71c89b09-e131-4b54-a53c-eb43ff37e9bb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -599,17 +577,6 @@ impl ::core::clone::Clone for HttpCacheControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpCacheControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCacheControl {}
-impl ::core::fmt::Debug for HttpCacheControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpCacheControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpCacheControl;{c77e1cb4-3cea-4eb5-ac85-04e186e63ab7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -695,17 +662,6 @@ impl ::core::clone::Clone for HttpServerCustomValidationRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpServerCustomValidationRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpServerCustomValidationRequestedEventArgs {}
-impl ::core::fmt::Debug for HttpServerCustomValidationRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpServerCustomValidationRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpServerCustomValidationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs;{3165fe32-e7dd-48b7-a361-939c750e63cc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -741,18 +697,8 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
         *self
     }
 }
-impl ::core::default::Default for HttpCacheReadBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCacheReadBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpCacheReadBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
@@ -775,18 +721,8 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
         *self
     }
 }
-impl ::core::default::Default for HttpCacheWriteBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpCacheWriteBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
@@ -809,18 +745,8 @@ impl ::core::clone::Clone for HttpCookieUsageBehavior {
         *self
     }
 }
-impl ::core::default::Default for HttpCookieUsageBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HttpCookieUsageBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpCookieUsageBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HttpCookieUsageBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
@@ -831,3 +757,5 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieUsageBehavior {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

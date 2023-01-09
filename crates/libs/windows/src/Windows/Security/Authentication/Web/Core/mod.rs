@@ -436,17 +436,6 @@ impl ::core::clone::Clone for FindAllAccountsResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FindAllAccountsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindAllAccountsResult {}
-impl ::core::fmt::Debug for FindAllAccountsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAllAccountsResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -483,17 +472,6 @@ impl WebAccountEventArgs {
 impl ::core::clone::Clone for WebAccountEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccountEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountEventArgs {}
-impl ::core::fmt::Debug for WebAccountEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountEventArgs {
@@ -583,17 +561,6 @@ impl WebAccountMonitor {
 impl ::core::clone::Clone for WebAccountMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccountMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountMonitor {}
-impl ::core::fmt::Debug for WebAccountMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountMonitor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountMonitor {
@@ -802,17 +769,6 @@ impl ::core::clone::Clone for WebProviderError {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebProviderError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebProviderError {}
-impl ::core::fmt::Debug for WebProviderError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebProviderError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebProviderError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -938,17 +894,6 @@ impl ::core::clone::Clone for WebTokenRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebTokenRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebTokenRequest {}
-impl ::core::fmt::Debug for WebTokenRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebTokenRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1008,17 +953,6 @@ impl WebTokenRequestResult {
 impl ::core::clone::Clone for WebTokenRequestResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebTokenRequestResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebTokenRequestResult {}
-impl ::core::fmt::Debug for WebTokenRequestResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequestResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestResult {
@@ -1116,17 +1050,6 @@ impl ::core::clone::Clone for WebTokenResponse {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebTokenResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebTokenResponse {}
-impl ::core::fmt::Debug for WebTokenResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenResponse").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebTokenResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1162,18 +1085,8 @@ impl ::core::clone::Clone for FindAllWebAccountsStatus {
         *self
     }
 }
-impl ::core::default::Default for FindAllWebAccountsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FindAllWebAccountsStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAllWebAccountsStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FindAllWebAccountsStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
@@ -1196,18 +1109,8 @@ impl ::core::clone::Clone for WebTokenRequestPromptType {
         *self
     }
 }
-impl ::core::default::Default for WebTokenRequestPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebTokenRequestPromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequestPromptType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
@@ -1234,18 +1137,8 @@ impl ::core::clone::Clone for WebTokenRequestStatus {
         *self
     }
 }
-impl ::core::default::Default for WebTokenRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebTokenRequestStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebTokenRequestStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequestStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
@@ -1256,3 +1149,5 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -16,17 +16,6 @@ impl ::core::clone::Clone for II2cControllerProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for II2cControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cControllerProvider {}
-impl ::core::fmt::Debug for II2cControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cControllerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c2bb82-4510-4163-a87c-4e15a9558980}");
     type DefaultType = ::core::option::Option<Self>;
@@ -125,17 +114,6 @@ impl ::core::clone::Clone for II2cDeviceProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for II2cDeviceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cDeviceProvider {}
-impl ::core::fmt::Debug for II2cDeviceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cDeviceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad342654-57e8-453e-8329-d1e447d103a9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -179,17 +157,6 @@ impl II2cProvider {
 impl ::core::clone::Clone for II2cProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for II2cProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for II2cProvider {}
-impl ::core::fmt::Debug for II2cProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("II2cProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for II2cProvider {
@@ -277,17 +244,6 @@ impl ::core::clone::Clone for ProviderI2cConnectionSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProviderI2cConnectionSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderI2cConnectionSettings {}
-impl ::core::fmt::Debug for ProviderI2cConnectionSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cConnectionSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings;{e9db4e34-e510-44b7-809d-f2f85b555339})");
     type DefaultType = ::core::option::Option<Self>;
@@ -321,18 +277,8 @@ impl ::core::clone::Clone for ProviderI2cBusSpeed {
         *self
     }
 }
-impl ::core::default::Default for ProviderI2cBusSpeed {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cBusSpeed {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderI2cBusSpeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cBusSpeed").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cBusSpeed;i4)");
@@ -355,18 +301,8 @@ impl ::core::clone::Clone for ProviderI2cSharingMode {
         *self
     }
 }
-impl ::core::default::Default for ProviderI2cSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cSharingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderI2cSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cSharingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cSharingMode;i4)");
@@ -390,18 +326,8 @@ impl ::core::clone::Clone for ProviderI2cTransferStatus {
         *self
     }
 }
-impl ::core::default::Default for ProviderI2cTransferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cTransferStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderI2cTransferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderI2cTransferStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
@@ -422,11 +348,6 @@ impl ::core::clone::Clone for ProviderI2cTransferResult {
         *self
     }
 }
-impl ::core::fmt::Debug for ProviderI2cTransferResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ProviderI2cTransferResult").field("Status", &self.Status).field("BytesTransferred", &self.BytesTransferred).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderI2cTransferResult {
     type Abi = Self;
 }
@@ -437,16 +358,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cTransferResult {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for ProviderI2cTransferResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.BytesTransferred == other.BytesTransferred
-    }
-}
-impl ::core::cmp::Eq for ProviderI2cTransferResult {}
-impl ::core::default::Default for ProviderI2cTransferResult {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

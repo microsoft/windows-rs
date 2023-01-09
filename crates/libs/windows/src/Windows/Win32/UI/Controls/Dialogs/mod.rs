@@ -175,17 +175,6 @@ impl ::core::clone::Clone for IPrintDialogCallback {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPrintDialogCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogCallback {}
-impl ::core::fmt::Debug for IPrintDialogCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_Vtbl;
 }
@@ -223,17 +212,6 @@ impl IPrintDialogServices {
 impl ::core::clone::Clone for IPrintDialogServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPrintDialogServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogServices {}
-impl ::core::fmt::Debug for IPrintDialogServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPrintDialogServices {
@@ -473,46 +451,8 @@ impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CHOOSECOLOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CHOOSECOLOR_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CHOOSECOLOR_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHOOSECOLOR_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHOOSECOLOR_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHOOSECOLOR_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -582,46 +522,8 @@ impl ::core::clone::Clone for CHOOSEFONT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CHOOSEFONT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CHOOSEFONT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CHOOSEFONT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHOOSEFONT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CHOOSEFONT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CHOOSEFONT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHOOSEFONT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHOOSEFONT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CHOOSEFONT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -645,46 +547,8 @@ impl ::core::clone::Clone for CHOOSEFONT_FONT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CHOOSEFONT_FONT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CHOOSEFONT_FONT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CHOOSEFONT_FONT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHOOSEFONT_FONT_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CHOOSEFONT_FONT_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CHOOSEFONT_FONT_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHOOSEFONT_FONT_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHOOSEFONT_FONT_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -716,18 +580,8 @@ impl ::core::clone::Clone for COMMON_DIALOG_NOTIFICATION {
         *self
     }
 }
-impl ::core::default::Default for COMMON_DIALOG_NOTIFICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMMON_DIALOG_NOTIFICATION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMMON_DIALOG_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMMON_DIALOG_NOTIFICATION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -813,18 +667,8 @@ impl ::core::clone::Clone for COMMON_DLG_ERRORS {
         *self
     }
 }
-impl ::core::default::Default for COMMON_DLG_ERRORS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMMON_DLG_ERRORS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMMON_DLG_ERRORS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMMON_DLG_ERRORS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -870,46 +714,8 @@ impl ::core::clone::Clone for FINDREPLACE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for FINDREPLACE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FINDREPLACE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FINDREPLACE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FINDREPLACE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FINDREPLACE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FINDREPLACE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FINDREPLACE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FINDREPLACE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FINDREPLACE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -973,46 +779,8 @@ impl ::core::clone::Clone for OPEN_FILENAME_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for OPEN_FILENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OPEN_FILENAME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPEN_FILENAME_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OPEN_FILENAME_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OPEN_FILENAME_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OPEN_FILENAME_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OPEN_FILENAME_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -1028,46 +796,8 @@ impl ::core::clone::Clone for OPEN_FILENAME_FLAGS_EX {
         *self
     }
 }
-impl ::core::default::Default for OPEN_FILENAME_FLAGS_EX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS_EX {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OPEN_FILENAME_FLAGS_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPEN_FILENAME_FLAGS_EX").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS_EX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OPEN_FILENAME_FLAGS_EX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OPEN_FILENAME_FLAGS_EX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OPEN_FILENAME_FLAGS_EX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OPEN_FILENAME_FLAGS_EX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -1117,46 +847,8 @@ impl ::core::clone::Clone for PAGESETUPDLG_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for PAGESETUPDLG_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PAGESETUPDLG_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PAGESETUPDLG_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PAGESETUPDLG_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PAGESETUPDLG_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PAGESETUPDLG_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PAGESETUPDLG_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PAGESETUPDLG_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PAGESETUPDLG_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
@@ -1224,47 +916,9 @@ impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for PRINTDLGEX_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for PRINTDLGEX_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PRINTDLGEX_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PRINTDLGEX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PRINTDLGEX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1294,13 +948,6 @@ impl ::core::clone::Clone for CHOOSECOLORA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -1332,13 +979,6 @@ impl ::core::clone::Clone for CHOOSECOLORA {
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1369,13 +1009,6 @@ impl ::core::clone::Clone for CHOOSECOLORW {
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1405,13 +1038,6 @@ impl ::core::clone::Clone for CHOOSECOLORW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1450,13 +1076,6 @@ impl ::core::clone::Clone for CHOOSEFONTA {
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1494,13 +1113,6 @@ impl ::core::clone::Clone for CHOOSEFONTA {
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1537,13 +1149,6 @@ impl ::core::clone::Clone for CHOOSEFONTW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1582,13 +1187,6 @@ impl ::core::clone::Clone for CHOOSEFONTW {
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1610,12 +1208,6 @@ impl ::core::clone::Clone for DEVNAMES {
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DEVNAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1636,12 +1228,6 @@ impl ::core::clone::Clone for DEVNAMES {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DEVNAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -1675,13 +1261,6 @@ impl ::core::clone::Clone for FINDREPLACEA {
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1714,13 +1293,6 @@ impl ::core::clone::Clone for FINDREPLACEA {
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1752,13 +1324,6 @@ impl ::core::clone::Clone for FINDREPLACEW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -1792,13 +1357,6 @@ impl ::core::clone::Clone for FINDREPLACEW {
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1823,13 +1381,6 @@ impl ::core::clone::Clone for OFNOTIFYA {
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1853,13 +1404,6 @@ impl ::core::clone::Clone for OFNOTIFYA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -1886,13 +1430,6 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -1918,13 +1455,6 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1949,13 +1479,6 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -1982,13 +1505,6 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2013,13 +1529,6 @@ impl ::core::clone::Clone for OFNOTIFYW {
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2043,13 +1552,6 @@ impl ::core::clone::Clone for OFNOTIFYW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -2095,13 +1597,6 @@ impl ::core::clone::Clone for OPENFILENAMEA {
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2146,13 +1641,6 @@ impl ::core::clone::Clone for OPENFILENAMEA {
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2196,13 +1684,6 @@ impl ::core::clone::Clone for OPENFILENAMEW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -2248,13 +1729,6 @@ impl ::core::clone::Clone for OPENFILENAMEW {
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2295,13 +1769,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -2344,13 +1811,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2391,13 +1851,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -2440,13 +1893,6 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2481,13 +1927,6 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
@@ -2524,13 +1963,6 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2566,13 +1998,6 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2607,13 +2032,6 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2655,13 +2073,6 @@ impl ::core::clone::Clone for PRINTDLGA {
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2701,13 +2112,6 @@ impl ::core::clone::Clone for PRINTDLGA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2748,13 +2152,6 @@ impl ::core::clone::Clone for PRINTDLGEXA {
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2786,13 +2183,6 @@ pub struct PRINTDLGEXA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2833,13 +2223,6 @@ impl ::core::clone::Clone for PRINTDLGEXW {
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(target_arch = "x86")]
@@ -2872,13 +2255,6 @@ pub struct PRINTDLGEXW {
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2918,13 +2294,6 @@ impl ::core::clone::Clone for PRINTDLGW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2966,13 +2335,6 @@ impl ::core::clone::Clone for PRINTDLGW {
 unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for PRINTDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2992,12 +2354,6 @@ impl ::core::clone::Clone for PRINTPAGERANGE {
 unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for PRINTPAGERANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[cfg(target_arch = "x86")]
@@ -3016,12 +2372,6 @@ impl ::core::clone::Clone for PRINTPAGERANGE {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for PRINTPAGERANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3049,3 +2399,5 @@ pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(para
 pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

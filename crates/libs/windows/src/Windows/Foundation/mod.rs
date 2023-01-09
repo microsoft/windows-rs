@@ -80,17 +80,6 @@ impl ::core::clone::Clone for IAsyncAction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAsyncAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAsyncAction {}
-impl ::core::fmt::Debug for IAsyncAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncAction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAsyncAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5a648006-843a-4da9-865b-9d26e5dfad7b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -259,17 +248,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for
         Self(self.0.clone(), ::core::marker::PhantomData::<TProgress>)
     }
 }
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IAsyncActionWithProgress<TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncActionWithProgress<TProgress> {}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncActionWithProgress<TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncActionWithProgress").field(&self.0).finish()
-    }
-}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncActionWithProgress<TProgress> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(<TProgress as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
     type DefaultType = ::core::option::Option<Self>;
@@ -366,17 +344,6 @@ impl IAsyncInfo {
 impl ::core::clone::Clone for IAsyncInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAsyncInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAsyncInfo {}
-impl ::core::fmt::Debug for IAsyncInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAsyncInfo {
@@ -508,17 +475,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IAsyncOperation<TResult> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<TResult>)
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IAsyncOperation<TResult> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperation<TResult> {}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperation<TResult> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncOperation").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperation<TResult> {
@@ -697,17 +653,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         Self(self.0.clone(), ::core::marker::PhantomData::<TResult>, ::core::marker::PhantomData::<TProgress>)
     }
 }
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IAsyncOperationWithProgress<TResult, TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperationWithProgress<TResult, TProgress> {}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperationWithProgress<TResult, TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncOperationWithProgress").field(&self.0).finish()
-    }
-}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(<TResult as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TProgress as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
     type DefaultType = ::core::option::Option<Self>;
@@ -783,17 +728,6 @@ impl ::core::clone::Clone for IClosable {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IClosable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IClosable {}
-impl ::core::fmt::Debug for IClosable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IClosable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IClosable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d5a829-7fa4-4026-83bb-d75bae4ea99e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -859,17 +793,6 @@ impl IGetActivationFactory {
 impl ::core::clone::Clone for IGetActivationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGetActivationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetActivationFactory {}
-impl ::core::fmt::Debug for IGetActivationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetActivationFactory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IGetActivationFactory {
@@ -947,17 +870,6 @@ impl ::core::convert::TryFrom<&IMemoryBuffer> for ::windows::core::InParam<IClos
 impl ::core::clone::Clone for IMemoryBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMemoryBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMemoryBuffer {}
-impl ::core::fmt::Debug for IMemoryBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMemoryBuffer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IMemoryBuffer {
@@ -1044,17 +956,6 @@ impl ::core::convert::TryFrom<&IMemoryBufferReference> for ::windows::core::InPa
 impl ::core::clone::Clone for IMemoryBufferReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMemoryBufferReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMemoryBufferReference {}
-impl ::core::fmt::Debug for IMemoryBufferReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMemoryBufferReference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IMemoryBufferReference {
@@ -1303,17 +1204,6 @@ impl IPropertyValue {
 impl ::core::clone::Clone for IPropertyValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPropertyValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertyValue {}
-impl ::core::fmt::Debug for IPropertyValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertyValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IPropertyValue {
@@ -1710,17 +1600,6 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IRefere
         Self(self.0.clone(), ::core::marker::PhantomData::<T>)
     }
 }
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IReference<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReference<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReference").field(&self.0).finish()
-    }
-}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
     type DefaultType = ::core::option::Option<Self>;
@@ -2028,17 +1907,6 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IRefere
         Self(self.0.clone(), ::core::marker::PhantomData::<T>)
     }
 }
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IReferenceArray<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReferenceArray<T> {}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReferenceArray<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceArray").field(&self.0).finish()
-    }
-}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReferenceArray<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
     type DefaultType = ::core::option::Option<Self>;
@@ -2078,17 +1946,6 @@ impl IStringable {
 impl ::core::clone::Clone for IStringable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStringable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStringable {}
-impl ::core::fmt::Debug for IStringable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStringable").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IStringable {
@@ -2214,17 +2071,6 @@ impl ::core::clone::Clone for IWwwFormUrlDecoderEntry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWwwFormUrlDecoderEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWwwFormUrlDecoderEntry {}
-impl ::core::fmt::Debug for IWwwFormUrlDecoderEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWwwFormUrlDecoderEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{125e7431-f678-4e8e-b670-20a9b06c512d}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2302,17 +2148,6 @@ impl Deferral {
 impl ::core::clone::Clone for Deferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Deferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Deferral {}
-impl ::core::fmt::Debug for Deferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Deferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Deferral {
@@ -2413,17 +2248,6 @@ impl MemoryBuffer {
 impl ::core::clone::Clone for MemoryBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MemoryBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MemoryBuffer {}
-impl ::core::fmt::Debug for MemoryBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MemoryBuffer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MemoryBuffer {
@@ -2916,17 +2740,6 @@ impl ::core::clone::Clone for Uri {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Uri {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Uri {}
-impl ::core::fmt::Debug for Uri {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Uri").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Uri {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3042,17 +2855,6 @@ impl ::core::clone::Clone for WwwFormUrlDecoder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WwwFormUrlDecoder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwwFormUrlDecoder {}
-impl ::core::fmt::Debug for WwwFormUrlDecoder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwwFormUrlDecoder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3156,17 +2958,6 @@ impl ::core::clone::Clone for WwwFormUrlDecoderEntry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WwwFormUrlDecoderEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwwFormUrlDecoderEntry {}
-impl ::core::fmt::Debug for WwwFormUrlDecoderEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwwFormUrlDecoderEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoderEntry;{125e7431-f678-4e8e-b670-20a9b06c512d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3221,18 +3012,8 @@ impl ::core::clone::Clone for AsyncStatus {
         *self
     }
 }
-impl ::core::default::Default for AsyncStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AsyncStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AsyncStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AsyncStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
@@ -3294,18 +3075,8 @@ impl ::core::clone::Clone for PropertyType {
         *self
     }
 }
-impl ::core::default::Default for PropertyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PropertyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PropertyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
@@ -3325,11 +3096,6 @@ impl ::core::clone::Clone for DateTime {
         *self
     }
 }
-impl ::core::fmt::Debug for DateTime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DateTime").field("UniversalTime", &self.UniversalTime).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DateTime {
     type Abi = Self;
 }
@@ -3338,17 +3104,6 @@ unsafe impl ::windows::core::RuntimeType for DateTime {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for DateTime {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniversalTime == other.UniversalTime
-    }
-}
-impl ::core::cmp::Eq for DateTime {}
-impl ::core::default::Default for DateTime {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3362,11 +3117,6 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-impl ::core::fmt::Debug for EventRegistrationToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EventRegistrationToken").field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EventRegistrationToken {
     type Abi = Self;
 }
@@ -3375,17 +3125,6 @@ unsafe impl ::windows::core::RuntimeType for EventRegistrationToken {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for EventRegistrationToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for EventRegistrationToken {}
-impl ::core::default::Default for EventRegistrationToken {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3400,11 +3139,6 @@ impl ::core::clone::Clone for Point {
         *self
     }
 }
-impl ::core::fmt::Debug for Point {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Point").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Point {
     type Abi = Self;
 }
@@ -3413,17 +3147,6 @@ unsafe impl ::windows::core::RuntimeType for Point {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Point {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl ::core::cmp::Eq for Point {}
-impl ::core::default::Default for Point {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3440,11 +3163,6 @@ impl ::core::clone::Clone for Rect {
         *self
     }
 }
-impl ::core::fmt::Debug for Rect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Rect").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Rect {
     type Abi = Self;
 }
@@ -3453,17 +3171,6 @@ unsafe impl ::windows::core::RuntimeType for Rect {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Rect {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl ::core::cmp::Eq for Rect {}
-impl ::core::default::Default for Rect {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3478,11 +3185,6 @@ impl ::core::clone::Clone for Size {
         *self
     }
 }
-impl ::core::fmt::Debug for Size {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Size").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Size {
     type Abi = Self;
 }
@@ -3491,17 +3193,6 @@ unsafe impl ::windows::core::RuntimeType for Size {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Size {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl ::core::cmp::Eq for Size {}
-impl ::core::default::Default for Size {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3515,11 +3206,6 @@ impl ::core::clone::Clone for TimeSpan {
         *self
     }
 }
-impl ::core::fmt::Debug for TimeSpan {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimeSpan").field("Duration", &self.Duration).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TimeSpan {
     type Abi = Self;
 }
@@ -3528,17 +3214,6 @@ unsafe impl ::windows::core::RuntimeType for TimeSpan {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for TimeSpan {
-    fn eq(&self, other: &Self) -> bool {
-        self.Duration == other.Duration
-    }
-}
-impl ::core::cmp::Eq for TimeSpan {}
-impl ::core::default::Default for TimeSpan {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 impl ::core::convert::From<::core::time::Duration> for TimeSpan {
@@ -3609,17 +3284,6 @@ impl<F: FnMut(&::core::option::Option<IAsyncAction>, AsyncStatus) -> ::windows::
 impl ::core::clone::Clone for AsyncActionCompletedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncActionCompletedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncActionCompletedHandler {}
-impl ::core::fmt::Debug for AsyncActionCompletedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncActionCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for AsyncActionCompletedHandler {
@@ -3706,17 +3370,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for AsyncActionProgressHandler<TProgress> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<TProgress>)
-    }
-}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for AsyncActionProgressHandler<TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionProgressHandler<TProgress> {}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionProgressHandler<TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncActionProgressHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for AsyncActionProgressHandler<TProgress> {
@@ -3808,17 +3461,6 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for
         Self(self.0.clone(), ::core::marker::PhantomData::<TProgress>)
     }
 }
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for AsyncActionWithProgressCompletedHandler<TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionWithProgressCompletedHandler<TProgress> {}
-impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionWithProgressCompletedHandler<TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncActionWithProgressCompletedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for AsyncActionWithProgressCompletedHandler<TProgress> {
     type Vtable = AsyncActionWithProgressCompletedHandler_Vtbl<TProgress>;
 }
@@ -3906,17 +3548,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for AsyncOperationCompletedHandler<TResult> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<TResult>)
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for AsyncOperationCompletedHandler<TResult> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationCompletedHandler<TResult> {}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationCompletedHandler<TResult> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for AsyncOperationCompletedHandler<TResult> {
@@ -4010,17 +3641,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for AsyncOperationProgressHandler<TResult, TProgress> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<TResult>, ::core::marker::PhantomData::<TProgress>)
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for AsyncOperationProgressHandler<TResult, TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationProgressHandler<TResult, TProgress> {}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationProgressHandler<TResult, TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationProgressHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for AsyncOperationProgressHandler<TResult, TProgress> {
@@ -4117,17 +3737,6 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         Self(self.0.clone(), ::core::marker::PhantomData::<TResult>, ::core::marker::PhantomData::<TProgress>)
     }
 }
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
-impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationWithProgressCompletedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     type Vtable = AsyncOperationWithProgressCompletedHandler_Vtbl<TResult, TProgress>;
 }
@@ -4207,17 +3816,6 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
 impl ::core::clone::Clone for DeferralCompletedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeferralCompletedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeferralCompletedHandler {}
-impl ::core::fmt::Debug for DeferralCompletedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeferralCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for DeferralCompletedHandler {
@@ -4303,17 +3901,6 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for EventHandler<T> {
     fn clone(&self) -> Self {
         Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for EventHandler<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for EventHandler<T> {}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for EventHandler<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EventHandler").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for EventHandler<T> {
@@ -4408,17 +3995,6 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
         Self(self.0.clone(), ::core::marker::PhantomData::<TSender>, ::core::marker::PhantomData::<TResult>)
     }
 }
-impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for TypedEventHandler<TSender, TResult> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for TypedEventHandler<TSender, TResult> {}
-impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for TypedEventHandler<TSender, TResult> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TypedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Vtable for TypedEventHandler<TSender, TResult> {
     type Vtable = TypedEventHandler_Vtbl<TSender, TResult>;
 }
@@ -4446,3 +4022,5 @@ where
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

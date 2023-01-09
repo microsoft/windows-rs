@@ -150,17 +150,6 @@ impl ::core::clone::Clone for SceneLightingEffect {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneLightingEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneLightingEffect {}
-impl ::core::fmt::Debug for SceneLightingEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneLightingEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -238,18 +227,8 @@ impl ::core::clone::Clone for SceneLightingEffectReflectanceModel {
         *self
     }
 }
-impl ::core::default::Default for SceneLightingEffectReflectanceModel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneLightingEffectReflectanceModel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneLightingEffectReflectanceModel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
@@ -260,3 +239,5 @@ unsafe impl ::windows::core::RuntimeType for SceneLightingEffectReflectanceModel
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

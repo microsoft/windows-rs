@@ -16,18 +16,8 @@ impl ::core::clone::Clone for DirectXAlphaMode {
         *self
     }
 }
-impl ::core::default::Default for DirectXAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DirectXAlphaMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DirectXAlphaMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
@@ -73,18 +63,8 @@ impl ::core::clone::Clone for DirectXColorSpace {
         *self
     }
 }
-impl ::core::default::Default for DirectXColorSpace {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DirectXColorSpace {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DirectXColorSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
@@ -226,18 +206,8 @@ impl ::core::clone::Clone for DirectXPixelFormat {
         *self
     }
 }
-impl ::core::default::Default for DirectXPixelFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DirectXPixelFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DirectXPixelFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
@@ -264,18 +234,8 @@ impl ::core::clone::Clone for DirectXPrimitiveTopology {
         *self
     }
 }
-impl ::core::default::Default for DirectXPrimitiveTopology {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DirectXPrimitiveTopology {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DirectXPrimitiveTopology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
@@ -286,3 +246,5 @@ unsafe impl ::windows::core::RuntimeType for DirectXPrimitiveTopology {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

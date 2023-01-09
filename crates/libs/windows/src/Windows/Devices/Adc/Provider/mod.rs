@@ -70,17 +70,6 @@ impl ::core::clone::Clone for IAdcControllerProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAdcControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdcControllerProvider {}
-impl ::core::fmt::Debug for IAdcControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdcControllerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
     type DefaultType = ::core::option::Option<Self>;
@@ -129,17 +118,6 @@ impl ::core::clone::Clone for IAdcProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAdcProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdcProvider {}
-impl ::core::fmt::Debug for IAdcProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdcProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -176,18 +154,8 @@ impl ::core::clone::Clone for ProviderAdcChannelMode {
         *self
     }
 }
-impl ::core::default::Default for ProviderAdcChannelMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProviderAdcChannelMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderAdcChannelMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
@@ -198,3 +166,5 @@ unsafe impl ::windows::core::RuntimeType for ProviderAdcChannelMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -200,17 +200,6 @@ impl ::core::clone::Clone for LockApplicationHost {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LockApplicationHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockApplicationHost {}
-impl ::core::fmt::Debug for LockApplicationHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockApplicationHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LockApplicationHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockApplicationHost;{38ee31ad-d94f-4e7c-81fa-4f4436506281})");
     type DefaultType = ::core::option::Option<Self>;
@@ -276,17 +265,6 @@ impl LockScreenBadge {
 impl ::core::clone::Clone for LockScreenBadge {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LockScreenBadge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenBadge {}
-impl ::core::fmt::Debug for LockScreenBadge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenBadge").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LockScreenBadge {
@@ -414,17 +392,6 @@ impl ::core::clone::Clone for LockScreenInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LockScreenInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenInfo {}
-impl ::core::fmt::Debug for LockScreenInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LockScreenInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenInfo;{f59aa65c-9711-4dc9-a630-95b6cb8cdad0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -456,17 +423,6 @@ impl LockScreenUnlockingDeferral {
 impl ::core::clone::Clone for LockScreenUnlockingDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LockScreenUnlockingDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenUnlockingDeferral {}
-impl ::core::fmt::Debug for LockScreenUnlockingDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenUnlockingDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingDeferral {
@@ -514,17 +470,6 @@ impl ::core::clone::Clone for LockScreenUnlockingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LockScreenUnlockingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenUnlockingEventArgs {}
-impl ::core::fmt::Debug for LockScreenUnlockingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenUnlockingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LockScreenUnlockingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs;{44e6c007-75fb-4abb-9f8b-824748900c71})");
     type DefaultType = ::core::option::Option<Self>;
@@ -546,3 +491,5 @@ unsafe impl ::core::marker::Send for LockScreenUnlockingEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingEventArgs {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

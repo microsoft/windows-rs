@@ -16,17 +16,6 @@ impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentFactoryInterop 
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {}
-impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentFactoryInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
     type Vtable = IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl;
 }
@@ -52,17 +41,6 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusAttachmentInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusAttachmentInterop {}
-impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusAttachmentInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDevicesAllJoynBusAttachmentInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusAttachmentInterop {
@@ -93,17 +71,6 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
 impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectFactoryInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusObjectFactoryInterop {}
-impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectFactoryInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDevicesAllJoynBusObjectFactoryInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectFactoryInterop {
@@ -139,17 +106,6 @@ impl ::core::clone::Clone for IWindowsDevicesAllJoynBusObjectInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWindowsDevicesAllJoynBusObjectInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsDevicesAllJoynBusObjectInterop {}
-impl ::core::fmt::Debug for IWindowsDevicesAllJoynBusObjectInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDevicesAllJoynBusObjectInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWindowsDevicesAllJoynBusObjectInterop {
     type Vtable = IWindowsDevicesAllJoynBusObjectInterop_Vtbl;
 }
@@ -166,3 +122,5 @@ pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

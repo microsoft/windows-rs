@@ -139,17 +139,6 @@ impl ::core::clone::Clone for PaymentAppCanMakePaymentTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PaymentAppCanMakePaymentTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentAppCanMakePaymentTriggerDetails {}
-impl ::core::fmt::Debug for PaymentAppCanMakePaymentTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentAppCanMakePaymentTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails;{0ce201f0-8b93-4eb6-8c46-2e4a6c6a26f6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -210,17 +199,6 @@ impl PaymentAppManager {
 impl ::core::clone::Clone for PaymentAppManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PaymentAppManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentAppManager {}
-impl ::core::fmt::Debug for PaymentAppManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentAppManager").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PaymentAppManager {
@@ -336,17 +314,6 @@ impl ::core::clone::Clone for PaymentTransaction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PaymentTransaction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentTransaction {}
-impl ::core::fmt::Debug for PaymentTransaction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentTransaction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PaymentTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentTransaction;{62581da0-26a5-4e9b-a6eb-66606cf001d3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -383,17 +350,6 @@ impl ::core::clone::Clone for PaymentTransactionAcceptResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PaymentTransactionAcceptResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentTransactionAcceptResult {}
-impl ::core::fmt::Debug for PaymentTransactionAcceptResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentTransactionAcceptResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PaymentTransactionAcceptResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult;{060e3276-d30c-4817-95a2-df7ae9273b56})");
     type DefaultType = ::core::option::Option<Self>;
@@ -415,3 +371,5 @@ unsafe impl ::core::marker::Send for PaymentTransactionAcceptResult {}
 unsafe impl ::core::marker::Sync for PaymentTransactionAcceptResult {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -577,17 +577,6 @@ impl ::core::clone::Clone for IAppxBlockMapBlock {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBlockMapBlock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapBlock {}
-impl ::core::fmt::Debug for IAppxBlockMapBlock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapBlock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlock_Vtbl;
 }
@@ -626,17 +615,6 @@ impl IAppxBlockMapBlocksEnumerator {
 impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBlockMapBlocksEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapBlocksEnumerator {}
-impl ::core::fmt::Debug for IAppxBlockMapBlocksEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapBlocksEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapBlocksEnumerator {
@@ -695,17 +673,6 @@ impl ::core::clone::Clone for IAppxBlockMapFile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBlockMapFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapFile {}
-impl ::core::fmt::Debug for IAppxBlockMapFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFile_Vtbl;
 }
@@ -750,17 +717,6 @@ impl IAppxBlockMapFilesEnumerator {
 impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBlockMapFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxBlockMapFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapFilesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapFilesEnumerator {
@@ -815,17 +771,6 @@ impl IAppxBlockMapReader {
 impl ::core::clone::Clone for IAppxBlockMapReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBlockMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapReader {}
-impl ::core::fmt::Debug for IAppxBlockMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBlockMapReader {
@@ -887,17 +832,6 @@ impl ::core::clone::Clone for IAppxBundleFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleFactory {}
-impl ::core::fmt::Debug for IAppxBundleFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleFactory {
     type Vtable = IAppxBundleFactory_Vtbl;
 }
@@ -944,17 +878,6 @@ impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfo {}
-impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestOptionalBundleInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfo_Vtbl;
 }
@@ -994,17 +917,6 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
 impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfoEnumerator {}
-impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestOptionalBundleInfoEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestOptionalBundleInfoEnumerator {
@@ -1062,17 +974,6 @@ impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfo_Vtbl;
 }
@@ -1119,17 +1020,6 @@ impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo2 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2_Vtbl;
 }
@@ -1168,17 +1058,6 @@ impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo3 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3_Vtbl;
 }
@@ -1206,17 +1085,6 @@ impl IAppxBundleManifestPackageInfo4 {
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo4 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo4").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfo4 {
@@ -1259,17 +1127,6 @@ impl IAppxBundleManifestPackageInfoEnumerator {
 impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfoEnumerator {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfoEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestPackageInfoEnumerator {
@@ -1317,17 +1174,6 @@ impl ::core::clone::Clone for IAppxBundleManifestReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleManifestReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestReader {}
-impl ::core::fmt::Debug for IAppxBundleManifestReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReader_Vtbl;
 }
@@ -1358,17 +1204,6 @@ impl IAppxBundleManifestReader2 {
 impl ::core::clone::Clone for IAppxBundleManifestReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleManifestReader2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestReader2 {}
-impl ::core::fmt::Debug for IAppxBundleManifestReader2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestReader2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleManifestReader2 {
@@ -1417,17 +1252,6 @@ impl ::core::clone::Clone for IAppxBundleReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleReader {}
-impl ::core::fmt::Debug for IAppxBundleReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleReader {
     type Vtable = IAppxBundleReader_Vtbl;
 }
@@ -1467,17 +1291,6 @@ impl ::core::clone::Clone for IAppxBundleWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter {}
-impl ::core::fmt::Debug for IAppxBundleWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter {
     type Vtable = IAppxBundleWriter_Vtbl;
 }
@@ -1512,17 +1325,6 @@ impl IAppxBundleWriter2 {
 impl ::core::clone::Clone for IAppxBundleWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter2 {}
-impl ::core::fmt::Debug for IAppxBundleWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter2 {
@@ -1564,17 +1366,6 @@ impl IAppxBundleWriter3 {
 impl ::core::clone::Clone for IAppxBundleWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxBundleWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter3 {}
-impl ::core::fmt::Debug for IAppxBundleWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter3").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter3 {
@@ -1634,17 +1425,6 @@ impl ::core::clone::Clone for IAppxBundleWriter4 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxBundleWriter4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter4 {}
-impl ::core::fmt::Debug for IAppxBundleWriter4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4_Vtbl;
 }
@@ -1687,17 +1467,6 @@ impl ::core::clone::Clone for IAppxContentGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxContentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroup {}
-impl ::core::fmt::Debug for IAppxContentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxContentGroup {
     type Vtable = IAppxContentGroup_Vtbl;
 }
@@ -1736,17 +1505,6 @@ impl IAppxContentGroupFilesEnumerator {
 impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxContentGroupFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxContentGroupFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupFilesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupFilesEnumerator {
@@ -1788,17 +1546,6 @@ impl ::core::clone::Clone for IAppxContentGroupMapReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxContentGroupMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupMapReader {}
-impl ::core::fmt::Debug for IAppxContentGroupMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupMapReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReader_Vtbl;
 }
@@ -1836,17 +1583,6 @@ impl IAppxContentGroupMapWriter {
 impl ::core::clone::Clone for IAppxContentGroupMapWriter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxContentGroupMapWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupMapWriter {}
-impl ::core::fmt::Debug for IAppxContentGroupMapWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupMapWriter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupMapWriter {
@@ -1888,17 +1624,6 @@ impl IAppxContentGroupsEnumerator {
 impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxContentGroupsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupsEnumerator {}
-impl ::core::fmt::Debug for IAppxContentGroupsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupsEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxContentGroupsEnumerator {
@@ -1944,17 +1669,6 @@ impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriter_Vtbl;
 }
@@ -1989,17 +1703,6 @@ impl IAppxEncryptedBundleWriter2 {
 impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter2 {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter2 {
@@ -2048,17 +1751,6 @@ impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter3 {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3_Vtbl;
 }
@@ -2101,17 +1793,6 @@ impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedPackageWriter {}
-impl ::core::fmt::Debug for IAppxEncryptedPackageWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedPackageWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriter_Vtbl;
 }
@@ -2142,17 +1823,6 @@ impl IAppxEncryptedPackageWriter2 {
 impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedPackageWriter2 {}
-impl ::core::fmt::Debug for IAppxEncryptedPackageWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedPackageWriter2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptedPackageWriter2 {
@@ -2254,17 +1924,6 @@ impl ::core::clone::Clone for IAppxEncryptionFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactory_Vtbl;
 }
@@ -2328,17 +1987,6 @@ impl IAppxEncryptionFactory2 {
 impl ::core::clone::Clone for IAppxEncryptionFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory2 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory2 {
@@ -2405,17 +2053,6 @@ impl ::core::clone::Clone for IAppxEncryptionFactory3 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory3 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3_Vtbl;
 }
@@ -2461,17 +2098,6 @@ impl IAppxEncryptionFactory4 {
 impl ::core::clone::Clone for IAppxEncryptionFactory4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory4 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory4").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxEncryptionFactory4 {
@@ -2546,17 +2172,6 @@ impl ::core::clone::Clone for IAppxFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFactory {}
-impl ::core::fmt::Debug for IAppxFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxFactory {
     type Vtable = IAppxFactory_Vtbl;
 }
@@ -2626,17 +2241,6 @@ impl ::core::clone::Clone for IAppxFactory2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFactory2 {}
-impl ::core::fmt::Debug for IAppxFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxFactory2 {
     type Vtable = IAppxFactory2_Vtbl;
 }
@@ -2693,17 +2297,6 @@ impl ::core::clone::Clone for IAppxFile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFile {}
-impl ::core::fmt::Debug for IAppxFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxFile {
     type Vtable = IAppxFile_Vtbl;
 }
@@ -2750,17 +2343,6 @@ impl ::core::clone::Clone for IAppxFilesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFilesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumerator_Vtbl;
 }
@@ -2803,17 +2385,6 @@ impl ::core::clone::Clone for IAppxManifestApplication {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestApplication {}
-impl ::core::fmt::Debug for IAppxManifestApplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestApplication").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestApplication {
     type Vtable = IAppxManifestApplication_Vtbl;
 }
@@ -2852,17 +2423,6 @@ impl IAppxManifestApplicationsEnumerator {
 impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestApplicationsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestApplicationsEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestApplicationsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestApplicationsEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestApplicationsEnumerator {
@@ -2912,17 +2472,6 @@ impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestCapabilitiesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestCapabilitiesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestCapabilitiesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestCapabilitiesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumerator_Vtbl;
 }
@@ -2970,17 +2519,6 @@ impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDeviceCapabilitiesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDeviceCapabilitiesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumerator_Vtbl;
 }
@@ -3024,17 +2562,6 @@ impl ::core::clone::Clone for IAppxManifestDriverConstraint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestDriverConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverConstraint {}
-impl ::core::fmt::Debug for IAppxManifestDriverConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraint_Vtbl;
 }
@@ -3074,17 +2601,6 @@ impl IAppxManifestDriverConstraintsEnumerator {
 impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestDriverConstraintsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverConstraintsEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDriverConstraintsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverConstraintsEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverConstraintsEnumerator {
@@ -3134,17 +2650,6 @@ impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestDriverDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDriverDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumerator_Vtbl;
 }
@@ -3178,17 +2683,6 @@ impl IAppxManifestDriverDependency {
 impl ::core::clone::Clone for IAppxManifestDriverDependency {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestDriverDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverDependency {}
-impl ::core::fmt::Debug for IAppxManifestDriverDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverDependency").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestDriverDependency {
@@ -3228,17 +2722,6 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
 impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependenciesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependenciesEnumerator {
@@ -3284,17 +2767,6 @@ impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependency_Vtbl;
 }
@@ -3322,17 +2794,6 @@ impl IAppxManifestHostRuntimeDependency2 {
 impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency2 {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependency2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestHostRuntimeDependency2 {
@@ -3372,17 +2833,6 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
 impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestMainPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestMainPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestMainPackageDependenciesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestMainPackageDependenciesEnumerator {
@@ -3428,17 +2878,6 @@ impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestMainPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestMainPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestMainPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependency_Vtbl;
 }
@@ -3480,17 +2919,6 @@ impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOSPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestOSPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOSPackageDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumerator_Vtbl;
 }
@@ -3530,17 +2958,6 @@ impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOSPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestOSPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOSPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependency_Vtbl;
 }
@@ -3573,17 +2990,6 @@ impl IAppxManifestOptionalPackageInfo {
 impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestOptionalPackageInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOptionalPackageInfo {}
-impl ::core::fmt::Debug for IAppxManifestOptionalPackageInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOptionalPackageInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestOptionalPackageInfo {
@@ -3629,17 +3035,6 @@ impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumerator_Vtbl;
 }
@@ -3683,17 +3078,6 @@ impl ::core::clone::Clone for IAppxManifestPackageDependency {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependency_Vtbl;
 }
@@ -3712,18 +3096,6 @@ pub struct IAppxManifestPackageDependency_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestPackageDependency2(::windows::core::IUnknown);
 impl IAppxManifestPackageDependency2 {
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetMinVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMinVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetMaxMajorVersionTested(&self) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetMaxMajorVersionTested)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -3733,17 +3105,6 @@ impl IAppxManifestPackageDependency2 {
 impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency2 {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency2 {
@@ -3773,17 +3134,6 @@ impl IAppxManifestPackageDependency3 {
 impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency3 {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency3").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageDependency3 {
@@ -3849,17 +3199,6 @@ impl ::core::clone::Clone for IAppxManifestPackageId {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestPackageId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageId {}
-impl ::core::fmt::Debug for IAppxManifestPackageId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageId_Vtbl;
 }
@@ -3886,43 +3225,6 @@ pub struct IAppxManifestPackageId_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestPackageId2(::windows::core::IUnknown);
 impl IAppxManifestPackageId2 {
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetArchitecture(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetArchitecture)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPublisher(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPublisher)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetVersion(&self) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVersion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetResourceId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResourceId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ComparePublisher<P0>(&self, other: P0) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ComparePublisher)(::windows::core::Vtable::as_raw(self), other.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPackageFullName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageFullName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageFamilyName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetArchitecture2(&self) -> ::windows::core::Result<APPX_PACKAGE_ARCHITECTURE2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetArchitecture2)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -3932,17 +3234,6 @@ impl IAppxManifestPackageId2 {
 impl ::core::clone::Clone for IAppxManifestPackageId2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestPackageId2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageId2 {}
-impl ::core::fmt::Debug for IAppxManifestPackageId2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageId2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestPackageId2 {
@@ -3984,17 +3275,6 @@ impl ::core::clone::Clone for IAppxManifestProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestProperties {}
-impl ::core::fmt::Debug for IAppxManifestProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestProperties {
     type Vtable = IAppxManifestProperties_Vtbl;
 }
@@ -4032,17 +3312,6 @@ impl IAppxManifestQualifiedResource {
 impl ::core::clone::Clone for IAppxManifestQualifiedResource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestQualifiedResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestQualifiedResource {}
-impl ::core::fmt::Debug for IAppxManifestQualifiedResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestQualifiedResource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestQualifiedResource {
@@ -4084,17 +3353,6 @@ impl IAppxManifestQualifiedResourcesEnumerator {
 impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestQualifiedResourcesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestQualifiedResourcesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestQualifiedResourcesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestQualifiedResourcesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestQualifiedResourcesEnumerator {
@@ -4169,17 +3427,6 @@ impl ::core::clone::Clone for IAppxManifestReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader {}
-impl ::core::fmt::Debug for IAppxManifestReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestReader {
     type Vtable = IAppxManifestReader_Vtbl;
 }
@@ -4207,47 +3454,6 @@ pub struct IAppxManifestReader_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestReader2(::windows::core::IUnknown);
 impl IAppxManifestReader2 {
-    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -4257,17 +3463,6 @@ impl IAppxManifestReader2 {
 impl ::core::clone::Clone for IAppxManifestReader2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestReader2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader2 {}
-impl ::core::fmt::Debug for IAppxManifestReader2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader2 {
@@ -4286,51 +3481,6 @@ pub struct IAppxManifestReader2_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestReader3(::windows::core::IUnknown);
 impl IAppxManifestReader3 {
-    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, result__.as_mut_ptr()).from_abi(result__)
@@ -4344,17 +3494,6 @@ impl IAppxManifestReader3 {
 impl ::core::clone::Clone for IAppxManifestReader3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestReader3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader3 {}
-impl ::core::fmt::Debug for IAppxManifestReader3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader3").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader3 {
@@ -4374,59 +3513,6 @@ pub struct IAppxManifestReader3_Vtbl {
 #[repr(transparent)]
 pub struct IAppxManifestReader4(::windows::core::IUnknown);
 impl IAppxManifestReader4 {
-    pub unsafe fn GetPackageId(&self) -> ::windows::core::Result<IAppxManifestPackageId> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IAppxManifestProperties> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPackageDependencies(&self) -> ::windows::core::Result<IAppxManifestPackageDependenciesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPackageDependencies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<APPX_CAPABILITIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetResources(&self) -> ::windows::core::Result<IAppxManifestResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetDeviceCapabilities(&self) -> ::windows::core::Result<IAppxManifestDeviceCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetDeviceCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPrerequisite<P0>(&self, name: P0) -> ::windows::core::Result<u64>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetPrerequisite)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetApplications(&self) -> ::windows::core::Result<IAppxManifestApplicationsEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetApplications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetQualifiedResources(&self) -> ::windows::core::Result<IAppxManifestQualifiedResourcesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetQualifiedResources)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCapabilitiesByCapabilityClass(&self, capabilityclass: APPX_CAPABILITY_CLASS_TYPE) -> ::windows::core::Result<IAppxManifestCapabilitiesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilitiesByCapabilityClass)(::windows::core::Vtable::as_raw(self), capabilityclass, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows::core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTargetDeviceFamilies)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetOptionalPackageInfo(&self) -> ::windows::core::Result<IAppxManifestOptionalPackageInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetOptionalPackageInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -4436,17 +3522,6 @@ impl IAppxManifestReader4 {
 impl ::core::clone::Clone for IAppxManifestReader4 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestReader4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader4 {}
-impl ::core::fmt::Debug for IAppxManifestReader4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader4").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader4 {
@@ -4476,17 +3551,6 @@ impl ::core::clone::Clone for IAppxManifestReader5 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestReader5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader5 {}
-impl ::core::fmt::Debug for IAppxManifestReader5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5_Vtbl;
 }
@@ -4514,17 +3578,6 @@ impl IAppxManifestReader6 {
 impl ::core::clone::Clone for IAppxManifestReader6 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestReader6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader6 {}
-impl ::core::fmt::Debug for IAppxManifestReader6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader6").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader6 {
@@ -4563,17 +3616,6 @@ impl IAppxManifestReader7 {
 impl ::core::clone::Clone for IAppxManifestReader7 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestReader7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader7 {}
-impl ::core::fmt::Debug for IAppxManifestReader7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader7").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestReader7 {
@@ -4615,17 +3657,6 @@ impl IAppxManifestResourcesEnumerator {
 impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestResourcesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestResourcesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestResourcesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestResourcesEnumerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestResourcesEnumerator {
@@ -4675,17 +3706,6 @@ impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamiliesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestTargetDeviceFamiliesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl;
 }
@@ -4727,17 +3747,6 @@ impl IAppxManifestTargetDeviceFamily {
 impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamily {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamily {}
-impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamily {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestTargetDeviceFamily").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxManifestTargetDeviceFamily {
@@ -4820,17 +3829,6 @@ impl ::core::clone::Clone for IAppxPackageEditor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxPackageEditor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageEditor {}
-impl ::core::fmt::Debug for IAppxPackageEditor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageEditor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxPackageEditor {
     type Vtable = IAppxPackageEditor_Vtbl;
 }
@@ -4897,17 +3895,6 @@ impl ::core::clone::Clone for IAppxPackageReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxPackageReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageReader {}
-impl ::core::fmt::Debug for IAppxPackageReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxPackageReader {
     type Vtable = IAppxPackageReader_Vtbl;
 }
@@ -4953,17 +3940,6 @@ impl ::core::clone::Clone for IAppxPackageWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxPackageWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter {}
-impl ::core::fmt::Debug for IAppxPackageWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter {
     type Vtable = IAppxPackageWriter_Vtbl;
 }
@@ -5003,17 +3979,6 @@ impl ::core::clone::Clone for IAppxPackageWriter2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxPackageWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter2 {}
-impl ::core::fmt::Debug for IAppxPackageWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2_Vtbl;
 }
@@ -5043,17 +4008,6 @@ impl IAppxPackageWriter3 {
 impl ::core::clone::Clone for IAppxPackageWriter3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxPackageWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter3 {}
-impl ::core::fmt::Debug for IAppxPackageWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter3").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxPackageWriter3 {
@@ -5096,17 +4050,6 @@ impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSink {}
-impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackagingDiagnosticEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSink_Vtbl;
 }
@@ -5135,17 +4078,6 @@ impl IAppxPackagingDiagnosticEventSinkManager {
 impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSinkManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSinkManager {}
-impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSinkManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackagingDiagnosticEventSinkManager").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxPackagingDiagnosticEventSinkManager {
@@ -5177,17 +4109,6 @@ impl IAppxSourceContentGroupMapReader {
 impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppxSourceContentGroupMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxSourceContentGroupMapReader {}
-impl ::core::fmt::Debug for IAppxSourceContentGroupMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxSourceContentGroupMapReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAppxSourceContentGroupMapReader {
@@ -5277,18 +4198,8 @@ impl ::core::clone::Clone for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_BUNDLE_FOOTPRINT_FILE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5304,18 +4215,8 @@ impl ::core::clone::Clone for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5351,46 +4252,8 @@ impl ::core::clone::Clone for APPX_CAPABILITIES {
         *self
     }
 }
-impl ::core::default::Default for APPX_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_CAPABILITIES {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_CAPABILITIES").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for APPX_CAPABILITIES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for APPX_CAPABILITIES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for APPX_CAPABILITIES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for APPX_CAPABILITIES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for APPX_CAPABILITIES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5414,18 +4277,8 @@ impl ::core::clone::Clone for APPX_CAPABILITY_CLASS_TYPE {
         *self
     }
 }
-impl ::core::default::Default for APPX_CAPABILITY_CLASS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_CAPABILITY_CLASS_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_CAPABILITY_CLASS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_CAPABILITY_CLASS_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5447,18 +4300,8 @@ impl ::core::clone::Clone for APPX_COMPRESSION_OPTION {
         *self
     }
 }
-impl ::core::default::Default for APPX_COMPRESSION_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_COMPRESSION_OPTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_COMPRESSION_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_COMPRESSION_OPTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5476,46 +4319,8 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_OPTIONS {
         *self
     }
 }
-impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_ENCRYPTED_PACKAGE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5537,18 +4342,8 @@ impl ::core::clone::Clone for APPX_FOOTPRINT_FILE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for APPX_FOOTPRINT_FILE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_FOOTPRINT_FILE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_FOOTPRINT_FILE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_FOOTPRINT_FILE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5570,18 +4365,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE {
         *self
     }
 }
-impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_PACKAGE_ARCHITECTURE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5607,18 +4392,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE2 {
         *self
     }
 }
-impl ::core::default::Default for APPX_PACKAGE_ARCHITECTURE2 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_ARCHITECTURE2 {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_PACKAGE_ARCHITECTURE2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_PACKAGE_ARCHITECTURE2").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5636,46 +4411,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION
         *self
     }
 }
-impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5689,18 +4426,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
         *self
     }
 }
-impl ::core::default::Default for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5720,18 +4447,8 @@ impl ::core::clone::Clone for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPX_PACKAGING_CONTEXT_CHANGE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5747,18 +4464,8 @@ impl ::core::clone::Clone for AddPackageDependencyOptions {
         *self
     }
 }
-impl ::core::default::Default for AddPackageDependencyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AddPackageDependencyOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AddPackageDependencyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddPackageDependencyOptions").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5778,18 +4485,8 @@ impl ::core::clone::Clone for AppPolicyClrCompat {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyClrCompat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyClrCompat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyClrCompat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyClrCompat").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5805,18 +4502,8 @@ impl ::core::clone::Clone for AppPolicyCreateFileAccess {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyCreateFileAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyCreateFileAccess {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyCreateFileAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyCreateFileAccess").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5832,18 +4519,8 @@ impl ::core::clone::Clone for AppPolicyLifecycleManagement {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyLifecycleManagement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyLifecycleManagement {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyLifecycleManagement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyLifecycleManagement").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5859,18 +4536,8 @@ impl ::core::clone::Clone for AppPolicyMediaFoundationCodecLoading {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyMediaFoundationCodecLoading {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyMediaFoundationCodecLoading {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyMediaFoundationCodecLoading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyMediaFoundationCodecLoading").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5886,18 +4553,8 @@ impl ::core::clone::Clone for AppPolicyProcessTerminationMethod {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyProcessTerminationMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyProcessTerminationMethod {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyProcessTerminationMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyProcessTerminationMethod").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5913,18 +4570,8 @@ impl ::core::clone::Clone for AppPolicyShowDeveloperDiagnostic {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyShowDeveloperDiagnostic {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyShowDeveloperDiagnostic {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyShowDeveloperDiagnostic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyShowDeveloperDiagnostic").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5940,18 +4587,8 @@ impl ::core::clone::Clone for AppPolicyThreadInitializationType {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyThreadInitializationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyThreadInitializationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyThreadInitializationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyThreadInitializationType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -5971,18 +4608,8 @@ impl ::core::clone::Clone for AppPolicyWindowingModel {
         *self
     }
 }
-impl ::core::default::Default for AppPolicyWindowingModel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppPolicyWindowingModel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppPolicyWindowingModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppPolicyWindowingModel").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6000,18 +4627,8 @@ impl ::core::clone::Clone for CreatePackageDependencyOptions {
         *self
     }
 }
-impl ::core::default::Default for CreatePackageDependencyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CreatePackageDependencyOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CreatePackageDependencyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreatePackageDependencyOptions").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6031,18 +4648,8 @@ impl ::core::clone::Clone for DX_FEATURE_LEVEL {
         *self
     }
 }
-impl ::core::default::Default for DX_FEATURE_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DX_FEATURE_LEVEL {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DX_FEATURE_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DX_FEATURE_LEVEL").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6060,18 +4667,8 @@ impl ::core::clone::Clone for PackageDependencyLifetimeKind {
         *self
     }
 }
-impl ::core::default::Default for PackageDependencyLifetimeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageDependencyLifetimeKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageDependencyLifetimeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageDependencyLifetimeKind").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6097,18 +4694,8 @@ impl ::core::clone::Clone for PackageDependencyProcessorArchitectures {
         *self
     }
 }
-impl ::core::default::Default for PackageDependencyProcessorArchitectures {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageDependencyProcessorArchitectures {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageDependencyProcessorArchitectures {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageDependencyProcessorArchitectures").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6134,18 +4721,8 @@ impl ::core::clone::Clone for PackageOrigin {
         *self
     }
 }
-impl ::core::default::Default for PackageOrigin {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageOrigin {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageOrigin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageOrigin").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
@@ -6169,18 +4746,8 @@ impl ::core::clone::Clone for PackagePathType {
         *self
     }
 }
-impl ::core::default::Default for PackagePathType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackagePathType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackagePathType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackagePathType").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6194,24 +4761,8 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
         *self
     }
 }
-impl ::core::fmt::Debug for APPX_ENCRYPTED_EXEMPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_EXEMPTIONS").field("count", &self.count).field("plainTextFiles", &self.plainTextFiles).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_EXEMPTIONS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APPX_ENCRYPTED_EXEMPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.plainTextFiles == other.plainTextFiles
-    }
-}
-impl ::core::cmp::Eq for APPX_ENCRYPTED_EXEMPTIONS {}
-impl ::core::default::Default for APPX_ENCRYPTED_EXEMPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -6229,28 +4780,8 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("useDiffusion", &self.useDiffusion).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.encryptionAlgorithm == other.encryptionAlgorithm && self.useDiffusion == other.useDiffusion && self.blockMapHashAlgorithm == other.blockMapHashAlgorithm
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
@@ -6268,28 +4799,8 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_ENCRYPTED_PACKAGE_SETTINGS2").field("keyLength", &self.keyLength).field("encryptionAlgorithm", &self.encryptionAlgorithm).field("blockMapHashAlgorithm", &self.blockMapHashAlgorithm).field("options", &self.options).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.encryptionAlgorithm == other.encryptionAlgorithm && self.blockMapHashAlgorithm == other.blockMapHashAlgorithm && self.options == other.options
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6305,24 +4816,8 @@ impl ::core::clone::Clone for APPX_KEY_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for APPX_KEY_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_KEY_INFO").field("keyLength", &self.keyLength).field("keyIdLength", &self.keyIdLength).field("key", &self.key).field("keyId", &self.keyId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APPX_KEY_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APPX_KEY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.keyLength == other.keyLength && self.keyIdLength == other.keyIdLength && self.key == other.key && self.keyId == other.keyId
-    }
-}
-impl ::core::cmp::Eq for APPX_KEY_INFO {}
-impl ::core::default::Default for APPX_KEY_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -6338,28 +4833,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::fmt::Debug for APPX_PACKAGE_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_PACKAGE_SETTINGS").field("forceZip32", &self.forceZip32).field("hashMethod", &self.hashMethod).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_SETTINGS {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::PartialEq for APPX_PACKAGE_SETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.forceZip32 == other.forceZip32 && self.hashMethod == other.hashMethod
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::cmp::Eq for APPX_PACKAGE_SETTINGS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-impl ::core::default::Default for APPX_PACKAGE_SETTINGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_System_Com\"`*"]
@@ -6377,28 +4852,8 @@ impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPX_PACKAGE_WRITER_PAYLOAD_STREAM").field("inputStream", &self.inputStream).field("fileName", &self.fileName).field("contentType", &self.contentType).field("compressionOption", &self.compressionOption).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.inputStream == other.inputStream && self.fileName == other.fileName && self.contentType == other.contentType && self.compressionOption == other.compressionOption
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6411,24 +4866,8 @@ impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
         *self
     }
 }
-impl ::core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGEDEPENDENCY_CONTEXT__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PACKAGEDEPENDENCY_CONTEXT__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for PACKAGEDEPENDENCY_CONTEXT__ {}
-impl ::core::default::Default for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6450,11 +4889,6 @@ impl ::core::clone::Clone for PACKAGE_ID {
 unsafe impl ::windows::core::Abi for PACKAGE_ID {
     type Abi = Self;
 }
-impl ::core::default::Default for PACKAGE_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_INFO {
@@ -6474,11 +4908,6 @@ impl ::core::clone::Clone for PACKAGE_INFO {
 unsafe impl ::windows::core::Abi for PACKAGE_INFO {
     type Abi = Self;
 }
-impl ::core::default::Default for PACKAGE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_VERSION {
@@ -6492,11 +4921,6 @@ impl ::core::clone::Clone for PACKAGE_VERSION {
 }
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION {
     type Abi = Self;
-}
-impl ::core::default::Default for PACKAGE_VERSION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6513,11 +4937,6 @@ impl ::core::clone::Clone for PACKAGE_VERSION_0 {
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for PACKAGE_VERSION_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 pub struct PACKAGE_VERSION_0_0 {
@@ -6532,24 +4951,8 @@ impl ::core::clone::Clone for PACKAGE_VERSION_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for PACKAGE_VERSION_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_VERSION_0_0").field("Revision", &self.Revision).field("Build", &self.Build).field("Minor", &self.Minor).field("Major", &self.Major).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PACKAGE_VERSION_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PACKAGE_VERSION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.Build == other.Build && self.Minor == other.Minor && self.Major == other.Major
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_VERSION_0_0 {}
-impl ::core::default::Default for PACKAGE_VERSION_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6562,24 +4965,8 @@ impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
         *self
     }
 }
-impl ::core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
-impl ::core::default::Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
@@ -6592,24 +4979,10 @@ impl ::core::clone::Clone for _PACKAGE_INFO_REFERENCE {
         *self
     }
 }
-impl ::core::fmt::Debug for _PACKAGE_INFO_REFERENCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_PACKAGE_INFO_REFERENCE").field("reserved", &self.reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for _PACKAGE_INFO_REFERENCE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for _PACKAGE_INFO_REFERENCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.reserved == other.reserved
-    }
-}
-impl ::core::cmp::Eq for _PACKAGE_INFO_REFERENCE {}
-impl ::core::default::Default for _PACKAGE_INFO_REFERENCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

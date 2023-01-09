@@ -291,17 +291,6 @@ impl ::core::clone::Clone for DisplayMonitor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DisplayMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayMonitor {}
-impl ::core::fmt::Debug for DisplayMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DisplayMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.DisplayMonitor;{1f6b15d4-1d01-4c51-87e2-6f954a772b59})");
     type DefaultType = ::core::option::Option<Self>;
@@ -337,18 +326,8 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
         *self
     }
 }
-impl ::core::default::Default for DisplayMonitorConnectionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
@@ -371,18 +350,8 @@ impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
         *self
     }
 }
-impl ::core::default::Default for DisplayMonitorDescriptorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorDescriptorKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
@@ -411,18 +380,8 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
         *self
     }
 }
-impl ::core::default::Default for DisplayMonitorPhysicalConnectorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
@@ -446,18 +405,8 @@ impl ::core::clone::Clone for DisplayMonitorUsageKind {
         *self
     }
 }
-impl ::core::default::Default for DisplayMonitorUsageKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayMonitorUsageKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayMonitorUsageKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
@@ -468,3 +417,5 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorUsageKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

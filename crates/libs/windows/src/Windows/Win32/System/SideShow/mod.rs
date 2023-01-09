@@ -2,11 +2,6 @@
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(::windows::core::IUnknown);
 impl ISideShowBulkCapabilities {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetCapability)(::windows::core::Vtable::as_raw(self), in_keycapability, inout_pvalue).ok()
-    }
     pub unsafe fn GetCapabilities<P0>(&self, in_keycollection: P0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ISideShowKeyCollection>>,
@@ -18,17 +13,6 @@ impl ISideShowBulkCapabilities {
 impl ::core::clone::Clone for ISideShowBulkCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowBulkCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowBulkCapabilities {}
-impl ::core::fmt::Debug for ISideShowBulkCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowBulkCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowBulkCapabilities {
@@ -57,17 +41,6 @@ impl ISideShowCapabilities {
 impl ::core::clone::Clone for ISideShowCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowCapabilities {}
-impl ::core::fmt::Debug for ISideShowCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowCapabilities {
@@ -102,17 +75,6 @@ impl ISideShowCapabilitiesCollection {
 impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowCapabilitiesCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowCapabilitiesCollection {}
-impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowCapabilitiesCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowCapabilitiesCollection {
@@ -153,17 +115,6 @@ impl ISideShowContent {
 impl ::core::clone::Clone for ISideShowContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowContent {}
-impl ::core::fmt::Debug for ISideShowContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowContent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowContent {
@@ -216,17 +167,6 @@ impl ::core::clone::Clone for ISideShowContentManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISideShowContentManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowContentManager {}
-impl ::core::fmt::Debug for ISideShowContentManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowContentManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISideShowContentManager {
     type Vtable = ISideShowContentManager_Vtbl;
 }
@@ -276,17 +216,6 @@ impl ::core::clone::Clone for ISideShowEvents {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISideShowEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowEvents {}
-impl ::core::fmt::Debug for ISideShowEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISideShowEvents {
     type Vtable = ISideShowEvents_Vtbl;
 }
@@ -330,17 +259,6 @@ impl ISideShowKeyCollection {
 impl ::core::clone::Clone for ISideShowKeyCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowKeyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowKeyCollection {}
-impl ::core::fmt::Debug for ISideShowKeyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowKeyCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowKeyCollection {
@@ -428,17 +346,6 @@ impl ::core::clone::Clone for ISideShowNotification {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISideShowNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowNotification {}
-impl ::core::fmt::Debug for ISideShowNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISideShowNotification {
     type Vtable = ISideShowNotification_Vtbl;
 }
@@ -495,17 +402,6 @@ impl ::core::clone::Clone for ISideShowNotificationManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISideShowNotificationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowNotificationManager {}
-impl ::core::fmt::Debug for ISideShowNotificationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowNotificationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_Vtbl;
 }
@@ -550,17 +446,6 @@ impl ::core::clone::Clone for ISideShowPropVariantCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISideShowPropVariantCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowPropVariantCollection {}
-impl ::core::fmt::Debug for ISideShowPropVariantCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowPropVariantCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_Vtbl;
 }
@@ -600,17 +485,6 @@ impl ISideShowSession {
 impl ::core::clone::Clone for ISideShowSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISideShowSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowSession {}
-impl ::core::fmt::Debug for ISideShowSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowSession").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISideShowSession {
@@ -733,18 +607,8 @@ impl ::core::clone::Clone for SCF_BUTTON_IDS {
         *self
     }
 }
-impl ::core::default::Default for SCF_BUTTON_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_BUTTON_IDS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCF_BUTTON_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCF_BUTTON_IDS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
@@ -762,18 +626,8 @@ impl ::core::clone::Clone for SCF_EVENT_IDS {
         *self
     }
 }
-impl ::core::default::Default for SCF_EVENT_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_EVENT_IDS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCF_EVENT_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCF_EVENT_IDS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
@@ -791,18 +645,8 @@ impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SIDESHOW_COLOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SIDESHOW_COLOR_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SIDESHOW_COLOR_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
@@ -818,18 +662,8 @@ impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SIDESHOW_SCREEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SIDESHOW_SCREEN_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SIDESHOW_SCREEN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SIDESHOW_SCREEN_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -850,11 +684,6 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
 unsafe impl ::windows::core::Abi for APPLICATION_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::default::Default for APPLICATION_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub struct CONTENT_MISSING_EVENT_DATA {
@@ -872,11 +701,6 @@ impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
 unsafe impl ::windows::core::Abi for CONTENT_MISSING_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::default::Default for CONTENT_MISSING_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub struct DEVICE_USER_CHANGE_EVENT_DATA {
@@ -891,11 +715,6 @@ impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
 }
 unsafe impl ::windows::core::Abi for DEVICE_USER_CHANGE_EVENT_DATA {
     type Abi = Self;
-}
-impl ::core::default::Default for DEVICE_USER_CHANGE_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -914,11 +733,6 @@ impl ::core::clone::Clone for EVENT_DATA_HEADER {
 unsafe impl ::windows::core::Abi for EVENT_DATA_HEADER {
     type Abi = Self;
 }
-impl ::core::default::Default for EVENT_DATA_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub struct NEW_EVENT_DATA_AVAILABLE {
@@ -933,11 +747,6 @@ impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
 }
 unsafe impl ::windows::core::Abi for NEW_EVENT_DATA_AVAILABLE {
     type Abi = Self;
-}
-impl ::core::default::Default for NEW_EVENT_DATA_AVAILABLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -954,24 +763,8 @@ impl ::core::clone::Clone for SCF_CONTEXTMENU_EVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for SCF_CONTEXTMENU_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCF_CONTEXTMENU_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("PreviousItemId", &self.PreviousItemId).field("MenuPage", &self.MenuPage).field("MenuItemId", &self.MenuItemId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_CONTEXTMENU_EVENT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCF_CONTEXTMENU_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.PreviousItemId == other.PreviousItemId && self.MenuPage == other.MenuPage && self.MenuItemId == other.MenuItemId
-    }
-}
-impl ::core::cmp::Eq for SCF_CONTEXTMENU_EVENT {}
-impl ::core::default::Default for SCF_CONTEXTMENU_EVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -985,24 +778,8 @@ impl ::core::clone::Clone for SCF_EVENT_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for SCF_EVENT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCF_EVENT_HEADER").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_EVENT_HEADER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCF_EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage
-    }
-}
-impl ::core::cmp::Eq for SCF_EVENT_HEADER {}
-impl ::core::default::Default for SCF_EVENT_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -1018,24 +795,8 @@ impl ::core::clone::Clone for SCF_MENUACTION_EVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for SCF_MENUACTION_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCF_MENUACTION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).field("ItemId", &self.ItemId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_MENUACTION_EVENT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCF_MENUACTION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button && self.ItemId == other.ItemId
-    }
-}
-impl ::core::cmp::Eq for SCF_MENUACTION_EVENT {}
-impl ::core::default::Default for SCF_MENUACTION_EVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -1050,24 +811,10 @@ impl ::core::clone::Clone for SCF_NAVIGATION_EVENT {
         *self
     }
 }
-impl ::core::fmt::Debug for SCF_NAVIGATION_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCF_NAVIGATION_EVENT").field("PreviousPage", &self.PreviousPage).field("TargetPage", &self.TargetPage).field("Button", &self.Button).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCF_NAVIGATION_EVENT {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SCF_NAVIGATION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PreviousPage == other.PreviousPage && self.TargetPage == other.TargetPage && self.Button == other.Button
-    }
-}
-impl ::core::cmp::Eq for SCF_NAVIGATION_EVENT {}
-impl ::core::default::Default for SCF_NAVIGATION_EVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

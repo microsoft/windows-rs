@@ -555,17 +555,6 @@ impl ::core::clone::Clone for BackgroundAudioTrack {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundAudioTrack {}
-impl ::core::fmt::Debug for BackgroundAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAudioTrack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
     type DefaultType = ::core::option::Option<Self>;
@@ -602,17 +591,6 @@ impl EmbeddedAudioTrack {
 impl ::core::clone::Clone for EmbeddedAudioTrack {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EmbeddedAudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmbeddedAudioTrack {}
-impl ::core::fmt::Debug for EmbeddedAudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmbeddedAudioTrack").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
@@ -838,17 +816,6 @@ impl ::core::clone::Clone for MediaClip {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaClip {}
-impl ::core::fmt::Debug for MediaClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1060,17 +1027,6 @@ impl ::core::clone::Clone for MediaComposition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaComposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaComposition {}
-impl ::core::fmt::Debug for MediaComposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaComposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaComposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1185,17 +1141,6 @@ impl ::core::clone::Clone for MediaOverlay {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaOverlay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaOverlay {}
-impl ::core::fmt::Debug for MediaOverlay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaOverlay").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaOverlay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1274,17 +1219,6 @@ impl ::core::clone::Clone for MediaOverlayLayer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaOverlayLayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaOverlayLayer {}
-impl ::core::fmt::Debug for MediaOverlayLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaOverlayLayer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1318,18 +1252,8 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
         *self
     }
 }
-impl ::core::default::Default for MediaTrimmingPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaTrimmingPreference {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaTrimmingPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
@@ -1352,18 +1276,8 @@ impl ::core::clone::Clone for VideoFramePrecision {
         *self
     }
 }
-impl ::core::default::Default for VideoFramePrecision {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VideoFramePrecision {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoFramePrecision {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoFramePrecision").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
@@ -1374,3 +1288,5 @@ unsafe impl ::windows::core::RuntimeType for VideoFramePrecision {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

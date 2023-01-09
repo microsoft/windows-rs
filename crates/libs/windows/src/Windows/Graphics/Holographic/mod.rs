@@ -1033,17 +1033,6 @@ impl ::core::clone::Clone for HolographicCamera {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicCamera {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCamera {}
-impl ::core::fmt::Debug for HolographicCamera {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCamera").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicCamera {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1157,17 +1146,6 @@ impl ::core::clone::Clone for HolographicCameraPose {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicCameraPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraPose {}
-impl ::core::fmt::Debug for HolographicCameraPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraPose").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicCameraPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1276,17 +1254,6 @@ impl ::core::clone::Clone for HolographicCameraRenderingParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicCameraRenderingParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraRenderingParameters {}
-impl ::core::fmt::Debug for HolographicCameraRenderingParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraRenderingParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicCameraRenderingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1332,17 +1299,6 @@ impl HolographicCameraViewportParameters {
 impl ::core::clone::Clone for HolographicCameraViewportParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicCameraViewportParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraViewportParameters {}
-impl ::core::fmt::Debug for HolographicCameraViewportParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraViewportParameters").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicCameraViewportParameters {
@@ -1443,17 +1399,6 @@ impl HolographicDisplay {
 impl ::core::clone::Clone for HolographicDisplay {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicDisplay {}
-impl ::core::fmt::Debug for HolographicDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicDisplay").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicDisplay {
@@ -1562,17 +1507,6 @@ impl ::core::clone::Clone for HolographicFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrame {}
-impl ::core::fmt::Debug for HolographicFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1620,17 +1554,6 @@ impl ::core::clone::Clone for HolographicFramePrediction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicFramePrediction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFramePrediction {}
-impl ::core::fmt::Debug for HolographicFramePrediction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePrediction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicFramePrediction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1676,20 +1599,6 @@ impl HolographicFramePresentationMonitor {
 impl ::core::clone::Clone for HolographicFramePresentationMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for HolographicFramePresentationMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for HolographicFramePresentationMonitor {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HolographicFramePresentationMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentationMonitor").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1799,20 +1708,6 @@ impl ::core::clone::Clone for HolographicFramePresentationReport {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for HolographicFramePresentationReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for HolographicFramePresentationReport {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HolographicFramePresentationReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentationReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1889,17 +1784,6 @@ impl ::core::clone::Clone for HolographicFrameRenderingReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrameRenderingReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameRenderingReport {}
-impl ::core::fmt::Debug for HolographicFrameRenderingReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameRenderingReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicFrameRenderingReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1942,17 +1826,6 @@ impl HolographicFrameScanoutMonitor {
 impl ::core::clone::Clone for HolographicFrameScanoutMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicFrameScanoutMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameScanoutMonitor {}
-impl ::core::fmt::Debug for HolographicFrameScanoutMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameScanoutMonitor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutMonitor {
@@ -2047,17 +1920,6 @@ impl ::core::clone::Clone for HolographicFrameScanoutReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrameScanoutReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameScanoutReport {}
-impl ::core::fmt::Debug for HolographicFrameScanoutReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameScanoutReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2130,17 +1992,6 @@ impl HolographicQuadLayer {
 impl ::core::clone::Clone for HolographicQuadLayer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicQuadLayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicQuadLayer {}
-impl ::core::fmt::Debug for HolographicQuadLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicQuadLayer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayer {
@@ -2245,17 +2096,6 @@ impl HolographicQuadLayerUpdateParameters {
 impl ::core::clone::Clone for HolographicQuadLayerUpdateParameters {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicQuadLayerUpdateParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicQuadLayerUpdateParameters {}
-impl ::core::fmt::Debug for HolographicQuadLayerUpdateParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicQuadLayerUpdateParameters").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayerUpdateParameters {
@@ -2443,17 +2283,6 @@ impl ::core::clone::Clone for HolographicSpace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpace {}
-impl ::core::fmt::Debug for HolographicSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2499,17 +2328,6 @@ impl ::core::clone::Clone for HolographicSpaceCameraAddedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicSpaceCameraAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpaceCameraAddedEventArgs {}
-impl ::core::fmt::Debug for HolographicSpaceCameraAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceCameraAddedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2544,17 +2362,6 @@ impl HolographicSpaceCameraRemovedEventArgs {
 impl ::core::clone::Clone for HolographicSpaceCameraRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HolographicSpaceCameraRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpaceCameraRemovedEventArgs {}
-impl ::core::fmt::Debug for HolographicSpaceCameraRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceCameraRemovedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
@@ -2685,17 +2492,6 @@ impl ::core::clone::Clone for HolographicViewConfiguration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HolographicViewConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicViewConfiguration {}
-impl ::core::fmt::Debug for HolographicViewConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicViewConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2729,18 +2525,8 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
         *self
     }
 }
-impl ::core::default::Default for HolographicDepthReprojectionMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicDepthReprojectionMethod {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicDepthReprojectionMethod;i4)");
@@ -2763,18 +2549,8 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
         *self
     }
 }
-impl ::core::default::Default for HolographicFramePresentResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicFramePresentResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicFramePresentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentResult;i4)");
@@ -2797,18 +2573,8 @@ impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
         *self
     }
 }
-impl ::core::default::Default for HolographicFramePresentWaitBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicFramePresentWaitBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior;i4)");
@@ -2832,18 +2598,8 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
         *self
     }
 }
-impl ::core::default::Default for HolographicReprojectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicReprojectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicReprojectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicReprojectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicReprojectionMode;i4)");
@@ -2867,18 +2623,8 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
         *self
     }
 }
-impl ::core::default::Default for HolographicSpaceUserPresence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicSpaceUserPresence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicSpaceUserPresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceUserPresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicSpaceUserPresence;i4)");
@@ -2901,18 +2647,8 @@ impl ::core::clone::Clone for HolographicViewConfigurationKind {
         *self
     }
 }
-impl ::core::default::Default for HolographicViewConfigurationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicViewConfigurationKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HolographicViewConfigurationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
@@ -2933,11 +2669,6 @@ impl ::core::clone::Clone for HolographicAdapterId {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicAdapterId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HolographicAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicAdapterId {
     type Abi = Self;
 }
@@ -2946,17 +2677,6 @@ unsafe impl ::windows::core::RuntimeType for HolographicAdapterId {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for HolographicAdapterId {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for HolographicAdapterId {}
-impl ::core::default::Default for HolographicAdapterId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2970,11 +2690,6 @@ impl ::core::clone::Clone for HolographicFrameId {
         *self
     }
 }
-impl ::core::fmt::Debug for HolographicFrameId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HolographicFrameId").field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HolographicFrameId {
     type Abi = Self;
 }
@@ -2983,17 +2698,6 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameId {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for HolographicFrameId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameId {}
-impl ::core::default::Default for HolographicFrameId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3012,12 +2716,6 @@ impl ::core::clone::Clone for HolographicStereoTransform {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for HolographicStereoTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HolographicStereoTransform").field("Left", &self.Left).field("Right", &self.Right).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for HolographicStereoTransform {
     type Abi = Self;
 }
@@ -3029,19 +2727,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicStereoTransform {
         Ok(*from)
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for HolographicStereoTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.Left == other.Left && self.Right == other.Right
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for HolographicStereoTransform {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for HolographicStereoTransform {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

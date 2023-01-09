@@ -142,17 +142,6 @@ impl ::core::clone::Clone for ContactPickerUI {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactPickerUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPickerUI {}
-impl ::core::fmt::Debug for ContactPickerUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPickerUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
     type DefaultType = ::core::option::Option<Self>;
@@ -187,17 +176,6 @@ impl ::core::clone::Clone for ContactRemovedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactRemovedEventArgs {}
-impl ::core::fmt::Debug for ContactRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactRemovedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -230,18 +208,8 @@ impl ::core::clone::Clone for AddContactResult {
         *self
     }
 }
-impl ::core::default::Default for AddContactResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AddContactResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AddContactResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddContactResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AddContactResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Contacts.Provider.AddContactResult;i4)");
@@ -252,3 +220,5 @@ unsafe impl ::windows::core::RuntimeType for AddContactResult {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

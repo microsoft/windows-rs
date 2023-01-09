@@ -44,3 +44,5 @@ pub type PFNCHECKCONNECTIONWIZARD = ::core::option::Option<unsafe extern "system
 pub type PFNSETSHELLNEXT = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

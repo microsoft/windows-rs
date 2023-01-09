@@ -205,17 +205,6 @@ impl ::core::clone::Clone for PwmController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PwmController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PwmController {}
-impl ::core::fmt::Debug for PwmController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PwmController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PwmController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmController;{c45f5c85-d2e8-42cf-9bd6-cf5ed029e6a7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -295,17 +284,6 @@ impl ::core::clone::Clone for PwmPin {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PwmPin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PwmPin {}
-impl ::core::fmt::Debug for PwmPin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PwmPin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PwmPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmPin;{22972dc8-c6cf-4821-b7f9-c6454fb6af79})");
     type DefaultType = ::core::option::Option<Self>;
@@ -361,18 +339,8 @@ impl ::core::clone::Clone for PwmPulsePolarity {
         *self
     }
 }
-impl ::core::default::Default for PwmPulsePolarity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PwmPulsePolarity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PwmPulsePolarity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PwmPulsePolarity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");
@@ -383,3 +351,5 @@ unsafe impl ::windows::core::RuntimeType for PwmPulsePolarity {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

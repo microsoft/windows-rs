@@ -134,17 +134,6 @@ impl ::core::clone::Clone for IWebUICommandBarElement {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebUICommandBarElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUICommandBarElement {}
-impl ::core::fmt::Debug for IWebUICommandBarElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUICommandBarElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
     type DefaultType = ::core::option::Option<Self>;
@@ -171,17 +160,6 @@ impl IWebUICommandBarIcon {}
 impl ::core::clone::Clone for IWebUICommandBarIcon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebUICommandBarIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUICommandBarIcon {}
-impl ::core::fmt::Debug for IWebUICommandBarIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUICommandBarIcon").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebUICommandBarIcon {
@@ -472,17 +450,6 @@ impl ::core::clone::Clone for WebUICommandBar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBar {}
-impl ::core::fmt::Debug for WebUICommandBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBar;{a4fc0016-dbe5-41ad-8d7b-14698bd6911d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -545,17 +512,6 @@ impl WebUICommandBarBitmapIcon {
 impl ::core::clone::Clone for WebUICommandBarBitmapIcon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebUICommandBarBitmapIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarBitmapIcon {}
-impl ::core::fmt::Debug for WebUICommandBarBitmapIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarBitmapIcon").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
@@ -637,17 +593,6 @@ impl WebUICommandBarConfirmationButton {
 impl ::core::clone::Clone for WebUICommandBarConfirmationButton {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebUICommandBarConfirmationButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarConfirmationButton {}
-impl ::core::fmt::Debug for WebUICommandBarConfirmationButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarConfirmationButton").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
@@ -779,17 +724,6 @@ impl ::core::clone::Clone for WebUICommandBarIconButton {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarIconButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarIconButton {}
-impl ::core::fmt::Debug for WebUICommandBarIconButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarIconButton").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarIconButton;{8f1bc93a-3a7c-4842-a0cf-aff6ea308586})");
     type DefaultType = ::core::option::Option<Self>;
@@ -845,17 +779,6 @@ impl ::core::clone::Clone for WebUICommandBarItemInvokedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarItemInvokedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarItemInvokedEventArgs {}
-impl ::core::fmt::Debug for WebUICommandBarItemInvokedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarItemInvokedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs;{304edbdd-e741-41ef-bdc4-a45cea2a4f70})");
     type DefaultType = ::core::option::Option<Self>;
@@ -892,17 +815,6 @@ impl WebUICommandBarSizeChangedEventArgs {
 impl ::core::clone::Clone for WebUICommandBarSizeChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebUICommandBarSizeChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarSizeChangedEventArgs {}
-impl ::core::fmt::Debug for WebUICommandBarSizeChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarSizeChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
@@ -963,17 +875,6 @@ impl ::core::clone::Clone for WebUICommandBarSymbolIcon {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarSymbolIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarSymbolIcon {}
-impl ::core::fmt::Debug for WebUICommandBarSymbolIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarSymbolIcon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon;{d4935477-fd26-46ed-8658-1a3f4400e7b3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1027,18 +928,8 @@ impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
         *self
     }
 }
-impl ::core::default::Default for WebUICommandBarClosedDisplayMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebUICommandBarClosedDisplayMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebUICommandBarClosedDisplayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebUICommandBarClosedDisplayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
@@ -1101,17 +992,6 @@ impl<F: FnMut() -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
 impl ::core::clone::Clone for MenuClosedEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MenuClosedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MenuClosedEventHandler {}
-impl ::core::fmt::Debug for MenuClosedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MenuClosedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for MenuClosedEventHandler {
@@ -1189,17 +1069,6 @@ impl ::core::clone::Clone for MenuOpenedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MenuOpenedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MenuOpenedEventHandler {}
-impl ::core::fmt::Debug for MenuOpenedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MenuOpenedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for MenuOpenedEventHandler {
     type Vtable = MenuOpenedEventHandler_Vtbl;
 }
@@ -1275,17 +1144,6 @@ impl ::core::clone::Clone for SizeChangedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SizeChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SizeChangedEventHandler {}
-impl ::core::fmt::Debug for SizeChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SizeChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandler_Vtbl;
 }
@@ -1307,3 +1165,5 @@ pub struct SizeChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

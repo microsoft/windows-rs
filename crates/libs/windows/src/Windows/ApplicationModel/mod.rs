@@ -325,17 +325,6 @@ impl ::core::clone::Clone for IEnteredBackgroundEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnteredBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnteredBackgroundEventArgs {}
-impl ::core::fmt::Debug for IEnteredBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnteredBackgroundEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IEnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f722dcc2-9827-403d-aaed-ecca9ac17398}");
     type DefaultType = ::core::option::Option<Self>;
@@ -483,17 +472,6 @@ impl ILeavingBackgroundEventArgs {
 impl ::core::clone::Clone for ILeavingBackgroundEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILeavingBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILeavingBackgroundEventArgs {}
-impl ::core::fmt::Debug for ILeavingBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILeavingBackgroundEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ILeavingBackgroundEventArgs {
@@ -1004,17 +982,6 @@ impl ::core::clone::Clone for IPackageCatalogStatics2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPackageCatalogStatics2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPackageCatalogStatics2 {}
-impl ::core::fmt::Debug for IPackageCatalogStatics2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPackageCatalogStatics2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPackageCatalogStatics2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4c11c159-9a28-598c-b185-55e1899b2be4}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1374,17 +1341,6 @@ impl ::core::clone::Clone for ISuspendingDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISuspendingDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISuspendingDeferral {}
-impl ::core::fmt::Debug for ISuspendingDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISuspendingDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{59140509-8bc9-4eb4-b636-dabdc4f46f66}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1420,17 +1376,6 @@ impl ISuspendingEventArgs {
 impl ::core::clone::Clone for ISuspendingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISuspendingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISuspendingEventArgs {}
-impl ::core::fmt::Debug for ISuspendingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISuspendingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ISuspendingEventArgs {
@@ -1477,17 +1422,6 @@ impl ISuspendingOperation {
 impl ::core::clone::Clone for ISuspendingOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISuspendingOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISuspendingOperation {}
-impl ::core::fmt::Debug for ISuspendingOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISuspendingOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ISuspendingOperation {
@@ -1544,17 +1478,6 @@ impl AppDisplayInfo {
 impl ::core::clone::Clone for AppDisplayInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppDisplayInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDisplayInfo {}
-impl ::core::fmt::Debug for AppDisplayInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppDisplayInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppDisplayInfo {
@@ -1658,17 +1581,6 @@ impl AppInfo {
 impl ::core::clone::Clone for AppInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInfo {}
-impl ::core::fmt::Debug for AppInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppInfo {
@@ -1826,17 +1738,6 @@ impl ::core::clone::Clone for AppInstallerInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppInstallerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallerInfo {}
-impl ::core::fmt::Debug for AppInstallerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInstallerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppInstallerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstallerInfo;{29ab2ac0-d4f6-42a3-adcd-d6583c659508})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1920,17 +1821,6 @@ impl ::core::clone::Clone for AppInstance {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstance {}
-impl ::core::fmt::Debug for AppInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInstance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppInstance;{675f2b47-f25f-4532-9fd6-3633e0634d01})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2011,17 +1901,6 @@ impl EnteredBackgroundEventArgs {
 impl ::core::clone::Clone for EnteredBackgroundEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EnteredBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnteredBackgroundEventArgs {}
-impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnteredBackgroundEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
@@ -2138,17 +2017,6 @@ impl ::core::clone::Clone for FindRelatedPackagesOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FindRelatedPackagesOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindRelatedPackagesOptions {}
-impl ::core::fmt::Debug for FindRelatedPackagesOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindRelatedPackagesOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FindRelatedPackagesOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.FindRelatedPackagesOptions;{41dd7eea-b335-521f-b96c-5ea07f5b7329})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2190,17 +2058,6 @@ impl FullTrustProcessLaunchResult {
 impl ::core::clone::Clone for FullTrustProcessLaunchResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FullTrustProcessLaunchResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FullTrustProcessLaunchResult {}
-impl ::core::fmt::Debug for FullTrustProcessLaunchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullTrustProcessLaunchResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FullTrustProcessLaunchResult {
@@ -2306,17 +2163,6 @@ impl ::core::clone::Clone for LeavingBackgroundEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LeavingBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LeavingBackgroundEventArgs {}
-impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LeavingBackgroundEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2386,17 +2232,6 @@ impl LimitedAccessFeatureRequestResult {
 impl ::core::clone::Clone for LimitedAccessFeatureRequestResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LimitedAccessFeatureRequestResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LimitedAccessFeatureRequestResult {}
-impl ::core::fmt::Debug for LimitedAccessFeatureRequestResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LimitedAccessFeatureRequestResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureRequestResult {
@@ -2807,17 +2642,6 @@ impl ::core::clone::Clone for Package {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Package {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Package {}
-impl ::core::fmt::Debug for Package {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Package").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Package {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Package;{163c792f-bd75-413c-bf23-b1fe7b95d825})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3009,17 +2833,6 @@ impl ::core::clone::Clone for PackageCatalog {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageCatalog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageCatalog {}
-impl ::core::fmt::Debug for PackageCatalog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageCatalog").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageCatalog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalog;{230a3751-9de3-4445-be74-91fb325abefe})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3059,17 +2872,6 @@ impl PackageCatalogAddOptionalPackageResult {
 impl ::core::clone::Clone for PackageCatalogAddOptionalPackageResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageCatalogAddOptionalPackageResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageCatalogAddOptionalPackageResult {}
-impl ::core::fmt::Debug for PackageCatalogAddOptionalPackageResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageCatalogAddOptionalPackageResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddOptionalPackageResult {
@@ -3120,17 +2922,6 @@ impl ::core::clone::Clone for PackageCatalogAddResourcePackageResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageCatalogAddResourcePackageResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageCatalogAddResourcePackageResult {}
-impl ::core::fmt::Debug for PackageCatalogAddResourcePackageResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageCatalogAddResourcePackageResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogAddResourcePackageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogAddResourcePackageResult;{9636ce0d-3e17-493f-aa08-ccec6fdef699})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3176,17 +2967,6 @@ impl ::core::clone::Clone for PackageCatalogRemoveOptionalPackagesResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageCatalogRemoveOptionalPackagesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageCatalogRemoveOptionalPackagesResult {}
-impl ::core::fmt::Debug for PackageCatalogRemoveOptionalPackagesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageCatalogRemoveOptionalPackagesResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult;{29d2f97b-d974-4e64-9359-22cadfd79828})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3228,17 +3008,6 @@ impl PackageCatalogRemoveResourcePackagesResult {
 impl ::core::clone::Clone for PackageCatalogRemoveResourcePackagesResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageCatalogRemoveResourcePackagesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageCatalogRemoveResourcePackagesResult {}
-impl ::core::fmt::Debug for PackageCatalogRemoveResourcePackagesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageCatalogRemoveResourcePackagesResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
@@ -3307,17 +3076,6 @@ impl PackageContentGroup {
 impl ::core::clone::Clone for PackageContentGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageContentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageContentGroup {}
-impl ::core::fmt::Debug for PackageContentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageContentGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroup {
@@ -3396,17 +3154,6 @@ impl PackageContentGroupStagingEventArgs {
 impl ::core::clone::Clone for PackageContentGroupStagingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageContentGroupStagingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageContentGroupStagingEventArgs {}
-impl ::core::fmt::Debug for PackageContentGroupStagingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageContentGroupStagingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupStagingEventArgs {
@@ -3510,17 +3257,6 @@ impl ::core::clone::Clone for PackageId {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageId {}
-impl ::core::fmt::Debug for PackageId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageId;{1adb665e-37c7-4790-9980-dd7ae74e8bb2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3585,17 +3321,6 @@ impl ::core::clone::Clone for PackageInstallingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageInstallingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageInstallingEventArgs {}
-impl ::core::fmt::Debug for PackageInstallingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageInstallingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageInstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageInstallingEventArgs;{97741eb7-ab7a-401a-8b61-eb0e7faff237})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3658,17 +3383,6 @@ impl PackageStagingEventArgs {
 impl ::core::clone::Clone for PackageStagingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageStagingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageStagingEventArgs {}
-impl ::core::fmt::Debug for PackageStagingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStagingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageStagingEventArgs {
@@ -3791,17 +3505,6 @@ impl ::core::clone::Clone for PackageStatus {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageStatus {}
-impl ::core::fmt::Debug for PackageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageStatus;{5fe74f71-a365-4c09-a02d-046d525ea1da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3836,17 +3539,6 @@ impl PackageStatusChangedEventArgs {
 impl ::core::clone::Clone for PackageStatusChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageStatusChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageStatusChangedEventArgs {}
-impl ::core::fmt::Debug for PackageStatusChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageStatusChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageStatusChangedEventArgs {
@@ -3913,17 +3605,6 @@ impl ::core::clone::Clone for PackageUninstallingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PackageUninstallingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageUninstallingEventArgs {}
-impl ::core::fmt::Debug for PackageUninstallingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageUninstallingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PackageUninstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.PackageUninstallingEventArgs;{4443aa52-ab22-44cd-82bb-4ec9b827367a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3965,17 +3646,6 @@ impl PackageUpdateAvailabilityResult {
 impl ::core::clone::Clone for PackageUpdateAvailabilityResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageUpdateAvailabilityResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageUpdateAvailabilityResult {}
-impl ::core::fmt::Debug for PackageUpdateAvailabilityResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageUpdateAvailabilityResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailabilityResult {
@@ -4047,17 +3717,6 @@ impl PackageUpdatingEventArgs {
 impl ::core::clone::Clone for PackageUpdatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PackageUpdatingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageUpdatingEventArgs {}
-impl ::core::fmt::Debug for PackageUpdatingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageUpdatingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdatingEventArgs {
@@ -4137,17 +3796,6 @@ impl ::core::clone::Clone for StartupTask {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StartupTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StartupTask {}
-impl ::core::fmt::Debug for StartupTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StartupTask").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StartupTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.StartupTask;{f75c23c8-b5f2-4f6c-88dd-36cb1d599d17})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4179,17 +3827,6 @@ impl SuspendingDeferral {
 impl ::core::clone::Clone for SuspendingDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SuspendingDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SuspendingDeferral {}
-impl ::core::fmt::Debug for SuspendingDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
@@ -4245,17 +3882,6 @@ impl SuspendingEventArgs {
 impl ::core::clone::Clone for SuspendingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SuspendingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SuspendingEventArgs {}
-impl ::core::fmt::Debug for SuspendingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
@@ -4322,17 +3948,6 @@ impl ::core::clone::Clone for SuspendingOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SuspendingOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SuspendingOperation {}
-impl ::core::fmt::Debug for SuspendingOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4386,46 +4001,8 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
         *self
     }
 }
-impl ::core::default::Default for AddResourcePackageOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AddResourcePackageOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AddResourcePackageOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AddResourcePackageOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AddResourcePackageOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AddResourcePackageOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AddResourcePackageOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AddResourcePackageOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AddResourcePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
@@ -4449,18 +4026,8 @@ impl ::core::clone::Clone for AppExecutionContext {
         *self
     }
 }
-impl ::core::default::Default for AppExecutionContext {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppExecutionContext {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppExecutionContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
@@ -4483,18 +4050,8 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
         *self
     }
 }
-impl ::core::default::Default for AppInstallerPolicySource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppInstallerPolicySource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppInstallerPolicySource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
@@ -4519,18 +4076,8 @@ impl ::core::clone::Clone for FullTrustLaunchResult {
         *self
     }
 }
-impl ::core::default::Default for FullTrustLaunchResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FullTrustLaunchResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FullTrustLaunchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
@@ -4555,18 +4102,8 @@ impl ::core::clone::Clone for LimitedAccessFeatureStatus {
         *self
     }
 }
-impl ::core::default::Default for LimitedAccessFeatureStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LimitedAccessFeatureStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
@@ -4591,18 +4128,8 @@ impl ::core::clone::Clone for PackageContentGroupState {
         *self
     }
 }
-impl ::core::default::Default for PackageContentGroupState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageContentGroupState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageContentGroupState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
@@ -4626,18 +4153,8 @@ impl ::core::clone::Clone for PackageRelationship {
         *self
     }
 }
-impl ::core::default::Default for PackageRelationship {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageRelationship {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageRelationship {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageRelationship").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PackageRelationship {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
@@ -4663,18 +4180,8 @@ impl ::core::clone::Clone for PackageSignatureKind {
         *self
     }
 }
-impl ::core::default::Default for PackageSignatureKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageSignatureKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageSignatureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
@@ -4700,18 +4207,8 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
         *self
     }
 }
-impl ::core::default::Default for PackageUpdateAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PackageUpdateAvailability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PackageUpdateAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
@@ -4737,18 +4234,8 @@ impl ::core::clone::Clone for StartupTaskState {
         *self
     }
 }
-impl ::core::default::Default for StartupTaskState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StartupTaskState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StartupTaskState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StartupTaskState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StartupTaskState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
@@ -4768,11 +4255,6 @@ impl ::core::clone::Clone for PackageInstallProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageInstallProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PackageInstallProgress").field("PercentComplete", &self.PercentComplete).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageInstallProgress {
     type Abi = Self;
 }
@@ -4781,17 +4263,6 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallProgress {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for PackageInstallProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.PercentComplete == other.PercentComplete
-    }
-}
-impl ::core::cmp::Eq for PackageInstallProgress {}
-impl ::core::default::Default for PackageInstallProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -4808,11 +4279,6 @@ impl ::core::clone::Clone for PackageVersion {
         *self
     }
 }
-impl ::core::fmt::Debug for PackageVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PackageVersion").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PackageVersion {
     type Abi = Self;
 }
@@ -4823,16 +4289,7 @@ unsafe impl ::windows::core::RuntimeType for PackageVersion {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for PackageVersion {
-    fn eq(&self, other: &Self) -> bool {
-        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
-    }
-}
-impl ::core::cmp::Eq for PackageVersion {}
-impl ::core::default::Default for PackageVersion {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

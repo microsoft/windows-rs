@@ -450,17 +450,6 @@ impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarCancelMeetingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarCancelMeetingRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarCancelMeetingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarCancelMeetingRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest;{49460f8d-6434-40d7-ad46-6297419314d1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -504,17 +493,6 @@ impl AppointmentCalendarCancelMeetingRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarCancelMeetingRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarCancelMeetingRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarCancelMeetingRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarCancelMeetingRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarCancelMeetingRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCancelMeetingRequestEventArgs {
@@ -594,17 +572,6 @@ impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentReques
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarCreateOrUpdateAppointmentRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest;{2e62f2b2-ca96-48ac-9124-406b19fefa70})");
     type DefaultType = ::core::option::Option<Self>;
@@ -648,17 +615,6 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -761,17 +717,6 @@ impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarForwardMeetingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarForwardMeetingRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarForwardMeetingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarForwardMeetingRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest;{82e5ee56-26b6-4253-8a8f-6cf5f2ff7884})");
     type DefaultType = ::core::option::Option<Self>;
@@ -815,17 +760,6 @@ impl AppointmentCalendarForwardMeetingRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarForwardMeetingRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarForwardMeetingRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarForwardMeetingRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarForwardMeetingRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarForwardMeetingRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarForwardMeetingRequestEventArgs {
@@ -930,17 +864,6 @@ impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequest
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarProposeNewTimeForMeetingRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarProposeNewTimeForMeetingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarProposeNewTimeForMeetingRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest;{ce1c63f5-edf6-43c3-82b7-be6b368c6900})");
     type DefaultType = ::core::option::Option<Self>;
@@ -984,17 +907,6 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -1051,17 +963,6 @@ impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarSyncManagerSyncRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarSyncManagerSyncRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarSyncManagerSyncRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarSyncManagerSyncRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest;{12ab382b-7163-4a56-9a4e-7223a84adf46})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1105,17 +1006,6 @@ impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarSyncManagerSyncRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarSyncManagerSyncRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -1216,17 +1106,6 @@ impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarUpdateMeetingResponseRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarUpdateMeetingResponseRequest {}
-impl ::core::fmt::Debug for AppointmentCalendarUpdateMeetingResponseRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarUpdateMeetingResponseRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingResponseRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest;{a36d608c-c29d-4b94-b086-7e9ff7bd84a0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1270,17 +1149,6 @@ impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
 impl ::core::clone::Clone for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
-impl ::core::fmt::Debug for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentCalendarUpdateMeetingResponseRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -1406,17 +1274,6 @@ impl ::core::clone::Clone for AppointmentDataProviderConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentDataProviderConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentDataProviderConnection {}
-impl ::core::fmt::Debug for AppointmentDataProviderConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentDataProviderConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection;{f3dd9d83-3254-465f-abdb-928046552cf4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1453,17 +1310,6 @@ impl ::core::clone::Clone for AppointmentDataProviderTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentDataProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentDataProviderTriggerDetails {}
-impl ::core::fmt::Debug for AppointmentDataProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentDataProviderTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentDataProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails;{b3283c01-7e12-4e5e-b1ef-74fb68ac6f2a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1485,3 +1331,5 @@ unsafe impl ::core::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

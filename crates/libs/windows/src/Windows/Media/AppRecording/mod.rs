@@ -216,17 +216,6 @@ impl ::core::clone::Clone for AppRecordingManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppRecordingManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingManager {}
-impl ::core::fmt::Debug for AppRecordingManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppRecordingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingManager;{e7e26076-a044-48e2-a512-3094d574c7cc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -286,17 +275,6 @@ impl ::core::clone::Clone for AppRecordingResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppRecordingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingResult {}
-impl ::core::fmt::Debug for AppRecordingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppRecordingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingResult;{3a900864-c66d-46f9-b2d9-5bc2dad070d7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -349,17 +327,6 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppRecordingSaveScreenshotResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingSaveScreenshotResult {}
-impl ::core::fmt::Debug for AppRecordingSaveScreenshotResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingSaveScreenshotResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingSaveScreenshotResult;{9c5b8d0a-0abb-4457-aaee-24f9c12ec778})");
     type DefaultType = ::core::option::Option<Self>;
@@ -403,17 +370,6 @@ impl AppRecordingSavedScreenshotInfo {
 impl ::core::clone::Clone for AppRecordingSavedScreenshotInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppRecordingSavedScreenshotInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingSavedScreenshotInfo {}
-impl ::core::fmt::Debug for AppRecordingSavedScreenshotInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingSavedScreenshotInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppRecordingSavedScreenshotInfo {
@@ -473,17 +429,6 @@ impl AppRecordingStatus {
 impl ::core::clone::Clone for AppRecordingStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppRecordingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingStatus {}
-impl ::core::fmt::Debug for AppRecordingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppRecordingStatus {
@@ -578,17 +523,6 @@ impl ::core::clone::Clone for AppRecordingStatusDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppRecordingStatusDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingStatusDetails {}
-impl ::core::fmt::Debug for AppRecordingStatusDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingStatusDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppRecordingStatusDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppRecording.AppRecordingStatusDetails;{b538a9b0-14ed-4412-ac45-6d672c9c9949})");
     type DefaultType = ::core::option::Option<Self>;
@@ -622,18 +556,8 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
         *self
     }
 }
-impl ::core::default::Default for AppRecordingSaveScreenshotOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
@@ -644,3 +568,5 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

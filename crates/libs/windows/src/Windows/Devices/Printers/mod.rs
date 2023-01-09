@@ -567,17 +567,6 @@ impl ::core::clone::Clone for IppAttributeError {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IppAttributeError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeError {}
-impl ::core::fmt::Debug for IppAttributeError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IppAttributeError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1139,17 +1128,6 @@ impl ::core::clone::Clone for IppAttributeValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IppAttributeValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeValue {}
-impl ::core::fmt::Debug for IppAttributeValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IppAttributeValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1202,17 +1180,6 @@ impl IppIntegerRange {
 impl ::core::clone::Clone for IppIntegerRange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IppIntegerRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppIntegerRange {}
-impl ::core::fmt::Debug for IppIntegerRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppIntegerRange").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IppIntegerRange {
@@ -1369,17 +1336,6 @@ impl ::core::clone::Clone for IppPrintDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IppPrintDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppPrintDevice {}
-impl ::core::fmt::Debug for IppPrintDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppPrintDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IppPrintDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1441,17 +1397,6 @@ impl ::core::clone::Clone for IppResolution {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IppResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppResolution {}
-impl ::core::fmt::Debug for IppResolution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppResolution").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IppResolution {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1495,17 +1440,6 @@ impl IppSetAttributesResult {
 impl ::core::clone::Clone for IppSetAttributesResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IppSetAttributesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppSetAttributesResult {}
-impl ::core::fmt::Debug for IppSetAttributesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppSetAttributesResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IppSetAttributesResult {
@@ -1560,17 +1494,6 @@ impl IppTextWithLanguage {
 impl ::core::clone::Clone for IppTextWithLanguage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IppTextWithLanguage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppTextWithLanguage {}
-impl ::core::fmt::Debug for IppTextWithLanguage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppTextWithLanguage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IppTextWithLanguage {
@@ -1629,17 +1552,6 @@ impl PageConfigurationSettings {
 impl ::core::clone::Clone for PageConfigurationSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PageConfigurationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PageConfigurationSettings {}
-impl ::core::fmt::Debug for PageConfigurationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PageConfigurationSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PageConfigurationSettings {
@@ -1702,17 +1614,6 @@ impl ::core::clone::Clone for PdlPassthroughProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PdlPassthroughProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdlPassthroughProvider {}
-impl ::core::fmt::Debug for PdlPassthroughProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdlPassthroughProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PdlPassthroughProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1766,17 +1667,6 @@ impl PdlPassthroughTarget {
 impl ::core::clone::Clone for PdlPassthroughTarget {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PdlPassthroughTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdlPassthroughTarget {}
-impl ::core::fmt::Debug for PdlPassthroughTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdlPassthroughTarget").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PdlPassthroughTarget {
@@ -1856,17 +1746,6 @@ impl ::core::clone::Clone for Print3DDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DDevice {}
-impl ::core::fmt::Debug for Print3DDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1931,17 +1810,6 @@ impl ::core::clone::Clone for PrintSchema {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintSchema {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSchema {}
-impl ::core::fmt::Debug for PrintSchema {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSchema").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintSchema {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1978,18 +1846,8 @@ impl ::core::clone::Clone for IppAttributeErrorReason {
         *self
     }
 }
-impl ::core::default::Default for IppAttributeErrorReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IppAttributeErrorReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
@@ -2031,18 +1889,8 @@ impl ::core::clone::Clone for IppAttributeValueKind {
         *self
     }
 }
-impl ::core::default::Default for IppAttributeValueKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IppAttributeValueKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IppAttributeValueKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
@@ -2065,18 +1913,8 @@ impl ::core::clone::Clone for IppResolutionUnit {
         *self
     }
 }
-impl ::core::default::Default for IppResolutionUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IppResolutionUnit {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IppResolutionUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
@@ -2099,18 +1937,8 @@ impl ::core::clone::Clone for PageConfigurationSource {
         *self
     }
 }
-impl ::core::default::Default for PageConfigurationSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PageConfigurationSource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PageConfigurationSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PageConfigurationSource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PageConfigurationSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");
@@ -2121,3 +1949,5 @@ unsafe impl ::windows::core::RuntimeType for PageConfigurationSource {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

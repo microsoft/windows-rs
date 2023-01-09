@@ -857,17 +857,6 @@ impl ::core::clone::Clone for AttributedNetworkUsage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AttributedNetworkUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AttributedNetworkUsage {}
-impl ::core::fmt::Debug for AttributedNetworkUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AttributedNetworkUsage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AttributedNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.AttributedNetworkUsage;{f769b039-eca2-45eb-ade1-b0368b756c49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -981,17 +970,6 @@ impl ::core::clone::Clone for CellularApnContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CellularApnContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CellularApnContext {}
-impl ::core::fmt::Debug for CellularApnContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularApnContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CellularApnContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.CellularApnContext;{6fa529f4-effd-4542-9ab2-705bbf94943a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1054,17 +1032,6 @@ impl ConnectionCost {
 impl ::core::clone::Clone for ConnectionCost {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ConnectionCost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionCost {}
-impl ::core::fmt::Debug for ConnectionCost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionCost").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionCost {
@@ -1277,17 +1244,6 @@ impl ::core::clone::Clone for ConnectionProfile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ConnectionProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionProfile {}
-impl ::core::fmt::Debug for ConnectionProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionProfile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ConnectionProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfile;{71ba143c-598e-49d0-84eb-8febaedcc195})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1472,17 +1428,6 @@ impl ::core::clone::Clone for ConnectionProfileFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ConnectionProfileFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionProfileFilter {}
-impl ::core::fmt::Debug for ConnectionProfileFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionProfileFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ConnectionProfileFilter;{204c7cc8-bd2d-4e8d-a4b3-455ec337388a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1523,17 +1468,6 @@ impl ConnectionSession {
 impl ::core::clone::Clone for ConnectionSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ConnectionSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionSession {}
-impl ::core::fmt::Debug for ConnectionSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionSession").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionSession {
@@ -1603,17 +1537,6 @@ impl ConnectivityInterval {
 impl ::core::clone::Clone for ConnectivityInterval {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ConnectivityInterval {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectivityInterval {}
-impl ::core::fmt::Debug for ConnectivityInterval {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectivityInterval").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ConnectivityInterval {
@@ -1723,17 +1646,6 @@ impl ::core::clone::Clone for DataPlanStatus {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataPlanStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPlanStatus {}
-impl ::core::fmt::Debug for DataPlanStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPlanStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataPlanStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataPlanStatus;{977a8b8c-3885-40f3-8851-42cd2bd568bb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1777,17 +1689,6 @@ impl DataPlanUsage {
 impl ::core::clone::Clone for DataPlanUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataPlanUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPlanUsage {}
-impl ::core::fmt::Debug for DataPlanUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPlanUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataPlanUsage {
@@ -1838,20 +1739,6 @@ impl DataUsage {
 impl ::core::clone::Clone for DataUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for DataUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for DataUsage {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for DataUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataUsage").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1906,17 +1793,6 @@ impl ::core::clone::Clone for IPInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPInformation {}
-impl ::core::fmt::Debug for IPInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.IPInformation;{d85145e0-138f-47d7-9b3a-36bb488cef33})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1967,17 +1843,6 @@ impl ::core::clone::Clone for LanIdentifier {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LanIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LanIdentifier {}
-impl ::core::fmt::Debug for LanIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LanIdentifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LanIdentifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.LanIdentifier;{48aa53aa-1108-4546-a6cb-9a74da4b7ba0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2021,17 +1886,6 @@ impl LanIdentifierData {
 impl ::core::clone::Clone for LanIdentifierData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LanIdentifierData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LanIdentifierData {}
-impl ::core::fmt::Debug for LanIdentifierData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LanIdentifierData").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LanIdentifierData {
@@ -2105,17 +1959,6 @@ impl NetworkAdapter {
 impl ::core::clone::Clone for NetworkAdapter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NetworkAdapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkAdapter {}
-impl ::core::fmt::Debug for NetworkAdapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkAdapter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkAdapter {
@@ -2249,17 +2092,6 @@ impl ::core::clone::Clone for NetworkItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkItem {}
-impl ::core::fmt::Debug for NetworkItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NetworkItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkItem;{01bc4d39-f5e0-4567-a28c-42080c831b2b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2301,17 +2133,6 @@ impl NetworkSecuritySettings {
 impl ::core::clone::Clone for NetworkSecuritySettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NetworkSecuritySettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkSecuritySettings {}
-impl ::core::fmt::Debug for NetworkSecuritySettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkSecuritySettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkSecuritySettings {
@@ -2399,17 +2220,6 @@ impl ::core::clone::Clone for NetworkStateChangeEventDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkStateChangeEventDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkStateChangeEventDetails {}
-impl ::core::fmt::Debug for NetworkStateChangeEventDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkStateChangeEventDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkStateChangeEventDetails;{1f0cf333-d7a6-44dd-a4e9-687c476b903d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2462,17 +2272,6 @@ impl ::core::clone::Clone for NetworkUsage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkUsage {}
-impl ::core::fmt::Debug for NetworkUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkUsage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.NetworkUsage;{49da8fce-9985-4927-bf5b-072b5c65f8d9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2523,17 +2322,6 @@ impl ::core::clone::Clone for ProviderNetworkUsage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProviderNetworkUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderNetworkUsage {}
-impl ::core::fmt::Debug for ProviderNetworkUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderNetworkUsage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProviderNetworkUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.ProviderNetworkUsage;{5ec69e04-7931-48c8-b8f3-46300fa42728})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2577,17 +2365,6 @@ impl ProxyConfiguration {
 impl ::core::clone::Clone for ProxyConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProxyConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProxyConfiguration {}
-impl ::core::fmt::Debug for ProxyConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProxyConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProxyConfiguration {
@@ -2651,17 +2428,6 @@ impl ::core::clone::Clone for RoutePolicy {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RoutePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RoutePolicy {}
-impl ::core::fmt::Debug for RoutePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RoutePolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RoutePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.RoutePolicy;{11abc4ac-0fc7-42e4-8742-569923b1ca11})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2696,17 +2462,6 @@ impl WlanConnectionProfileDetails {
 impl ::core::clone::Clone for WlanConnectionProfileDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WlanConnectionProfileDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WlanConnectionProfileDetails {}
-impl ::core::fmt::Debug for WlanConnectionProfileDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WlanConnectionProfileDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
@@ -2782,17 +2537,6 @@ impl ::core::clone::Clone for WwanConnectionProfileDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WwanConnectionProfileDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwanConnectionProfileDetails {}
-impl ::core::fmt::Debug for WwanConnectionProfileDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwanConnectionProfileDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.WwanConnectionProfileDetails;{0e4da8fe-835f-4df3-82fd-df556ebc09ef})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2828,18 +2572,8 @@ impl ::core::clone::Clone for CellularApnAuthenticationType {
         *self
     }
 }
-impl ::core::default::Default for CellularApnAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CellularApnAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
@@ -2864,18 +2598,8 @@ impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
         *self
     }
 }
-impl ::core::default::Default for ConnectionProfileDeleteStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
@@ -2900,18 +2624,8 @@ impl ::core::clone::Clone for DataUsageGranularity {
         *self
     }
 }
-impl ::core::default::Default for DataUsageGranularity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DataUsageGranularity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DataUsageGranularity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
@@ -2935,18 +2649,8 @@ impl ::core::clone::Clone for DomainAuthenticationKind {
         *self
     }
 }
-impl ::core::default::Default for DomainAuthenticationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DomainAuthenticationKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DomainAuthenticationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DomainAuthenticationKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DomainAuthenticationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainAuthenticationKind;i4)");
@@ -2970,18 +2674,8 @@ impl ::core::clone::Clone for DomainConnectivityLevel {
         *self
     }
 }
-impl ::core::default::Default for DomainConnectivityLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DomainConnectivityLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
@@ -3017,18 +2711,8 @@ impl ::core::clone::Clone for NetworkAuthenticationType {
         *self
     }
 }
-impl ::core::default::Default for NetworkAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
@@ -3053,18 +2737,8 @@ impl ::core::clone::Clone for NetworkConnectivityLevel {
         *self
     }
 }
-impl ::core::default::Default for NetworkConnectivityLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkConnectivityLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
@@ -3089,18 +2763,8 @@ impl ::core::clone::Clone for NetworkCostType {
         *self
     }
 }
-impl ::core::default::Default for NetworkCostType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkCostType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkCostType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkCostType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkCostType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
@@ -3133,18 +2797,8 @@ impl ::core::clone::Clone for NetworkEncryptionType {
         *self
     }
 }
-impl ::core::default::Default for NetworkEncryptionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkEncryptionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkEncryptionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
@@ -3168,46 +2822,8 @@ impl ::core::clone::Clone for NetworkTypes {
         *self
     }
 }
-impl ::core::default::Default for NetworkTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NetworkTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NetworkTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NetworkTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NetworkTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NetworkTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
@@ -3231,46 +2847,8 @@ impl ::core::clone::Clone for RoamingStates {
         *self
     }
 }
-impl ::core::default::Default for RoamingStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RoamingStates {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RoamingStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RoamingStates").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RoamingStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RoamingStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RoamingStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RoamingStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RoamingStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RoamingStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
@@ -3294,18 +2872,8 @@ impl ::core::clone::Clone for TriStates {
         *self
     }
 }
-impl ::core::default::Default for TriStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TriStates {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TriStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TriStates").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TriStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
@@ -3341,46 +2909,8 @@ impl ::core::clone::Clone for WwanDataClass {
         *self
     }
 }
-impl ::core::default::Default for WwanDataClass {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WwanDataClass {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WwanDataClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwanDataClass").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WwanDataClass {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WwanDataClass {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WwanDataClass {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WwanDataClass {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WwanDataClass {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WwanDataClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanDataClass;u4)");
@@ -3406,18 +2936,8 @@ impl ::core::clone::Clone for WwanNetworkIPKind {
         *self
     }
 }
-impl ::core::default::Default for WwanNetworkIPKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WwanNetworkIPKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WwanNetworkIPKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwanNetworkIPKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkIPKind;i4)");
@@ -3445,18 +2965,8 @@ impl ::core::clone::Clone for WwanNetworkRegistrationState {
         *self
     }
 }
-impl ::core::default::Default for WwanNetworkRegistrationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WwanNetworkRegistrationState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WwanNetworkRegistrationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwanNetworkRegistrationState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
@@ -3477,11 +2987,6 @@ impl ::core::clone::Clone for NetworkUsageStates {
         *self
     }
 }
-impl ::core::fmt::Debug for NetworkUsageStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NetworkUsageStates {
     type Abi = Self;
 }
@@ -3490,17 +2995,6 @@ unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for NetworkUsageStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.Roaming == other.Roaming && self.Shared == other.Shared
-    }
-}
-impl ::core::cmp::Eq for NetworkUsageStates {}
-impl ::core::default::Default for NetworkUsageStates {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -3562,17 +3056,6 @@ impl ::core::clone::Clone for NetworkStatusChangedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkStatusChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkStatusChangedEventHandler {}
-impl ::core::fmt::Debug for NetworkStatusChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkStatusChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for NetworkStatusChangedEventHandler {
     type Vtable = NetworkStatusChangedEventHandler_Vtbl;
 }
@@ -3594,3 +3077,5 @@ pub struct NetworkStatusChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

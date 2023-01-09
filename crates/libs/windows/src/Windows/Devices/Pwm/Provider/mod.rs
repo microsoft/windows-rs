@@ -64,17 +64,6 @@ impl ::core::clone::Clone for IPwmControllerProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPwmControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPwmControllerProvider {}
-impl ::core::fmt::Debug for IPwmControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPwmControllerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
     type DefaultType = ::core::option::Option<Self>;
@@ -123,17 +112,6 @@ impl ::core::clone::Clone for IPwmProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPwmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPwmProvider {}
-impl ::core::fmt::Debug for IPwmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPwmProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPwmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
     type DefaultType = ::core::option::Option<Self>;
@@ -158,3 +136,5 @@ pub struct IPwmProvider_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

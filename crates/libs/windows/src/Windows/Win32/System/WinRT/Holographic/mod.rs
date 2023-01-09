@@ -54,17 +54,6 @@ impl ::core::clone::Clone for IHolographicCameraInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHolographicCameraInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHolographicCameraInterop {}
-impl ::core::fmt::Debug for IHolographicCameraInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHolographicCameraInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IHolographicCameraInterop {
     type Vtable = IHolographicCameraInterop_Vtbl;
 }
@@ -125,17 +114,6 @@ impl IHolographicCameraRenderingParametersInterop {
 impl ::core::clone::Clone for IHolographicCameraRenderingParametersInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IHolographicCameraRenderingParametersInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHolographicCameraRenderingParametersInterop {}
-impl ::core::fmt::Debug for IHolographicCameraRenderingParametersInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHolographicCameraRenderingParametersInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IHolographicCameraRenderingParametersInterop {
@@ -213,17 +191,6 @@ impl ::core::clone::Clone for IHolographicQuadLayerInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHolographicQuadLayerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHolographicQuadLayerInterop {}
-impl ::core::fmt::Debug for IHolographicQuadLayerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHolographicQuadLayerInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IHolographicQuadLayerInterop {
     type Vtable = IHolographicQuadLayerInterop_Vtbl;
 }
@@ -275,17 +242,6 @@ impl ::core::clone::Clone for IHolographicQuadLayerUpdateParametersInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHolographicQuadLayerUpdateParametersInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHolographicQuadLayerUpdateParametersInterop {}
-impl ::core::fmt::Debug for IHolographicQuadLayerUpdateParametersInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHolographicQuadLayerUpdateParametersInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IHolographicQuadLayerUpdateParametersInterop {
     type Vtable = IHolographicQuadLayerUpdateParametersInterop_Vtbl;
 }
@@ -303,3 +259,5 @@ pub struct IHolographicQuadLayerUpdateParametersInterop_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

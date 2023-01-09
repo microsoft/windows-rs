@@ -15,17 +15,6 @@ impl ::core::clone::Clone for IWCNConnectNotify {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWCNConnectNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCNConnectNotify {}
-impl ::core::fmt::Debug for IWCNConnectNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCNConnectNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_Vtbl;
 }
@@ -99,17 +88,6 @@ impl IWCNDevice {
 impl ::core::clone::Clone for IWCNDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWCNDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCNDevice {}
-impl ::core::fmt::Debug for IWCNDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCNDevice").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWCNDevice {
@@ -530,18 +508,8 @@ impl ::core::clone::Clone for WCN_ATTRIBUTE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_ATTRIBUTE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_ATTRIBUTE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -563,18 +531,8 @@ impl ::core::clone::Clone for WCN_PASSWORD_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_PASSWORD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_PASSWORD_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_PASSWORD_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_PASSWORD_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -592,18 +550,8 @@ impl ::core::clone::Clone for WCN_SESSION_STATUS {
         *self
     }
 }
-impl ::core::default::Default for WCN_SESSION_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_SESSION_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_SESSION_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_SESSION_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -625,18 +573,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_ASSOCIATION_STATE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_ASSOCIATION_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -662,18 +600,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_AUTHENTICATION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -689,18 +617,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_BOOLEAN {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_BOOLEAN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_BOOLEAN {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_BOOLEAN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_BOOLEAN").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -750,18 +668,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_CONFIGURATION_ERROR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -799,18 +707,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_CONFIG_METHODS {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_CONFIG_METHODS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIG_METHODS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_CONFIG_METHODS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -826,18 +724,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_CONNECTION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_CONNECTION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -869,18 +757,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_DEVICE_PASSWORD_ID").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -902,18 +780,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_ENCRYPTION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -955,18 +823,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_MESSAGE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_MESSAGE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -986,18 +844,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_REQUEST_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_REQUEST_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_REQUEST_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -1017,18 +865,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_RESPONSE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_RESPONSE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -1044,18 +882,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_RF_BANDS {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_RF_BANDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RF_BANDS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_RF_BANDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_RF_BANDS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -1071,18 +899,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_VERSION {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
@@ -1100,18 +918,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
         *self
     }
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE").field(&self.0).finish()
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
@@ -1129,11 +937,6 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
 unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     type Abi = Self;
 }
-impl ::core::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 pub struct WCN_VENDOR_EXTENSION_SPEC {
@@ -1148,24 +951,10 @@ impl ::core::clone::Clone for WCN_VENDOR_EXTENSION_SPEC {
         *self
     }
 }
-impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
-    fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId && self.SubType == other.SubType && self.Index == other.Index && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WCN_VENDOR_EXTENSION_SPEC {}
-impl ::core::default::Default for WCN_VENDOR_EXTENSION_SPEC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

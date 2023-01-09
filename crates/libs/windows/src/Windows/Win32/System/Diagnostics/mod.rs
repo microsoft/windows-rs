@@ -10,3 +10,5 @@ pub mod ProcessSnapshotting;
 pub mod ToolHelp;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

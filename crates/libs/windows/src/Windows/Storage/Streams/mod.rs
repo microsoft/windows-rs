@@ -27,17 +27,6 @@ impl ::core::clone::Clone for IBuffer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBuffer {}
-impl ::core::fmt::Debug for IBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe0-bc53-11df-8c49-001e4fc686da}");
     type DefaultType = ::core::option::Option<Self>;
@@ -112,17 +101,6 @@ impl IContentTypeProvider {
 impl ::core::clone::Clone for IContentTypeProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContentTypeProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContentTypeProvider {}
-impl ::core::fmt::Debug for IContentTypeProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContentTypeProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContentTypeProvider {
@@ -329,17 +307,6 @@ impl IDataReader {
 impl ::core::clone::Clone for IDataReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IDataReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataReader {}
-impl ::core::fmt::Debug for IDataReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IDataReader {
@@ -587,17 +554,6 @@ impl ::core::clone::Clone for IDataWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDataWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataWriter {}
-impl ::core::fmt::Debug for IDataWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IDataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{64b89265-d341-4922-b38a-dd4af8808c4e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -768,17 +724,6 @@ impl ::core::clone::Clone for IInputStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IInputStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInputStream {}
-impl ::core::fmt::Debug for IInputStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInputStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe2-bc53-11df-8c49-001e4fc686da}");
     type DefaultType = ::core::option::Option<Self>;
@@ -819,17 +764,6 @@ impl IInputStreamReference {
 impl ::core::clone::Clone for IInputStreamReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInputStreamReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInputStreamReference {}
-impl ::core::fmt::Debug for IInputStreamReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInputStreamReference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IInputStreamReference {
@@ -915,17 +849,6 @@ impl ::core::clone::Clone for IOutputStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IOutputStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOutputStream {}
-impl ::core::fmt::Debug for IOutputStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOutputStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IOutputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe6-bc53-11df-8c49-001e4fc686da}");
     type DefaultType = ::core::option::Option<Self>;
@@ -986,17 +909,6 @@ impl IPropertySetSerializer {
 impl ::core::clone::Clone for IPropertySetSerializer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPropertySetSerializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertySetSerializer {}
-impl ::core::fmt::Debug for IPropertySetSerializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertySetSerializer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IPropertySetSerializer {
@@ -1194,17 +1106,6 @@ impl ::core::clone::Clone for IRandomAccessStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRandomAccessStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRandomAccessStream {}
-impl ::core::fmt::Debug for IRandomAccessStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRandomAccessStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905a0fe1-bc53-11df-8c49-001e4fc686da}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1250,17 +1151,6 @@ impl IRandomAccessStreamReference {
 impl ::core::clone::Clone for IRandomAccessStreamReference {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRandomAccessStreamReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRandomAccessStreamReference {}
-impl ::core::fmt::Debug for IRandomAccessStreamReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRandomAccessStreamReference").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamReference {
@@ -1545,17 +1435,6 @@ impl ::core::clone::Clone for IRandomAccessStreamWithContentType {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRandomAccessStreamWithContentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRandomAccessStreamWithContentType {}
-impl ::core::fmt::Debug for IRandomAccessStreamWithContentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRandomAccessStreamWithContentType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IRandomAccessStreamWithContentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cc254827-4b3d-438f-9232-10c76bc7e038}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1640,17 +1519,6 @@ impl Buffer {
 impl ::core::clone::Clone for Buffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Buffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Buffer {}
-impl ::core::fmt::Debug for Buffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Buffer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Buffer {
@@ -1913,17 +1781,6 @@ impl ::core::clone::Clone for DataReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataReader {}
-impl ::core::fmt::Debug for DataReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataReader;{e2b50029-b4c1-4314-a4b8-fb813a2f275e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2058,20 +1915,6 @@ impl DataReaderLoadOperation {
 impl ::core::clone::Clone for DataReaderLoadOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for DataReaderLoadOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for DataReaderLoadOperation {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for DataReaderLoadOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataReaderLoadOperation").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2364,17 +2207,6 @@ impl ::core::clone::Clone for DataWriter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataWriter {}
-impl ::core::fmt::Debug for DataWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataWriter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriter;{64b89265-d341-4922-b38a-dd4af8808c4e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2512,20 +2344,6 @@ impl ::core::clone::Clone for DataWriterStoreOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for DataWriterStoreOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for DataWriterStoreOperation {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for DataWriterStoreOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataWriterStoreOperation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for DataWriterStoreOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.DataWriterStoreOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};u4))");
     type DefaultType = ::core::option::Option<Self>;
@@ -2655,17 +2473,6 @@ impl ::core::clone::Clone for FileInputStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileInputStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileInputStream {}
-impl ::core::fmt::Debug for FileInputStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileInputStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileInputStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileInputStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2762,17 +2569,6 @@ impl FileOutputStream {
 impl ::core::clone::Clone for FileOutputStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileOutputStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOutputStream {}
-impl ::core::fmt::Debug for FileOutputStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOutputStream").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FileOutputStream {
@@ -3012,17 +2808,6 @@ impl ::core::clone::Clone for FileRandomAccessStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileRandomAccessStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileRandomAccessStream {}
-impl ::core::fmt::Debug for FileRandomAccessStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileRandomAccessStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.FileRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3236,17 +3021,6 @@ impl ::core::clone::Clone for InMemoryRandomAccessStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InMemoryRandomAccessStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InMemoryRandomAccessStream {}
-impl ::core::fmt::Debug for InMemoryRandomAccessStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InMemoryRandomAccessStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InMemoryRandomAccessStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InMemoryRandomAccessStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3374,17 +3148,6 @@ impl ::core::clone::Clone for InputStreamOverStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InputStreamOverStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputStreamOverStream {}
-impl ::core::fmt::Debug for InputStreamOverStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputStreamOverStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InputStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.InputStreamOverStream;{905a0fe2-bc53-11df-8c49-001e4fc686da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3481,17 +3244,6 @@ impl OutputStreamOverStream {
 impl ::core::clone::Clone for OutputStreamOverStream {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OutputStreamOverStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OutputStreamOverStream {}
-impl ::core::fmt::Debug for OutputStreamOverStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OutputStreamOverStream").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OutputStreamOverStream {
@@ -3716,17 +3468,6 @@ impl ::core::clone::Clone for RandomAccessStreamOverStream {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RandomAccessStreamOverStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RandomAccessStreamOverStream {}
-impl ::core::fmt::Debug for RandomAccessStreamOverStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RandomAccessStreamOverStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamOverStream {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamOverStream;{905a0fe1-bc53-11df-8c49-001e4fc686da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3877,17 +3618,6 @@ impl ::core::clone::Clone for RandomAccessStreamReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RandomAccessStreamReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RandomAccessStreamReference {}
-impl ::core::fmt::Debug for RandomAccessStreamReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RandomAccessStreamReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RandomAccessStreamReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Streams.RandomAccessStreamReference;{33ee3134-1dd6-4e3a-8067-d1c162e8642b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3940,18 +3670,8 @@ impl ::core::clone::Clone for ByteOrder {
         *self
     }
 }
-impl ::core::default::Default for ByteOrder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ByteOrder {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ByteOrder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ByteOrder").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ByteOrder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.ByteOrder;i4)");
@@ -3977,18 +3697,8 @@ impl ::core::clone::Clone for FileOpenDisposition {
         *self
     }
 }
-impl ::core::default::Default for FileOpenDisposition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FileOpenDisposition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FileOpenDisposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.FileOpenDisposition;i4)");
@@ -4012,46 +3722,8 @@ impl ::core::clone::Clone for InputStreamOptions {
         *self
     }
 }
-impl ::core::default::Default for InputStreamOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InputStreamOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InputStreamOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputStreamOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InputStreamOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InputStreamOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InputStreamOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InputStreamOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InputStreamOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.InputStreamOptions;u4)");
@@ -4075,18 +3747,8 @@ impl ::core::clone::Clone for UnicodeEncoding {
         *self
     }
 }
-impl ::core::default::Default for UnicodeEncoding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnicodeEncoding {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnicodeEncoding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeEncoding").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Streams.UnicodeEncoding;i4)");
@@ -4097,3 +3759,5 @@ unsafe impl ::windows::core::RuntimeType for UnicodeEncoding {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

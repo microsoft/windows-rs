@@ -66,17 +66,6 @@ impl ::core::clone::Clone for IFunctionDiscovery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionDiscovery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscovery {}
-impl ::core::fmt::Debug for IFunctionDiscovery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscovery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionDiscovery {
     type Vtable = IFunctionDiscovery_Vtbl;
 }
@@ -135,17 +124,6 @@ impl IFunctionDiscoveryNotification {
 impl ::core::clone::Clone for IFunctionDiscoveryNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFunctionDiscoveryNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscoveryNotification {}
-impl ::core::fmt::Debug for IFunctionDiscoveryNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscoveryNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryNotification {
@@ -236,17 +214,6 @@ impl ::core::clone::Clone for IFunctionDiscoveryProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionDiscoveryProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscoveryProvider {}
-impl ::core::fmt::Debug for IFunctionDiscoveryProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscoveryProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProvider {
     type Vtable = IFunctionDiscoveryProvider_Vtbl;
 }
@@ -314,17 +281,6 @@ impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscoveryProviderFactory {}
-impl ::core::fmt::Debug for IFunctionDiscoveryProviderFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscoveryProviderFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProviderFactory {
     type Vtable = IFunctionDiscoveryProviderFactory_Vtbl;
 }
@@ -374,17 +330,6 @@ impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscoveryProviderQuery {}
-impl ::core::fmt::Debug for IFunctionDiscoveryProviderQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscoveryProviderQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProviderQuery {
     type Vtable = IFunctionDiscoveryProviderQuery_Vtbl;
 }
@@ -427,17 +372,6 @@ impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionDiscoveryServiceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionDiscoveryServiceProvider {}
-impl ::core::fmt::Debug for IFunctionDiscoveryServiceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionDiscoveryServiceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryServiceProvider {
     type Vtable = IFunctionDiscoveryServiceProvider_Vtbl;
 }
@@ -459,11 +393,6 @@ pub struct IFunctionDiscoveryServiceProvider_Vtbl {
 pub struct IFunctionInstance(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFunctionInstance {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.QueryService)(::windows::core::Vtable::as_raw(self), guidservice, riid, ppvobject).ok()
-    }
     pub unsafe fn GetID(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -488,20 +417,6 @@ impl IFunctionInstance {
 impl ::core::clone::Clone for IFunctionInstance {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IFunctionInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IFunctionInstance {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IFunctionInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionInstance").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -574,17 +489,6 @@ impl ::core::clone::Clone for IFunctionInstanceCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionInstanceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionInstanceCollection {}
-impl ::core::fmt::Debug for IFunctionInstanceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionInstanceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionInstanceCollection {
     type Vtable = IFunctionInstanceCollection_Vtbl;
 }
@@ -642,17 +546,6 @@ impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFunctionInstanceCollectionQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionInstanceCollectionQuery {}
-impl ::core::fmt::Debug for IFunctionInstanceCollectionQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionInstanceCollectionQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFunctionInstanceCollectionQuery {
     type Vtable = IFunctionInstanceCollectionQuery_Vtbl;
 }
@@ -685,17 +578,6 @@ impl IFunctionInstanceQuery {
 impl ::core::clone::Clone for IFunctionInstanceQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFunctionInstanceQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFunctionInstanceQuery {}
-impl ::core::fmt::Debug for IFunctionInstanceQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFunctionInstanceQuery").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IFunctionInstanceQuery {
@@ -742,17 +624,6 @@ impl ::core::clone::Clone for IPNPXAssociation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPNPXAssociation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPNPXAssociation {}
-impl ::core::fmt::Debug for IPNPXAssociation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPNPXAssociation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPNPXAssociation {
     type Vtable = IPNPXAssociation_Vtbl;
 }
@@ -797,17 +668,6 @@ impl IPNPXDeviceAssociation {
 impl ::core::clone::Clone for IPNPXDeviceAssociation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPNPXDeviceAssociation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPNPXDeviceAssociation {}
-impl ::core::fmt::Debug for IPNPXDeviceAssociation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPNPXDeviceAssociation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPNPXDeviceAssociation {
@@ -871,17 +731,6 @@ impl IPropertyStoreCollection {
 impl ::core::clone::Clone for IPropertyStoreCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPropertyStoreCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertyStoreCollection {}
-impl ::core::fmt::Debug for IPropertyStoreCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertyStoreCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPropertyStoreCollection {
@@ -959,17 +808,6 @@ impl ::core::clone::Clone for IProviderProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IProviderProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProviderProperties {}
-impl ::core::fmt::Debug for IProviderProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProviderProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IProviderProperties {
     type Vtable = IProviderProperties_Vtbl;
 }
@@ -1033,17 +871,6 @@ impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IProviderPropertyConstraintCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProviderPropertyConstraintCollection {}
-impl ::core::fmt::Debug for IProviderPropertyConstraintCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProviderPropertyConstraintCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IProviderPropertyConstraintCollection {
     type Vtable = IProviderPropertyConstraintCollection_Vtbl;
 }
@@ -1098,17 +925,6 @@ impl ::core::clone::Clone for IProviderPublishing {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IProviderPublishing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProviderPublishing {}
-impl ::core::fmt::Debug for IProviderPublishing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProviderPublishing").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IProviderPublishing {
     type Vtable = IProviderPublishing_Vtbl;
 }
@@ -1157,17 +973,6 @@ impl IProviderQueryConstraintCollection {
 impl ::core::clone::Clone for IProviderQueryConstraintCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IProviderQueryConstraintCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProviderQueryConstraintCollection {}
-impl ::core::fmt::Debug for IProviderQueryConstraintCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProviderQueryConstraintCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IProviderQueryConstraintCollection {
@@ -2235,18 +2040,8 @@ impl ::core::clone::Clone for PropertyConstraint {
         *self
     }
 }
-impl ::core::default::Default for PropertyConstraint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PropertyConstraint {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PropertyConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyConstraint").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
@@ -2262,18 +2057,8 @@ impl ::core::clone::Clone for QueryCategoryType {
         *self
     }
 }
-impl ::core::default::Default for QueryCategoryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for QueryCategoryType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for QueryCategoryType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QueryCategoryType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
@@ -2291,18 +2076,8 @@ impl ::core::clone::Clone for QueryUpdateAction {
         *self
     }
 }
-impl ::core::default::Default for QueryUpdateAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for QueryUpdateAction {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for QueryUpdateAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QueryUpdateAction").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 #[repr(transparent)]
@@ -2318,18 +2093,10 @@ impl ::core::clone::Clone for SystemVisibilityFlags {
         *self
     }
 }
-impl ::core::default::Default for SystemVisibilityFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemVisibilityFlags {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for SystemVisibilityFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemVisibilityFlags").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

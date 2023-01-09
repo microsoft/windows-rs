@@ -156,17 +156,6 @@ impl ::core::clone::Clone for ISyndicationClient {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISyndicationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISyndicationClient {}
-impl ::core::fmt::Debug for ISyndicationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISyndicationClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
     type DefaultType = ::core::option::Option<Self>;
@@ -688,17 +677,6 @@ impl ::core::clone::Clone for ISyndicationNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISyndicationNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISyndicationNode {}
-impl ::core::fmt::Debug for ISyndicationNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISyndicationNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
     type DefaultType = ::core::option::Option<Self>;
@@ -958,17 +936,6 @@ impl ::core::clone::Clone for ISyndicationText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISyndicationText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISyndicationText {}
-impl ::core::fmt::Debug for ISyndicationText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISyndicationText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1074,17 +1041,6 @@ impl SyndicationAttribute {
 impl ::core::clone::Clone for SyndicationAttribute {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SyndicationAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationAttribute {}
-impl ::core::fmt::Debug for SyndicationAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationAttribute").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationAttribute {
@@ -1259,17 +1215,6 @@ impl ::core::clone::Clone for SyndicationCategory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationCategory {}
-impl ::core::fmt::Debug for SyndicationCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1412,17 +1357,6 @@ impl SyndicationClient {
 impl ::core::clone::Clone for SyndicationClient {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SyndicationClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationClient {}
-impl ::core::fmt::Debug for SyndicationClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationClient").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationClient {
@@ -1635,17 +1569,6 @@ impl SyndicationContent {
 impl ::core::clone::Clone for SyndicationContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SyndicationContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationContent {}
-impl ::core::fmt::Debug for SyndicationContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationContent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationContent {
@@ -2049,17 +1972,6 @@ impl ::core::clone::Clone for SyndicationFeed {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationFeed {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationFeed {}
-impl ::core::fmt::Debug for SyndicationFeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationFeed").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationFeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2247,17 +2159,6 @@ impl SyndicationGenerator {
 impl ::core::clone::Clone for SyndicationGenerator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SyndicationGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationGenerator {}
-impl ::core::fmt::Debug for SyndicationGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationGenerator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationGenerator {
@@ -2617,17 +2518,6 @@ impl ::core::clone::Clone for SyndicationItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationItem {}
-impl ::core::fmt::Debug for SyndicationItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2860,17 +2750,6 @@ impl ::core::clone::Clone for SyndicationLink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationLink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationLink {}
-impl ::core::fmt::Debug for SyndicationLink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationLink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3021,17 +2900,6 @@ impl SyndicationNode {
 impl ::core::clone::Clone for SyndicationNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SyndicationNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationNode {}
-impl ::core::fmt::Debug for SyndicationNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationNode {
@@ -3231,17 +3099,6 @@ impl ::core::clone::Clone for SyndicationPerson {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationPerson {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationPerson {}
-impl ::core::fmt::Debug for SyndicationPerson {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationPerson").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationPerson {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3437,17 +3294,6 @@ impl ::core::clone::Clone for SyndicationText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SyndicationText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationText {}
-impl ::core::fmt::Debug for SyndicationText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3523,18 +3369,8 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for SyndicationErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SyndicationErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
@@ -3561,18 +3397,8 @@ impl ::core::clone::Clone for SyndicationFormat {
         *self
     }
 }
-impl ::core::default::Default for SyndicationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SyndicationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
@@ -3596,18 +3422,8 @@ impl ::core::clone::Clone for SyndicationTextType {
         *self
     }
 }
-impl ::core::default::Default for SyndicationTextType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SyndicationTextType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SyndicationTextType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SyndicationTextType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SyndicationTextType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
@@ -3628,11 +3444,6 @@ impl ::core::clone::Clone for RetrievalProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for RetrievalProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RetrievalProgress").field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RetrievalProgress {
     type Abi = Self;
 }
@@ -3641,17 +3452,6 @@ unsafe impl ::windows::core::RuntimeType for RetrievalProgress {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for RetrievalProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
-    }
-}
-impl ::core::cmp::Eq for RetrievalProgress {}
-impl ::core::default::Default for RetrievalProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3668,11 +3468,6 @@ impl ::core::clone::Clone for TransferProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for TransferProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TransferProgress").field("BytesSent", &self.BytesSent).field("TotalBytesToSend", &self.TotalBytesToSend).field("BytesRetrieved", &self.BytesRetrieved).field("TotalBytesToRetrieve", &self.TotalBytesToRetrieve).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TransferProgress {
     type Abi = Self;
 }
@@ -3683,16 +3478,7 @@ unsafe impl ::windows::core::RuntimeType for TransferProgress {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for TransferProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesSent == other.BytesSent && self.TotalBytesToSend == other.TotalBytesToSend && self.BytesRetrieved == other.BytesRetrieved && self.TotalBytesToRetrieve == other.TotalBytesToRetrieve
-    }
-}
-impl ::core::cmp::Eq for TransferProgress {}
-impl ::core::default::Default for TransferProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

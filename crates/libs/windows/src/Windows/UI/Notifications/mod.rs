@@ -27,17 +27,6 @@ impl ::core::clone::Clone for IAdaptiveNotificationContent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAdaptiveNotificationContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdaptiveNotificationContent {}
-impl ::core::fmt::Debug for IAdaptiveNotificationContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdaptiveNotificationContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAdaptiveNotificationContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1515,17 +1504,6 @@ impl ::core::clone::Clone for AdaptiveNotificationText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveNotificationText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveNotificationText {}
-impl ::core::fmt::Debug for AdaptiveNotificationText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1613,17 +1591,6 @@ impl BadgeNotification {
 impl ::core::clone::Clone for BadgeNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BadgeNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeNotification {}
-impl ::core::fmt::Debug for BadgeNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BadgeNotification {
@@ -1736,17 +1703,6 @@ impl ::core::clone::Clone for BadgeUpdateManagerForUser {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BadgeUpdateManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdateManagerForUser {}
-impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdateManagerForUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1798,17 +1754,6 @@ impl BadgeUpdater {
 impl ::core::clone::Clone for BadgeUpdater {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BadgeUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdater {}
-impl ::core::fmt::Debug for BadgeUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdater").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BadgeUpdater {
@@ -2069,17 +2014,6 @@ impl ::core::clone::Clone for Notification {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Notification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Notification {}
-impl ::core::fmt::Debug for Notification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Notification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Notification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Notification;{108037fe-eb76-4f82-97bc-da07530a2e20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2147,17 +2081,6 @@ impl NotificationBinding {
 impl ::core::clone::Clone for NotificationBinding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NotificationBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationBinding {}
-impl ::core::fmt::Debug for NotificationBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationBinding").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationBinding {
@@ -2245,17 +2168,6 @@ impl ::core::clone::Clone for NotificationData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NotificationData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationData {}
-impl ::core::fmt::Debug for NotificationData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NotificationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationData;{9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2310,17 +2222,6 @@ impl NotificationVisual {
 impl ::core::clone::Clone for NotificationVisual {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NotificationVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationVisual {}
-impl ::core::fmt::Debug for NotificationVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationVisual").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationVisual {
@@ -2422,17 +2323,6 @@ impl ScheduledTileNotification {
 impl ::core::clone::Clone for ScheduledTileNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ScheduledTileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledTileNotification {}
-impl ::core::fmt::Debug for ScheduledTileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledTileNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ScheduledTileNotification {
@@ -2604,17 +2494,6 @@ impl ::core::clone::Clone for ScheduledToastNotification {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ScheduledToastNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledToastNotification {}
-impl ::core::fmt::Debug for ScheduledToastNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledToastNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ScheduledToastNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotification;{79f577f8-0de7-48cd-9740-9b370490c838})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2671,17 +2550,6 @@ impl ::core::clone::Clone for ScheduledToastNotificationShowingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ScheduledToastNotificationShowingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledToastNotificationShowingEventArgs {}
-impl ::core::fmt::Debug for ScheduledToastNotificationShowingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledToastNotificationShowingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs;{6173f6b4-412a-5e2c-a6ed-a0209aef9a09})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2716,17 +2584,6 @@ impl ShownTileNotification {
 impl ::core::clone::Clone for ShownTileNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShownTileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShownTileNotification {}
-impl ::core::fmt::Debug for ShownTileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShownTileNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShownTileNotification {
@@ -2797,17 +2654,6 @@ impl TileFlyoutNotification {
 impl ::core::clone::Clone for TileFlyoutNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TileFlyoutNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileFlyoutNotification {}
-impl ::core::fmt::Debug for TileFlyoutNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TileFlyoutNotification {
@@ -2908,17 +2754,6 @@ impl ::core::clone::Clone for TileFlyoutUpdater {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TileFlyoutUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileFlyoutUpdater {}
-impl ::core::fmt::Debug for TileFlyoutUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutUpdater").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TileFlyoutUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutUpdater;{8d40c76a-c465-4052-a740-5c2654c1a089})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2996,17 +2831,6 @@ impl TileNotification {
 impl ::core::clone::Clone for TileNotification {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileNotification {}
-impl ::core::fmt::Debug for TileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileNotification").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TileNotification {
@@ -3117,17 +2941,6 @@ impl TileUpdateManagerForUser {
 impl ::core::clone::Clone for TileUpdateManagerForUser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TileUpdateManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileUpdateManagerForUser {}
-impl ::core::fmt::Debug for TileUpdateManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileUpdateManagerForUser").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TileUpdateManagerForUser {
@@ -3243,17 +3056,6 @@ impl ::core::clone::Clone for TileUpdater {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TileUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileUpdater {}
-impl ::core::fmt::Debug for TileUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileUpdater").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TileUpdater {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdater;{0942a48b-1d91-44ec-9243-c1e821c29a20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3297,17 +3099,6 @@ impl ToastActivatedEventArgs {
 impl ::core::clone::Clone for ToastActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastActivatedEventArgs {}
-impl ::core::fmt::Debug for ToastActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastActivatedEventArgs {
@@ -3392,17 +3183,6 @@ impl ToastCollection {
 impl ::core::clone::Clone for ToastCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastCollection {}
-impl ::core::fmt::Debug for ToastCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastCollection {
@@ -3495,17 +3275,6 @@ impl ::core::clone::Clone for ToastCollectionManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastCollectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastCollectionManager {}
-impl ::core::fmt::Debug for ToastCollectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastCollectionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastCollectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollectionManager;{2a1821fe-179d-49bc-b79d-a527920d3665})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3542,17 +3311,6 @@ impl ::core::clone::Clone for ToastDismissedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastDismissedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastDismissedEventArgs {}
-impl ::core::fmt::Debug for ToastDismissedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastDismissedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastDismissedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastDismissedEventArgs;{3f89d935-d9cb-4538-a0f0-ffe7659938f8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3587,17 +3345,6 @@ impl ToastFailedEventArgs {
 impl ::core::clone::Clone for ToastFailedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastFailedEventArgs {}
-impl ::core::fmt::Debug for ToastFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastFailedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastFailedEventArgs {
@@ -3803,17 +3550,6 @@ impl ::core::clone::Clone for ToastNotification {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotification {}
-impl ::core::fmt::Debug for ToastNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotification;{997e2675-059e-4e60-8b06-1760917c8b80})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3857,17 +3593,6 @@ impl ToastNotificationActionTriggerDetail {
 impl ::core::clone::Clone for ToastNotificationActionTriggerDetail {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastNotificationActionTriggerDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationActionTriggerDetail {}
-impl ::core::fmt::Debug for ToastNotificationActionTriggerDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationActionTriggerDetail").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTriggerDetail {
@@ -3943,17 +3668,6 @@ impl ::core::clone::Clone for ToastNotificationHistory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationHistory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationHistory {}
-impl ::core::fmt::Debug for ToastNotificationHistory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationHistory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistory;{5caddc63-01d3-4c97-986f-0533483fee14})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3993,17 +3707,6 @@ impl ToastNotificationHistoryChangedTriggerDetail {
 impl ::core::clone::Clone for ToastNotificationHistoryChangedTriggerDetail {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTriggerDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationHistoryChangedTriggerDetail {}
-impl ::core::fmt::Debug for ToastNotificationHistoryChangedTriggerDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationHistoryChangedTriggerDetail").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
@@ -4187,17 +3890,6 @@ impl ::core::clone::Clone for ToastNotificationManagerForUser {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationManagerForUser {}
-impl ::core::fmt::Debug for ToastNotificationManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationManagerForUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationManagerForUser;{79ab57f6-43fe-487b-8a7f-99567200ae94})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4288,17 +3980,6 @@ impl ::core::clone::Clone for ToastNotifier {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotifier {}
-impl ::core::fmt::Debug for ToastNotifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotifier;{75927b93-03f3-41ec-91d3-6e5bac1b38e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4360,17 +4041,6 @@ impl ::core::clone::Clone for UserNotification {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotification {}
-impl ::core::fmt::Debug for UserNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotification;{adf7e52f-4e53-42d5-9c33-eb5ea515b23e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4414,17 +4084,6 @@ impl ::core::clone::Clone for UserNotificationChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserNotificationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationChangedEventArgs {}
-impl ::core::fmt::Debug for UserNotificationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotificationChangedEventArgs;{b6bd6839-79cf-4b25-82c0-0ce1eef81f8c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4457,18 +4116,8 @@ impl ::core::clone::Clone for AdaptiveNotificationContentKind {
         *self
     }
 }
-impl ::core::default::Default for AdaptiveNotificationContentKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
@@ -4491,18 +4140,8 @@ impl ::core::clone::Clone for BadgeTemplateType {
         *self
     }
 }
-impl ::core::default::Default for BadgeTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BadgeTemplateType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BadgeTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BadgeTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
@@ -4525,46 +4164,8 @@ impl ::core::clone::Clone for NotificationKinds {
         *self
     }
 }
-impl ::core::default::Default for NotificationKinds {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NotificationKinds {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationKinds").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NotificationKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NotificationKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NotificationKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NotificationKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NotificationKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationKinds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
@@ -4587,18 +4188,8 @@ impl ::core::clone::Clone for NotificationMirroring {
         *self
     }
 }
-impl ::core::default::Default for NotificationMirroring {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NotificationMirroring {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationMirroring {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
@@ -4624,18 +4215,8 @@ impl ::core::clone::Clone for NotificationSetting {
         *self
     }
 }
-impl ::core::default::Default for NotificationSetting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NotificationSetting {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationSetting {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationSetting").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationSetting {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
@@ -4659,18 +4240,8 @@ impl ::core::clone::Clone for NotificationUpdateResult {
         *self
     }
 }
-impl ::core::default::Default for NotificationUpdateResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NotificationUpdateResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationUpdateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NotificationUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
@@ -4696,18 +4267,8 @@ impl ::core::clone::Clone for PeriodicUpdateRecurrence {
         *self
     }
 }
-impl ::core::default::Default for PeriodicUpdateRecurrence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
@@ -4729,18 +4290,8 @@ impl ::core::clone::Clone for TileFlyoutTemplateType {
         *self
     }
 }
-impl ::core::default::Default for TileFlyoutTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TileFlyoutTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
@@ -4887,18 +4438,8 @@ impl ::core::clone::Clone for TileTemplateType {
         *self
     }
 }
-impl ::core::default::Default for TileTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TileTemplateType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TileTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileTemplateType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TileTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
@@ -4922,18 +4463,8 @@ impl ::core::clone::Clone for ToastDismissalReason {
         *self
     }
 }
-impl ::core::default::Default for ToastDismissalReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ToastDismissalReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastDismissalReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ToastDismissalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
@@ -4958,18 +4489,8 @@ impl ::core::clone::Clone for ToastHistoryChangedType {
         *self
     }
 }
-impl ::core::default::Default for ToastHistoryChangedType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastHistoryChangedType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
@@ -4993,18 +4514,8 @@ impl ::core::clone::Clone for ToastNotificationMode {
         *self
     }
 }
-impl ::core::default::Default for ToastNotificationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ToastNotificationMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastNotificationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationMode;i4)");
@@ -5027,18 +4538,8 @@ impl ::core::clone::Clone for ToastNotificationPriority {
         *self
     }
 }
-impl ::core::default::Default for ToastNotificationPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ToastNotificationPriority {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastNotificationPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
@@ -5067,18 +4568,8 @@ impl ::core::clone::Clone for ToastTemplateType {
         *self
     }
 }
-impl ::core::default::Default for ToastTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ToastTemplateType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ToastTemplateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
@@ -5101,18 +4592,8 @@ impl ::core::clone::Clone for UserNotificationChangedKind {
         *self
     }
 }
-impl ::core::default::Default for UserNotificationChangedKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserNotificationChangedKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserNotificationChangedKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationChangedKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.UserNotificationChangedKind;i4)");
@@ -5123,3 +4604,5 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationChangedKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

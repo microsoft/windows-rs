@@ -92,18 +92,8 @@ impl ::core::clone::Clone for PowerSavingMode {
         *self
     }
 }
-impl ::core::default::Default for PowerSavingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PowerSavingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PowerSavingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerSavingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
@@ -114,3 +104,5 @@ unsafe impl ::windows::core::RuntimeType for PowerSavingMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

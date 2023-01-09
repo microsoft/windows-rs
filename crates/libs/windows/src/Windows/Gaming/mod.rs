@@ -8,3 +8,5 @@ pub mod UI;
 pub mod XboxLive;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

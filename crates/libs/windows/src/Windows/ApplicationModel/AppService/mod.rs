@@ -310,17 +310,6 @@ impl ::core::clone::Clone for AppServiceClosedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppServiceClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceClosedEventArgs {}
-impl ::core::fmt::Debug for AppServiceClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceClosedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceClosedEventArgs;{de6016f6-cb03-4d35-ac8d-cc6303239731})");
     type DefaultType = ::core::option::Option<Self>;
@@ -470,17 +459,6 @@ impl ::core::clone::Clone for AppServiceConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppServiceConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceConnection {}
-impl ::core::fmt::Debug for AppServiceConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceConnection;{9dd474a2-871f-4d52-89a9-9e090531bd27})");
     type DefaultType = ::core::option::Option<Self>;
@@ -536,17 +514,6 @@ impl ::core::clone::Clone for AppServiceDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppServiceDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceDeferral {}
-impl ::core::fmt::Debug for AppServiceDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppServiceDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceDeferral;{7e1b5322-eab0-4248-ae04-fdf93838e472})");
     type DefaultType = ::core::option::Option<Self>;
@@ -594,17 +561,6 @@ impl ::core::clone::Clone for AppServiceRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppServiceRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceRequest {}
-impl ::core::fmt::Debug for AppServiceRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceRequest;{20e58d9d-18de-4b01-80ba-90a76204e3c8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -646,17 +602,6 @@ impl AppServiceRequestReceivedEventArgs {
 impl ::core::clone::Clone for AppServiceRequestReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppServiceRequestReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceRequestReceivedEventArgs {}
-impl ::core::fmt::Debug for AppServiceRequestReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceRequestReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs {
@@ -702,17 +647,6 @@ impl AppServiceResponse {
 impl ::core::clone::Clone for AppServiceResponse {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppServiceResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceResponse {}
-impl ::core::fmt::Debug for AppServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceResponse").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceResponse {
@@ -788,17 +722,6 @@ impl ::core::clone::Clone for AppServiceTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppServiceTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceTriggerDetails {}
-impl ::core::fmt::Debug for AppServiceTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.AppServiceTriggerDetails;{88a2dcac-ad28-41b8-80bb-bdf1b2169e19})");
     type DefaultType = ::core::option::Option<Self>;
@@ -844,17 +767,6 @@ impl ::core::clone::Clone for StatelessAppServiceResponse {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StatelessAppServiceResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatelessAppServiceResponse {}
-impl ::core::fmt::Debug for StatelessAppServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatelessAppServiceResponse").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppService.StatelessAppServiceResponse;{43754af7-a9ec-52fe-82e7-939b68dc9388})");
     type DefaultType = ::core::option::Option<Self>;
@@ -890,18 +802,8 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
         *self
     }
 }
-impl ::core::default::Default for AppServiceClosedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceClosedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
@@ -934,18 +836,8 @@ impl ::core::clone::Clone for AppServiceConnectionStatus {
         *self
     }
 }
-impl ::core::default::Default for AppServiceConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
@@ -977,18 +869,8 @@ impl ::core::clone::Clone for AppServiceResponseStatus {
         *self
     }
 }
-impl ::core::default::Default for AppServiceResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
@@ -1024,18 +906,8 @@ impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
         *self
     }
 }
-impl ::core::default::Default for StatelessAppServiceResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StatelessAppServiceResponseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
@@ -1046,3 +918,5 @@ unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponseStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

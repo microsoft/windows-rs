@@ -374,17 +374,6 @@ impl ::core::clone::Clone for RfcommDeviceService {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RfcommDeviceService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RfcommDeviceService {}
-impl ::core::fmt::Debug for RfcommDeviceService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RfcommDeviceService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -450,17 +439,6 @@ impl RfcommDeviceServicesResult {
 impl ::core::clone::Clone for RfcommDeviceServicesResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RfcommDeviceServicesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RfcommDeviceServicesResult {}
-impl ::core::fmt::Debug for RfcommDeviceServicesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RfcommDeviceServicesResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
@@ -566,17 +544,6 @@ impl ::core::clone::Clone for RfcommServiceId {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RfcommServiceId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RfcommServiceId {}
-impl ::core::fmt::Debug for RfcommServiceId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RfcommServiceId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RfcommServiceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -651,17 +618,6 @@ impl ::core::clone::Clone for RfcommServiceProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RfcommServiceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RfcommServiceProvider {}
-impl ::core::fmt::Debug for RfcommServiceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RfcommServiceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RfcommServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
     type DefaultType = ::core::option::Option<Self>;
@@ -683,3 +639,5 @@ unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

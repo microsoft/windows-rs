@@ -445,17 +445,6 @@ impl ::core::clone::Clone for IDirectWriterLock {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDirectWriterLock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectWriterLock {}
-impl ::core::fmt::Debug for IDirectWriterLock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectWriterLock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDirectWriterLock {
     type Vtable = IDirectWriterLock_Vtbl;
 }
@@ -494,17 +483,6 @@ impl IEnumSTATPROPSETSTG {
 impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumSTATPROPSETSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSTATPROPSETSTG {}
-impl ::core::fmt::Debug for IEnumSTATPROPSETSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSTATPROPSETSTG").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumSTATPROPSETSTG {
@@ -549,17 +527,6 @@ impl ::core::clone::Clone for IEnumSTATPROPSTG {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumSTATPROPSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSTATPROPSTG {}
-impl ::core::fmt::Debug for IEnumSTATPROPSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSTATPROPSTG").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTG_Vtbl;
 }
@@ -599,17 +566,6 @@ impl IEnumSTATSTG {
 impl ::core::clone::Clone for IEnumSTATSTG {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumSTATSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSTATSTG {}
-impl ::core::fmt::Debug for IEnumSTATSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSTATSTG").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumSTATSTG {
@@ -658,17 +614,6 @@ impl IFillLockBytes {
 impl ::core::clone::Clone for IFillLockBytes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFillLockBytes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFillLockBytes {}
-impl ::core::fmt::Debug for IFillLockBytes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFillLockBytes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IFillLockBytes {
@@ -721,17 +666,6 @@ impl ::core::clone::Clone for ILayoutStorage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILayoutStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILayoutStorage {}
-impl ::core::fmt::Debug for ILayoutStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILayoutStorage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ILayoutStorage {
     type Vtable = ILayoutStorage_Vtbl;
 }
@@ -782,17 +716,6 @@ impl ::core::clone::Clone for ILockBytes {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILockBytes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILockBytes {}
-impl ::core::fmt::Debug for ILockBytes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILockBytes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ILockBytes {
     type Vtable = ILockBytes_Vtbl;
 }
@@ -818,10 +741,6 @@ pub struct ILockBytes_Vtbl {
 #[repr(transparent)]
 pub struct IPersistStorage(::windows::core::IUnknown);
 impl IPersistStorage {
-    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).IsDirty)(::windows::core::Vtable::as_raw(self))
     }
@@ -860,17 +779,6 @@ impl IPersistStorage {
 impl ::core::clone::Clone for IPersistStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPersistStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPersistStorage {}
-impl ::core::fmt::Debug for IPersistStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistStorage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPersistStorage {
@@ -919,17 +827,6 @@ impl IPropertyBag {
 impl ::core::clone::Clone for IPropertyBag {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPropertyBag {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertyBag {}
-impl ::core::fmt::Debug for IPropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertyBag").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPropertyBag {
@@ -990,17 +887,6 @@ impl ::core::clone::Clone for IPropertyBag2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPropertyBag2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertyBag2 {}
-impl ::core::fmt::Debug for IPropertyBag2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertyBag2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPropertyBag2 {
     type Vtable = IPropertyBag2_Vtbl;
 }
@@ -1047,17 +933,6 @@ impl IPropertySetStorage {
 impl ::core::clone::Clone for IPropertySetStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPropertySetStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertySetStorage {}
-impl ::core::fmt::Debug for IPropertySetStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertySetStorage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPropertySetStorage {
@@ -1131,17 +1006,6 @@ impl ::core::clone::Clone for IPropertyStorage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPropertyStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertyStorage {}
-impl ::core::fmt::Debug for IPropertyStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertyStorage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPropertyStorage {
     type Vtable = IPropertyStorage_Vtbl;
 }
@@ -1192,17 +1056,6 @@ impl IRootStorage {
 impl ::core::clone::Clone for IRootStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRootStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRootStorage {}
-impl ::core::fmt::Debug for IRootStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRootStorage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRootStorage {
@@ -1309,17 +1162,6 @@ impl IStorage {
 impl ::core::clone::Clone for IStorage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorage {}
-impl ::core::fmt::Debug for IStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IStorage {
@@ -1516,18 +1358,8 @@ impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
         *self
     }
 }
-impl ::core::default::Default for PIDMSI_STATUS_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PIDMSI_STATUS_VALUE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
@@ -1543,18 +1375,8 @@ impl ::core::clone::Clone for PROPSPEC_KIND {
         *self
     }
 }
-impl ::core::default::Default for PROPSPEC_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PROPSPEC_KIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROPSPEC_KIND").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
@@ -1578,18 +1400,8 @@ impl ::core::clone::Clone for STGFMT {
         *self
     }
 }
-impl ::core::default::Default for STGFMT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for STGFMT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for STGFMT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STGFMT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
@@ -1607,18 +1419,8 @@ impl ::core::clone::Clone for STGMOVE {
         *self
     }
 }
-impl ::core::default::Default for STGMOVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for STGMOVE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for STGMOVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STGMOVE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1632,24 +1434,8 @@ impl ::core::clone::Clone for BSTRBLOB {
         *self
     }
 }
-impl ::core::fmt::Debug for BSTRBLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BSTRBLOB {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.pData == other.pData
-    }
-}
-impl ::core::cmp::Eq for BSTRBLOB {}
-impl ::core::default::Default for BSTRBLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -1667,28 +1453,8 @@ impl ::core::clone::Clone for CABOOL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CABOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CABOOL {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CABOOL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CABOOL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABOOL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1702,24 +1468,8 @@ impl ::core::clone::Clone for CABSTR {
         *self
     }
 }
-impl ::core::fmt::Debug for CABSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CABSTR {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CABSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CABSTR {}
-impl ::core::default::Default for CABSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1733,24 +1483,8 @@ impl ::core::clone::Clone for CABSTRBLOB {
         *self
     }
 }
-impl ::core::fmt::Debug for CABSTRBLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CABSTRBLOB {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CABSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CABSTRBLOB {}
-impl ::core::default::Default for CABSTRBLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1764,24 +1498,8 @@ impl ::core::clone::Clone for CAC {
         *self
     }
 }
-impl ::core::fmt::Debug for CAC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAC {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAC {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAC {}
-impl ::core::default::Default for CAC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1795,24 +1513,8 @@ impl ::core::clone::Clone for CACLIPDATA {
         *self
     }
 }
-impl ::core::fmt::Debug for CACLIPDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CACLIPDATA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CACLIPDATA {}
-impl ::core::default::Default for CACLIPDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1826,24 +1528,8 @@ impl ::core::clone::Clone for CACLSID {
         *self
     }
 }
-impl ::core::fmt::Debug for CACLSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CACLSID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACLSID {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CACLSID {}
-impl ::core::default::Default for CACLSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1857,24 +1543,8 @@ impl ::core::clone::Clone for CACY {
         *self
     }
 }
-impl ::core::fmt::Debug for CACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CACY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CACY {}
-impl ::core::default::Default for CACY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1888,24 +1558,8 @@ impl ::core::clone::Clone for CADATE {
         *self
     }
 }
-impl ::core::fmt::Debug for CADATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CADATE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CADATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CADATE {}
-impl ::core::default::Default for CADATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1919,24 +1573,8 @@ impl ::core::clone::Clone for CADBL {
         *self
     }
 }
-impl ::core::fmt::Debug for CADBL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CADBL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CADBL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CADBL {}
-impl ::core::default::Default for CADBL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -1954,28 +1592,8 @@ impl ::core::clone::Clone for CAFILETIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAFILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAFILETIME").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAFILETIME {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAFILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAFILETIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAFILETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1989,24 +1607,8 @@ impl ::core::clone::Clone for CAFLT {
         *self
     }
 }
-impl ::core::fmt::Debug for CAFLT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAFLT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAFLT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAFLT {}
-impl ::core::default::Default for CAFLT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2020,24 +1622,8 @@ impl ::core::clone::Clone for CAH {
         *self
     }
 }
-impl ::core::fmt::Debug for CAH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAH {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAH {}
-impl ::core::default::Default for CAH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2051,24 +1637,8 @@ impl ::core::clone::Clone for CAI {
         *self
     }
 }
-impl ::core::fmt::Debug for CAI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAI {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAI {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAI {}
-impl ::core::default::Default for CAI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2082,24 +1652,8 @@ impl ::core::clone::Clone for CAL {
         *self
     }
 }
-impl ::core::fmt::Debug for CAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAL {}
-impl ::core::default::Default for CAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2113,24 +1667,8 @@ impl ::core::clone::Clone for CALPSTR {
         *self
     }
 }
-impl ::core::fmt::Debug for CALPSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CALPSTR {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CALPSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CALPSTR {}
-impl ::core::default::Default for CALPSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2144,24 +1682,8 @@ impl ::core::clone::Clone for CALPWSTR {
         *self
     }
 }
-impl ::core::fmt::Debug for CALPWSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CALPWSTR {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CALPWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CALPWSTR {}
-impl ::core::default::Default for CALPWSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -2179,28 +1701,8 @@ impl ::core::clone::Clone for CAPROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAPROPVARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPROPVARIANT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CAPROPVARIANT {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAPROPVARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAPROPVARIANT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAPROPVARIANT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2214,24 +1716,8 @@ impl ::core::clone::Clone for CASCODE {
         *self
     }
 }
-impl ::core::fmt::Debug for CASCODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CASCODE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CASCODE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CASCODE {}
-impl ::core::default::Default for CASCODE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2245,24 +1731,8 @@ impl ::core::clone::Clone for CAUB {
         *self
     }
 }
-impl ::core::fmt::Debug for CAUB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAUB {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAUB {}
-impl ::core::default::Default for CAUB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2276,24 +1746,8 @@ impl ::core::clone::Clone for CAUH {
         *self
     }
 }
-impl ::core::fmt::Debug for CAUH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAUH {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUH {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAUH {}
-impl ::core::default::Default for CAUH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2307,24 +1761,8 @@ impl ::core::clone::Clone for CAUI {
         *self
     }
 }
-impl ::core::fmt::Debug for CAUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAUI {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAUI {}
-impl ::core::default::Default for CAUI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2338,24 +1776,8 @@ impl ::core::clone::Clone for CAUL {
         *self
     }
 }
-impl ::core::fmt::Debug for CAUL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CAUL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUL {
-    fn eq(&self, other: &Self) -> bool {
-        self.cElems == other.cElems && self.pElems == other.pElems
-    }
-}
-impl ::core::cmp::Eq for CAUL {}
-impl ::core::default::Default for CAUL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2370,24 +1792,8 @@ impl ::core::clone::Clone for CLIPDATA {
         *self
     }
 }
-impl ::core::fmt::Debug for CLIPDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CLIPDATA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ulClipFmt == other.ulClipFmt && self.pClipData == other.pClipData
-    }
-}
-impl ::core::cmp::Eq for CLIPDATA {}
-impl ::core::default::Default for CLIPDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2400,24 +1806,8 @@ impl ::core::clone::Clone for OLESTREAM {
         *self
     }
 }
-impl ::core::fmt::Debug for OLESTREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLESTREAM").field("lpstbl", &self.lpstbl).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OLESTREAM {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OLESTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpstbl == other.lpstbl
-    }
-}
-impl ::core::cmp::Eq for OLESTREAM {}
-impl ::core::default::Default for OLESTREAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2431,24 +1821,8 @@ impl ::core::clone::Clone for OLESTREAMVTBL {
         *self
     }
 }
-impl ::core::fmt::Debug for OLESTREAMVTBL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OLESTREAMVTBL").field("Get", &self.Get).field("Put", &self.Put).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for OLESTREAMVTBL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OLESTREAMVTBL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Get == other.Get && self.Put == other.Put
-    }
-}
-impl ::core::cmp::Eq for OLESTREAMVTBL {}
-impl ::core::default::Default for OLESTREAMVTBL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
@@ -2468,24 +1842,8 @@ impl ::core::clone::Clone for PROPBAG2 {
         *self
     }
 }
-impl ::core::fmt::Debug for PROPBAG2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROPBAG2").field("dwType", &self.dwType).field("vt", &self.vt).field("cfType", &self.cfType).field("dwHint", &self.dwHint).field("pstrName", &self.pstrName).field("clsid", &self.clsid).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PROPBAG2 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PROPBAG2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.vt == other.vt && self.cfType == other.cfType && self.dwHint == other.dwHint && self.pstrName == other.pstrName && self.clsid == other.clsid
-    }
-}
-impl ::core::cmp::Eq for PROPBAG2 {}
-impl ::core::default::Default for PROPBAG2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2502,11 +1860,6 @@ impl ::core::clone::Clone for PROPSPEC {
 unsafe impl ::windows::core::Abi for PROPSPEC {
     type Abi = Self;
 }
-impl ::core::default::Default for PROPSPEC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub union PROPSPEC_0 {
@@ -2521,11 +1874,6 @@ impl ::core::clone::Clone for PROPSPEC_0 {
 }
 unsafe impl ::windows::core::Abi for PROPSPEC_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for PROPSPEC_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -2543,12 +1891,6 @@ impl ::core::clone::Clone for PROPVARIANT {
 unsafe impl ::windows::core::Abi for PROPVARIANT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROPVARIANT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2565,12 +1907,6 @@ impl ::core::clone::Clone for PROPVARIANT_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROPVARIANT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -2591,12 +1927,6 @@ impl ::core::clone::Clone for PROPVARIANT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROPVARIANT_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -2686,12 +2016,6 @@ impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
 unsafe impl ::windows::core::Abi for PROPVARIANT_0_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROPVARIANT_0_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct RemSNB {
@@ -2705,24 +2029,8 @@ impl ::core::clone::Clone for RemSNB {
         *self
     }
 }
-impl ::core::fmt::Debug for RemSNB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemSNB").field("ulCntStr", &self.ulCntStr).field("ulCntChar", &self.ulCntChar).field("rgString", &self.rgString).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RemSNB {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RemSNB {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulCntStr == other.ulCntStr && self.ulCntChar == other.ulCntChar && self.rgString == other.rgString
-    }
-}
-impl ::core::cmp::Eq for RemSNB {}
-impl ::core::default::Default for RemSNB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2736,24 +2044,8 @@ impl ::core::clone::Clone for SERIALIZEDPROPERTYVALUE {
         *self
     }
 }
-impl ::core::fmt::Debug for SERIALIZEDPROPERTYVALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERIALIZEDPROPERTYVALUE").field("dwType", &self.dwType).field("rgb", &self.rgb).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERIALIZEDPROPERTYVALUE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERIALIZEDPROPERTYVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType && self.rgb == other.rgb
-    }
-}
-impl ::core::cmp::Eq for SERIALIZEDPROPERTYVALUE {}
-impl ::core::default::Default for SERIALIZEDPROPERTYVALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -2776,28 +2068,8 @@ impl ::core::clone::Clone for STATPROPSETSTG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STATPROPSETSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STATPROPSETSTG").field("fmtid", &self.fmtid).field("clsid", &self.clsid).field("grfFlags", &self.grfFlags).field("mtime", &self.mtime).field("ctime", &self.ctime).field("atime", &self.atime).field("dwOSVersion", &self.dwOSVersion).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STATPROPSETSTG {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STATPROPSETSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.fmtid == other.fmtid && self.clsid == other.clsid && self.grfFlags == other.grfFlags && self.mtime == other.mtime && self.ctime == other.ctime && self.atime == other.atime && self.dwOSVersion == other.dwOSVersion
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STATPROPSETSTG {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for STATPROPSETSTG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2812,24 +2084,8 @@ impl ::core::clone::Clone for STATPROPSTG {
         *self
     }
 }
-impl ::core::fmt::Debug for STATPROPSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STATPROPSTG").field("lpwstrName", &self.lpwstrName).field("propid", &self.propid).field("vt", &self.vt).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for STATPROPSTG {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for STATPROPSTG {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpwstrName == other.lpwstrName && self.propid == other.propid && self.vt == other.vt
-    }
-}
-impl ::core::cmp::Eq for STATPROPSTG {}
-impl ::core::default::Default for STATPROPSTG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2845,24 +2101,8 @@ impl ::core::clone::Clone for STGOPTIONS {
         *self
     }
 }
-impl ::core::fmt::Debug for STGOPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STGOPTIONS").field("usVersion", &self.usVersion).field("reserved", &self.reserved).field("ulSectorSize", &self.ulSectorSize).field("pwcsTemplateFile", &self.pwcsTemplateFile).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for STGOPTIONS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for STGOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.usVersion == other.usVersion && self.reserved == other.reserved && self.ulSectorSize == other.ulSectorSize && self.pwcsTemplateFile == other.pwcsTemplateFile
-    }
-}
-impl ::core::cmp::Eq for STGOPTIONS {}
-impl ::core::default::Default for STGOPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2875,24 +2115,10 @@ impl ::core::clone::Clone for VERSIONEDSTREAM {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for VERSIONEDSTREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VERSIONEDSTREAM").field("guidVersion", &self.guidVersion).field("pStream", &self.pStream).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VERSIONEDSTREAM {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VERSIONEDSTREAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidVersion == other.guidVersion && self.pStream == other.pStream
-    }
-}
-impl ::core::cmp::Eq for VERSIONEDSTREAM {}
-impl ::core::default::Default for VERSIONEDSTREAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -188,17 +188,6 @@ impl ::core::clone::Clone for NamedPolicyData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NamedPolicyData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NamedPolicyData {}
-impl ::core::fmt::Debug for NamedPolicyData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamedPolicyData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NamedPolicyData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Policies.NamedPolicyData;{38dcb198-95ac-4077-a643-8078cae26400})");
     type DefaultType = ::core::option::Option<Self>;
@@ -236,18 +225,8 @@ impl ::core::clone::Clone for NamedPolicyKind {
         *self
     }
 }
-impl ::core::default::Default for NamedPolicyKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NamedPolicyKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NamedPolicyKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
@@ -258,3 +237,5 @@ unsafe impl ::windows::core::RuntimeType for NamedPolicyKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

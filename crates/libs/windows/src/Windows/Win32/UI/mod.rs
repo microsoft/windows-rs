@@ -32,3 +32,5 @@ pub mod WindowsAndMessaging;
 pub mod Wpf;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

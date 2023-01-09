@@ -382,17 +382,6 @@ impl ::core::clone::Clone for ITextCharacterFormat {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextCharacterFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextCharacterFormat {}
-impl ::core::fmt::Debug for ITextCharacterFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextCharacterFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ITextCharacterFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5adef3db-05fb-442d-8065-642afea02ced}");
     type DefaultType = ::core::option::Option<Self>;
@@ -664,17 +653,6 @@ impl ITextDocument {
 impl ::core::clone::Clone for ITextDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextDocument {}
-impl ::core::fmt::Debug for ITextDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDocument").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ITextDocument {
@@ -1062,17 +1040,6 @@ impl ITextParagraphFormat {
 impl ::core::clone::Clone for ITextParagraphFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextParagraphFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextParagraphFormat {}
-impl ::core::fmt::Debug for ITextParagraphFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextParagraphFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ITextParagraphFormat {
@@ -1481,17 +1448,6 @@ impl ITextRange {
 impl ::core::clone::Clone for ITextRange {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextRange {}
-impl ::core::fmt::Debug for ITextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRange").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ITextRange {
@@ -2007,17 +1963,6 @@ impl ::core::clone::Clone for ITextSelection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextSelection {}
-impl ::core::fmt::Debug for ITextSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextSelection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ITextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6d36724-f28f-430a-b2cf-c343671ec0e9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2122,17 +2067,6 @@ impl ::core::clone::Clone for ContentLinkInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContentLinkInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentLinkInfo {}
-impl ::core::fmt::Debug for ContentLinkInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentLinkInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContentLinkInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.ContentLinkInfo;{1ed52525-1c5f-48cb-b335-78b50a2ee642})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2231,17 +2165,6 @@ impl FontWeights {
 impl ::core::clone::Clone for FontWeights {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FontWeights {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontWeights {}
-impl ::core::fmt::Debug for FontWeights {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontWeights").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FontWeights {
@@ -2481,17 +2404,6 @@ impl RichEditTextDocument {
 impl ::core::clone::Clone for RichEditTextDocument {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RichEditTextDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RichEditTextDocument {}
-impl ::core::fmt::Debug for RichEditTextDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditTextDocument").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RichEditTextDocument {
@@ -2884,17 +2796,6 @@ impl ::core::clone::Clone for RichEditTextRange {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RichEditTextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RichEditTextRange {}
-impl ::core::fmt::Debug for RichEditTextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditTextRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RichEditTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextRange;{5b9e4e57-c072-42a0-8945-af503ee54768})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3007,18 +2908,8 @@ impl ::core::clone::Clone for CaretType {
         *self
     }
 }
-impl ::core::default::Default for CaretType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CaretType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CaretType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaretType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CaretType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.CaretType;i4)");
@@ -3042,46 +2933,8 @@ impl ::core::clone::Clone for FindOptions {
         *self
     }
 }
-impl ::core::default::Default for FindOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FindOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FindOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FindOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FindOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FindOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FindOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FindOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FindOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FindOptions;u4)");
@@ -3112,18 +2965,8 @@ impl ::core::clone::Clone for FontStretch {
         *self
     }
 }
-impl ::core::default::Default for FontStretch {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FontStretch {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FontStretch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontStretch").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FontStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStretch;i4)");
@@ -3147,18 +2990,8 @@ impl ::core::clone::Clone for FontStyle {
         *self
     }
 }
-impl ::core::default::Default for FontStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FontStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FontStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FontStyle;i4)");
@@ -3183,18 +3016,8 @@ impl ::core::clone::Clone for FormatEffect {
         *self
     }
 }
-impl ::core::default::Default for FormatEffect {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FormatEffect {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FormatEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FormatEffect").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FormatEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.FormatEffect;i4)");
@@ -3218,18 +3041,8 @@ impl ::core::clone::Clone for HorizontalCharacterAlignment {
         *self
     }
 }
-impl ::core::default::Default for HorizontalCharacterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HorizontalCharacterAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HorizontalCharacterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HorizontalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.HorizontalCharacterAlignment;i4)");
@@ -3252,18 +3065,8 @@ impl ::core::clone::Clone for LetterCase {
         *self
     }
 }
-impl ::core::default::Default for LetterCase {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LetterCase {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LetterCase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LetterCase").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LetterCase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LetterCase;i4)");
@@ -3292,18 +3095,8 @@ impl ::core::clone::Clone for LineSpacingRule {
         *self
     }
 }
-impl ::core::default::Default for LineSpacingRule {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineSpacingRule {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineSpacingRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineSpacingRule").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LineSpacingRule;i4)");
@@ -3333,18 +3126,8 @@ impl ::core::clone::Clone for LinkType {
         *self
     }
 }
-impl ::core::default::Default for LinkType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LinkType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LinkType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LinkType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LinkType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.LinkType;i4)");
@@ -3369,18 +3152,8 @@ impl ::core::clone::Clone for MarkerAlignment {
         *self
     }
 }
-impl ::core::default::Default for MarkerAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MarkerAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerAlignment;i4)");
@@ -3408,18 +3181,8 @@ impl ::core::clone::Clone for MarkerStyle {
         *self
     }
 }
-impl ::core::default::Default for MarkerStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MarkerStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MarkerStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerStyle;i4)");
@@ -3465,18 +3228,8 @@ impl ::core::clone::Clone for MarkerType {
         *self
     }
 }
-impl ::core::default::Default for MarkerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MarkerType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MarkerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MarkerType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MarkerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.MarkerType;i4)");
@@ -3502,18 +3255,8 @@ impl ::core::clone::Clone for ParagraphAlignment {
         *self
     }
 }
-impl ::core::default::Default for ParagraphAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ParagraphAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ParagraphAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphAlignment;i4)");
@@ -3546,18 +3289,8 @@ impl ::core::clone::Clone for ParagraphStyle {
         *self
     }
 }
-impl ::core::default::Default for ParagraphStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ParagraphStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ParagraphStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ParagraphStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.ParagraphStyle;i4)");
@@ -3586,46 +3319,8 @@ impl ::core::clone::Clone for PointOptions {
         *self
     }
 }
-impl ::core::default::Default for PointOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PointOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PointOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PointOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PointOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PointOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PointOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PointOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PointOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.PointOptions;u4)");
@@ -3651,18 +3346,8 @@ impl ::core::clone::Clone for RangeGravity {
         *self
     }
 }
-impl ::core::default::Default for RangeGravity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RangeGravity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RangeGravity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RangeGravity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RangeGravity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RangeGravity;i4)");
@@ -3685,18 +3370,8 @@ impl ::core::clone::Clone for RichEditMathMode {
         *self
     }
 }
-impl ::core::default::Default for RichEditMathMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RichEditMathMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RichEditMathMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditMathMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.RichEditMathMode;i4)");
@@ -3722,46 +3397,8 @@ impl ::core::clone::Clone for SelectionOptions {
         *self
     }
 }
-impl ::core::default::Default for SelectionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SelectionOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SelectionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectionOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SelectionOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SelectionOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SelectionOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SelectionOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SelectionOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SelectionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionOptions;u4)");
@@ -3787,18 +3424,8 @@ impl ::core::clone::Clone for SelectionType {
         *self
     }
 }
-impl ::core::default::Default for SelectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SelectionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SelectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectionType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SelectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.SelectionType;i4)");
@@ -3824,18 +3451,8 @@ impl ::core::clone::Clone for TabAlignment {
         *self
     }
 }
-impl ::core::default::Default for TabAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TabAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TabAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TabAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TabAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabAlignment;i4)");
@@ -3862,18 +3479,8 @@ impl ::core::clone::Clone for TabLeader {
         *self
     }
 }
-impl ::core::default::Default for TabLeader {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TabLeader {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TabLeader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TabLeader").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TabLeader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TabLeader;i4)");
@@ -3897,46 +3504,8 @@ impl ::core::clone::Clone for TextDecorations {
         *self
     }
 }
-impl ::core::default::Default for TextDecorations {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TextDecorations {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TextDecorations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextDecorations").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TextDecorations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TextDecorations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TextDecorations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TextDecorations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TextDecorations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TextDecorations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextDecorations;u4)");
@@ -3966,46 +3535,8 @@ impl ::core::clone::Clone for TextGetOptions {
         *self
     }
 }
-impl ::core::default::Default for TextGetOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TextGetOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TextGetOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextGetOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TextGetOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TextGetOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TextGetOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TextGetOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TextGetOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TextGetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextGetOptions;u4)");
@@ -4059,18 +3590,8 @@ impl ::core::clone::Clone for TextRangeUnit {
         *self
     }
 }
-impl ::core::default::Default for TextRangeUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TextRangeUnit {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TextRangeUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextRangeUnit").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextRangeUnit;i4)");
@@ -4155,18 +3676,8 @@ impl ::core::clone::Clone for TextScript {
         *self
     }
 }
-impl ::core::default::Default for TextScript {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TextScript {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TextScript {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextScript").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TextScript {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextScript;i4)");
@@ -4194,46 +3705,8 @@ impl ::core::clone::Clone for TextSetOptions {
         *self
     }
 }
-impl ::core::default::Default for TextSetOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TextSetOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TextSetOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextSetOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TextSetOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TextSetOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TextSetOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TextSetOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TextSetOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TextSetOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.TextSetOptions;u4)");
@@ -4274,18 +3747,8 @@ impl ::core::clone::Clone for UnderlineType {
         *self
     }
 }
-impl ::core::default::Default for UnderlineType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnderlineType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnderlineType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnderlineType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnderlineType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.UnderlineType;i4)");
@@ -4309,18 +3772,8 @@ impl ::core::clone::Clone for VerticalCharacterAlignment {
         *self
     }
 }
-impl ::core::default::Default for VerticalCharacterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VerticalCharacterAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VerticalCharacterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
@@ -4340,11 +3793,6 @@ impl ::core::clone::Clone for FontWeight {
         *self
     }
 }
-impl ::core::fmt::Debug for FontWeight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FontWeight").field("Weight", &self.Weight).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FontWeight {
     type Abi = Self;
 }
@@ -4355,16 +3803,7 @@ unsafe impl ::windows::core::RuntimeType for FontWeight {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for FontWeight {
-    fn eq(&self, other: &Self) -> bool {
-        self.Weight == other.Weight
-    }
-}
-impl ::core::cmp::Eq for FontWeight {}
-impl ::core::default::Default for FontWeight {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

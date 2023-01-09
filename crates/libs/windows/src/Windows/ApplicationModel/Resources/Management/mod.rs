@@ -171,17 +171,6 @@ impl ::core::clone::Clone for IndexedResourceCandidate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IndexedResourceCandidate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexedResourceCandidate {}
-impl ::core::fmt::Debug for IndexedResourceCandidate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedResourceCandidate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IndexedResourceCandidate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate;{0e619ef3-faec-4414-a9d7-54acd5953f29})");
     type DefaultType = ::core::option::Option<Self>;
@@ -223,17 +212,6 @@ impl IndexedResourceQualifier {
 impl ::core::clone::Clone for IndexedResourceQualifier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IndexedResourceQualifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexedResourceQualifier {}
-impl ::core::fmt::Debug for IndexedResourceQualifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedResourceQualifier").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IndexedResourceQualifier {
@@ -315,20 +293,6 @@ impl ::core::clone::Clone for ResourceIndexer {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for ResourceIndexer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for ResourceIndexer {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for ResourceIndexer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceIndexer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ResourceIndexer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Management.ResourceIndexer;{2d4cf9a5-e32f-4ab2-8748-96350a016da3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -369,18 +333,8 @@ impl ::core::clone::Clone for IndexedResourceType {
         *self
     }
 }
-impl ::core::default::Default for IndexedResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IndexedResourceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IndexedResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
@@ -391,3 +345,5 @@ unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

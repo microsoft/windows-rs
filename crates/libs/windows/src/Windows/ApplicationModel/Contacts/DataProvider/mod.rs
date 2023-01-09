@@ -325,17 +325,6 @@ impl ::core::clone::Clone for ContactDataProviderConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactDataProviderConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactDataProviderConnection {}
-impl ::core::fmt::Debug for ContactDataProviderConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactDataProviderConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection;{1a398a52-8c9d-4d6f-a4e0-111e9a125a30})");
     type DefaultType = ::core::option::Option<Self>;
@@ -370,17 +359,6 @@ impl ContactDataProviderTriggerDetails {
 impl ::core::clone::Clone for ContactDataProviderTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactDataProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactDataProviderTriggerDetails {}
-impl ::core::fmt::Debug for ContactDataProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactDataProviderTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactDataProviderTriggerDetails {
@@ -444,17 +422,6 @@ impl ::core::clone::Clone for ContactListCreateOrUpdateContactRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactListCreateOrUpdateContactRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListCreateOrUpdateContactRequest {}
-impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListCreateOrUpdateContactRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest;{b4af411f-c849-47d0-b119-91cf605b2f2a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -498,17 +465,6 @@ impl ContactListCreateOrUpdateContactRequestEventArgs {
 impl ::core::clone::Clone for ContactListCreateOrUpdateContactRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactListCreateOrUpdateContactRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListCreateOrUpdateContactRequestEventArgs {}
-impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListCreateOrUpdateContactRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequestEventArgs {
@@ -572,17 +528,6 @@ impl ::core::clone::Clone for ContactListDeleteContactRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactListDeleteContactRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListDeleteContactRequest {}
-impl ::core::fmt::Debug for ContactListDeleteContactRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListDeleteContactRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest;{5e114687-ce03-4de5-8557-9ccf552d472a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -626,17 +571,6 @@ impl ContactListDeleteContactRequestEventArgs {
 impl ::core::clone::Clone for ContactListDeleteContactRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactListDeleteContactRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListDeleteContactRequestEventArgs {}
-impl ::core::fmt::Debug for ContactListDeleteContactRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListDeleteContactRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequestEventArgs {
@@ -723,17 +657,6 @@ impl ::core::clone::Clone for ContactListServerSearchReadBatchRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactListServerSearchReadBatchRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListServerSearchReadBatchRequest {}
-impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListServerSearchReadBatchRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest;{ba776a97-4030-4925-9fb4-143b295e653b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -777,17 +700,6 @@ impl ContactListServerSearchReadBatchRequestEventArgs {
 impl ::core::clone::Clone for ContactListServerSearchReadBatchRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactListServerSearchReadBatchRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListServerSearchReadBatchRequestEventArgs {}
-impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListServerSearchReadBatchRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequestEventArgs {
@@ -844,17 +756,6 @@ impl ::core::clone::Clone for ContactListSyncManagerSyncRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactListSyncManagerSyncRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListSyncManagerSyncRequest {}
-impl ::core::fmt::Debug for ContactListSyncManagerSyncRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListSyncManagerSyncRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest;{3c0e57a4-c4e7-4970-9a8f-9a66a2bb6c1a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -900,17 +801,6 @@ impl ::core::clone::Clone for ContactListSyncManagerSyncRequestEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactListSyncManagerSyncRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListSyncManagerSyncRequestEventArgs {}
-impl ::core::fmt::Debug for ContactListSyncManagerSyncRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactListSyncManagerSyncRequestEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs;{158e4dac-446d-4f10-afc2-02683ec533a6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -932,3 +822,5 @@ unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs 
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

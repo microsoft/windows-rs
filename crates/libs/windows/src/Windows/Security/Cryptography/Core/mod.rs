@@ -948,17 +948,6 @@ impl ::core::clone::Clone for AsymmetricKeyAlgorithmProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AsymmetricKeyAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsymmetricKeyAlgorithmProvider {}
-impl ::core::fmt::Debug for AsymmetricKeyAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsymmetricKeyAlgorithmProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider;{e8d2ff37-6259-4e88-b7e0-94191fde699e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1184,17 +1173,6 @@ impl ::core::clone::Clone for CryptographicHash {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CryptographicHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicHash {}
-impl ::core::fmt::Debug for CryptographicHash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicHash").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CryptographicHash {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.CryptographicHash;{5904d1b6-ad31-4603-a3a4-b1bda98e2562})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1265,17 +1243,6 @@ impl CryptographicKey {
 impl ::core::clone::Clone for CryptographicKey {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CryptographicKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicKey {}
-impl ::core::fmt::Debug for CryptographicKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicKey").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicKey {
@@ -1615,17 +1582,6 @@ impl ::core::clone::Clone for EncryptedAndAuthenticatedData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EncryptedAndAuthenticatedData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EncryptedAndAuthenticatedData {}
-impl ::core::fmt::Debug for EncryptedAndAuthenticatedData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EncryptedAndAuthenticatedData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData;{6fa42fe7-1ecb-4b00-bea5-60b83f862f17})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1740,17 +1696,6 @@ impl HashAlgorithmProvider {
 impl ::core::clone::Clone for HashAlgorithmProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HashAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HashAlgorithmProvider {}
-impl ::core::fmt::Debug for HashAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HashAlgorithmProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HashAlgorithmProvider {
@@ -1950,17 +1895,6 @@ impl ::core::clone::Clone for KeyDerivationAlgorithmProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for KeyDerivationAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyDerivationAlgorithmProvider {}
-impl ::core::fmt::Debug for KeyDerivationAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyDerivationAlgorithmProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider;{e1fba83b-4671-43b7-9158-763aaa98b6bf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2089,17 +2023,6 @@ impl ::core::clone::Clone for KeyDerivationParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for KeyDerivationParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyDerivationParameters {}
-impl ::core::fmt::Debug for KeyDerivationParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyDerivationParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for KeyDerivationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.KeyDerivationParameters;{7bf05967-047b-4a8c-964a-469ffd5522e2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2226,17 +2149,6 @@ impl MacAlgorithmProvider {
 impl ::core::clone::Clone for MacAlgorithmProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MacAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MacAlgorithmProvider {}
-impl ::core::fmt::Debug for MacAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MacAlgorithmProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MacAlgorithmProvider {
@@ -2460,17 +2372,6 @@ impl ::core::clone::Clone for SymmetricKeyAlgorithmProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SymmetricKeyAlgorithmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SymmetricKeyAlgorithmProvider {}
-impl ::core::fmt::Debug for SymmetricKeyAlgorithmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SymmetricKeyAlgorithmProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider;{3d7e4a33-3bd0-4902-8ac8-470d50d21376})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2504,18 +2405,8 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
         *self
     }
 }
-impl ::core::default::Default for Capi1KdfTargetAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.Capi1KdfTargetAlgorithm;i4)");
@@ -2540,18 +2431,8 @@ impl ::core::clone::Clone for CryptographicPadding {
         *self
     }
 }
-impl ::core::default::Default for CryptographicPadding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPadding {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CryptographicPadding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPadding").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPadding;i4)");
@@ -2577,18 +2458,8 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
         *self
     }
 }
-impl ::core::default::Default for CryptographicPrivateKeyBlobType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPrivateKeyBlobType;i4)");
@@ -2614,18 +2485,8 @@ impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
         *self
     }
 }
-impl ::core::default::Default for CryptographicPublicKeyBlobType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CryptographicPublicKeyBlobType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
@@ -2636,3 +2497,5 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

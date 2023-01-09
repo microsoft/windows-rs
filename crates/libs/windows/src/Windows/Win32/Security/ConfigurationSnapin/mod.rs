@@ -24,17 +24,6 @@ impl ::core::clone::Clone for ISceSvcAttachmentData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISceSvcAttachmentData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISceSvcAttachmentData {}
-impl ::core::fmt::Debug for ISceSvcAttachmentData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISceSvcAttachmentData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_Vtbl;
 }
@@ -70,17 +59,6 @@ impl ISceSvcAttachmentPersistInfo {
 impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISceSvcAttachmentPersistInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISceSvcAttachmentPersistInfo {}
-impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISceSvcAttachmentPersistInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISceSvcAttachmentPersistInfo {
@@ -184,18 +162,8 @@ impl ::core::clone::Clone for SCESVC_INFO_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SCESVC_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCESVC_INFO_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
@@ -215,18 +183,8 @@ impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
         *self
     }
 }
-impl ::core::default::Default for SCE_LOG_ERR_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCE_LOG_ERR_LEVEL {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCE_LOG_ERR_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCE_LOG_ERR_LEVEL").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -240,24 +198,8 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SCESVC_ANALYSIS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Lines == other.Lines
-    }
-}
-impl ::core::cmp::Eq for SCESVC_ANALYSIS_INFO {}
-impl ::core::default::Default for SCESVC_ANALYSIS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -272,24 +214,8 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
         *self
     }
 }
-impl ::core::fmt::Debug for SCESVC_ANALYSIS_LINE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCESVC_ANALYSIS_LINE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
-    }
-}
-impl ::core::cmp::Eq for SCESVC_ANALYSIS_LINE {}
-impl ::core::default::Default for SCESVC_ANALYSIS_LINE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
@@ -310,20 +236,8 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SCESVC_CALLBACK_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCESVC_CALLBACK_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SCESVC_CALLBACK_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -337,24 +251,8 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SCESVC_CONFIGURATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count && self.Lines == other.Lines
-    }
-}
-impl ::core::cmp::Eq for SCESVC_CONFIGURATION_INFO {}
-impl ::core::default::Default for SCESVC_CONFIGURATION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -369,24 +267,8 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
         *self
     }
 }
-impl ::core::fmt::Debug for SCESVC_CONFIGURATION_LINE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCESVC_CONFIGURATION_LINE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Value == other.Value && self.ValueLen == other.ValueLen
-    }
-}
-impl ::core::cmp::Eq for SCESVC_CONFIGURATION_LINE {}
-impl ::core::default::Default for SCESVC_CONFIGURATION_LINE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub type PFSCE_FREE_INFO = ::core::option::Option<unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32>;
@@ -406,3 +288,5 @@ pub type PF_ConfigAnalyzeService = ::core::option::Option<unsafe extern "system"
 pub type PF_UpdateService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

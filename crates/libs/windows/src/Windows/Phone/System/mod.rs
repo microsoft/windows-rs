@@ -62,3 +62,5 @@ impl ::windows::core::RuntimeName for SystemProtection {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

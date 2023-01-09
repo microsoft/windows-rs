@@ -366,46 +366,8 @@ impl ::core::clone::Clone for CF_CALLBACK_CANCEL_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_CANCEL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_CANCEL_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_CANCEL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_CANCEL_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_CANCEL_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_CANCEL_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_CANCEL_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_CANCEL_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -421,46 +383,8 @@ impl ::core::clone::Clone for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_CLOSE_COMPLETION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -478,46 +402,8 @@ impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -533,46 +419,8 @@ impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_DEHYDRATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -594,18 +442,8 @@ impl ::core::clone::Clone for CF_CALLBACK_DEHYDRATION_REASON {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_DEHYDRATION_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATION_REASON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_DEHYDRATION_REASON").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -619,46 +457,8 @@ impl ::core::clone::Clone for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_DELETE_COMPLETION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -676,46 +476,8 @@ impl ::core::clone::Clone for CF_CALLBACK_DELETE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_DELETE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_DELETE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_DELETE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_DELETE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_DELETE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_DELETE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_DELETE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -733,46 +495,8 @@ impl ::core::clone::Clone for CF_CALLBACK_FETCH_DATA_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_FETCH_DATA_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_FETCH_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_FETCH_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -786,46 +510,8 @@ impl ::core::clone::Clone for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -843,46 +529,8 @@ impl ::core::clone::Clone for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_OPEN_COMPLETION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -896,46 +544,8 @@ impl ::core::clone::Clone for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_RENAME_COMPLETION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -955,46 +565,8 @@ impl ::core::clone::Clone for CF_CALLBACK_RENAME_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_RENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_RENAME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_RENAME_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_RENAME_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_RENAME_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_RENAME_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_RENAME_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1034,18 +606,8 @@ impl ::core::clone::Clone for CF_CALLBACK_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1061,46 +623,8 @@ impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CALLBACK_VALIDATE_DATA_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1120,46 +644,8 @@ impl ::core::clone::Clone for CF_CONNECT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CONNECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CONNECT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CONNECT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CONNECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CONNECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CONNECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1183,46 +669,8 @@ impl ::core::clone::Clone for CF_CONVERT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CONVERT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CONVERT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CONVERT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CONVERT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CONVERT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CONVERT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CONVERT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CONVERT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CONVERT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1238,46 +686,8 @@ impl ::core::clone::Clone for CF_CREATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_CREATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_CREATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_CREATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_CREATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_CREATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_CREATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_CREATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_CREATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1293,46 +703,8 @@ impl ::core::clone::Clone for CF_DEHYDRATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_DEHYDRATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_DEHYDRATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_DEHYDRATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_DEHYDRATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_DEHYDRATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1348,46 +720,8 @@ impl ::core::clone::Clone for CF_HARDLINK_POLICY {
         *self
     }
 }
-impl ::core::default::Default for CF_HARDLINK_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HARDLINK_POLICY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_HARDLINK_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_HARDLINK_POLICY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_HARDLINK_POLICY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_HARDLINK_POLICY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_HARDLINK_POLICY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_HARDLINK_POLICY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_HARDLINK_POLICY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1401,46 +735,8 @@ impl ::core::clone::Clone for CF_HYDRATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_HYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_HYDRATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_HYDRATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_HYDRATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_HYDRATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_HYDRATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_HYDRATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_HYDRATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1462,46 +758,8 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER {
         *self
     }
 }
-impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_HYDRATION_POLICY_MODIFIER").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_HYDRATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_HYDRATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_HYDRATION_POLICY_MODIFIER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_HYDRATION_POLICY_MODIFIER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1521,18 +779,8 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY {
         *self
     }
 }
-impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_HYDRATION_POLICY_PRIMARY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1574,46 +822,8 @@ impl ::core::clone::Clone for CF_INSYNC_POLICY {
         *self
     }
 }
-impl ::core::default::Default for CF_INSYNC_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_INSYNC_POLICY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_INSYNC_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_INSYNC_POLICY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_INSYNC_POLICY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_INSYNC_POLICY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_INSYNC_POLICY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_INSYNC_POLICY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_INSYNC_POLICY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1629,18 +839,8 @@ impl ::core::clone::Clone for CF_IN_SYNC_STATE {
         *self
     }
 }
-impl ::core::default::Default for CF_IN_SYNC_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_IN_SYNC_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_IN_SYNC_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_IN_SYNC_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1662,46 +862,8 @@ impl ::core::clone::Clone for CF_OPEN_FILE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPEN_FILE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPEN_FILE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPEN_FILE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPEN_FILE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPEN_FILE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPEN_FILE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPEN_FILE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPEN_FILE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPEN_FILE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1715,46 +877,8 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_DATA_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_ACK_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_ACK_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_ACK_DATA_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_ACK_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_ACK_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1768,46 +892,8 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_ACK_DEHYDRATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1821,46 +907,8 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_DELETE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DELETE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_ACK_DELETE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_ACK_DELETE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_ACK_DELETE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_DELETE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1874,46 +922,8 @@ impl ::core::clone::Clone for CF_OPERATION_ACK_RENAME_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_ACK_RENAME_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_ACK_RENAME_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_ACK_RENAME_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_ACK_RENAME_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1929,46 +939,8 @@ impl ::core::clone::Clone for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_RESTART_HYDRATION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -1982,46 +954,8 @@ impl ::core::clone::Clone for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_RETRIEVE_DATA_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2035,46 +969,8 @@ impl ::core::clone::Clone for CF_OPERATION_TRANSFER_DATA_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_TRANSFER_DATA_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2092,46 +988,8 @@ impl ::core::clone::Clone for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2159,18 +1017,8 @@ impl ::core::clone::Clone for CF_OPERATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CF_OPERATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_OPERATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_OPERATION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2192,18 +1040,8 @@ impl ::core::clone::Clone for CF_PIN_STATE {
         *self
     }
 }
-impl ::core::default::Default for CF_PIN_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PIN_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PIN_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PIN_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2225,46 +1063,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PLACEHOLDER_CREATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_PLACEHOLDER_CREATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_PLACEHOLDER_CREATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_PLACEHOLDER_CREATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2280,18 +1080,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_INFO_CLASS {
         *self
     }
 }
-impl ::core::default::Default for CF_PLACEHOLDER_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PLACEHOLDER_INFO_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PLACEHOLDER_INFO_CLASS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2311,18 +1101,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_MANAGEMENT_POLICY {
         *self
     }
 }
-impl ::core::default::Default for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PLACEHOLDER_MANAGEMENT_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PLACEHOLDER_MANAGEMENT_POLICY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2340,18 +1120,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_RANGE_INFO_CLASS {
         *self
     }
 }
-impl ::core::default::Default for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PLACEHOLDER_RANGE_INFO_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PLACEHOLDER_RANGE_INFO_CLASS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2379,46 +1149,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_STATE {
         *self
     }
 }
-impl ::core::default::Default for CF_PLACEHOLDER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_PLACEHOLDER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_PLACEHOLDER_STATE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_PLACEHOLDER_STATE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_PLACEHOLDER_STATE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_PLACEHOLDER_STATE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_PLACEHOLDER_STATE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_PLACEHOLDER_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2432,46 +1164,8 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER {
         *self
     }
 }
-impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_POPULATION_POLICY_MODIFIER").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_POPULATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_POPULATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_POPULATION_POLICY_MODIFIER {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_POPULATION_POLICY_MODIFIER {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2489,18 +1183,8 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY {
         *self
     }
 }
-impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_POPULATION_POLICY_PRIMARY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2520,46 +1204,8 @@ impl ::core::clone::Clone for CF_REGISTER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_REGISTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_REGISTER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_REGISTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_REGISTER_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_REGISTER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_REGISTER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_REGISTER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_REGISTER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_REGISTER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2573,46 +1219,8 @@ impl ::core::clone::Clone for CF_REVERT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_REVERT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_REVERT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_REVERT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_REVERT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_REVERT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_REVERT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_REVERT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_REVERT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_REVERT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2626,46 +1234,8 @@ impl ::core::clone::Clone for CF_SET_IN_SYNC_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_SET_IN_SYNC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_SET_IN_SYNC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_SET_IN_SYNC_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_SET_IN_SYNC_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_SET_IN_SYNC_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_SET_IN_SYNC_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_SET_IN_SYNC_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_SET_IN_SYNC_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2685,46 +1255,8 @@ impl ::core::clone::Clone for CF_SET_PIN_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_SET_PIN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_SET_PIN_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_SET_PIN_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_SET_PIN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_SET_PIN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_SET_PIN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_SET_PIN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_SET_PIN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2758,46 +1290,8 @@ impl ::core::clone::Clone for CF_SYNC_PROVIDER_STATUS {
         *self
     }
 }
-impl ::core::default::Default for CF_SYNC_PROVIDER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_SYNC_PROVIDER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_SYNC_PROVIDER_STATUS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_SYNC_PROVIDER_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_SYNC_PROVIDER_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_SYNC_PROVIDER_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_SYNC_PROVIDER_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_SYNC_PROVIDER_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2815,18 +1309,8 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_INFO_CLASS {
         *self
     }
 }
-impl ::core::default::Default for CF_SYNC_ROOT_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_INFO_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_SYNC_ROOT_INFO_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_SYNC_ROOT_INFO_CLASS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[repr(transparent)]
@@ -2862,46 +1346,8 @@ impl ::core::clone::Clone for CF_UPDATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CF_UPDATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CF_UPDATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CF_UPDATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CF_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CF_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CF_UPDATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CF_UPDATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CF_UPDATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
@@ -2936,66 +1382,8 @@ impl ::core::clone::Clone for CF_CALLBACK_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::fmt::Debug for CF_CALLBACK_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_INFO")
-            .field("StructSize", &self.StructSize)
-            .field("ConnectionKey", &self.ConnectionKey)
-            .field("CallbackContext", &self.CallbackContext)
-            .field("VolumeGuidName", &self.VolumeGuidName)
-            .field("VolumeDosName", &self.VolumeDosName)
-            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("SyncRootIdentity", &self.SyncRootIdentity)
-            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
-            .field("FileId", &self.FileId)
-            .field("FileSize", &self.FileSize)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("NormalizedPath", &self.NormalizedPath)
-            .field("TransferKey", &self.TransferKey)
-            .field("PriorityHint", &self.PriorityHint)
-            .field("CorrelationVector", &self.CorrelationVector)
-            .field("ProcessInfo", &self.ProcessInfo)
-            .field("RequestKey", &self.RequestKey)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::PartialEq for CF_CALLBACK_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.ConnectionKey == other.ConnectionKey
-            && self.CallbackContext == other.CallbackContext
-            && self.VolumeGuidName == other.VolumeGuidName
-            && self.VolumeDosName == other.VolumeDosName
-            && self.VolumeSerialNumber == other.VolumeSerialNumber
-            && self.SyncRootFileId == other.SyncRootFileId
-            && self.SyncRootIdentity == other.SyncRootIdentity
-            && self.SyncRootIdentityLength == other.SyncRootIdentityLength
-            && self.FileId == other.FileId
-            && self.FileSize == other.FileSize
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.NormalizedPath == other.NormalizedPath
-            && self.TransferKey == other.TransferKey
-            && self.PriorityHint == other.PriorityHint
-            && self.CorrelationVector == other.CorrelationVector
-            && self.ProcessInfo == other.ProcessInfo
-            && self.RequestKey == other.RequestKey
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::Eq for CF_CALLBACK_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::default::Default for CF_CALLBACK_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3011,11 +1399,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS {
 }
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS {
     type Abi = Self;
-}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3042,11 +1425,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
@@ -3062,11 +1440,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
@@ -3081,11 +1454,6 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
@@ -3098,24 +1466,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_0_0_0").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset && self.Length == other.Length
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3128,24 +1480,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_1").field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_1 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3159,24 +1495,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_2").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_2 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reason == other.Reason
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_2 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3190,24 +1510,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_3 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_3").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_3 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reason == other.Reason
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_3 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3220,24 +1524,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_4 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_4").field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_4 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_4 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3250,24 +1538,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_5 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_5").field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_5 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_5 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3286,24 +1558,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_6 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_6").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).field("OptionalFileOffset", &self.OptionalFileOffset).field("OptionalLength", &self.OptionalLength).field("LastDehydrationTime", &self.LastDehydrationTime).field("LastDehydrationReason", &self.LastDehydrationReason).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_6 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength && self.OptionalFileOffset == other.OptionalFileOffset && self.OptionalLength == other.OptionalLength && self.LastDehydrationTime == other.LastDehydrationTime && self.LastDehydrationReason == other.LastDehydrationReason
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_6 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3317,24 +1573,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_7 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_7").field("Flags", &self.Flags).field("Pattern", &self.Pattern).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_7 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Pattern == other.Pattern
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_7 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_7 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3347,24 +1587,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_8 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_8").field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_8 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_8 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_8 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3378,24 +1602,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_9 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_9").field("Flags", &self.Flags).field("SourcePath", &self.SourcePath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_9 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.SourcePath == other.SourcePath
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_9 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_9 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3409,24 +1617,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_10 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_10 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_10").field("Flags", &self.Flags).field("TargetPath", &self.TargetPath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_10 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.TargetPath == other.TargetPath
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_10 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_10 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3441,24 +1633,8 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_11 {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_PARAMETERS_0_11").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength
-    }
-}
-impl ::core::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
-impl ::core::default::Default for CF_CALLBACK_PARAMETERS_0_11 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
@@ -3476,20 +1652,8 @@ impl ::core::clone::Clone for CF_CALLBACK_REGISTRATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::fmt::Debug for CF_CALLBACK_REGISTRATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::default::Default for CF_CALLBACK_REGISTRATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3535,24 +1699,8 @@ impl ::core::clone::Clone for CF_FILE_RANGE {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_FILE_RANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_FILE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_FILE_RANGE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_FILE_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset && self.Length == other.Length
-    }
-}
-impl ::core::cmp::Eq for CF_FILE_RANGE {}
-impl ::core::default::Default for CF_FILE_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3570,28 +1718,8 @@ impl ::core::clone::Clone for CF_FS_METADATA {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::fmt::Debug for CF_FS_METADATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_FS_METADATA").field("BasicInfo", &self.BasicInfo).field("FileSize", &self.FileSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for CF_FS_METADATA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::cmp::PartialEq for CF_FS_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BasicInfo == other.BasicInfo && self.FileSize == other.FileSize
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::cmp::Eq for CF_FS_METADATA {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::default::Default for CF_FS_METADATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3605,24 +1733,8 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Primary == other.Primary && self.Modifier == other.Modifier
-    }
-}
-impl ::core::cmp::Eq for CF_HYDRATION_POLICY {}
-impl ::core::default::Default for CF_HYDRATION_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3635,24 +1747,8 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_MODIFIER_USHORT {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_HYDRATION_POLICY_MODIFIER_USHORT {}
-impl ::core::default::Default for CF_HYDRATION_POLICY_MODIFIER_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -3665,24 +1761,8 @@ impl ::core::clone::Clone for CF_HYDRATION_POLICY_PRIMARY_USHORT {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_HYDRATION_POLICY_PRIMARY_USHORT {}
-impl ::core::default::Default for CF_HYDRATION_POLICY_PRIMARY_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
@@ -3705,28 +1785,8 @@ impl ::core::clone::Clone for CF_OPERATION_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::fmt::Debug for CF_OPERATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_INFO").field("StructSize", &self.StructSize).field("Type", &self.Type).field("ConnectionKey", &self.ConnectionKey).field("TransferKey", &self.TransferKey).field("CorrelationVector", &self.CorrelationVector).field("SyncStatus", &self.SyncStatus).field("RequestKey", &self.RequestKey).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Type == other.Type && self.ConnectionKey == other.ConnectionKey && self.TransferKey == other.TransferKey && self.CorrelationVector == other.CorrelationVector && self.SyncStatus == other.SyncStatus && self.RequestKey == other.RequestKey
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::cmp::Eq for CF_OPERATION_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
-impl ::core::default::Default for CF_OPERATION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3746,12 +1806,6 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3778,12 +1832,6 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -3802,28 +1850,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_0").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_0 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3843,28 +1871,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_1").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_1 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3882,28 +1890,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_2").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_2 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3921,28 +1909,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_3").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_3 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -3962,28 +1930,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_4 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_4").field("Flags", &self.Flags).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_4 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -4004,28 +1952,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_5 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_5").field("Flags", &self.Flags).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).field("ReturnedLength", &self.ReturnedLength).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_5 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length && self.ReturnedLength == other.ReturnedLength
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -4046,28 +1974,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_6 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_6").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_6 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_6 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -4089,28 +1997,8 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_7 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_OPERATION_PARAMETERS_0_7").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("PlaceholderTotalCount", &self.PlaceholderTotalCount).field("PlaceholderArray", &self.PlaceholderArray).field("PlaceholderCount", &self.PlaceholderCount).field("EntriesProcessed", &self.EntriesProcessed).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::core::Abi for CF_OPERATION_PARAMETERS_0_7 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.PlaceholderTotalCount == other.PlaceholderTotalCount && self.PlaceholderArray == other.PlaceholderArray && self.PlaceholderCount == other.PlaceholderCount && self.EntriesProcessed == other.EntriesProcessed
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::cmp::Eq for CF_OPERATION_PARAMETERS_0_7 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-impl ::core::default::Default for CF_OPERATION_PARAMETERS_0_7 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4128,24 +2016,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_BASIC_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_PLACEHOLDER_BASIC_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_BASIC_INFO").field("PinState", &self.PinState).field("InSyncState", &self.InSyncState).field("FileId", &self.FileId).field("SyncRootFileId", &self.SyncRootFileId).field("FileIdentityLength", &self.FileIdentityLength).field("FileIdentity", &self.FileIdentity).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
-    }
-}
-impl ::core::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
-impl ::core::default::Default for CF_PLACEHOLDER_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Storage_FileSystem\"`*"]
@@ -4168,28 +2040,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_CREATE_INFO {
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_CREATE_INFO").field("RelativeFileName", &self.RelativeFileName).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("Flags", &self.Flags).field("Result", &self.Result).field("CreateUsn", &self.CreateUsn).finish()
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::cmp::PartialEq for CF_PLACEHOLDER_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.RelativeFileName == other.RelativeFileName && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.Flags == other.Flags && self.Result == other.Result && self.CreateUsn == other.CreateUsn
-    }
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::cmp::Eq for CF_PLACEHOLDER_CREATE_INFO {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl ::core::default::Default for CF_PLACEHOLDER_CREATE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4211,35 +2063,8 @@ impl ::core::clone::Clone for CF_PLACEHOLDER_STANDARD_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_PLACEHOLDER_STANDARD_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_PLACEHOLDER_STANDARD_INFO")
-            .field("OnDiskDataSize", &self.OnDiskDataSize)
-            .field("ValidatedDataSize", &self.ValidatedDataSize)
-            .field("ModifiedDataSize", &self.ModifiedDataSize)
-            .field("PropertiesSize", &self.PropertiesSize)
-            .field("PinState", &self.PinState)
-            .field("InSyncState", &self.InSyncState)
-            .field("FileId", &self.FileId)
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("FileIdentity", &self.FileIdentity)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.OnDiskDataSize == other.OnDiskDataSize && self.ValidatedDataSize == other.ValidatedDataSize && self.ModifiedDataSize == other.ModifiedDataSize && self.PropertiesSize == other.PropertiesSize && self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
-    }
-}
-impl ::core::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
-impl ::core::default::Default for CF_PLACEHOLDER_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4254,24 +2079,8 @@ impl ::core::clone::Clone for CF_PLATFORM_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_PLATFORM_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_PLATFORM_INFO").field("BuildNumber", &self.BuildNumber).field("RevisionNumber", &self.RevisionNumber).field("IntegrationNumber", &self.IntegrationNumber).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PLATFORM_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_PLATFORM_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.BuildNumber == other.BuildNumber && self.RevisionNumber == other.RevisionNumber && self.IntegrationNumber == other.IntegrationNumber
-    }
-}
-impl ::core::cmp::Eq for CF_PLATFORM_INFO {}
-impl ::core::default::Default for CF_PLATFORM_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4285,24 +2094,8 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_POPULATION_POLICY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_POPULATION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Primary == other.Primary && self.Modifier == other.Modifier
-    }
-}
-impl ::core::cmp::Eq for CF_POPULATION_POLICY {}
-impl ::core::default::Default for CF_POPULATION_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4315,24 +2108,8 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_MODIFIER_USHORT {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_POPULATION_POLICY_MODIFIER_USHORT {}
-impl ::core::default::Default for CF_POPULATION_POLICY_MODIFIER_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4345,24 +2122,8 @@ impl ::core::clone::Clone for CF_POPULATION_POLICY_PRIMARY_USHORT {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn eq(&self, other: &Self) -> bool {
-        self.us == other.us
-    }
-}
-impl ::core::cmp::Eq for CF_POPULATION_POLICY_PRIMARY_USHORT {}
-impl ::core::default::Default for CF_POPULATION_POLICY_PRIMARY_USHORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4381,24 +2142,8 @@ impl ::core::clone::Clone for CF_PROCESS_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_PROCESS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_PROCESS_INFO").field("StructSize", &self.StructSize).field("ProcessId", &self.ProcessId).field("ImagePath", &self.ImagePath).field("PackageName", &self.PackageName).field("ApplicationId", &self.ApplicationId).field("CommandLine", &self.CommandLine).field("SessionId", &self.SessionId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_PROCESS_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.ProcessId == other.ProcessId && self.ImagePath == other.ImagePath && self.PackageName == other.PackageName && self.ApplicationId == other.ApplicationId && self.CommandLine == other.CommandLine && self.SessionId == other.SessionId
-    }
-}
-impl ::core::cmp::Eq for CF_PROCESS_INFO {}
-impl ::core::default::Default for CF_PROCESS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4416,24 +2161,8 @@ impl ::core::clone::Clone for CF_SYNC_POLICIES {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_POLICIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_POLICIES").field("StructSize", &self.StructSize).field("Hydration", &self.Hydration).field("Population", &self.Population).field("InSync", &self.InSync).field("HardLink", &self.HardLink).field("PlaceholderManagement", &self.PlaceholderManagement).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_POLICIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Hydration == other.Hydration && self.Population == other.Population && self.InSync == other.InSync && self.HardLink == other.HardLink && self.PlaceholderManagement == other.PlaceholderManagement
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_POLICIES {}
-impl ::core::default::Default for CF_SYNC_POLICIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4453,24 +2182,8 @@ impl ::core::clone::Clone for CF_SYNC_REGISTRATION {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_REGISTRATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_REGISTRATION").field("StructSize", &self.StructSize).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).field("SyncRootIdentity", &self.SyncRootIdentity).field("SyncRootIdentityLength", &self.SyncRootIdentityLength).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).field("ProviderId", &self.ProviderId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_REGISTRATION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentity == other.SyncRootIdentity && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.ProviderId == other.ProviderId
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_REGISTRATION {}
-impl ::core::default::Default for CF_SYNC_REGISTRATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4483,24 +2196,8 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_BASIC_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_ROOT_BASIC_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_BASIC_INFO").field("SyncRootFileId", &self.SyncRootFileId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_BASIC_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyncRootFileId == other.SyncRootFileId
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_ROOT_BASIC_INFO {}
-impl ::core::default::Default for CF_SYNC_ROOT_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4515,24 +2212,8 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_PROVIDER_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO").field("ProviderStatus", &self.ProviderStatus).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_PROVIDER_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
-impl ::core::default::Default for CF_SYNC_ROOT_PROVIDER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4554,35 +2235,8 @@ impl ::core::clone::Clone for CF_SYNC_ROOT_STANDARD_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_ROOT_STANDARD_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_ROOT_STANDARD_INFO")
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("HydrationPolicy", &self.HydrationPolicy)
-            .field("PopulationPolicy", &self.PopulationPolicy)
-            .field("InSyncPolicy", &self.InSyncPolicy)
-            .field("HardLinkPolicy", &self.HardLinkPolicy)
-            .field("ProviderStatus", &self.ProviderStatus)
-            .field("ProviderName", &self.ProviderName)
-            .field("ProviderVersion", &self.ProviderVersion)
-            .field("SyncRootIdentityLength", &self.SyncRootIdentityLength)
-            .field("SyncRootIdentity", &self.SyncRootIdentity)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_ROOT_STANDARD_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.SyncRootFileId == other.SyncRootFileId && self.HydrationPolicy == other.HydrationPolicy && self.PopulationPolicy == other.PopulationPolicy && self.InSyncPolicy == other.InSyncPolicy && self.HardLinkPolicy == other.HardLinkPolicy && self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.SyncRootIdentity == other.SyncRootIdentity
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_ROOT_STANDARD_INFO {}
-impl ::core::default::Default for CF_SYNC_ROOT_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
@@ -4600,27 +2254,13 @@ impl ::core::clone::Clone for CF_SYNC_STATUS {
         *self
     }
 }
-impl ::core::fmt::Debug for CF_SYNC_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CF_SYNC_STATUS").field("StructSize", &self.StructSize).field("Code", &self.Code).field("DescriptionOffset", &self.DescriptionOffset).field("DescriptionLength", &self.DescriptionLength).field("DeviceIdOffset", &self.DeviceIdOffset).field("DeviceIdLength", &self.DeviceIdLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CF_SYNC_STATUS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CF_SYNC_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize && self.Code == other.Code && self.DescriptionOffset == other.DescriptionOffset && self.DescriptionLength == other.DescriptionLength && self.DeviceIdOffset == other.DeviceIdOffset && self.DeviceIdLength == other.DeviceIdLength
-    }
-}
-impl ::core::cmp::Eq for CF_SYNC_STATUS {}
-impl ::core::default::Default for CF_SYNC_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_CorrelationVector"))]
 pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

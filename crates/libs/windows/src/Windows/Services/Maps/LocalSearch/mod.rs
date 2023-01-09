@@ -309,17 +309,6 @@ impl ::core::clone::Clone for LocalLocation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LocalLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocalLocation {}
-impl ::core::fmt::Debug for LocalLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LocalLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocation;{bb0fe9ab-4502-4f2c-94a9-0d60de0e2163})");
     type DefaultType = ::core::option::Option<Self>;
@@ -385,17 +374,6 @@ impl ::core::clone::Clone for LocalLocationFinderResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LocalLocationFinderResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocalLocationFinderResult {}
-impl ::core::fmt::Debug for LocalLocationFinderResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationFinderResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationFinderResult;{d09b6cc6-f338-4191-9fd8-5440b9a68f52})");
     type DefaultType = ::core::option::Option<Self>;
@@ -452,17 +430,6 @@ impl ::core::clone::Clone for LocalLocationHoursOfOperationItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LocalLocationHoursOfOperationItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocalLocationHoursOfOperationItem {}
-impl ::core::fmt::Debug for LocalLocationHoursOfOperationItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationHoursOfOperationItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LocalLocationHoursOfOperationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem;{23548c72-a1c7-43f1-a4f0-1091c39ec640})");
     type DefaultType = ::core::option::Option<Self>;
@@ -515,17 +482,6 @@ impl LocalLocationRatingInfo {
 impl ::core::clone::Clone for LocalLocationRatingInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LocalLocationRatingInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocalLocationRatingInfo {}
-impl ::core::fmt::Debug for LocalLocationRatingInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationRatingInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationRatingInfo {
@@ -585,18 +541,8 @@ impl ::core::clone::Clone for LocalLocationFinderStatus {
         *self
     }
 }
-impl ::core::default::Default for LocalLocationFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LocalLocationFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
@@ -607,3 +553,5 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

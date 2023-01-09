@@ -746,18 +746,8 @@ impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
         *self
     }
 }
-impl ::core::default::Default for SNMP_API_TRANSLATE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_API_TRANSLATE_MODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -807,18 +797,8 @@ impl ::core::clone::Clone for SNMP_ERROR {
         *self
     }
 }
-impl ::core::default::Default for SNMP_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_ERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_ERROR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -868,18 +848,8 @@ impl ::core::clone::Clone for SNMP_ERROR_STATUS {
         *self
     }
 }
-impl ::core::default::Default for SNMP_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_ERROR_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -903,18 +873,8 @@ impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SNMP_EXTENSION_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_EXTENSION_REQUEST_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -940,18 +900,8 @@ impl ::core::clone::Clone for SNMP_GENERICTRAP {
         *self
     }
 }
-impl ::core::default::Default for SNMP_GENERICTRAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_GENERICTRAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_GENERICTRAP").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -975,18 +925,8 @@ impl ::core::clone::Clone for SNMP_LOG {
         *self
     }
 }
-impl ::core::default::Default for SNMP_LOG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_LOG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_LOG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_LOG").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -1004,18 +944,8 @@ impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SNMP_OUTPUT_LOG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_OUTPUT_LOG_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -1039,18 +969,8 @@ impl ::core::clone::Clone for SNMP_PDU_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SNMP_PDU_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_PDU_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_PDU_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 #[repr(transparent)]
@@ -1066,18 +986,8 @@ impl ::core::clone::Clone for SNMP_STATUS {
         *self
     }
 }
-impl ::core::default::Default for SNMP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SNMP_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SNMP_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -1097,12 +1007,6 @@ impl ::core::clone::Clone for AsnAny {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AsnAny {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AsnAny {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -1133,12 +1037,6 @@ impl ::core::clone::Clone for AsnAny_0 {
 unsafe impl ::windows::core::Abi for AsnAny_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AsnAny_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub struct AsnObjectIdentifier {
@@ -1153,11 +1051,6 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
 }
 unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
     type Abi = Self;
-}
-impl ::core::default::Default for AsnObjectIdentifier {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -1179,12 +1072,6 @@ impl ::core::clone::Clone for AsnOctetString {
 unsafe impl ::windows::core::Abi for AsnOctetString {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AsnOctetString {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1203,12 +1090,6 @@ impl ::core::clone::Clone for SnmpVarBind {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SnmpVarBind {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SnmpVarBind {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
@@ -1229,12 +1110,6 @@ impl ::core::clone::Clone for SnmpVarBindList {
 unsafe impl ::windows::core::Abi for SnmpVarBindList {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SnmpVarBindList {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub struct smiCNTR64 {
@@ -1247,24 +1122,8 @@ impl ::core::clone::Clone for smiCNTR64 {
         *self
     }
 }
-impl ::core::fmt::Debug for smiCNTR64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for smiCNTR64 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for smiCNTR64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hipart == other.hipart && self.lopart == other.lopart
-    }
-}
-impl ::core::cmp::Eq for smiCNTR64 {}
-impl ::core::default::Default for smiCNTR64 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -1278,24 +1137,8 @@ impl ::core::clone::Clone for smiOCTETS {
         *self
     }
 }
-impl ::core::fmt::Debug for smiOCTETS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for smiOCTETS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for smiOCTETS {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl ::core::cmp::Eq for smiOCTETS {}
-impl ::core::default::Default for smiOCTETS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -1309,24 +1152,8 @@ impl ::core::clone::Clone for smiOID {
         *self
     }
 }
-impl ::core::fmt::Debug for smiOID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for smiOID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for smiOID {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl ::core::cmp::Eq for smiOID {}
-impl ::core::default::Default for smiOID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -1342,11 +1169,6 @@ impl ::core::clone::Clone for smiVALUE {
 }
 unsafe impl ::windows::core::Abi for smiVALUE {
     type Abi = Self;
-}
-impl ::core::default::Default for smiVALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -1367,11 +1189,6 @@ impl ::core::clone::Clone for smiVALUE_0 {
 unsafe impl ::windows::core::Abi for smiVALUE_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for smiVALUE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1391,28 +1208,8 @@ impl ::core::clone::Clone for smiVENDORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for smiVENDORINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for smiVENDORINFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for smiVENDORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorName == other.vendorName && self.vendorContact == other.vendorContact && self.vendorVersionId == other.vendorVersionId && self.vendorVersionDate == other.vendorVersionDate && self.vendorEnterprise == other.vendorEnterprise
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for smiVENDORINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for smiVENDORINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub type PFNSNMPCLEANUPEX = ::core::option::Option<unsafe extern "system" fn() -> u32>;
@@ -1443,3 +1240,5 @@ pub type PFNSNMPSTARTUPEX = ::core::option::Option<unsafe extern "system" fn(par
 pub type SNMPAPI_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsession: isize, hwnd: super::super::Foundation::HWND, wmsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lpclientdata: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

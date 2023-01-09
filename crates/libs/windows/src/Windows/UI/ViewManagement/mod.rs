@@ -1236,17 +1236,6 @@ impl ::core::clone::Clone for AccessibilitySettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AccessibilitySettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccessibilitySettings {}
-impl ::core::fmt::Debug for AccessibilitySettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessibilitySettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AccessibilitySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1299,17 +1288,6 @@ impl ActivationViewSwitcher {
 impl ::core::clone::Clone for ActivationViewSwitcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivationViewSwitcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationViewSwitcher {}
-impl ::core::fmt::Debug for ActivationViewSwitcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationViewSwitcher").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ActivationViewSwitcher {
@@ -1718,17 +1696,6 @@ impl ::core::clone::Clone for ApplicationView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationView {}
-impl ::core::fmt::Debug for ApplicationView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1770,17 +1737,6 @@ impl ApplicationViewConsolidatedEventArgs {
 impl ::core::clone::Clone for ApplicationViewConsolidatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewConsolidatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewConsolidatedEventArgs {}
-impl ::core::fmt::Debug for ApplicationViewConsolidatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewConsolidatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArgs {
@@ -1827,17 +1783,6 @@ impl ApplicationViewScaling {
 impl ::core::clone::Clone for ApplicationViewScaling {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewScaling {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewScaling {}
-impl ::core::fmt::Debug for ApplicationViewScaling {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewScaling").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewScaling {
@@ -2195,17 +2140,6 @@ impl ::core::clone::Clone for ApplicationViewTitleBar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationViewTitleBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewTitleBar {}
-impl ::core::fmt::Debug for ApplicationViewTitleBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewTitleBar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2262,17 +2196,6 @@ impl ApplicationViewTransferContext {
 impl ::core::clone::Clone for ApplicationViewTransferContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationViewTransferContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewTransferContext {}
-impl ::core::fmt::Debug for ApplicationViewTransferContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewTransferContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
@@ -2388,17 +2311,6 @@ impl ::core::clone::Clone for InputPane {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InputPane {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputPane {}
-impl ::core::fmt::Debug for InputPane {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputPane").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InputPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPane;{640ada70-06f3-4c87-a678-9829c9127c28})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2444,17 +2356,6 @@ impl InputPaneVisibilityEventArgs {
 impl ::core::clone::Clone for InputPaneVisibilityEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InputPaneVisibilityEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputPaneVisibilityEventArgs {}
-impl ::core::fmt::Debug for InputPaneVisibilityEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputPaneVisibilityEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InputPaneVisibilityEventArgs {
@@ -2698,17 +2599,6 @@ impl ::core::clone::Clone for StatusBar {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StatusBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatusBar {}
-impl ::core::fmt::Debug for StatusBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatusBar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StatusBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBar;{0ffcc5bf-98d0-4864-b1e8-b3f4020be8b4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2784,17 +2674,6 @@ impl StatusBarProgressIndicator {
 impl ::core::clone::Clone for StatusBarProgressIndicator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StatusBarProgressIndicator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatusBarProgressIndicator {}
-impl ::core::fmt::Debug for StatusBarProgressIndicator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatusBarProgressIndicator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StatusBarProgressIndicator {
@@ -3050,17 +2929,6 @@ impl ::core::clone::Clone for UISettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UISettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UISettings {}
-impl ::core::fmt::Debug for UISettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UISettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UISettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettings;{85361600-1c63-4627-bcb1-3a89e0bc9c55})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3087,17 +2955,6 @@ impl UISettingsAnimationsEnabledChangedEventArgs {}
 impl ::core::clone::Clone for UISettingsAnimationsEnabledChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UISettingsAnimationsEnabledChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UISettingsAnimationsEnabledChangedEventArgs {}
-impl ::core::fmt::Debug for UISettingsAnimationsEnabledChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UISettingsAnimationsEnabledChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
@@ -3128,17 +2985,6 @@ impl ::core::clone::Clone for UISettingsAutoHideScrollBarsChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UISettingsAutoHideScrollBarsChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UISettingsAutoHideScrollBarsChangedEventArgs {}
-impl ::core::fmt::Debug for UISettingsAutoHideScrollBarsChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UISettingsAutoHideScrollBarsChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs;{87afd4b2-9146-5f02-8f6b-06d454174c0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3165,17 +3011,6 @@ impl UISettingsMessageDurationChangedEventArgs {}
 impl ::core::clone::Clone for UISettingsMessageDurationChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UISettingsMessageDurationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UISettingsMessageDurationChangedEventArgs {}
-impl ::core::fmt::Debug for UISettingsMessageDurationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UISettingsMessageDurationChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
@@ -3223,17 +3058,6 @@ impl UIViewSettings {
 impl ::core::clone::Clone for UIViewSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UIViewSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UIViewSettings {}
-impl ::core::fmt::Debug for UIViewSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIViewSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UIViewSettings {
@@ -3302,17 +3126,6 @@ impl ::core::clone::Clone for ViewModePreferences {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ViewModePreferences {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ViewModePreferences {}
-impl ::core::fmt::Debug for ViewModePreferences {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ViewModePreferences").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ViewModePreferences {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ViewModePreferences;{878fcd3a-0b99-42c9-84d0-d3f1d403554b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3344,18 +3157,8 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
         *self
     }
 }
-impl ::core::default::Default for ApplicationViewBoundsMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewBoundsMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewBoundsMode;i4)");
@@ -3378,18 +3181,8 @@ impl ::core::clone::Clone for ApplicationViewMode {
         *self
     }
 }
-impl ::core::default::Default for ApplicationViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewMode;i4)");
@@ -3412,18 +3205,8 @@ impl ::core::clone::Clone for ApplicationViewOrientation {
         *self
     }
 }
-impl ::core::default::Default for ApplicationViewOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
@@ -3453,20 +3236,8 @@ impl ::core::clone::Clone for ApplicationViewState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for ApplicationViewState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for ApplicationViewState {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for ApplicationViewState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewState").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ApplicationViewState {
@@ -3491,46 +3262,8 @@ impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
         *self
     }
 }
-impl ::core::default::Default for ApplicationViewSwitchingOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ApplicationViewSwitchingOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ApplicationViewSwitchingOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ApplicationViewSwitchingOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewSwitchingOptions;u4)");
@@ -3556,18 +3289,8 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
         *self
     }
 }
-impl ::core::default::Default for ApplicationViewWindowingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationViewWindowingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewWindowingMode;i4)");
@@ -3590,18 +3313,8 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
         *self
     }
 }
-impl ::core::default::Default for FullScreenSystemOverlayMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.FullScreenSystemOverlayMode;i4)");
@@ -3624,18 +3337,8 @@ impl ::core::clone::Clone for HandPreference {
         *self
     }
 }
-impl ::core::default::Default for HandPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HandPreference {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HandPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandPreference").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HandPreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.HandPreference;i4)");
@@ -3658,18 +3361,8 @@ impl ::core::clone::Clone for ScreenCaptureDisabledBehavior {
         *self
     }
 }
-impl ::core::default::Default for ScreenCaptureDisabledBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ScreenCaptureDisabledBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ScreenCaptureDisabledBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScreenCaptureDisabledBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ScreenCaptureDisabledBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
@@ -3700,18 +3393,8 @@ impl ::core::clone::Clone for UIColorType {
         *self
     }
 }
-impl ::core::default::Default for UIColorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UIColorType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UIColorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIColorType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UIColorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIColorType;i4)");
@@ -3758,18 +3441,8 @@ impl ::core::clone::Clone for UIElementType {
         *self
     }
 }
-impl ::core::default::Default for UIElementType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UIElementType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UIElementType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIElementType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UIElementType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UIElementType;i4)");
@@ -3792,18 +3465,8 @@ impl ::core::clone::Clone for UserInteractionMode {
         *self
     }
 }
-impl ::core::default::Default for UserInteractionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserInteractionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserInteractionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserInteractionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.UserInteractionMode;i4)");
@@ -3831,18 +3494,8 @@ impl ::core::clone::Clone for ViewSizePreference {
         *self
     }
 }
-impl ::core::default::Default for ViewSizePreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ViewSizePreference {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ViewSizePreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ViewSizePreference").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ViewSizePreference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ViewSizePreference;i4)");
@@ -3853,3 +3506,5 @@ unsafe impl ::windows::core::RuntimeType for ViewSizePreference {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

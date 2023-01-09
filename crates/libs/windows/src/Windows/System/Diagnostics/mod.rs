@@ -412,17 +412,6 @@ impl ::core::clone::Clone for DiagnosticActionResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DiagnosticActionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticActionResult {}
-impl ::core::fmt::Debug for DiagnosticActionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DiagnosticActionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
     type DefaultType = ::core::option::Option<Self>;
@@ -493,17 +482,6 @@ impl ::core::clone::Clone for DiagnosticInvoker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DiagnosticInvoker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticInvoker {}
-impl ::core::fmt::Debug for DiagnosticInvoker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticInvoker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DiagnosticInvoker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -538,17 +516,6 @@ impl ProcessCpuUsage {
 impl ::core::clone::Clone for ProcessCpuUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessCpuUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessCpuUsage {}
-impl ::core::fmt::Debug for ProcessCpuUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessCpuUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessCpuUsage {
@@ -596,17 +563,6 @@ impl ProcessCpuUsageReport {
 impl ::core::clone::Clone for ProcessCpuUsageReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessCpuUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessCpuUsageReport {}
-impl ::core::fmt::Debug for ProcessCpuUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessCpuUsageReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessCpuUsageReport {
@@ -735,17 +691,6 @@ impl ::core::clone::Clone for ProcessDiagnosticInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiagnosticInfo {}
-impl ::core::fmt::Debug for ProcessDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiagnosticInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiagnosticInfo;{e830b04b-300e-4ee6-a0ab-5b5f5231b434})");
     type DefaultType = ::core::option::Option<Self>;
@@ -780,17 +725,6 @@ impl ProcessDiskUsage {
 impl ::core::clone::Clone for ProcessDiskUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessDiskUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiskUsage {}
-impl ::core::fmt::Debug for ProcessDiskUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiskUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessDiskUsage {
@@ -864,17 +798,6 @@ impl ::core::clone::Clone for ProcessDiskUsageReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessDiskUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessDiskUsageReport {}
-impl ::core::fmt::Debug for ProcessDiskUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessDiskUsageReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessDiskUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessDiskUsageReport;{401627fd-535d-4c1f-81b8-da54e1be635e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -909,17 +832,6 @@ impl ProcessMemoryUsage {
 impl ::core::clone::Clone for ProcessMemoryUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessMemoryUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryUsage {}
-impl ::core::fmt::Debug for ProcessMemoryUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsage {
@@ -1035,17 +947,6 @@ impl ::core::clone::Clone for ProcessMemoryUsageReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessMemoryUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessMemoryUsageReport {}
-impl ::core::fmt::Debug for ProcessMemoryUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessMemoryUsageReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.ProcessMemoryUsageReport;{c2c77cba-1951-4685-8532-7e749ecf8eeb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1080,17 +981,6 @@ impl SystemCpuUsage {
 impl ::core::clone::Clone for SystemCpuUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemCpuUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemCpuUsage {}
-impl ::core::fmt::Debug for SystemCpuUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemCpuUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemCpuUsage {
@@ -1147,17 +1037,6 @@ impl SystemCpuUsageReport {
 impl ::core::clone::Clone for SystemCpuUsageReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemCpuUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemCpuUsageReport {}
-impl ::core::fmt::Debug for SystemCpuUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemCpuUsageReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemCpuUsageReport {
@@ -1231,17 +1110,6 @@ impl ::core::clone::Clone for SystemDiagnosticInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemDiagnosticInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemDiagnosticInfo {}
-impl ::core::fmt::Debug for SystemDiagnosticInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemDiagnosticInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemDiagnosticInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemDiagnosticInfo;{a290fe05-dff3-407f-9a1b-0b2b317ca800})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1276,17 +1144,6 @@ impl SystemMemoryUsage {
 impl ::core::clone::Clone for SystemMemoryUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemMemoryUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMemoryUsage {}
-impl ::core::fmt::Debug for SystemMemoryUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMemoryUsage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemMemoryUsage {
@@ -1339,17 +1196,6 @@ impl ::core::clone::Clone for SystemMemoryUsageReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemMemoryUsageReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMemoryUsageReport {}
-impl ::core::fmt::Debug for SystemMemoryUsageReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemMemoryUsageReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemMemoryUsageReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.SystemMemoryUsageReport;{38663c87-2a9f-403a-bd19-2cf3e8169500})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1388,18 +1234,8 @@ impl ::core::clone::Clone for DiagnosticActionState {
         *self
     }
 }
-impl ::core::default::Default for DiagnosticActionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DiagnosticActionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DiagnosticActionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
@@ -1410,3 +1246,5 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

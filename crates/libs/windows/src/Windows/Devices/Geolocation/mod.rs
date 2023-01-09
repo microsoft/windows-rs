@@ -544,17 +544,6 @@ impl ::core::clone::Clone for IGeoshape {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGeoshape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGeoshape {}
-impl ::core::fmt::Debug for IGeoshape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGeoshape").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGeoshape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c99ca2af-c729-43c1-8fab-d6dec914df7e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -765,17 +754,6 @@ impl ::core::clone::Clone for CivicAddress {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CivicAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CivicAddress {}
-impl ::core::fmt::Debug for CivicAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CivicAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CivicAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.CivicAddress;{a8567a1a-64f4-4d48-bcea-f6b008eca34c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -925,17 +903,6 @@ impl ::core::clone::Clone for GeoboundingBox {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeoboundingBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeoboundingBox {}
-impl ::core::fmt::Debug for GeoboundingBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeoboundingBox").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeoboundingBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeoboundingBox;{0896c80b-274f-43da-9a06-cbfcdaeb4ec2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1040,17 +1007,6 @@ impl Geocircle {
 impl ::core::clone::Clone for Geocircle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Geocircle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geocircle {}
-impl ::core::fmt::Debug for Geocircle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geocircle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Geocircle {
@@ -1208,17 +1164,6 @@ impl ::core::clone::Clone for Geocoordinate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Geocoordinate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geocoordinate {}
-impl ::core::fmt::Debug for Geocoordinate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geocoordinate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Geocoordinate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geocoordinate;{ee21a3aa-976a-4c70-803d-083ea55bcbc4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1291,17 +1236,6 @@ impl GeocoordinateSatelliteData {
 impl ::core::clone::Clone for GeocoordinateSatelliteData {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GeocoordinateSatelliteData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeocoordinateSatelliteData {}
-impl ::core::fmt::Debug for GeocoordinateSatelliteData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeocoordinateSatelliteData").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
@@ -1508,17 +1442,6 @@ impl ::core::clone::Clone for Geolocator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Geolocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geolocator {}
-impl ::core::fmt::Debug for Geolocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geolocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Geolocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geolocator;{a9c3bf62-4524-4989-8aa9-de019d2e551f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1617,17 +1540,6 @@ impl Geopath {
 impl ::core::clone::Clone for Geopath {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Geopath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geopath {}
-impl ::core::fmt::Debug for Geopath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geopath").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Geopath {
@@ -1729,17 +1641,6 @@ impl ::core::clone::Clone for Geopoint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Geopoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geopoint {}
-impl ::core::fmt::Debug for Geopoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geopoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Geopoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geopoint;{6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1809,17 +1710,6 @@ impl ::core::clone::Clone for Geoposition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Geoposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geoposition {}
-impl ::core::fmt::Debug for Geoposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geoposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Geoposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geoposition;{c18d0454-7d41-4ff7-a957-9dffb4ef7f5b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1870,17 +1760,6 @@ impl Geovisit {
 impl ::core::clone::Clone for Geovisit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Geovisit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geovisit {}
-impl ::core::fmt::Debug for Geovisit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geovisit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Geovisit {
@@ -1962,17 +1841,6 @@ impl ::core::clone::Clone for GeovisitMonitor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeovisitMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeovisitMonitor {}
-impl ::core::fmt::Debug for GeovisitMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeovisitMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeovisitMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitMonitor;{80118aaf-5944-4591-83c1-396647f54f2c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2007,17 +1875,6 @@ impl GeovisitStateChangedEventArgs {
 impl ::core::clone::Clone for GeovisitStateChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GeovisitStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeovisitStateChangedEventArgs {}
-impl ::core::fmt::Debug for GeovisitStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeovisitStateChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
@@ -2058,17 +1915,6 @@ impl ::core::clone::Clone for GeovisitTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeovisitTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeovisitTriggerDetails {}
-impl ::core::fmt::Debug for GeovisitTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeovisitTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.GeovisitTriggerDetails;{ea770d9e-d1c9-454b-99b7-b2f8cdd2482f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2105,17 +1951,6 @@ impl ::core::clone::Clone for PositionChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PositionChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PositionChangedEventArgs {}
-impl ::core::fmt::Debug for PositionChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PositionChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PositionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.PositionChangedEventArgs;{37859ce5-9d1e-46c5-bf3b-6ad8cac1a093})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2150,17 +1985,6 @@ impl StatusChangedEventArgs {
 impl ::core::clone::Clone for StatusChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StatusChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatusChangedEventArgs {}
-impl ::core::fmt::Debug for StatusChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StatusChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StatusChangedEventArgs {
@@ -2206,17 +2030,6 @@ impl ::core::clone::Clone for VenueData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VenueData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VenueData {}
-impl ::core::fmt::Debug for VenueData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VenueData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VenueData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.VenueData;{66f39187-60e3-4b2f-b527-4f53f1c3c677})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2253,18 +2066,8 @@ impl ::core::clone::Clone for AltitudeReferenceSystem {
         *self
     }
 }
-impl ::core::default::Default for AltitudeReferenceSystem {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AltitudeReferenceSystem {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AltitudeReferenceSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AltitudeReferenceSystem").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AltitudeReferenceSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.AltitudeReferenceSystem;i4)");
@@ -2288,18 +2091,8 @@ impl ::core::clone::Clone for GeolocationAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for GeolocationAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeolocationAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeolocationAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeolocationAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GeolocationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeolocationAccessStatus;i4)");
@@ -2324,18 +2117,8 @@ impl ::core::clone::Clone for GeoshapeType {
         *self
     }
 }
-impl ::core::default::Default for GeoshapeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeoshapeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeoshapeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeoshapeType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GeoshapeType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.GeoshapeType;i4)");
@@ -2358,18 +2141,8 @@ impl ::core::clone::Clone for PositionAccuracy {
         *self
     }
 }
-impl ::core::default::Default for PositionAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PositionAccuracy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PositionAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PositionAccuracy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PositionAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionAccuracy;i4)");
@@ -2397,18 +2170,8 @@ impl ::core::clone::Clone for PositionSource {
         *self
     }
 }
-impl ::core::default::Default for PositionSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PositionSource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PositionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PositionSource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PositionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionSource;i4)");
@@ -2435,18 +2198,8 @@ impl ::core::clone::Clone for PositionStatus {
         *self
     }
 }
-impl ::core::default::Default for PositionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PositionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PositionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PositionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PositionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.PositionStatus;i4)");
@@ -2469,18 +2222,8 @@ impl ::core::clone::Clone for VisitMonitoringScope {
         *self
     }
 }
-impl ::core::default::Default for VisitMonitoringScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VisitMonitoringScope {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VisitMonitoringScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisitMonitoringScope").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VisitMonitoringScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitMonitoringScope;i4)");
@@ -2505,18 +2248,8 @@ impl ::core::clone::Clone for VisitStateChange {
         *self
     }
 }
-impl ::core::default::Default for VisitStateChange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VisitStateChange {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VisitStateChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisitStateChange").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VisitStateChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
@@ -2538,11 +2271,6 @@ impl ::core::clone::Clone for BasicGeoposition {
         *self
     }
 }
-impl ::core::fmt::Debug for BasicGeoposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BasicGeoposition").field("Latitude", &self.Latitude).field("Longitude", &self.Longitude).field("Altitude", &self.Altitude).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BasicGeoposition {
     type Abi = Self;
 }
@@ -2553,16 +2281,7 @@ unsafe impl ::windows::core::RuntimeType for BasicGeoposition {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for BasicGeoposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.Latitude == other.Latitude && self.Longitude == other.Longitude && self.Altitude == other.Altitude
-    }
-}
-impl ::core::cmp::Eq for BasicGeoposition {}
-impl ::core::default::Default for BasicGeoposition {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

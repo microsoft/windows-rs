@@ -182,17 +182,6 @@ impl ::core::clone::Clone for WebAuthenticationResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebAuthenticationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAuthenticationResult {}
-impl ::core::fmt::Debug for WebAuthenticationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
     type DefaultType = ::core::option::Option<Self>;
@@ -225,18 +214,8 @@ impl ::core::clone::Clone for TokenBindingKeyType {
         *self
     }
 }
-impl ::core::default::Default for TokenBindingKeyType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TokenBindingKeyType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TokenBindingKeyType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.TokenBindingKeyType;i4)");
@@ -262,46 +241,8 @@ impl ::core::clone::Clone for WebAuthenticationOptions {
         *self
     }
 }
-impl ::core::default::Default for WebAuthenticationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAuthenticationOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WebAuthenticationOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WebAuthenticationOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WebAuthenticationOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WebAuthenticationOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WebAuthenticationOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationOptions;u4)");
@@ -325,18 +266,8 @@ impl ::core::clone::Clone for WebAuthenticationStatus {
         *self
     }
 }
-impl ::core::default::Default for WebAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebAuthenticationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
@@ -347,3 +278,5 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

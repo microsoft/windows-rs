@@ -140,17 +140,6 @@ impl ::core::clone::Clone for Battery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Battery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Battery {}
-impl ::core::fmt::Debug for Battery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Battery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.Battery;{bc894fc6-0072-47c8-8b5d-614aaa7a437e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -225,17 +214,6 @@ impl ::core::clone::Clone for BatteryReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BatteryReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BatteryReport {}
-impl ::core::fmt::Debug for BatteryReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BatteryReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BatteryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.BatteryReport;{c9858c3a-4e13-420a-a8d0-24f18f395401})");
     type DefaultType = ::core::option::Option<Self>;
@@ -257,3 +235,5 @@ unsafe impl ::core::marker::Send for BatteryReport {}
 unsafe impl ::core::marker::Sync for BatteryReport {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

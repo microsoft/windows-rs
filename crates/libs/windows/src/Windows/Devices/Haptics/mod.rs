@@ -326,17 +326,6 @@ impl ::core::clone::Clone for SimpleHapticsController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SimpleHapticsController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleHapticsController {}
-impl ::core::fmt::Debug for SimpleHapticsController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleHapticsController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsController;{3d577ef9-4cee-11e6-b535-001bdc06ab3b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -380,17 +369,6 @@ impl SimpleHapticsControllerFeedback {
 impl ::core::clone::Clone for SimpleHapticsControllerFeedback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SimpleHapticsControllerFeedback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleHapticsControllerFeedback {}
-impl ::core::fmt::Debug for SimpleHapticsControllerFeedback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleHapticsControllerFeedback").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsControllerFeedback {
@@ -479,17 +457,6 @@ impl ::core::clone::Clone for VibrationDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VibrationDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VibrationDevice {}
-impl ::core::fmt::Debug for VibrationDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.VibrationDevice;{40f21a3e-8844-47ff-b312-06185a3844da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -525,18 +492,8 @@ impl ::core::clone::Clone for VibrationAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for VibrationAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VibrationAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VibrationAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");
@@ -547,3 +504,5 @@ unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

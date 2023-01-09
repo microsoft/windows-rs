@@ -102,3 +102,5 @@ unsafe impl ::windows::core::Abi for HCOMDB {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

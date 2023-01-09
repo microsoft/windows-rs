@@ -56,17 +56,6 @@ impl ::core::clone::Clone for IAccClientDocMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAccClientDocMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccClientDocMgr {}
-impl ::core::fmt::Debug for IAccClientDocMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccClientDocMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAccClientDocMgr {
     type Vtable = IAccClientDocMgr_Vtbl;
 }
@@ -122,17 +111,6 @@ impl ::core::clone::Clone for IAccDictionary {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAccDictionary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccDictionary {}
-impl ::core::fmt::Debug for IAccDictionary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccDictionary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAccDictionary {
     type Vtable = IAccDictionary_Vtbl;
 }
@@ -179,17 +157,6 @@ impl IAccServerDocMgr {
 impl ::core::clone::Clone for IAccServerDocMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAccServerDocMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccServerDocMgr {}
-impl ::core::fmt::Debug for IAccServerDocMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccServerDocMgr").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAccServerDocMgr {
@@ -258,17 +225,6 @@ impl IAccStore {
 impl ::core::clone::Clone for IAccStore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAccStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccStore {}
-impl ::core::fmt::Debug for IAccStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccStore").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAccStore {
@@ -364,17 +320,6 @@ impl ::core::clone::Clone for IAnchor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAnchor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAnchor {}
-impl ::core::fmt::Debug for IAnchor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnchor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAnchor {
     type Vtable = IAnchor_Vtbl;
 }
@@ -421,17 +366,6 @@ impl ::core::clone::Clone for IClonableWrapper {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IClonableWrapper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IClonableWrapper {}
-impl ::core::fmt::Debug for IClonableWrapper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IClonableWrapper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IClonableWrapper {
     type Vtable = IClonableWrapper_Vtbl;
 }
@@ -461,17 +395,6 @@ impl ICoCreateLocally {
 impl ::core::clone::Clone for ICoCreateLocally {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICoCreateLocally {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoCreateLocally {}
-impl ::core::fmt::Debug for ICoCreateLocally {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoCreateLocally").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICoCreateLocally {
@@ -507,17 +430,6 @@ impl ICoCreatedLocally {
 impl ::core::clone::Clone for ICoCreatedLocally {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICoCreatedLocally {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoCreatedLocally {}
-impl ::core::fmt::Debug for ICoCreatedLocally {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoCreatedLocally").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICoCreatedLocally {
@@ -556,17 +468,6 @@ impl ::core::clone::Clone for IDocWrap {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDocWrap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDocWrap {}
-impl ::core::fmt::Debug for IDocWrap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDocWrap").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDocWrap {
     type Vtable = IDocWrap_Vtbl;
 }
@@ -602,17 +503,6 @@ impl IEnumITfCompositionView {
 impl ::core::clone::Clone for IEnumITfCompositionView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumITfCompositionView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumITfCompositionView {}
-impl ::core::fmt::Debug for IEnumITfCompositionView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumITfCompositionView").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumITfCompositionView {
@@ -654,17 +544,6 @@ impl ::core::clone::Clone for IEnumSpeechCommands {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumSpeechCommands {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSpeechCommands {}
-impl ::core::fmt::Debug for IEnumSpeechCommands {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSpeechCommands").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumSpeechCommands {
     type Vtable = IEnumSpeechCommands_Vtbl;
 }
@@ -702,17 +581,6 @@ impl IEnumTfCandidates {
 impl ::core::clone::Clone for IEnumTfCandidates {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfCandidates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfCandidates {}
-impl ::core::fmt::Debug for IEnumTfCandidates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfCandidates").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfCandidates {
@@ -754,17 +622,6 @@ impl ::core::clone::Clone for IEnumTfContextViews {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfContextViews {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfContextViews {}
-impl ::core::fmt::Debug for IEnumTfContextViews {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfContextViews").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfContextViews {
     type Vtable = IEnumTfContextViews_Vtbl;
 }
@@ -802,17 +659,6 @@ impl IEnumTfContexts {
 impl ::core::clone::Clone for IEnumTfContexts {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfContexts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfContexts {}
-impl ::core::fmt::Debug for IEnumTfContexts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfContexts").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfContexts {
@@ -854,17 +700,6 @@ impl ::core::clone::Clone for IEnumTfDisplayAttributeInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfDisplayAttributeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfDisplayAttributeInfo {}
-impl ::core::fmt::Debug for IEnumTfDisplayAttributeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfDisplayAttributeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfDisplayAttributeInfo {
     type Vtable = IEnumTfDisplayAttributeInfo_Vtbl;
 }
@@ -902,17 +737,6 @@ impl IEnumTfDocumentMgrs {
 impl ::core::clone::Clone for IEnumTfDocumentMgrs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfDocumentMgrs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfDocumentMgrs {}
-impl ::core::fmt::Debug for IEnumTfDocumentMgrs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfDocumentMgrs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfDocumentMgrs {
@@ -954,17 +778,6 @@ impl ::core::clone::Clone for IEnumTfFunctionProviders {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfFunctionProviders {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfFunctionProviders {}
-impl ::core::fmt::Debug for IEnumTfFunctionProviders {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfFunctionProviders").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfFunctionProviders {
     type Vtable = IEnumTfFunctionProviders_Vtbl;
 }
@@ -1002,17 +815,6 @@ impl IEnumTfInputProcessorProfiles {
 impl ::core::clone::Clone for IEnumTfInputProcessorProfiles {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfInputProcessorProfiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfInputProcessorProfiles {}
-impl ::core::fmt::Debug for IEnumTfInputProcessorProfiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfInputProcessorProfiles").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfInputProcessorProfiles {
@@ -1054,17 +856,6 @@ impl ::core::clone::Clone for IEnumTfLangBarItems {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfLangBarItems {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfLangBarItems {}
-impl ::core::fmt::Debug for IEnumTfLangBarItems {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfLangBarItems").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfLangBarItems {
     type Vtable = IEnumTfLangBarItems_Vtbl;
 }
@@ -1104,17 +895,6 @@ impl IEnumTfLanguageProfiles {
 impl ::core::clone::Clone for IEnumTfLanguageProfiles {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfLanguageProfiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfLanguageProfiles {}
-impl ::core::fmt::Debug for IEnumTfLanguageProfiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfLanguageProfiles").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfLanguageProfiles {
@@ -1159,17 +939,6 @@ impl ::core::clone::Clone for IEnumTfLatticeElements {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfLatticeElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfLatticeElements {}
-impl ::core::fmt::Debug for IEnumTfLatticeElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfLatticeElements").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfLatticeElements {
     type Vtable = IEnumTfLatticeElements_Vtbl;
 }
@@ -1207,17 +976,6 @@ impl IEnumTfProperties {
 impl ::core::clone::Clone for IEnumTfProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfProperties {}
-impl ::core::fmt::Debug for IEnumTfProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfProperties {
@@ -1259,17 +1017,6 @@ impl IEnumTfPropertyValue {
 impl ::core::clone::Clone for IEnumTfPropertyValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IEnumTfPropertyValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfPropertyValue {}
-impl ::core::fmt::Debug for IEnumTfPropertyValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfPropertyValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IEnumTfPropertyValue {
@@ -1314,17 +1061,6 @@ impl ::core::clone::Clone for IEnumTfRanges {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfRanges {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfRanges {}
-impl ::core::fmt::Debug for IEnumTfRanges {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfRanges").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfRanges {
     type Vtable = IEnumTfRanges_Vtbl;
 }
@@ -1364,17 +1100,6 @@ impl ::core::clone::Clone for IEnumTfUIElements {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumTfUIElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTfUIElements {}
-impl ::core::fmt::Debug for IEnumTfUIElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTfUIElements").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumTfUIElements {
     type Vtable = IEnumTfUIElements_Vtbl;
 }
@@ -1402,17 +1127,6 @@ impl IInternalDocWrap {
 impl ::core::clone::Clone for IInternalDocWrap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IInternalDocWrap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternalDocWrap {}
-impl ::core::fmt::Debug for IInternalDocWrap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternalDocWrap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IInternalDocWrap {
@@ -1443,17 +1157,6 @@ impl ISpeechCommandProvider {
 impl ::core::clone::Clone for ISpeechCommandProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISpeechCommandProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpeechCommandProvider {}
-impl ::core::fmt::Debug for ISpeechCommandProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechCommandProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISpeechCommandProvider {
@@ -1604,17 +1307,6 @@ impl ITextStoreACP {
 impl ::core::clone::Clone for ITextStoreACP {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextStoreACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACP {}
-impl ::core::fmt::Debug for ITextStoreACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACP").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITextStoreACP {
@@ -1821,17 +1513,6 @@ impl ::core::clone::Clone for ITextStoreACP2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreACP2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACP2 {}
-impl ::core::fmt::Debug for ITextStoreACP2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACP2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreACP2 {
     type Vtable = ITextStoreACP2_Vtbl;
 }
@@ -1917,17 +1598,6 @@ impl ::core::clone::Clone for ITextStoreACPEx {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreACPEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACPEx {}
-impl ::core::fmt::Debug for ITextStoreACPEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACPEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreACPEx {
     type Vtable = ITextStoreACPEx_Vtbl;
 }
@@ -1982,17 +1652,6 @@ impl ITextStoreACPServices {
 impl ::core::clone::Clone for ITextStoreACPServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextStoreACPServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACPServices {}
-impl ::core::fmt::Debug for ITextStoreACPServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACPServices").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITextStoreACPServices {
@@ -2051,17 +1710,6 @@ impl ::core::clone::Clone for ITextStoreACPSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreACPSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACPSink {}
-impl ::core::fmt::Debug for ITextStoreACPSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACPSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreACPSink {
     type Vtable = ITextStoreACPSink_Vtbl;
 }
@@ -2085,30 +1733,6 @@ pub struct ITextStoreACPSink_Vtbl {
 #[repr(transparent)]
 pub struct ITextStoreACPSinkEx(::windows::core::IUnknown);
 impl ITextStoreACPSinkEx {
-    pub unsafe fn OnTextChange(&self, dwflags: TEXT_STORE_TEXT_CHANGE_FLAGS, pchange: *const TS_TEXTCHANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnTextChange)(::windows::core::Vtable::as_raw(self), dwflags, pchange).ok()
-    }
-    pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnSelectionChange)(::windows::core::Vtable::as_raw(self)).ok()
-    }
-    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnLayoutChange)(::windows::core::Vtable::as_raw(self), lcode, vcview).ok()
-    }
-    pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnStatusChange)(::windows::core::Vtable::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn OnAttrsChange(&self, acpstart: i32, acpend: i32, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnAttrsChange)(::windows::core::Vtable::as_raw(self), acpstart, acpend, paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
-    }
-    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnLockGranted)(::windows::core::Vtable::as_raw(self), dwlockflags).ok()
-    }
-    pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnStartEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
-    }
-    pub unsafe fn OnEndEditTransaction(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnEndEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
-    }
     pub unsafe fn OnDisconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
@@ -2117,17 +1741,6 @@ impl ITextStoreACPSinkEx {
 impl ::core::clone::Clone for ITextStoreACPSinkEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextStoreACPSinkEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreACPSinkEx {}
-impl ::core::fmt::Debug for ITextStoreACPSinkEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreACPSinkEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITextStoreACPSinkEx {
@@ -2319,17 +1932,6 @@ impl ::core::clone::Clone for ITextStoreAnchor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreAnchor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreAnchor {}
-impl ::core::fmt::Debug for ITextStoreAnchor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreAnchor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreAnchor {
     type Vtable = ITextStoreAnchor_Vtbl;
 }
@@ -2427,17 +2029,6 @@ impl ::core::clone::Clone for ITextStoreAnchorEx {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreAnchorEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreAnchorEx {}
-impl ::core::fmt::Debug for ITextStoreAnchorEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreAnchorEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreAnchorEx {
     type Vtable = ITextStoreAnchorEx_Vtbl;
 }
@@ -2496,17 +2087,6 @@ impl ::core::clone::Clone for ITextStoreAnchorSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITextStoreAnchorSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreAnchorSink {}
-impl ::core::fmt::Debug for ITextStoreAnchorSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreAnchorSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITextStoreAnchorSink {
     type Vtable = ITextStoreAnchorSink_Vtbl;
 }
@@ -2530,38 +2110,6 @@ pub struct ITextStoreAnchorSink_Vtbl {
 #[repr(transparent)]
 pub struct ITextStoreSinkAnchorEx(::windows::core::IUnknown);
 impl ITextStoreSinkAnchorEx {
-    pub unsafe fn OnTextChange<P0, P1>(&self, dwflags: TEXT_STORE_CHANGE_FLAGS, pastart: P0, paend: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<IAnchor>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IAnchor>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.OnTextChange)(::windows::core::Vtable::as_raw(self), dwflags, pastart.into().abi(), paend.into().abi()).ok()
-    }
-    pub unsafe fn OnSelectionChange(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnSelectionChange)(::windows::core::Vtable::as_raw(self)).ok()
-    }
-    pub unsafe fn OnLayoutChange(&self, lcode: TsLayoutCode, vcview: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnLayoutChange)(::windows::core::Vtable::as_raw(self), lcode, vcview).ok()
-    }
-    pub unsafe fn OnStatusChange(&self, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnStatusChange)(::windows::core::Vtable::as_raw(self), dwflags).ok()
-    }
-    pub unsafe fn OnAttrsChange<P0, P1>(&self, pastart: P0, paend: P1, paattrs: &[::windows::core::GUID]) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<IAnchor>>,
-        P1: ::std::convert::Into<::windows::core::InParam<IAnchor>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.OnAttrsChange)(::windows::core::Vtable::as_raw(self), pastart.into().abi(), paend.into().abi(), paattrs.len() as _, ::core::mem::transmute(paattrs.as_ptr())).ok()
-    }
-    pub unsafe fn OnLockGranted(&self, dwlockflags: TEXT_STORE_LOCK_FLAGS) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnLockGranted)(::windows::core::Vtable::as_raw(self), dwlockflags).ok()
-    }
-    pub unsafe fn OnStartEditTransaction(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnStartEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
-    }
-    pub unsafe fn OnEndEditTransaction(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.OnEndEditTransaction)(::windows::core::Vtable::as_raw(self)).ok()
-    }
     pub unsafe fn OnDisconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).OnDisconnect)(::windows::core::Vtable::as_raw(self)).ok()
     }
@@ -2570,17 +2118,6 @@ impl ITextStoreSinkAnchorEx {
 impl ::core::clone::Clone for ITextStoreSinkAnchorEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITextStoreSinkAnchorEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextStoreSinkAnchorEx {}
-impl ::core::fmt::Debug for ITextStoreSinkAnchorEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextStoreSinkAnchorEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITextStoreSinkAnchorEx {
@@ -2612,17 +2149,6 @@ impl ITfActiveLanguageProfileNotifySink {
 impl ::core::clone::Clone for ITfActiveLanguageProfileNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfActiveLanguageProfileNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfActiveLanguageProfileNotifySink {}
-impl ::core::fmt::Debug for ITfActiveLanguageProfileNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfActiveLanguageProfileNotifySink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfActiveLanguageProfileNotifySink {
@@ -2666,17 +2192,6 @@ impl ::core::clone::Clone for ITfCandidateList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCandidateList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCandidateList {}
-impl ::core::fmt::Debug for ITfCandidateList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCandidateList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCandidateList {
     type Vtable = ITfCandidateList_Vtbl;
 }
@@ -2696,28 +2211,6 @@ pub struct ITfCandidateList_Vtbl {
 #[repr(transparent)]
 pub struct ITfCandidateListUIElement(::windows::core::IUnknown);
 impl ITfCandidateListUIElement {
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, bshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), bshow.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsShown)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetUpdatedFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetUpdatedFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -2755,17 +2248,6 @@ impl ::core::clone::Clone for ITfCandidateListUIElement {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCandidateListUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCandidateListUIElement {}
-impl ::core::fmt::Debug for ITfCandidateListUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCandidateListUIElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCandidateListUIElement {
     type Vtable = ITfCandidateListUIElement_Vtbl;
 }
@@ -2789,58 +2271,6 @@ pub struct ITfCandidateListUIElement_Vtbl {
 #[repr(transparent)]
 pub struct ITfCandidateListUIElementBehavior(::windows::core::IUnknown);
 impl ITfCandidateListUIElementBehavior {
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, bshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.base__.Show)(::windows::core::Vtable::as_raw(self), bshow.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.IsShown)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetUpdatedFlags(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUpdatedFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDocumentMgr)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetSelection(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSelection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetString(&self, uindex: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), uindex, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetPageIndex(&self, pindex: &mut [u32], pupagecnt: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPageIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _, pupagecnt).ok()
-    }
-    pub unsafe fn SetPageIndex(&self, pindex: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetPageIndex)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pindex.as_ptr()), pindex.len() as _).ok()
-    }
-    pub unsafe fn GetCurrentPage(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCurrentPage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn SetSelection(&self, nindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSelection)(::windows::core::Vtable::as_raw(self), nindex).ok()
     }
@@ -2855,17 +2285,6 @@ impl ITfCandidateListUIElementBehavior {
 impl ::core::clone::Clone for ITfCandidateListUIElementBehavior {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfCandidateListUIElementBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCandidateListUIElementBehavior {}
-impl ::core::fmt::Debug for ITfCandidateListUIElementBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCandidateListUIElementBehavior").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfCandidateListUIElementBehavior {
@@ -2899,17 +2318,6 @@ impl ITfCandidateString {
 impl ::core::clone::Clone for ITfCandidateString {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfCandidateString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCandidateString {}
-impl ::core::fmt::Debug for ITfCandidateString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCandidateString").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfCandidateString {
@@ -2991,17 +2399,6 @@ impl ::core::clone::Clone for ITfCategoryMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCategoryMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCategoryMgr {}
-impl ::core::fmt::Debug for ITfCategoryMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCategoryMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCategoryMgr {
     type Vtable = ITfCategoryMgr_Vtbl;
 }
@@ -3053,17 +2450,6 @@ impl ::core::clone::Clone for ITfCleanupContextDurationSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCleanupContextDurationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCleanupContextDurationSink {}
-impl ::core::fmt::Debug for ITfCleanupContextDurationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCleanupContextDurationSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCleanupContextDurationSink {
     type Vtable = ITfCleanupContextDurationSink_Vtbl;
 }
@@ -3094,17 +2480,6 @@ impl ::core::clone::Clone for ITfCleanupContextSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCleanupContextSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCleanupContextSink {}
-impl ::core::fmt::Debug for ITfCleanupContextSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCleanupContextSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCleanupContextSink {
     type Vtable = ITfCleanupContextSink_Vtbl;
 }
@@ -3130,17 +2505,6 @@ impl ITfClientId {
 impl ::core::clone::Clone for ITfClientId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfClientId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfClientId {}
-impl ::core::fmt::Debug for ITfClientId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfClientId").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfClientId {
@@ -3177,17 +2541,6 @@ impl ::core::clone::Clone for ITfCompartment {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCompartment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCompartment {}
-impl ::core::fmt::Debug for ITfCompartment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCompartment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCompartment {
     type Vtable = ITfCompartment_Vtbl;
 }
@@ -3219,17 +2572,6 @@ impl ITfCompartmentEventSink {
 impl ::core::clone::Clone for ITfCompartmentEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfCompartmentEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCompartmentEventSink {}
-impl ::core::fmt::Debug for ITfCompartmentEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCompartmentEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfCompartmentEventSink {
@@ -3266,17 +2608,6 @@ impl ITfCompartmentMgr {
 impl ::core::clone::Clone for ITfCompartmentMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfCompartmentMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCompartmentMgr {}
-impl ::core::fmt::Debug for ITfCompartmentMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCompartmentMgr").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfCompartmentMgr {
@@ -3326,17 +2657,6 @@ impl ::core::clone::Clone for ITfComposition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfComposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfComposition {}
-impl ::core::fmt::Debug for ITfComposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfComposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfComposition {
     type Vtable = ITfComposition_Vtbl;
 }
@@ -3367,17 +2687,6 @@ impl ITfCompositionSink {
 impl ::core::clone::Clone for ITfCompositionSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfCompositionSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCompositionSink {}
-impl ::core::fmt::Debug for ITfCompositionSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCompositionSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfCompositionSink {
@@ -3411,17 +2720,6 @@ impl ::core::clone::Clone for ITfCompositionView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCompositionView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCompositionView {}
-impl ::core::fmt::Debug for ITfCompositionView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCompositionView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCompositionView {
     type Vtable = ITfCompositionView_Vtbl;
 }
@@ -3450,17 +2748,6 @@ impl ITfConfigureSystemKeystrokeFeed {
 impl ::core::clone::Clone for ITfConfigureSystemKeystrokeFeed {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfConfigureSystemKeystrokeFeed {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfConfigureSystemKeystrokeFeed {}
-impl ::core::fmt::Debug for ITfConfigureSystemKeystrokeFeed {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfConfigureSystemKeystrokeFeed").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfConfigureSystemKeystrokeFeed {
@@ -3557,17 +2844,6 @@ impl ::core::clone::Clone for ITfContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContext {}
-impl ::core::fmt::Debug for ITfContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfContext {
     type Vtable = ITfContext_Vtbl;
 }
@@ -3641,17 +2917,6 @@ impl ::core::clone::Clone for ITfContextComposition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfContextComposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextComposition {}
-impl ::core::fmt::Debug for ITfContextComposition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextComposition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfContextComposition {
     type Vtable = ITfContextComposition_Vtbl;
 }
@@ -3716,17 +2981,6 @@ impl ITfContextKeyEventSink {
 impl ::core::clone::Clone for ITfContextKeyEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfContextKeyEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextKeyEventSink {}
-impl ::core::fmt::Debug for ITfContextKeyEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextKeyEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfContextKeyEventSink {
@@ -3800,17 +3054,6 @@ impl ::core::clone::Clone for ITfContextOwner {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfContextOwner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextOwner {}
-impl ::core::fmt::Debug for ITfContextOwner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextOwner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfContextOwner {
     type Vtable = ITfContextOwner_Vtbl;
 }
@@ -3847,33 +3090,6 @@ pub struct ITfContextOwner_Vtbl {
 #[repr(transparent)]
 pub struct ITfContextOwnerCompositionServices(::windows::core::IUnknown);
 impl ITfContextOwnerCompositionServices {
-    pub unsafe fn StartComposition<P0, P1>(&self, ecwrite: u32, pcompositionrange: P0, psink: P1) -> ::windows::core::Result<ITfComposition>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITfCompositionSink>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.StartComposition)(::windows::core::Vtable::as_raw(self), ecwrite, pcompositionrange.into().abi(), psink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn EnumCompositions(&self) -> ::windows::core::Result<IEnumITfCompositionView> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumCompositions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn FindComposition<P0>(&self, ecread: u32, ptestrange: P0) -> ::windows::core::Result<IEnumITfCompositionView>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindComposition)(::windows::core::Vtable::as_raw(self), ecread, ptestrange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn TakeOwnership<P0, P1>(&self, ecwrite: u32, pcomposition: P0, psink: P1) -> ::windows::core::Result<ITfComposition>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfCompositionView>>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITfCompositionSink>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.TakeOwnership)(::windows::core::Vtable::as_raw(self), ecwrite, pcomposition.into().abi(), psink.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn TerminateComposition<P0>(&self, pcomposition: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfCompositionView>>,
@@ -3885,17 +3101,6 @@ impl ITfContextOwnerCompositionServices {
 impl ::core::clone::Clone for ITfContextOwnerCompositionServices {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfContextOwnerCompositionServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextOwnerCompositionServices {}
-impl ::core::fmt::Debug for ITfContextOwnerCompositionServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextOwnerCompositionServices").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfContextOwnerCompositionServices {
@@ -3941,17 +3146,6 @@ impl ITfContextOwnerCompositionSink {
 impl ::core::clone::Clone for ITfContextOwnerCompositionSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfContextOwnerCompositionSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextOwnerCompositionSink {}
-impl ::core::fmt::Debug for ITfContextOwnerCompositionSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextOwnerCompositionSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfContextOwnerCompositionSink {
@@ -4021,17 +3215,6 @@ impl ::core::clone::Clone for ITfContextOwnerServices {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfContextOwnerServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextOwnerServices {}
-impl ::core::fmt::Debug for ITfContextOwnerServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextOwnerServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfContextOwnerServices {
     type Vtable = ITfContextOwnerServices_Vtbl;
 }
@@ -4093,17 +3276,6 @@ impl ::core::clone::Clone for ITfContextView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfContextView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfContextView {}
-impl ::core::fmt::Debug for ITfContextView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfContextView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfContextView {
     type Vtable = ITfContextView_Vtbl;
 }
@@ -4162,17 +3334,6 @@ impl ::core::clone::Clone for ITfCreatePropertyStore {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfCreatePropertyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfCreatePropertyStore {}
-impl ::core::fmt::Debug for ITfCreatePropertyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfCreatePropertyStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfCreatePropertyStore {
     type Vtable = ITfCreatePropertyStore_Vtbl;
 }
@@ -4224,17 +3385,6 @@ impl ::core::clone::Clone for ITfDisplayAttributeInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfDisplayAttributeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfDisplayAttributeInfo {}
-impl ::core::fmt::Debug for ITfDisplayAttributeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfDisplayAttributeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfDisplayAttributeInfo {
     type Vtable = ITfDisplayAttributeInfo_Vtbl;
 }
@@ -4278,17 +3428,6 @@ impl ::core::clone::Clone for ITfDisplayAttributeMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfDisplayAttributeMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfDisplayAttributeMgr {}
-impl ::core::fmt::Debug for ITfDisplayAttributeMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfDisplayAttributeMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfDisplayAttributeMgr {
     type Vtable = ITfDisplayAttributeMgr_Vtbl;
 }
@@ -4315,17 +3454,6 @@ impl ITfDisplayAttributeNotifySink {
 impl ::core::clone::Clone for ITfDisplayAttributeNotifySink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfDisplayAttributeNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfDisplayAttributeNotifySink {}
-impl ::core::fmt::Debug for ITfDisplayAttributeNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfDisplayAttributeNotifySink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfDisplayAttributeNotifySink {
@@ -4357,17 +3485,6 @@ impl ITfDisplayAttributeProvider {
 impl ::core::clone::Clone for ITfDisplayAttributeProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfDisplayAttributeProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfDisplayAttributeProvider {}
-impl ::core::fmt::Debug for ITfDisplayAttributeProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfDisplayAttributeProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfDisplayAttributeProvider {
@@ -4421,17 +3538,6 @@ impl ::core::clone::Clone for ITfDocumentMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfDocumentMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfDocumentMgr {}
-impl ::core::fmt::Debug for ITfDocumentMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfDocumentMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfDocumentMgr {
     type Vtable = ITfDocumentMgr_Vtbl;
 }
@@ -4470,17 +3576,6 @@ impl ::core::clone::Clone for ITfEditRecord {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfEditRecord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfEditRecord {}
-impl ::core::fmt::Debug for ITfEditRecord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfEditRecord").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfEditRecord {
     type Vtable = ITfEditRecord_Vtbl;
 }
@@ -4509,17 +3604,6 @@ impl ITfEditSession {
 impl ::core::clone::Clone for ITfEditSession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfEditSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfEditSession {}
-impl ::core::fmt::Debug for ITfEditSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfEditSession").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfEditSession {
@@ -4557,17 +3641,6 @@ impl ::core::clone::Clone for ITfEditTransactionSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfEditTransactionSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfEditTransactionSink {}
-impl ::core::fmt::Debug for ITfEditTransactionSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfEditTransactionSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfEditTransactionSink {
     type Vtable = ITfEditTransactionSink_Vtbl;
 }
@@ -4585,10 +3658,6 @@ pub struct ITfEditTransactionSink_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnAdviseText(::windows::core::IUnknown);
 impl ITfFnAdviseText {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn OnTextUpdate<P0>(&self, prange: P0, pchtext: &[u16]) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
@@ -4607,17 +3676,6 @@ impl ITfFnAdviseText {
 impl ::core::clone::Clone for ITfFnAdviseText {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnAdviseText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnAdviseText {}
-impl ::core::fmt::Debug for ITfFnAdviseText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnAdviseText").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnAdviseText {
@@ -4647,17 +3705,6 @@ impl ::core::clone::Clone for ITfFnBalloon {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfFnBalloon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnBalloon {}
-impl ::core::fmt::Debug for ITfFnBalloon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnBalloon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfFnBalloon {
     type Vtable = ITfFnBalloon_Vtbl;
 }
@@ -4674,10 +3721,6 @@ pub struct ITfFnBalloon_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnConfigure(::windows::core::IUnknown);
 impl ITfFnConfigure {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()>
@@ -4691,17 +3734,6 @@ impl ITfFnConfigure {
 impl ::core::clone::Clone for ITfFnConfigure {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnConfigure {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnConfigure {}
-impl ::core::fmt::Debug for ITfFnConfigure {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnConfigure").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnConfigure {
@@ -4723,10 +3755,6 @@ pub struct ITfFnConfigure_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnConfigureRegisterEudc(::windows::core::IUnknown);
 impl ITfFnConfigureRegisterEudc {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>
@@ -4740,17 +3768,6 @@ impl ITfFnConfigureRegisterEudc {
 impl ::core::clone::Clone for ITfFnConfigureRegisterEudc {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnConfigureRegisterEudc {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnConfigureRegisterEudc {}
-impl ::core::fmt::Debug for ITfFnConfigureRegisterEudc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnConfigureRegisterEudc").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnConfigureRegisterEudc {
@@ -4772,10 +3789,6 @@ pub struct ITfFnConfigureRegisterEudc_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnConfigureRegisterWord(::windows::core::IUnknown);
 impl ITfFnConfigureRegisterWord {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<P0>(&self, hwndparent: P0, langid: u16, rguidprofile: *const ::windows::core::GUID, bstrregistered: &::windows::core::BSTR) -> ::windows::core::Result<()>
@@ -4789,17 +3802,6 @@ impl ITfFnConfigureRegisterWord {
 impl ::core::clone::Clone for ITfFnConfigureRegisterWord {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnConfigureRegisterWord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnConfigureRegisterWord {}
-impl ::core::fmt::Debug for ITfFnConfigureRegisterWord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnConfigureRegisterWord").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnConfigureRegisterWord {
@@ -4821,10 +3823,6 @@ pub struct ITfFnConfigureRegisterWord_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnCustomSpeechCommand(::windows::core::IUnknown);
 impl ITfFnCustomSpeechCommand {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn SetSpeechCommandProvider<P0>(&self, pspcmdprovider: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
@@ -4836,17 +3834,6 @@ impl ITfFnCustomSpeechCommand {
 impl ::core::clone::Clone for ITfFnCustomSpeechCommand {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnCustomSpeechCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnCustomSpeechCommand {}
-impl ::core::fmt::Debug for ITfFnCustomSpeechCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnCustomSpeechCommand").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnCustomSpeechCommand {
@@ -4865,10 +3852,6 @@ pub struct ITfFnCustomSpeechCommand_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnGetLinguisticAlternates(::windows::core::IUnknown);
 impl ITfFnGetLinguisticAlternates {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetAlternates<P0>(&self, prange: P0) -> ::windows::core::Result<ITfCandidateList>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
@@ -4881,17 +3864,6 @@ impl ITfFnGetLinguisticAlternates {
 impl ::core::clone::Clone for ITfFnGetLinguisticAlternates {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnGetLinguisticAlternates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnGetLinguisticAlternates {}
-impl ::core::fmt::Debug for ITfFnGetLinguisticAlternates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnGetLinguisticAlternates").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnGetLinguisticAlternates {
@@ -4910,10 +3882,6 @@ pub struct ITfFnGetLinguisticAlternates_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout(::windows::core::IUnknown);
 impl ITfFnGetPreferredTouchKeyboardLayout {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetLayout(&self, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetLayout)(::windows::core::Vtable::as_raw(self), ptkblayouttype, pwpreferredlayoutid).ok()
     }
@@ -4922,17 +3890,6 @@ impl ITfFnGetPreferredTouchKeyboardLayout {
 impl ::core::clone::Clone for ITfFnGetPreferredTouchKeyboardLayout {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnGetPreferredTouchKeyboardLayout {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnGetPreferredTouchKeyboardLayout {}
-impl ::core::fmt::Debug for ITfFnGetPreferredTouchKeyboardLayout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnGetPreferredTouchKeyboardLayout").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnGetPreferredTouchKeyboardLayout {
@@ -4951,10 +3908,6 @@ pub struct ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnGetSAPIObject(::windows::core::IUnknown);
 impl ITfFnGetSAPIObject {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn Get(&self, sobj: TfSapiObject) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), sobj, result__.as_mut_ptr()).from_abi(result__)
@@ -4964,17 +3917,6 @@ impl ITfFnGetSAPIObject {
 impl ::core::clone::Clone for ITfFnGetSAPIObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnGetSAPIObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnGetSAPIObject {}
-impl ::core::fmt::Debug for ITfFnGetSAPIObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnGetSAPIObject").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnGetSAPIObject {
@@ -4993,64 +3935,6 @@ pub struct ITfFnGetSAPIObject_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnLMInternal(::windows::core::IUnknown);
 impl ITfFnLMInternal {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut ::core::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.QueryRange)(::windows::core::Vtable::as_raw(self), prange.into().abi(), ::core::mem::transmute(ppnewrange), pfaccepted).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryLangID(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.QueryLangID)(::windows::core::Vtable::as_raw(self), langid, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetReconversion<P0>(&self, prange: P0) -> ::windows::core::Result<ITfCandidateList>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetReconversion)(::windows::core::Vtable::as_raw(self), prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn Reconvert<P0>(&self, prange: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Reconvert)(::windows::core::Vtable::as_raw(self), prange.into().abi()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.QueryKey)(::windows::core::Vtable::as_raw(self), fup.into(), vkey.into(), lparamkeydata.into(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InvokeKey<P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-        P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.InvokeKey)(::windows::core::Vtable::as_raw(self), fup.into(), vkey.into(), lparamkeydata.into()).ok()
-    }
-    pub unsafe fn InvokeFunc<P0>(&self, pic: P0, refguidfunc: *const ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfContext>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.InvokeFunc)(::windows::core::Vtable::as_raw(self), pic.into().abi(), refguidfunc).ok()
-    }
     pub unsafe fn ProcessLattice<P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
@@ -5062,17 +3946,6 @@ impl ITfFnLMInternal {
 impl ::core::clone::Clone for ITfFnLMInternal {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnLMInternal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnLMInternal {}
-impl ::core::fmt::Debug for ITfFnLMInternal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnLMInternal").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnLMInternal {
@@ -5091,10 +3964,6 @@ pub struct ITfFnLMInternal_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnLMProcessor(::windows::core::IUnknown);
 impl ITfFnLMProcessor {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut ::core::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
@@ -5156,17 +4025,6 @@ impl ::core::clone::Clone for ITfFnLMProcessor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfFnLMProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnLMProcessor {}
-impl ::core::fmt::Debug for ITfFnLMProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnLMProcessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfFnLMProcessor {
     type Vtable = ITfFnLMProcessor_Vtbl;
 }
@@ -5201,10 +4059,6 @@ pub struct ITfFnLMProcessor_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnLangProfileUtil(::windows::core::IUnknown);
 impl ITfFnLangProfileUtil {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn RegisterActiveProfiles(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RegisterActiveProfiles)(::windows::core::Vtable::as_raw(self)).ok()
     }
@@ -5219,17 +4073,6 @@ impl ITfFnLangProfileUtil {
 impl ::core::clone::Clone for ITfFnLangProfileUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnLangProfileUtil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnLangProfileUtil {}
-impl ::core::fmt::Debug for ITfFnLangProfileUtil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnLangProfileUtil").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnLangProfileUtil {
@@ -5252,10 +4095,6 @@ pub struct ITfFnLangProfileUtil_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnPlayBack(::windows::core::IUnknown);
 impl ITfFnPlayBack {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut ::core::option::Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
@@ -5275,17 +4114,6 @@ impl ITfFnPlayBack {
 impl ::core::clone::Clone for ITfFnPlayBack {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnPlayBack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnPlayBack {}
-impl ::core::fmt::Debug for ITfFnPlayBack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnPlayBack").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnPlayBack {
@@ -5308,10 +4136,6 @@ pub struct ITfFnPlayBack_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnPropertyUIStatus(::windows::core::IUnknown);
 impl ITfFnPropertyUIStatus {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetStatus(&self, refguidprop: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetStatus)(::windows::core::Vtable::as_raw(self), refguidprop, result__.as_mut_ptr()).from_abi(result__)
@@ -5324,17 +4148,6 @@ impl ITfFnPropertyUIStatus {
 impl ::core::clone::Clone for ITfFnPropertyUIStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnPropertyUIStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnPropertyUIStatus {}
-impl ::core::fmt::Debug for ITfFnPropertyUIStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnPropertyUIStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnPropertyUIStatus {
@@ -5354,10 +4167,6 @@ pub struct ITfFnPropertyUIStatus_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnReconversion(::windows::core::IUnknown);
 impl ITfFnReconversion {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<P0>(&self, prange: P0, ppnewrange: *mut ::core::option::Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
@@ -5386,17 +4195,6 @@ impl ::core::clone::Clone for ITfFnReconversion {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfFnReconversion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnReconversion {}
-impl ::core::fmt::Debug for ITfFnReconversion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnReconversion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfFnReconversion {
     type Vtable = ITfFnReconversion_Vtbl;
 }
@@ -5418,10 +4216,6 @@ pub struct ITfFnReconversion_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnSearchCandidateProvider(::windows::core::IUnknown);
 impl ITfFnSearchCandidateProvider {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetSearchCandidates(&self, bstrquery: &::windows::core::BSTR, bstrapplicationid: &::windows::core::BSTR) -> ::windows::core::Result<ITfCandidateList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSearchCandidates)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrquery), ::core::mem::transmute_copy(bstrapplicationid), result__.as_mut_ptr()).from_abi(result__)
@@ -5434,17 +4228,6 @@ impl ITfFnSearchCandidateProvider {
 impl ::core::clone::Clone for ITfFnSearchCandidateProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnSearchCandidateProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnSearchCandidateProvider {}
-impl ::core::fmt::Debug for ITfFnSearchCandidateProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnSearchCandidateProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnSearchCandidateProvider {
@@ -5464,10 +4247,6 @@ pub struct ITfFnSearchCandidateProvider_Vtbl {
 #[repr(transparent)]
 pub struct ITfFnShowHelp(::windows::core::IUnknown);
 impl ITfFnShowHelp {
-    pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
@@ -5481,17 +4260,6 @@ impl ITfFnShowHelp {
 impl ::core::clone::Clone for ITfFnShowHelp {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFnShowHelp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFnShowHelp {}
-impl ::core::fmt::Debug for ITfFnShowHelp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFnShowHelp").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFnShowHelp {
@@ -5522,17 +4290,6 @@ impl ITfFunction {
 impl ::core::clone::Clone for ITfFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFunction {}
-impl ::core::fmt::Debug for ITfFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfFunction {
@@ -5570,17 +4327,6 @@ impl ::core::clone::Clone for ITfFunctionProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfFunctionProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfFunctionProvider {}
-impl ::core::fmt::Debug for ITfFunctionProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfFunctionProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfFunctionProvider {
     type Vtable = ITfFunctionProvider_Vtbl;
 }
@@ -5610,17 +4356,6 @@ impl ITfInputProcessorProfileActivationSink {
 impl ::core::clone::Clone for ITfInputProcessorProfileActivationSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfInputProcessorProfileActivationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputProcessorProfileActivationSink {}
-impl ::core::fmt::Debug for ITfInputProcessorProfileActivationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputProcessorProfileActivationSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfInputProcessorProfileActivationSink {
@@ -5686,17 +4421,6 @@ impl ::core::clone::Clone for ITfInputProcessorProfileMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfInputProcessorProfileMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputProcessorProfileMgr {}
-impl ::core::fmt::Debug for ITfInputProcessorProfileMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputProcessorProfileMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfInputProcessorProfileMgr {
     type Vtable = ITfInputProcessorProfileMgr_Vtbl;
 }
@@ -5732,17 +4456,6 @@ impl ITfInputProcessorProfileSubstituteLayout {
 impl ::core::clone::Clone for ITfInputProcessorProfileSubstituteLayout {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfInputProcessorProfileSubstituteLayout {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputProcessorProfileSubstituteLayout {}
-impl ::core::fmt::Debug for ITfInputProcessorProfileSubstituteLayout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputProcessorProfileSubstituteLayout").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfInputProcessorProfileSubstituteLayout {
@@ -5844,17 +4557,6 @@ impl ::core::clone::Clone for ITfInputProcessorProfiles {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfInputProcessorProfiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputProcessorProfiles {}
-impl ::core::fmt::Debug for ITfInputProcessorProfiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputProcessorProfiles").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfInputProcessorProfiles {
     type Vtable = ITfInputProcessorProfiles_Vtbl;
 }
@@ -5900,82 +4602,6 @@ pub struct ITfInputProcessorProfiles_Vtbl {
 #[repr(transparent)]
 pub struct ITfInputProcessorProfilesEx(::windows::core::IUnknown);
 impl ITfInputProcessorProfilesEx {
-    pub unsafe fn Register(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Register)(::windows::core::Vtable::as_raw(self), rclsid).ok()
-    }
-    pub unsafe fn Unregister(&self, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Unregister)(::windows::core::Vtable::as_raw(self), rclsid).ok()
-    }
-    pub unsafe fn AddLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.AddLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _, ::core::mem::transmute(pchiconfile.as_ptr()), pchiconfile.len() as _, uiconindex).ok()
-    }
-    pub unsafe fn RemoveLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.RemoveLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumInputProcessorInfo(&self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumInputProcessorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetDefaultLanguageProfile(&self, langid: u16, catid: *const ::windows::core::GUID, pclsid: *mut ::windows::core::GUID, pguidprofile: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetDefaultLanguageProfile)(::windows::core::Vtable::as_raw(self), langid, catid, pclsid, pguidprofile).ok()
-    }
-    pub unsafe fn SetDefaultLanguageProfile(&self, langid: u16, rclsid: *const ::windows::core::GUID, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetDefaultLanguageProfile)(::windows::core::Vtable::as_raw(self), langid, rclsid, guidprofiles).ok()
-    }
-    pub unsafe fn ActivateLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofiles: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ActivateLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofiles).ok()
-    }
-    pub unsafe fn GetActiveLanguageProfile(&self, rclsid: *const ::windows::core::GUID, plangid: *mut u16, pguidprofile: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetActiveLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, plangid, pguidprofile).ok()
-    }
-    pub unsafe fn GetLanguageProfileDescription(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLanguageProfileDescription)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetCurrentLanguage(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCurrentLanguage)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn ChangeCurrentLanguage(&self, langid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ChangeCurrentLanguage)(::windows::core::Vtable::as_raw(self), langid).ok()
-    }
-    pub unsafe fn GetLanguageList(&self, pplangid: *mut *mut u16, pulcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetLanguageList)(::windows::core::Vtable::as_raw(self), pplangid, pulcount).ok()
-    }
-    pub unsafe fn EnumLanguageProfiles(&self, langid: u16) -> ::windows::core::Result<IEnumTfLanguageProfiles> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumLanguageProfiles)(::windows::core::Vtable::as_raw(self), langid, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableLanguageProfile<P0>(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.EnableLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, fenable.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsEnabledLanguageProfile)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnableLanguageProfileByDefault<P0>(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.EnableLanguageProfileByDefault)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, fenable.into()).ok()
-    }
-    pub unsafe fn SubstituteKeyboardLayout<P0>(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, hkl: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<HKL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.SubstituteKeyboardLayout)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, hkl.into()).ok()
-    }
     pub unsafe fn SetLanguageProfileDisplayName(&self, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchfile: &[u16], uresid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLanguageProfileDisplayName)(::windows::core::Vtable::as_raw(self), rclsid, langid, guidprofile, ::core::mem::transmute(pchfile.as_ptr()), pchfile.len() as _, uresid).ok()
     }
@@ -5984,17 +4610,6 @@ impl ITfInputProcessorProfilesEx {
 impl ::core::clone::Clone for ITfInputProcessorProfilesEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfInputProcessorProfilesEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputProcessorProfilesEx {}
-impl ::core::fmt::Debug for ITfInputProcessorProfilesEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputProcessorProfilesEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfInputProcessorProfilesEx {
@@ -6038,17 +4653,6 @@ impl ::core::clone::Clone for ITfInputScope {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfInputScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputScope {}
-impl ::core::fmt::Debug for ITfInputScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputScope").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfInputScope {
     type Vtable = ITfInputScope_Vtbl;
 }
@@ -6069,24 +4673,6 @@ pub struct ITfInputScope_Vtbl {
 #[repr(transparent)]
 pub struct ITfInputScope2(::windows::core::IUnknown);
 impl ITfInputScope2 {
-    pub unsafe fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInputScopes)(::windows::core::Vtable::as_raw(self), pprginputscopes, pccount).ok()
-    }
-    pub unsafe fn GetPhrase(&self, ppbstrphrases: *mut *mut ::windows::core::BSTR, pccount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetPhrase)(::windows::core::Vtable::as_raw(self), ppbstrphrases, pccount).ok()
-    }
-    pub unsafe fn GetRegularExpression(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRegularExpression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetSRGS(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSRGS)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetXML(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetXML)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumWordList(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
@@ -6098,17 +4684,6 @@ impl ITfInputScope2 {
 impl ::core::clone::Clone for ITfInputScope2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfInputScope2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInputScope2 {}
-impl ::core::fmt::Debug for ITfInputScope2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInputScope2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfInputScope2 {
@@ -6148,17 +4723,6 @@ impl ITfInsertAtSelection {
 impl ::core::clone::Clone for ITfInsertAtSelection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfInsertAtSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfInsertAtSelection {}
-impl ::core::fmt::Debug for ITfInsertAtSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfInsertAtSelection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfInsertAtSelection {
@@ -6212,17 +4776,6 @@ impl ITfIntegratableCandidateListUIElement {
 impl ::core::clone::Clone for ITfIntegratableCandidateListUIElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfIntegratableCandidateListUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfIntegratableCandidateListUIElement {}
-impl ::core::fmt::Debug for ITfIntegratableCandidateListUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfIntegratableCandidateListUIElement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfIntegratableCandidateListUIElement {
@@ -6319,17 +4872,6 @@ impl ::core::clone::Clone for ITfKeyEventSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfKeyEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfKeyEventSink {}
-impl ::core::fmt::Debug for ITfKeyEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfKeyEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfKeyEventSink {
     type Vtable = ITfKeyEventSink_Vtbl;
 }
@@ -6392,17 +4934,6 @@ impl ITfKeyTraceEventSink {
 impl ::core::clone::Clone for ITfKeyTraceEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfKeyTraceEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfKeyTraceEventSink {}
-impl ::core::fmt::Debug for ITfKeyTraceEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfKeyTraceEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfKeyTraceEventSink {
@@ -6526,17 +5057,6 @@ impl ::core::clone::Clone for ITfKeystrokeMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfKeystrokeMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfKeystrokeMgr {}
-impl ::core::fmt::Debug for ITfKeystrokeMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfKeystrokeMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfKeystrokeMgr {
     type Vtable = ITfKeystrokeMgr_Vtbl;
 }
@@ -6604,17 +5124,6 @@ impl ::core::clone::Clone for ITfLMLattice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLMLattice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLMLattice {}
-impl ::core::fmt::Debug for ITfLMLattice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLMLattice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLMLattice {
     type Vtable = ITfLMLattice_Vtbl;
 }
@@ -6667,17 +5176,6 @@ impl ITfLangBarEventSink {
 impl ::core::clone::Clone for ITfLangBarEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfLangBarEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarEventSink {}
-impl ::core::fmt::Debug for ITfLangBarEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfLangBarEventSink {
@@ -6733,17 +5231,6 @@ impl ::core::clone::Clone for ITfLangBarItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLangBarItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItem {}
-impl ::core::fmt::Debug for ITfLangBarItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLangBarItem {
     type Vtable = ITfLangBarItem_Vtbl;
 }
@@ -6766,25 +5253,6 @@ pub struct ITfLangBarItem_Vtbl {
 #[repr(transparent)]
 pub struct ITfLangBarItemBalloon(::windows::core::IUnknown);
 impl ITfLangBarItemBalloon {
-    pub unsafe fn GetInfo(&self, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
-    }
-    pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
-    }
-    pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTooltipString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
@@ -6805,17 +5273,6 @@ impl ITfLangBarItemBalloon {
 impl ::core::clone::Clone for ITfLangBarItemBalloon {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfLangBarItemBalloon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemBalloon {}
-impl ::core::fmt::Debug for ITfLangBarItemBalloon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemBalloon").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfLangBarItemBalloon {
@@ -6842,25 +5299,6 @@ pub struct ITfLangBarItemBalloon_Vtbl {
 #[repr(transparent)]
 pub struct ITfLangBarItemBitmap(::windows::core::IUnknown);
 impl ITfLangBarItemBitmap {
-    pub unsafe fn GetInfo(&self, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
-    }
-    pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
-    }
-    pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTooltipString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
@@ -6882,17 +5320,6 @@ impl ITfLangBarItemBitmap {
 impl ::core::clone::Clone for ITfLangBarItemBitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfLangBarItemBitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemBitmap {}
-impl ::core::fmt::Debug for ITfLangBarItemBitmap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemBitmap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfLangBarItemBitmap {
@@ -6922,25 +5349,6 @@ pub struct ITfLangBarItemBitmap_Vtbl {
 #[repr(transparent)]
 pub struct ITfLangBarItemBitmapButton(::windows::core::IUnknown);
 impl ITfLangBarItemBitmapButton {
-    pub unsafe fn GetInfo(&self, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
-    }
-    pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
-    }
-    pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTooltipString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
@@ -6977,17 +5385,6 @@ impl ::core::clone::Clone for ITfLangBarItemBitmapButton {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLangBarItemBitmapButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemBitmapButton {}
-impl ::core::fmt::Debug for ITfLangBarItemBitmapButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemBitmapButton").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLangBarItemBitmapButton {
     type Vtable = ITfLangBarItemBitmapButton_Vtbl;
 }
@@ -7018,25 +5415,6 @@ pub struct ITfLangBarItemBitmapButton_Vtbl {
 #[repr(transparent)]
 pub struct ITfLangBarItemButton(::windows::core::IUnknown);
 impl ITfLangBarItemButton {
-    pub unsafe fn GetInfo(&self, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetInfo)(::windows::core::Vtable::as_raw(self), pinfo).ok()
-    }
-    pub unsafe fn GetStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, fshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), fshow.into()).ok()
-    }
-    pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTooltipString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
@@ -7066,17 +5444,6 @@ impl ITfLangBarItemButton {
 impl ::core::clone::Clone for ITfLangBarItemButton {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfLangBarItemButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemButton {}
-impl ::core::fmt::Debug for ITfLangBarItemButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemButton").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfLangBarItemButton {
@@ -7163,17 +5530,6 @@ impl ::core::clone::Clone for ITfLangBarItemMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLangBarItemMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemMgr {}
-impl ::core::fmt::Debug for ITfLangBarItemMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLangBarItemMgr {
     type Vtable = ITfLangBarItemMgr_Vtbl;
 }
@@ -7212,17 +5568,6 @@ impl ITfLangBarItemSink {
 impl ::core::clone::Clone for ITfLangBarItemSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfLangBarItemSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarItemSink {}
-impl ::core::fmt::Debug for ITfLangBarItemSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarItemSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfLangBarItemSink {
@@ -7291,17 +5636,6 @@ impl ::core::clone::Clone for ITfLangBarMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLangBarMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLangBarMgr {}
-impl ::core::fmt::Debug for ITfLangBarMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLangBarMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLangBarMgr {
     type Vtable = ITfLangBarMgr_Vtbl;
 }
@@ -7348,17 +5682,6 @@ impl ::core::clone::Clone for ITfLanguageProfileNotifySink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfLanguageProfileNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfLanguageProfileNotifySink {}
-impl ::core::fmt::Debug for ITfLanguageProfileNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfLanguageProfileNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfLanguageProfileNotifySink {
     type Vtable = ITfLanguageProfileNotifySink_Vtbl;
 }
@@ -7392,17 +5715,6 @@ impl ::core::clone::Clone for ITfMSAAControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfMSAAControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMSAAControl {}
-impl ::core::fmt::Debug for ITfMSAAControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMSAAControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfMSAAControl {
     type Vtable = ITfMSAAControl_Vtbl;
 }
@@ -7434,17 +5746,6 @@ impl ITfMenu {
 impl ::core::clone::Clone for ITfMenu {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfMenu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMenu {}
-impl ::core::fmt::Debug for ITfMenu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMenu").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfMenu {
@@ -7505,17 +5806,6 @@ impl ::core::clone::Clone for ITfMessagePump {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfMessagePump {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMessagePump {}
-impl ::core::fmt::Debug for ITfMessagePump {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMessagePump").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfMessagePump {
     type Vtable = ITfMessagePump_Vtbl;
 }
@@ -7560,17 +5850,6 @@ impl ::core::clone::Clone for ITfMouseSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfMouseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMouseSink {}
-impl ::core::fmt::Debug for ITfMouseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMouseSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfMouseSink {
     type Vtable = ITfMouseSink_Vtbl;
 }
@@ -7608,17 +5887,6 @@ impl ::core::clone::Clone for ITfMouseTracker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfMouseTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMouseTracker {}
-impl ::core::fmt::Debug for ITfMouseTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMouseTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfMouseTracker {
     type Vtable = ITfMouseTracker_Vtbl;
 }
@@ -7654,17 +5922,6 @@ impl ::core::clone::Clone for ITfMouseTrackerACP {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfMouseTrackerACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfMouseTrackerACP {}
-impl ::core::fmt::Debug for ITfMouseTrackerACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfMouseTrackerACP").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfMouseTrackerACP {
     type Vtable = ITfMouseTrackerACP_Vtbl;
 }
@@ -7693,17 +5950,6 @@ impl ITfPersistentPropertyLoaderACP {
 impl ::core::clone::Clone for ITfPersistentPropertyLoaderACP {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfPersistentPropertyLoaderACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfPersistentPropertyLoaderACP {}
-impl ::core::fmt::Debug for ITfPersistentPropertyLoaderACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfPersistentPropertyLoaderACP").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfPersistentPropertyLoaderACP {
@@ -7735,17 +5981,6 @@ impl ::core::clone::Clone for ITfPreservedKeyNotifySink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfPreservedKeyNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfPreservedKeyNotifySink {}
-impl ::core::fmt::Debug for ITfPreservedKeyNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfPreservedKeyNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfPreservedKeyNotifySink {
     type Vtable = ITfPreservedKeyNotifySink_Vtbl;
 }
@@ -7762,29 +5997,6 @@ pub struct ITfPreservedKeyNotifySink_Vtbl {
 #[repr(transparent)]
 pub struct ITfProperty(::windows::core::IUnknown);
 impl ITfProperty {
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn EnumRanges<P0>(&self, ec: u32, ppenum: *mut ::core::option::Option<IEnumTfRanges>, ptargetrange: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.EnumRanges)(::windows::core::Vtable::as_raw(self), ec, ::core::mem::transmute(ppenum), ptargetrange.into().abi()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetValue<P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetValue)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetContext(&self) -> ::windows::core::Result<ITfContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn FindRange<P0>(&self, ec: u32, prange: P0, pprange: *mut ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
@@ -7817,17 +6029,6 @@ impl ITfProperty {
 impl ::core::clone::Clone for ITfProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfProperty {}
-impl ::core::fmt::Debug for ITfProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfProperty {
@@ -7916,17 +6117,6 @@ impl ::core::clone::Clone for ITfPropertyStore {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfPropertyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfPropertyStore {}
-impl ::core::fmt::Debug for ITfPropertyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfPropertyStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfPropertyStore {
     type Vtable = ITfPropertyStore_Vtbl;
 }
@@ -7974,17 +6164,6 @@ impl ITfQueryEmbedded {
 impl ::core::clone::Clone for ITfQueryEmbedded {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfQueryEmbedded {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfQueryEmbedded {}
-impl ::core::fmt::Debug for ITfQueryEmbedded {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfQueryEmbedded").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfQueryEmbedded {
@@ -8128,17 +6307,6 @@ impl ::core::clone::Clone for ITfRange {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfRange {}
-impl ::core::fmt::Debug for ITfRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfRange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfRange {
     type Vtable = ITfRange_Vtbl;
 }
@@ -8200,121 +6368,6 @@ pub struct ITfRange_Vtbl {
 #[repr(transparent)]
 pub struct ITfRangeACP(::windows::core::IUnknown);
 impl ITfRangeACP {
-    pub unsafe fn GetText(&self, ec: u32, dwflags: u32, pchtext: &mut [u16], pcch: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetText)(::windows::core::Vtable::as_raw(self), ec, dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, pcch).ok()
-    }
-    pub unsafe fn SetText(&self, ec: u32, dwflags: u32, pchtext: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetText)(::windows::core::Vtable::as_raw(self), ec, dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetFormattedText(&self, ec: u32) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFormattedText)(::windows::core::Vtable::as_raw(self), ec, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetEmbedded(&self, ec: u32, rguidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetEmbedded)(::windows::core::Vtable::as_raw(self), ec, rguidservice, riid, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertEmbedded<P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDataObject>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.InsertEmbedded)(::windows::core::Vtable::as_raw(self), ec, dwflags, pdataobject.into().abi()).ok()
-    }
-    pub unsafe fn ShiftStart(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ShiftStart)(::windows::core::Vtable::as_raw(self), ec, cchreq, pcch, phalt).ok()
-    }
-    pub unsafe fn ShiftEnd(&self, ec: u32, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.ShiftEnd)(::windows::core::Vtable::as_raw(self), ec, cchreq, pcch, phalt).ok()
-    }
-    pub unsafe fn ShiftStartToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.ShiftStartToRange)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), apos).ok()
-    }
-    pub unsafe fn ShiftEndToRange<P0>(&self, ec: u32, prange: P0, apos: TfAnchor) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.ShiftEndToRange)(::windows::core::Vtable::as_raw(self), ec, prange.into().abi(), apos).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ShiftStartRegion)(::windows::core::Vtable::as_raw(self), ec, dir, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ShiftEndRegion)(::windows::core::Vtable::as_raw(self), ec, dir, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEmpty(&self, ec: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsEmpty)(::windows::core::Vtable::as_raw(self), ec, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Collapse)(::windows::core::Vtable::as_raw(self), ec, apos).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsEqualStart)(::windows::core::Vtable::as_raw(self), ec, pwith.into().abi(), apos, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsEqualEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsEqualEnd)(::windows::core::Vtable::as_raw(self), ec, pwith.into().abi(), apos, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn CompareStart<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareStart)(::windows::core::Vtable::as_raw(self), ec, pwith.into().abi(), apos, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn CompareEnd<P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<i32>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfRange>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CompareEnd)(::windows::core::Vtable::as_raw(self), ec, pwith.into().abi(), apos, result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AdjustForInsert)(::windows::core::Vtable::as_raw(self), ec, cchinsert, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGravity(&self, pgstart: *mut TfGravity, pgend: *mut TfGravity) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetGravity)(::windows::core::Vtable::as_raw(self), pgstart, pgend).ok()
-    }
-    pub unsafe fn SetGravity(&self, ec: u32, gstart: TfGravity, gend: TfGravity) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.SetGravity)(::windows::core::Vtable::as_raw(self), ec, gstart, gend).ok()
-    }
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<ITfRange> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetContext(&self) -> ::windows::core::Result<ITfContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetExtent(&self, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetExtent)(::windows::core::Vtable::as_raw(self), pacpanchor, pcch).ok()
     }
@@ -8326,17 +6379,6 @@ impl ITfRangeACP {
 impl ::core::clone::Clone for ITfRangeACP {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfRangeACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfRangeACP {}
-impl ::core::fmt::Debug for ITfRangeACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfRangeACP").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfRangeACP {
@@ -8367,17 +6409,6 @@ impl ITfRangeBackup {
 impl ::core::clone::Clone for ITfRangeBackup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfRangeBackup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfRangeBackup {}
-impl ::core::fmt::Debug for ITfRangeBackup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfRangeBackup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfRangeBackup {
@@ -8426,17 +6457,6 @@ impl ::core::clone::Clone for ITfReadOnlyProperty {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfReadOnlyProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfReadOnlyProperty {}
-impl ::core::fmt::Debug for ITfReadOnlyProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfReadOnlyProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfReadOnlyProperty {
     type Vtable = ITfReadOnlyProperty_Vtbl;
 }
@@ -8459,28 +6479,6 @@ pub struct ITfReadOnlyProperty_Vtbl {
 #[repr(transparent)]
 pub struct ITfReadingInformationUIElement(::windows::core::IUnknown);
 impl ITfReadingInformationUIElement {
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, bshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), bshow.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsShown)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetUpdatedFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetUpdatedFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -8512,17 +6510,6 @@ impl ITfReadingInformationUIElement {
 impl ::core::clone::Clone for ITfReadingInformationUIElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfReadingInformationUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfReadingInformationUIElement {}
-impl ::core::fmt::Debug for ITfReadingInformationUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfReadingInformationUIElement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfReadingInformationUIElement {
@@ -8563,17 +6550,6 @@ impl ::core::clone::Clone for ITfReverseConversion {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfReverseConversion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfReverseConversion {}
-impl ::core::fmt::Debug for ITfReverseConversion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfReverseConversion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfReverseConversion {
     type Vtable = ITfReverseConversion_Vtbl;
 }
@@ -8605,17 +6581,6 @@ impl ::core::clone::Clone for ITfReverseConversionList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfReverseConversionList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfReverseConversionList {}
-impl ::core::fmt::Debug for ITfReverseConversionList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfReverseConversionList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfReverseConversionList {
     type Vtable = ITfReverseConversionList_Vtbl;
 }
@@ -8642,17 +6607,6 @@ impl ITfReverseConversionMgr {
 impl ::core::clone::Clone for ITfReverseConversionMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfReverseConversionMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfReverseConversionMgr {}
-impl ::core::fmt::Debug for ITfReverseConversionMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfReverseConversionMgr").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfReverseConversionMgr {
@@ -8688,17 +6642,6 @@ impl ::core::clone::Clone for ITfSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSource {}
-impl ::core::fmt::Debug for ITfSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfSource {
     type Vtable = ITfSource_Vtbl;
 }
@@ -8730,17 +6673,6 @@ impl ITfSourceSingle {
 impl ::core::clone::Clone for ITfSourceSingle {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfSourceSingle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSourceSingle {}
-impl ::core::fmt::Debug for ITfSourceSingle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSourceSingle").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfSourceSingle {
@@ -8781,17 +6713,6 @@ impl ::core::clone::Clone for ITfSpeechUIServer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfSpeechUIServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSpeechUIServer {}
-impl ::core::fmt::Debug for ITfSpeechUIServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSpeechUIServer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfSpeechUIServer {
     type Vtable = ITfSpeechUIServer_Vtbl;
 }
@@ -8826,17 +6747,6 @@ impl ::core::clone::Clone for ITfStatusSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfStatusSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfStatusSink {}
-impl ::core::fmt::Debug for ITfStatusSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfStatusSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfStatusSink {
     type Vtable = ITfStatusSink_Vtbl;
 }
@@ -8865,17 +6775,6 @@ impl ITfSystemDeviceTypeLangBarItem {
 impl ::core::clone::Clone for ITfSystemDeviceTypeLangBarItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfSystemDeviceTypeLangBarItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSystemDeviceTypeLangBarItem {}
-impl ::core::fmt::Debug for ITfSystemDeviceTypeLangBarItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSystemDeviceTypeLangBarItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfSystemDeviceTypeLangBarItem {
@@ -8911,17 +6810,6 @@ impl ITfSystemLangBarItem {
 impl ::core::clone::Clone for ITfSystemLangBarItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfSystemLangBarItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSystemLangBarItem {}
-impl ::core::fmt::Debug for ITfSystemLangBarItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSystemLangBarItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfSystemLangBarItem {
@@ -8960,17 +6848,6 @@ impl ::core::clone::Clone for ITfSystemLangBarItemSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfSystemLangBarItemSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSystemLangBarItemSink {}
-impl ::core::fmt::Debug for ITfSystemLangBarItemSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSystemLangBarItemSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfSystemLangBarItemSink {
     type Vtable = ITfSystemLangBarItemSink_Vtbl;
 }
@@ -9002,17 +6879,6 @@ impl ::core::clone::Clone for ITfSystemLangBarItemText {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfSystemLangBarItemText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfSystemLangBarItemText {}
-impl ::core::fmt::Debug for ITfSystemLangBarItemText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfSystemLangBarItemText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfSystemLangBarItemText {
     type Vtable = ITfSystemLangBarItemText_Vtbl;
 }
@@ -9042,17 +6908,6 @@ impl ITfTextEditSink {
 impl ::core::clone::Clone for ITfTextEditSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfTextEditSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTextEditSink {}
-impl ::core::fmt::Debug for ITfTextEditSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTextEditSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfTextEditSink {
@@ -9087,17 +6942,6 @@ impl ::core::clone::Clone for ITfTextInputProcessor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfTextInputProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTextInputProcessor {}
-impl ::core::fmt::Debug for ITfTextInputProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTextInputProcessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfTextInputProcessor {
     type Vtable = ITfTextInputProcessor_Vtbl;
 }
@@ -9115,15 +6959,6 @@ pub struct ITfTextInputProcessor_Vtbl {
 #[repr(transparent)]
 pub struct ITfTextInputProcessorEx(::windows::core::IUnknown);
 impl ITfTextInputProcessorEx {
-    pub unsafe fn Activate<P0>(&self, ptim: P0, tid: u32) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfThreadMgr>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Activate)(::windows::core::Vtable::as_raw(self), ptim.into().abi(), tid).ok()
-    }
-    pub unsafe fn Deactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self)).ok()
-    }
     pub unsafe fn ActivateEx<P0>(&self, ptim: P0, tid: u32, dwflags: u32) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ITfThreadMgr>>,
@@ -9135,17 +6970,6 @@ impl ITfTextInputProcessorEx {
 impl ::core::clone::Clone for ITfTextInputProcessorEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfTextInputProcessorEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTextInputProcessorEx {}
-impl ::core::fmt::Debug for ITfTextInputProcessorEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTextInputProcessorEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfTextInputProcessorEx {
@@ -9178,17 +7002,6 @@ impl ::core::clone::Clone for ITfTextLayoutSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfTextLayoutSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTextLayoutSink {}
-impl ::core::fmt::Debug for ITfTextLayoutSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTextLayoutSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfTextLayoutSink {
     type Vtable = ITfTextLayoutSink_Vtbl;
 }
@@ -9216,17 +7029,6 @@ impl ITfThreadFocusSink {
 impl ::core::clone::Clone for ITfThreadFocusSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfThreadFocusSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfThreadFocusSink {}
-impl ::core::fmt::Debug for ITfThreadFocusSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfThreadFocusSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfThreadFocusSink {
@@ -9304,17 +7106,6 @@ impl ITfThreadMgr {
 impl ::core::clone::Clone for ITfThreadMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfThreadMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfThreadMgr {}
-impl ::core::fmt::Debug for ITfThreadMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfThreadMgr").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfThreadMgr {
@@ -9412,17 +7203,6 @@ impl ::core::clone::Clone for ITfThreadMgr2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfThreadMgr2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfThreadMgr2 {}
-impl ::core::fmt::Debug for ITfThreadMgr2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfThreadMgr2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfThreadMgr2 {
     type Vtable = ITfThreadMgr2_Vtbl;
 }
@@ -9493,17 +7273,6 @@ impl ::core::clone::Clone for ITfThreadMgrEventSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfThreadMgrEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfThreadMgrEventSink {}
-impl ::core::fmt::Debug for ITfThreadMgrEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfThreadMgrEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfThreadMgrEventSink {
     type Vtable = ITfThreadMgrEventSink_Vtbl;
 }
@@ -9524,59 +7293,6 @@ pub struct ITfThreadMgrEventSink_Vtbl {
 #[repr(transparent)]
 pub struct ITfThreadMgrEx(::windows::core::IUnknown);
 impl ITfThreadMgrEx {
-    pub unsafe fn Activate(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Activate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn Deactivate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Deactivate)(::windows::core::Vtable::as_raw(self)).ok()
-    }
-    pub unsafe fn CreateDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDocumentMgr)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn EnumDocumentMgrs(&self) -> ::windows::core::Result<IEnumTfDocumentMgrs> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumDocumentMgrs)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetFocus(&self) -> ::windows::core::Result<ITfDocumentMgr> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFocus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn SetFocus<P0>(&self, pdimfocus: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<ITfDocumentMgr>>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.SetFocus)(::windows::core::Vtable::as_raw(self), pdimfocus.into().abi()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AssociateFocus<P0, P1>(&self, hwnd: P0, pdimnew: P1) -> ::windows::core::Result<ITfDocumentMgr>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<::windows::core::InParam<ITfDocumentMgr>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AssociateFocus)(::windows::core::Vtable::as_raw(self), hwnd.into(), pdimnew.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsThreadFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsThreadFocus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetFunctionProvider(&self, clsid: *const ::windows::core::GUID) -> ::windows::core::Result<ITfFunctionProvider> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFunctionProvider)(::windows::core::Vtable::as_raw(self), clsid, result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn EnumFunctionProviders(&self) -> ::windows::core::Result<IEnumTfFunctionProviders> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumFunctionProviders)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGlobalCompartment(&self) -> ::windows::core::Result<ITfCompartmentMgr> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGlobalCompartment)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn ActivateEx(&self, ptid: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ActivateEx)(::windows::core::Vtable::as_raw(self), ptid, dwflags).ok()
     }
@@ -9589,17 +7305,6 @@ impl ITfThreadMgrEx {
 impl ::core::clone::Clone for ITfThreadMgrEx {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfThreadMgrEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfThreadMgrEx {}
-impl ::core::fmt::Debug for ITfThreadMgrEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfThreadMgrEx").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfThreadMgrEx {
@@ -9619,28 +7324,6 @@ pub struct ITfThreadMgrEx_Vtbl {
 #[repr(transparent)]
 pub struct ITfToolTipUIElement(::windows::core::IUnknown);
 impl ITfToolTipUIElement {
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, bshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), bshow.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsShown)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -9650,17 +7333,6 @@ impl ITfToolTipUIElement {
 impl ::core::clone::Clone for ITfToolTipUIElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfToolTipUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfToolTipUIElement {}
-impl ::core::fmt::Debug for ITfToolTipUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfToolTipUIElement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfToolTipUIElement {
@@ -9697,17 +7369,6 @@ impl ::core::clone::Clone for ITfTransitoryExtensionSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfTransitoryExtensionSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTransitoryExtensionSink {}
-impl ::core::fmt::Debug for ITfTransitoryExtensionSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTransitoryExtensionSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfTransitoryExtensionSink {
     type Vtable = ITfTransitoryExtensionSink_Vtbl;
 }
@@ -9727,28 +7388,6 @@ pub struct ITfTransitoryExtensionSink_Vtbl {
 #[repr(transparent)]
 pub struct ITfTransitoryExtensionUIElement(::windows::core::IUnknown);
 impl ITfTransitoryExtensionUIElement {
-    pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<P0>(&self, bshow: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    {
-        (::windows::core::Vtable::vtable(self).base__.Show)(::windows::core::Vtable::as_raw(self), bshow.into()).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsShown)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetDocumentMgr(&self) -> ::windows::core::Result<ITfDocumentMgr> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDocumentMgr)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -9758,17 +7397,6 @@ impl ITfTransitoryExtensionUIElement {
 impl ::core::clone::Clone for ITfTransitoryExtensionUIElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfTransitoryExtensionUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfTransitoryExtensionUIElement {}
-impl ::core::fmt::Debug for ITfTransitoryExtensionUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfTransitoryExtensionUIElement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfTransitoryExtensionUIElement {
@@ -9814,17 +7442,6 @@ impl ITfUIElement {
 impl ::core::clone::Clone for ITfUIElement {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfUIElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfUIElement {}
-impl ::core::fmt::Debug for ITfUIElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfUIElement").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfUIElement {
@@ -9881,17 +7498,6 @@ impl ::core::clone::Clone for ITfUIElementMgr {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ITfUIElementMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfUIElementMgr {}
-impl ::core::fmt::Debug for ITfUIElementMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfUIElementMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ITfUIElementMgr {
     type Vtable = ITfUIElementMgr_Vtbl;
 }
@@ -9931,17 +7537,6 @@ impl ITfUIElementSink {
 impl ::core::clone::Clone for ITfUIElementSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITfUIElementSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITfUIElementSink {}
-impl ::core::fmt::Debug for ITfUIElementSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITfUIElementSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITfUIElementSink {
@@ -9996,17 +7591,6 @@ impl IUIManagerEventSink {
 impl ::core::clone::Clone for IUIManagerEventSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIManagerEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIManagerEventSink {}
-impl ::core::fmt::Debug for IUIManagerEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIManagerEventSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIManagerEventSink {
@@ -10066,17 +7650,6 @@ impl IVersionInfo {
 impl ::core::clone::Clone for IVersionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVersionInfo {}
-impl ::core::fmt::Debug for IVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVersionInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IVersionInfo {
@@ -11003,46 +8576,8 @@ impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ANCHOR_CHANGE_HISTORY_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11058,46 +8593,8 @@ impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GET_TEXT_AND_PROPERTY_UPDATES_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11115,18 +8612,8 @@ impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INSERT_TEXT_AT_SELECTION_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11286,18 +8773,8 @@ impl ::core::clone::Clone for InputScope {
         *self
     }
 }
-impl ::core::default::Default for InputScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InputScope {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InputScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InputScope").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11313,18 +8790,8 @@ impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for LANG_BAR_ITEM_ICON_MODE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LANG_BAR_ITEM_ICON_MODE_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11340,46 +8807,8 @@ impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for TEXT_STORE_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TEXT_STORE_CHANGE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TEXT_STORE_CHANGE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TEXT_STORE_CHANGE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TEXT_STORE_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TEXT_STORE_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TEXT_STORE_CHANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TEXT_STORE_CHANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11395,18 +8824,8 @@ impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for TEXT_STORE_LOCK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TEXT_STORE_LOCK_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TEXT_STORE_LOCK_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11422,46 +8841,8 @@ impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TEXT_STORE_TEXT_CHANGE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11483,46 +8864,8 @@ impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TF_CONTEXT_EDIT_CONTEXT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11548,18 +8891,8 @@ impl ::core::clone::Clone for TF_DA_ATTR_INFO {
         *self
     }
 }
-impl ::core::default::Default for TF_DA_ATTR_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TF_DA_ATTR_INFO {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TF_DA_ATTR_INFO").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11577,18 +8910,8 @@ impl ::core::clone::Clone for TF_DA_COLORTYPE {
         *self
     }
 }
-impl ::core::default::Default for TF_DA_COLORTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TF_DA_COLORTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TF_DA_COLORTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TF_DA_COLORTYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11610,18 +8933,8 @@ impl ::core::clone::Clone for TF_DA_LINESTYLE {
         *self
     }
 }
-impl ::core::default::Default for TF_DA_LINESTYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TF_DA_LINESTYLE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TF_DA_LINESTYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TF_DA_LINESTYLE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11639,18 +8952,8 @@ impl ::core::clone::Clone for TKBLayoutType {
         *self
     }
 }
-impl ::core::default::Default for TKBLayoutType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TKBLayoutType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TKBLayoutType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TKBLayoutType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11668,18 +8971,8 @@ impl ::core::clone::Clone for TfActiveSelEnd {
         *self
     }
 }
-impl ::core::default::Default for TfActiveSelEnd {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfActiveSelEnd {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfActiveSelEnd {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfActiveSelEnd").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11695,18 +8988,8 @@ impl ::core::clone::Clone for TfAnchor {
         *self
     }
 }
-impl ::core::default::Default for TfAnchor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfAnchor {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfAnchor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfAnchor").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11724,18 +9007,8 @@ impl ::core::clone::Clone for TfCandidateResult {
         *self
     }
 }
-impl ::core::default::Default for TfCandidateResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfCandidateResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfCandidateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfCandidateResult").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11751,18 +9024,8 @@ impl ::core::clone::Clone for TfGravity {
         *self
     }
 }
-impl ::core::default::Default for TfGravity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfGravity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfGravity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfGravity").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11778,18 +9041,8 @@ impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
         *self
     }
 }
-impl ::core::default::Default for TfIntegratableCandidateListSelectionStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfIntegratableCandidateListSelectionStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfIntegratableCandidateListSelectionStyle").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11807,18 +9060,8 @@ impl ::core::clone::Clone for TfLBBalloonStyle {
         *self
     }
 }
-impl ::core::default::Default for TfLBBalloonStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfLBBalloonStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfLBBalloonStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfLBBalloonStyle").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11834,18 +9077,8 @@ impl ::core::clone::Clone for TfLBIClick {
         *self
     }
 }
-impl ::core::default::Default for TfLBIClick {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfLBIClick {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfLBIClick {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfLBIClick").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11863,18 +9096,8 @@ impl ::core::clone::Clone for TfLayoutCode {
         *self
     }
 }
-impl ::core::default::Default for TfLayoutCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfLayoutCode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfLayoutCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfLayoutCode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11898,18 +9121,8 @@ impl ::core::clone::Clone for TfSapiObject {
         *self
     }
 }
-impl ::core::default::Default for TfSapiObject {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfSapiObject {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfSapiObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfSapiObject").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11925,18 +9138,8 @@ impl ::core::clone::Clone for TfShiftDir {
         *self
     }
 }
-impl ::core::default::Default for TfShiftDir {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TfShiftDir {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TfShiftDir {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TfShiftDir").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11954,18 +9157,8 @@ impl ::core::clone::Clone for TsActiveSelEnd {
         *self
     }
 }
-impl ::core::default::Default for TsActiveSelEnd {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TsActiveSelEnd {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TsActiveSelEnd {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TsActiveSelEnd").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -11981,18 +9174,8 @@ impl ::core::clone::Clone for TsGravity {
         *self
     }
 }
-impl ::core::default::Default for TsGravity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TsGravity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TsGravity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TsGravity").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -12010,18 +9193,8 @@ impl ::core::clone::Clone for TsLayoutCode {
         *self
     }
 }
-impl ::core::default::Default for TsLayoutCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TsLayoutCode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TsLayoutCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TsLayoutCode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -12039,18 +9212,8 @@ impl ::core::clone::Clone for TsRunType {
         *self
     }
 }
-impl ::core::default::Default for TsRunType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TsRunType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TsRunType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TsRunType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -12066,18 +9229,8 @@ impl ::core::clone::Clone for TsShiftDir {
         *self
     }
 }
-impl ::core::default::Default for TsShiftDir {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TsShiftDir {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TsShiftDir {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TsShiftDir").field(&self.0).finish()
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12130,12 +9283,6 @@ impl ::core::clone::Clone for TF_DA_COLOR {
 unsafe impl ::windows::core::Abi for TF_DA_COLOR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DA_COLOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12154,12 +9301,6 @@ impl ::core::clone::Clone for TF_DA_COLOR_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_DA_COLOR_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DA_COLOR_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12184,12 +9325,6 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
 unsafe impl ::windows::core::Abi for TF_DISPLAYATTRIBUTE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_HALTCOND {
@@ -12202,24 +9337,8 @@ impl ::core::clone::Clone for TF_HALTCOND {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for TF_HALTCOND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_HALTCOND").field("pHaltRange", &self.pHaltRange).field("aHaltPos", &self.aHaltPos).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_HALTCOND {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_HALTCOND {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHaltRange == other.pHaltRange && self.aHaltPos == other.aHaltPos && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for TF_HALTCOND {}
-impl ::core::default::Default for TF_HALTCOND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12240,24 +9359,8 @@ impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
         *self
     }
 }
-impl ::core::fmt::Debug for TF_INPUTPROCESSORPROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_INPUTPROCESSORPROFILE").field("dwProfileType", &self.dwProfileType).field("langid", &self.langid).field("clsid", &self.clsid).field("guidProfile", &self.guidProfile).field("catid", &self.catid).field("hklSubstitute", &self.hklSubstitute).field("dwCaps", &self.dwCaps).field("hkl", &self.hkl).field("dwFlags", &self.dwFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_INPUTPROCESSORPROFILE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_INPUTPROCESSORPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProfileType == other.dwProfileType && self.langid == other.langid && self.clsid == other.clsid && self.guidProfile == other.guidProfile && self.catid == other.catid && self.hklSubstitute == other.hklSubstitute && self.dwCaps == other.dwCaps && self.hkl == other.hkl && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for TF_INPUTPROCESSORPROFILE {}
-impl ::core::default::Default for TF_INPUTPROCESSORPROFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12274,24 +9377,8 @@ impl ::core::clone::Clone for TF_LANGBARITEMINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for TF_LANGBARITEMINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LANGBARITEMINFO").field("clsidService", &self.clsidService).field("guidItem", &self.guidItem).field("dwStyle", &self.dwStyle).field("ulSort", &self.ulSort).field("szDescription", &self.szDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_LANGBARITEMINFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_LANGBARITEMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsidService == other.clsidService && self.guidItem == other.guidItem && self.dwStyle == other.dwStyle && self.ulSort == other.ulSort && self.szDescription == other.szDescription
-    }
-}
-impl ::core::cmp::Eq for TF_LANGBARITEMINFO {}
-impl ::core::default::Default for TF_LANGBARITEMINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12312,28 +9399,8 @@ impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_LANGUAGEPROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LANGUAGEPROFILE").field("clsid", &self.clsid).field("langid", &self.langid).field("catid", &self.catid).field("fActive", &self.fActive).field("guidProfile", &self.guidProfile).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_LANGUAGEPROFILE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_LANGUAGEPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        self.clsid == other.clsid && self.langid == other.langid && self.catid == other.catid && self.fActive == other.fActive && self.guidProfile == other.guidProfile
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_LANGUAGEPROFILE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_LANGUAGEPROFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12346,24 +9413,8 @@ impl ::core::clone::Clone for TF_LBBALLOONINFO {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for TF_LBBALLOONINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LBBALLOONINFO").field("style", &self.style).field("bstrText", &self.bstrText).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_LBBALLOONINFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_LBBALLOONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.style == other.style && self.bstrText == other.bstrText
-    }
-}
-impl ::core::cmp::Eq for TF_LBBALLOONINFO {}
-impl ::core::default::Default for TF_LBBALLOONINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12382,11 +9433,6 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT {
 unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
     type Abi = Self;
 }
-impl ::core::default::Default for TF_LMLATTELEMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub union TF_LMLATTELEMENT_0 {
@@ -12400,11 +9446,6 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
 }
 unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for TF_LMLATTELEMENT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12422,24 +9463,8 @@ impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
         *self
     }
 }
-impl ::core::fmt::Debug for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_PERSISTENT_PROPERTY_HEADER_ACP").field("guidType", &self.guidType).field("ichStart", &self.ichStart).field("cch", &self.cch).field("cb", &self.cb).field("dwPrivate", &self.dwPrivate).field("clsidTIP", &self.clsidTIP).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidType == other.guidType && self.ichStart == other.ichStart && self.cch == other.cch && self.cb == other.cb && self.dwPrivate == other.dwPrivate && self.clsidTIP == other.clsidTIP
-    }
-}
-impl ::core::cmp::Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
-impl ::core::default::Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12453,24 +9478,8 @@ impl ::core::clone::Clone for TF_PRESERVEDKEY {
         *self
     }
 }
-impl ::core::fmt::Debug for TF_PRESERVEDKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_PRESERVEDKEY").field("uVKey", &self.uVKey).field("uModifiers", &self.uModifiers).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TF_PRESERVEDKEY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_PRESERVEDKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.uVKey == other.uVKey && self.uModifiers == other.uModifiers
-    }
-}
-impl ::core::cmp::Eq for TF_PRESERVEDKEY {}
-impl ::core::default::Default for TF_PRESERVEDKEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12489,12 +9498,6 @@ impl ::core::clone::Clone for TF_PROPERTYVAL {
 unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for TF_PROPERTYVAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12509,28 +9512,8 @@ impl ::core::clone::Clone for TF_SELECTION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_SELECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_SELECTION").field("range", &self.range).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_SELECTION {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_SELECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.range == other.range && self.style == other.style
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_SELECTION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_SELECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12548,28 +9531,8 @@ impl ::core::clone::Clone for TF_SELECTIONSTYLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TF_SELECTIONSTYLE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ase == other.ase && self.fInterimChar == other.fInterimChar
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12589,12 +9552,6 @@ impl ::core::clone::Clone for TS_ATTRVAL {
 unsafe impl ::windows::core::Abi for TS_ATTRVAL {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for TS_ATTRVAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TS_RUNINFO {
@@ -12607,24 +9564,8 @@ impl ::core::clone::Clone for TS_RUNINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for TS_RUNINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_RUNINFO").field("uCount", &self.uCount).field("type", &self.r#type).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TS_RUNINFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TS_RUNINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uCount == other.uCount && self.r#type == other.r#type
-    }
-}
-impl ::core::cmp::Eq for TS_RUNINFO {}
-impl ::core::default::Default for TS_RUNINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12642,28 +9583,8 @@ impl ::core::clone::Clone for TS_SELECTIONSTYLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TS_SELECTIONSTYLE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ase == other.ase && self.fInterimChar == other.fInterimChar
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12682,28 +9603,8 @@ impl ::core::clone::Clone for TS_SELECTION_ACP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTION_ACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ACP").field("acpStart", &self.acpStart).field("acpEnd", &self.acpEnd).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TS_SELECTION_ACP {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTION_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        self.acpStart == other.acpStart && self.acpEnd == other.acpEnd && self.style == other.style
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTION_ACP {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTION_ACP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
@@ -12720,28 +9621,8 @@ impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTION_ANCHOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ANCHOR").field("paStart", &self.paStart).field("paEnd", &self.paEnd).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TS_SELECTION_ANCHOR {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTION_ANCHOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.paStart == other.paStart && self.paEnd == other.paEnd && self.style == other.style
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTION_ANCHOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTION_ANCHOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12755,24 +9636,8 @@ impl ::core::clone::Clone for TS_STATUS {
         *self
     }
 }
-impl ::core::fmt::Debug for TS_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_STATUS").field("dwDynamicFlags", &self.dwDynamicFlags).field("dwStaticFlags", &self.dwStaticFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TS_STATUS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TS_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDynamicFlags == other.dwDynamicFlags && self.dwStaticFlags == other.dwStaticFlags
-    }
-}
-impl ::core::cmp::Eq for TS_STATUS {}
-impl ::core::default::Default for TS_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -12787,24 +9652,10 @@ impl ::core::clone::Clone for TS_TEXTCHANGE {
         *self
     }
 }
-impl ::core::fmt::Debug for TS_TEXTCHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_TEXTCHANGE").field("acpStart", &self.acpStart).field("acpOldEnd", &self.acpOldEnd).field("acpNewEnd", &self.acpNewEnd).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TS_TEXTCHANGE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TS_TEXTCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.acpStart == other.acpStart && self.acpOldEnd == other.acpOldEnd && self.acpNewEnd == other.acpNewEnd
-    }
-}
-impl ::core::cmp::Eq for TS_TEXTCHANGE {}
-impl ::core::default::Default for TS_TEXTCHANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

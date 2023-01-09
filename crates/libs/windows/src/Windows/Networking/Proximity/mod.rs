@@ -328,17 +328,6 @@ impl ::core::clone::Clone for ConnectionRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ConnectionRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionRequestedEventArgs {}
-impl ::core::fmt::Debug for ConnectionRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ConnectionRequestedEventArgs;{eb6891ae-4f1e-4c66-bd0d-46924a942e08})");
     type DefaultType = ::core::option::Option<Self>;
@@ -555,17 +544,6 @@ impl ::core::clone::Clone for PeerInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PeerInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeerInformation {}
-impl ::core::fmt::Debug for PeerInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PeerInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.PeerInformation;{20024f08-9fff-45f4-b6e9-408b2ebef373})");
     type DefaultType = ::core::option::Option<Self>;
@@ -683,17 +661,6 @@ impl PeerWatcher {
 impl ::core::clone::Clone for PeerWatcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PeerWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeerWatcher {}
-impl ::core::fmt::Debug for PeerWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerWatcher").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PeerWatcher {
@@ -872,17 +839,6 @@ impl ::core::clone::Clone for ProximityDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProximityDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximityDevice {}
-impl ::core::fmt::Debug for ProximityDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximityDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProximityDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityDevice;{efa8a552-f6e1-4329-a0fc-ab6b0fd28262})");
     type DefaultType = ::core::option::Option<Self>;
@@ -942,17 +898,6 @@ impl ::core::clone::Clone for ProximityMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProximityMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximityMessage {}
-impl ::core::fmt::Debug for ProximityMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximityMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProximityMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.ProximityMessage;{efab0782-f6e1-4675-a045-d8e320c24808})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1005,17 +950,6 @@ impl ::core::clone::Clone for TriggeredConnectionStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TriggeredConnectionStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TriggeredConnectionStateChangedEventArgs {}
-impl ::core::fmt::Debug for TriggeredConnectionStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TriggeredConnectionStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs;{c6a780ad-f6e1-4d54-96e2-33f620bca88a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1050,46 +984,8 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
         *self
     }
 }
-impl ::core::default::Default for PeerDiscoveryTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PeerDiscoveryTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PeerDiscoveryTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PeerDiscoveryTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PeerDiscoveryTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PeerDiscoveryTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PeerDiscoveryTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PeerDiscoveryTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerDiscoveryTypes;u4)");
@@ -1113,18 +1009,8 @@ impl ::core::clone::Clone for PeerRole {
         *self
     }
 }
-impl ::core::default::Default for PeerRole {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PeerRole {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PeerRole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerRole").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PeerRole {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerRole;i4)");
@@ -1151,18 +1037,8 @@ impl ::core::clone::Clone for PeerWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for PeerWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PeerWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PeerWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.PeerWatcherStatus;i4)");
@@ -1189,18 +1065,8 @@ impl ::core::clone::Clone for TriggeredConnectState {
         *self
     }
 }
-impl ::core::default::Default for TriggeredConnectState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TriggeredConnectState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TriggeredConnectState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TriggeredConnectState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Proximity.TriggeredConnectState;i4)");
@@ -1263,17 +1129,6 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Resu
 impl ::core::clone::Clone for DeviceArrivedEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeviceArrivedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceArrivedEventHandler {}
-impl ::core::fmt::Debug for DeviceArrivedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceArrivedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for DeviceArrivedEventHandler {
@@ -1351,17 +1206,6 @@ impl ::core::clone::Clone for DeviceDepartedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeviceDepartedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceDepartedEventHandler {}
-impl ::core::fmt::Debug for DeviceDepartedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceDepartedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for DeviceDepartedEventHandler {
     type Vtable = DeviceDepartedEventHandler_Vtbl;
 }
@@ -1435,17 +1279,6 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
 impl ::core::clone::Clone for MessageReceivedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MessageReceivedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageReceivedHandler {}
-impl ::core::fmt::Debug for MessageReceivedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageReceivedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for MessageReceivedHandler {
@@ -1523,17 +1356,6 @@ impl ::core::clone::Clone for MessageTransmittedHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MessageTransmittedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageTransmittedHandler {}
-impl ::core::fmt::Debug for MessageTransmittedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageTransmittedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for MessageTransmittedHandler {
     type Vtable = MessageTransmittedHandler_Vtbl;
 }
@@ -1555,3 +1377,5 @@ pub struct MessageTransmittedHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

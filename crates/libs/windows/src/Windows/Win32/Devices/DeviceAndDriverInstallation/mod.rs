@@ -8094,18 +8094,8 @@ impl ::core::clone::Clone for CM_NOTIFY_ACTION {
         *self
     }
 }
-impl ::core::default::Default for CM_NOTIFY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_ACTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CM_NOTIFY_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CM_NOTIFY_ACTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8125,18 +8115,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CM_NOTIFY_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CM_NOTIFY_FILTER_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8278,18 +8258,8 @@ impl ::core::clone::Clone for CONFIGRET {
         *self
     }
 }
-impl ::core::default::Default for CONFIGRET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONFIGRET {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CONFIGRET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONFIGRET").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8307,18 +8277,8 @@ impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
         *self
     }
 }
-impl ::core::default::Default for OEM_SOURCE_MEDIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OEM_SOURCE_MEDIA_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OEM_SOURCE_MEDIA_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8358,18 +8318,8 @@ impl ::core::clone::Clone for PNP_VETO_TYPE {
         *self
     }
 }
-impl ::core::default::Default for PNP_VETO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PNP_VETO_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PNP_VETO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PNP_VETO_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8385,18 +8335,8 @@ impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SETUP_DI_BUILD_DRIVER_DRIVER_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8412,18 +8352,8 @@ impl ::core::clone::Clone for SETUP_FILE_OPERATION {
         *self
     }
 }
-impl ::core::default::Default for SETUP_FILE_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SETUP_FILE_OPERATION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SETUP_FILE_OPERATION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8491,46 +8421,8 @@ impl ::core::clone::Clone for SP_COPY_STYLE {
         *self
     }
 }
-impl ::core::default::Default for SP_COPY_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SP_COPY_STYLE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SP_COPY_STYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SP_COPY_STYLE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SP_COPY_STYLE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SP_COPY_STYLE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SP_COPY_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8548,18 +8440,8 @@ impl ::core::clone::Clone for SP_INF_STYLE {
         *self
     }
 }
-impl ::core::default::Default for SP_INF_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SP_INF_STYLE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SP_INF_STYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SP_INF_STYLE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[repr(transparent)]
@@ -8583,18 +8465,8 @@ impl ::core::clone::Clone for SetupFileLogInfo {
         *self
     }
 }
-impl ::core::default::Default for SetupFileLogInfo {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SetupFileLogInfo {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SetupFileLogInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetupFileLogInfo").field(&self.0).finish()
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8614,11 +8486,6 @@ impl ::core::clone::Clone for BUSNUMBER_DES {
 unsafe impl ::windows::core::Abi for BUSNUMBER_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for BUSNUMBER_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct BUSNUMBER_RANGE {
@@ -8636,11 +8503,6 @@ impl ::core::clone::Clone for BUSNUMBER_RANGE {
 unsafe impl ::windows::core::Abi for BUSNUMBER_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for BUSNUMBER_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct BUSNUMBER_RESOURCE {
@@ -8656,11 +8518,6 @@ impl ::core::clone::Clone for BUSNUMBER_RESOURCE {
 unsafe impl ::windows::core::Abi for BUSNUMBER_RESOURCE {
     type Abi = Self;
 }
-impl ::core::default::Default for BUSNUMBER_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8682,12 +8539,6 @@ impl ::core::clone::Clone for CABINET_INFO_A {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for CABINET_INFO_A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8711,12 +8562,6 @@ impl ::core::clone::Clone for CABINET_INFO_A {
 unsafe impl ::windows::core::Abi for CABINET_INFO_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8739,12 +8584,6 @@ impl ::core::clone::Clone for CABINET_INFO_W {
 unsafe impl ::windows::core::Abi for CABINET_INFO_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -8766,12 +8605,6 @@ impl ::core::clone::Clone for CABINET_INFO_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for CABINET_INFO_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8789,11 +8622,6 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA {
     type Abi = Self;
 }
-impl ::core::default::Default for CM_NOTIFY_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub union CM_NOTIFY_EVENT_DATA_0 {
@@ -8810,11 +8638,6 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0 {
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
@@ -8829,24 +8652,8 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_0").field("EventGuid", &self.EventGuid).field("NameOffset", &self.NameOffset).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EventGuid == other.EventGuid && self.NameOffset == other.NameOffset && self.DataSize == other.DataSize && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_0 {}
-impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8859,24 +8666,8 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_1").field("InstanceId", &self.InstanceId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_1 {}
-impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8890,24 +8681,8 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_EVENT_DATA_0_2").field("ClassGuid", &self.ClassGuid).field("SymbolicLink", &self.SymbolicLink).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_2 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassGuid == other.ClassGuid && self.SymbolicLink == other.SymbolicLink
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_2 {}
-impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -8931,12 +8706,6 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER {
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CM_NOTIFY_FILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8957,12 +8726,6 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0 {
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CM_NOTIFY_FILTER_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8978,28 +8741,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_FILTER_0_0").field("hTarget", &self.hTarget).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hTarget == other.hTarget
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CM_NOTIFY_FILTER_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9016,28 +8759,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_FILTER_0_1").field("InstanceId", &self.InstanceId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CM_NOTIFY_FILTER_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9054,28 +8777,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CM_NOTIFY_FILTER_0_2").field("ClassGuid", &self.ClassGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassGuid == other.ClassGuid
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CM_NOTIFY_FILTER_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9100,13 +8803,6 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9131,13 +8827,6 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9159,28 +8848,8 @@ impl ::core::clone::Clone for CONFLICT_DETAILS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONFLICT_DETAILS_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONFLICT_DETAILS_A").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_A {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONFLICT_DETAILS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.CD_ulSize == other.CD_ulSize && self.CD_ulMask == other.CD_ulMask && self.CD_dnDevInst == other.CD_dnDevInst && self.CD_rdResDes == other.CD_rdResDes && self.CD_ulFlags == other.CD_ulFlags && self.CD_szDescription == other.CD_szDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONFLICT_DETAILS_A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CONFLICT_DETAILS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9198,24 +8867,8 @@ impl ::core::clone::Clone for CONFLICT_DETAILS_W {
         *self
     }
 }
-impl ::core::fmt::Debug for CONFLICT_DETAILS_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONFLICT_DETAILS_W").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_W {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONFLICT_DETAILS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.CD_ulSize == other.CD_ulSize && self.CD_ulMask == other.CD_ulMask && self.CD_dnDevInst == other.CD_dnDevInst && self.CD_rdResDes == other.CD_rdResDes && self.CD_ulFlags == other.CD_ulFlags && self.CD_szDescription == other.CD_szDescription
-    }
-}
-impl ::core::cmp::Eq for CONFLICT_DETAILS_W {}
-impl ::core::default::Default for CONFLICT_DETAILS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9237,11 +8890,6 @@ impl ::core::clone::Clone for CONNECTION_DES {
 unsafe impl ::windows::core::Abi for CONNECTION_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for CONNECTION_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct CONNECTION_RESOURCE {
@@ -9255,11 +8903,6 @@ impl ::core::clone::Clone for CONNECTION_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for CONNECTION_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for CONNECTION_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9280,11 +8923,6 @@ impl ::core::clone::Clone for CS_DES {
 unsafe impl ::windows::core::Abi for CS_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for CS_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct CS_RESOURCE {
@@ -9298,11 +8936,6 @@ impl ::core::clone::Clone for CS_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for CS_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for CS_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9323,11 +8956,6 @@ impl ::core::clone::Clone for DEVPRIVATE_DES {
 unsafe impl ::windows::core::Abi for DEVPRIVATE_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for DEVPRIVATE_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct DEVPRIVATE_RANGE {
@@ -9344,11 +8972,6 @@ impl ::core::clone::Clone for DEVPRIVATE_RANGE {
 unsafe impl ::windows::core::Abi for DEVPRIVATE_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for DEVPRIVATE_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct DEVPRIVATE_RESOURCE {
@@ -9363,11 +8986,6 @@ impl ::core::clone::Clone for DEVPRIVATE_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for DEVPRIVATE_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for DEVPRIVATE_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9386,11 +9004,6 @@ impl ::core::clone::Clone for DMA_DES {
 unsafe impl ::windows::core::Abi for DMA_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for DMA_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct DMA_RANGE {
@@ -9407,11 +9020,6 @@ impl ::core::clone::Clone for DMA_RANGE {
 unsafe impl ::windows::core::Abi for DMA_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for DMA_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct DMA_RESOURCE {
@@ -9427,11 +9035,6 @@ impl ::core::clone::Clone for DMA_RESOURCE {
 unsafe impl ::windows::core::Abi for DMA_RESOURCE {
     type Abi = Self;
 }
-impl ::core::default::Default for DMA_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9453,12 +9056,6 @@ impl ::core::clone::Clone for FILEPATHS_A {
 unsafe impl ::windows::core::Abi for FILEPATHS_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9479,12 +9076,6 @@ impl ::core::clone::Clone for FILEPATHS_A {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FILEPATHS_A {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9510,12 +9101,6 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9540,12 +9125,6 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9569,12 +9148,6 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9600,12 +9173,6 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
 unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9627,12 +9194,6 @@ impl ::core::clone::Clone for FILEPATHS_W {
 unsafe impl ::windows::core::Abi for FILEPATHS_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9653,12 +9214,6 @@ impl ::core::clone::Clone for FILEPATHS_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FILEPATHS_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -9688,13 +9243,6 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
 unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9723,13 +9271,6 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
 unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9754,12 +9295,6 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
 unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9783,12 +9318,6 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9870,11 +9399,6 @@ impl ::core::clone::Clone for HWPROFILEINFO_W {
 unsafe impl ::windows::core::Abi for HWPROFILEINFO_W {
     type Abi = Self;
 }
-impl ::core::default::Default for HWPROFILEINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9895,12 +9419,6 @@ impl ::core::clone::Clone for HWProfileInfo_sA {
 unsafe impl ::windows::core::Abi for HWProfileInfo_sA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HWProfileInfo_sA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -9922,12 +9440,6 @@ impl ::core::clone::Clone for INFCONTEXT {
 unsafe impl ::windows::core::Abi for INFCONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -9949,12 +9461,6 @@ impl ::core::clone::Clone for INFCONTEXT {
 unsafe impl ::windows::core::Abi for INFCONTEXT {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IO_DES {
@@ -9972,11 +9478,6 @@ impl ::core::clone::Clone for IO_DES {
 }
 unsafe impl ::windows::core::Abi for IO_DES {
     type Abi = Self;
-}
-impl ::core::default::Default for IO_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9997,11 +9498,6 @@ impl ::core::clone::Clone for IO_RANGE {
 unsafe impl ::windows::core::Abi for IO_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for IO_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IO_RESOURCE {
@@ -10016,11 +9512,6 @@ impl ::core::clone::Clone for IO_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for IO_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for IO_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10040,11 +9531,6 @@ impl ::core::clone::Clone for IRQ_DES_32 {
 unsafe impl ::windows::core::Abi for IRQ_DES_32 {
     type Abi = Self;
 }
-impl ::core::default::Default for IRQ_DES_32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_DES_64 {
@@ -10063,11 +9549,6 @@ impl ::core::clone::Clone for IRQ_DES_64 {
 unsafe impl ::windows::core::Abi for IRQ_DES_64 {
     type Abi = Self;
 }
-impl ::core::default::Default for IRQ_DES_64 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_RANGE {
@@ -10084,11 +9565,6 @@ impl ::core::clone::Clone for IRQ_RANGE {
 unsafe impl ::windows::core::Abi for IRQ_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for IRQ_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_RESOURCE_32 {
@@ -10104,11 +9580,6 @@ impl ::core::clone::Clone for IRQ_RESOURCE_32 {
 unsafe impl ::windows::core::Abi for IRQ_RESOURCE_32 {
     type Abi = Self;
 }
-impl ::core::default::Default for IRQ_RESOURCE_32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct IRQ_RESOURCE_64 {
@@ -10123,11 +9594,6 @@ impl ::core::clone::Clone for IRQ_RESOURCE_64 {
 }
 unsafe impl ::windows::core::Abi for IRQ_RESOURCE_64 {
     type Abi = Self;
-}
-impl ::core::default::Default for IRQ_RESOURCE_64 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10148,11 +9614,6 @@ impl ::core::clone::Clone for MEM_DES {
 unsafe impl ::windows::core::Abi for MEM_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for MEM_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MEM_LARGE_DES {
@@ -10171,11 +9632,6 @@ impl ::core::clone::Clone for MEM_LARGE_DES {
 }
 unsafe impl ::windows::core::Abi for MEM_LARGE_DES {
     type Abi = Self;
-}
-impl ::core::default::Default for MEM_LARGE_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10196,11 +9652,6 @@ impl ::core::clone::Clone for MEM_LARGE_RANGE {
 unsafe impl ::windows::core::Abi for MEM_LARGE_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for MEM_LARGE_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MEM_LARGE_RESOURCE {
@@ -10215,11 +9666,6 @@ impl ::core::clone::Clone for MEM_LARGE_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for MEM_LARGE_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for MEM_LARGE_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10240,11 +9686,6 @@ impl ::core::clone::Clone for MEM_RANGE {
 unsafe impl ::windows::core::Abi for MEM_RANGE {
     type Abi = Self;
 }
-impl ::core::default::Default for MEM_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MEM_RESOURCE {
@@ -10259,11 +9700,6 @@ impl ::core::clone::Clone for MEM_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for MEM_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for MEM_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10285,11 +9721,6 @@ impl ::core::clone::Clone for MFCARD_DES {
 unsafe impl ::windows::core::Abi for MFCARD_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for MFCARD_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct MFCARD_RESOURCE {
@@ -10303,11 +9734,6 @@ impl ::core::clone::Clone for MFCARD_RESOURCE {
 }
 unsafe impl ::windows::core::Abi for MFCARD_RESOURCE {
     type Abi = Self;
-}
-impl ::core::default::Default for MFCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10332,11 +9758,6 @@ impl ::core::clone::Clone for PCCARD_DES {
 unsafe impl ::windows::core::Abi for PCCARD_DES {
     type Abi = Self;
 }
-impl ::core::default::Default for PCCARD_DES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub struct PCCARD_RESOURCE {
@@ -10351,11 +9772,6 @@ impl ::core::clone::Clone for PCCARD_RESOURCE {
 unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {
     type Abi = Self;
 }
-impl ::core::default::Default for PCCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10378,12 +9794,6 @@ impl ::core::clone::Clone for SOURCE_MEDIA_A {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10408,12 +9818,6 @@ impl ::core::clone::Clone for SOURCE_MEDIA_A {
 unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10437,12 +9841,6 @@ impl ::core::clone::Clone for SOURCE_MEDIA_W {
 unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10465,12 +9863,6 @@ impl ::core::clone::Clone for SOURCE_MEDIA_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -10499,13 +9891,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10532,13 +9917,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -10569,13 +9947,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10598,13 +9969,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
@@ -10635,13 +9999,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Diagnostics_Debug\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10665,13 +10022,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10700,12 +10050,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10724,12 +10068,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -10759,12 +10097,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10784,12 +10116,6 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
 unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10813,13 +10139,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -10845,13 +10164,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10872,12 +10184,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10897,12 +10203,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -10929,13 +10229,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -10961,13 +10254,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -10989,12 +10275,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11015,12 +10295,6 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_UI_Controls\"`*"]
@@ -11046,13 +10320,6 @@ impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
 unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_UI_Controls")]
-impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11077,13 +10344,6 @@ impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
 unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_UI_Controls")]
-impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11103,12 +10363,6 @@ impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
 unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11127,12 +10381,6 @@ impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11158,13 +10406,6 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11189,13 +10430,6 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11217,12 +10451,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11243,12 +10471,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11273,13 +10495,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11303,13 +10518,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11329,12 +10537,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11353,12 +10555,6 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -11381,12 +10577,6 @@ impl ::core::clone::Clone for SP_DEVINFO_DATA {
 unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_DEVINFO_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11407,12 +10597,6 @@ impl ::core::clone::Clone for SP_DEVINFO_DATA {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_DEVINFO_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11439,13 +10623,6 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
 unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11470,13 +10647,6 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11503,13 +10673,6 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
 unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11534,13 +10697,6 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11573,13 +10729,6 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11611,13 +10760,6 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11648,13 +10790,6 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11687,13 +10822,6 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11720,13 +10848,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11755,13 +10876,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -11785,12 +10899,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11813,12 +10921,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11849,13 +10951,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11884,13 +10979,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11921,13 +11009,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -11956,13 +11037,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -11994,13 +11068,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12031,13 +11098,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12067,13 +11127,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -12105,13 +11158,6 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
 unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12133,12 +11179,6 @@ impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -12162,12 +11202,6 @@ impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
 unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12188,12 +11222,6 @@ impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
 unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12213,12 +11241,6 @@ impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -12249,12 +11271,6 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12284,12 +11300,6 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12318,12 +11328,6 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -12354,12 +11358,6 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
 unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12380,12 +11378,6 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
 unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_INF_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12405,12 +11397,6 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_INF_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -12437,13 +11423,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12469,13 +11448,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12497,12 +11469,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12523,12 +11489,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -12556,13 +11516,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12589,13 +11542,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12618,12 +11564,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12645,12 +11585,6 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -12681,13 +11615,6 @@ impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
 unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12717,13 +11644,6 @@ impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
 unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12749,13 +11669,6 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
@@ -12783,13 +11696,6 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12813,13 +11719,6 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -12845,13 +11744,6 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12872,12 +11764,6 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12897,12 +11783,6 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -12923,12 +11803,6 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -12948,12 +11822,6 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
 unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -12972,12 +11840,6 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -13000,12 +11862,6 @@ impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -13027,12 +11883,6 @@ impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13053,12 +11903,6 @@ impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -13081,12 +11925,6 @@ impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
 unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13107,12 +11945,6 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -13135,12 +11967,6 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
 unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13161,12 +11987,6 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -13189,12 +12009,6 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
 unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13215,12 +12029,6 @@ impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -13240,12 +12048,6 @@ impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -13270,12 +12072,6 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13298,12 +12094,6 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
 unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -13325,12 +12115,6 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
@@ -13352,12 +12136,6 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_A {
 unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_A {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13377,12 +12155,6 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -13404,12 +12176,6 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
 unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -13430,12 +12196,6 @@ impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
 unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -13455,12 +12215,6 @@ impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub type PCM_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
@@ -13475,3 +12229,5 @@ pub type PSP_FILE_CALLBACK_A = ::core::option::Option<unsafe extern "system" fn(
 pub type PSP_FILE_CALLBACK_W = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

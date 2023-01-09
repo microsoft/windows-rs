@@ -177,18 +177,8 @@ impl ::core::clone::Clone for FCIERROR {
         *self
     }
 }
-impl ::core::default::Default for FCIERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FCIERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FCIERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FCIERROR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
@@ -206,18 +196,8 @@ impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
         *self
     }
 }
-impl ::core::default::Default for FDICREATE_CPU_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FDICREATE_CPU_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FDICREATE_CPU_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FDICREATE_CPU_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
@@ -235,18 +215,8 @@ impl ::core::clone::Clone for FDIDECRYPTTYPE {
         *self
     }
 }
-impl ::core::default::Default for FDIDECRYPTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FDIDECRYPTTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FDIDECRYPTTYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
@@ -284,18 +254,8 @@ impl ::core::clone::Clone for FDIERROR {
         *self
     }
 }
-impl ::core::default::Default for FDIERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FDIERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FDIERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FDIERROR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 #[repr(transparent)]
@@ -319,18 +279,8 @@ impl ::core::clone::Clone for FDINOTIFICATIONTYPE {
         *self
     }
 }
-impl ::core::default::Default for FDINOTIFICATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FDINOTIFICATIONTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FDINOTIFICATIONTYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -358,41 +308,8 @@ impl ::core::clone::Clone for CCAB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CCAB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CCAB")
-            .field("cb", &self.cb)
-            .field("cbFolderThresh", &self.cbFolderThresh)
-            .field("cbReserveCFHeader", &self.cbReserveCFHeader)
-            .field("cbReserveCFFolder", &self.cbReserveCFFolder)
-            .field("cbReserveCFData", &self.cbReserveCFData)
-            .field("iCab", &self.iCab)
-            .field("iDisk", &self.iDisk)
-            .field("fFailOnIncompressible", &self.fFailOnIncompressible)
-            .field("setID", &self.setID)
-            .field("szDisk", &self.szDisk)
-            .field("szCab", &self.szCab)
-            .field("szCabPath", &self.szCabPath)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CCAB {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CCAB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.cbFolderThresh == other.cbFolderThresh && self.cbReserveCFHeader == other.cbReserveCFHeader && self.cbReserveCFFolder == other.cbReserveCFFolder && self.cbReserveCFData == other.cbReserveCFData && self.iCab == other.iCab && self.iDisk == other.iDisk && self.fFailOnIncompressible == other.fFailOnIncompressible && self.setID == other.setID && self.szDisk == other.szDisk && self.szCab == other.szCab && self.szCabPath == other.szCabPath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CCAB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CCAB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -411,28 +328,8 @@ impl ::core::clone::Clone for ERF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ERF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ERF").field("erfOper", &self.erfOper).field("erfType", &self.erfType).field("fError", &self.fError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ERF {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ERF {
-    fn eq(&self, other: &Self) -> bool {
-        self.erfOper == other.erfOper && self.erfType == other.erfType && self.fError == other.fError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ERF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ERF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -456,28 +353,8 @@ impl ::core::clone::Clone for FDICABINETINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDICABINETINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDICABINETINFO").field("cbCabinet", &self.cbCabinet).field("cFolders", &self.cFolders).field("cFiles", &self.cFiles).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("fReserve", &self.fReserve).field("hasprev", &self.hasprev).field("hasnext", &self.hasnext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDICABINETINFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDICABINETINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbCabinet == other.cbCabinet && self.cFolders == other.cFolders && self.cFiles == other.cFiles && self.setID == other.setID && self.iCabinet == other.iCabinet && self.fReserve == other.fReserve && self.hasprev == other.hasprev && self.hasnext == other.hasnext
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDICABINETINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDICABINETINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -499,12 +376,6 @@ impl ::core::clone::Clone for FDIDECRYPT {
 unsafe impl ::windows::core::Abi for FDIDECRYPT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDIDECRYPT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -525,12 +396,6 @@ impl ::core::clone::Clone for FDIDECRYPT_0 {
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDIDECRYPT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -549,28 +414,8 @@ impl ::core::clone::Clone for FDIDECRYPT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_0").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDIDECRYPT_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -592,28 +437,8 @@ impl ::core::clone::Clone for FDIDECRYPT_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_1").field("pDataReserve", &self.pDataReserve).field("cbDataReserve", &self.cbDataReserve).field("pbData", &self.pbData).field("cbData", &self.cbData).field("fSplit", &self.fSplit).field("cbPartial", &self.cbPartial).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pDataReserve == other.pDataReserve && self.cbDataReserve == other.cbDataReserve && self.pbData == other.pbData && self.cbData == other.cbData && self.fSplit == other.fSplit && self.cbPartial == other.cbPartial
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDIDECRYPT_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -632,28 +457,8 @@ impl ::core::clone::Clone for FDIDECRYPT_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FDIDECRYPT_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDIDECRYPT_0_2").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDIDECRYPT_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
@@ -678,24 +483,8 @@ impl ::core::clone::Clone for FDINOTIFICATION {
         *self
     }
 }
-impl ::core::fmt::Debug for FDINOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FDINOTIFICATION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FDINOTIFICATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.psz1 == other.psz1 && self.psz2 == other.psz2 && self.psz3 == other.psz3 && self.pv == other.pv && self.hf == other.hf && self.date == other.date && self.time == other.time && self.attribs == other.attribs && self.setID == other.setID && self.iCabinet == other.iCabinet && self.iFolder == other.iFolder && self.fdie == other.fdie
-    }
-}
-impl ::core::cmp::Eq for FDINOTIFICATION {}
-impl ::core::default::Default for FDINOTIFICATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
@@ -720,13 +509,6 @@ impl ::core::clone::Clone for FDISPILLFILE {
 unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDISPILLFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`, `\"Win32_Foundation\"`*"]
 #[cfg(target_arch = "x86")]
@@ -749,13 +531,6 @@ impl ::core::clone::Clone for FDISPILLFILE {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDISPILLFILE {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FDISPILLFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub type PFNALLOC = ::core::option::Option<unsafe extern "system" fn(cb: u32) -> *mut ::core::ffi::c_void>;
@@ -807,3 +582,5 @@ pub type PFNSEEK = ::core::option::Option<unsafe extern "system" fn(hf: isize, d
 pub type PFNWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, pv: *const ::core::ffi::c_void, cb: u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

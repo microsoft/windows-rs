@@ -592,17 +592,6 @@ impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAccountsSettingsPaneInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccountsSettingsPaneInterop {}
-impl ::core::fmt::Debug for IAccountsSettingsPaneInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccountsSettingsPaneInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAccountsSettingsPaneInterop {
     type Vtable = IAccountsSettingsPaneInterop_Vtbl;
 }
@@ -641,17 +630,6 @@ impl ::core::clone::Clone for IActivationFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IActivationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivationFactory {}
-impl ::core::fmt::Debug for IActivationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivationFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IActivationFactory {
     type Vtable = IActivationFactory_Vtbl;
 }
@@ -682,17 +660,6 @@ impl ::core::clone::Clone for IAgileReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAgileReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAgileReference {}
-impl ::core::fmt::Debug for IAgileReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAgileReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAgileReference {
     type Vtable = IAgileReference_Vtbl;
 }
@@ -717,17 +684,6 @@ impl IApartmentShutdown {
 impl ::core::clone::Clone for IApartmentShutdown {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IApartmentShutdown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IApartmentShutdown {}
-impl ::core::fmt::Debug for IApartmentShutdown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IApartmentShutdown").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IApartmentShutdown {
@@ -760,17 +716,6 @@ impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppServiceConnectionExtendedExecution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppServiceConnectionExtendedExecution {}
-impl ::core::fmt::Debug for IAppServiceConnectionExtendedExecution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppServiceConnectionExtendedExecution").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAppServiceConnectionExtendedExecution {
     type Vtable = IAppServiceConnectionExtendedExecution_Vtbl;
 }
@@ -796,17 +741,6 @@ impl IBufferByteAccess {
 impl ::core::clone::Clone for IBufferByteAccess {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBufferByteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBufferByteAccess {}
-impl ::core::fmt::Debug for IBufferByteAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBufferByteAccess").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IBufferByteAccess {
@@ -855,17 +789,6 @@ impl ::core::clone::Clone for ICastingController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICastingController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICastingController {}
-impl ::core::fmt::Debug for ICastingController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICastingController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICastingController {
     type Vtable = ICastingController_Vtbl;
 }
@@ -902,17 +825,6 @@ impl ::core::clone::Clone for ICastingEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICastingEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICastingEventHandler {}
-impl ::core::fmt::Debug for ICastingEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICastingEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICastingEventHandler {
     type Vtable = ICastingEventHandler_Vtbl;
 }
@@ -945,17 +857,6 @@ impl ICastingSourceInfo {
 impl ::core::clone::Clone for ICastingSourceInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICastingSourceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICastingSourceInfo {}
-impl ::core::fmt::Debug for ICastingSourceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICastingSourceInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICastingSourceInfo {
@@ -992,17 +893,6 @@ impl ICoreInputInterop {
 impl ::core::clone::Clone for ICoreInputInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICoreInputInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreInputInterop {}
-impl ::core::fmt::Debug for ICoreInputInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreInputInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICoreInputInterop {
@@ -1063,17 +953,6 @@ impl ::core::clone::Clone for ICoreWindowAdapterInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICoreWindowAdapterInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreWindowAdapterInterop {}
-impl ::core::fmt::Debug for ICoreWindowAdapterInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreWindowAdapterInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICoreWindowAdapterInterop {
     type Vtable = ICoreWindowAdapterInterop_Vtbl;
 }
@@ -1117,17 +996,6 @@ impl ::core::clone::Clone for ICoreWindowComponentInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICoreWindowComponentInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreWindowComponentInterop {}
-impl ::core::fmt::Debug for ICoreWindowComponentInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreWindowComponentInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICoreWindowComponentInterop {
     type Vtable = ICoreWindowComponentInterop_Vtbl;
 }
@@ -1162,17 +1030,6 @@ impl ICoreWindowInterop {
 impl ::core::clone::Clone for ICoreWindowInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICoreWindowInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreWindowInterop {}
-impl ::core::fmt::Debug for ICoreWindowInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreWindowInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICoreWindowInterop {
@@ -1213,17 +1070,6 @@ impl ::core::clone::Clone for ICorrelationVectorInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICorrelationVectorInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorrelationVectorInformation {}
-impl ::core::fmt::Debug for ICorrelationVectorInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorrelationVectorInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICorrelationVectorInformation {
     type Vtable = ICorrelationVectorInformation_Vtbl;
 }
@@ -1251,17 +1097,6 @@ impl ICorrelationVectorSource {
 impl ::core::clone::Clone for ICorrelationVectorSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICorrelationVectorSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorrelationVectorSource {}
-impl ::core::fmt::Debug for ICorrelationVectorSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorrelationVectorSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICorrelationVectorSource {
@@ -1295,17 +1130,6 @@ impl IDragDropManagerInterop {
 impl ::core::clone::Clone for IDragDropManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IDragDropManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDragDropManagerInterop {}
-impl ::core::fmt::Debug for IDragDropManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDragDropManagerInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IDragDropManagerInterop {
@@ -1344,17 +1168,6 @@ impl ::core::clone::Clone for IHolographicSpaceInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHolographicSpaceInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHolographicSpaceInterop {}
-impl ::core::fmt::Debug for IHolographicSpaceInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHolographicSpaceInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IHolographicSpaceInterop {
     type Vtable = IHolographicSpaceInterop_Vtbl;
 }
@@ -1391,17 +1204,6 @@ impl ::core::clone::Clone for IInputPaneInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IInputPaneInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInputPaneInterop {}
-impl ::core::fmt::Debug for IInputPaneInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInputPaneInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IInputPaneInterop {
     type Vtable = IInputPaneInterop_Vtbl;
 }
@@ -1432,17 +1234,6 @@ impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILanguageExceptionErrorInfo {}
-impl ::core::fmt::Debug for ILanguageExceptionErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILanguageExceptionErrorInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfo_Vtbl;
 }
@@ -1459,10 +1250,6 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLanguageException)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows::core::Result<ILanguageExceptionErrorInfo2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -1482,17 +1269,6 @@ impl ILanguageExceptionErrorInfo2 {
 impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILanguageExceptionErrorInfo2 {}
-impl ::core::fmt::Debug for ILanguageExceptionErrorInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILanguageExceptionErrorInfo2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionErrorInfo2 {
@@ -1523,17 +1299,6 @@ impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILanguageExceptionStackBackTrace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILanguageExceptionStackBackTrace {}
-impl ::core::fmt::Debug for ILanguageExceptionStackBackTrace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILanguageExceptionStackBackTrace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ILanguageExceptionStackBackTrace {
     type Vtable = ILanguageExceptionStackBackTrace_Vtbl;
 }
@@ -1559,17 +1324,6 @@ impl ILanguageExceptionTransform {
 impl ::core::clone::Clone for ILanguageExceptionTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILanguageExceptionTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILanguageExceptionTransform {}
-impl ::core::fmt::Debug for ILanguageExceptionTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILanguageExceptionTransform").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ILanguageExceptionTransform {
@@ -1598,17 +1352,6 @@ impl ::core::clone::Clone for IMemoryBufferByteAccess {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMemoryBufferByteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMemoryBufferByteAccess {}
-impl ::core::fmt::Debug for IMemoryBufferByteAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMemoryBufferByteAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IMemoryBufferByteAccess {
     type Vtable = IMemoryBufferByteAccess_Vtbl;
 }
@@ -1633,17 +1376,6 @@ impl IMessageDispatcher {
 impl ::core::clone::Clone for IMessageDispatcher {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMessageDispatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMessageDispatcher {}
-impl ::core::fmt::Debug for IMessageDispatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMessageDispatcher").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IMessageDispatcher {
@@ -1687,17 +1419,6 @@ impl ::core::clone::Clone for IPlayToManagerInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPlayToManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPlayToManagerInterop {}
-impl ::core::fmt::Debug for IPlayToManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPlayToManagerInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPlayToManagerInterop {
     type Vtable = IPlayToManagerInterop_Vtbl;
 }
@@ -1735,17 +1456,6 @@ impl ::core::clone::Clone for IRestrictedErrorInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRestrictedErrorInfo {}
-impl ::core::fmt::Debug for IRestrictedErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRestrictedErrorInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
 unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Vtable for IRestrictedErrorInfo {
@@ -1776,17 +1486,6 @@ impl IRoMetaDataLocator {
 impl ::core::clone::Clone for IRoMetaDataLocator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRoMetaDataLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoMetaDataLocator {}
-impl ::core::fmt::Debug for IRoMetaDataLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoMetaDataLocator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IRoMetaDataLocator {
@@ -1858,17 +1557,6 @@ impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRoSimpleMetaDataBuilder {}
-impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoSimpleMetaDataBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilder_Vtbl;
 }
@@ -1901,17 +1589,6 @@ impl IShareWindowCommandEventArgsInterop {
 impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IShareWindowCommandEventArgsInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IShareWindowCommandEventArgsInterop {}
-impl ::core::fmt::Debug for IShareWindowCommandEventArgsInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IShareWindowCommandEventArgsInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IShareWindowCommandEventArgsInterop {
@@ -1950,17 +1627,6 @@ impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IShareWindowCommandSourceInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IShareWindowCommandSourceInterop {}
-impl ::core::fmt::Debug for IShareWindowCommandSourceInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IShareWindowCommandSourceInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IShareWindowCommandSourceInterop {
     type Vtable = IShareWindowCommandSourceInterop_Vtbl;
 }
@@ -1995,17 +1661,6 @@ impl ISpatialInteractionManagerInterop {
 impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISpatialInteractionManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpatialInteractionManagerInterop {}
-impl ::core::fmt::Debug for ISpatialInteractionManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpatialInteractionManagerInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISpatialInteractionManagerInterop {
@@ -2044,17 +1699,6 @@ impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISystemMediaTransportControlsInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISystemMediaTransportControlsInterop {}
-impl ::core::fmt::Debug for ISystemMediaTransportControlsInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISystemMediaTransportControlsInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISystemMediaTransportControlsInterop {
     type Vtable = ISystemMediaTransportControlsInterop_Vtbl;
 }
@@ -2089,17 +1733,6 @@ impl IUIViewSettingsInterop {
 impl ::core::clone::Clone for IUIViewSettingsInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIViewSettingsInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIViewSettingsInterop {}
-impl ::core::fmt::Debug for IUIViewSettingsInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIViewSettingsInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIViewSettingsInterop {
@@ -2138,17 +1771,6 @@ impl ::core::clone::Clone for IUserActivityInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUserActivityInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserActivityInterop {}
-impl ::core::fmt::Debug for IUserActivityInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserActivityInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUserActivityInterop {
     type Vtable = IUserActivityInterop_Vtbl;
 }
@@ -2185,17 +1807,6 @@ impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUserActivityRequestManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserActivityRequestManagerInterop {}
-impl ::core::fmt::Debug for IUserActivityRequestManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserActivityRequestManagerInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUserActivityRequestManagerInterop {
     type Vtable = IUserActivityRequestManagerInterop_Vtbl;
 }
@@ -2223,17 +1834,6 @@ impl IUserActivitySourceHostInterop {
 impl ::core::clone::Clone for IUserActivitySourceHostInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUserActivitySourceHostInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserActivitySourceHostInterop {}
-impl ::core::fmt::Debug for IUserActivitySourceHostInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserActivitySourceHostInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUserActivitySourceHostInterop {
@@ -2269,17 +1869,6 @@ impl ::core::clone::Clone for IUserConsentVerifierInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUserConsentVerifierInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserConsentVerifierInterop {}
-impl ::core::fmt::Debug for IUserConsentVerifierInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserConsentVerifierInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUserConsentVerifierInterop {
     type Vtable = IUserConsentVerifierInterop_Vtbl;
 }
@@ -2313,17 +1902,6 @@ impl ::core::clone::Clone for IWeakReference {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWeakReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWeakReference {}
-impl ::core::fmt::Debug for IWeakReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWeakReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWeakReference {
     type Vtable = IWeakReference_Vtbl;
 }
@@ -2349,17 +1927,6 @@ impl IWeakReferenceSource {
 impl ::core::clone::Clone for IWeakReferenceSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWeakReferenceSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWeakReferenceSource {}
-impl ::core::fmt::Debug for IWeakReferenceSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWeakReferenceSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWeakReferenceSource {
@@ -2406,17 +1973,6 @@ impl IWebAuthenticationCoreManagerInterop {
 impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebAuthenticationCoreManagerInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAuthenticationCoreManagerInterop {}
-impl ::core::fmt::Debug for IWebAuthenticationCoreManagerInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAuthenticationCoreManagerInterop").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWebAuthenticationCoreManagerInterop {
@@ -2468,18 +2024,8 @@ impl ::core::clone::Clone for ACTIVATIONTYPE {
         *self
     }
 }
-impl ::core::default::Default for ACTIVATIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVATIONTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVATIONTYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2495,18 +2041,8 @@ impl ::core::clone::Clone for AgileReferenceOptions {
         *self
     }
 }
-impl ::core::default::Default for AgileReferenceOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AgileReferenceOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AgileReferenceOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2522,18 +2058,8 @@ impl ::core::clone::Clone for BSOS_OPTIONS {
         *self
     }
 }
-impl ::core::default::Default for BSOS_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BSOS_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BSOS_OPTIONS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2559,18 +2085,8 @@ impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
         *self
     }
 }
-impl ::core::default::Default for CASTING_CONNECTION_ERROR_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CASTING_CONNECTION_ERROR_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2592,18 +2108,8 @@ impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
         *self
     }
 }
-impl ::core::default::Default for CASTING_CONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CASTING_CONNECTION_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2621,18 +2127,8 @@ impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
         *self
     }
 }
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPATCHERQUEUE_THREAD_APARTMENTTYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2648,18 +2144,8 @@ impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
         *self
     }
 }
-impl ::core::default::Default for DISPATCHERQUEUE_THREAD_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISPATCHERQUEUE_THREAD_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2681,46 +2167,8 @@ impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for RO_ERROR_REPORTING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RO_ERROR_REPORTING_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RO_ERROR_REPORTING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RO_ERROR_REPORTING_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RO_ERROR_REPORTING_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RO_ERROR_REPORTING_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RO_ERROR_REPORTING_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RO_ERROR_REPORTING_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2736,18 +2184,8 @@ impl ::core::clone::Clone for RO_INIT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for RO_INIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RO_INIT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RO_INIT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RO_INIT_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
@@ -2765,18 +2203,8 @@ impl ::core::clone::Clone for TrustLevel {
         *self
     }
 }
-impl ::core::default::Default for TrustLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TrustLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TrustLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TrustLevel").field(&self.0).finish()
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2823,24 +2251,8 @@ impl ::core::clone::Clone for DispatcherQueueOptions {
         *self
     }
 }
-impl ::core::fmt::Debug for DispatcherQueueOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DispatcherQueueOptions").field("dwSize", &self.dwSize).field("threadType", &self.threadType).field("apartmentType", &self.apartmentType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DispatcherQueueOptions {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DispatcherQueueOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.threadType == other.threadType && self.apartmentType == other.apartmentType
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueueOptions {}
-impl ::core::default::Default for DispatcherQueueOptions {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -2853,24 +2265,8 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-impl ::core::fmt::Debug for EventRegistrationToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EventRegistrationToken").field("value", &self.value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EventRegistrationToken {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EventRegistrationToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl ::core::cmp::Eq for EventRegistrationToken {}
-impl ::core::default::Default for EventRegistrationToken {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2919,24 +2315,8 @@ impl ::core::clone::Clone for HSTRING_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for HSTRING_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSTRING_HEADER").field("flags", &self.flags).field("length", &self.length).field("padding1", &self.padding1).field("padding2", &self.padding2).field("data", &self.data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HSTRING_HEADER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSTRING_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.flags == other.flags && self.length == other.length && self.padding1 == other.padding1 && self.padding2 == other.padding2 && self.data == other.data
-    }
-}
-impl ::core::cmp::Eq for HSTRING_HEADER {}
-impl ::core::default::Default for HSTRING_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2983,24 +2363,8 @@ impl ::core::clone::Clone for ServerInformation {
         *self
     }
 }
-impl ::core::fmt::Debug for ServerInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ServerInformation").field("dwServerPid", &self.dwServerPid).field("dwServerTid", &self.dwServerTid).field("ui64ServerAddress", &self.ui64ServerAddress).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ServerInformation {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ServerInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServerPid == other.dwServerPid && self.dwServerTid == other.dwServerTid && self.ui64ServerAddress == other.ui64ServerAddress
-    }
-}
-impl ::core::cmp::Eq for ServerInformation {}
-impl ::core::default::Default for ServerInformation {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);
@@ -3012,3 +2376,5 @@ pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "syst
 pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

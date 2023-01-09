@@ -239,17 +239,6 @@ impl ::core::clone::Clone for Geofence {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Geofence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Geofence {}
-impl ::core::fmt::Debug for Geofence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Geofence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Geofence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -352,17 +341,6 @@ impl ::core::clone::Clone for GeofenceMonitor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeofenceMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceMonitor {}
-impl ::core::fmt::Debug for GeofenceMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
     type DefaultType = ::core::option::Option<Self>;
@@ -420,17 +398,6 @@ impl ::core::clone::Clone for GeofenceStateChangeReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceStateChangeReport {}
-impl ::core::fmt::Debug for GeofenceStateChangeReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -468,18 +435,8 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
         *self
     }
 }
-impl ::core::default::Default for GeofenceMonitorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceMonitorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeofenceMonitorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceMonitorStatus;i4)");
@@ -502,18 +459,8 @@ impl ::core::clone::Clone for GeofenceRemovalReason {
         *self
     }
 }
-impl ::core::default::Default for GeofenceRemovalReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceRemovalReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeofenceRemovalReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceRemovalReason;i4)");
@@ -538,46 +485,8 @@ impl ::core::clone::Clone for GeofenceState {
         *self
     }
 }
-impl ::core::default::Default for GeofenceState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GeofenceState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GeofenceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceState").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GeofenceState {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GeofenceState {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GeofenceState {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GeofenceState {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GeofenceState {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GeofenceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.GeofenceState;u4)");
@@ -602,46 +511,8 @@ impl ::core::clone::Clone for MonitoredGeofenceStates {
         *self
     }
 }
-impl ::core::default::Default for MonitoredGeofenceStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MonitoredGeofenceStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MonitoredGeofenceStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MonitoredGeofenceStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MonitoredGeofenceStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MonitoredGeofenceStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MonitoredGeofenceStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
@@ -652,3 +523,5 @@ unsafe impl ::windows::core::RuntimeType for MonitoredGeofenceStates {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -4,3 +4,5 @@ pub mod Notification;
 pub mod Power;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -566,17 +566,6 @@ impl ::core::clone::Clone for ICashDrawerEventSourceEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICashDrawerEventSourceEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICashDrawerEventSourceEventArgs {}
-impl ::core::fmt::Debug for ICashDrawerEventSourceEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICashDrawerEventSourceEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1544,17 +1533,6 @@ impl ::core::clone::Clone for ICommonClaimedPosPrinterStation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICommonClaimedPosPrinterStation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonClaimedPosPrinterStation {}
-impl ::core::fmt::Debug for ICommonClaimedPosPrinterStation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonClaimedPosPrinterStation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1694,17 +1672,6 @@ impl ICommonPosPrintStationCapabilities {
 impl ::core::clone::Clone for ICommonPosPrintStationCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICommonPosPrintStationCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonPosPrintStationCapabilities {}
-impl ::core::fmt::Debug for ICommonPosPrintStationCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonPosPrintStationCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities {
@@ -1929,17 +1896,6 @@ impl ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ::windows::co
 impl ::core::clone::Clone for ICommonReceiptSlipCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICommonReceiptSlipCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonReceiptSlipCapabilities {}
-impl ::core::fmt::Debug for ICommonReceiptSlipCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonReceiptSlipCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICommonReceiptSlipCapabilities {
@@ -2904,17 +2860,6 @@ impl ::core::clone::Clone for IPosPrinterJob {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPosPrinterJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPosPrinterJob {}
-impl ::core::fmt::Debug for IPosPrinterJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPosPrinterJob").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3190,17 +3135,6 @@ impl ::core::convert::TryFrom<&IReceiptOrSlipJob> for ::windows::core::InParam<I
 impl ::core::clone::Clone for IReceiptOrSlipJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IReceiptOrSlipJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReceiptOrSlipJob {}
-impl ::core::fmt::Debug for IReceiptOrSlipJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReceiptOrSlipJob").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IReceiptOrSlipJob {
@@ -3576,17 +3510,6 @@ impl ::core::clone::Clone for BarcodeScanner {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScanner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScanner {}
-impl ::core::fmt::Debug for BarcodeScanner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScanner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3680,17 +3603,6 @@ impl ::core::clone::Clone for BarcodeScannerCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerCapabilities {}
-impl ::core::fmt::Debug for BarcodeScannerCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3725,17 +3637,6 @@ impl BarcodeScannerDataReceivedEventArgs {
 impl ::core::clone::Clone for BarcodeScannerDataReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerDataReceivedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerDataReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
@@ -3788,17 +3689,6 @@ impl ::core::clone::Clone for BarcodeScannerErrorOccurredEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerErrorOccurredEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3835,17 +3725,6 @@ impl BarcodeScannerImagePreviewReceivedEventArgs {
 impl ::core::clone::Clone for BarcodeScannerImagePreviewReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerImagePreviewReceivedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerImagePreviewReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
@@ -3921,17 +3800,6 @@ impl ::core::clone::Clone for BarcodeScannerReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerReport {}
-impl ::core::fmt::Debug for BarcodeScannerReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3973,17 +3841,6 @@ impl BarcodeScannerStatusUpdatedEventArgs {
 impl ::core::clone::Clone for BarcodeScannerStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStatusUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
@@ -4678,17 +4535,6 @@ impl ::core::clone::Clone for BarcodeSymbologyAttributes {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeSymbologyAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeSymbologyAttributes {}
-impl ::core::fmt::Debug for BarcodeSymbologyAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeSymbologyAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4843,17 +4689,6 @@ impl ::core::clone::Clone for CashDrawer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CashDrawer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawer {}
-impl ::core::fmt::Debug for CashDrawer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4945,17 +4780,6 @@ impl CashDrawerCapabilities {
 impl ::core::clone::Clone for CashDrawerCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CashDrawerCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerCapabilities {}
-impl ::core::fmt::Debug for CashDrawerCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerCapabilities {
@@ -5067,17 +4891,6 @@ impl ::core::clone::Clone for CashDrawerCloseAlarm {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerCloseAlarm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerCloseAlarm {}
-impl ::core::fmt::Debug for CashDrawerCloseAlarm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerCloseAlarm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5112,17 +4925,6 @@ impl CashDrawerClosedEventArgs {
 impl ::core::clone::Clone for CashDrawerClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CashDrawerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerClosedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
@@ -5203,17 +5005,6 @@ impl ::core::clone::Clone for CashDrawerEventSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerEventSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerEventSource {}
-impl ::core::fmt::Debug for CashDrawerEventSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerEventSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CashDrawerEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5248,17 +5039,6 @@ impl CashDrawerOpenedEventArgs {
 impl ::core::clone::Clone for CashDrawerOpenedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CashDrawerOpenedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerOpenedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerOpenedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerOpenedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
@@ -5323,17 +5103,6 @@ impl ::core::clone::Clone for CashDrawerStatus {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerStatus {}
-impl ::core::fmt::Debug for CashDrawerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5368,17 +5137,6 @@ impl CashDrawerStatusUpdatedEventArgs {
 impl ::core::clone::Clone for CashDrawerStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CashDrawerStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatusUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
@@ -5687,17 +5445,6 @@ impl ::core::clone::Clone for ClaimedBarcodeScanner {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedBarcodeScanner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedBarcodeScanner {}
-impl ::core::fmt::Debug for ClaimedBarcodeScanner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedBarcodeScanner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5746,17 +5493,6 @@ impl ClaimedBarcodeScannerClosedEventArgs {}
 impl ::core::clone::Clone for ClaimedBarcodeScannerClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedBarcodeScannerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedBarcodeScannerClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedBarcodeScannerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedBarcodeScannerClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
@@ -5914,17 +5650,6 @@ impl ::core::clone::Clone for ClaimedCashDrawer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedCashDrawer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedCashDrawer {}
-impl ::core::fmt::Debug for ClaimedCashDrawer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedCashDrawer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5973,17 +5698,6 @@ impl ClaimedCashDrawerClosedEventArgs {}
 impl ::core::clone::Clone for ClaimedCashDrawerClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedCashDrawerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedCashDrawerClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedCashDrawerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedCashDrawerClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
@@ -6138,17 +5852,6 @@ impl ClaimedJournalPrinter {
 impl ::core::clone::Clone for ClaimedJournalPrinter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedJournalPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedJournalPrinter {}
-impl ::core::fmt::Debug for ClaimedJournalPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedJournalPrinter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
@@ -6470,17 +6173,6 @@ impl ::core::clone::Clone for ClaimedLineDisplay {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedLineDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedLineDisplay {}
-impl ::core::fmt::Debug for ClaimedLineDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedLineDisplay").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6529,17 +6221,6 @@ impl ClaimedLineDisplayClosedEventArgs {}
 impl ::core::clone::Clone for ClaimedLineDisplayClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedLineDisplayClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedLineDisplayClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedLineDisplayClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedLineDisplayClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
@@ -6831,17 +6512,6 @@ impl ::core::clone::Clone for ClaimedMagneticStripeReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedMagneticStripeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedMagneticStripeReader {}
-impl ::core::fmt::Debug for ClaimedMagneticStripeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedMagneticStripeReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6890,17 +6560,6 @@ impl ClaimedMagneticStripeReaderClosedEventArgs {}
 impl ::core::clone::Clone for ClaimedMagneticStripeReaderClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedMagneticStripeReaderClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedMagneticStripeReaderClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
@@ -7096,17 +6755,6 @@ impl ::core::clone::Clone for ClaimedPosPrinter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedPosPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedPosPrinter {}
-impl ::core::fmt::Debug for ClaimedPosPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedPosPrinter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7155,17 +6803,6 @@ impl ClaimedPosPrinterClosedEventArgs {}
 impl ::core::clone::Clone for ClaimedPosPrinterClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedPosPrinterClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedPosPrinterClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedPosPrinterClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedPosPrinterClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
@@ -7359,17 +6996,6 @@ impl ClaimedReceiptPrinter {
 impl ::core::clone::Clone for ClaimedReceiptPrinter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClaimedReceiptPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedReceiptPrinter {}
-impl ::core::fmt::Debug for ClaimedReceiptPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedReceiptPrinter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
@@ -7628,17 +7254,6 @@ impl ::core::clone::Clone for ClaimedSlipPrinter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClaimedSlipPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedSlipPrinter {}
-impl ::core::fmt::Debug for ClaimedSlipPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedSlipPrinter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7718,17 +7333,6 @@ impl JournalPrintJob {
 impl ::core::clone::Clone for JournalPrintJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for JournalPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JournalPrintJob {}
-impl ::core::fmt::Debug for JournalPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JournalPrintJob").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for JournalPrintJob {
@@ -7914,17 +7518,6 @@ impl ::core::clone::Clone for JournalPrinterCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for JournalPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JournalPrinterCapabilities {}
-impl ::core::fmt::Debug for JournalPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JournalPrinterCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8090,17 +7683,6 @@ impl ::core::clone::Clone for LineDisplay {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplay {}
-impl ::core::fmt::Debug for LineDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplay").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8235,17 +7817,6 @@ impl LineDisplayAttributes {
 impl ::core::clone::Clone for LineDisplayAttributes {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LineDisplayAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayAttributes {}
-impl ::core::fmt::Debug for LineDisplayAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayAttributes").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayAttributes {
@@ -8403,17 +7974,6 @@ impl ::core::clone::Clone for LineDisplayCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCapabilities {}
-impl ::core::fmt::Debug for LineDisplayCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8508,17 +8068,6 @@ impl ::core::clone::Clone for LineDisplayCursor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCursor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCursor {}
-impl ::core::fmt::Debug for LineDisplayCursor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8596,17 +8145,6 @@ impl ::core::clone::Clone for LineDisplayCursorAttributes {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCursorAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCursorAttributes {}
-impl ::core::fmt::Debug for LineDisplayCursorAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursorAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8665,17 +8203,6 @@ impl LineDisplayCustomGlyphs {
 impl ::core::clone::Clone for LineDisplayCustomGlyphs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LineDisplayCustomGlyphs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCustomGlyphs {}
-impl ::core::fmt::Debug for LineDisplayCustomGlyphs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCustomGlyphs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
@@ -8766,17 +8293,6 @@ impl ::core::clone::Clone for LineDisplayMarquee {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayMarquee {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayMarquee {}
-impl ::core::fmt::Debug for LineDisplayMarquee {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayMarquee").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarquee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8827,17 +8343,6 @@ impl ::core::clone::Clone for LineDisplayStatisticsCategorySelector {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayStatisticsCategorySelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStatisticsCategorySelector {}
-impl ::core::fmt::Debug for LineDisplayStatisticsCategorySelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStatisticsCategorySelector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8872,17 +8377,6 @@ impl LineDisplayStatusUpdatedEventArgs {
 impl ::core::clone::Clone for LineDisplayStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LineDisplayStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for LineDisplayStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStatusUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
@@ -8928,17 +8422,6 @@ impl LineDisplayStoredBitmap {
 impl ::core::clone::Clone for LineDisplayStoredBitmap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LineDisplayStoredBitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStoredBitmap {}
-impl ::core::fmt::Debug for LineDisplayStoredBitmap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStoredBitmap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
@@ -9131,17 +8614,6 @@ impl ::core::clone::Clone for LineDisplayWindow {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayWindow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayWindow {}
-impl ::core::fmt::Debug for LineDisplayWindow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayWindow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LineDisplayWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9316,17 +8788,6 @@ impl MagneticStripeReader {
 impl ::core::clone::Clone for MagneticStripeReader {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagneticStripeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReader {}
-impl ::core::fmt::Debug for MagneticStripeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReader").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReader {
@@ -9513,17 +8974,6 @@ impl ::core::clone::Clone for MagneticStripeReaderAamvaCardDataReceivedEventArgs
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAamvaCardDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9614,17 +9064,6 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
 impl ::core::clone::Clone for MagneticStripeReaderBankCardDataReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderBankCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderBankCardDataReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -9731,17 +9170,6 @@ impl MagneticStripeReaderCapabilities {
 impl ::core::clone::Clone for MagneticStripeReaderCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagneticStripeReaderCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderCapabilities {}
-impl ::core::fmt::Debug for MagneticStripeReaderCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
@@ -9881,17 +9309,6 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorOccurredEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderErrorOccurredEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9990,17 +9407,6 @@ impl ::core::clone::Clone for MagneticStripeReaderReport {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderReport {}
-impl ::core::fmt::Debug for MagneticStripeReaderReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10042,17 +9448,6 @@ impl MagneticStripeReaderStatusUpdatedEventArgs {
 impl ::core::clone::Clone for MagneticStripeReaderStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderStatusUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
@@ -10111,17 +9506,6 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderTrackData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderTrackData {}
-impl ::core::fmt::Debug for MagneticStripeReaderTrackData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10156,17 +9540,6 @@ impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
 impl ::core::clone::Clone for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -10343,17 +9716,6 @@ impl ::core::clone::Clone for PosPrinter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PosPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinter {}
-impl ::core::fmt::Debug for PosPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10475,17 +9837,6 @@ impl ::core::clone::Clone for PosPrinterCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterCapabilities {}
-impl ::core::fmt::Debug for PosPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PosPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10566,17 +9917,6 @@ impl PosPrinterFontProperty {
 impl ::core::clone::Clone for PosPrinterFontProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PosPrinterFontProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterFontProperty {}
-impl ::core::fmt::Debug for PosPrinterFontProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterFontProperty").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterFontProperty {
@@ -10758,17 +10098,6 @@ impl ::core::clone::Clone for PosPrinterPrintOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterPrintOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterPrintOptions {}
-impl ::core::fmt::Debug for PosPrinterPrintOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterPrintOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10795,17 +10124,6 @@ impl PosPrinterReleaseDeviceRequestedEventArgs {}
 impl ::core::clone::Clone for PosPrinterReleaseDeviceRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterReleaseDeviceRequestedEventArgs {}
-impl ::core::fmt::Debug for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterReleaseDeviceRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
@@ -10851,17 +10169,6 @@ impl ::core::clone::Clone for PosPrinterStatus {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterStatus {}
-impl ::core::fmt::Debug for PosPrinterStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10896,17 +10203,6 @@ impl PosPrinterStatusUpdatedEventArgs {
 impl ::core::clone::Clone for PosPrinterStatusUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PosPrinterStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for PosPrinterStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatusUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
@@ -11063,17 +10359,6 @@ impl ReceiptPrintJob {
 impl ::core::clone::Clone for ReceiptPrintJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ReceiptPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReceiptPrintJob {}
-impl ::core::fmt::Debug for ReceiptPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReceiptPrintJob").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ReceiptPrintJob {
@@ -11366,17 +10651,6 @@ impl ::core::clone::Clone for ReceiptPrinterCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ReceiptPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReceiptPrinterCapabilities {}
-impl ::core::fmt::Debug for ReceiptPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReceiptPrinterCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11553,17 +10827,6 @@ impl SlipPrintJob {
 impl ::core::clone::Clone for SlipPrintJob {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SlipPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlipPrintJob {}
-impl ::core::fmt::Debug for SlipPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlipPrintJob").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SlipPrintJob {
@@ -11849,17 +11112,6 @@ impl ::core::clone::Clone for SlipPrinterCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SlipPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlipPrinterCapabilities {}
-impl ::core::fmt::Debug for SlipPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlipPrinterCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11966,17 +11218,6 @@ impl ::core::clone::Clone for UnifiedPosErrorData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UnifiedPosErrorData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosErrorData {}
-impl ::core::fmt::Debug for UnifiedPosErrorData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12013,18 +11254,8 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
         *self
     }
 }
-impl ::core::default::Default for BarcodeScannerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeScannerStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BarcodeScannerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
@@ -12048,18 +11279,8 @@ impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
         *self
     }
 }
-impl ::core::default::Default for BarcodeSymbologyDecodeLengthKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeSymbologyDecodeLengthKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
@@ -12085,18 +11306,8 @@ impl ::core::clone::Clone for CashDrawerStatusKind {
         *self
     }
 }
-impl ::core::default::Default for CashDrawerStatusKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CashDrawerStatusKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CashDrawerStatusKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatusKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
@@ -12123,18 +11334,8 @@ impl ::core::clone::Clone for LineDisplayCursorType {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayCursorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayCursorType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayCursorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursorType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
@@ -12158,18 +11359,8 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayDescriptorState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayDescriptorState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayDescriptorState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayDescriptorState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
@@ -12193,18 +11384,8 @@ impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayHorizontalAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayHorizontalAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayHorizontalAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
@@ -12228,18 +11409,8 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayMarqueeFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayMarqueeFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
@@ -12265,18 +11436,8 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayPowerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayPowerStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayPowerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayPowerStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
@@ -12301,18 +11462,8 @@ impl ::core::clone::Clone for LineDisplayScrollDirection {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayScrollDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayScrollDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayScrollDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayScrollDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
@@ -12337,18 +11488,8 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayTextAttribute {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttribute {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayTextAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayTextAttribute").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
@@ -12372,18 +11513,8 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayTextAttributeGranularity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayTextAttributeGranularity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
@@ -12407,18 +11538,8 @@ impl ::core::clone::Clone for LineDisplayVerticalAlignment {
         *self
     }
 }
-impl ::core::default::Default for LineDisplayVerticalAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LineDisplayVerticalAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayVerticalAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
@@ -12442,18 +11563,8 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderAuthenticationLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAuthenticationLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
@@ -12476,18 +11587,8 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderAuthenticationProtocol {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationProtocol {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAuthenticationProtocol").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
@@ -12510,18 +11611,8 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderErrorReportingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderErrorReportingType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
@@ -12545,18 +11636,8 @@ impl ::core::clone::Clone for MagneticStripeReaderStatus {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
@@ -12583,18 +11664,8 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderTrackErrorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackErrorType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
@@ -12620,18 +11691,8 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
         *self
     }
 }
-impl ::core::default::Default for MagneticStripeReaderTrackIds {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackIds {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackIds").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
@@ -12656,46 +11717,8 @@ impl ::core::clone::Clone for PosConnectionTypes {
         *self
     }
 }
-impl ::core::default::Default for PosConnectionTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosConnectionTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosConnectionTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PosConnectionTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PosConnectionTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PosConnectionTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PosConnectionTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PosConnectionTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
@@ -12719,18 +11742,8 @@ impl ::core::clone::Clone for PosPrinterAlignment {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
@@ -12754,18 +11767,8 @@ impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterBarcodeTextPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterBarcodeTextPosition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterBarcodeTextPosition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
@@ -12791,46 +11794,8 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterCartridgeSensors {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PosPrinterCartridgeSensors {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PosPrinterCartridgeSensors {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PosPrinterCartridgeSensors {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PosPrinterCartridgeSensors {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PosPrinterCartridgeSensors {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
@@ -12863,46 +11828,8 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterColorCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterColorCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PosPrinterColorCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PosPrinterColorCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PosPrinterColorCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PosPrinterColorCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PosPrinterColorCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
@@ -12934,18 +11861,8 @@ impl ::core::clone::Clone for PosPrinterColorCartridge {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterColorCartridge {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterColorCartridge {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterColorCartridge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterColorCartridge").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
@@ -12968,18 +11885,8 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterLineDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterLineDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterLineDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterLineDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
@@ -13004,18 +11911,8 @@ impl ::core::clone::Clone for PosPrinterLineStyle {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterLineStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterLineStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterLineStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterLineStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
@@ -13040,18 +11937,8 @@ impl ::core::clone::Clone for PosPrinterMapMode {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterMapMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMapMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterMapMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMapMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
@@ -13077,46 +11964,8 @@ impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterMarkFeedCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedCapabilities {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PosPrinterMarkFeedCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PosPrinterMarkFeedCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PosPrinterMarkFeedCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PosPrinterMarkFeedCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PosPrinterMarkFeedCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
@@ -13141,18 +11990,8 @@ impl ::core::clone::Clone for PosPrinterMarkFeedKind {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterMarkFeedKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterMarkFeedKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
@@ -13176,18 +12015,8 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterPrintSide {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterPrintSide {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterPrintSide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterPrintSide").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
@@ -13212,18 +12041,8 @@ impl ::core::clone::Clone for PosPrinterRotation {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterRotation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterRotation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterRotation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
@@ -13247,46 +12066,8 @@ impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterRuledLineCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PosPrinterRuledLineCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PosPrinterRuledLineCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PosPrinterRuledLineCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PosPrinterRuledLineCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PosPrinterRuledLineCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
@@ -13312,18 +12093,8 @@ impl ::core::clone::Clone for PosPrinterStatusKind {
         *self
     }
 }
-impl ::core::default::Default for PosPrinterStatusKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PosPrinterStatusKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PosPrinterStatusKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatusKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
@@ -13355,18 +12126,8 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
         *self
     }
 }
-impl ::core::default::Default for UnifiedPosErrorReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnifiedPosErrorReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
@@ -13393,18 +12154,8 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
         *self
     }
 }
-impl ::core::default::Default for UnifiedPosErrorSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorSeverity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
@@ -13429,18 +12180,8 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
         *self
     }
 }
-impl ::core::default::Default for UnifiedPosHealthCheckLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosHealthCheckLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
@@ -13464,18 +12205,8 @@ impl ::core::clone::Clone for UnifiedPosPowerReportingType {
         *self
     }
 }
-impl ::core::default::Default for UnifiedPosPowerReportingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UnifiedPosPowerReportingType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosPowerReportingType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
@@ -13496,11 +12227,6 @@ impl ::core::clone::Clone for SizeUInt32 {
         *self
     }
 }
-impl ::core::fmt::Debug for SizeUInt32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SizeUInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SizeUInt32 {
     type Abi = Self;
 }
@@ -13511,16 +12237,7 @@ unsafe impl ::windows::core::RuntimeType for SizeUInt32 {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for SizeUInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl ::core::cmp::Eq for SizeUInt32 {}
-impl ::core::default::Default for SizeUInt32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

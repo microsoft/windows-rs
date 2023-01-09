@@ -438,20 +438,6 @@ impl ::core::clone::Clone for FileExtensionVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for FileExtensionVector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for FileExtensionVector {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for FileExtensionVector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileExtensionVector").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for FileExtensionVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileExtensionVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};string))");
     type DefaultType = ::core::option::Option<Self>;
@@ -690,17 +676,6 @@ impl ::core::clone::Clone for FileOpenPicker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileOpenPicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOpenPicker {}
-impl ::core::fmt::Debug for FileOpenPicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPicker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileOpenPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileOpenPicker;{2ca8278a-12c5-4c5f-8977-94547793c241})");
     type DefaultType = ::core::option::Option<Self>;
@@ -801,20 +776,6 @@ impl FilePickerFileTypesOrderedMap {
 impl ::core::clone::Clone for FilePickerFileTypesOrderedMap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for FilePickerFileTypesOrderedMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for FilePickerFileTypesOrderedMap {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for FilePickerFileTypesOrderedMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilePickerFileTypesOrderedMap").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -959,20 +920,6 @@ impl FilePickerSelectedFilesArray {
 impl ::core::clone::Clone for FilePickerSelectedFilesArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for FilePickerSelectedFilesArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for FilePickerSelectedFilesArray {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for FilePickerSelectedFilesArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilePickerSelectedFilesArray").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1210,17 +1157,6 @@ impl ::core::clone::Clone for FileSavePicker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileSavePicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileSavePicker {}
-impl ::core::fmt::Debug for FileSavePicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePicker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileSavePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FileSavePicker;{3286ffcb-617f-4cc5-af6a-b3fdf29ad145})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1356,17 +1292,6 @@ impl ::core::clone::Clone for FolderPicker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FolderPicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderPicker {}
-impl ::core::fmt::Debug for FolderPicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderPicker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FolderPicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.FolderPicker;{084f7799-f3fb-400a-99b1-7b4a772fd60d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1408,18 +1333,8 @@ impl ::core::clone::Clone for PickerLocationId {
         *self
     }
 }
-impl ::core::default::Default for PickerLocationId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PickerLocationId {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PickerLocationId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerLocationId").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PickerLocationId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
@@ -1442,18 +1357,8 @@ impl ::core::clone::Clone for PickerViewMode {
         *self
     }
 }
-impl ::core::default::Default for PickerViewMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PickerViewMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PickerViewMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerViewMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PickerViewMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
@@ -1464,3 +1369,5 @@ unsafe impl ::windows::core::RuntimeType for PickerViewMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

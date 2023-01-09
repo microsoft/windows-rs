@@ -430,17 +430,6 @@ impl ::core::clone::Clone for IWebViewControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebViewControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebViewControl {}
-impl ::core::fmt::Debug for IWebViewControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebViewControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebViewControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3f921316-bc70-4bda-9136-c94370899fab}");
     type DefaultType = ::core::option::Option<Self>;
@@ -667,17 +656,6 @@ impl IWebViewControl2 {
 impl ::core::clone::Clone for IWebViewControl2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebViewControl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebViewControl2 {}
-impl ::core::fmt::Debug for IWebViewControl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebViewControl2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebViewControl2 {
@@ -1031,17 +1009,6 @@ impl ::core::clone::Clone for WebViewControlContentLoadingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlContentLoadingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlContentLoadingEventArgs {}
-impl ::core::fmt::Debug for WebViewControlContentLoadingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlContentLoadingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlContentLoadingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlContentLoadingEventArgs;{9a3fccb2-b9bb-404b-a22b-66dccd1250c6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1076,17 +1043,6 @@ impl WebViewControlDOMContentLoadedEventArgs {
 impl ::core::clone::Clone for WebViewControlDOMContentLoadedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlDOMContentLoadedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlDOMContentLoadedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlDOMContentLoadedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlDOMContentLoadedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
@@ -1147,17 +1103,6 @@ impl ::core::clone::Clone for WebViewControlDeferredPermissionRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlDeferredPermissionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlDeferredPermissionRequest {}
-impl ::core::fmt::Debug for WebViewControlDeferredPermissionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlDeferredPermissionRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlDeferredPermissionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlDeferredPermissionRequest;{2ce349e0-d759-445c-9926-8995298f152b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1203,17 +1148,6 @@ impl WebViewControlLongRunningScriptDetectedEventArgs {
 impl ::core::clone::Clone for WebViewControlLongRunningScriptDetectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlLongRunningScriptDetectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlLongRunningScriptDetectedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlLongRunningScriptDetectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlLongRunningScriptDetectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlLongRunningScriptDetectedEventArgs {
@@ -1266,17 +1200,6 @@ impl ::core::clone::Clone for WebViewControlNavigationCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlNavigationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlNavigationCompletedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlNavigationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlNavigationCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNavigationCompletedEventArgs;{20409918-4a15-4c46-a55d-f79edb0bde8b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1322,17 +1245,6 @@ impl WebViewControlNavigationStartingEventArgs {
 impl ::core::clone::Clone for WebViewControlNavigationStartingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlNavigationStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlNavigationStartingEventArgs {}
-impl ::core::fmt::Debug for WebViewControlNavigationStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlNavigationStartingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlNavigationStartingEventArgs {
@@ -1415,17 +1327,6 @@ impl ::core::clone::Clone for WebViewControlNewWindowRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlNewWindowRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlNewWindowRequestedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlNewWindowRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlNewWindowRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs;{3df44bbb-a124-46d5-a083-d02cacdff5ad})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1495,17 +1396,6 @@ impl ::core::clone::Clone for WebViewControlPermissionRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlPermissionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlPermissionRequest {}
-impl ::core::fmt::Debug for WebViewControlPermissionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlPermissionRequest;{e5bc836c-f22f-40e2-95b2-7729f840eb7f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1538,17 +1428,6 @@ impl WebViewControlPermissionRequestedEventArgs {
 impl ::core::clone::Clone for WebViewControlPermissionRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlPermissionRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlPermissionRequestedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlPermissionRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
@@ -1592,17 +1471,6 @@ impl WebViewControlScriptNotifyEventArgs {
 impl ::core::clone::Clone for WebViewControlScriptNotifyEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlScriptNotifyEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlScriptNotifyEventArgs {}
-impl ::core::fmt::Debug for WebViewControlScriptNotifyEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlScriptNotifyEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlScriptNotifyEventArgs {
@@ -1665,17 +1533,6 @@ impl ::core::clone::Clone for WebViewControlSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlSettings {}
-impl ::core::fmt::Debug for WebViewControlSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlSettings;{c9967fbf-5e98-4cfd-8cce-27b0911e3de8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1721,17 +1578,6 @@ impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
 impl ::core::clone::Clone for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlUnsupportedUriSchemeIdentifiedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
@@ -1784,17 +1630,6 @@ impl WebViewControlUnviewableContentIdentifiedEventArgs {
 impl ::core::clone::Clone for WebViewControlUnviewableContentIdentifiedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebViewControlUnviewableContentIdentifiedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlUnviewableContentIdentifiedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlUnviewableContentIdentifiedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlUnviewableContentIdentifiedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlUnviewableContentIdentifiedEventArgs {
@@ -1857,17 +1692,6 @@ impl ::core::clone::Clone for WebViewControlWebResourceRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebViewControlWebResourceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlWebResourceRequestedEventArgs {}
-impl ::core::fmt::Debug for WebViewControlWebResourceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlWebResourceRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs;{44d6524d-55a4-4d8b-891c-931d8e25d42e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1901,18 +1725,8 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
-impl ::core::default::Default for WebViewControlPermissionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlPermissionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
@@ -1940,18 +1754,8 @@ impl ::core::clone::Clone for WebViewControlPermissionType {
         *self
     }
 }
-impl ::core::default::Default for WebViewControlPermissionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebViewControlPermissionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlPermissionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
@@ -1962,3 +1766,5 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

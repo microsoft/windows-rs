@@ -321,18 +321,8 @@ impl ::core::clone::Clone for D3DCOMPILER_STRIP_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for D3DCOMPILER_STRIP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for D3DCOMPILER_STRIP_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for D3DCOMPILER_STRIP_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("D3DCOMPILER_STRIP_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 #[repr(transparent)]
@@ -378,18 +368,8 @@ impl ::core::clone::Clone for D3D_BLOB_PART {
         *self
     }
 }
-impl ::core::default::Default for D3D_BLOB_PART {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for D3D_BLOB_PART {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for D3D_BLOB_PART {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("D3D_BLOB_PART").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
@@ -403,24 +383,8 @@ impl ::core::clone::Clone for D3D_SHADER_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for D3D_SHADER_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D3D_SHADER_DATA").field("pBytecode", &self.pBytecode).field("BytecodeLength", &self.BytecodeLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for D3D_SHADER_DATA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for D3D_SHADER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBytecode == other.pBytecode && self.BytecodeLength == other.BytecodeLength
-    }
-}
-impl ::core::cmp::Eq for D3D_SHADER_DATA {}
-impl ::core::default::Default for D3D_SHADER_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Fxc\"`*"]
 pub type pD3DCompile = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::core::option::Option<super::ID3DInclude>, pentrypoint: ::windows::core::PCSTR, ptarget: ::windows::core::PCSTR, flags1: u32, flags2: u32, ppcode: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;
@@ -430,3 +394,5 @@ pub type pD3DDisassemble = ::core::option::Option<unsafe extern "system" fn(psrc
 pub type pD3DPreprocess = ::core::option::Option<unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: ::windows::core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: ::core::option::Option<super::ID3DInclude>, ppcodetext: *mut ::core::option::Option<super::ID3DBlob>, pperrormsgs: *mut ::core::option::Option<super::ID3DBlob>) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

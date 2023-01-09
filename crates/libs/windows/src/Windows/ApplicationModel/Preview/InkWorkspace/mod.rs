@@ -61,17 +61,6 @@ impl ::core::clone::Clone for InkWorkspaceHostedAppManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InkWorkspaceHostedAppManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkWorkspaceHostedAppManager {}
-impl ::core::fmt::Debug for InkWorkspaceHostedAppManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InkWorkspaceHostedAppManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InkWorkspaceHostedAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager;{fe0a7990-5e59-4bb7-8a63-7d218cd96300})");
     type DefaultType = ::core::option::Option<Self>;
@@ -93,3 +82,5 @@ unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

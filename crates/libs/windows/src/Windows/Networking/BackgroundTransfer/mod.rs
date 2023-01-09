@@ -246,17 +246,6 @@ impl ::core::clone::Clone for IBackgroundTransferBase {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTransferBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTransferBase {}
-impl ::core::fmt::Debug for IBackgroundTransferBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTransferBase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
     type DefaultType = ::core::option::Option<Self>;
@@ -389,17 +378,6 @@ impl IBackgroundTransferContentPartFactory {
 impl ::core::clone::Clone for IBackgroundTransferContentPartFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTransferContentPartFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTransferContentPartFactory {}
-impl ::core::fmt::Debug for IBackgroundTransferContentPartFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTransferContentPartFactory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferContentPartFactory {
@@ -542,17 +520,6 @@ impl ::core::clone::Clone for IBackgroundTransferOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTransferOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTransferOperation {}
-impl ::core::fmt::Debug for IBackgroundTransferOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTransferOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
     type DefaultType = ::core::option::Option<Self>;
@@ -608,17 +575,6 @@ impl IBackgroundTransferOperationPriority {
 impl ::core::clone::Clone for IBackgroundTransferOperationPriority {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTransferOperationPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTransferOperationPriority {}
-impl ::core::fmt::Debug for IBackgroundTransferOperationPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTransferOperationPriority").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperationPriority {
@@ -1392,17 +1348,6 @@ impl ::core::clone::Clone for BackgroundDownloader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundDownloader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundDownloader {}
-impl ::core::fmt::Debug for BackgroundDownloader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundDownloader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundDownloader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1478,17 +1423,6 @@ impl ::core::clone::Clone for BackgroundTransferCompletionGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTransferCompletionGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferCompletionGroup {}
-impl ::core::fmt::Debug for BackgroundTransferCompletionGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferCompletionGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1534,17 +1468,6 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
 impl ::core::clone::Clone for BackgroundTransferCompletionGroupTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTransferCompletionGroupTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferCompletionGroupTriggerDetails {}
-impl ::core::fmt::Debug for BackgroundTransferCompletionGroupTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferCompletionGroupTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
@@ -1616,17 +1539,6 @@ impl BackgroundTransferContentPart {
 impl ::core::clone::Clone for BackgroundTransferContentPart {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTransferContentPart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferContentPart {}
-impl ::core::fmt::Debug for BackgroundTransferContentPart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferContentPart").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
@@ -1707,17 +1619,6 @@ impl ::core::clone::Clone for BackgroundTransferGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTransferGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferGroup {}
-impl ::core::fmt::Debug for BackgroundTransferGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1770,17 +1671,6 @@ impl BackgroundTransferRangesDownloadedEventArgs {
 impl ::core::clone::Clone for BackgroundTransferRangesDownloadedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTransferRangesDownloadedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferRangesDownloadedEventArgs {}
-impl ::core::fmt::Debug for BackgroundTransferRangesDownloadedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferRangesDownloadedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
@@ -2096,17 +1986,6 @@ impl ::core::clone::Clone for BackgroundUploader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundUploader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundUploader {}
-impl ::core::fmt::Debug for BackgroundUploader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundUploader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundUploader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2400,17 +2279,6 @@ impl ::core::clone::Clone for DownloadOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DownloadOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DownloadOperation {}
-impl ::core::fmt::Debug for DownloadOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DownloadOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DownloadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2510,17 +2378,6 @@ impl ::core::clone::Clone for ResponseInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResponseInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResponseInformation {}
-impl ::core::fmt::Debug for ResponseInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResponseInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResponseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2560,20 +2417,6 @@ impl UnconstrainedTransferRequestResult {
 impl ::core::clone::Clone for UnconstrainedTransferRequestResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for UnconstrainedTransferRequestResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for UnconstrainedTransferRequestResult {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for UnconstrainedTransferRequestResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnconstrainedTransferRequestResult").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2735,17 +2578,6 @@ impl ::core::clone::Clone for UploadOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UploadOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UploadOperation {}
-impl ::core::fmt::Debug for UploadOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UploadOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UploadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2817,18 +2649,8 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTransferBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTransferBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
@@ -2852,18 +2674,8 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTransferCostPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
@@ -2887,18 +2699,8 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTransferPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferPriority {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTransferPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
@@ -2929,18 +2731,8 @@ impl ::core::clone::Clone for BackgroundTransferStatus {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTransferStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTransferStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
@@ -2964,11 +2756,6 @@ impl ::core::clone::Clone for BackgroundDownloadProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundDownloadProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BackgroundDownloadProgress").field("BytesReceived", &self.BytesReceived).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundDownloadProgress {
     type Abi = Self;
 }
@@ -2977,17 +2764,6 @@ unsafe impl ::windows::core::RuntimeType for BackgroundDownloadProgress {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundDownloadProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesReceived == other.BytesReceived && self.TotalBytesToReceive == other.TotalBytesToReceive && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
-    }
-}
-impl ::core::cmp::Eq for BackgroundDownloadProgress {}
-impl ::core::default::Default for BackgroundDownloadProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3002,11 +2778,6 @@ impl ::core::clone::Clone for BackgroundTransferFileRange {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundTransferFileRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BackgroundTransferFileRange").field("Offset", &self.Offset).field("Length", &self.Length).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTransferFileRange {
     type Abi = Self;
 }
@@ -3015,17 +2786,6 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferFileRange {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTransferFileRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferFileRange {}
-impl ::core::default::Default for BackgroundTransferFileRange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -3045,11 +2805,6 @@ impl ::core::clone::Clone for BackgroundUploadProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for BackgroundUploadProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BackgroundUploadProgress").field("BytesReceived", &self.BytesReceived).field("BytesSent", &self.BytesSent).field("TotalBytesToReceive", &self.TotalBytesToReceive).field("TotalBytesToSend", &self.TotalBytesToSend).field("Status", &self.Status).field("HasResponseChanged", &self.HasResponseChanged).field("HasRestarted", &self.HasRestarted).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundUploadProgress {
     type Abi = Self;
 }
@@ -3060,16 +2815,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundUploadProgress {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for BackgroundUploadProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesReceived == other.BytesReceived && self.BytesSent == other.BytesSent && self.TotalBytesToReceive == other.TotalBytesToReceive && self.TotalBytesToSend == other.TotalBytesToSend && self.Status == other.Status && self.HasResponseChanged == other.HasResponseChanged && self.HasRestarted == other.HasRestarted
-    }
-}
-impl ::core::cmp::Eq for BackgroundUploadProgress {}
-impl ::core::default::Default for BackgroundUploadProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

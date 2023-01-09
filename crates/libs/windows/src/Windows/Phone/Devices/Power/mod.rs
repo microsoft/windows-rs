@@ -92,17 +92,6 @@ impl ::core::clone::Clone for Battery {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Battery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Battery {}
-impl ::core::fmt::Debug for Battery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Battery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -124,3 +113,5 @@ unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -144,18 +144,8 @@ impl ::core::clone::Clone for ClosedCaptionColor {
         *self
     }
 }
-impl ::core::default::Default for ClosedCaptionColor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClosedCaptionColor {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClosedCaptionColor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClosedCaptionColor").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionColor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionColor;i4)");
@@ -182,18 +172,8 @@ impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
         *self
     }
 }
-impl ::core::default::Default for ClosedCaptionEdgeEffect {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClosedCaptionEdgeEffect {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClosedCaptionEdgeEffect").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionEdgeEffect;i4)");
@@ -219,18 +199,8 @@ impl ::core::clone::Clone for ClosedCaptionOpacity {
         *self
     }
 }
-impl ::core::default::Default for ClosedCaptionOpacity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClosedCaptionOpacity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClosedCaptionOpacity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClosedCaptionOpacity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionOpacity;i4)");
@@ -256,18 +226,8 @@ impl ::core::clone::Clone for ClosedCaptionSize {
         *self
     }
 }
-impl ::core::default::Default for ClosedCaptionSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClosedCaptionSize {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClosedCaptionSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClosedCaptionSize").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionSize;i4)");
@@ -296,18 +256,8 @@ impl ::core::clone::Clone for ClosedCaptionStyle {
         *self
     }
 }
-impl ::core::default::Default for ClosedCaptionStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClosedCaptionStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClosedCaptionStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClosedCaptionStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClosedCaptionStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ClosedCaptioning.ClosedCaptionStyle;i4)");
@@ -318,3 +268,5 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionStyle {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

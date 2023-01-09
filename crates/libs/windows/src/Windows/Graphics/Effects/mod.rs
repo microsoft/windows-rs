@@ -39,17 +39,6 @@ impl ::core::clone::Clone for IGraphicsEffect {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGraphicsEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGraphicsEffect {}
-impl ::core::fmt::Debug for IGraphicsEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGraphicsEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
     type DefaultType = ::core::option::Option<Self>;
@@ -80,17 +69,6 @@ impl ::core::clone::Clone for IGraphicsEffectSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGraphicsEffectSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGraphicsEffectSource {}
-impl ::core::fmt::Debug for IGraphicsEffectSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGraphicsEffectSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
     type DefaultType = ::core::option::Option<Self>;
@@ -111,3 +89,5 @@ pub struct IGraphicsEffectSource_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

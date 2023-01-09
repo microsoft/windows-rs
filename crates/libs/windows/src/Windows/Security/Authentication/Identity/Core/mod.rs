@@ -279,17 +279,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorAuthenticationManager {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager;{0fd340a5-f574-4320-a08e-0a19a82322aa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -333,17 +322,6 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
 impl ::core::clone::Clone for MicrosoftAccountMultiFactorGetSessionsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorGetSessionsResult {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorGetSessionsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorGetSessionsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult {
@@ -405,17 +383,6 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
 impl ::core::clone::Clone for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorOneTimeCodedInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -500,17 +467,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorSessionInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo;{5f7eabb4-a278-4635-b765-b494eb260af4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -565,17 +521,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorUnregisteredAccountsAnd
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo;{aa7ec5fb-da3f-4088-a20d-5618afadb2e5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -609,18 +554,8 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
         *self
     }
 }
-impl ::core::default::Default for MicrosoftAccountMultiFactorAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationType;i4)");
@@ -663,18 +598,8 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
         *self
     }
 }
-impl ::core::default::Default for MicrosoftAccountMultiFactorServiceResponse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorServiceResponse;i4)");
@@ -698,18 +623,8 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
         *self
     }
 }
-impl ::core::default::Default for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionApprovalStatus;i4)");
@@ -732,18 +647,8 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationSt
         *self
     }
 }
-impl ::core::default::Default for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
@@ -754,3 +659,5 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

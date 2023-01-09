@@ -123,18 +123,8 @@ impl ::core::clone::Clone for COMPRESS_ALGORITHM {
         *self
     }
 }
-impl ::core::default::Default for COMPRESS_ALGORITHM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
@@ -152,18 +142,8 @@ impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
         *self
     }
 }
-impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -210,18 +190,8 @@ impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
         *self
     }
 }
-impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
     type Abi = Self;
-}
-impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
@@ -229,3 +199,5 @@ pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" f
 pub type PFN_COMPRESS_FREE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -73,17 +73,6 @@ impl ::core::clone::Clone for GeolocationProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GeolocationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeolocationProvider {}
-impl ::core::fmt::Debug for GeolocationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeolocationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GeolocationProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Provider.GeolocationProvider;{e4cf071d-3f64-509f-8dc2-0b74a059829d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -119,18 +108,8 @@ impl ::core::clone::Clone for LocationOverrideStatus {
         *self
     }
 }
-impl ::core::default::Default for LocationOverrideStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LocationOverrideStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LocationOverrideStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocationOverrideStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LocationOverrideStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");
@@ -141,3 +120,5 @@ unsafe impl ::windows::core::RuntimeType for LocationOverrideStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

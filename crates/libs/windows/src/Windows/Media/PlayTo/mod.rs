@@ -611,17 +611,6 @@ impl ::core::clone::Clone for CurrentTimeChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CurrentTimeChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrentTimeChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for CurrentTimeChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrentTimeChangeRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -654,17 +643,6 @@ impl MuteChangeRequestedEventArgs {
 impl ::core::clone::Clone for MuteChangeRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MuteChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MuteChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for MuteChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MuteChangeRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MuteChangeRequestedEventArgs {
@@ -752,20 +730,6 @@ impl ::core::clone::Clone for PlayToConnection {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnection {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnection;{112fbfc8-f235-4fde-8d41-9bf27c9e9a40})");
     type DefaultType = ::core::option::Option<Self>;
@@ -820,20 +784,6 @@ impl PlayToConnectionErrorEventArgs {
 impl ::core::clone::Clone for PlayToConnectionErrorEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnectionErrorEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnectionErrorEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionErrorEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionErrorEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -894,20 +844,6 @@ impl ::core::clone::Clone for PlayToConnectionStateChangedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnectionStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnectionStateChangedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionStateChangedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs;{68c4b50f-0c20-4980-8602-58c62238d423})");
     type DefaultType = ::core::option::Option<Self>;
@@ -962,20 +898,6 @@ impl PlayToConnectionTransferredEventArgs {
 impl ::core::clone::Clone for PlayToConnectionTransferredEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnectionTransferredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnectionTransferredEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionTransferredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionTransferredEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1079,20 +1001,6 @@ impl PlayToManager {
 impl ::core::clone::Clone for PlayToManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToManager {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToManager").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1396,17 +1304,6 @@ impl ::core::clone::Clone for PlayToReceiver {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PlayToReceiver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlayToReceiver {}
-impl ::core::fmt::Debug for PlayToReceiver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToReceiver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PlayToReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToReceiver;{ac15cf47-a162-4aa6-af1b-3aa35f3b9069})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1483,20 +1380,6 @@ impl ::core::clone::Clone for PlayToSource {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToSource {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToSource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSource;{7f138a08-fbb7-4b09-8356-aa5f4e335c31})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1539,20 +1422,6 @@ impl PlayToSourceDeferral {
 impl ::core::clone::Clone for PlayToSourceDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToSourceDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToSourceDeferral {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToSourceDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToSourceDeferral").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1625,20 +1494,6 @@ impl ::core::clone::Clone for PlayToSourceRequest {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToSourceRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToSourceRequest {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToSourceRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToSourceRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceRequest;{f8584665-64f4-44a0-ac0d-468d2b8fda83})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1684,20 +1539,6 @@ impl PlayToSourceRequestedEventArgs {
 impl ::core::clone::Clone for PlayToSourceRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToSourceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToSourceRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToSourceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToSourceRequestedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1785,20 +1626,6 @@ impl ::core::clone::Clone for PlayToSourceSelectedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToSourceSelectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToSourceSelectedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToSourceSelectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToSourceSelectedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToSourceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.PlayToSourceSelectedEventArgs;{0c9d8511-5202-4dcb-8c67-abda12bb3c12})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1839,17 +1666,6 @@ impl PlaybackRateChangeRequestedEventArgs {
 impl ::core::clone::Clone for PlaybackRateChangeRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PlaybackRateChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackRateChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for PlaybackRateChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackRateChangeRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
@@ -1959,17 +1775,6 @@ impl ::core::clone::Clone for SourceChangeRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SourceChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SourceChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for SourceChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SourceChangeRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SourceChangeRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.SourceChangeRequestedEventArgs;{fb3f3a96-7aa6-4a8b-86e7-54f6c6d34f64})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2002,17 +1807,6 @@ impl VolumeChangeRequestedEventArgs {
 impl ::core::clone::Clone for VolumeChangeRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VolumeChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VolumeChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for VolumeChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VolumeChangeRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VolumeChangeRequestedEventArgs {
@@ -2054,20 +1848,8 @@ impl ::core::clone::Clone for PlayToConnectionError {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionError {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
@@ -2097,20 +1879,8 @@ impl ::core::clone::Clone for PlayToConnectionState {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionState {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
@@ -2122,3 +1892,5 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

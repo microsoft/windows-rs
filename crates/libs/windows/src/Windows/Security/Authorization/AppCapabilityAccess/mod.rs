@@ -198,17 +198,6 @@ impl ::core::clone::Clone for AppCapability {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCapability {}
-impl ::core::fmt::Debug for AppCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapability").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -235,17 +224,6 @@ impl AppCapabilityAccessChangedEventArgs {}
 impl ::core::clone::Clone for AppCapabilityAccessChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppCapabilityAccessChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCapabilityAccessChangedEventArgs {}
-impl ::core::fmt::Debug for AppCapabilityAccessChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapabilityAccessChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs {
@@ -284,18 +262,8 @@ impl ::core::clone::Clone for AppCapabilityAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for AppCapabilityAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AppCapabilityAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AppCapabilityAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
@@ -306,3 +274,5 @@ unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

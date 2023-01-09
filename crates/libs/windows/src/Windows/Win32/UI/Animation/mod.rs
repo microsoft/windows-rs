@@ -34,17 +34,6 @@ impl ::core::clone::Clone for IUIAnimationInterpolator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationInterpolator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationInterpolator {}
-impl ::core::fmt::Debug for IUIAnimationInterpolator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationInterpolator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationInterpolator {
     type Vtable = IUIAnimationInterpolator_Vtbl;
 }
@@ -106,17 +95,6 @@ impl ::core::clone::Clone for IUIAnimationInterpolator2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationInterpolator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationInterpolator2 {}
-impl ::core::fmt::Debug for IUIAnimationInterpolator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationInterpolator2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationInterpolator2 {
     type Vtable = IUIAnimationInterpolator2_Vtbl;
 }
@@ -152,17 +130,6 @@ impl IUIAnimationLoopIterationChangeHandler2 {
 impl ::core::clone::Clone for IUIAnimationLoopIterationChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationLoopIterationChangeHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationLoopIterationChangeHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationLoopIterationChangeHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationLoopIterationChangeHandler2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationLoopIterationChangeHandler2 {
@@ -273,17 +240,6 @@ impl IUIAnimationManager {
 impl ::core::clone::Clone for IUIAnimationManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationManager {}
-impl ::core::fmt::Debug for IUIAnimationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationManager").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationManager {
@@ -425,17 +381,6 @@ impl ::core::clone::Clone for IUIAnimationManager2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationManager2 {}
-impl ::core::fmt::Debug for IUIAnimationManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationManager2 {
     type Vtable = IUIAnimationManager2_Vtbl;
 }
@@ -485,17 +430,6 @@ impl ::core::clone::Clone for IUIAnimationManagerEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationManagerEventHandler {}
-impl ::core::fmt::Debug for IUIAnimationManagerEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationManagerEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationManagerEventHandler {
     type Vtable = IUIAnimationManagerEventHandler_Vtbl;
 }
@@ -520,17 +454,6 @@ impl IUIAnimationManagerEventHandler2 {
 impl ::core::clone::Clone for IUIAnimationManagerEventHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationManagerEventHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationManagerEventHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationManagerEventHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationManagerEventHandler2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationManagerEventHandler2 {
@@ -560,17 +483,6 @@ impl IUIAnimationPrimitiveInterpolation {
 impl ::core::clone::Clone for IUIAnimationPrimitiveInterpolation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationPrimitiveInterpolation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationPrimitiveInterpolation {}
-impl ::core::fmt::Debug for IUIAnimationPrimitiveInterpolation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationPrimitiveInterpolation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationPrimitiveInterpolation {
@@ -604,17 +516,6 @@ impl ::core::clone::Clone for IUIAnimationPriorityComparison {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationPriorityComparison {}
-impl ::core::fmt::Debug for IUIAnimationPriorityComparison {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationPriorityComparison").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationPriorityComparison {
     type Vtable = IUIAnimationPriorityComparison_Vtbl;
 }
@@ -643,17 +544,6 @@ impl IUIAnimationPriorityComparison2 {
 impl ::core::clone::Clone for IUIAnimationPriorityComparison2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationPriorityComparison2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationPriorityComparison2 {}
-impl ::core::fmt::Debug for IUIAnimationPriorityComparison2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationPriorityComparison2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationPriorityComparison2 {
@@ -766,17 +656,6 @@ impl IUIAnimationStoryboard {
 impl ::core::clone::Clone for IUIAnimationStoryboard {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationStoryboard {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationStoryboard {}
-impl ::core::fmt::Debug for IUIAnimationStoryboard {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationStoryboard").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationStoryboard {
@@ -918,17 +797,6 @@ impl ::core::clone::Clone for IUIAnimationStoryboard2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationStoryboard2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationStoryboard2 {}
-impl ::core::fmt::Debug for IUIAnimationStoryboard2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationStoryboard2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationStoryboard2 {
     type Vtable = IUIAnimationStoryboard2_Vtbl;
 }
@@ -987,17 +855,6 @@ impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationStoryboardEventHandler {}
-impl ::core::fmt::Debug for IUIAnimationStoryboardEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationStoryboardEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationStoryboardEventHandler {
     type Vtable = IUIAnimationStoryboardEventHandler_Vtbl;
 }
@@ -1032,17 +889,6 @@ impl IUIAnimationStoryboardEventHandler2 {
 impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationStoryboardEventHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationStoryboardEventHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationStoryboardEventHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationStoryboardEventHandler2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationStoryboardEventHandler2 {
@@ -1097,17 +943,6 @@ impl ::core::clone::Clone for IUIAnimationTimer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTimer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTimer {}
-impl ::core::fmt::Debug for IUIAnimationTimer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTimer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTimer {
     type Vtable = IUIAnimationTimer_Vtbl;
 }
@@ -1140,17 +975,6 @@ impl ::core::clone::Clone for IUIAnimationTimerClientEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTimerClientEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTimerClientEventHandler {}
-impl ::core::fmt::Debug for IUIAnimationTimerClientEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTimerClientEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTimerClientEventHandler {
     type Vtable = IUIAnimationTimerClientEventHandler_Vtbl;
 }
@@ -1181,17 +1005,6 @@ impl IUIAnimationTimerEventHandler {
 impl ::core::clone::Clone for IUIAnimationTimerEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationTimerEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTimerEventHandler {}
-impl ::core::fmt::Debug for IUIAnimationTimerEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTimerEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationTimerEventHandler {
@@ -1232,17 +1045,6 @@ impl ::core::clone::Clone for IUIAnimationTimerUpdateHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTimerUpdateHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTimerUpdateHandler {}
-impl ::core::fmt::Debug for IUIAnimationTimerUpdateHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTimerUpdateHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTimerUpdateHandler {
     type Vtable = IUIAnimationTimerUpdateHandler_Vtbl;
 }
@@ -1279,17 +1081,6 @@ impl IUIAnimationTransition {
 impl ::core::clone::Clone for IUIAnimationTransition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationTransition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransition {}
-impl ::core::fmt::Debug for IUIAnimationTransition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationTransition {
@@ -1341,17 +1132,6 @@ impl ::core::clone::Clone for IUIAnimationTransition2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTransition2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransition2 {}
-impl ::core::fmt::Debug for IUIAnimationTransition2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransition2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTransition2 {
     type Vtable = IUIAnimationTransition2_Vtbl;
 }
@@ -1388,17 +1168,6 @@ impl ::core::clone::Clone for IUIAnimationTransitionFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransitionFactory {}
-impl ::core::fmt::Debug for IUIAnimationTransitionFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransitionFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTransitionFactory {
     type Vtable = IUIAnimationTransitionFactory_Vtbl;
 }
@@ -1427,17 +1196,6 @@ impl IUIAnimationTransitionFactory2 {
 impl ::core::clone::Clone for IUIAnimationTransitionFactory2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationTransitionFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransitionFactory2 {}
-impl ::core::fmt::Debug for IUIAnimationTransitionFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransitionFactory2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationTransitionFactory2 {
@@ -1509,17 +1267,6 @@ impl IUIAnimationTransitionLibrary {
 impl ::core::clone::Clone for IUIAnimationTransitionLibrary {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransitionLibrary {}
-impl ::core::fmt::Debug for IUIAnimationTransitionLibrary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransitionLibrary").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationTransitionLibrary {
@@ -1632,17 +1379,6 @@ impl ::core::clone::Clone for IUIAnimationTransitionLibrary2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationTransitionLibrary2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationTransitionLibrary2 {}
-impl ::core::fmt::Debug for IUIAnimationTransitionLibrary2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationTransitionLibrary2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationTransitionLibrary2 {
     type Vtable = IUIAnimationTransitionLibrary2_Vtbl;
 }
@@ -1740,17 +1476,6 @@ impl IUIAnimationVariable {
 impl ::core::clone::Clone for IUIAnimationVariable {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationVariable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariable {}
-impl ::core::fmt::Debug for IUIAnimationVariable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariable").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationVariable {
@@ -1900,17 +1625,6 @@ impl ::core::clone::Clone for IUIAnimationVariable2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationVariable2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariable2 {}
-impl ::core::fmt::Debug for IUIAnimationVariable2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariable2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationVariable2 {
     type Vtable = IUIAnimationVariable2_Vtbl;
 }
@@ -1978,17 +1692,6 @@ impl ::core::clone::Clone for IUIAnimationVariableChangeHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariableChangeHandler {}
-impl ::core::fmt::Debug for IUIAnimationVariableChangeHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariableChangeHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationVariableChangeHandler {
     type Vtable = IUIAnimationVariableChangeHandler_Vtbl;
 }
@@ -2019,17 +1722,6 @@ impl ::core::clone::Clone for IUIAnimationVariableChangeHandler2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationVariableChangeHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariableChangeHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationVariableChangeHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariableChangeHandler2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationVariableChangeHandler2 {
     type Vtable = IUIAnimationVariableChangeHandler2_Vtbl;
 }
@@ -2057,17 +1749,6 @@ impl IUIAnimationVariableCurveChangeHandler2 {
 impl ::core::clone::Clone for IUIAnimationVariableCurveChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationVariableCurveChangeHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariableCurveChangeHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationVariableCurveChangeHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariableCurveChangeHandler2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationVariableCurveChangeHandler2 {
@@ -2100,17 +1781,6 @@ impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariableIntegerChangeHandler {}
-impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariableIntegerChangeHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IUIAnimationVariableIntegerChangeHandler {
     type Vtable = IUIAnimationVariableIntegerChangeHandler_Vtbl;
 }
@@ -2139,17 +1809,6 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
 impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUIAnimationVariableIntegerChangeHandler2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUIAnimationVariableIntegerChangeHandler2 {}
-impl ::core::fmt::Debug for IUIAnimationVariableIntegerChangeHandler2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUIAnimationVariableIntegerChangeHandler2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IUIAnimationVariableIntegerChangeHandler2 {
@@ -2208,46 +1867,8 @@ impl ::core::clone::Clone for UI_ANIMATION_DEPENDENCIES {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_DEPENDENCIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_DEPENDENCIES {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_DEPENDENCIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_DEPENDENCIES").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for UI_ANIMATION_DEPENDENCIES {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UI_ANIMATION_DEPENDENCIES {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UI_ANIMATION_DEPENDENCIES {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UI_ANIMATION_DEPENDENCIES {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UI_ANIMATION_DEPENDENCIES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2263,18 +1884,8 @@ impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_IDLE_BEHAVIOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_IDLE_BEHAVIOR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_IDLE_BEHAVIOR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2290,18 +1901,8 @@ impl ::core::clone::Clone for UI_ANIMATION_MANAGER_STATUS {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_MANAGER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_MANAGER_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_MANAGER_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2319,18 +1920,8 @@ impl ::core::clone::Clone for UI_ANIMATION_MODE {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_MODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2346,18 +1937,8 @@ impl ::core::clone::Clone for UI_ANIMATION_PRIORITY_EFFECT {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_PRIORITY_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_PRIORITY_EFFECT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_PRIORITY_EFFECT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2373,18 +1954,8 @@ impl ::core::clone::Clone for UI_ANIMATION_REPEAT_MODE {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_REPEAT_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_REPEAT_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_REPEAT_MODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2402,18 +1973,8 @@ impl ::core::clone::Clone for UI_ANIMATION_ROUNDING_MODE {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_ROUNDING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_ROUNDING_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_ROUNDING_MODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2435,18 +1996,8 @@ impl ::core::clone::Clone for UI_ANIMATION_SCHEDULING_RESULT {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_SCHEDULING_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_SCHEDULING_RESULT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_SCHEDULING_RESULT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2462,18 +2013,8 @@ impl ::core::clone::Clone for UI_ANIMATION_SLOPE {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_SLOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_SLOPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_SLOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_SLOPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2501,18 +2042,8 @@ impl ::core::clone::Clone for UI_ANIMATION_STORYBOARD_STATUS {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_STORYBOARD_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_STORYBOARD_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_STORYBOARD_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2528,18 +2059,8 @@ impl ::core::clone::Clone for UI_ANIMATION_TIMER_CLIENT_STATUS {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_TIMER_CLIENT_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_TIMER_CLIENT_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_TIMER_CLIENT_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
@@ -2555,18 +2076,8 @@ impl ::core::clone::Clone for UI_ANIMATION_UPDATE_RESULT {
         *self
     }
 }
-impl ::core::default::Default for UI_ANIMATION_UPDATE_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UI_ANIMATION_UPDATE_RESULT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_ANIMATION_UPDATE_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_ANIMATION_UPDATE_RESULT").field(&self.0).finish()
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2597,3 +2108,5 @@ unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

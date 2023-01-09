@@ -13201,46 +13201,8 @@ impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
         *self
     }
 }
-impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DUPLICATE_HANDLE_OPTIONS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
@@ -13256,46 +13218,8 @@ impl ::core::clone::Clone for HANDLE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for HANDLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HANDLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HANDLE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HANDLE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HANDLE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
@@ -13417,18 +13341,8 @@ impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
         *self
     }
 }
-impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
@@ -19840,18 +19754,8 @@ impl ::core::clone::Clone for WIN32_ERROR {
         *self
     }
 }
-impl ::core::default::Default for WIN32_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_ERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WIN32_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
-    }
 }
 impl WIN32_ERROR {
     #[inline]
@@ -19905,24 +19809,8 @@ impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
         *self
     }
 }
-impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
-impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20185,11 +20073,6 @@ impl ::core::clone::Clone for DECIMAL {
 unsafe impl ::windows::core::Abi for DECIMAL {
     type Abi = Self;
 }
-impl ::core::default::Default for DECIMAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub union DECIMAL_0 {
@@ -20205,11 +20088,6 @@ impl ::core::clone::Clone for DECIMAL_0 {
 unsafe impl ::windows::core::Abi for DECIMAL_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for DECIMAL_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct DECIMAL_0_0 {
@@ -20222,24 +20100,8 @@ impl ::core::clone::Clone for DECIMAL_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DECIMAL_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.scale == other.scale && self.sign == other.sign
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_0_0 {}
-impl ::core::default::Default for DECIMAL_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20256,11 +20118,6 @@ impl ::core::clone::Clone for DECIMAL_1 {
 unsafe impl ::windows::core::Abi for DECIMAL_1 {
     type Abi = Self;
 }
-impl ::core::default::Default for DECIMAL_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct DECIMAL_1_0 {
@@ -20273,24 +20130,8 @@ impl ::core::clone::Clone for DECIMAL_1_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DECIMAL_1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Lo32 == other.Lo32 && self.Mid32 == other.Mid32
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_1_0 {}
-impl ::core::default::Default for DECIMAL_1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20304,24 +20145,8 @@ impl ::core::clone::Clone for FILETIME {
         *self
     }
 }
-impl ::core::fmt::Debug for FILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FILETIME {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLowDateTime == other.dwLowDateTime && self.dwHighDateTime == other.dwHighDateTime
-    }
-}
-impl ::core::cmp::Eq for FILETIME {}
-impl ::core::default::Default for FILETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20335,24 +20160,8 @@ impl ::core::clone::Clone for FLOAT128 {
         *self
     }
 }
-impl ::core::fmt::Debug for FLOAT128 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FLOAT128 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FLOAT128 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for FLOAT128 {}
-impl ::core::default::Default for FLOAT128 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20456,24 +20265,8 @@ impl ::core::clone::Clone for HLSURF__ {
         *self
     }
 }
-impl ::core::fmt::Debug for HLSURF__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HLSURF__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HLSURF__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HLSURF__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HLSURF__ {}
-impl ::core::default::Default for HLSURF__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20518,24 +20311,8 @@ impl ::core::clone::Clone for HSPRITE__ {
         *self
     }
 }
-impl ::core::fmt::Debug for HSPRITE__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HSPRITE__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSPRITE__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HSPRITE__ {}
-impl ::core::default::Default for HSPRITE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20548,24 +20325,8 @@ impl ::core::clone::Clone for HSTR__ {
         *self
     }
 }
-impl ::core::fmt::Debug for HSTR__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSTR__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HSTR__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSTR__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HSTR__ {}
-impl ::core::default::Default for HSTR__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20578,24 +20339,8 @@ impl ::core::clone::Clone for HUMPD__ {
         *self
     }
 }
-impl ::core::fmt::Debug for HUMPD__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HUMPD__").field("unused", &self.unused).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HUMPD__ {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HUMPD__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for HUMPD__ {}
-impl ::core::default::Default for HUMPD__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20690,24 +20435,8 @@ impl ::core::clone::Clone for LUID {
         *self
     }
 }
-impl ::core::fmt::Debug for LUID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for LUID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LUID {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for LUID {}
-impl ::core::default::Default for LUID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20780,24 +20509,8 @@ impl ::core::clone::Clone for POINT {
         *self
     }
 }
-impl ::core::fmt::Debug for POINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for POINT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINT {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl ::core::cmp::Eq for POINT {}
-impl ::core::default::Default for POINT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20811,24 +20524,8 @@ impl ::core::clone::Clone for POINTL {
         *self
     }
 }
-impl ::core::fmt::Debug for POINTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for POINTL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINTL {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl ::core::cmp::Eq for POINTL {}
-impl ::core::default::Default for POINTL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20842,24 +20539,8 @@ impl ::core::clone::Clone for POINTS {
         *self
     }
 }
-impl ::core::fmt::Debug for POINTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for POINTS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.x == other.x && self.y == other.y
-    }
-}
-impl ::core::cmp::Eq for POINTS {}
-impl ::core::default::Default for POINTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20907,24 +20588,8 @@ impl ::core::clone::Clone for RECT {
         *self
     }
 }
-impl ::core::fmt::Debug for RECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RECT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl ::core::cmp::Eq for RECT {}
-impl ::core::default::Default for RECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -20940,24 +20605,8 @@ impl ::core::clone::Clone for RECTL {
         *self
     }
 }
-impl ::core::fmt::Debug for RECTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RECTL {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RECTL {
-    fn eq(&self, other: &Self) -> bool {
-        self.left == other.left && self.top == other.top && self.right == other.right && self.bottom == other.bottom
-    }
-}
-impl ::core::cmp::Eq for RECTL {}
-impl ::core::default::Default for RECTL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20998,24 +20647,8 @@ impl ::core::clone::Clone for SIZE {
         *self
     }
 }
-impl ::core::fmt::Debug for SIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SIZE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cx == other.cx && self.cy == other.cy
-    }
-}
-impl ::core::cmp::Eq for SIZE {}
-impl ::core::default::Default for SIZE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21035,24 +20668,8 @@ impl ::core::clone::Clone for SYSTEMTIME {
         *self
     }
 }
-impl ::core::fmt::Debug for SYSTEMTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SYSTEMTIME {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDayOfWeek == other.wDayOfWeek && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
-    }
-}
-impl ::core::cmp::Eq for SYSTEMTIME {}
-impl ::core::default::Default for SYSTEMTIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -21067,24 +20684,8 @@ impl ::core::clone::Clone for UNICODE_STRING {
         *self
     }
 }
-impl ::core::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UNICODE_STRING {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UNICODE_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
-    }
-}
-impl ::core::cmp::Eq for UNICODE_STRING {}
-impl ::core::default::Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21218,3 +20819,5 @@ pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: 
 pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

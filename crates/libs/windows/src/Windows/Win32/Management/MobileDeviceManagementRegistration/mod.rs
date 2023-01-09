@@ -296,18 +296,8 @@ impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
         *self
     }
 }
-impl ::core::default::Default for REGISTRATION_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for REGISTRATION_INFORMATION_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for REGISTRATION_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("REGISTRATION_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
@@ -327,28 +317,8 @@ impl ::core::clone::Clone for MANAGEMENT_REGISTRATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MANAGEMENT_REGISTRATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MANAGEMENT_REGISTRATION_INFO").field("fDeviceRegisteredWithManagement", &self.fDeviceRegisteredWithManagement).field("dwDeviceRegistionKind", &self.dwDeviceRegistionKind).field("pszUPN", &self.pszUPN).field("pszMDMServiceUri", &self.pszMDMServiceUri).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MANAGEMENT_REGISTRATION_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MANAGEMENT_REGISTRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDeviceRegisteredWithManagement == other.fDeviceRegisteredWithManagement && self.dwDeviceRegistionKind == other.dwDeviceRegistionKind && self.pszUPN == other.pszUPN && self.pszMDMServiceUri == other.pszMDMServiceUri
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MANAGEMENT_REGISTRATION_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MANAGEMENT_REGISTRATION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
@@ -362,24 +332,10 @@ impl ::core::clone::Clone for MANAGEMENT_SERVICE_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for MANAGEMENT_SERVICE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MANAGEMENT_SERVICE_INFO").field("pszMDMServiceUri", &self.pszMDMServiceUri).field("pszAuthenticationUri", &self.pszAuthenticationUri).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MANAGEMENT_SERVICE_INFO {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MANAGEMENT_SERVICE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszMDMServiceUri == other.pszMDMServiceUri && self.pszAuthenticationUri == other.pszAuthenticationUri
-    }
-}
-impl ::core::cmp::Eq for MANAGEMENT_SERVICE_INFO {}
-impl ::core::default::Default for MANAGEMENT_SERVICE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

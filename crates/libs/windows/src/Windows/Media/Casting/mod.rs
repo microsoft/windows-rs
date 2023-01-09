@@ -302,17 +302,6 @@ impl ::core::clone::Clone for CastingConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CastingConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingConnection {}
-impl ::core::fmt::Debug for CastingConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CastingConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingConnection;{cd951653-c2f1-4498-8b78-5fb4cd3640dd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -376,17 +365,6 @@ impl CastingConnectionErrorOccurredEventArgs {
 impl ::core::clone::Clone for CastingConnectionErrorOccurredEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CastingConnectionErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingConnectionErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for CastingConnectionErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnectionErrorOccurredEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
@@ -492,17 +470,6 @@ impl ::core::clone::Clone for CastingDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CastingDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingDevice {}
-impl ::core::fmt::Debug for CastingDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CastingDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevice;{de721c83-4a43-4ad1-a6d2-2492a796c3f2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -601,17 +568,6 @@ impl ::core::clone::Clone for CastingDevicePicker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CastingDevicePicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingDevicePicker {}
-impl ::core::fmt::Debug for CastingDevicePicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingDevicePicker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CastingDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePicker;{dcd39924-0591-49be-aacb-4b82ee756a95})");
     type DefaultType = ::core::option::Option<Self>;
@@ -683,17 +639,6 @@ impl ::core::clone::Clone for CastingDevicePickerFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CastingDevicePickerFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingDevicePickerFilter {}
-impl ::core::fmt::Debug for CastingDevicePickerFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingDevicePickerFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingDevicePickerFilter;{be8c619c-b563-4354-ae33-9fdaad8c6291})");
     type DefaultType = ::core::option::Option<Self>;
@@ -728,17 +673,6 @@ impl CastingDeviceSelectedEventArgs {
 impl ::core::clone::Clone for CastingDeviceSelectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CastingDeviceSelectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingDeviceSelectedEventArgs {}
-impl ::core::fmt::Debug for CastingDeviceSelectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingDeviceSelectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
@@ -785,17 +719,6 @@ impl ::core::clone::Clone for CastingSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CastingSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingSource {}
-impl ::core::fmt::Debug for CastingSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CastingSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Casting.CastingSource;{f429ea72-3467-47e6-a027-522923e9d727})");
     type DefaultType = ::core::option::Option<Self>;
@@ -834,18 +757,8 @@ impl ::core::clone::Clone for CastingConnectionErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for CastingConnectionErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CastingConnectionErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CastingConnectionErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnectionErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionErrorStatus;i4)");
@@ -871,18 +784,8 @@ impl ::core::clone::Clone for CastingConnectionState {
         *self
     }
 }
-impl ::core::default::Default for CastingConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CastingConnectionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CastingConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingConnectionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingConnectionState;i4)");
@@ -907,46 +810,8 @@ impl ::core::clone::Clone for CastingPlaybackTypes {
         *self
     }
 }
-impl ::core::default::Default for CastingPlaybackTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CastingPlaybackTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CastingPlaybackTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CastingPlaybackTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CastingPlaybackTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CastingPlaybackTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CastingPlaybackTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CastingPlaybackTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CastingPlaybackTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
@@ -957,3 +822,5 @@ unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -192,17 +192,6 @@ impl ::core::clone::Clone for EasClientDeviceInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EasClientDeviceInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasClientDeviceInformation {}
-impl ::core::fmt::Debug for EasClientDeviceInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasClientDeviceInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -349,17 +338,6 @@ impl ::core::clone::Clone for EasClientSecurityPolicy {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EasClientSecurityPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasClientSecurityPolicy {}
-impl ::core::fmt::Debug for EasClientSecurityPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasClientSecurityPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
     type DefaultType = ::core::option::Option<Self>;
@@ -457,17 +435,6 @@ impl ::core::clone::Clone for EasComplianceResults {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EasComplianceResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasComplianceResults {}
-impl ::core::fmt::Debug for EasComplianceResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasComplianceResults").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EasComplianceResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -501,18 +468,8 @@ impl ::core::clone::Clone for EasDisallowConvenienceLogonResult {
         *self
     }
 }
-impl ::core::default::Default for EasDisallowConvenienceLogonResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasDisallowConvenienceLogonResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasDisallowConvenienceLogonResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasDisallowConvenienceLogonResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasDisallowConvenienceLogonResult;i4)");
@@ -536,18 +493,8 @@ impl ::core::clone::Clone for EasEncryptionProviderType {
         *self
     }
 }
-impl ::core::default::Default for EasEncryptionProviderType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasEncryptionProviderType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasEncryptionProviderType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasEncryptionProviderType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasEncryptionProviderType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasEncryptionProviderType;i4)");
@@ -573,18 +520,8 @@ impl ::core::clone::Clone for EasMaxInactivityTimeLockResult {
         *self
     }
 }
-impl ::core::default::Default for EasMaxInactivityTimeLockResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasMaxInactivityTimeLockResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasMaxInactivityTimeLockResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasMaxInactivityTimeLockResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxInactivityTimeLockResult;i4)");
@@ -610,18 +547,8 @@ impl ::core::clone::Clone for EasMaxPasswordFailedAttemptsResult {
         *self
     }
 }
-impl ::core::default::Default for EasMaxPasswordFailedAttemptsResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasMaxPasswordFailedAttemptsResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasMaxPasswordFailedAttemptsResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMaxPasswordFailedAttemptsResult;i4)");
@@ -657,18 +584,8 @@ impl ::core::clone::Clone for EasMinPasswordComplexCharactersResult {
         *self
     }
 }
-impl ::core::default::Default for EasMinPasswordComplexCharactersResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasMinPasswordComplexCharactersResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasMinPasswordComplexCharactersResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasMinPasswordComplexCharactersResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordComplexCharactersResult;i4)");
@@ -704,18 +621,8 @@ impl ::core::clone::Clone for EasMinPasswordLengthResult {
         *self
     }
 }
-impl ::core::default::Default for EasMinPasswordLengthResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasMinPasswordLengthResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasMinPasswordLengthResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasMinPasswordLengthResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasMinPasswordLengthResult;i4)");
@@ -745,18 +652,8 @@ impl ::core::clone::Clone for EasPasswordExpirationResult {
         *self
     }
 }
-impl ::core::default::Default for EasPasswordExpirationResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasPasswordExpirationResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasPasswordExpirationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasPasswordExpirationResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordExpirationResult;i4)");
@@ -782,18 +679,8 @@ impl ::core::clone::Clone for EasPasswordHistoryResult {
         *self
     }
 }
-impl ::core::default::Default for EasPasswordHistoryResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasPasswordHistoryResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasPasswordHistoryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasPasswordHistoryResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasPasswordHistoryResult;i4)");
@@ -833,18 +720,8 @@ impl ::core::clone::Clone for EasRequireEncryptionResult {
         *self
     }
 }
-impl ::core::default::Default for EasRequireEncryptionResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EasRequireEncryptionResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EasRequireEncryptionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EasRequireEncryptionResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
@@ -855,3 +732,5 @@ unsafe impl ::windows::core::RuntimeType for EasRequireEncryptionResult {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

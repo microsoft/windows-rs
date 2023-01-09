@@ -117,17 +117,6 @@ impl ::core::clone::Clone for LanguageFont {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LanguageFont {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LanguageFont {}
-impl ::core::fmt::Debug for LanguageFont {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LanguageFont").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LanguageFont {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFont;{b12e5c3a-b76d-459b-beeb-901151cd77d1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -245,17 +234,6 @@ impl ::core::clone::Clone for LanguageFontGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LanguageFontGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LanguageFontGroup {}
-impl ::core::fmt::Debug for LanguageFontGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LanguageFontGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LanguageFontGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Fonts.LanguageFontGroup;{f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -277,3 +255,5 @@ unsafe impl ::core::marker::Send for LanguageFontGroup {}
 unsafe impl ::core::marker::Sync for LanguageFontGroup {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

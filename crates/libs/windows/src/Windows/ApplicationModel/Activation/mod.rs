@@ -30,17 +30,6 @@ impl ::core::clone::Clone for IActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivatedEventArgs {}
-impl ::core::fmt::Debug for IActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf651713-cd08-4fd8-b697-a281b6544e2e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -120,17 +109,6 @@ impl ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for ::windows::core:
 impl ::core::clone::Clone for IActivatedEventArgsWithUser {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IActivatedEventArgsWithUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivatedEventArgsWithUser {}
-impl ::core::fmt::Debug for IActivatedEventArgsWithUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivatedEventArgsWithUser").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgsWithUser {
@@ -213,17 +191,6 @@ impl ::core::clone::Clone for IApplicationViewActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IApplicationViewActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IApplicationViewActivatedEventArgs {}
-impl ::core::fmt::Debug for IApplicationViewActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IApplicationViewActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IApplicationViewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{930cef4b-b829-40fc-88f4-8513e8a64738}");
     type DefaultType = ::core::option::Option<Self>;
@@ -299,17 +266,6 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for ::wi
 impl ::core::clone::Clone for IAppointmentsProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppointmentsProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderActivatedEventArgs {
@@ -415,17 +371,6 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEvent
 impl ::core::clone::Clone for IAppointmentsProviderAddAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -536,17 +481,6 @@ impl ::core::clone::Clone for IAppointmentsProviderRemoveAppointmentActivatedEve
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{751f3ab8-0b8e-451c-9f15-966e699bac25}");
     type DefaultType = ::core::option::Option<Self>;
@@ -653,17 +587,6 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedE
 impl ::core::clone::Clone for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -788,17 +711,6 @@ impl ::core::clone::Clone for IAppointmentsProviderShowAppointmentDetailsActivat
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3958f065-9841-4ca5-999b-885198b9ef2a}");
     type DefaultType = ::core::option::Option<Self>;
@@ -918,17 +830,6 @@ impl ::core::clone::Clone for IAppointmentsProviderShowTimeFrameActivatedEventAr
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::core::fmt::Debug for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9baeaba6-0e0b-49aa-babc-12b1dc774986}");
     type DefaultType = ::core::option::Option<Self>;
@@ -973,17 +874,6 @@ impl IBackgroundActivatedEventArgs {
 impl ::core::clone::Clone for IBackgroundActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundActivatedEventArgs {}
-impl ::core::fmt::Debug for IBackgroundActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundActivatedEventArgs {
@@ -1066,17 +956,6 @@ impl ::core::clone::Clone for IBarcodeScannerPreviewActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBarcodeScannerPreviewActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBarcodeScannerPreviewActivatedEventArgs {}
-impl ::core::fmt::Debug for IBarcodeScannerPreviewActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6772797c-99bf-4349-af22-e4123560371c}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1154,17 +1033,6 @@ impl ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for ::windo
 impl ::core::clone::Clone for ICachedFileUpdaterActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICachedFileUpdaterActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICachedFileUpdaterActivatedEventArgs {}
-impl ::core::fmt::Debug for ICachedFileUpdaterActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICachedFileUpdaterActivatedEventArgs {
@@ -1254,17 +1122,6 @@ impl ::core::clone::Clone for ICameraSettingsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICameraSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICameraSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for ICameraSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICameraSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb67a508-2dad-490a-9170-dca036eb114b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1341,17 +1198,6 @@ impl ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for ::windows::co
 impl ::core::clone::Clone for ICommandLineActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICommandLineActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandLineActivatedEventArgs {}
-impl ::core::fmt::Debug for ICommandLineActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandLineActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICommandLineActivatedEventArgs {
@@ -1451,17 +1297,6 @@ impl ::core::convert::TryFrom<&IContactActivatedEventArgs> for ::windows::core::
 impl ::core::clone::Clone for IContactActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactActivatedEventArgs {
@@ -1583,17 +1418,6 @@ impl ::core::clone::Clone for IContactCallActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IContactCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactCallActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1711,17 +1535,6 @@ impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::cor
 impl ::core::clone::Clone for IContactMapActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactMapActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactMapActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactMapActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactMapActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactMapActivatedEventArgs {
@@ -1850,17 +1663,6 @@ impl ::core::clone::Clone for IContactMessageActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IContactMessageActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactMessageActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactMessageActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactMessageActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de598db2-0e03-43b0-bf56-bcc40b3162df}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1912,17 +1714,6 @@ impl IContactPanelActivatedEventArgs {
 impl ::core::clone::Clone for IContactPanelActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactPanelActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactPanelActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactPanelActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactPanelActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactPanelActivatedEventArgs {
@@ -2009,17 +1800,6 @@ impl ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for ::windows::
 impl ::core::clone::Clone for IContactPickerActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactPickerActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactPickerActivatedEventArgs {
@@ -2142,17 +1922,6 @@ impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::co
 impl ::core::clone::Clone for IContactPostActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContactPostActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactPostActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactPostActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactPostActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContactPostActivatedEventArgs {
@@ -2279,17 +2048,6 @@ impl ::core::clone::Clone for IContactVideoCallActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IContactVideoCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactVideoCallActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactVideoCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactVideoCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61079db8-e3e7-4b4f-858d-5c63a96ef684}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2372,17 +2130,6 @@ impl ::core::clone::Clone for IContactsProviderActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IContactsProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactsProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for IContactsProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactsProviderActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IContactsProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4580dca8-5750-4916-aa52-c0829521eb94}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2460,17 +2207,6 @@ impl ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for ::windows::c
 impl ::core::clone::Clone for IContinuationActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IContinuationActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContinuationActivatedEventArgs {}
-impl ::core::fmt::Debug for IContinuationActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContinuationActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IContinuationActivatedEventArgs {
@@ -2560,17 +2296,6 @@ impl ::core::clone::Clone for IDeviceActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDeviceActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceActivatedEventArgs {}
-impl ::core::fmt::Debug for IDeviceActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IDeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd50b9a9-ce10-44d2-8234-c355a073ef33}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2649,17 +2374,6 @@ impl ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for ::windows::
 impl ::core::clone::Clone for IDevicePairingActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IDevicePairingActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDevicePairingActivatedEventArgs {}
-impl ::core::fmt::Debug for IDevicePairingActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDevicePairingActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IDevicePairingActivatedEventArgs {
@@ -2775,17 +2489,6 @@ impl ::core::clone::Clone for IDialReceiverActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDialReceiverActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDialReceiverActivatedEventArgs {}
-impl ::core::fmt::Debug for IDialReceiverActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDialReceiverActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fb777ed7-85ee-456e-a44d-85d730e70aed}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2872,17 +2575,6 @@ impl ::core::clone::Clone for IFileActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFileActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileActivatedEventArgs {}
-impl ::core::fmt::Debug for IFileActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bb2afc33-93b1-42ed-8b26-236dd9c78496}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2962,17 +2654,6 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyNam
 impl ::core::clone::Clone for IFileActivatedEventArgsWithCallerPackageFamilyName {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileActivatedEventArgsWithCallerPackageFamilyName {}
-impl ::core::fmt::Debug for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileActivatedEventArgsWithCallerPackageFamilyName").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithCallerPackageFamilyName {
@@ -3089,17 +2770,6 @@ impl ::core::clone::Clone for IFileActivatedEventArgsWithNeighboringFiles {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFileActivatedEventArgsWithNeighboringFiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileActivatedEventArgsWithNeighboringFiles {}
-impl ::core::fmt::Debug for IFileActivatedEventArgsWithNeighboringFiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileActivatedEventArgsWithNeighboringFiles").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IFileActivatedEventArgsWithNeighboringFiles {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{433ba1a4-e1e2-48fd-b7fc-b5d6eee65033}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3182,17 +2852,6 @@ impl ::core::clone::Clone for IFileOpenPickerActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFileOpenPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileOpenPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileOpenPickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72827082-5525-4bf2-bc09-1f5095d4964d}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3231,17 +2890,6 @@ impl IFileOpenPickerActivatedEventArgs2 {
 impl ::core::clone::Clone for IFileOpenPickerActivatedEventArgs2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFileOpenPickerActivatedEventArgs2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileOpenPickerActivatedEventArgs2 {}
-impl ::core::fmt::Debug for IFileOpenPickerActivatedEventArgs2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileOpenPickerActivatedEventArgs2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerActivatedEventArgs2 {
@@ -3362,20 +3010,6 @@ impl ::core::clone::Clone for IFileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for IFileOpenPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for IFileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IFileOpenPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileOpenPickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3461,17 +3095,6 @@ impl ::core::clone::Clone for IFileSavePickerActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFileSavePickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileSavePickerActivatedEventArgs {}
-impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileSavePickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{81c19cf1-74e6-4387-82eb-bb8fd64b4346}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3517,17 +3140,6 @@ impl IFileSavePickerActivatedEventArgs2 {
 impl ::core::clone::Clone for IFileSavePickerActivatedEventArgs2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IFileSavePickerActivatedEventArgs2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileSavePickerActivatedEventArgs2 {}
-impl ::core::fmt::Debug for IFileSavePickerActivatedEventArgs2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileSavePickerActivatedEventArgs2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerActivatedEventArgs2 {
@@ -3646,20 +3258,6 @@ impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windo
 impl ::core::clone::Clone for IFileSavePickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for IFileSavePickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for IFileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IFileSavePickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileSavePickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3787,20 +3385,6 @@ impl ::core::clone::Clone for IFolderPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for IFolderPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for IFolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IFolderPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFolderPickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{51882366-9f4b-498f-beb0-42684f6e1c29}");
     type DefaultType = ::core::option::Option<Self>;
@@ -3889,17 +3473,6 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for ::windows::core::I
 impl ::core::clone::Clone for ILaunchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILaunchActivatedEventArgs {}
-impl ::core::fmt::Debug for ILaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILaunchActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs {
@@ -4013,17 +3586,6 @@ impl ::core::clone::Clone for ILaunchActivatedEventArgs2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILaunchActivatedEventArgs2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILaunchActivatedEventArgs2 {}
-impl ::core::fmt::Debug for ILaunchActivatedEventArgs2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILaunchActivatedEventArgs2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILaunchActivatedEventArgs2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0fd37ebc-9dc9-46b5-9ace-bd95d4565345}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4099,17 +3661,6 @@ impl ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for ::windows::cor
 impl ::core::clone::Clone for ILockScreenActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILockScreenActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILockScreenActivatedEventArgs {}
-impl ::core::fmt::Debug for ILockScreenActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILockScreenActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ILockScreenActivatedEventArgs {
@@ -4224,17 +3775,6 @@ impl ::core::clone::Clone for ILockScreenCallActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILockScreenCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILockScreenCallActivatedEventArgs {}
-impl ::core::fmt::Debug for ILockScreenCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILockScreenCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{06f37fbe-b5f2-448b-b13e-e328ac1c516a}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4315,17 +3855,6 @@ impl ::core::clone::Clone for IPhoneCallActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPhoneCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhoneCallActivatedEventArgs {}
-impl ::core::fmt::Debug for IPhoneCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhoneCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54615221-a3c1-4ced-b62f-8c60523619ad}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4401,17 +3930,6 @@ impl ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for ::windows:
 impl ::core::clone::Clone for IPickerReturnedActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPickerReturnedActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPickerReturnedActivatedEventArgs {}
-impl ::core::fmt::Debug for IPickerReturnedActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPickerReturnedActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IPickerReturnedActivatedEventArgs {
@@ -4491,17 +4009,6 @@ impl ::core::clone::Clone for IPrelaunchActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPrelaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrelaunchActivatedEventArgs {}
-impl ::core::fmt::Debug for IPrelaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrelaunchActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPrelaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0c44717b-19f7-48d6-b046-cf22826eaa74}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4579,17 +4086,6 @@ impl ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for ::windows
 impl ::core::clone::Clone for IPrint3DWorkflowActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPrint3DWorkflowActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrint3DWorkflowActivatedEventArgs {}
-impl ::core::fmt::Debug for IPrint3DWorkflowActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrint3DWorkflowActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IPrint3DWorkflowActivatedEventArgs {
@@ -4674,17 +4170,6 @@ impl ::core::clone::Clone for IPrintTaskSettingsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPrintTaskSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintTaskSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for IPrintTaskSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ee30a0c9-ce56-4865-ba8e-8954ac271107}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4765,17 +4250,6 @@ impl ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for ::windows::core:
 impl ::core::clone::Clone for IProtocolActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IProtocolActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtocolActivatedEventArgs {}
-impl ::core::fmt::Debug for IProtocolActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtocolActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgs {
@@ -4867,17 +4341,6 @@ impl ::core::clone::Clone for IProtocolActivatedEventArgsWithCallerPackageFamily
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {}
-impl ::core::fmt::Debug for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4961,17 +4424,6 @@ impl ::core::clone::Clone for IProtocolForResultsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IProtocolForResultsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtocolForResultsActivatedEventArgs {}
-impl ::core::fmt::Debug for IProtocolForResultsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtocolForResultsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5050,17 +4502,6 @@ impl ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for ::window
 impl ::core::clone::Clone for IRestrictedLaunchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IRestrictedLaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRestrictedLaunchActivatedEventArgs {}
-impl ::core::fmt::Debug for IRestrictedLaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRestrictedLaunchActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IRestrictedLaunchActivatedEventArgs {
@@ -5147,17 +4588,6 @@ impl ::core::clone::Clone for ISearchActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISearchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchActivatedEventArgs {}
-impl ::core::fmt::Debug for ISearchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8cb36951-58c8-43e3-94bc-41d33f8b630e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5196,17 +4626,6 @@ impl ISearchActivatedEventArgsWithLinguisticDetails {
 impl ::core::clone::Clone for ISearchActivatedEventArgsWithLinguisticDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISearchActivatedEventArgsWithLinguisticDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchActivatedEventArgsWithLinguisticDetails {}
-impl ::core::fmt::Debug for ISearchActivatedEventArgsWithLinguisticDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchActivatedEventArgsWithLinguisticDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ISearchActivatedEventArgsWithLinguisticDetails {
@@ -5289,17 +4708,6 @@ impl ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for ::windows::co
 impl ::core::clone::Clone for IShareTargetActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IShareTargetActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IShareTargetActivatedEventArgs {}
-impl ::core::fmt::Debug for IShareTargetActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IShareTargetActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IShareTargetActivatedEventArgs {
@@ -5408,17 +4816,6 @@ impl ::core::clone::Clone for IStartupTaskActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStartupTaskActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStartupTaskActivatedEventArgs {}
-impl ::core::fmt::Debug for IStartupTaskActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStartupTaskActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03b11a58-5276-4d91-8621-54611864d5fa}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5523,17 +4920,6 @@ impl ::core::clone::Clone for IToastNotificationActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IToastNotificationActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IToastNotificationActivatedEventArgs {}
-impl ::core::fmt::Debug for IToastNotificationActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IToastNotificationActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{92a86f82-5290-431d-be85-c4aaeeb8685f}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5615,17 +5001,6 @@ impl ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for :
 impl ::core::clone::Clone for IUserDataAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IUserDataAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserDataAccountProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for IUserDataAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IUserDataAccountProviderActivatedEventArgs {
@@ -5710,17 +5085,6 @@ impl ::core::clone::Clone for IViewSwitcherProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IViewSwitcherProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewSwitcherProvider {}
-impl ::core::fmt::Debug for IViewSwitcherProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewSwitcherProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IViewSwitcherProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{33f288a6-5c2c-4d27-bac7-7536088f1219}");
     type DefaultType = ::core::option::Option<Self>;
@@ -5801,17 +5165,6 @@ impl ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for ::windows::c
 impl ::core::clone::Clone for IVoiceCommandActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVoiceCommandActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVoiceCommandActivatedEventArgs {}
-impl ::core::fmt::Debug for IVoiceCommandActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVoiceCommandActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IVoiceCommandActivatedEventArgs {
@@ -5922,20 +5275,6 @@ impl ::core::clone::Clone for IWalletActionActivatedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for IWalletActionActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for IWalletActionActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IWalletActionActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWalletActionActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9}");
     type DefaultType = ::core::option::Option<Self>;
@@ -6027,17 +5366,6 @@ impl ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for ::wind
 impl ::core::clone::Clone for IWebAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAccountProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for IWebAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAccountProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderActivatedEventArgs {
@@ -6150,17 +5478,6 @@ impl ::core::clone::Clone for IWebAuthenticationBrokerContinuationEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebAuthenticationBrokerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebAuthenticationBrokerContinuationEventArgs {}
-impl ::core::fmt::Debug for IWebAuthenticationBrokerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{75dda3d4-7714-453d-b7ff-b95e3a1709da}");
     type DefaultType = ::core::option::Option<Self>;
@@ -6237,17 +5554,6 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
 impl ::core::clone::Clone for AppointmentsProviderAddAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -6401,17 +5707,6 @@ impl ::core::clone::Clone for AppointmentsProviderRemoveAppointmentActivatedEven
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6561,17 +5856,6 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
 impl ::core::clone::Clone for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -6739,17 +6023,6 @@ impl ::core::clone::Clone for AppointmentsProviderShowAppointmentDetailsActivate
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6910,17 +6183,6 @@ impl ::core::clone::Clone for AppointmentsProviderShowTimeFrameActivatedEventArg
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7035,17 +6297,6 @@ impl ::core::clone::Clone for BackgroundActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
-impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7129,17 +6380,6 @@ impl BarcodeScannerPreviewActivatedEventArgs {
 impl ::core::clone::Clone for BarcodeScannerPreviewActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerPreviewActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerPreviewActivatedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerPreviewActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
@@ -7267,17 +6507,6 @@ impl ::core::clone::Clone for CachedFileUpdaterActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CachedFileUpdaterActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileUpdaterActivatedEventArgs {}
-impl ::core::fmt::Debug for CachedFileUpdaterActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7399,17 +6628,6 @@ impl ::core::clone::Clone for CameraSettingsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CameraSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for CameraSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7512,17 +6730,6 @@ impl CommandLineActivatedEventArgs {
 impl ::core::clone::Clone for CommandLineActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CommandLineActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommandLineActivatedEventArgs {}
-impl ::core::fmt::Debug for CommandLineActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommandLineActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
@@ -7645,17 +6852,6 @@ impl ::core::clone::Clone for CommandLineActivationOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CommandLineActivationOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommandLineActivationOperation {}
-impl ::core::fmt::Debug for CommandLineActivationOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommandLineActivationOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7734,17 +6930,6 @@ impl ContactCallActivatedEventArgs {
 impl ::core::clone::Clone for ContactCallActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactCallActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactCallActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
@@ -7877,17 +7062,6 @@ impl ContactMapActivatedEventArgs {
 impl ::core::clone::Clone for ContactMapActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactMapActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactMapActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactMapActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactMapActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
@@ -8027,17 +7201,6 @@ impl ::core::clone::Clone for ContactMessageActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactMessageActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactMessageActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactMessageActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactMessageActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8172,17 +7335,6 @@ impl ::core::clone::Clone for ContactPanelActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContactPanelActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPanelActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPanelActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPanelActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8297,17 +7449,6 @@ impl ContactPickerActivatedEventArgs {
 impl ::core::clone::Clone for ContactPickerActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPickerActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
@@ -8426,17 +7567,6 @@ impl ContactPostActivatedEventArgs {
 impl ::core::clone::Clone for ContactPostActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactPostActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPostActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPostActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPostActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
@@ -8574,17 +7704,6 @@ impl ContactVideoCallActivatedEventArgs {
 impl ::core::clone::Clone for ContactVideoCallActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactVideoCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactVideoCallActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactVideoCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactVideoCallActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs {
@@ -8731,17 +7850,6 @@ impl DeviceActivatedEventArgs {
 impl ::core::clone::Clone for DeviceActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeviceActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceActivatedEventArgs {}
-impl ::core::fmt::Debug for DeviceActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
@@ -8907,17 +8015,6 @@ impl ::core::clone::Clone for DevicePairingActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DevicePairingActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingActivatedEventArgs {}
-impl ::core::fmt::Debug for DevicePairingActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9069,17 +8166,6 @@ impl DialReceiverActivatedEventArgs {
 impl ::core::clone::Clone for DialReceiverActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DialReceiverActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialReceiverActivatedEventArgs {}
-impl ::core::fmt::Debug for DialReceiverActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialReceiverActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
@@ -9303,17 +8389,6 @@ impl ::core::clone::Clone for FileActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileActivatedEventArgs {}
-impl ::core::fmt::Debug for FileActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9522,17 +8597,6 @@ impl ::core::clone::Clone for FileOpenPickerActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileOpenPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOpenPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for FileOpenPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9687,20 +8751,6 @@ impl FileOpenPickerContinuationEventArgs {
 impl ::core::clone::Clone for FileOpenPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FileOpenPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FileOpenPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -9880,17 +8930,6 @@ impl ::core::clone::Clone for FileSavePickerActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileSavePickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileSavePickerActivatedEventArgs {}
-impl ::core::fmt::Debug for FileSavePickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10045,20 +9084,6 @@ impl FileSavePickerContinuationEventArgs {
 impl ::core::clone::Clone for FileSavePickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FileSavePickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FileSavePickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10234,20 +9259,6 @@ impl FolderPickerContinuationEventArgs {
 impl ::core::clone::Clone for FolderPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FolderPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FolderPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderPickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10446,17 +9457,6 @@ impl LaunchActivatedEventArgs {
 impl ::core::clone::Clone for LaunchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchActivatedEventArgs {}
-impl ::core::fmt::Debug for LaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LaunchActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LaunchActivatedEventArgs {
@@ -10658,17 +9658,6 @@ impl ::core::clone::Clone for LockScreenActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LockScreenActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenActivatedEventArgs {}
-impl ::core::fmt::Debug for LockScreenActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10813,17 +9802,6 @@ impl LockScreenCallActivatedEventArgs {
 impl ::core::clone::Clone for LockScreenCallActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LockScreenCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenCallActivatedEventArgs {}
-impl ::core::fmt::Debug for LockScreenCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenCallActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LockScreenCallActivatedEventArgs {
@@ -10971,17 +9949,6 @@ impl ::core::clone::Clone for LockScreenComponentActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LockScreenComponentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenComponentActivatedEventArgs {}
-impl ::core::fmt::Debug for LockScreenComponentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenComponentActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LockScreenComponentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11065,17 +10032,6 @@ impl PhoneCallActivatedEventArgs {
 impl ::core::clone::Clone for PhoneCallActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PhoneCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallActivatedEventArgs {}
-impl ::core::fmt::Debug for PhoneCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallActivatedEventArgs {
@@ -11192,17 +10148,6 @@ impl ::core::clone::Clone for PickerReturnedActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PickerReturnedActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PickerReturnedActivatedEventArgs {}
-impl ::core::fmt::Debug for PickerReturnedActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerReturnedActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PickerReturnedActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs;{360defb9-a9d3-4984-a4ed-9ec734604921})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11300,17 +10245,6 @@ impl ::core::clone::Clone for Print3DWorkflowActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DWorkflowActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflowActivatedEventArgs {}
-impl ::core::fmt::Debug for Print3DWorkflowActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11406,17 +10340,6 @@ impl PrintTaskSettingsActivatedEventArgs {
 impl ::core::clone::Clone for PrintTaskSettingsActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintTaskSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for PrintTaskSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
@@ -11555,17 +10478,6 @@ impl ProtocolActivatedEventArgs {
 impl ::core::clone::Clone for ProtocolActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProtocolActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtocolActivatedEventArgs {}
-impl ::core::fmt::Debug for ProtocolActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtocolActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProtocolActivatedEventArgs {
@@ -11791,17 +10703,6 @@ impl ::core::clone::Clone for ProtocolForResultsActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProtocolForResultsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtocolForResultsActivatedEventArgs {}
-impl ::core::fmt::Debug for ProtocolForResultsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProtocolForResultsActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12001,17 +10902,6 @@ impl ::core::clone::Clone for RestrictedLaunchActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RestrictedLaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RestrictedLaunchActivatedEventArgs {}
-impl ::core::fmt::Debug for RestrictedLaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RestrictedLaunchActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12165,17 +11055,6 @@ impl SearchActivatedEventArgs {
 impl ::core::clone::Clone for SearchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SearchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SearchActivatedEventArgs {}
-impl ::core::fmt::Debug for SearchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SearchActivatedEventArgs {
@@ -12360,17 +11239,6 @@ impl ::core::clone::Clone for ShareTargetActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ShareTargetActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareTargetActivatedEventArgs {}
-impl ::core::fmt::Debug for ShareTargetActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareTargetActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12481,17 +11349,6 @@ impl ::core::clone::Clone for SplashScreen {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SplashScreen {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SplashScreen {}
-impl ::core::fmt::Debug for SplashScreen {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SplashScreen").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SplashScreen {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.SplashScreen;{ca4d975c-d4d6-43f0-97c0-0833c6391c24})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12554,17 +11411,6 @@ impl StartupTaskActivatedEventArgs {
 impl ::core::clone::Clone for StartupTaskActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StartupTaskActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StartupTaskActivatedEventArgs {}
-impl ::core::fmt::Debug for StartupTaskActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StartupTaskActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StartupTaskActivatedEventArgs {
@@ -12662,17 +11508,6 @@ impl ::core::clone::Clone for TileActivatedInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TileActivatedInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileActivatedInfo {}
-impl ::core::fmt::Debug for TileActivatedInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileActivatedInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TileActivatedInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.TileActivatedInfo;{80e4a3b1-3980-4f17-b738-89194e0b8f65})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12753,17 +11588,6 @@ impl ToastNotificationActivatedEventArgs {
 impl ::core::clone::Clone for ToastNotificationActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastNotificationActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationActivatedEventArgs {}
-impl ::core::fmt::Debug for ToastNotificationActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActivatedEventArgs {
@@ -12901,17 +11725,6 @@ impl ::core::clone::Clone for UserDataAccountProviderActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for UserDataAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
     type DefaultType = ::core::option::Option<Self>;
@@ -13016,17 +11829,6 @@ impl VoiceCommandActivatedEventArgs {
 impl ::core::clone::Clone for VoiceCommandActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VoiceCommandActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandActivatedEventArgs {}
-impl ::core::fmt::Debug for VoiceCommandActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandActivatedEventArgs {
@@ -13167,20 +11969,6 @@ impl ::core::clone::Clone for WalletActionActivatedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletActionActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletActionActivatedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletActionActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletActionActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -13297,17 +12085,6 @@ impl WebAccountProviderActivatedEventArgs {
 impl ::core::clone::Clone for WebAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for WebAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderActivatedEventArgs {
@@ -13433,17 +12210,6 @@ impl WebAuthenticationBrokerContinuationEventArgs {
 impl ::core::clone::Clone for WebAuthenticationBrokerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebAuthenticationBrokerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAuthenticationBrokerContinuationEventArgs {}
-impl ::core::fmt::Debug for WebAuthenticationBrokerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
@@ -13578,18 +12344,8 @@ impl ::core::clone::Clone for ActivationKind {
         *self
     }
 }
-impl ::core::default::Default for ActivationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ActivationKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ActivationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
@@ -13615,18 +12371,8 @@ impl ::core::clone::Clone for ApplicationExecutionState {
         *self
     }
 }
-impl ::core::default::Default for ApplicationExecutionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationExecutionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationExecutionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
@@ -13637,3 +12383,5 @@ unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

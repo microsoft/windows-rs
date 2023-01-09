@@ -48,3 +48,5 @@ pub mod WindowsFirewall;
 pub mod WindowsNetworkVirtualization;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

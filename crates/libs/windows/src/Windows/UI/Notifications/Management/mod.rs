@@ -123,17 +123,6 @@ impl ::core::clone::Clone for UserNotificationListener {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserNotificationListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationListener {}
-impl ::core::fmt::Debug for UserNotificationListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
     type DefaultType = ::core::option::Option<Self>;
@@ -168,18 +157,8 @@ impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for UserNotificationListenerAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationListenerAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
@@ -190,3 +169,5 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationListenerAccessStatu
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

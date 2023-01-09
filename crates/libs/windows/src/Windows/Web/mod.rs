@@ -26,17 +26,6 @@ impl ::core::clone::Clone for IUriToStreamResolver {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUriToStreamResolver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUriToStreamResolver {}
-impl ::core::fmt::Debug for IUriToStreamResolver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUriToStreamResolver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
     type DefaultType = ::core::option::Option<Self>;
@@ -159,18 +148,8 @@ impl ::core::clone::Clone for WebErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for WebErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WebErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WebErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WebErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
@@ -181,3 +160,5 @@ unsafe impl ::windows::core::RuntimeType for WebErrorStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

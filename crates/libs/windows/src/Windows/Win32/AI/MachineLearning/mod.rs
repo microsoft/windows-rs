@@ -4,3 +4,5 @@ pub mod DirectML;
 pub mod WinML;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

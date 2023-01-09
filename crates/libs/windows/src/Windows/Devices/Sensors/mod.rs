@@ -2546,17 +2546,6 @@ impl ::core::clone::Clone for ISensorDataThreshold {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISensorDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorDataThreshold {}
-impl ::core::fmt::Debug for ISensorDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorDataThreshold").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISensorDataThreshold {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{54daec61-fe4b-4e07-b260-3a4cdfbe396e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2905,17 +2894,6 @@ impl ::core::clone::Clone for Accelerometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Accelerometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Accelerometer {}
-impl ::core::fmt::Debug for Accelerometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Accelerometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Accelerometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2976,17 +2954,6 @@ impl AccelerometerDataThreshold {
 impl ::core::clone::Clone for AccelerometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerDataThreshold {}
-impl ::core::fmt::Debug for AccelerometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
@@ -3066,17 +3033,6 @@ impl ::core::clone::Clone for AccelerometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AccelerometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerReading {}
-impl ::core::fmt::Debug for AccelerometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AccelerometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3111,17 +3067,6 @@ impl AccelerometerReadingChangedEventArgs {
 impl ::core::clone::Clone for AccelerometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for AccelerometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArgs {
@@ -3160,17 +3105,6 @@ impl AccelerometerShakenEventArgs {
 impl ::core::clone::Clone for AccelerometerShakenEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerShakenEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerShakenEventArgs {}
-impl ::core::fmt::Debug for AccelerometerShakenEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerShakenEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
@@ -3308,17 +3242,6 @@ impl ::core::clone::Clone for ActivitySensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ActivitySensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensor {}
-impl ::core::fmt::Debug for ActivitySensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ActivitySensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3371,17 +3294,6 @@ impl ::core::clone::Clone for ActivitySensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ActivitySensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReading {}
-impl ::core::fmt::Debug for ActivitySensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3416,17 +3328,6 @@ impl ActivitySensorReadingChangeReport {
 impl ::core::clone::Clone for ActivitySensorReadingChangeReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorReadingChangeReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReadingChangeReport {}
-impl ::core::fmt::Debug for ActivitySensorReadingChangeReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingChangeReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
@@ -3465,17 +3366,6 @@ impl ::core::clone::Clone for ActivitySensorReadingChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ActivitySensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for ActivitySensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3512,17 +3402,6 @@ impl ActivitySensorTriggerDetails {
 impl ::core::clone::Clone for ActivitySensorTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorTriggerDetails {}
-impl ::core::fmt::Debug for ActivitySensorTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
@@ -3630,17 +3509,6 @@ impl ::core::clone::Clone for Altimeter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Altimeter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Altimeter {}
-impl ::core::fmt::Debug for Altimeter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Altimeter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Altimeter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3704,17 +3572,6 @@ impl ::core::clone::Clone for AltimeterReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AltimeterReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AltimeterReading {}
-impl ::core::fmt::Debug for AltimeterReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AltimeterReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AltimeterReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3749,17 +3606,6 @@ impl AltimeterReadingChangedEventArgs {
 impl ::core::clone::Clone for AltimeterReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AltimeterReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AltimeterReadingChangedEventArgs {}
-impl ::core::fmt::Debug for AltimeterReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AltimeterReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
@@ -3893,17 +3739,6 @@ impl ::core::clone::Clone for Barometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Barometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Barometer {}
-impl ::core::fmt::Debug for Barometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Barometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Barometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3942,17 +3777,6 @@ impl BarometerDataThreshold {
 impl ::core::clone::Clone for BarometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerDataThreshold {}
-impl ::core::fmt::Debug for BarometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarometerDataThreshold {
@@ -4018,17 +3842,6 @@ impl ::core::clone::Clone for BarometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerReading {}
-impl ::core::fmt::Debug for BarometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4063,17 +3876,6 @@ impl BarometerReadingChangedEventArgs {
 impl ::core::clone::Clone for BarometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for BarometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
@@ -4222,17 +4024,6 @@ impl ::core::clone::Clone for Compass {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Compass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Compass {}
-impl ::core::fmt::Debug for Compass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Compass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Compass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4271,17 +4062,6 @@ impl CompassDataThreshold {
 impl ::core::clone::Clone for CompassDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompassDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassDataThreshold {}
-impl ::core::fmt::Debug for CompassDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompassDataThreshold {
@@ -4363,17 +4143,6 @@ impl ::core::clone::Clone for CompassReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompassReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassReading {}
-impl ::core::fmt::Debug for CompassReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompassReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4408,17 +4177,6 @@ impl CompassReadingChangedEventArgs {
 impl ::core::clone::Clone for CompassReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompassReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassReadingChangedEventArgs {}
-impl ::core::fmt::Debug for CompassReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
@@ -4567,17 +4325,6 @@ impl ::core::clone::Clone for Gyrometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Gyrometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Gyrometer {}
-impl ::core::fmt::Debug for Gyrometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Gyrometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Gyrometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4638,17 +4385,6 @@ impl GyrometerDataThreshold {
 impl ::core::clone::Clone for GyrometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GyrometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerDataThreshold {}
-impl ::core::fmt::Debug for GyrometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GyrometerDataThreshold {
@@ -4728,17 +4464,6 @@ impl ::core::clone::Clone for GyrometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GyrometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerReading {}
-impl ::core::fmt::Debug for GyrometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GyrometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4773,17 +4498,6 @@ impl GyrometerReadingChangedEventArgs {
 impl ::core::clone::Clone for GyrometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GyrometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for GyrometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
@@ -4838,17 +4552,6 @@ impl HingeAngleReading {
 impl ::core::clone::Clone for HingeAngleReading {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HingeAngleReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleReading {}
-impl ::core::fmt::Debug for HingeAngleReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleReading").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HingeAngleReading {
@@ -4964,17 +4667,6 @@ impl ::core::clone::Clone for HingeAngleSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HingeAngleSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleSensor {}
-impl ::core::fmt::Debug for HingeAngleSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HingeAngleSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5009,17 +4701,6 @@ impl HingeAngleSensorReadingChangedEventArgs {
 impl ::core::clone::Clone for HingeAngleSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HingeAngleSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for HingeAngleSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleSensorReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
@@ -5086,17 +4767,6 @@ impl HumanPresenceFeatures {
 impl ::core::clone::Clone for HumanPresenceFeatures {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HumanPresenceFeatures {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HumanPresenceFeatures {}
-impl ::core::fmt::Debug for HumanPresenceFeatures {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresenceFeatures").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HumanPresenceFeatures {
@@ -5202,17 +4872,6 @@ impl ::core::clone::Clone for HumanPresenceSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HumanPresenceSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HumanPresenceSensor {}
-impl ::core::fmt::Debug for HumanPresenceSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresenceSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HumanPresenceSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensor;{2116788b-e389-5cc3-9a97-cb17be1008bd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5274,17 +4933,6 @@ impl ::core::clone::Clone for HumanPresenceSensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HumanPresenceSensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HumanPresenceSensorReading {}
-impl ::core::fmt::Debug for HumanPresenceSensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresenceSensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HumanPresenceSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSensorReading;{83533bf5-a85a-5d50-8be4-6072d745a3bb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5319,17 +4967,6 @@ impl HumanPresenceSensorReadingChangedEventArgs {
 impl ::core::clone::Clone for HumanPresenceSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HumanPresenceSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HumanPresenceSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for HumanPresenceSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresenceSensorReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HumanPresenceSensorReadingChangedEventArgs {
@@ -5523,17 +5160,6 @@ impl ::core::clone::Clone for HumanPresenceSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HumanPresenceSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HumanPresenceSettings {}
-impl ::core::fmt::Debug for HumanPresenceSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresenceSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HumanPresenceSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HumanPresenceSettings;{ef4daf5b-07b7-5eb6-86bb-b7ff49ce44fb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5709,17 +5335,6 @@ impl ::core::clone::Clone for Inclinometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Inclinometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Inclinometer {}
-impl ::core::fmt::Debug for Inclinometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Inclinometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Inclinometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Inclinometer;{2648ca6f-2286-406f-9161-f0c4bd806ebf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5780,17 +5395,6 @@ impl InclinometerDataThreshold {
 impl ::core::clone::Clone for InclinometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InclinometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InclinometerDataThreshold {}
-impl ::core::fmt::Debug for InclinometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InclinometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InclinometerDataThreshold {
@@ -5877,17 +5481,6 @@ impl ::core::clone::Clone for InclinometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InclinometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InclinometerReading {}
-impl ::core::fmt::Debug for InclinometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InclinometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InclinometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.InclinometerReading;{9f44f055-b6f6-497f-b127-1a775e501458})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5922,17 +5515,6 @@ impl InclinometerReadingChangedEventArgs {
 impl ::core::clone::Clone for InclinometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InclinometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InclinometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for InclinometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InclinometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InclinometerReadingChangedEventArgs {
@@ -6066,17 +5648,6 @@ impl ::core::clone::Clone for LightSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LightSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LightSensor {}
-impl ::core::fmt::Debug for LightSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LightSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LightSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensor;{f84c0718-0c54-47ae-922e-789f57fb03a0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6126,17 +5697,6 @@ impl LightSensorDataThreshold {
 impl ::core::clone::Clone for LightSensorDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LightSensorDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LightSensorDataThreshold {}
-impl ::core::fmt::Debug for LightSensorDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LightSensorDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LightSensorDataThreshold {
@@ -6202,17 +5762,6 @@ impl ::core::clone::Clone for LightSensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LightSensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LightSensorReading {}
-impl ::core::fmt::Debug for LightSensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LightSensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LightSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.LightSensorReading;{ffdf6300-227c-4d2b-b302-fc0142485c68})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6247,17 +5796,6 @@ impl LightSensorReadingChangedEventArgs {
 impl ::core::clone::Clone for LightSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LightSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LightSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for LightSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LightSensorReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LightSensorReadingChangedEventArgs {
@@ -6406,17 +5944,6 @@ impl ::core::clone::Clone for Magnetometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Magnetometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Magnetometer {}
-impl ::core::fmt::Debug for Magnetometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Magnetometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Magnetometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Magnetometer;{484f626e-d3c9-4111-b3f6-2cf1faa418d5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6477,17 +6004,6 @@ impl MagnetometerDataThreshold {
 impl ::core::clone::Clone for MagnetometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagnetometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagnetometerDataThreshold {}
-impl ::core::fmt::Debug for MagnetometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagnetometerDataThreshold {
@@ -6574,17 +6090,6 @@ impl ::core::clone::Clone for MagnetometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MagnetometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagnetometerReading {}
-impl ::core::fmt::Debug for MagnetometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MagnetometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.MagnetometerReading;{0c2cc40d-ebfd-4e5c-bb11-afc29b3cae61})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6619,17 +6124,6 @@ impl MagnetometerReadingChangedEventArgs {
 impl ::core::clone::Clone for MagnetometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MagnetometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagnetometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for MagnetometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MagnetometerReadingChangedEventArgs {
@@ -6812,17 +6306,6 @@ impl ::core::clone::Clone for OrientationSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for OrientationSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OrientationSensor {}
-impl ::core::fmt::Debug for OrientationSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OrientationSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for OrientationSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensor;{5e354635-cf6b-4c63-abd8-10252b0bf6ec})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6900,17 +6383,6 @@ impl ::core::clone::Clone for OrientationSensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for OrientationSensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OrientationSensorReading {}
-impl ::core::fmt::Debug for OrientationSensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OrientationSensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for OrientationSensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.OrientationSensorReading;{4756c993-6595-4897-bcc6-d537ee757564})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6945,17 +6417,6 @@ impl OrientationSensorReadingChangedEventArgs {
 impl ::core::clone::Clone for OrientationSensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OrientationSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OrientationSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for OrientationSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OrientationSensorReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OrientationSensorReadingChangedEventArgs {
@@ -7099,17 +6560,6 @@ impl ::core::clone::Clone for Pedometer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Pedometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Pedometer {}
-impl ::core::fmt::Debug for Pedometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Pedometer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Pedometer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Pedometer;{9a1e013d-3d98-45f8-8920-8e4ecaca5f97})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7148,17 +6598,6 @@ impl PedometerDataThreshold {
 impl ::core::clone::Clone for PedometerDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PedometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PedometerDataThreshold {}
-impl ::core::fmt::Debug for PedometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PedometerDataThreshold {
@@ -7241,17 +6680,6 @@ impl ::core::clone::Clone for PedometerReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PedometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PedometerReading {}
-impl ::core::fmt::Debug for PedometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PedometerReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.PedometerReading;{2245dcf4-a8e1-432f-896a-be0dd9b02d24})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7286,17 +6714,6 @@ impl PedometerReadingChangedEventArgs {
 impl ::core::clone::Clone for PedometerReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PedometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PedometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for PedometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PedometerReadingChangedEventArgs {
@@ -7414,17 +6831,6 @@ impl ::core::clone::Clone for ProximitySensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProximitySensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximitySensor {}
-impl ::core::fmt::Debug for ProximitySensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximitySensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProximitySensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensor;{54c076b8-ecfb-4944-b928-74fc504d47ee})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7463,17 +6869,6 @@ impl ProximitySensorDataThreshold {
 impl ::core::clone::Clone for ProximitySensorDataThreshold {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProximitySensorDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximitySensorDataThreshold {}
-impl ::core::fmt::Debug for ProximitySensorDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximitySensorDataThreshold").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProximitySensorDataThreshold {
@@ -7531,20 +6926,6 @@ impl ProximitySensorDisplayOnOffController {
 impl ::core::clone::Clone for ProximitySensorDisplayOnOffController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for ProximitySensorDisplayOnOffController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for ProximitySensorDisplayOnOffController {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for ProximitySensorDisplayOnOffController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximitySensorDisplayOnOffController").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -7630,17 +7011,6 @@ impl ::core::clone::Clone for ProximitySensorReading {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProximitySensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximitySensorReading {}
-impl ::core::fmt::Debug for ProximitySensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximitySensorReading").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProximitySensorReading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ProximitySensorReading;{71228d59-132d-4d5f-8ff9-2f0db8751ced})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7675,17 +7045,6 @@ impl ProximitySensorReadingChangedEventArgs {
 impl ::core::clone::Clone for ProximitySensorReadingChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProximitySensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProximitySensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for ProximitySensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProximitySensorReadingChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProximitySensorReadingChangedEventArgs {
@@ -7729,17 +7088,6 @@ impl SensorDataThresholdTriggerDetails {
 impl ::core::clone::Clone for SensorDataThresholdTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SensorDataThresholdTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorDataThresholdTriggerDetails {}
-impl ::core::fmt::Debug for SensorDataThresholdTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorDataThresholdTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTriggerDetails {
@@ -7797,17 +7145,6 @@ impl SensorQuaternion {
 impl ::core::clone::Clone for SensorQuaternion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SensorQuaternion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorQuaternion {}
-impl ::core::fmt::Debug for SensorQuaternion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorQuaternion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SensorQuaternion {
@@ -7900,17 +7237,6 @@ impl SensorRotationMatrix {
 impl ::core::clone::Clone for SensorRotationMatrix {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SensorRotationMatrix {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorRotationMatrix {}
-impl ::core::fmt::Debug for SensorRotationMatrix {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorRotationMatrix").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SensorRotationMatrix {
@@ -8016,17 +7342,6 @@ impl ::core::clone::Clone for SimpleOrientationSensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SimpleOrientationSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleOrientationSensor {}
-impl ::core::fmt::Debug for SimpleOrientationSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleOrientationSensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensor;{5ff53856-214a-4dee-a3f9-616f1ab06ffd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8072,17 +7387,6 @@ impl ::core::clone::Clone for SimpleOrientationSensorOrientationChangedEventArgs
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SimpleOrientationSensorOrientationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleOrientationSensorOrientationChangedEventArgs {}
-impl ::core::fmt::Debug for SimpleOrientationSensorOrientationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleOrientationSensorOrientationChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensorOrientationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs;{bcd5c660-23d4-4b4c-a22e-ba81ade0c601})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8117,18 +7421,8 @@ impl ::core::clone::Clone for AccelerometerReadingType {
         *self
     }
 }
-impl ::core::default::Default for AccelerometerReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AccelerometerReadingType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AccelerometerReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
@@ -8151,18 +7445,8 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
         *self
     }
 }
-impl ::core::default::Default for ActivitySensorReadingConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
@@ -8191,18 +7475,8 @@ impl ::core::clone::Clone for ActivityType {
         *self
     }
 }
-impl ::core::default::Default for ActivityType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ActivityType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivityType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivityType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ActivityType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
@@ -8226,18 +7500,8 @@ impl ::core::clone::Clone for HumanEngagement {
         *self
     }
 }
-impl ::core::default::Default for HumanEngagement {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HumanEngagement {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HumanEngagement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanEngagement").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HumanEngagement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanEngagement;i4)");
@@ -8261,18 +7525,8 @@ impl ::core::clone::Clone for HumanPresence {
         *self
     }
 }
-impl ::core::default::Default for HumanPresence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HumanPresence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HumanPresence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HumanPresence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HumanPresence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.HumanPresence;i4)");
@@ -8297,18 +7551,8 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagnetometerAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
@@ -8332,18 +7576,8 @@ impl ::core::clone::Clone for PedometerStepKind {
         *self
     }
 }
-impl ::core::default::Default for PedometerStepKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PedometerStepKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PedometerStepKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
@@ -8366,18 +7600,8 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
         *self
     }
 }
-impl ::core::default::Default for SensorOptimizationGoal {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorOptimizationGoal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
@@ -8400,18 +7624,8 @@ impl ::core::clone::Clone for SensorReadingType {
         *self
     }
 }
-impl ::core::default::Default for SensorReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SensorReadingType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorReadingType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SensorReadingType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
@@ -8446,18 +7660,8 @@ impl ::core::clone::Clone for SensorType {
         *self
     }
 }
-impl ::core::default::Default for SensorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SensorType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SensorType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
@@ -8484,18 +7688,8 @@ impl ::core::clone::Clone for SimpleOrientation {
         *self
     }
 }
-impl ::core::default::Default for SimpleOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SimpleOrientation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SimpleOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
@@ -8506,3 +7700,5 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

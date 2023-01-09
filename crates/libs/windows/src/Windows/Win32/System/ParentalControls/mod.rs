@@ -2,22 +2,6 @@
 #[repr(transparent)]
 pub struct IWPCGamesSettings(::windows::core::IUnknown);
 impl IWPCGamesSettings {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsLoggingRequired)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRestrictions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn IsBlocked(&self, guidappid: ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).IsBlocked)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(guidappid), result__.as_mut_ptr()).from_abi(result__)
@@ -27,17 +11,6 @@ impl IWPCGamesSettings {
 impl ::core::clone::Clone for IWPCGamesSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWPCGamesSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCGamesSettings {}
-impl ::core::fmt::Debug for IWPCGamesSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCGamesSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWPCGamesSettings {
@@ -83,17 +56,6 @@ impl ::core::clone::Clone for IWPCProviderConfig {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWPCProviderConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderConfig {}
-impl ::core::fmt::Debug for IWPCProviderConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWPCProviderConfig {
     type Vtable = IWPCProviderConfig_Vtbl;
 }
@@ -131,17 +93,6 @@ impl ::core::clone::Clone for IWPCProviderState {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWPCProviderState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderState {}
-impl ::core::fmt::Debug for IWPCProviderState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWPCProviderState {
     type Vtable = IWPCProviderState_Vtbl;
 }
@@ -168,17 +119,6 @@ impl IWPCProviderSupport {
 impl ::core::clone::Clone for IWPCProviderSupport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWPCProviderSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderSupport {}
-impl ::core::fmt::Debug for IWPCProviderSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderSupport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWPCProviderSupport {
@@ -220,17 +160,6 @@ impl ::core::clone::Clone for IWPCSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWPCSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCSettings {}
-impl ::core::fmt::Debug for IWPCSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IWPCSettings {
     type Vtable = IWPCSettings_Vtbl;
 }
@@ -255,22 +184,6 @@ pub struct IWPCSettings_Vtbl {
 #[repr(transparent)]
 pub struct IWPCWebSettings(::windows::core::IUnknown);
 impl IWPCWebSettings {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLoggingRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsLoggingRequired)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLastSettingsChangeTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetRestrictions(&self) -> ::windows::core::Result<WPCFLAG_RESTRICTION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRestrictions)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
     pub unsafe fn GetSettings(&self) -> ::windows::core::Result<WPCFLAG_WEB_SETTING> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetSettings)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
@@ -290,17 +203,6 @@ impl IWPCWebSettings {
 impl ::core::clone::Clone for IWPCWebSettings {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWPCWebSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCWebSettings {}
-impl ::core::fmt::Debug for IWPCWebSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCWebSettings").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWPCWebSettings {
@@ -323,27 +225,6 @@ pub struct IWPCWebSettings_Vtbl {
 #[repr(transparent)]
 pub struct IWindowsParentalControls(::windows::core::IUnknown);
 impl IWindowsParentalControls {
-    pub unsafe fn GetVisibility(&self) -> ::windows::core::Result<WPCFLAG_VISIBILITY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetVisibility)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetUserSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCSettings>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUserSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetWebSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCWebSettings>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWebSettings)(::windows::core::Vtable::as_raw(self), pcszsid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::core::GUID, ppszname: ::core::option::Option<*mut ::windows::core::PWSTR>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.GetWebFilterInfo)(::windows::core::Vtable::as_raw(self), pguidid, ::core::mem::transmute(ppszname.unwrap_or(::std::ptr::null_mut()))).ok()
-    }
     pub unsafe fn GetGamesSettings<P0>(&self, pcszsid: P0) -> ::windows::core::Result<IWPCGamesSettings>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
@@ -356,17 +237,6 @@ impl IWindowsParentalControls {
 impl ::core::clone::Clone for IWindowsParentalControls {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWindowsParentalControls {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsParentalControls {}
-impl ::core::fmt::Debug for IWindowsParentalControls {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsParentalControls").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWindowsParentalControls {
@@ -411,17 +281,6 @@ impl IWindowsParentalControlsCore {
 impl ::core::clone::Clone for IWindowsParentalControlsCore {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWindowsParentalControlsCore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsParentalControlsCore {}
-impl ::core::fmt::Debug for IWindowsParentalControlsCore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsParentalControlsCore").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IWindowsParentalControlsCore {
@@ -679,18 +538,8 @@ impl ::core::clone::Clone for WPCFLAG_IM_FEATURE {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_IM_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_IM_FEATURE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_IM_FEATURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_IM_FEATURE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -708,18 +557,8 @@ impl ::core::clone::Clone for WPCFLAG_IM_LEAVE {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_IM_LEAVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_IM_LEAVE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_IM_LEAVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_IM_LEAVE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -785,18 +624,8 @@ impl ::core::clone::Clone for WPCFLAG_ISBLOCKED {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_ISBLOCKED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_ISBLOCKED {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_ISBLOCKED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_ISBLOCKED").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -818,18 +647,8 @@ impl ::core::clone::Clone for WPCFLAG_LOGOFF_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_LOGOFF_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_LOGOFF_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_LOGOFF_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_LOGOFF_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -843,18 +662,8 @@ impl ::core::clone::Clone for WPCFLAG_OVERRIDE {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_OVERRIDE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_OVERRIDE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_OVERRIDE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_OVERRIDE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -882,18 +691,8 @@ impl ::core::clone::Clone for WPCFLAG_RESTRICTION {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_RESTRICTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_RESTRICTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_RESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_RESTRICTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -909,18 +708,8 @@ impl ::core::clone::Clone for WPCFLAG_VISIBILITY {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_VISIBILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_VISIBILITY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_VISIBILITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_VISIBILITY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -936,18 +725,8 @@ impl ::core::clone::Clone for WPCFLAG_WEB_SETTING {
         *self
     }
 }
-impl ::core::default::Default for WPCFLAG_WEB_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPCFLAG_WEB_SETTING {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPCFLAG_WEB_SETTING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPCFLAG_WEB_SETTING").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -971,18 +750,8 @@ impl ::core::clone::Clone for WPC_ARGS_APPLICATIONEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_APPLICATIONEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_APPLICATIONEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_APPLICATIONEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_APPLICATIONEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1002,18 +771,8 @@ impl ::core::clone::Clone for WPC_ARGS_APPOVERRIDEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_APPOVERRIDEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_APPOVERRIDEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_APPOVERRIDEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_APPOVERRIDEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1031,18 +790,8 @@ impl ::core::clone::Clone for WPC_ARGS_COMPUTERUSAGEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_COMPUTERUSAGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_COMPUTERUSAGEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_COMPUTERUSAGEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_COMPUTERUSAGEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1070,18 +819,8 @@ impl ::core::clone::Clone for WPC_ARGS_CONTENTUSAGEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_CONTENTUSAGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONTENTUSAGEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_CONTENTUSAGEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_CONTENTUSAGEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1113,18 +852,8 @@ impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONINITEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONINITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONINITEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONINITEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_CONVERSATIONINITEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1158,18 +887,8 @@ impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONJOINEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONJOINEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONJOINEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONJOINEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_CONVERSATIONJOINEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1203,18 +922,8 @@ impl ::core::clone::Clone for WPC_ARGS_CONVERSATIONLEAVEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_CONVERSATIONLEAVEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_CONVERSATIONLEAVEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_CONVERSATIONLEAVEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1246,18 +955,8 @@ impl ::core::clone::Clone for WPC_ARGS_CUSTOMEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_CUSTOMEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_CUSTOMEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_CUSTOMEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_CUSTOMEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1287,18 +986,8 @@ impl ::core::clone::Clone for WPC_ARGS_EMAILCONTACTEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_EMAILCONTACTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILCONTACTEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_EMAILCONTACTEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_EMAILCONTACTEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1334,18 +1023,8 @@ impl ::core::clone::Clone for WPC_ARGS_EMAILRECEIEVEDEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_EMAILRECEIEVEDEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_EMAILRECEIEVEDEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_EMAILRECEIEVEDEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1379,18 +1058,8 @@ impl ::core::clone::Clone for WPC_ARGS_EMAILSENTEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_EMAILSENTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_EMAILSENTEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_EMAILSENTEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_EMAILSENTEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1414,18 +1083,8 @@ impl ::core::clone::Clone for WPC_ARGS_FILEDOWNLOADEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_FILEDOWNLOADEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_FILEDOWNLOADEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_FILEDOWNLOADEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_FILEDOWNLOADEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1459,18 +1118,8 @@ impl ::core::clone::Clone for WPC_ARGS_GAMESTARTEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_GAMESTARTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_GAMESTARTEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_GAMESTARTEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_GAMESTARTEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1500,18 +1149,8 @@ impl ::core::clone::Clone for WPC_ARGS_IMCONTACTEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_IMCONTACTEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_IMCONTACTEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_IMCONTACTEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_IMCONTACTEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1547,18 +1186,8 @@ impl ::core::clone::Clone for WPC_ARGS_IMFEATUREEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_IMFEATUREEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_IMFEATUREEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_IMFEATUREEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_IMFEATUREEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1590,18 +1219,8 @@ impl ::core::clone::Clone for WPC_ARGS_MEDIADOWNLOADEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_MEDIADOWNLOADEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_MEDIADOWNLOADEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_MEDIADOWNLOADEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_MEDIADOWNLOADEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1633,18 +1252,8 @@ impl ::core::clone::Clone for WPC_ARGS_MEDIAPLAYBACKEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_MEDIAPLAYBACKEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_MEDIAPLAYBACKEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_MEDIAPLAYBACKEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1666,18 +1275,8 @@ impl ::core::clone::Clone for WPC_ARGS_SAFERAPPBLOCKED {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_SAFERAPPBLOCKED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_SAFERAPPBLOCKED {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_SAFERAPPBLOCKED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_SAFERAPPBLOCKED").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1705,18 +1304,8 @@ impl ::core::clone::Clone for WPC_ARGS_SETTINGSCHANGEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_SETTINGSCHANGEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_SETTINGSCHANGEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_SETTINGSCHANGEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_SETTINGSCHANGEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1744,18 +1333,8 @@ impl ::core::clone::Clone for WPC_ARGS_URLVISITEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_URLVISITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_URLVISITEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_URLVISITEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_URLVISITEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1775,18 +1354,8 @@ impl ::core::clone::Clone for WPC_ARGS_WEBOVERRIDEEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_WEBOVERRIDEEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_WEBOVERRIDEEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_WEBOVERRIDEEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_WEBOVERRIDEEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1818,18 +1387,8 @@ impl ::core::clone::Clone for WPC_ARGS_WEBSITEVISITEVENT {
         *self
     }
 }
-impl ::core::default::Default for WPC_ARGS_WEBSITEVISITEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_ARGS_WEBSITEVISITEVENT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_ARGS_WEBSITEVISITEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_ARGS_WEBSITEVISITEVENT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1847,18 +1406,8 @@ impl ::core::clone::Clone for WPC_MEDIA_EXPLICIT {
         *self
     }
 }
-impl ::core::default::Default for WPC_MEDIA_EXPLICIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_MEDIA_EXPLICIT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_MEDIA_EXPLICIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_MEDIA_EXPLICIT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1886,18 +1435,8 @@ impl ::core::clone::Clone for WPC_MEDIA_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WPC_MEDIA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_MEDIA_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WPC_MEDIA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_MEDIA_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
@@ -1985,18 +1524,10 @@ impl ::core::clone::Clone for WPC_SETTINGS {
         *self
     }
 }
-impl ::core::default::Default for WPC_SETTINGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WPC_SETTINGS {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for WPC_SETTINGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPC_SETTINGS").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

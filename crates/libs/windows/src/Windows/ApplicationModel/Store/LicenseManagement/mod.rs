@@ -188,17 +188,6 @@ impl ::core::clone::Clone for LicenseSatisfactionInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LicenseSatisfactionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseSatisfactionInfo {}
-impl ::core::fmt::Debug for LicenseSatisfactionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseSatisfactionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -244,17 +233,6 @@ impl ::core::clone::Clone for LicenseSatisfactionResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LicenseSatisfactionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseSatisfactionResult {}
-impl ::core::fmt::Debug for LicenseSatisfactionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseSatisfactionResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LicenseSatisfactionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
     type DefaultType = ::core::option::Option<Self>;
@@ -288,18 +266,8 @@ impl ::core::clone::Clone for LicenseRefreshOption {
         *self
     }
 }
-impl ::core::default::Default for LicenseRefreshOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LicenseRefreshOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LicenseRefreshOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
@@ -310,3 +278,5 @@ unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

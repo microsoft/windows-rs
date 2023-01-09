@@ -250,17 +250,6 @@ impl ::core::clone::Clone for Print3DWorkflow {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DWorkflow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflow {}
-impl ::core::fmt::Debug for Print3DWorkflow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflow;{c56f74bd-3669-4a66-ab42-c8151930cd34})");
     type DefaultType = ::core::option::Option<Self>;
@@ -312,17 +301,6 @@ impl ::core::clone::Clone for Print3DWorkflowPrintRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DWorkflowPrintRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflowPrintRequestedEventArgs {}
-impl ::core::fmt::Debug for Print3DWorkflowPrintRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowPrintRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs;{19f8c858-5ac8-4b55-8a5f-e61567dafb4d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -357,17 +335,6 @@ impl Print3DWorkflowPrinterChangedEventArgs {
 impl ::core::clone::Clone for Print3DWorkflowPrinterChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Print3DWorkflowPrinterChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflowPrinterChangedEventArgs {}
-impl ::core::fmt::Debug for Print3DWorkflowPrinterChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowPrinterChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
@@ -435,17 +402,6 @@ impl ::core::clone::Clone for PrintNotificationEventDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintNotificationEventDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintNotificationEventDetails {}
-impl ::core::fmt::Debug for PrintNotificationEventDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintNotificationEventDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintNotificationEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintNotificationEventDetails;{e00e4c8a-4828-4da1-8bb8-8672df8515e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -495,17 +451,6 @@ impl PrintTaskConfiguration {
 impl ::core::clone::Clone for PrintTaskConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintTaskConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskConfiguration {}
-impl ::core::fmt::Debug for PrintTaskConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfiguration {
@@ -562,17 +507,6 @@ impl ::core::clone::Clone for PrintTaskConfigurationSaveRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequest {}
-impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskConfigurationSaveRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequest;{eeaf2fcb-621e-4b62-ac77-b281cce08d60})");
     type DefaultType = ::core::option::Option<Self>;
@@ -602,17 +536,6 @@ impl PrintTaskConfigurationSaveRequestedDeferral {
 impl ::core::clone::Clone for PrintTaskConfigurationSaveRequestedDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequestedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequestedDeferral {}
-impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskConfigurationSaveRequestedDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
@@ -647,17 +570,6 @@ impl PrintTaskConfigurationSaveRequestedEventArgs {
 impl ::core::clone::Clone for PrintTaskConfigurationSaveRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PrintTaskConfigurationSaveRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskConfigurationSaveRequestedEventArgs {}
-impl ::core::fmt::Debug for PrintTaskConfigurationSaveRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintTaskConfigurationSaveRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
@@ -696,18 +608,8 @@ impl ::core::clone::Clone for Print3DWorkflowDetail {
         *self
     }
 }
-impl ::core::default::Default for Print3DWorkflowDetail {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DWorkflowDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
@@ -733,18 +635,8 @@ impl ::core::clone::Clone for Print3DWorkflowStatus {
         *self
     }
 }
-impl ::core::default::Default for Print3DWorkflowStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DWorkflowStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
@@ -755,3 +647,5 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

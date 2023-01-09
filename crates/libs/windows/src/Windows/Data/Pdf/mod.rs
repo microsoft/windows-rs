@@ -235,17 +235,6 @@ impl ::core::clone::Clone for PdfDocument {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PdfDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfDocument {}
-impl ::core::fmt::Debug for PdfDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PdfDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -353,17 +342,6 @@ impl ::core::clone::Clone for PdfPage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PdfPage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPage {}
-impl ::core::fmt::Debug for PdfPage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PdfPage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
     type DefaultType = ::core::option::Option<Self>;
@@ -458,17 +436,6 @@ impl PdfPageDimensions {
 impl ::core::clone::Clone for PdfPageDimensions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PdfPageDimensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPageDimensions {}
-impl ::core::fmt::Debug for PdfPageDimensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageDimensions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PdfPageDimensions {
@@ -581,17 +548,6 @@ impl ::core::clone::Clone for PdfPageRenderOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PdfPageRenderOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPageRenderOptions {}
-impl ::core::fmt::Debug for PdfPageRenderOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageRenderOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PdfPageRenderOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
     type DefaultType = ::core::option::Option<Self>;
@@ -627,18 +583,8 @@ impl ::core::clone::Clone for PdfPageRotation {
         *self
     }
 }
-impl ::core::default::Default for PdfPageRotation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PdfPageRotation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PdfPageRotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageRotation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PdfPageRotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Pdf.PdfPageRotation;i4)");
@@ -649,3 +595,5 @@ unsafe impl ::windows::core::RuntimeType for PdfPageRotation {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

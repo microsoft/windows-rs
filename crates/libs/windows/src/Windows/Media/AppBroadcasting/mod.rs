@@ -133,17 +133,6 @@ impl ::core::clone::Clone for AppBroadcastingMonitor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppBroadcastingMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastingMonitor {}
-impl ::core::fmt::Debug for AppBroadcastingMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastingMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingMonitor;{00f95a68-8907-48a0-b8ef-24d208137542})");
     type DefaultType = ::core::option::Option<Self>;
@@ -185,17 +174,6 @@ impl AppBroadcastingStatus {
 impl ::core::clone::Clone for AppBroadcastingStatus {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppBroadcastingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastingStatus {}
-impl ::core::fmt::Debug for AppBroadcastingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastingStatus").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingStatus {
@@ -283,17 +261,6 @@ impl ::core::clone::Clone for AppBroadcastingStatusDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppBroadcastingStatusDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastingStatusDetails {}
-impl ::core::fmt::Debug for AppBroadcastingStatusDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastingStatusDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingStatusDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails;{069dada4-b573-4e3c-8e19-1bafacd09713})");
     type DefaultType = ::core::option::Option<Self>;
@@ -353,17 +320,6 @@ impl ::core::clone::Clone for AppBroadcastingUI {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppBroadcastingUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastingUI {}
-impl ::core::fmt::Debug for AppBroadcastingUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastingUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingUI;{e56f9f8f-ee99-4dca-a3c3-70af3db44f5f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -385,3 +341,5 @@ unsafe impl ::core::marker::Send for AppBroadcastingUI {}
 unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

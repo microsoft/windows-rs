@@ -253,17 +253,6 @@ impl ::core::clone::Clone for IGameExplorer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGameExplorer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameExplorer {}
-impl ::core::fmt::Debug for IGameExplorer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameExplorer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IGameExplorer {
     type Vtable = IGameExplorer_Vtbl;
 }
@@ -313,17 +302,6 @@ impl IGameExplorer2 {
 impl ::core::clone::Clone for IGameExplorer2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGameExplorer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameExplorer2 {}
-impl ::core::fmt::Debug for IGameExplorer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameExplorer2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IGameExplorer2 {
@@ -409,17 +387,6 @@ impl ::core::clone::Clone for IGameStatistics {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGameStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameStatistics {}
-impl ::core::fmt::Debug for IGameStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameStatistics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IGameStatistics {
     type Vtable = IGameStatistics_Vtbl;
 }
@@ -467,17 +434,6 @@ impl IGameStatisticsMgr {
 impl ::core::clone::Clone for IGameStatisticsMgr {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGameStatisticsMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameStatisticsMgr {}
-impl ::core::fmt::Debug for IGameStatisticsMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameStatisticsMgr").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IGameStatisticsMgr {
@@ -543,17 +499,6 @@ impl IXblIdpAuthManager {
 impl ::core::clone::Clone for IXblIdpAuthManager {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IXblIdpAuthManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthManager {}
-impl ::core::fmt::Debug for IXblIdpAuthManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthManager").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IXblIdpAuthManager {
@@ -667,17 +612,6 @@ impl ::core::clone::Clone for IXblIdpAuthTokenResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthTokenResult {}
-impl ::core::fmt::Debug for IXblIdpAuthTokenResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthTokenResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IXblIdpAuthTokenResult {
     type Vtable = IXblIdpAuthTokenResult_Vtbl;
 }
@@ -732,17 +666,6 @@ impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXblIdpAuthTokenResult2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXblIdpAuthTokenResult2 {}
-impl ::core::fmt::Debug for IXblIdpAuthTokenResult2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXblIdpAuthTokenResult2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IXblIdpAuthTokenResult2 {
     type Vtable = IXblIdpAuthTokenResult2_Vtbl;
 }
@@ -783,18 +706,8 @@ impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
         *self
     }
 }
-impl ::core::default::Default for GAMESTATS_OPEN_RESULT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_RESULT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GAMESTATS_OPEN_RESULT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -810,18 +723,8 @@ impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
         *self
     }
 }
-impl ::core::default::Default for GAMESTATS_OPEN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GAMESTATS_OPEN_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -839,18 +742,8 @@ impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
         *self
     }
 }
-impl ::core::default::Default for GAME_INSTALL_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GAME_INSTALL_SCOPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GAME_INSTALL_SCOPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -872,18 +765,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
         *self
     }
 }
-impl ::core::default::Default for GAMING_DEVICE_DEVICE_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_DEVICE_ID {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GAMING_DEVICE_DEVICE_ID").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -899,18 +782,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
         *self
     }
 }
-impl ::core::default::Default for GAMING_DEVICE_VENDOR_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GAMING_DEVICE_VENDOR_ID").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -966,18 +839,8 @@ impl ::core::clone::Clone for KnownGamingPrivileges {
         *self
     }
 }
-impl ::core::default::Default for KnownGamingPrivileges {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KnownGamingPrivileges {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KnownGamingPrivileges").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 #[repr(transparent)]
@@ -1007,18 +870,8 @@ impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
         *self
     }
 }
-impl ::core::default::Default for XBL_IDP_AUTH_TOKEN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for XBL_IDP_AUTH_TOKEN_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XBL_IDP_AUTH_TOKEN_STATUS").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
@@ -1032,24 +885,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for GAMING_DEVICE_MODEL_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GAMING_DEVICE_MODEL_INFORMATION").field("vendorId", &self.vendorId).field("deviceId", &self.deviceId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GAMING_DEVICE_MODEL_INFORMATION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GAMING_DEVICE_MODEL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.vendorId == other.vendorId && self.deviceId == other.deviceId
-    }
-}
-impl ::core::cmp::Eq for GAMING_DEVICE_MODEL_INFORMATION {}
-impl ::core::default::Default for GAMING_DEVICE_MODEL_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void) -> ()>;
@@ -1057,3 +894,5 @@ pub type GameUICompletionRoutine = ::core::option::Option<unsafe extern "system"
 pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows::core::HSTRING, selectedxuidscount: usize) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

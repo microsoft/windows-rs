@@ -102,18 +102,8 @@ impl ::core::clone::Clone for ServiceDeviceType {
         *self
     }
 }
-impl ::core::default::Default for ServiceDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ServiceDeviceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ServiceDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServiceDeviceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
@@ -124,3 +114,5 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

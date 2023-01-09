@@ -153,17 +153,6 @@ impl ::core::clone::Clone for ISpeechRecognitionConstraint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISpeechRecognitionConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpeechRecognitionConstraint {}
-impl ::core::fmt::Debug for ISpeechRecognitionConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecognitionConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISpeechRecognitionConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79ac1628-4d68-43c4-8911-40dc4101b55b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -704,17 +693,6 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechContinuousRecognitionCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechContinuousRecognitionCompletedEventArgs {}
-impl ::core::fmt::Debug for SpeechContinuousRecognitionCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs;{e3d069bb-e30c-5e18-424b-7fbe81f8fbd0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -749,17 +727,6 @@ impl SpeechContinuousRecognitionResultGeneratedEventArgs {
 impl ::core::clone::Clone for SpeechContinuousRecognitionResultGeneratedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechContinuousRecognitionResultGeneratedEventArgs {}
-impl ::core::fmt::Debug for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionResultGeneratedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -885,17 +852,6 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechContinuousRecognitionSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechContinuousRecognitionSession {}
-impl ::core::fmt::Debug for SpeechContinuousRecognitionSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession;{6a213c04-6614-49f8-99a2-b5e9b3a085c8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -930,17 +886,6 @@ impl SpeechRecognitionCompilationResult {
 impl ::core::clone::Clone for SpeechRecognitionCompilationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognitionCompilationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionCompilationResult {}
-impl ::core::fmt::Debug for SpeechRecognitionCompilationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionCompilationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionCompilationResult {
@@ -1042,17 +987,6 @@ impl ::core::clone::Clone for SpeechRecognitionGrammarFileConstraint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionGrammarFileConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionGrammarFileConstraint {}
-impl ::core::fmt::Debug for SpeechRecognitionGrammarFileConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionGrammarFileConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint;{b5031a8f-85ca-4fa4-b11a-474fc41b3835})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1108,17 +1042,6 @@ impl ::core::clone::Clone for SpeechRecognitionHypothesis {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionHypothesis {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionHypothesis {}
-impl ::core::fmt::Debug for SpeechRecognitionHypothesis {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionHypothesis").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesis {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis;{7a7b25b0-99c5-4f7d-bf84-10aa1302b634})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1153,17 +1076,6 @@ impl SpeechRecognitionHypothesisGeneratedEventArgs {
 impl ::core::clone::Clone for SpeechRecognitionHypothesisGeneratedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionHypothesisGeneratedEventArgs {}
-impl ::core::fmt::Debug for SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionHypothesisGeneratedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -1273,17 +1185,6 @@ impl ::core::clone::Clone for SpeechRecognitionListConstraint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionListConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionListConstraint {}
-impl ::core::fmt::Debug for SpeechRecognitionListConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionListConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionListConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint;{09c487e9-e4ad-4526-81f2-4946fb481d98})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1337,17 +1238,6 @@ impl SpeechRecognitionQualityDegradingEventArgs {
 impl ::core::clone::Clone for SpeechRecognitionQualityDegradingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognitionQualityDegradingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionQualityDegradingEventArgs {}
-impl ::core::fmt::Debug for SpeechRecognitionQualityDegradingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionQualityDegradingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
@@ -1457,17 +1347,6 @@ impl ::core::clone::Clone for SpeechRecognitionResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionResult {}
-impl ::core::fmt::Debug for SpeechRecognitionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionResult;{4e303157-034e-4652-857e-d0454cc4beec})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1504,17 +1383,6 @@ impl SpeechRecognitionSemanticInterpretation {
 impl ::core::clone::Clone for SpeechRecognitionSemanticInterpretation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognitionSemanticInterpretation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionSemanticInterpretation {}
-impl ::core::fmt::Debug for SpeechRecognitionSemanticInterpretation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionSemanticInterpretation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionSemanticInterpretation {
@@ -1617,17 +1485,6 @@ impl ::core::clone::Clone for SpeechRecognitionTopicConstraint {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionTopicConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionTopicConstraint {}
-impl ::core::fmt::Debug for SpeechRecognitionTopicConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionTopicConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionTopicConstraint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint;{bf6fdf19-825d-4e69-a681-36e48cf1c93e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1714,17 +1571,6 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
 impl ::core::clone::Clone for SpeechRecognitionVoiceCommandDefinitionConstraint {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionVoiceCommandDefinitionConstraint {}
-impl ::core::fmt::Debug for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionVoiceCommandDefinitionConstraint").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -1970,17 +1816,6 @@ impl ::core::clone::Clone for SpeechRecognizer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognizer {}
-impl ::core::fmt::Debug for SpeechRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizer;{0bc3c9cb-c26a-40f2-aeb5-8096b2e48073})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2037,17 +1872,6 @@ impl SpeechRecognizerStateChangedEventArgs {
 impl ::core::clone::Clone for SpeechRecognizerStateChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognizerStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognizerStateChangedEventArgs {}
-impl ::core::fmt::Debug for SpeechRecognizerStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerStateChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
@@ -2124,17 +1948,6 @@ impl ::core::clone::Clone for SpeechRecognizerTimeouts {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechRecognizerTimeouts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognizerTimeouts {}
-impl ::core::fmt::Debug for SpeechRecognizerTimeouts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerTimeouts").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerTimeouts {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts;{2ef76fca-6a3c-4dca-a153-df1bc88a79af})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2206,17 +2019,6 @@ impl SpeechRecognizerUIOptions {
 impl ::core::clone::Clone for SpeechRecognizerUIOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpeechRecognizerUIOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognizerUIOptions {}
-impl ::core::fmt::Debug for SpeechRecognizerUIOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerUIOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerUIOptions {
@@ -2303,17 +2105,6 @@ impl ::core::clone::Clone for VoiceCommandSet {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommandSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandSet {}
-impl ::core::fmt::Debug for VoiceCommandSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandSet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.SpeechRecognition.VoiceCommandSet;{0bedda75-46e6-4b11-a088-5c68632899b5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2347,18 +2138,8 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
         *self
     }
 }
-impl ::core::default::Default for SpeechContinuousRecognitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechContinuousRecognitionMode;i4)");
@@ -2386,18 +2167,8 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionAudioProblem {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionAudioProblem;i4)");
@@ -2422,18 +2193,8 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConfidence;i4)");
@@ -2457,18 +2218,8 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionConstraintProbability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintProbability;i4)");
@@ -2493,18 +2244,8 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintType {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionConstraintType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionConstraintType;i4)");
@@ -2536,18 +2277,8 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionResultStatus;i4)");
@@ -2571,18 +2302,8 @@ impl ::core::clone::Clone for SpeechRecognitionScenario {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognitionScenario {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognitionScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognitionScenario;i4)");
@@ -2610,18 +2331,8 @@ impl ::core::clone::Clone for SpeechRecognizerState {
         *self
     }
 }
-impl ::core::default::Default for SpeechRecognizerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechRecognizerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechRecognition.SpeechRecognizerState;i4)");
@@ -2632,3 +2343,5 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

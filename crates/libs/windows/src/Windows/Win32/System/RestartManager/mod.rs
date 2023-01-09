@@ -125,18 +125,8 @@ impl ::core::clone::Clone for RM_APP_STATUS {
         *self
     }
 }
-impl ::core::default::Default for RM_APP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_APP_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_APP_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_APP_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
@@ -162,18 +152,8 @@ impl ::core::clone::Clone for RM_APP_TYPE {
         *self
     }
 }
-impl ::core::default::Default for RM_APP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_APP_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_APP_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_APP_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
@@ -191,18 +171,8 @@ impl ::core::clone::Clone for RM_FILTER_ACTION {
         *self
     }
 }
-impl ::core::default::Default for RM_FILTER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_FILTER_ACTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_FILTER_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_FILTER_ACTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
@@ -222,18 +192,8 @@ impl ::core::clone::Clone for RM_FILTER_TRIGGER {
         *self
     }
 }
-impl ::core::default::Default for RM_FILTER_TRIGGER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_FILTER_TRIGGER {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_FILTER_TRIGGER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_FILTER_TRIGGER").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
@@ -257,18 +217,8 @@ impl ::core::clone::Clone for RM_REBOOT_REASON {
         *self
     }
 }
-impl ::core::default::Default for RM_REBOOT_REASON {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_REBOOT_REASON {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_REBOOT_REASON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_REBOOT_REASON").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
@@ -284,18 +234,8 @@ impl ::core::clone::Clone for RM_SHUTDOWN_TYPE {
         *self
     }
 }
-impl ::core::default::Default for RM_SHUTDOWN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RM_SHUTDOWN_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RM_SHUTDOWN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RM_SHUTDOWN_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
@@ -318,12 +258,6 @@ impl ::core::clone::Clone for RM_FILTER_INFO {
 unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RM_FILTER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -343,12 +277,6 @@ impl ::core::clone::Clone for RM_FILTER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RM_FILTER_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
@@ -371,28 +299,8 @@ impl ::core::clone::Clone for RM_PROCESS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RM_PROCESS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RM_PROCESS_INFO").field("Process", &self.Process).field("strAppName", &self.strAppName).field("strServiceShortName", &self.strServiceShortName).field("ApplicationType", &self.ApplicationType).field("AppStatus", &self.AppStatus).field("TSSessionId", &self.TSSessionId).field("bRestartable", &self.bRestartable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Process == other.Process && self.strAppName == other.strAppName && self.strServiceShortName == other.strServiceShortName && self.ApplicationType == other.ApplicationType && self.AppStatus == other.AppStatus && self.TSSessionId == other.TSSessionId && self.bRestartable == other.bRestartable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_PROCESS_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RM_PROCESS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
@@ -410,30 +318,12 @@ impl ::core::clone::Clone for RM_UNIQUE_PROCESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RM_UNIQUE_PROCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RM_UNIQUE_PROCESS").field("dwProcessId", &self.dwProcessId).field("ProcessStartTime", &self.ProcessStartTime).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RM_UNIQUE_PROCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProcessId == other.dwProcessId && self.ProcessStartTime == other.ProcessStartTime
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RM_UNIQUE_PROCESS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RM_UNIQUE_PROCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

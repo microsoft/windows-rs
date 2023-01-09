@@ -90,17 +90,6 @@ impl ::core::clone::Clone for IToastNotificationManagerStatics3 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IToastNotificationManagerStatics3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IToastNotificationManagerStatics3 {}
-impl ::core::fmt::Debug for IToastNotificationManagerStatics3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IToastNotificationManagerStatics3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
     type DefaultType = ::core::option::Option<Self>;
@@ -252,17 +241,6 @@ impl ::core::clone::Clone for DualSimTile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DualSimTile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DualSimTile {}
-impl ::core::fmt::Debug for DualSimTile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DualSimTile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DualSimTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -282,3 +260,5 @@ impl ::windows::core::RuntimeName for DualSimTile {
 ::windows::core::interface_hierarchy!(DualSimTile, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

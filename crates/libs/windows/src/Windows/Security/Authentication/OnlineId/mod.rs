@@ -251,17 +251,6 @@ impl ::core::clone::Clone for OnlineIdAuthenticator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for OnlineIdAuthenticator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdAuthenticator {}
-impl ::core::fmt::Debug for OnlineIdAuthenticator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdAuthenticator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for OnlineIdAuthenticator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator;{a003f58a-29ab-4817-b884-d7516dad18b9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -310,17 +299,6 @@ impl OnlineIdServiceTicket {
 impl ::core::clone::Clone for OnlineIdServiceTicket {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OnlineIdServiceTicket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdServiceTicket {}
-impl ::core::fmt::Debug for OnlineIdServiceTicket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdServiceTicket").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicket {
@@ -381,17 +359,6 @@ impl OnlineIdServiceTicketRequest {
 impl ::core::clone::Clone for OnlineIdServiceTicketRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OnlineIdServiceTicketRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdServiceTicketRequest {}
-impl ::core::fmt::Debug for OnlineIdServiceTicketRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdServiceTicketRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicketRequest {
@@ -478,17 +445,6 @@ impl ::core::clone::Clone for OnlineIdSystemAuthenticatorForUser {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for OnlineIdSystemAuthenticatorForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdSystemAuthenticatorForUser {}
-impl ::core::fmt::Debug for OnlineIdSystemAuthenticatorForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemAuthenticatorForUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for OnlineIdSystemAuthenticatorForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser;{5798befb-1de4-4186-a2e6-b563f86aaf44})");
     type DefaultType = ::core::option::Option<Self>;
@@ -530,17 +486,6 @@ impl OnlineIdSystemIdentity {
 impl ::core::clone::Clone for OnlineIdSystemIdentity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OnlineIdSystemIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdSystemIdentity {}
-impl ::core::fmt::Debug for OnlineIdSystemIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemIdentity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OnlineIdSystemIdentity {
@@ -591,17 +536,6 @@ impl OnlineIdSystemTicketResult {
 impl ::core::clone::Clone for OnlineIdSystemTicketResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for OnlineIdSystemTicketResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdSystemTicketResult {}
-impl ::core::fmt::Debug for OnlineIdSystemTicketResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemTicketResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketResult {
@@ -694,20 +628,6 @@ impl SignOutUserOperation {
 impl ::core::clone::Clone for SignOutUserOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for SignOutUserOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for SignOutUserOperation {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for SignOutUserOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SignOutUserOperation").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -888,20 +808,6 @@ impl ::core::clone::Clone for UserAuthenticationOperation {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for UserAuthenticationOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for UserAuthenticationOperation {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for UserAuthenticationOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserAuthenticationOperation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::RuntimeType for UserAuthenticationOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserAuthenticationOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})))");
     type DefaultType = ::core::option::Option<Self>;
@@ -1070,17 +976,6 @@ impl ::core::clone::Clone for UserIdentity {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserIdentity {}
-impl ::core::fmt::Debug for UserIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserIdentity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserIdentity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.OnlineId.UserIdentity;{2146d9cd-0742-4be3-8a1c-7c7ae679aa88})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1115,18 +1010,8 @@ impl ::core::clone::Clone for CredentialPromptType {
         *self
     }
 }
-impl ::core::default::Default for CredentialPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CredentialPromptType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CredentialPromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CredentialPromptType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CredentialPromptType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.CredentialPromptType;i4)");
@@ -1150,18 +1035,8 @@ impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
         *self
     }
 }
-impl ::core::default::Default for OnlineIdSystemTicketStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
@@ -1172,3 +1047,5 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

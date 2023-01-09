@@ -32,17 +32,6 @@ impl ::core::clone::Clone for IXMLGraphBuilder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IXMLGraphBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLGraphBuilder {}
-impl ::core::fmt::Debug for IXMLGraphBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLGraphBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilder_Vtbl;
 }
@@ -64,3 +53,5 @@ pub struct IXMLGraphBuilder_Vtbl {
 pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

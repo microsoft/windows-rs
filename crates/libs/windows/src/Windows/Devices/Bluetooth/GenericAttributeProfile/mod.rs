@@ -1724,17 +1724,6 @@ impl ::core::clone::Clone for GattCharacteristic {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattCharacteristic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattCharacteristic {}
-impl ::core::fmt::Debug for GattCharacteristic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattCharacteristic").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic;{59cb50c1-5934-4f68-a198-eb864fa44e6b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2292,17 +2281,6 @@ impl ::core::clone::Clone for GattCharacteristicsResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattCharacteristicsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattCharacteristicsResult {}
-impl ::core::fmt::Debug for GattCharacteristicsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattCharacteristicsResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult;{1194945c-b257-4f3e-9db7-f68bc9a9aef2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2360,17 +2338,6 @@ impl GattClientNotificationResult {
 impl ::core::clone::Clone for GattClientNotificationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattClientNotificationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattClientNotificationResult {}
-impl ::core::fmt::Debug for GattClientNotificationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattClientNotificationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattClientNotificationResult {
@@ -2484,17 +2451,6 @@ impl ::core::clone::Clone for GattDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattDescriptor {}
-impl ::core::fmt::Debug for GattDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor;{92055f2b-8084-4344-b4c2-284de19a8506})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2595,17 +2551,6 @@ impl GattDescriptorsResult {
 impl ::core::clone::Clone for GattDescriptorsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattDescriptorsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattDescriptorsResult {}
-impl ::core::fmt::Debug for GattDescriptorsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattDescriptorsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattDescriptorsResult {
@@ -2903,17 +2848,6 @@ impl ::core::clone::Clone for GattDeviceService {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattDeviceService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattDeviceService {}
-impl ::core::fmt::Debug for GattDeviceService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattDeviceService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService;{ac7b7c05-b33c-47cf-990f-6b8f5577df71})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2988,17 +2922,6 @@ impl GattDeviceServicesResult {
 impl ::core::clone::Clone for GattDeviceServicesResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattDeviceServicesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattDeviceServicesResult {}
-impl ::core::fmt::Debug for GattDeviceServicesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattDeviceServicesResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattDeviceServicesResult {
@@ -3181,17 +3104,6 @@ impl ::core::clone::Clone for GattLocalCharacteristic {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattLocalCharacteristic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalCharacteristic {}
-impl ::core::fmt::Debug for GattLocalCharacteristic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalCharacteristic").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic;{aede376d-5412-4d74-92a8-8deb8526829c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3300,17 +3212,6 @@ impl ::core::clone::Clone for GattLocalCharacteristicParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattLocalCharacteristicParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalCharacteristicParameters {}
-impl ::core::fmt::Debug for GattLocalCharacteristicParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalCharacteristicParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters;{faf73db4-4cff-44c7-8445-040e6ead0063})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3352,17 +3253,6 @@ impl GattLocalCharacteristicResult {
 impl ::core::clone::Clone for GattLocalCharacteristicResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattLocalCharacteristicResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalCharacteristicResult {}
-impl ::core::fmt::Debug for GattLocalCharacteristicResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalCharacteristicResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicResult {
@@ -3454,17 +3344,6 @@ impl ::core::clone::Clone for GattLocalDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattLocalDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalDescriptor {}
-impl ::core::fmt::Debug for GattLocalDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor;{f48ebe06-789d-4a4b-8652-bd017b5d2fc6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3542,17 +3421,6 @@ impl ::core::clone::Clone for GattLocalDescriptorParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattLocalDescriptorParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalDescriptorParameters {}
-impl ::core::fmt::Debug for GattLocalDescriptorParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalDescriptorParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters;{5fdede6a-f3c1-4b66-8c4b-e3d2293b40e9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3594,17 +3462,6 @@ impl GattLocalDescriptorResult {
 impl ::core::clone::Clone for GattLocalDescriptorResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattLocalDescriptorResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalDescriptorResult {}
-impl ::core::fmt::Debug for GattLocalDescriptorResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalDescriptorResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorResult {
@@ -3659,17 +3516,6 @@ impl GattLocalService {
 impl ::core::clone::Clone for GattLocalService {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattLocalService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattLocalService {}
-impl ::core::fmt::Debug for GattLocalService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattLocalService").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattLocalService {
@@ -3756,17 +3602,6 @@ impl GattPresentationFormat {
 impl ::core::clone::Clone for GattPresentationFormat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattPresentationFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattPresentationFormat {}
-impl ::core::fmt::Debug for GattPresentationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattPresentationFormat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattPresentationFormat {
@@ -4109,17 +3944,6 @@ impl ::core::clone::Clone for GattReadClientCharacteristicConfigurationDescripto
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattReadClientCharacteristicConfigurationDescriptorResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattReadClientCharacteristicConfigurationDescriptorResult {}
-impl ::core::fmt::Debug for GattReadClientCharacteristicConfigurationDescriptorResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattReadClientCharacteristicConfigurationDescriptorResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult;{63a66f09-1aea-4c4c-a50f-97bae474b348})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4199,17 +4023,6 @@ impl ::core::clone::Clone for GattReadRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattReadRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattReadRequest {}
-impl ::core::fmt::Debug for GattReadRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattReadRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattReadRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest;{f1dd6535-6acd-42a6-a4bb-d789dae0043e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4264,17 +4077,6 @@ impl ::core::clone::Clone for GattReadRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattReadRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattReadRequestedEventArgs {}
-impl ::core::fmt::Debug for GattReadRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattReadRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattReadRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs;{93497243-f39c-484b-8ab6-996ba486cfa3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4327,17 +4129,6 @@ impl GattReadResult {
 impl ::core::clone::Clone for GattReadResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattReadResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattReadResult {}
-impl ::core::fmt::Debug for GattReadResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattReadResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattReadResult {
@@ -4404,17 +4195,6 @@ impl ::core::clone::Clone for GattReliableWriteTransaction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattReliableWriteTransaction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattReliableWriteTransaction {}
-impl ::core::fmt::Debug for GattReliableWriteTransaction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattReliableWriteTransaction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattReliableWriteTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction;{63a66f07-1aea-4c4c-a50f-97bae474b348})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4456,17 +4236,6 @@ impl GattRequestStateChangedEventArgs {
 impl ::core::clone::Clone for GattRequestStateChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattRequestStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattRequestStateChangedEventArgs {}
-impl ::core::fmt::Debug for GattRequestStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattRequestStateChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattRequestStateChangedEventArgs {
@@ -4552,17 +4321,6 @@ impl ::core::clone::Clone for GattServiceProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattServiceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProvider {}
-impl ::core::fmt::Debug for GattServiceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider;{7822b3cd-2889-4f86-a051-3f0aed1c2760})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4604,17 +4362,6 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
 impl ::core::clone::Clone for GattServiceProviderAdvertisementStatusChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderAdvertisementStatusChangedEventArgs {}
-impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderAdvertisementStatusChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -4694,17 +4441,6 @@ impl ::core::clone::Clone for GattServiceProviderAdvertisingParameters {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattServiceProviderAdvertisingParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderAdvertisingParameters {}
-impl ::core::fmt::Debug for GattServiceProviderAdvertisingParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderAdvertisingParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters;{e2ce31ab-6315-4c22-9bd7-781dbc3d8d82})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4746,17 +4482,6 @@ impl GattServiceProviderResult {
 impl ::core::clone::Clone for GattServiceProviderResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattServiceProviderResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderResult {}
-impl ::core::fmt::Debug for GattServiceProviderResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderResult {
@@ -5025,17 +4750,6 @@ impl ::core::clone::Clone for GattSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattSession {}
-impl ::core::fmt::Debug for GattSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession;{d23b5143-e04e-4c24-999c-9c256f9856b1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5101,17 +4815,6 @@ impl ::core::clone::Clone for GattSessionStatusChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattSessionStatusChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattSessionStatusChangedEventArgs {}
-impl ::core::fmt::Debug for GattSessionStatusChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattSessionStatusChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattSessionStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs;{7605b72e-837f-404c-ab34-3163f39ddf32})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5170,17 +4873,6 @@ impl ::core::clone::Clone for GattSubscribedClient {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattSubscribedClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattSubscribedClient {}
-impl ::core::fmt::Debug for GattSubscribedClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattSubscribedClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattSubscribedClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient;{736e9001-15a4-4ec2-9248-e3f20d463be9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5226,17 +4918,6 @@ impl GattValueChangedEventArgs {
 impl ::core::clone::Clone for GattValueChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GattValueChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattValueChangedEventArgs {}
-impl ::core::fmt::Debug for GattValueChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattValueChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GattValueChangedEventArgs {
@@ -5321,17 +5002,6 @@ impl ::core::clone::Clone for GattWriteRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattWriteRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattWriteRequest {}
-impl ::core::fmt::Debug for GattWriteRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattWriteRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattWriteRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest;{aeb6a9ed-de2f-4fc2-a9a8-94ea7844f13d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5386,17 +5056,6 @@ impl ::core::clone::Clone for GattWriteRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattWriteRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattWriteRequestedEventArgs {}
-impl ::core::fmt::Debug for GattWriteRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattWriteRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattWriteRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs;{2dec8bbe-a73a-471a-94d5-037deadd0806})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5442,17 +5101,6 @@ impl ::core::clone::Clone for GattWriteResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattWriteResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattWriteResult {}
-impl ::core::fmt::Debug for GattWriteResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattWriteResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattWriteResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult;{4991ddb1-cb2b-44f7-99fc-d29a2871dc9b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5495,46 +5143,8 @@ impl ::core::clone::Clone for GattCharacteristicProperties {
         *self
     }
 }
-impl ::core::default::Default for GattCharacteristicProperties {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattCharacteristicProperties {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattCharacteristicProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattCharacteristicProperties").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GattCharacteristicProperties {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GattCharacteristicProperties {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GattCharacteristicProperties {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GattCharacteristicProperties {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties;u4)");
@@ -5558,18 +5168,8 @@ impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorVal
         *self
     }
 }
-impl ::core::default::Default for GattClientCharacteristicConfigurationDescriptorValue {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattClientCharacteristicConfigurationDescriptorValue {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattClientCharacteristicConfigurationDescriptorValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattClientCharacteristicConfigurationDescriptorValue").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattClientCharacteristicConfigurationDescriptorValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientCharacteristicConfigurationDescriptorValue;i4)");
@@ -5594,18 +5194,8 @@ impl ::core::clone::Clone for GattCommunicationStatus {
         *self
     }
 }
-impl ::core::default::Default for GattCommunicationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattCommunicationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattCommunicationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattCommunicationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattCommunicationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCommunicationStatus;i4)");
@@ -5632,18 +5222,8 @@ impl ::core::clone::Clone for GattOpenStatus {
         *self
     }
 }
-impl ::core::default::Default for GattOpenStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattOpenStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattOpenStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattOpenStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattOpenStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattOpenStatus;i4)");
@@ -5668,18 +5248,8 @@ impl ::core::clone::Clone for GattProtectionLevel {
         *self
     }
 }
-impl ::core::default::Default for GattProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattProtectionLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattProtectionLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtectionLevel;i4)");
@@ -5703,18 +5273,8 @@ impl ::core::clone::Clone for GattRequestState {
         *self
     }
 }
-impl ::core::default::Default for GattRequestState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattRequestState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattRequestState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattRequestState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattRequestState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestState;i4)");
@@ -5740,18 +5300,8 @@ impl ::core::clone::Clone for GattServiceProviderAdvertisementStatus {
         *self
     }
 }
-impl ::core::default::Default for GattServiceProviderAdvertisementStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattServiceProviderAdvertisementStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderAdvertisementStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus;i4)");
@@ -5774,18 +5324,8 @@ impl ::core::clone::Clone for GattSessionStatus {
         *self
     }
 }
-impl ::core::default::Default for GattSessionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattSessionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattSessionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattSessionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattSessionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatus;i4)");
@@ -5810,18 +5350,8 @@ impl ::core::clone::Clone for GattSharingMode {
         *self
     }
 }
-impl ::core::default::Default for GattSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattSharingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattSharingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSharingMode;i4)");
@@ -5844,18 +5374,8 @@ impl ::core::clone::Clone for GattWriteOption {
         *self
     }
 }
-impl ::core::default::Default for GattWriteOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GattWriteOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GattWriteOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattWriteOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GattWriteOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
@@ -5866,3 +5386,5 @@ unsafe impl ::windows::core::RuntimeType for GattWriteOption {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

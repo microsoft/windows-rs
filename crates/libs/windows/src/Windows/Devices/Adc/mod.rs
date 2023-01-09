@@ -112,17 +112,6 @@ impl ::core::clone::Clone for AdcChannel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AdcChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdcChannel {}
-impl ::core::fmt::Debug for AdcChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AdcChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -257,17 +246,6 @@ impl ::core::clone::Clone for AdcController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AdcController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdcController {}
-impl ::core::fmt::Debug for AdcController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AdcController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
     type DefaultType = ::core::option::Option<Self>;
@@ -301,18 +279,8 @@ impl ::core::clone::Clone for AdcChannelMode {
         *self
     }
 }
-impl ::core::default::Default for AdcChannelMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AdcChannelMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AdcChannelMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcChannelMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
@@ -323,3 +291,5 @@ unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

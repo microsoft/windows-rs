@@ -158,17 +158,6 @@ impl ::core::clone::Clone for ISpiDeviceStatics {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISpiDeviceStatics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpiDeviceStatics {}
-impl ::core::fmt::Debug for ISpiDeviceStatics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpiDeviceStatics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a278e559-5720-4d3f-bd93-56f5ff5a5879}");
     type DefaultType = ::core::option::Option<Self>;
@@ -232,17 +221,6 @@ impl SpiBusInfo {
 impl ::core::clone::Clone for SpiBusInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpiBusInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiBusInfo {}
-impl ::core::fmt::Debug for SpiBusInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiBusInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpiBusInfo {
@@ -340,17 +318,6 @@ impl ::core::clone::Clone for SpiConnectionSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpiConnectionSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiConnectionSettings {}
-impl ::core::fmt::Debug for SpiConnectionSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiConnectionSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpiConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiConnectionSettings;{5283a37f-f935-4b9f-a7a7-3a7890afa5ce})");
     type DefaultType = ::core::option::Option<Self>;
@@ -410,17 +377,6 @@ impl SpiController {
 impl ::core::clone::Clone for SpiController {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpiController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiController {}
-impl ::core::fmt::Debug for SpiController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiController").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpiController {
@@ -519,17 +475,6 @@ impl ::core::clone::Clone for SpiDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpiDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiDevice {}
-impl ::core::fmt::Debug for SpiDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpiDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiDevice;{05d5356d-11b6-4d39-84d5-95dfb4c9f2ce})");
     type DefaultType = ::core::option::Option<Self>;
@@ -587,18 +532,8 @@ impl ::core::clone::Clone for SpiMode {
         *self
     }
 }
-impl ::core::default::Default for SpiMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpiMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpiMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpiMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiMode;i4)");
@@ -621,18 +556,8 @@ impl ::core::clone::Clone for SpiSharingMode {
         *self
     }
 }
-impl ::core::default::Default for SpiSharingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpiSharingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpiSharingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiSharingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpiSharingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.SpiSharingMode;i4)");
@@ -643,3 +568,5 @@ unsafe impl ::windows::core::RuntimeType for SpiSharingMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

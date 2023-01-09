@@ -41,17 +41,6 @@ impl ::core::clone::Clone for ICompositionInteractionSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICompositionInteractionSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionInteractionSource {}
-impl ::core::fmt::Debug for ICompositionInteractionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionInteractionSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
     type DefaultType = ::core::option::Option<Self>;
@@ -611,17 +600,6 @@ impl ::core::clone::Clone for IInteractionTrackerOwner {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IInteractionTrackerOwner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInteractionTrackerOwner {}
-impl ::core::fmt::Debug for IInteractionTrackerOwner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInteractionTrackerOwner").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IInteractionTrackerOwner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1067,17 +1045,6 @@ impl ::core::clone::Clone for CompositionConditionalValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionConditionalValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionConditionalValue {}
-impl ::core::fmt::Debug for CompositionConditionalValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionConditionalValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1302,17 +1269,6 @@ impl CompositionInteractionSourceCollection {
 impl ::core::clone::Clone for CompositionInteractionSourceCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionInteractionSourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionInteractionSourceCollection {}
-impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionInteractionSourceCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
@@ -1574,17 +1530,6 @@ impl InteractionSourceConfiguration {
 impl ::core::clone::Clone for InteractionSourceConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionSourceConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionSourceConfiguration {}
-impl ::core::fmt::Debug for InteractionSourceConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
@@ -2140,17 +2085,6 @@ impl ::core::clone::Clone for InteractionTracker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTracker {}
-impl ::core::fmt::Debug for InteractionTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTracker;{2a8e8cb1-1000-4416-8363-cc27fb877308})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2250,17 +2184,6 @@ impl ::core::clone::Clone for InteractionTrackerCustomAnimationStateEnteredArgs 
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerCustomAnimationStateEnteredArgs {}
-impl ::core::fmt::Debug for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerCustomAnimationStateEnteredArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs;{8d1c8cf1-d7b0-434c-a5d2-2d7611864834})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2302,17 +2225,6 @@ impl InteractionTrackerIdleStateEnteredArgs {
 impl ::core::clone::Clone for InteractionTrackerIdleStateEnteredArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerIdleStateEnteredArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerIdleStateEnteredArgs {}
-impl ::core::fmt::Debug for InteractionTrackerIdleStateEnteredArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerIdleStateEnteredArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
@@ -2447,17 +2359,6 @@ impl InteractionTrackerInertiaModifier {
 impl ::core::clone::Clone for InteractionTrackerInertiaModifier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerInertiaModifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInertiaModifier {}
-impl ::core::fmt::Debug for InteractionTrackerInertiaModifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInertiaModifier").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
@@ -2681,17 +2582,6 @@ impl InteractionTrackerInertiaMotion {
 impl ::core::clone::Clone for InteractionTrackerInertiaMotion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerInertiaMotion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInertiaMotion {}
-impl ::core::fmt::Debug for InteractionTrackerInertiaMotion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInertiaMotion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
@@ -2935,17 +2825,6 @@ impl ::core::clone::Clone for InteractionTrackerInertiaNaturalMotion {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTrackerInertiaNaturalMotion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInertiaNaturalMotion {}
-impl ::core::fmt::Debug for InteractionTrackerInertiaNaturalMotion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInertiaNaturalMotion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion;{70acdaae-27dc-48ed-a3c3-6d61c9a029d2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3184,17 +3063,6 @@ impl ::core::clone::Clone for InteractionTrackerInertiaRestingValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTrackerInertiaRestingValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInertiaRestingValue {}
-impl ::core::fmt::Debug for InteractionTrackerInertiaRestingValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInertiaRestingValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue;{86f7ec09-5096-4170-9cc8-df2fe101bb93})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3366,17 +3234,6 @@ impl ::core::clone::Clone for InteractionTrackerInertiaStateEnteredArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTrackerInertiaStateEnteredArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInertiaStateEnteredArgs {}
-impl ::core::fmt::Debug for InteractionTrackerInertiaStateEnteredArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInertiaStateEnteredArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs;{87108cf2-e7ff-4f7d-9ffd-d72f1e409b63})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3420,17 +3277,6 @@ impl ::core::clone::Clone for InteractionTrackerInteractingStateEnteredArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InteractionTrackerInteractingStateEnteredArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerInteractingStateEnteredArgs {}
-impl ::core::fmt::Debug for InteractionTrackerInteractingStateEnteredArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerInteractingStateEnteredArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs;{a7263939-a17b-4011-99fd-b5c24f143748})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3465,17 +3311,6 @@ impl InteractionTrackerRequestIgnoredArgs {
 impl ::core::clone::Clone for InteractionTrackerRequestIgnoredArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerRequestIgnoredArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerRequestIgnoredArgs {}
-impl ::core::fmt::Debug for InteractionTrackerRequestIgnoredArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerRequestIgnoredArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
@@ -3528,17 +3363,6 @@ impl InteractionTrackerValuesChangedArgs {
 impl ::core::clone::Clone for InteractionTrackerValuesChangedArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerValuesChangedArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerValuesChangedArgs {}
-impl ::core::fmt::Debug for InteractionTrackerValuesChangedArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerValuesChangedArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs {
@@ -3673,17 +3497,6 @@ impl InteractionTrackerVector2InertiaModifier {
 impl ::core::clone::Clone for InteractionTrackerVector2InertiaModifier {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaModifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerVector2InertiaModifier {}
-impl ::core::fmt::Debug for InteractionTrackerVector2InertiaModifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerVector2InertiaModifier").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaModifier {
@@ -3910,17 +3723,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
 impl ::core::clone::Clone for InteractionTrackerVector2InertiaNaturalMotion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaNaturalMotion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerVector2InertiaNaturalMotion {}
-impl ::core::fmt::Debug for InteractionTrackerVector2InertiaNaturalMotion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerVector2InertiaNaturalMotion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
@@ -4374,17 +4176,6 @@ impl ::core::clone::Clone for VisualInteractionSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VisualInteractionSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualInteractionSource {}
-impl ::core::fmt::Debug for VisualInteractionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualInteractionSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VisualInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.VisualInteractionSource;{ca0e8a86-d8d6-4111-b088-70347bd2b0ed})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4495,46 +4286,8 @@ impl ::core::clone::Clone for InteractionBindingAxisModes {
         *self
     }
 }
-impl ::core::default::Default for InteractionBindingAxisModes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionBindingAxisModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InteractionBindingAxisModes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InteractionBindingAxisModes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InteractionBindingAxisModes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InteractionBindingAxisModes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InteractionBindingAxisModes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
@@ -4558,18 +4311,8 @@ impl ::core::clone::Clone for InteractionChainingMode {
         *self
     }
 }
-impl ::core::default::Default for InteractionChainingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionChainingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionChainingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
@@ -4593,18 +4336,8 @@ impl ::core::clone::Clone for InteractionSourceMode {
         *self
     }
 }
-impl ::core::default::Default for InteractionSourceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionSourceMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionSourceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
@@ -4627,18 +4360,8 @@ impl ::core::clone::Clone for InteractionSourceRedirectionMode {
         *self
     }
 }
-impl ::core::default::Default for InteractionSourceRedirectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
@@ -4661,18 +4384,8 @@ impl ::core::clone::Clone for InteractionTrackerClampingOption {
         *self
     }
 }
-impl ::core::default::Default for InteractionTrackerClampingOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionTrackerClampingOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
@@ -4695,18 +4408,8 @@ impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
         *self
     }
 }
-impl ::core::default::Default for InteractionTrackerPositionUpdateOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
@@ -4731,18 +4434,8 @@ impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
         *self
     }
 }
-impl ::core::default::Default for VisualInteractionSourceRedirectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VisualInteractionSourceRedirectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
@@ -4753,3 +4446,5 @@ unsafe impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionM
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

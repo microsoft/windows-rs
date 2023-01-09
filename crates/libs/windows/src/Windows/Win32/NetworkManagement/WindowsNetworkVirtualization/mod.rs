@@ -37,18 +37,8 @@ impl ::core::clone::Clone for WNV_CA_NOTIFICATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WNV_CA_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WNV_CA_NOTIFICATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNV_CA_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 #[repr(transparent)]
@@ -68,18 +58,8 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WNV_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNV_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 #[repr(transparent)]
@@ -97,18 +77,8 @@ impl ::core::clone::Clone for WNV_OBJECT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WNV_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WNV_OBJECT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WNV_OBJECT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNV_OBJECT_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -134,12 +104,6 @@ impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
 unsafe impl ::windows::core::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -157,12 +121,6 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS {
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_IP_ADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -184,12 +142,6 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS_0 {
 unsafe impl ::windows::core::Abi for WNV_IP_ADDRESS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_IP_ADDRESS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub struct WNV_NOTIFICATION_PARAM {
@@ -204,24 +156,8 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_PARAM {
         *self
     }
 }
-impl ::core::fmt::Debug for WNV_NOTIFICATION_PARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNV_NOTIFICATION_PARAM").field("Header", &self.Header).field("NotificationType", &self.NotificationType).field("PendingNotifications", &self.PendingNotifications).field("Buffer", &self.Buffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_PARAM {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WNV_NOTIFICATION_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header && self.NotificationType == other.NotificationType && self.PendingNotifications == other.PendingNotifications && self.Buffer == other.Buffer
-    }
-}
-impl ::core::cmp::Eq for WNV_NOTIFICATION_PARAM {}
-impl ::core::default::Default for WNV_NOTIFICATION_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -242,12 +178,6 @@ impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM {
 unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -267,12 +197,6 @@ impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM_0 {
 unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub struct WNV_OBJECT_HEADER {
@@ -286,24 +210,8 @@ impl ::core::clone::Clone for WNV_OBJECT_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for WNV_OBJECT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WNV_OBJECT_HEADER").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("Size", &self.Size).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WNV_OBJECT_HEADER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WNV_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.Size == other.Size
-    }
-}
-impl ::core::cmp::Eq for WNV_OBJECT_HEADER {}
-impl ::core::default::Default for WNV_OBJECT_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -327,12 +235,6 @@ impl ::core::clone::Clone for WNV_POLICY_MISMATCH_PARAM {
 unsafe impl ::windows::core::Abi for WNV_POLICY_MISMATCH_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_POLICY_MISMATCH_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -352,12 +254,6 @@ impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
 #[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -383,11 +279,7 @@ impl ::core::clone::Clone for WNV_REDIRECT_PARAM {
 unsafe impl ::windows::core::Abi for WNV_REDIRECT_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for WNV_REDIRECT_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

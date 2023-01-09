@@ -196,17 +196,6 @@ impl ::core::clone::Clone for ICoreDropOperationTarget {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICoreDropOperationTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreDropOperationTarget {}
-impl ::core::fmt::Debug for ICoreDropOperationTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreDropOperationTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d9126196-4c5b-417d-bb37-76381def8db4}");
     type DefaultType = ::core::option::Option<Self>;
@@ -303,17 +292,6 @@ impl ::core::clone::Clone for CoreDragDropManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreDragDropManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDragDropManager {}
-impl ::core::fmt::Debug for CoreDragDropManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragDropManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreDragDropManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager;{7d56d344-8464-4faf-aa49-37ea6e2d7bd1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -371,17 +349,6 @@ impl CoreDragInfo {
 impl ::core::clone::Clone for CoreDragInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreDragInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDragInfo {}
-impl ::core::fmt::Debug for CoreDragInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragInfo {
@@ -474,17 +441,6 @@ impl ::core::clone::Clone for CoreDragOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreDragOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDragOperation {}
-impl ::core::fmt::Debug for CoreDragOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreDragOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation;{cc06de4f-6db0-4e62-ab1b-a74a02dc6d85})");
     type DefaultType = ::core::option::Option<Self>;
@@ -574,17 +530,6 @@ impl ::core::clone::Clone for CoreDragUIOverride {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreDragUIOverride {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDragUIOverride {}
-impl ::core::fmt::Debug for CoreDragUIOverride {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragUIOverride").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreDragUIOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride;{89a85064-3389-4f4f-8897-7e8a3ffb3c93})");
     type DefaultType = ::core::option::Option<Self>;
@@ -622,17 +567,6 @@ impl ::core::clone::Clone for CoreDropOperationTargetRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreDropOperationTargetRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDropOperationTargetRequestedEventArgs {}
-impl ::core::fmt::Debug for CoreDropOperationTargetRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDropOperationTargetRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs;{2aca929a-5e28-4ea6-829e-29134e665d6d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -666,46 +600,8 @@ impl ::core::clone::Clone for CoreDragUIContentMode {
         *self
     }
 }
-impl ::core::default::Default for CoreDragUIContentMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreDragUIContentMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreDragUIContentMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CoreDragUIContentMode {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CoreDragUIContentMode {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CoreDragUIContentMode {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CoreDragUIContentMode {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CoreDragUIContentMode {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
@@ -716,3 +612,5 @@ unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

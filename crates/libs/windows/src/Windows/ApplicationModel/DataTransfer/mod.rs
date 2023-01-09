@@ -1273,17 +1273,6 @@ impl ::core::clone::Clone for ClipboardContentOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClipboardContentOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClipboardContentOptions {}
-impl ::core::fmt::Debug for ClipboardContentOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardContentOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClipboardContentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardContentOptions;{e888a98c-ad4b-5447-a056-ab3556276d2b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1310,17 +1299,6 @@ impl ClipboardHistoryChangedEventArgs {}
 impl ::core::clone::Clone for ClipboardHistoryChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClipboardHistoryChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClipboardHistoryChangedEventArgs {}
-impl ::core::fmt::Debug for ClipboardHistoryChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardHistoryChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryChangedEventArgs {
@@ -1375,17 +1353,6 @@ impl ::core::clone::Clone for ClipboardHistoryItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ClipboardHistoryItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClipboardHistoryItem {}
-impl ::core::fmt::Debug for ClipboardHistoryItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardHistoryItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem;{0173bd8a-afff-5c50-ab92-3d19f481ec58})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1429,17 +1396,6 @@ impl ClipboardHistoryItemsResult {
 impl ::core::clone::Clone for ClipboardHistoryItemsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ClipboardHistoryItemsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClipboardHistoryItemsResult {}
-impl ::core::fmt::Debug for ClipboardHistoryItemsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardHistoryItemsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResult {
@@ -1637,17 +1593,6 @@ impl DataPackage {
 impl ::core::clone::Clone for DataPackage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataPackage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPackage {}
-impl ::core::fmt::Debug for DataPackage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackage").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataPackage {
@@ -1921,17 +1866,6 @@ impl ::core::clone::Clone for DataPackagePropertySet {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataPackagePropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPackagePropertySet {}
-impl ::core::fmt::Debug for DataPackagePropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackagePropertySet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataPackagePropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackagePropertySet;{cd1c93eb-4c4c-443a-a8d3-f5c241e91689})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2173,17 +2107,6 @@ impl DataPackagePropertySetView {
 impl ::core::clone::Clone for DataPackagePropertySetView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataPackagePropertySetView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPackagePropertySetView {}
-impl ::core::fmt::Debug for DataPackagePropertySetView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackagePropertySetView").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataPackagePropertySetView {
@@ -2439,17 +2362,6 @@ impl ::core::clone::Clone for DataPackageView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataPackageView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPackageView {}
-impl ::core::fmt::Debug for DataPackageView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackageView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataPackageView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataPackageView;{7b840471-5900-4d85-a90b-10cb85fe3552})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2481,17 +2393,6 @@ impl DataProviderDeferral {
 impl ::core::clone::Clone for DataProviderDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataProviderDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProviderDeferral {}
-impl ::core::fmt::Debug for DataProviderDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProviderDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataProviderDeferral {
@@ -2551,17 +2452,6 @@ impl DataProviderRequest {
 impl ::core::clone::Clone for DataProviderRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataProviderRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProviderRequest {}
-impl ::core::fmt::Debug for DataProviderRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProviderRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataProviderRequest {
@@ -2624,17 +2514,6 @@ impl ::core::clone::Clone for DataRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataRequest {}
-impl ::core::fmt::Debug for DataRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataRequest;{4341ae3b-fc12-4e53-8c02-ac714c415a27})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2666,17 +2545,6 @@ impl DataRequestDeferral {
 impl ::core::clone::Clone for DataRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataRequestDeferral {}
-impl ::core::fmt::Debug for DataRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataRequestDeferral {
@@ -2713,17 +2581,6 @@ impl DataRequestedEventArgs {
 impl ::core::clone::Clone for DataRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataRequestedEventArgs {}
-impl ::core::fmt::Debug for DataRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DataRequestedEventArgs {
@@ -2833,17 +2690,6 @@ impl ::core::clone::Clone for DataTransferManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataTransferManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataTransferManager {}
-impl ::core::fmt::Debug for DataTransferManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataTransferManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataTransferManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.DataTransferManager;{a5caee9b-8708-49d1-8d36-67d25a8da00c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2909,17 +2755,6 @@ impl ::core::clone::Clone for OperationCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for OperationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OperationCompletedEventArgs {}
-impl ::core::fmt::Debug for OperationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OperationCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for OperationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs;{e7af329d-051d-4fab-b1a9-47fd77f70a41})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2954,17 +2789,6 @@ impl ShareCompletedEventArgs {
 impl ::core::clone::Clone for ShareCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareCompletedEventArgs {}
-impl ::core::fmt::Debug for ShareCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareCompletedEventArgs {
@@ -3048,17 +2872,6 @@ impl ::core::clone::Clone for ShareProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ShareProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareProvider {}
-impl ::core::fmt::Debug for ShareProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ShareProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvider;{2fabe026-443e-4cda-af25-8d81070efd80})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3104,17 +2917,6 @@ impl ShareProviderOperation {
 impl ::core::clone::Clone for ShareProviderOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareProviderOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareProviderOperation {}
-impl ::core::fmt::Debug for ShareProviderOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareProviderOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareProviderOperation {
@@ -3171,17 +2973,6 @@ impl ::core::clone::Clone for ShareProvidersRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ShareProvidersRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareProvidersRequestedEventArgs {}
-impl ::core::fmt::Debug for ShareProvidersRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareProvidersRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ShareProvidersRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs;{f888f356-a3f8-4fce-85e4-8826e63be799})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3223,17 +3014,6 @@ impl ShareTargetInfo {
 impl ::core::clone::Clone for ShareTargetInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareTargetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareTargetInfo {}
-impl ::core::fmt::Debug for ShareTargetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareTargetInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareTargetInfo {
@@ -3300,17 +3080,6 @@ impl ShareUIOptions {
 impl ::core::clone::Clone for ShareUIOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareUIOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareUIOptions {}
-impl ::core::fmt::Debug for ShareUIOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareUIOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareUIOptions {
@@ -3462,17 +3231,6 @@ impl ::core::clone::Clone for TargetApplicationChosenEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TargetApplicationChosenEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetApplicationChosenEventArgs {}
-impl ::core::fmt::Debug for TargetApplicationChosenEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetApplicationChosenEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TargetApplicationChosenEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs;{ca6fb8ac-2987-4ee3-9c54-d8afbcb86c1d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3507,18 +3265,8 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
         *self
     }
 }
-impl ::core::default::Default for ClipboardHistoryItemsResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResultStatus;i4)");
@@ -3543,46 +3291,8 @@ impl ::core::clone::Clone for DataPackageOperation {
         *self
     }
 }
-impl ::core::default::Default for DataPackageOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DataPackageOperation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DataPackageOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataPackageOperation").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DataPackageOperation {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DataPackageOperation {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DataPackageOperation {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DataPackageOperation {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DataPackageOperation {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DataPackageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DataPackageOperation;u4)");
@@ -3606,18 +3316,8 @@ impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
         *self
     }
 }
-impl ::core::default::Default for SetHistoryItemAsContentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.SetHistoryItemAsContentStatus;i4)");
@@ -3641,18 +3341,8 @@ impl ::core::clone::Clone for ShareUITheme {
         *self
     }
 }
-impl ::core::default::Default for ShareUITheme {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ShareUITheme {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ShareUITheme {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareUITheme").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ShareUITheme {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.ShareUITheme;i4)");
@@ -3715,17 +3405,6 @@ impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::
 impl ::core::clone::Clone for DataProviderHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DataProviderHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProviderHandler {}
-impl ::core::fmt::Debug for DataProviderHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProviderHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for DataProviderHandler {
@@ -3803,17 +3482,6 @@ impl ::core::clone::Clone for ShareProviderHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ShareProviderHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareProviderHandler {}
-impl ::core::fmt::Debug for ShareProviderHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareProviderHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ShareProviderHandler {
     type Vtable = ShareProviderHandler_Vtbl;
 }
@@ -3835,3 +3503,5 @@ pub struct ShareProviderHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

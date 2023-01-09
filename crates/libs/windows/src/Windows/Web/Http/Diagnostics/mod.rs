@@ -276,17 +276,6 @@ impl ::core::clone::Clone for HttpDiagnosticProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProvider {}
-impl ::core::fmt::Debug for HttpDiagnosticProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProvider;{bd811501-a056-4d39-b174-833b7b03b02c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -367,17 +356,6 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
 impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestResponseCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -490,17 +468,6 @@ impl ::core::clone::Clone for HttpDiagnosticProviderRequestResponseTimestamps {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestResponseTimestamps {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestResponseTimestamps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestResponseTimestamps").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps;{e0afde10-55cf-4c01-91d4-a20557d849f0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -583,17 +550,6 @@ impl ::core::clone::Clone for HttpDiagnosticProviderRequestSentEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderRequestSentEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderRequestSentEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderRequestSentEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderRequestSentEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs;{3f5196d0-4c1f-4ebe-a57a-06930771c50d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -644,17 +600,6 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
 impl ::core::clone::Clone for HttpDiagnosticProviderResponseReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticProviderResponseReceivedEventArgs {}
-impl ::core::fmt::Debug for HttpDiagnosticProviderResponseReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticProviderResponseReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -709,17 +654,6 @@ impl ::core::clone::Clone for HttpDiagnosticSourceLocation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticSourceLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticSourceLocation {}
-impl ::core::fmt::Debug for HttpDiagnosticSourceLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticSourceLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticSourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation;{54a9d260-8860-423f-b6fa-d77716f647a7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -764,18 +698,8 @@ impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
         *self
     }
 }
-impl ::core::default::Default for HttpDiagnosticRequestInitiator {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HttpDiagnosticRequestInitiator {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDiagnosticRequestInitiator").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
@@ -786,3 +710,5 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

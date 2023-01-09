@@ -327,46 +327,8 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_FLAG {
         *self
     }
 }
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPLY_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for APPLY_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for APPLY_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for APPLY_SNAPSHOT_VHDSET_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for APPLY_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -382,18 +344,8 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APPLY_SNAPSHOT_VHDSET_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -427,46 +379,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ATTACH_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ATTACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ATTACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ATTACH_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ATTACH_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ATTACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -484,18 +398,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ATTACH_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -513,46 +417,8 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPACT_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for COMPACT_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COMPACT_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMPACT_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMPACT_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COMPACT_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -568,18 +434,8 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPACT_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -615,46 +471,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CREATE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CREATE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREATE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -676,18 +494,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CREATE_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -703,46 +511,8 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_FLAG {
         *self
     }
 }
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DELETE_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DELETE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DELETE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DELETE_SNAPSHOT_VHDSET_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DELETE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -758,18 +528,8 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DELETE_SNAPSHOT_VHDSET_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -811,46 +571,8 @@ impl ::core::clone::Clone for DEPENDENT_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for DEPENDENT_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DEPENDENT_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DEPENDENT_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEPENDENT_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DEPENDENT_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DEPENDENT_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DEPENDENT_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DEPENDENT_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DEPENDENT_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -864,46 +586,8 @@ impl ::core::clone::Clone for DETACH_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for DETACH_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DETACH_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DETACH_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DETACH_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DETACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DETACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DETACH_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DETACH_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -919,46 +603,8 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EXPAND_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for EXPAND_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for EXPAND_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EXPAND_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EXPAND_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for EXPAND_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -974,18 +620,8 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EXPAND_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1001,46 +637,8 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for FORK_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FORK_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FORK_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FORK_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FORK_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FORK_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FORK_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1056,18 +654,8 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for FORK_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FORK_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1085,46 +673,8 @@ impl ::core::clone::Clone for GET_STORAGE_DEPENDENCY_FLAG {
         *self
     }
 }
-impl ::core::default::Default for GET_STORAGE_DEPENDENCY_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GET_STORAGE_DEPENDENCY_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GET_STORAGE_DEPENDENCY_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GET_STORAGE_DEPENDENCY_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_STORAGE_DEPENDENCY_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_STORAGE_DEPENDENCY_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_STORAGE_DEPENDENCY_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_STORAGE_DEPENDENCY_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_STORAGE_DEPENDENCY_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1168,18 +718,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_VERSION {
         *self
     }
 }
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GET_VIRTUAL_DISK_INFO_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1193,46 +733,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MERGE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MERGE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MERGE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MERGE_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MERGE_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MERGE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1250,18 +752,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MERGE_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1283,46 +775,8 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MIRROR_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MIRROR_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MIRROR_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MIRROR_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MIRROR_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MIRROR_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1338,18 +792,8 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MIRROR_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1365,46 +809,8 @@ impl ::core::clone::Clone for MODIFY_VHDSET_FLAG {
         *self
     }
 }
-impl ::core::default::Default for MODIFY_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MODIFY_VHDSET_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MODIFY_VHDSET_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MODIFY_VHDSET_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MODIFY_VHDSET_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODIFY_VHDSET_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODIFY_VHDSET_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MODIFY_VHDSET_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1424,18 +830,8 @@ impl ::core::clone::Clone for MODIFY_VHDSET_VERSION {
         *self
     }
 }
-impl ::core::default::Default for MODIFY_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MODIFY_VHDSET_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MODIFY_VHDSET_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1473,46 +869,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPEN_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for OPEN_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for OPEN_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OPEN_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OPEN_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for OPEN_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1532,18 +890,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OPEN_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1557,46 +905,8 @@ impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QUERY_CHANGES_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1610,46 +920,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RAW_SCSI_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1665,18 +937,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RAW_SCSI_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1694,46 +956,8 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_FLAG {
         *self
     }
 }
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RESIZE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RESIZE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RESIZE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RESIZE_VIRTUAL_DISK_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RESIZE_VIRTUAL_DISK_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RESIZE_VIRTUAL_DISK_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1749,18 +973,8 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_VERSION {
         *self
     }
 }
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RESIZE_VIRTUAL_DISK_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1788,18 +1002,8 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_VERSION {
         *self
     }
 }
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SET_VIRTUAL_DISK_INFO_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1817,18 +1021,8 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_VERSION {
         *self
     }
 }
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STORAGE_DEPENDENCY_INFO_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1844,46 +1038,8 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_FLAG {
         *self
     }
 }
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TAKE_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TAKE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TAKE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TAKE_SNAPSHOT_VHDSET_FLAG {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TAKE_SNAPSHOT_VHDSET_FLAG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1899,18 +1055,8 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_VERSION {
         *self
     }
 }
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TAKE_SNAPSHOT_VHDSET_VERSION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 #[repr(transparent)]
@@ -1942,46 +1088,8 @@ impl ::core::clone::Clone for VIRTUAL_DISK_ACCESS_MASK {
         *self
     }
 }
-impl ::core::default::Default for VIRTUAL_DISK_ACCESS_MASK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VIRTUAL_DISK_ACCESS_MASK {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VIRTUAL_DISK_ACCESS_MASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VIRTUAL_DISK_ACCESS_MASK").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VIRTUAL_DISK_ACCESS_MASK {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VIRTUAL_DISK_ACCESS_MASK {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VIRTUAL_DISK_ACCESS_MASK {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VIRTUAL_DISK_ACCESS_MASK {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VIRTUAL_DISK_ACCESS_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -1998,11 +1106,6 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -2017,11 +1120,6 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -2034,24 +1132,8 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("LeafSnapshotId", &self.LeafSnapshotId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId && self.LeafSnapshotId == other.LeafSnapshotId
-    }
-}
-impl ::core::cmp::Eq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2068,11 +1150,6 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
@@ -2088,11 +1165,6 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2104,24 +1176,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2135,24 +1191,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_1").field("RestrictedOffset", &self.RestrictedOffset).field("RestrictedLength", &self.RestrictedLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RestrictedOffset == other.RestrictedOffset && self.RestrictedLength == other.RestrictedLength
-    }
-}
-impl ::core::cmp::Eq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2169,11 +1209,6 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
@@ -2188,11 +1223,6 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2204,24 +1234,8 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPACT_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2237,11 +1251,6 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
 }
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2260,11 +1269,6 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2281,24 +1285,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_0").field("UniqueId", &self.UniqueId).field("MaximumSize", &self.MaximumSize).field("BlockSizeInBytes", &self.BlockSizeInBytes).field("SectorSizeInBytes", &self.SectorSizeInBytes).field("ParentPath", &self.ParentPath).field("SourcePath", &self.SourcePath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath
-    }
-}
-impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2321,36 +1309,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_1")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid
-    }
-}
-impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2375,38 +1335,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_2")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .field("SourceLimitPath", &self.SourceLimitPath)
-            .field("BackingStorageType", &self.BackingStorageType)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType
-    }
-}
-impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2433,40 +1363,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
         *self
     }
 }
-impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_3")
-            .field("UniqueId", &self.UniqueId)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("BlockSizeInBytes", &self.BlockSizeInBytes)
-            .field("SectorSizeInBytes", &self.SectorSizeInBytes)
-            .field("PhysicalSectorSizeInBytes", &self.PhysicalSectorSizeInBytes)
-            .field("ParentPath", &self.ParentPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("OpenFlags", &self.OpenFlags)
-            .field("ParentVirtualStorageType", &self.ParentVirtualStorageType)
-            .field("SourceVirtualStorageType", &self.SourceVirtualStorageType)
-            .field("ResiliencyGuid", &self.ResiliencyGuid)
-            .field("SourceLimitPath", &self.SourceLimitPath)
-            .field("BackingStorageType", &self.BackingStorageType)
-            .field("PmemAddressAbstractionType", &self.PmemAddressAbstractionType)
-            .field("DataAlignment", &self.DataAlignment)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UniqueId == other.UniqueId && self.MaximumSize == other.MaximumSize && self.BlockSizeInBytes == other.BlockSizeInBytes && self.SectorSizeInBytes == other.SectorSizeInBytes && self.PhysicalSectorSizeInBytes == other.PhysicalSectorSizeInBytes && self.ParentPath == other.ParentPath && self.SourcePath == other.SourcePath && self.OpenFlags == other.OpenFlags && self.ParentVirtualStorageType == other.ParentVirtualStorageType && self.SourceVirtualStorageType == other.SourceVirtualStorageType && self.ResiliencyGuid == other.ResiliencyGuid && self.SourceLimitPath == other.SourceLimitPath && self.BackingStorageType == other.BackingStorageType && self.PmemAddressAbstractionType == other.PmemAddressAbstractionType && self.DataAlignment == other.DataAlignment
-    }
-}
-impl ::core::cmp::Eq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
-impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2483,11 +1381,6 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -2502,11 +1395,6 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -2518,24 +1406,8 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId
-    }
-}
-impl ::core::cmp::Eq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2552,11 +1424,6 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
@@ -2571,11 +1438,6 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2587,24 +1449,8 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXPAND_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewSize == other.NewSize
-    }
-}
-impl ::core::cmp::Eq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2621,11 +1467,6 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
@@ -2640,11 +1481,6 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2656,24 +1492,8 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FORK_VIRTUAL_DISK_PARAMETERS_0_0").field("ForkedVirtualDiskPath", &self.ForkedVirtualDiskPath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ForkedVirtualDiskPath == other.ForkedVirtualDiskPath
-    }
-}
-impl ::core::cmp::Eq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -2693,12 +1513,6 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -2732,12 +1546,6 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0 {
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2755,28 +1563,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_0").field("Enabled", &self.Enabled).field("NewerChanges", &self.NewerChanges).field("MostRecentId", &self.MostRecentId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enabled == other.Enabled && self.NewerChanges == other.NewerChanges && self.MostRecentId == other.MostRecentId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -2794,28 +1582,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_1").field("ParentResolved", &self.ParentResolved).field("ParentLocationBuffer", &self.ParentLocationBuffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ParentResolved == other.ParentResolved && self.ParentLocationBuffer == other.ParentLocationBuffer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -2834,28 +1602,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_2").field("LogicalSectorSize", &self.LogicalSectorSize).field("PhysicalSectorSize", &self.PhysicalSectorSize).field("IsRemote", &self.IsRemote).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogicalSectorSize == other.LogicalSectorSize && self.PhysicalSectorSize == other.PhysicalSectorSize && self.IsRemote == other.IsRemote
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -2875,28 +1623,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GET_VIRTUAL_DISK_INFO_0_3").field("VirtualSize", &self.VirtualSize).field("PhysicalSize", &self.PhysicalSize).field("BlockSize", &self.BlockSize).field("SectorSize", &self.SectorSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualSize == other.VirtualSize && self.PhysicalSize == other.PhysicalSize && self.BlockSize == other.BlockSize && self.SectorSize == other.SectorSize
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2913,11 +1641,6 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -2933,11 +1656,6 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -2949,24 +1667,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_0").field("MergeDepth", &self.MergeDepth).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MergeDepth == other.MergeDepth
-    }
-}
-impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -2980,24 +1682,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_1").field("MergeSourceDepth", &self.MergeSourceDepth).field("MergeTargetDepth", &self.MergeTargetDepth).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MergeSourceDepth == other.MergeSourceDepth && self.MergeTargetDepth == other.MergeTargetDepth
-    }
-}
-impl ::core::cmp::Eq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
-impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3014,11 +1700,6 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
@@ -3033,11 +1714,6 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -3049,24 +1725,8 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MIRROR_VIRTUAL_DISK_PARAMETERS_0_0").field("MirrorVirtualDiskPath", &self.MirrorVirtualDiskPath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MirrorVirtualDiskPath == other.MirrorVirtualDiskPath
-    }
-}
-impl ::core::cmp::Eq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3082,11 +1742,6 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS {
 }
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS {
     type Abi = Self;
-}
-impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3104,11 +1759,6 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
@@ -3121,24 +1771,8 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MODIFY_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("SnapshotFilePath", &self.SnapshotFilePath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId && self.SnapshotFilePath == other.SnapshotFilePath
-    }
-}
-impl ::core::cmp::Eq for MODIFY_VHDSET_PARAMETERS_0_0 {}
-impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3158,12 +1792,6 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3185,12 +1813,6 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3206,28 +1828,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_0").field("RWDepth", &self.RWDepth).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RWDepth == other.RWDepth
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3246,28 +1848,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_1").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3287,28 +1869,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPEN_VIRTUAL_DISK_PARAMETERS_0_2").field("GetInfoOnly", &self.GetInfoOnly).field("ReadOnly", &self.ReadOnly).field("ResiliencyGuid", &self.ResiliencyGuid).field("SnapshotId", &self.SnapshotId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GetInfoOnly == other.GetInfoOnly && self.ReadOnly == other.ReadOnly && self.ResiliencyGuid == other.ResiliencyGuid && self.SnapshotId == other.SnapshotId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3323,24 +1885,8 @@ impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
         *self
     }
 }
-impl ::core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERY_CHANGES_VIRTUAL_DISK_RANGE").field("ByteOffset", &self.ByteOffset).field("ByteLength", &self.ByteLength).field("Reserved", &self.Reserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset && self.ByteLength == other.ByteLength && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
-impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3361,12 +1907,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3384,12 +1924,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3414,28 +1948,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0").field("RSVDHandle", &self.RSVDHandle).field("DataIn", &self.DataIn).field("CdbLength", &self.CdbLength).field("SenseInfoLength", &self.SenseInfoLength).field("SrbFlags", &self.SrbFlags).field("DataTransferLength", &self.DataTransferLength).field("DataBuffer", &self.DataBuffer).field("SenseInfo", &self.SenseInfo).field("Cdb", &self.Cdb).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RSVDHandle == other.RSVDHandle && self.DataIn == other.DataIn && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.SrbFlags == other.SrbFlags && self.DataTransferLength == other.DataTransferLength && self.DataBuffer == other.DataBuffer && self.SenseInfo == other.SenseInfo && self.Cdb == other.Cdb
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3452,11 +1966,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     type Abi = Self;
 }
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
@@ -3471,11 +1980,6 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
@@ -3489,24 +1993,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0").field("ScsiStatus", &self.ScsiStatus).field("SenseInfoLength", &self.SenseInfoLength).field("DataTransferLength", &self.DataTransferLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ScsiStatus == other.ScsiStatus && self.SenseInfoLength == other.SenseInfoLength && self.DataTransferLength == other.DataTransferLength
-    }
-}
-impl ::core::cmp::Eq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
-impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3523,11 +2011,6 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
@@ -3542,11 +2025,6 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -3558,24 +2036,8 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESIZE_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NewSize == other.NewSize
-    }
-}
-impl ::core::cmp::Eq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
-impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3595,12 +2057,6 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3626,12 +2082,6 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0 {
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3648,28 +2098,8 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SET_VIRTUAL_DISK_INFO_0_0").field("LinkageId", &self.LinkageId).field("ParentFilePath", &self.ParentFilePath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LinkageId == other.LinkageId && self.ParentFilePath == other.ParentFilePath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`, `\"Win32_Foundation\"`*"]
@@ -3687,28 +2117,8 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SET_VIRTUAL_DISK_INFO_0_1").field("ChildDepth", &self.ChildDepth).field("ParentFilePath", &self.ParentFilePath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChildDepth == other.ChildDepth && self.ParentFilePath == other.ParentFilePath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SET_VIRTUAL_DISK_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3726,11 +2136,6 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO {
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO {
     type Abi = Self;
 }
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union STORAGE_DEPENDENCY_INFO_0 {
@@ -3746,11 +2151,6 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_0 {
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
@@ -3764,24 +2164,8 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_TYPE_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STORAGE_DEPENDENCY_INFO_TYPE_1").field("DependencyTypeFlags", &self.DependencyTypeFlags).field("ProviderSpecificFlags", &self.ProviderSpecificFlags).field("VirtualStorageType", &self.VirtualStorageType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType
-    }
-}
-impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3801,33 +2185,8 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_TYPE_2 {
         *self
     }
 }
-impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STORAGE_DEPENDENCY_INFO_TYPE_2")
-            .field("DependencyTypeFlags", &self.DependencyTypeFlags)
-            .field("ProviderSpecificFlags", &self.ProviderSpecificFlags)
-            .field("VirtualStorageType", &self.VirtualStorageType)
-            .field("AncestorLevel", &self.AncestorLevel)
-            .field("DependencyDeviceName", &self.DependencyDeviceName)
-            .field("HostVolumeName", &self.HostVolumeName)
-            .field("DependentVolumeName", &self.DependentVolumeName)
-            .field("DependentVolumeRelativePath", &self.DependentVolumeRelativePath)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType && self.AncestorLevel == other.AncestorLevel && self.DependencyDeviceName == other.DependencyDeviceName && self.HostVolumeName == other.HostVolumeName && self.DependentVolumeName == other.DependentVolumeName && self.DependentVolumeRelativePath == other.DependentVolumeRelativePath
-    }
-}
-impl ::core::cmp::Eq for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
-impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3844,11 +2203,6 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     type Abi = Self;
 }
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
@@ -3863,11 +2217,6 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
@@ -3879,24 +2228,8 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SnapshotId == other.SnapshotId
-    }
-}
-impl ::core::cmp::Eq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
-impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3911,24 +2244,8 @@ impl ::core::clone::Clone for VIRTUAL_DISK_PROGRESS {
         *self
     }
 }
-impl ::core::fmt::Debug for VIRTUAL_DISK_PROGRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIRTUAL_DISK_PROGRESS").field("OperationStatus", &self.OperationStatus).field("CurrentValue", &self.CurrentValue).field("CompletionValue", &self.CompletionValue).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VIRTUAL_DISK_PROGRESS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for VIRTUAL_DISK_PROGRESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.OperationStatus == other.OperationStatus && self.CurrentValue == other.CurrentValue && self.CompletionValue == other.CompletionValue
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_DISK_PROGRESS {}
-impl ::core::default::Default for VIRTUAL_DISK_PROGRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
@@ -3942,24 +2259,10 @@ impl ::core::clone::Clone for VIRTUAL_STORAGE_TYPE {
         *self
     }
 }
-impl ::core::fmt::Debug for VIRTUAL_STORAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VIRTUAL_STORAGE_TYPE").field("DeviceId", &self.DeviceId).field("VendorId", &self.VendorId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_TYPE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VIRTUAL_STORAGE_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.DeviceId == other.DeviceId && self.VendorId == other.VendorId
-    }
-}
-impl ::core::cmp::Eq for VIRTUAL_STORAGE_TYPE {}
-impl ::core::default::Default for VIRTUAL_STORAGE_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -95,17 +95,6 @@ impl ::core::clone::Clone for IAnimationObject {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAnimationObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAnimationObject {}
-impl ::core::fmt::Debug for IAnimationObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAnimationObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
     type DefaultType = ::core::option::Option<Self>;
@@ -393,17 +382,6 @@ impl ICompositionAnimationBase {}
 impl ::core::clone::Clone for ICompositionAnimationBase {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICompositionAnimationBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionAnimationBase {}
-impl ::core::fmt::Debug for ICompositionAnimationBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionAnimationBase").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICompositionAnimationBase {
@@ -2040,17 +2018,6 @@ impl ::core::clone::Clone for ICompositionSupportsSystemBackdrop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICompositionSupportsSystemBackdrop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSupportsSystemBackdrop {}
-impl ::core::fmt::Debug for ICompositionSupportsSystemBackdrop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSupportsSystemBackdrop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2079,17 +2046,6 @@ impl ICompositionSurface {}
 impl ::core::clone::Clone for ICompositionSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICompositionSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSurface {}
-impl ::core::fmt::Debug for ICompositionSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICompositionSurface {
@@ -2224,17 +2180,6 @@ impl ICompositionSurfaceFacade {
 impl ::core::clone::Clone for ICompositionSurfaceFacade {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICompositionSurfaceFacade {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionSurfaceFacade {}
-impl ::core::fmt::Debug for ICompositionSurfaceFacade {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionSurfaceFacade").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICompositionSurfaceFacade {
@@ -4008,17 +3953,6 @@ impl ::core::clone::Clone for IVisualElement {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IVisualElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVisualElement {}
-impl ::core::fmt::Debug for IVisualElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVisualElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
     type DefaultType = ::core::option::Option<Self>;
@@ -4053,17 +3987,6 @@ impl IVisualElement2 {
 impl ::core::clone::Clone for IVisualElement2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVisualElement2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVisualElement2 {}
-impl ::core::fmt::Debug for IVisualElement2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVisualElement2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IVisualElement2 {
@@ -4277,17 +4200,6 @@ impl AmbientLight {
 impl ::core::clone::Clone for AmbientLight {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AmbientLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AmbientLight {}
-impl ::core::fmt::Debug for AmbientLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AmbientLight").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AmbientLight {
@@ -4553,17 +4465,6 @@ impl ::core::clone::Clone for AnimationController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AnimationController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationController {}
-impl ::core::fmt::Debug for AnimationController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AnimationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4779,17 +4680,6 @@ impl ::core::clone::Clone for AnimationPropertyInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AnimationPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationPropertyInfo {}
-impl ::core::fmt::Debug for AnimationPropertyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationPropertyInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4992,17 +4882,6 @@ impl BackEasingFunction {
 impl ::core::clone::Clone for BackEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackEasingFunction {}
-impl ::core::fmt::Debug for BackEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackEasingFunction {
@@ -5408,17 +5287,6 @@ impl ::core::clone::Clone for BooleanKeyFrameAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BooleanKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BooleanKeyFrameAnimation {}
-impl ::core::fmt::Debug for BooleanKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BooleanKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BooleanKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5677,17 +5545,6 @@ impl BounceEasingFunction {
 impl ::core::clone::Clone for BounceEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BounceEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceEasingFunction {}
-impl ::core::fmt::Debug for BounceEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BounceEasingFunction {
@@ -6092,17 +5949,6 @@ impl BounceScalarNaturalMotionAnimation {
 impl ::core::clone::Clone for BounceScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BounceScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceScalarNaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BounceScalarNaturalMotionAnimation {
@@ -6562,17 +6408,6 @@ impl ::core::clone::Clone for BounceVector2NaturalMotionAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BounceVector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceVector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceVector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceVector2NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BounceVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7030,17 +6865,6 @@ impl ::core::clone::Clone for BounceVector3NaturalMotionAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BounceVector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BounceVector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for BounceVector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BounceVector3NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BounceVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7300,17 +7124,6 @@ impl CircleEasingFunction {
 impl ::core::clone::Clone for CircleEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CircleEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CircleEasingFunction {}
-impl ::core::fmt::Debug for CircleEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CircleEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CircleEasingFunction {
@@ -7734,17 +7547,6 @@ impl ::core::clone::Clone for ColorKeyFrameAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ColorKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ColorKeyFrameAnimation {}
-impl ::core::fmt::Debug for ColorKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8075,17 +7877,6 @@ impl ::core::clone::Clone for CompositionAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionAnimation {}
-impl ::core::fmt::Debug for CompositionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8327,17 +8118,6 @@ impl CompositionAnimationGroup {
 impl ::core::clone::Clone for CompositionAnimationGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionAnimationGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionAnimationGroup {}
-impl ::core::fmt::Debug for CompositionAnimationGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionAnimationGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionAnimationGroup {
@@ -8587,17 +8367,6 @@ impl ::core::clone::Clone for CompositionBackdropBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionBackdropBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBackdropBrush {}
-impl ::core::fmt::Debug for CompositionBackdropBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBackdropBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionBackdropBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8803,17 +8572,6 @@ impl ::core::clone::Clone for CompositionBatchCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionBatchCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBatchCompletedEventArgs {}
-impl ::core::fmt::Debug for CompositionBatchCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBatchCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionBatchCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9004,17 +8762,6 @@ impl ::core::clone::Clone for CompositionBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBrush {}
-impl ::core::fmt::Debug for CompositionBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9138,17 +8885,6 @@ impl CompositionCapabilities {
 impl ::core::clone::Clone for CompositionCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionCapabilities {}
-impl ::core::fmt::Debug for CompositionCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionCapabilities {
@@ -9382,17 +9118,6 @@ impl ::core::clone::Clone for CompositionClip {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionClip {}
-impl ::core::fmt::Debug for CompositionClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9592,17 +9317,6 @@ impl CompositionColorBrush {
 impl ::core::clone::Clone for CompositionColorBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionColorBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorBrush {}
-impl ::core::fmt::Debug for CompositionColorBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorBrush").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionColorBrush {
@@ -9832,17 +9546,6 @@ impl ::core::clone::Clone for CompositionColorGradientStop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionColorGradientStop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorGradientStop {}
-impl ::core::fmt::Debug for CompositionColorGradientStop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorGradientStop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10022,17 +9725,6 @@ impl CompositionColorGradientStopCollection {
 impl ::core::clone::Clone for CompositionColorGradientStopCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionColorGradientStopCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorGradientStopCollection {}
-impl ::core::fmt::Debug for CompositionColorGradientStopCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorGradientStopCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStopCollection {
@@ -10256,17 +9948,6 @@ impl CompositionCommitBatch {
 impl ::core::clone::Clone for CompositionCommitBatch {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionCommitBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionCommitBatch {}
-impl ::core::fmt::Debug for CompositionCommitBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCommitBatch").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionCommitBatch {
@@ -10550,17 +10231,6 @@ impl ::core::clone::Clone for CompositionContainerShape {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionContainerShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionContainerShape {}
-impl ::core::fmt::Debug for CompositionContainerShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionContainerShape").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionContainerShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10830,17 +10500,6 @@ impl CompositionDrawingSurface {
 impl ::core::clone::Clone for CompositionDrawingSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionDrawingSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionDrawingSurface {}
-impl ::core::fmt::Debug for CompositionDrawingSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionDrawingSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionDrawingSurface {
@@ -11125,17 +10784,6 @@ impl ::core::clone::Clone for CompositionEasingFunction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEasingFunction {}
-impl ::core::fmt::Debug for CompositionEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEasingFunction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11338,17 +10986,6 @@ impl CompositionEffectBrush {
 impl ::core::clone::Clone for CompositionEffectBrush {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionEffectBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectBrush {}
-impl ::core::fmt::Debug for CompositionEffectBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectBrush").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionEffectBrush {
@@ -11577,17 +11214,6 @@ impl ::core::clone::Clone for CompositionEffectFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionEffectFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectFactory {}
-impl ::core::fmt::Debug for CompositionEffectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11689,17 +11315,6 @@ impl CompositionEffectSourceParameter {
 impl ::core::clone::Clone for CompositionEffectSourceParameter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionEffectSourceParameter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectSourceParameter {}
-impl ::core::fmt::Debug for CompositionEffectSourceParameter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectSourceParameter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionEffectSourceParameter {
@@ -11919,17 +11534,6 @@ impl CompositionEllipseGeometry {
 impl ::core::clone::Clone for CompositionEllipseGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionEllipseGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEllipseGeometry {}
-impl ::core::fmt::Debug for CompositionEllipseGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEllipseGeometry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionEllipseGeometry {
@@ -12259,17 +11863,6 @@ impl ::core::clone::Clone for CompositionGeometricClip {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionGeometricClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGeometricClip {}
-impl ::core::fmt::Debug for CompositionGeometricClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGeometricClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionGeometricClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -12506,17 +12099,6 @@ impl CompositionGeometry {
 impl ::core::clone::Clone for CompositionGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGeometry {}
-impl ::core::fmt::Debug for CompositionGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGeometry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionGeometry {
@@ -12846,17 +12428,6 @@ impl ::core::clone::Clone for CompositionGradientBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGradientBrush {}
-impl ::core::fmt::Debug for CompositionGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
     type DefaultType = ::core::option::Option<Self>;
@@ -13129,17 +12700,6 @@ impl ::core::clone::Clone for CompositionGraphicsDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionGraphicsDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGraphicsDevice {}
-impl ::core::fmt::Debug for CompositionGraphicsDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGraphicsDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionGraphicsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
     type DefaultType = ::core::option::Option<Self>;
@@ -13353,17 +12913,6 @@ impl CompositionLight {
 impl ::core::clone::Clone for CompositionLight {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLight {}
-impl ::core::fmt::Debug for CompositionLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLight").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionLight {
@@ -13617,17 +13166,6 @@ impl CompositionLineGeometry {
 impl ::core::clone::Clone for CompositionLineGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionLineGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLineGeometry {}
-impl ::core::fmt::Debug for CompositionLineGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLineGeometry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionLineGeometry {
@@ -14002,17 +13540,6 @@ impl ::core::clone::Clone for CompositionLinearGradientBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionLinearGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionLinearGradientBrush {}
-impl ::core::fmt::Debug for CompositionLinearGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionLinearGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionLinearGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -14261,17 +13788,6 @@ impl ::core::clone::Clone for CompositionMaskBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionMaskBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionMaskBrush {}
-impl ::core::fmt::Debug for CompositionMaskBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMaskBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionMaskBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -14516,17 +14032,6 @@ impl CompositionMipmapSurface {
 impl ::core::clone::Clone for CompositionMipmapSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionMipmapSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionMipmapSurface {}
-impl ::core::fmt::Debug for CompositionMipmapSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMipmapSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionMipmapSurface {
@@ -14867,17 +14372,6 @@ impl ::core::clone::Clone for CompositionNineGridBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionNineGridBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionNineGridBrush {}
-impl ::core::fmt::Debug for CompositionNineGridBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionNineGridBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionNineGridBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
     type DefaultType = ::core::option::Option<Self>;
@@ -15105,17 +14599,6 @@ impl ::core::clone::Clone for CompositionObject {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionObject {}
-impl ::core::fmt::Debug for CompositionObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
     type DefaultType = ::core::option::Option<Self>;
@@ -15201,17 +14684,6 @@ impl CompositionPath {
 impl ::core::clone::Clone for CompositionPath {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPath {}
-impl ::core::fmt::Debug for CompositionPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPath").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionPath {
@@ -15412,17 +14884,6 @@ impl CompositionPathGeometry {
 impl ::core::clone::Clone for CompositionPathGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionPathGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPathGeometry {}
-impl ::core::fmt::Debug for CompositionPathGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPathGeometry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionPathGeometry {
@@ -15691,17 +15152,6 @@ impl ::core::clone::Clone for CompositionProjectedShadow {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadow {}
-impl ::core::fmt::Debug for CompositionProjectedShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
     type DefaultType = ::core::option::Option<Self>;
@@ -15918,17 +15368,6 @@ impl CompositionProjectedShadowCaster {
 impl ::core::clone::Clone for CompositionProjectedShadowCaster {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionProjectedShadowCaster {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowCaster {}
-impl ::core::fmt::Debug for CompositionProjectedShadowCaster {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowCaster").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCaster {
@@ -16170,17 +15609,6 @@ impl CompositionProjectedShadowCasterCollection {
 impl ::core::clone::Clone for CompositionProjectedShadowCasterCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionProjectedShadowCasterCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowCasterCollection {}
-impl ::core::fmt::Debug for CompositionProjectedShadowCasterCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowCasterCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCasterCollection {
@@ -16425,17 +15853,6 @@ impl ::core::clone::Clone for CompositionProjectedShadowReceiver {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowReceiver {}
-impl ::core::fmt::Debug for CompositionProjectedShadowReceiver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowReceiver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -16652,17 +16069,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
 impl ::core::clone::Clone for CompositionProjectedShadowReceiverUnorderedCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionProjectedShadowReceiverUnorderedCollection {}
-impl ::core::fmt::Debug for CompositionProjectedShadowReceiverUnorderedCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionProjectedShadowReceiverUnorderedCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
@@ -17014,17 +16420,6 @@ impl CompositionPropertySet {
 impl ::core::clone::Clone for CompositionPropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionPropertySet {}
-impl ::core::fmt::Debug for CompositionPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionPropertySet").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionPropertySet {
@@ -17399,17 +16794,6 @@ impl ::core::clone::Clone for CompositionRadialGradientBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionRadialGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRadialGradientBrush {}
-impl ::core::fmt::Debug for CompositionRadialGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRadialGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionRadialGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -17691,17 +17075,6 @@ impl CompositionRectangleGeometry {
 impl ::core::clone::Clone for CompositionRectangleGeometry {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionRectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRectangleGeometry {}
-impl ::core::fmt::Debug for CompositionRectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRectangleGeometry").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionRectangleGeometry {
@@ -17987,17 +17360,6 @@ impl ::core::clone::Clone for CompositionRoundedRectangleGeometry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionRoundedRectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionRoundedRectangleGeometry {}
-impl ::core::fmt::Debug for CompositionRoundedRectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionRoundedRectangleGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionRoundedRectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -18244,17 +17606,6 @@ impl ::core::clone::Clone for CompositionScopedBatch {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionScopedBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionScopedBatch {}
-impl ::core::fmt::Debug for CompositionScopedBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionScopedBatch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionScopedBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -18443,17 +17794,6 @@ impl CompositionShadow {
 impl ::core::clone::Clone for CompositionShadow {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionShadow {}
-impl ::core::fmt::Debug for CompositionShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShadow").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionShadow {
@@ -18726,17 +18066,6 @@ impl CompositionShape {
 impl ::core::clone::Clone for CompositionShape {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionShape {}
-impl ::core::fmt::Debug for CompositionShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShape").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionShape {
@@ -19038,20 +18367,6 @@ impl CompositionShapeCollection {
 impl ::core::clone::Clone for CompositionShapeCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for CompositionShapeCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for CompositionShapeCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for CompositionShapeCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionShapeCollection").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -19538,17 +18853,6 @@ impl ::core::clone::Clone for CompositionSpriteShape {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionSpriteShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionSpriteShape {}
-impl ::core::fmt::Debug for CompositionSpriteShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionSpriteShape").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionSpriteShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -19851,20 +19155,6 @@ impl CompositionStrokeDashArray {
 impl ::core::clone::Clone for CompositionStrokeDashArray {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for CompositionStrokeDashArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for CompositionStrokeDashArray {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for CompositionStrokeDashArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeDashArray").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -20297,17 +19587,6 @@ impl ::core::clone::Clone for CompositionSurfaceBrush {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionSurfaceBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionSurfaceBrush {}
-impl ::core::fmt::Debug for CompositionSurfaceBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionSurfaceBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionSurfaceBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
     type DefaultType = ::core::option::Option<Self>;
@@ -20527,17 +19806,6 @@ impl ::core::clone::Clone for CompositionTarget {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositionTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionTarget {}
-impl ::core::fmt::Debug for CompositionTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -20726,17 +19994,6 @@ impl CompositionTransform {
 impl ::core::clone::Clone for CompositionTransform {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionTransform {}
-impl ::core::fmt::Debug for CompositionTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionTransform").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionTransform {
@@ -20990,17 +20247,6 @@ impl CompositionViewBox {
 impl ::core::clone::Clone for CompositionViewBox {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionViewBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionViewBox {}
-impl ::core::fmt::Debug for CompositionViewBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionViewBox").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionViewBox {
@@ -21263,17 +20509,6 @@ impl CompositionVirtualDrawingSurface {
 impl ::core::clone::Clone for CompositionVirtualDrawingSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionVirtualDrawingSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionVirtualDrawingSurface {}
-impl ::core::fmt::Debug for CompositionVirtualDrawingSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionVirtualDrawingSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionVirtualDrawingSurface {
@@ -21542,17 +20777,6 @@ impl CompositionVisualSurface {
 impl ::core::clone::Clone for CompositionVisualSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionVisualSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionVisualSurface {}
-impl ::core::fmt::Debug for CompositionVisualSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionVisualSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionVisualSurface {
@@ -22285,17 +21509,6 @@ impl ::core::clone::Clone for Compositor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Compositor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Compositor {}
-impl ::core::fmt::Debug for Compositor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Compositor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Compositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -22743,17 +21956,6 @@ impl ::core::clone::Clone for ContainerVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContainerVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContainerVisual {}
-impl ::core::fmt::Debug for ContainerVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContainerVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContainerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
     type DefaultType = ::core::option::Option<Self>;
@@ -22975,17 +22177,6 @@ impl CubicBezierEasingFunction {
 impl ::core::clone::Clone for CubicBezierEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CubicBezierEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CubicBezierEasingFunction {}
-impl ::core::fmt::Debug for CubicBezierEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CubicBezierEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CubicBezierEasingFunction {
@@ -23524,17 +22715,6 @@ impl ::core::clone::Clone for DelegatedInkTrailVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DelegatedInkTrailVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DelegatedInkTrailVisual {}
-impl ::core::fmt::Debug for DelegatedInkTrailVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DelegatedInkTrailVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DelegatedInkTrailVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
     type DefaultType = ::core::option::Option<Self>;
@@ -23816,17 +22996,6 @@ impl ::core::clone::Clone for DistantLight {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DistantLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DistantLight {}
-impl ::core::fmt::Debug for DistantLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DistantLight").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DistantLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
     type DefaultType = ::core::option::Option<Self>;
@@ -24105,17 +23274,6 @@ impl ::core::clone::Clone for DropShadow {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DropShadow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DropShadow {}
-impl ::core::fmt::Debug for DropShadow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DropShadow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DropShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -24342,17 +23500,6 @@ impl ::core::clone::Clone for ElasticEasingFunction {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ElasticEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElasticEasingFunction {}
-impl ::core::fmt::Debug for ElasticEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ElasticEasingFunction").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ElasticEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -24570,17 +23717,6 @@ impl ExponentialEasingFunction {
 impl ::core::clone::Clone for ExponentialEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ExponentialEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExponentialEasingFunction {}
-impl ::core::fmt::Debug for ExponentialEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExponentialEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ExponentialEasingFunction {
@@ -24890,17 +24026,6 @@ impl ::core::clone::Clone for ExpressionAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ExpressionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExpressionAnimation {}
-impl ::core::fmt::Debug for ExpressionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExpressionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ExpressionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -25193,17 +24318,6 @@ impl ImplicitAnimationCollection {
 impl ::core::clone::Clone for ImplicitAnimationCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ImplicitAnimationCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImplicitAnimationCollection {}
-impl ::core::fmt::Debug for ImplicitAnimationCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImplicitAnimationCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ImplicitAnimationCollection {
@@ -25523,20 +24637,6 @@ impl InitialValueExpressionCollection {
 impl ::core::clone::Clone for InitialValueExpressionCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for InitialValueExpressionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for InitialValueExpressionCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for InitialValueExpressionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InitialValueExpressionCollection").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -25943,17 +25043,6 @@ impl ::core::clone::Clone for InsetClip {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for InsetClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InsetClip {}
-impl ::core::fmt::Debug for InsetClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InsetClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for InsetClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
     type DefaultType = ::core::option::Option<Self>;
@@ -26351,17 +25440,6 @@ impl KeyFrameAnimation {
 impl ::core::clone::Clone for KeyFrameAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyFrameAnimation {}
-impl ::core::fmt::Debug for KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyFrameAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for KeyFrameAnimation {
@@ -26904,17 +25982,6 @@ impl ::core::clone::Clone for LayerVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LayerVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LayerVisual {}
-impl ::core::fmt::Debug for LayerVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LayerVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LayerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -27133,17 +26200,6 @@ impl LinearEasingFunction {
 impl ::core::clone::Clone for LinearEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LinearEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LinearEasingFunction {}
-impl ::core::fmt::Debug for LinearEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LinearEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LinearEasingFunction {
@@ -27477,17 +26533,6 @@ impl NaturalMotionAnimation {
 impl ::core::clone::Clone for NaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NaturalMotionAnimation {}
-impl ::core::fmt::Debug for NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NaturalMotionAnimation {
@@ -27919,17 +26964,6 @@ impl ::core::clone::Clone for PathKeyFrameAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PathKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PathKeyFrameAnimation {}
-impl ::core::fmt::Debug for PathKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PathKeyFrameAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PathKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -28300,17 +27334,6 @@ impl ::core::clone::Clone for PointLight {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PointLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointLight {}
-impl ::core::fmt::Debug for PointLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointLight").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PointLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
     type DefaultType = ::core::option::Option<Self>;
@@ -28528,17 +27551,6 @@ impl PowerEasingFunction {
 impl ::core::clone::Clone for PowerEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PowerEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerEasingFunction {}
-impl ::core::fmt::Debug for PowerEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PowerEasingFunction {
@@ -28953,17 +27965,6 @@ impl QuaternionKeyFrameAnimation {
 impl ::core::clone::Clone for QuaternionKeyFrameAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for QuaternionKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for QuaternionKeyFrameAnimation {}
-impl ::core::fmt::Debug for QuaternionKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QuaternionKeyFrameAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for QuaternionKeyFrameAnimation {
@@ -29404,17 +28405,6 @@ impl RectangleClip {
 impl ::core::clone::Clone for RectangleClip {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RectangleClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RectangleClip {}
-impl ::core::fmt::Debug for RectangleClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RectangleClip").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RectangleClip {
@@ -29927,17 +28917,6 @@ impl ::core::clone::Clone for RedirectVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RedirectVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RedirectVisual {}
-impl ::core::fmt::Debug for RedirectVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RedirectVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RedirectVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -30163,17 +29142,6 @@ impl RenderingDeviceReplacedEventArgs {
 impl ::core::clone::Clone for RenderingDeviceReplacedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RenderingDeviceReplacedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RenderingDeviceReplacedEventArgs {}
-impl ::core::fmt::Debug for RenderingDeviceReplacedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RenderingDeviceReplacedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RenderingDeviceReplacedEventArgs {
@@ -30569,17 +29537,6 @@ impl ScalarKeyFrameAnimation {
 impl ::core::clone::Clone for ScalarKeyFrameAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ScalarKeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScalarKeyFrameAnimation {}
-impl ::core::fmt::Debug for ScalarKeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScalarKeyFrameAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ScalarKeyFrameAnimation {
@@ -30996,17 +29953,6 @@ impl ScalarNaturalMotionAnimation {
 impl ::core::clone::Clone for ScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for ScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScalarNaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ScalarNaturalMotionAnimation {
@@ -31559,17 +30505,6 @@ impl ::core::clone::Clone for ShapeVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ShapeVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShapeVisual {}
-impl ::core::fmt::Debug for ShapeVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShapeVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ShapeVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
     type DefaultType = ::core::option::Option<Self>;
@@ -31795,17 +30730,6 @@ impl SineEasingFunction {
 impl ::core::clone::Clone for SineEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SineEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SineEasingFunction {}
-impl ::core::fmt::Debug for SineEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SineEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SineEasingFunction {
@@ -32225,17 +31149,6 @@ impl ::core::clone::Clone for SpotLight {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpotLight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpotLight {}
-impl ::core::fmt::Debug for SpotLight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpotLight").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpotLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
     type DefaultType = ::core::option::Option<Self>;
@@ -32642,17 +31555,6 @@ impl SpringScalarNaturalMotionAnimation {
 impl ::core::clone::Clone for SpringScalarNaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpringScalarNaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringScalarNaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringScalarNaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringScalarNaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpringScalarNaturalMotionAnimation {
@@ -33116,17 +32018,6 @@ impl ::core::clone::Clone for SpringVector2NaturalMotionAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpringVector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringVector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringVector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringVector2NaturalMotionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpringVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -33586,17 +32477,6 @@ impl SpringVector3NaturalMotionAnimation {
 impl ::core::clone::Clone for SpringVector3NaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpringVector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpringVector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for SpringVector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpringVector3NaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpringVector3NaturalMotionAnimation {
@@ -34172,17 +33052,6 @@ impl ::core::clone::Clone for SpriteVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpriteVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpriteVisual {}
-impl ::core::fmt::Debug for SpriteVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpriteVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpriteVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -34456,17 +33325,6 @@ impl StepEasingFunction {
 impl ::core::clone::Clone for StepEasingFunction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StepEasingFunction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StepEasingFunction {}
-impl ::core::fmt::Debug for StepEasingFunction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StepEasingFunction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StepEasingFunction {
@@ -34881,17 +33739,6 @@ impl Vector2KeyFrameAnimation {
 impl ::core::clone::Clone for Vector2KeyFrameAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Vector2KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector2KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector2KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector2KeyFrameAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Vector2KeyFrameAnimation {
@@ -35312,17 +34159,6 @@ impl Vector2NaturalMotionAnimation {
 impl ::core::clone::Clone for Vector2NaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Vector2NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector2NaturalMotionAnimation {}
-impl ::core::fmt::Debug for Vector2NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector2NaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Vector2NaturalMotionAnimation {
@@ -35773,17 +34609,6 @@ impl ::core::clone::Clone for Vector3KeyFrameAnimation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Vector3KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector3KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector3KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector3KeyFrameAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Vector3KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
     type DefaultType = ::core::option::Option<Self>;
@@ -36202,17 +35027,6 @@ impl Vector3NaturalMotionAnimation {
 impl ::core::clone::Clone for Vector3NaturalMotionAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Vector3NaturalMotionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector3NaturalMotionAnimation {}
-impl ::core::fmt::Debug for Vector3NaturalMotionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector3NaturalMotionAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Vector3NaturalMotionAnimation {
@@ -36661,17 +35475,6 @@ impl Vector4KeyFrameAnimation {
 impl ::core::clone::Clone for Vector4KeyFrameAnimation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Vector4KeyFrameAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector4KeyFrameAnimation {}
-impl ::core::fmt::Debug for Vector4KeyFrameAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Vector4KeyFrameAnimation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Vector4KeyFrameAnimation {
@@ -37197,17 +36000,6 @@ impl ::core::clone::Clone for Visual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Visual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Visual {}
-impl ::core::fmt::Debug for Visual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Visual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Visual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -37453,17 +36245,6 @@ impl VisualCollection {
 impl ::core::clone::Clone for VisualCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VisualCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualCollection {}
-impl ::core::fmt::Debug for VisualCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VisualCollection {
@@ -37728,17 +36509,6 @@ impl ::core::clone::Clone for VisualUnorderedCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VisualUnorderedCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualUnorderedCollection {}
-impl ::core::fmt::Debug for VisualUnorderedCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualUnorderedCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VisualUnorderedCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
     type DefaultType = ::core::option::Option<Self>;
@@ -37866,18 +36636,8 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
         *self
     }
 }
-impl ::core::default::Default for AnimationControllerProgressBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationControllerProgressBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationControllerProgressBehavior;i4)");
@@ -37900,18 +36660,8 @@ impl ::core::clone::Clone for AnimationDelayBehavior {
         *self
     }
 }
-impl ::core::default::Default for AnimationDelayBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationDelayBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationDelayBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDelayBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDelayBehavior;i4)");
@@ -37936,18 +36686,8 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
-impl ::core::default::Default for AnimationDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationDirection;i4)");
@@ -37970,18 +36710,8 @@ impl ::core::clone::Clone for AnimationIterationBehavior {
         *self
     }
 }
-impl ::core::default::Default for AnimationIterationBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationIterationBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationIterationBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationIterationBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationIterationBehavior;i4)");
@@ -38006,18 +36736,8 @@ impl ::core::clone::Clone for AnimationPropertyAccessMode {
         *self
     }
 }
-impl ::core::default::Default for AnimationPropertyAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationPropertyAccessMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationPropertyAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationPropertyAccessMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationPropertyAccessMode;i4)");
@@ -38041,18 +36761,8 @@ impl ::core::clone::Clone for AnimationStopBehavior {
         *self
     }
 }
-impl ::core::default::Default for AnimationStopBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AnimationStopBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationStopBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationStopBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AnimationStopBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.AnimationStopBehavior;i4)");
@@ -38076,18 +36786,8 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
         *self
     }
 }
-impl ::core::default::Default for CompositionBackfaceVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionBackfaceVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBackfaceVisibility").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBackfaceVisibility;i4)");
@@ -38113,46 +36813,8 @@ impl ::core::clone::Clone for CompositionBatchTypes {
         *self
     }
 }
-impl ::core::default::Default for CompositionBatchTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBatchTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionBatchTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CompositionBatchTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CompositionBatchTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CompositionBatchTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CompositionBatchTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CompositionBatchTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBatchTypes;u4)");
@@ -38183,18 +36845,8 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionBitmapInterpolationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBitmapInterpolationMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBitmapInterpolationMode;i4)");
@@ -38218,18 +36870,8 @@ impl ::core::clone::Clone for CompositionBorderMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionBorderMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionBorderMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionBorderMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionBorderMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionBorderMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionBorderMode;i4)");
@@ -38255,18 +36897,8 @@ impl ::core::clone::Clone for CompositionColorSpace {
         *self
     }
 }
-impl ::core::default::Default for CompositionColorSpace {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionColorSpace {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionColorSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionColorSpace").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionColorSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionColorSpace;i4)");
@@ -38291,18 +36923,8 @@ impl ::core::clone::Clone for CompositionCompositeMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionCompositeMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionCompositeMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionCompositeMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionCompositeMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionCompositeMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionCompositeMode;i4)");
@@ -38325,18 +36947,8 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
         *self
     }
 }
-impl ::core::default::Default for CompositionDropShadowSourcePolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionDropShadowSourcePolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionDropShadowSourcePolicy;i4)");
@@ -38360,18 +36972,8 @@ impl ::core::clone::Clone for CompositionEasingFunctionMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionEasingFunctionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionEasingFunctionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionEasingFunctionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEasingFunctionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEasingFunctionMode;i4)");
@@ -38396,18 +36998,8 @@ impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
         *self
     }
 }
-impl ::core::default::Default for CompositionEffectFactoryLoadStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionEffectFactoryLoadStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionEffectFactoryLoadStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionEffectFactoryLoadStatus;i4)");
@@ -38431,18 +37023,8 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
         *self
     }
 }
-impl ::core::default::Default for CompositionGetValueStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionGetValueStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionGetValueStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGetValueStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionGetValueStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGetValueStatus;i4)");
@@ -38466,18 +37048,8 @@ impl ::core::clone::Clone for CompositionGradientExtendMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionGradientExtendMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionGradientExtendMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionGradientExtendMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionGradientExtendMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionGradientExtendMode;i4)");
@@ -38500,18 +37072,8 @@ impl ::core::clone::Clone for CompositionMappingMode {
         *self
     }
 }
-impl ::core::default::Default for CompositionMappingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionMappingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionMappingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionMappingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionMappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionMappingMode;i4)");
@@ -38536,18 +37098,8 @@ impl ::core::clone::Clone for CompositionStretch {
         *self
     }
 }
-impl ::core::default::Default for CompositionStretch {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStretch {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionStretch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStretch").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionStretch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStretch;i4)");
@@ -38572,18 +37124,8 @@ impl ::core::clone::Clone for CompositionStrokeCap {
         *self
     }
 }
-impl ::core::default::Default for CompositionStrokeCap {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStrokeCap {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionStrokeCap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeCap").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeCap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeCap;i4)");
@@ -38608,18 +37150,8 @@ impl ::core::clone::Clone for CompositionStrokeLineJoin {
         *self
     }
 }
-impl ::core::default::Default for CompositionStrokeLineJoin {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionStrokeLineJoin {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionStrokeLineJoin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionStrokeLineJoin").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
@@ -38644,12 +37176,6 @@ impl ::core::clone::Clone for InkTrailPoint {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for InkTrailPoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("InkTrailPoint").field("Point", &self.Point).field("Radius", &self.Radius).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for InkTrailPoint {
     type Abi = Self;
 }
@@ -38661,19 +37187,7 @@ unsafe impl ::windows::core::RuntimeType for InkTrailPoint {
         Ok(*from)
     }
 }
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for InkTrailPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.Point == other.Point && self.Radius == other.Radius
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for InkTrailPoint {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for InkTrailPoint {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -98,17 +98,6 @@ impl ::core::clone::Clone for SpatialGraphInteropFrameOfReferencePreview {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialGraphInteropFrameOfReferencePreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialGraphInteropFrameOfReferencePreview {}
-impl ::core::fmt::Debug for SpatialGraphInteropFrameOfReferencePreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialGraphInteropFrameOfReferencePreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -197,3 +186,5 @@ impl ::windows::core::RuntimeName for SpatialGraphInteropPreview {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

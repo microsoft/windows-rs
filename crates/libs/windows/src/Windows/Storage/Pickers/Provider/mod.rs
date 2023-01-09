@@ -305,17 +305,6 @@ impl ::core::clone::Clone for FileOpenPickerUI {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileOpenPickerUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOpenPickerUI {}
-impl ::core::fmt::Debug for FileOpenPickerUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPickerUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileOpenPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileOpenPickerUI;{dda45a10-f9d4-40c4-8af5-c5b6b5a61d1d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -353,20 +342,6 @@ impl FileRemovedEventArgs {
 impl ::core::clone::Clone for FileRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FileRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FileRemovedEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FileRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileRemovedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -472,17 +447,6 @@ impl ::core::clone::Clone for FileSavePickerUI {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileSavePickerUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileSavePickerUI {}
-impl ::core::fmt::Debug for FileSavePickerUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePickerUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileSavePickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileSavePickerUI;{9656c1e7-3e56-43cc-8a39-33c73d9d542b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -512,17 +476,6 @@ impl PickerClosingDeferral {
 impl ::core::clone::Clone for PickerClosingDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PickerClosingDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PickerClosingDeferral {}
-impl ::core::fmt::Debug for PickerClosingDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerClosingDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PickerClosingDeferral {
@@ -566,17 +519,6 @@ impl ::core::clone::Clone for PickerClosingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PickerClosingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PickerClosingEventArgs {}
-impl ::core::fmt::Debug for PickerClosingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerClosingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PickerClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.PickerClosingEventArgs;{7e59f224-b332-4f12-8b9f-a8c2f06b32cd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -618,17 +560,6 @@ impl PickerClosingOperation {
 impl ::core::clone::Clone for PickerClosingOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PickerClosingOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PickerClosingOperation {}
-impl ::core::fmt::Debug for PickerClosingOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PickerClosingOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PickerClosingOperation {
@@ -680,17 +611,6 @@ impl ::core::clone::Clone for TargetFileRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TargetFileRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetFileRequest {}
-impl ::core::fmt::Debug for TargetFileRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetFileRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TargetFileRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequest;{42bd3355-7f88-478b-8e81-690b20340678})");
     type DefaultType = ::core::option::Option<Self>;
@@ -720,17 +640,6 @@ impl TargetFileRequestDeferral {
 impl ::core::clone::Clone for TargetFileRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TargetFileRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetFileRequestDeferral {}
-impl ::core::fmt::Debug for TargetFileRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetFileRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TargetFileRequestDeferral {
@@ -767,17 +676,6 @@ impl ::core::clone::Clone for TargetFileRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TargetFileRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetFileRequestedEventArgs {}
-impl ::core::fmt::Debug for TargetFileRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TargetFileRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TargetFileRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs;{b163dbc1-1b51-4c89-a591-0fd40b3c57c9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -811,18 +709,8 @@ impl ::core::clone::Clone for AddFileResult {
         *self
     }
 }
-impl ::core::default::Default for AddFileResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AddFileResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AddFileResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddFileResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AddFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
@@ -845,18 +733,8 @@ impl ::core::clone::Clone for FileSelectionMode {
         *self
     }
 }
-impl ::core::default::Default for FileSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FileSelectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FileSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FileSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
@@ -880,18 +758,8 @@ impl ::core::clone::Clone for SetFileNameResult {
         *self
     }
 }
-impl ::core::default::Default for SetFileNameResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SetFileNameResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SetFileNameResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
@@ -902,3 +770,5 @@ unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

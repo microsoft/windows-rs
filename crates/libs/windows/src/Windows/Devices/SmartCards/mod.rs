@@ -1268,17 +1268,6 @@ impl ::core::clone::Clone for CardAddedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CardAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CardAddedEventArgs {}
-impl ::core::fmt::Debug for CardAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CardAddedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1313,17 +1302,6 @@ impl CardRemovedEventArgs {
 impl ::core::clone::Clone for CardRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CardRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CardRemovedEventArgs {}
-impl ::core::fmt::Debug for CardRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CardRemovedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
@@ -1415,17 +1393,6 @@ impl SmartCard {
 impl ::core::clone::Clone for SmartCard {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCard {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCard {}
-impl ::core::fmt::Debug for SmartCard {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCard").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCard {
@@ -1595,17 +1562,6 @@ impl ::core::clone::Clone for SmartCardAppletIdGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardAppletIdGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardAppletIdGroup {}
-impl ::core::fmt::Debug for SmartCardAppletIdGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAppletIdGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAppletIdGroup;{7db165e6-6264-56f4-5e03-c86385395eb1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1692,17 +1648,6 @@ impl SmartCardAppletIdGroupRegistration {
 impl ::core::clone::Clone for SmartCardAppletIdGroupRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardAppletIdGroupRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardAppletIdGroupRegistration {}
-impl ::core::fmt::Debug for SmartCardAppletIdGroupRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAppletIdGroupRegistration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupRegistration {
@@ -1889,17 +1834,6 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseApdu {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardAutomaticResponseApdu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardAutomaticResponseApdu {}
-impl ::core::fmt::Debug for SmartCardAutomaticResponseApdu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAutomaticResponseApdu").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseApdu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu;{52152bab-c63e-4531-a857-d756d99b986a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1998,17 +1932,6 @@ impl ::core::clone::Clone for SmartCardChallengeContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardChallengeContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardChallengeContext {}
-impl ::core::fmt::Debug for SmartCardChallengeContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardChallengeContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardChallengeContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardChallengeContext;{192a5319-c9c4-4947-81cc-44794a61ef91})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2077,17 +2000,6 @@ impl SmartCardConnection {
 impl ::core::clone::Clone for SmartCardConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardConnection {}
-impl ::core::fmt::Debug for SmartCardConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardConnection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardConnection {
@@ -2332,17 +2244,6 @@ impl ::core::clone::Clone for SmartCardCryptogramGenerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramGenerator {}
-impl ::core::fmt::Debug for SmartCardCryptogramGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGenerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGenerator;{e39f587b-edd3-4e49-b594-0ff5e4d0c76f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2393,17 +2294,6 @@ impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
 impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
-impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -2458,17 +2348,6 @@ impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialPackage
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
-impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult;{4e6a8a5c-9773-46c4-a32f-b1e543159e04})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2519,17 +2398,6 @@ impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
 impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
-impl ::core::fmt::Debug for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -2630,17 +2498,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialCharacteristics {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialCharacteristics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialCharacteristics {}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialCharacteristics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialCharacteristics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialCharacteristics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics;{fc9ac5cc-c1d7-4153-923b-a2d43c6c8d49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2707,17 +2564,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageCharacteristics 
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialPackageCharacteristics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialPackageCharacteristics {}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageCharacteristics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPackageCharacteristics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageCharacteristics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics;{ffb58e1f-0692-4c47-93cf-34d91f9dcd00})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2761,17 +2607,6 @@ impl SmartCardCryptogramMaterialPossessionProof {
 impl ::core::clone::Clone for SmartCardCryptogramMaterialPossessionProof {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialPossessionProof {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialPossessionProof {}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPossessionProof {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPossessionProof").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPossessionProof {
@@ -2917,17 +2752,6 @@ impl ::core::clone::Clone for SmartCardCryptogramPlacementStep {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramPlacementStep {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramPlacementStep {}
-impl ::core::fmt::Debug for SmartCardCryptogramPlacementStep {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramPlacementStep").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementStep {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep;{947b03eb-8342-4792-a2e5-925636378a53})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2992,17 +2816,6 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCharacteristics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardCryptogramStorageKeyCharacteristics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramStorageKeyCharacteristics {}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCharacteristics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyCharacteristics").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristics {
@@ -3096,17 +2909,6 @@ impl SmartCardCryptogramStorageKeyInfo {
 impl ::core::clone::Clone for SmartCardCryptogramStorageKeyInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardCryptogramStorageKeyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramStorageKeyInfo {}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
@@ -3245,17 +3047,6 @@ impl ::core::clone::Clone for SmartCardEmulator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardEmulator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulator {}
-impl ::core::fmt::Debug for SmartCardEmulator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulator;{dfb906b2-875e-47e5-8077-e8bff1b1c6fb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3375,17 +3166,6 @@ impl ::core::clone::Clone for SmartCardEmulatorApduReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardEmulatorApduReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorApduReceivedEventArgs {}
-impl ::core::fmt::Debug for SmartCardEmulatorApduReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorApduReceivedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs;{d55d1576-69d2-5333-5b5f-f8c0d6e9f09f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3429,17 +3209,6 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorConnectionDeactivatedEventArgs {}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionDeactivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs;{2186d8d3-c5eb-5262-43df-62a0a1b55557})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3481,17 +3250,6 @@ impl SmartCardEmulatorConnectionProperties {
 impl ::core::clone::Clone for SmartCardEmulatorConnectionProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardEmulatorConnectionProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorConnectionProperties {}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionProperties {
@@ -3596,17 +3354,6 @@ impl ::core::clone::Clone for SmartCardPinPolicy {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardPinPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinPolicy {}
-impl ::core::fmt::Debug for SmartCardPinPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardPinPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardPinPolicy;{183ce184-4db6-4841-ac9e-2ac1f39b7304})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3638,17 +3385,6 @@ impl SmartCardPinResetDeferral {
 impl ::core::clone::Clone for SmartCardPinResetDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardPinResetDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinResetDeferral {}
-impl ::core::fmt::Debug for SmartCardPinResetDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinResetDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetDeferral {
@@ -3713,17 +3449,6 @@ impl SmartCardPinResetRequest {
 impl ::core::clone::Clone for SmartCardPinResetRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardPinResetRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinResetRequest {}
-impl ::core::fmt::Debug for SmartCardPinResetRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinResetRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinResetRequest {
@@ -3890,17 +3615,6 @@ impl ::core::clone::Clone for SmartCardProvisioning {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardProvisioning {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardProvisioning {}
-impl ::core::fmt::Debug for SmartCardProvisioning {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardProvisioning").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardProvisioning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardProvisioning;{19eeedbd-1fab-477c-b712-1a2c5af1fd6e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4024,17 +3738,6 @@ impl ::core::clone::Clone for SmartCardReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardReader {}
-impl ::core::fmt::Debug for SmartCardReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardReader;{1074b4e0-54c2-4df0-817a-14c14378f06c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4121,17 +3824,6 @@ impl ::core::clone::Clone for SmartCardTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardTriggerDetails {}
-impl ::core::fmt::Debug for SmartCardTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.SmartCardTriggerDetails;{5f9bf11e-39ef-4f2b-b44f-0a9155b177bc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4165,18 +3857,8 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
         *self
     }
 }
-impl ::core::default::Default for SmartCardActivationPolicyChangeResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardActivationPolicyChangeResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
@@ -4200,18 +3882,8 @@ impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
         *self
     }
 }
-impl ::core::default::Default for SmartCardAppletIdGroupActivationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAppletIdGroupActivationPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
@@ -4235,18 +3907,8 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
         *self
     }
 }
-impl ::core::default::Default for SmartCardAutomaticResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAutomaticResponseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
@@ -4276,18 +3938,8 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramAlgorithm").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
@@ -4322,18 +3974,8 @@ impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramGeneratorOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGeneratorOperationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
@@ -4356,18 +3998,8 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResp
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPackageConfirmationResponseFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
@@ -4390,18 +4022,8 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramMaterialPackageFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPackageFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
@@ -4424,18 +4046,8 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramMaterialProtectionMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialProtectionMethod").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
@@ -4461,18 +4073,8 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramMaterialType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
@@ -4496,46 +4098,8 @@ impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramPlacementOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SmartCardCryptogramPlacementOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SmartCardCryptogramPlacementOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
@@ -4558,18 +4122,8 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramStorageKeyAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyAlgorithm").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
@@ -4593,46 +4147,8 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptogramStorageKeyCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SmartCardCryptogramStorageKeyCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SmartCardCryptogramStorageKeyCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
@@ -4661,18 +4177,8 @@ impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
         *self
     }
 }
-impl ::core::default::Default for SmartCardCryptographicKeyAttestationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptographicKeyAttestationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
@@ -4695,18 +4201,8 @@ impl ::core::clone::Clone for SmartCardEmulationCategory {
         *self
     }
 }
-impl ::core::default::Default for SmartCardEmulationCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulationCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulationCategory").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
@@ -4730,18 +4226,8 @@ impl ::core::clone::Clone for SmartCardEmulationType {
         *self
     }
 }
-impl ::core::default::Default for SmartCardEmulationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardEmulationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulationType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
@@ -4764,18 +4250,8 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
         *self
     }
 }
-impl ::core::default::Default for SmartCardEmulatorConnectionDeactivatedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionDeactivatedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
@@ -4798,18 +4274,8 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
         *self
     }
 }
-impl ::core::default::Default for SmartCardEmulatorConnectionSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionSource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
@@ -4834,18 +4300,8 @@ impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
         *self
     }
 }
-impl ::core::default::Default for SmartCardEmulatorEnablementPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorEnablementPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
@@ -4868,18 +4324,8 @@ impl ::core::clone::Clone for SmartCardLaunchBehavior {
         *self
     }
 }
-impl ::core::default::Default for SmartCardLaunchBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardLaunchBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardLaunchBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
@@ -4903,18 +4349,8 @@ impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
         *self
     }
 }
-impl ::core::default::Default for SmartCardPinCharacterPolicyOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinCharacterPolicyOption").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
@@ -4941,18 +4377,8 @@ impl ::core::clone::Clone for SmartCardReaderKind {
         *self
     }
 }
-impl ::core::default::Default for SmartCardReaderKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardReaderKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardReaderKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardReaderKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
@@ -4976,18 +4402,8 @@ impl ::core::clone::Clone for SmartCardReaderStatus {
         *self
     }
 }
-impl ::core::default::Default for SmartCardReaderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardReaderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardReaderStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
@@ -5013,18 +4429,8 @@ impl ::core::clone::Clone for SmartCardStatus {
         *self
     }
 }
-impl ::core::default::Default for SmartCardStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
@@ -5051,18 +4457,8 @@ impl ::core::clone::Clone for SmartCardTriggerType {
         *self
     }
 }
-impl ::core::default::Default for SmartCardTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardTriggerType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardTriggerType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardTriggerType;i4)");
@@ -5086,18 +4482,8 @@ impl ::core::clone::Clone for SmartCardUnlockPromptingBehavior {
         *self
     }
 }
-impl ::core::default::Default for SmartCardUnlockPromptingBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SmartCardUnlockPromptingBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardUnlockPromptingBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SmartCardUnlockPromptingBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardUnlockPromptingBehavior;i4)");
@@ -5162,17 +4548,6 @@ impl ::core::clone::Clone for SmartCardPinResetHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardPinResetHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinResetHandler {}
-impl ::core::fmt::Debug for SmartCardPinResetHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinResetHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for SmartCardPinResetHandler {
     type Vtable = SmartCardPinResetHandler_Vtbl;
 }
@@ -5194,3 +4569,5 @@ pub struct SmartCardPinResetHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

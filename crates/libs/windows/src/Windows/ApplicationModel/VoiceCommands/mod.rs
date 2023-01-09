@@ -318,17 +318,6 @@ impl ::core::clone::Clone for VoiceCommand {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommand {}
-impl ::core::fmt::Debug for VoiceCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommand;{936f5273-ec82-42a6-a55c-d2d79ec6f920})");
     type DefaultType = ::core::option::Option<Self>;
@@ -365,17 +354,6 @@ impl ::core::clone::Clone for VoiceCommandCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommandCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandCompletedEventArgs {}
-impl ::core::fmt::Debug for VoiceCommandCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs;{c85e675d-fe42-432c-9907-09df9fcf64e8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -410,17 +388,6 @@ impl VoiceCommandConfirmationResult {
 impl ::core::clone::Clone for VoiceCommandConfirmationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VoiceCommandConfirmationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandConfirmationResult {}
-impl ::core::fmt::Debug for VoiceCommandConfirmationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandConfirmationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandConfirmationResult {
@@ -558,17 +525,6 @@ impl ::core::clone::Clone for VoiceCommandContentTile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommandContentTile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandContentTile {}
-impl ::core::fmt::Debug for VoiceCommandContentTile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandContentTile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile;{3eefe9f0-b8c7-4c76-a0de-1607895ee327})");
     type DefaultType = ::core::option::Option<Self>;
@@ -623,17 +579,6 @@ impl VoiceCommandDefinition {
 impl ::core::clone::Clone for VoiceCommandDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VoiceCommandDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandDefinition {}
-impl ::core::fmt::Debug for VoiceCommandDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandDefinition {
@@ -698,17 +643,6 @@ impl VoiceCommandDisambiguationResult {
 impl ::core::clone::Clone for VoiceCommandDisambiguationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VoiceCommandDisambiguationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandDisambiguationResult {}
-impl ::core::fmt::Debug for VoiceCommandDisambiguationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandDisambiguationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandDisambiguationResult {
@@ -827,17 +761,6 @@ impl VoiceCommandResponse {
 impl ::core::clone::Clone for VoiceCommandResponse {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VoiceCommandResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandResponse {}
-impl ::core::fmt::Debug for VoiceCommandResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandResponse").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandResponse {
@@ -969,17 +892,6 @@ impl ::core::clone::Clone for VoiceCommandServiceConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommandServiceConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandServiceConnection {}
-impl ::core::fmt::Debug for VoiceCommandServiceConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandServiceConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection;{d894bb9f-21da-44a4-98a2-fb131920a9cc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1038,17 +950,6 @@ impl ::core::clone::Clone for VoiceCommandUserMessage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VoiceCommandUserMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandUserMessage {}
-impl ::core::fmt::Debug for VoiceCommandUserMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandUserMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VoiceCommandUserMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage;{674eb3c0-44f6-4f07-b979-4c723fc08597})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1087,18 +988,8 @@ impl ::core::clone::Clone for VoiceCommandCompletionReason {
         *self
     }
 }
-impl ::core::default::Default for VoiceCommandCompletionReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VoiceCommandCompletionReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletionReason;i4)");
@@ -1127,18 +1018,8 @@ impl ::core::clone::Clone for VoiceCommandContentTileType {
         *self
     }
 }
-impl ::core::default::Default for VoiceCommandContentTileType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VoiceCommandContentTileType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
@@ -1149,3 +1030,5 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

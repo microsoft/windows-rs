@@ -588,17 +588,6 @@ impl ::core::clone::Clone for CameraIntrinsics {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CameraIntrinsics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraIntrinsics {}
-impl ::core::fmt::Debug for CameraIntrinsics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraIntrinsics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CameraIntrinsics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
     type DefaultType = ::core::option::Option<Self>;
@@ -662,17 +651,6 @@ impl DepthCorrelatedCoordinateMapper {
 impl ::core::clone::Clone for DepthCorrelatedCoordinateMapper {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DepthCorrelatedCoordinateMapper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DepthCorrelatedCoordinateMapper {}
-impl ::core::fmt::Debug for DepthCorrelatedCoordinateMapper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DepthCorrelatedCoordinateMapper").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DepthCorrelatedCoordinateMapper {
@@ -768,17 +746,6 @@ impl ::core::clone::Clone for FrameControlCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameControlCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameControlCapabilities {}
-impl ::core::fmt::Debug for FrameControlCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameControlCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameControlCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
     type DefaultType = ::core::option::Option<Self>;
@@ -867,17 +834,6 @@ impl ::core::clone::Clone for FrameController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameController {}
-impl ::core::fmt::Debug for FrameController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
     type DefaultType = ::core::option::Option<Self>;
@@ -941,17 +897,6 @@ impl ::core::clone::Clone for FrameExposureCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameExposureCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameExposureCapabilities {}
-impl ::core::fmt::Debug for FrameExposureCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameExposureCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameExposureCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1007,17 +952,6 @@ impl ::core::clone::Clone for FrameExposureCompensationCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameExposureCompensationCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameExposureCompensationCapabilities {}
-impl ::core::fmt::Debug for FrameExposureCompensationCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameExposureCompensationCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1062,17 +996,6 @@ impl FrameExposureCompensationControl {
 impl ::core::clone::Clone for FrameExposureCompensationControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FrameExposureCompensationControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameExposureCompensationControl {}
-impl ::core::fmt::Debug for FrameExposureCompensationControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameExposureCompensationControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationControl {
@@ -1132,17 +1055,6 @@ impl ::core::clone::Clone for FrameExposureControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameExposureControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameExposureControl {}
-impl ::core::fmt::Debug for FrameExposureControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameExposureControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameExposureControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1189,17 +1101,6 @@ impl FrameFlashCapabilities {
 impl ::core::clone::Clone for FrameFlashCapabilities {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FrameFlashCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameFlashCapabilities {}
-impl ::core::fmt::Debug for FrameFlashCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFlashCapabilities").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FrameFlashCapabilities {
@@ -1273,17 +1174,6 @@ impl ::core::clone::Clone for FrameFlashControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameFlashControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameFlashControl {}
-impl ::core::fmt::Debug for FrameFlashControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFlashControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameFlashControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1339,17 +1229,6 @@ impl ::core::clone::Clone for FrameFocusCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameFocusCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameFocusCapabilities {}
-impl ::core::fmt::Debug for FrameFocusCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFocusCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameFocusCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1394,17 +1273,6 @@ impl FrameFocusControl {
 impl ::core::clone::Clone for FrameFocusControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FrameFocusControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameFocusControl {}
-impl ::core::fmt::Debug for FrameFocusControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFocusControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FrameFocusControl {
@@ -1462,17 +1330,6 @@ impl ::core::clone::Clone for FrameIsoSpeedCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FrameIsoSpeedCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameIsoSpeedCapabilities {}
-impl ::core::fmt::Debug for FrameIsoSpeedCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameIsoSpeedCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1528,17 +1385,6 @@ impl FrameIsoSpeedControl {
 impl ::core::clone::Clone for FrameIsoSpeedControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FrameIsoSpeedControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameIsoSpeedControl {}
-impl ::core::fmt::Debug for FrameIsoSpeedControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameIsoSpeedControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedControl {
@@ -1631,17 +1477,6 @@ impl ::core::clone::Clone for VariablePhotoSequenceController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VariablePhotoSequenceController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VariablePhotoSequenceController {}
-impl ::core::fmt::Debug for VariablePhotoSequenceController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VariablePhotoSequenceController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1674,18 +1509,8 @@ impl ::core::clone::Clone for FrameFlashMode {
         *self
     }
 }
-impl ::core::default::Default for FrameFlashMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FrameFlashMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FrameFlashMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameFlashMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FrameFlashMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
@@ -1696,3 +1521,5 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

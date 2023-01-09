@@ -160,18 +160,8 @@ impl ::core::clone::Clone for NS_CMD_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for NS_CMD_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NS_CMD_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NS_CMD_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
@@ -193,18 +183,8 @@ impl ::core::clone::Clone for NS_EVENTS {
         *self
     }
 }
-impl ::core::default::Default for NS_EVENTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NS_EVENTS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NS_EVENTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NS_EVENTS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
@@ -226,18 +206,8 @@ impl ::core::clone::Clone for NS_MODE_CHANGE {
         *self
     }
 }
-impl ::core::default::Default for NS_MODE_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NS_MODE_CHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NS_MODE_CHANGE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
@@ -257,18 +227,8 @@ impl ::core::clone::Clone for NS_REQS {
         *self
     }
 }
-impl ::core::default::Default for NS_REQS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NS_REQS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NS_REQS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NS_REQS").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -290,20 +250,8 @@ impl ::core::clone::Clone for CMD_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CMD_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMD_ENTRY {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CMD_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -325,20 +273,8 @@ impl ::core::clone::Clone for CMD_GROUP_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CMD_GROUP_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -371,12 +307,6 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -396,12 +326,6 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -418,28 +342,8 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NS_CONTEXT_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -458,11 +362,6 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
     type Abi = Self;
 }
-impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub union NS_HELPER_ATTRIBUTES_0 {
@@ -478,11 +377,6 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
@@ -495,24 +389,8 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NS_HELPER_ATTRIBUTES_0_0").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
-impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
@@ -531,28 +409,8 @@ impl ::core::clone::Clone for TAG_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TAG_TYPE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TAG_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TAG_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TAG_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
@@ -566,24 +424,8 @@ impl ::core::clone::Clone for TOKEN_VALUE {
         *self
     }
 }
-impl ::core::fmt::Debug for TOKEN_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TOKEN_VALUE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TOKEN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszToken == other.pwszToken && self.dwValue == other.dwValue
-    }
-}
-impl ::core::cmp::Eq for TOKEN_VALUE {}
-impl ::core::default::Default for TOKEN_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -609,3 +451,5 @@ pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(d
 pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows::core::PCWSTR, cimosbuildnumber: ::windows::core::PCWSTR, cimservicepackmajorversion: ::windows::core::PCWSTR, cimservicepackminorversion: ::windows::core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -64,17 +64,6 @@ impl ::core::clone::Clone for ExtendedExecutionRevokedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionRevokedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionRevokedEventArgs {}
-impl ::core::fmt::Debug for ExtendedExecutionRevokedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionRevokedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs;{bfbc9f16-63b5-4c0b-aad6-828af5373ec3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -174,17 +163,6 @@ impl ::core::clone::Clone for ExtendedExecutionSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionSession {}
-impl ::core::fmt::Debug for ExtendedExecutionSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession;{af908a2d-118b-48f1-9308-0c4fc41e200f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -241,18 +219,8 @@ impl ::core::clone::Clone for ExtendedExecutionReason {
         *self
     }
 }
-impl ::core::default::Default for ExtendedExecutionReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ExtendedExecutionReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionReason;i4)");
@@ -275,18 +243,8 @@ impl ::core::clone::Clone for ExtendedExecutionResult {
         *self
     }
 }
-impl ::core::default::Default for ExtendedExecutionResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ExtendedExecutionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionResult;i4)");
@@ -309,18 +267,8 @@ impl ::core::clone::Clone for ExtendedExecutionRevokedReason {
         *self
     }
 }
-impl ::core::default::Default for ExtendedExecutionRevokedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ExtendedExecutionRevokedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExtendedExecutionRevokedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
@@ -331,3 +279,5 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

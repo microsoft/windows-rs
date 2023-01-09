@@ -142,18 +142,8 @@ impl ::core::clone::Clone for WEB_SOCKET_ACTION {
         *self
     }
 }
-impl ::core::default::Default for WEB_SOCKET_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WEB_SOCKET_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_ACTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
@@ -171,18 +161,8 @@ impl ::core::clone::Clone for WEB_SOCKET_ACTION_QUEUE {
         *self
     }
 }
-impl ::core::default::Default for WEB_SOCKET_ACTION_QUEUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_ACTION_QUEUE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WEB_SOCKET_ACTION_QUEUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_ACTION_QUEUE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
@@ -208,18 +188,8 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WEB_SOCKET_BUFFER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_BUFFER_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
@@ -255,18 +225,8 @@ impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
         *self
     }
 }
-impl ::core::default::Default for WEB_SOCKET_CLOSE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_CLOSE_STATUS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WEB_SOCKET_CLOSE_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_CLOSE_STATUS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
@@ -292,18 +252,8 @@ impl ::core::clone::Clone for WEB_SOCKET_PROPERTY_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WEB_SOCKET_PROPERTY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WEB_SOCKET_PROPERTY_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
@@ -320,11 +270,6 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER {
     type Abi = Self;
 }
-impl ::core::default::Default for WEB_SOCKET_BUFFER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub struct WEB_SOCKET_BUFFER_0 {
@@ -338,24 +283,8 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_BUFFER_0").field("pbReason", &self.pbReason).field("ulReasonLength", &self.ulReasonLength).field("usStatus", &self.usStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbReason == other.pbReason && self.ulReasonLength == other.ulReasonLength && self.usStatus == other.usStatus
-    }
-}
-impl ::core::cmp::Eq for WEB_SOCKET_BUFFER_0 {}
-impl ::core::default::Default for WEB_SOCKET_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
@@ -369,24 +298,8 @@ impl ::core::clone::Clone for WEB_SOCKET_BUFFER_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_BUFFER_1").field("pbBuffer", &self.pbBuffer).field("ulBufferLength", &self.ulBufferLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_BUFFER_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WEB_SOCKET_BUFFER_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.pbBuffer == other.pbBuffer && self.ulBufferLength == other.ulBufferLength
-    }
-}
-impl ::core::cmp::Eq for WEB_SOCKET_BUFFER_1 {}
-impl ::core::default::Default for WEB_SOCKET_BUFFER_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -434,24 +347,8 @@ impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for WEB_SOCKET_HTTP_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_HTTP_HEADER").field("pcName", &self.pcName).field("ulNameLength", &self.ulNameLength).field("pcValue", &self.pcValue).field("ulValueLength", &self.ulValueLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_HTTP_HEADER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WEB_SOCKET_HTTP_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pcName == other.pcName && self.ulNameLength == other.ulNameLength && self.pcValue == other.pcValue && self.ulValueLength == other.ulValueLength
-    }
-}
-impl ::core::cmp::Eq for WEB_SOCKET_HTTP_HEADER {}
-impl ::core::default::Default for WEB_SOCKET_HTTP_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
@@ -466,24 +363,10 @@ impl ::core::clone::Clone for WEB_SOCKET_PROPERTY {
         *self
     }
 }
-impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WEB_SOCKET_PROPERTY").field("Type", &self.Type).field("pvValue", &self.pvValue).field("ulValueSize", &self.ulValueSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WEB_SOCKET_PROPERTY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WEB_SOCKET_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pvValue == other.pvValue && self.ulValueSize == other.ulValueSize
-    }
-}
-impl ::core::cmp::Eq for WEB_SOCKET_PROPERTY {}
-impl ::core::default::Default for WEB_SOCKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

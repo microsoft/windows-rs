@@ -66,17 +66,6 @@ impl ::core::clone::Clone for IAudioEffectDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAudioEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEffectDefinition {}
-impl ::core::fmt::Debug for IAudioEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEffectDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAudioEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e4d7f974-7d80-4f73-9089-e31c9db9c294}");
     type DefaultType = ::core::option::Option<Self>;
@@ -279,17 +268,6 @@ impl ::core::clone::Clone for IBasicAudioEffect {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBasicAudioEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBasicAudioEffect {}
-impl ::core::fmt::Debug for IBasicAudioEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBasicAudioEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBasicAudioEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8c062c53-6bc0-48b8-a99a-4b41550f1359}");
     type DefaultType = ::core::option::Option<Self>;
@@ -410,17 +388,6 @@ impl ::core::convert::TryFrom<&IBasicVideoEffect> for ::windows::core::InParam<s
 impl ::core::clone::Clone for IBasicVideoEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBasicVideoEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBasicVideoEffect {}
-impl ::core::fmt::Debug for IBasicVideoEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBasicVideoEffect").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBasicVideoEffect {
@@ -596,17 +563,6 @@ impl ::core::clone::Clone for IVideoCompositor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IVideoCompositor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoCompositor {}
-impl ::core::fmt::Debug for IVideoCompositor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoCompositor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IVideoCompositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8510b43e-420c-420f-96c7-7c98bba1fc55}");
     type DefaultType = ::core::option::Option<Self>;
@@ -658,17 +614,6 @@ impl IVideoCompositorDefinition {
 impl ::core::clone::Clone for IVideoCompositorDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVideoCompositorDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoCompositorDefinition {}
-impl ::core::fmt::Debug for IVideoCompositorDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoCompositorDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IVideoCompositorDefinition {
@@ -738,17 +683,6 @@ impl IVideoEffectDefinition {
 impl ::core::clone::Clone for IVideoEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IVideoEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoEffectDefinition {}
-impl ::core::fmt::Debug for IVideoEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoEffectDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IVideoEffectDefinition {
@@ -946,17 +880,6 @@ impl ::core::clone::Clone for AudioCaptureEffectsManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioCaptureEffectsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioCaptureEffectsManager {}
-impl ::core::fmt::Debug for AudioCaptureEffectsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioCaptureEffectsManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioCaptureEffectsManager;{8f85c271-038d-4393-8298-540110608eef})");
     type DefaultType = ::core::option::Option<Self>;
@@ -991,17 +914,6 @@ impl AudioEffect {
 impl ::core::clone::Clone for AudioEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEffect {}
-impl ::core::fmt::Debug for AudioEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffect").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioEffect {
@@ -1070,17 +982,6 @@ impl AudioEffectDefinition {
 impl ::core::clone::Clone for AudioEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEffectDefinition {}
-impl ::core::fmt::Debug for AudioEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffectDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
@@ -1223,17 +1124,6 @@ impl ::core::clone::Clone for AudioRenderEffectsManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioRenderEffectsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioRenderEffectsManager {}
-impl ::core::fmt::Debug for AudioRenderEffectsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioRenderEffectsManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.AudioRenderEffectsManager;{4dc98966-8751-42b2-bfcb-39ca7864bd47})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1299,17 +1189,6 @@ impl ::core::clone::Clone for CompositeVideoFrameContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CompositeVideoFrameContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositeVideoFrameContext {}
-impl ::core::fmt::Debug for CompositeVideoFrameContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositeVideoFrameContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.CompositeVideoFrameContext;{6c30024b-f514-4278-a5f7-b9188049d110})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1353,17 +1232,6 @@ impl ::core::clone::Clone for ProcessAudioFrameContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProcessAudioFrameContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessAudioFrameContext {}
-impl ::core::fmt::Debug for ProcessAudioFrameContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessAudioFrameContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.ProcessAudioFrameContext;{4cd92946-1222-4a27-a586-fb3e20273255})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1405,17 +1273,6 @@ impl ProcessVideoFrameContext {
 impl ::core::clone::Clone for ProcessVideoFrameContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProcessVideoFrameContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessVideoFrameContext {}
-impl ::core::fmt::Debug for ProcessVideoFrameContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProcessVideoFrameContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
@@ -1479,17 +1336,6 @@ impl SlowMotionEffectDefinition {
 impl ::core::clone::Clone for SlowMotionEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SlowMotionEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlowMotionEffectDefinition {}
-impl ::core::fmt::Debug for SlowMotionEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlowMotionEffectDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
@@ -1579,17 +1425,6 @@ impl ::core::clone::Clone for VideoCompositorDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoCompositorDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoCompositorDefinition {}
-impl ::core::fmt::Debug for VideoCompositorDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoCompositorDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoCompositorDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoCompositorDefinition;{7946b8d0-2010-4ae3-9ab2-2cef42edd4d2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1675,17 +1510,6 @@ impl VideoEffectDefinition {
 impl ::core::clone::Clone for VideoEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VideoEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoEffectDefinition {}
-impl ::core::fmt::Debug for VideoEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoEffectDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VideoEffectDefinition {
@@ -1856,17 +1680,6 @@ impl ::core::clone::Clone for VideoTransformEffectDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoTransformEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoTransformEffectDefinition {}
-impl ::core::fmt::Debug for VideoTransformEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTransformEffectDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1982,17 +1795,6 @@ impl ::core::clone::Clone for VideoTransformSphericalProjection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoTransformSphericalProjection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoTransformSphericalProjection {}
-impl ::core::fmt::Debug for VideoTransformSphericalProjection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTransformSphericalProjection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Effects.VideoTransformSphericalProjection;{cf4401f0-9bf2-4c39-9f41-e022514a8468})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2044,18 +1846,8 @@ impl ::core::clone::Clone for AudioEffectType {
         *self
     }
 }
-impl ::core::default::Default for AudioEffectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioEffectType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioEffectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioEffectType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioEffectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.AudioEffectType;i4)");
@@ -2080,18 +1872,8 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
         *self
     }
 }
-impl ::core::default::Default for MediaEffectClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaEffectClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaEffectClosedReason;i4)");
@@ -2115,18 +1897,8 @@ impl ::core::clone::Clone for MediaMemoryTypes {
         *self
     }
 }
-impl ::core::default::Default for MediaMemoryTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaMemoryTypes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaMemoryTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Effects.MediaMemoryTypes;i4)");
@@ -2137,3 +1909,5 @@ unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

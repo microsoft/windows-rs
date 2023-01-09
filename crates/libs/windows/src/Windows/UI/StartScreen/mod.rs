@@ -657,17 +657,6 @@ impl ::core::clone::Clone for JumpList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for JumpList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JumpList {}
-impl ::core::fmt::Debug for JumpList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for JumpList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.JumpList;{b0234c3e-cd6f-4cb6-a611-61fd505f3ed1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -781,17 +770,6 @@ impl JumpListItem {
 impl ::core::clone::Clone for JumpListItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for JumpListItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JumpListItem {}
-impl ::core::fmt::Debug for JumpListItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpListItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for JumpListItem {
@@ -1194,17 +1172,6 @@ impl ::core::clone::Clone for SecondaryTile {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SecondaryTile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecondaryTile {}
-impl ::core::fmt::Debug for SecondaryTile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryTile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SecondaryTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTile;{9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1401,17 +1368,6 @@ impl ::core::clone::Clone for SecondaryTileVisualElements {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SecondaryTileVisualElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecondaryTileVisualElements {}
-impl ::core::fmt::Debug for SecondaryTileVisualElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryTileVisualElements").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.SecondaryTileVisualElements;{1d8df333-815e-413f-9f50-a81da70a96b2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1514,17 +1470,6 @@ impl ::core::clone::Clone for StartScreenManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StartScreenManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StartScreenManager {}
-impl ::core::fmt::Debug for StartScreenManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StartScreenManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StartScreenManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.StartScreenManager;{4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1599,17 +1544,6 @@ impl ::core::clone::Clone for TileMixedRealityModel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TileMixedRealityModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileMixedRealityModel {}
-impl ::core::fmt::Debug for TileMixedRealityModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileMixedRealityModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.TileMixedRealityModel;{b0764e5b-887d-4242-9a19-3d0a4ea78031})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1671,17 +1605,6 @@ impl ::core::clone::Clone for VisualElementsRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VisualElementsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualElementsRequest {}
-impl ::core::fmt::Debug for VisualElementsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualElementsRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequest;{c138333a-9308-4072-88cc-d068db347c68})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1713,17 +1636,6 @@ impl VisualElementsRequestDeferral {
 impl ::core::clone::Clone for VisualElementsRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VisualElementsRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualElementsRequestDeferral {}
-impl ::core::fmt::Debug for VisualElementsRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualElementsRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
@@ -1762,17 +1674,6 @@ impl ::core::clone::Clone for VisualElementsRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VisualElementsRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualElementsRequestedEventArgs {}
-impl ::core::fmt::Debug for VisualElementsRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualElementsRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.StartScreen.VisualElementsRequestedEventArgs;{7b6fc982-3a0d-4ece-af96-cd17e1b00b2d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1806,18 +1707,8 @@ impl ::core::clone::Clone for ForegroundText {
         *self
     }
 }
-impl ::core::default::Default for ForegroundText {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ForegroundText {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ForegroundText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForegroundText").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ForegroundText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.ForegroundText;i4)");
@@ -1840,18 +1731,8 @@ impl ::core::clone::Clone for JumpListItemKind {
         *self
     }
 }
-impl ::core::default::Default for JumpListItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JumpListItemKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JumpListItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpListItemKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListItemKind;i4)");
@@ -1875,18 +1756,8 @@ impl ::core::clone::Clone for JumpListSystemGroupKind {
         *self
     }
 }
-impl ::core::default::Default for JumpListSystemGroupKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JumpListSystemGroupKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JumpListSystemGroupKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.JumpListSystemGroupKind;i4)");
@@ -1909,18 +1780,8 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
         *self
     }
 }
-impl ::core::default::Default for TileMixedRealityModelActivationBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TileMixedRealityModelActivationBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileMixedRealityModelActivationBehavior;i4)");
@@ -1945,46 +1806,8 @@ impl ::core::clone::Clone for TileOptions {
         *self
     }
 }
-impl ::core::default::Default for TileOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TileOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TileOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TileOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TileOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TileOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TileOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TileOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TileOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileOptions;u4)");
@@ -2013,18 +1836,8 @@ impl ::core::clone::Clone for TileSize {
         *self
     }
 }
-impl ::core::default::Default for TileSize {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TileSize {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TileSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileSize").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TileSize {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
@@ -2035,3 +1848,5 @@ unsafe impl ::windows::core::RuntimeType for TileSize {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -11,12 +11,6 @@ where
 #[repr(transparent)]
 pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
-    pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
-    }
-    pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
-    }
     pub unsafe fn GetContentTag(&self) -> usize {
         (::windows::core::Vtable::vtable(self).GetContentTag)(::windows::core::Vtable::as_raw(self))
     }
@@ -33,17 +27,6 @@ impl ICompositionFramePresentStatistics {
 impl ::core::clone::Clone for ICompositionFramePresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICompositionFramePresentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICompositionFramePresentStatistics {}
-impl ::core::fmt::Debug for ICompositionFramePresentStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICompositionFramePresentStatistics").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ICompositionFramePresentStatistics {
@@ -67,12 +50,6 @@ pub struct ICompositionFramePresentStatistics_Vtbl {
 #[repr(transparent)]
 pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
-    pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
-    }
-    pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
-    }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
@@ -101,17 +78,6 @@ impl IIndependentFlipFramePresentStatistics {
 impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IIndependentFlipFramePresentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIndependentFlipFramePresentStatistics {}
-impl ::core::fmt::Debug for IIndependentFlipFramePresentStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIndependentFlipFramePresentStatistics").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IIndependentFlipFramePresentStatistics {
@@ -150,17 +116,6 @@ impl ::core::clone::Clone for IPresentStatistics {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPresentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentStatistics {}
-impl ::core::fmt::Debug for IPresentStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentStatistics").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPresentStatistics {
     type Vtable = IPresentStatistics_Vtbl;
 }
@@ -178,12 +133,6 @@ pub struct IPresentStatistics_Vtbl {
 #[repr(transparent)]
 pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
-    pub unsafe fn GetPresentId(&self) -> u64 {
-        (::windows::core::Vtable::vtable(self).base__.GetPresentId)(::windows::core::Vtable::as_raw(self))
-    }
-    pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
-        (::windows::core::Vtable::vtable(self).base__.GetKind)(::windows::core::Vtable::as_raw(self))
-    }
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         (::windows::core::Vtable::vtable(self).GetCompositionFrameId)(::windows::core::Vtable::as_raw(self))
     }
@@ -195,17 +144,6 @@ impl IPresentStatusPresentStatistics {
 impl ::core::clone::Clone for IPresentStatusPresentStatistics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPresentStatusPresentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentStatusPresentStatistics {}
-impl ::core::fmt::Debug for IPresentStatusPresentStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentStatusPresentStatistics").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPresentStatusPresentStatistics {
@@ -242,17 +180,6 @@ impl ::core::clone::Clone for IPresentationBuffer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPresentationBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentationBuffer {}
-impl ::core::fmt::Debug for IPresentationBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentationBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPresentationBuffer {
     type Vtable = IPresentationBuffer_Vtbl;
 }
@@ -281,17 +208,6 @@ impl IPresentationContent {
 impl ::core::clone::Clone for IPresentationContent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPresentationContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentationContent {}
-impl ::core::fmt::Debug for IPresentationContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentationContent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPresentationContent {
@@ -325,17 +241,6 @@ impl IPresentationFactory {
 impl ::core::clone::Clone for IPresentationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPresentationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentationFactory {}
-impl ::core::fmt::Debug for IPresentationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentationFactory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPresentationFactory {
@@ -420,17 +325,6 @@ impl ::core::clone::Clone for IPresentationManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IPresentationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentationManager {}
-impl ::core::fmt::Debug for IPresentationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IPresentationManager {
     type Vtable = IPresentationManager_Vtbl;
 }
@@ -468,9 +362,6 @@ pub struct IPresentationManager_Vtbl {
 #[repr(transparent)]
 pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
-    pub unsafe fn SetTag(&self, tag: usize) {
-        (::windows::core::Vtable::vtable(self).base__.SetTag)(::windows::core::Vtable::as_raw(self), tag)
-    }
     pub unsafe fn SetBuffer<P0>(&self, presentationbuffer: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPresentationBuffer>>,
@@ -512,17 +403,6 @@ impl IPresentationSurface {
 impl ::core::clone::Clone for IPresentationSurface {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPresentationSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPresentationSurface {}
-impl ::core::fmt::Debug for IPresentationSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPresentationSurface").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPresentationSurface {
@@ -569,18 +449,8 @@ impl ::core::clone::Clone for CompositionFrameInstanceKind {
         *self
     }
 }
-impl ::core::default::Default for CompositionFrameInstanceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionFrameInstanceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionFrameInstanceKind").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
@@ -598,18 +468,8 @@ impl ::core::clone::Clone for PresentStatisticsKind {
         *self
     }
 }
-impl ::core::default::Default for PresentStatisticsKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PresentStatisticsKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PresentStatisticsKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PresentStatisticsKind").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
@@ -627,18 +487,8 @@ impl ::core::clone::Clone for PresentStatus {
         *self
     }
 }
-impl ::core::default::Default for PresentStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PresentStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PresentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PresentStatus").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -662,28 +512,8 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for CompositionFrameDisplayInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.displayAdapterLUID == other.displayAdapterLUID && self.displayVidPnSourceId == other.displayVidPnSourceId && self.displayUniqueId == other.displayUniqueId && self.renderAdapterLUID == other.renderAdapterLUID && self.instanceKind == other.instanceKind && self.finalTransform == other.finalTransform && self.requiredCrossAdapterCopy == other.requiredCrossAdapterCopy && self.colorSpace == other.colorSpace
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for CompositionFrameDisplayInstance {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::default::Default for CompositionFrameDisplayInstance {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -701,24 +531,8 @@ impl ::core::clone::Clone for PresentationTransform {
         *self
     }
 }
-impl ::core::fmt::Debug for PresentationTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PresentationTransform").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PresentationTransform {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PresentationTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
-    }
-}
-impl ::core::cmp::Eq for PresentationTransform {}
-impl ::core::default::Default for PresentationTransform {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
@@ -731,24 +545,10 @@ impl ::core::clone::Clone for SystemInterruptTime {
         *self
     }
 }
-impl ::core::fmt::Debug for SystemInterruptTime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SystemInterruptTime").field("value", &self.value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SystemInterruptTime {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemInterruptTime {
-    fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
-    }
-}
-impl ::core::cmp::Eq for SystemInterruptTime {}
-impl ::core::default::Default for SystemInterruptTime {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

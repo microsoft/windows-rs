@@ -124,17 +124,6 @@ impl ::core::clone::Clone for VariablePhotoCapturedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VariablePhotoCapturedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VariablePhotoCapturedEventArgs {}
-impl ::core::fmt::Debug for VariablePhotoCapturedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VariablePhotoCapturedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoCapturedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -230,17 +219,6 @@ impl ::core::clone::Clone for VariablePhotoSequenceCapture {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VariablePhotoSequenceCapture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VariablePhotoSequenceCapture {}
-impl ::core::fmt::Debug for VariablePhotoSequenceCapture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VariablePhotoSequenceCapture").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceCapture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
     type DefaultType = ::core::option::Option<Self>;
@@ -260,3 +238,5 @@ impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {
 ::windows::core::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

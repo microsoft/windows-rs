@@ -16,17 +16,6 @@ impl ::core::clone::Clone for IAdaptiveCard {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAdaptiveCard {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdaptiveCard {}
-impl ::core::fmt::Debug for IAdaptiveCard {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdaptiveCard").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -62,17 +51,6 @@ impl IAdaptiveCardBuilderStatics {
 impl ::core::clone::Clone for IAdaptiveCardBuilderStatics {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAdaptiveCardBuilderStatics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdaptiveCardBuilderStatics {}
-impl ::core::fmt::Debug for IAdaptiveCardBuilderStatics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdaptiveCardBuilderStatics").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAdaptiveCardBuilderStatics {
@@ -356,17 +334,6 @@ impl ::core::clone::Clone for FocusSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FocusSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusSession {}
-impl ::core::fmt::Debug for FocusSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FocusSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSession;{069fbab8-0e84-5f2f-8614-9b6544326277})");
     type DefaultType = ::core::option::Option<Self>;
@@ -462,17 +429,6 @@ impl ::core::clone::Clone for FocusSessionManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FocusSessionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusSessionManager {}
-impl ::core::fmt::Debug for FocusSessionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusSessionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FocusSessionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.FocusSessionManager;{e7ffbaa9-d8be-5dbf-bac6-49364842e37e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -528,17 +484,6 @@ impl ::core::clone::Clone for SecurityAppManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SecurityAppManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecurityAppManager {}
-impl ::core::fmt::Debug for SecurityAppManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SecurityAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.SecurityAppManager;{96ac500c-aed4-561d-bde8-953520343a2d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -584,17 +529,6 @@ impl ShareWindowCommandEventArgs {
 impl ::core::clone::Clone for ShareWindowCommandEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareWindowCommandEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareWindowCommandEventArgs {}
-impl ::core::fmt::Debug for ShareWindowCommandEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareWindowCommandEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommandEventArgs {
@@ -677,17 +611,6 @@ impl ShareWindowCommandSource {
 impl ::core::clone::Clone for ShareWindowCommandSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ShareWindowCommandSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareWindowCommandSource {}
-impl ::core::fmt::Debug for ShareWindowCommandSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareWindowCommandSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommandSource {
@@ -807,17 +730,6 @@ impl ::core::clone::Clone for TaskbarManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TaskbarManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TaskbarManager {}
-impl ::core::fmt::Debug for TaskbarManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TaskbarManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TaskbarManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.TaskbarManager;{87490a19-1ad9-49f4-b2e8-86738dc5ac40})");
     type DefaultType = ::core::option::Option<Self>;
@@ -850,18 +762,8 @@ impl ::core::clone::Clone for SecurityAppKind {
         *self
     }
 }
-impl ::core::default::Default for SecurityAppKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
@@ -884,18 +786,8 @@ impl ::core::clone::Clone for SecurityAppState {
         *self
     }
 }
-impl ::core::default::Default for SecurityAppState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SecurityAppState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
@@ -920,18 +812,8 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
         *self
     }
 }
-impl ::core::default::Default for SecurityAppSubstatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppSubstatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
@@ -955,18 +837,8 @@ impl ::core::clone::Clone for ShareWindowCommand {
         *self
     }
 }
-impl ::core::default::Default for ShareWindowCommand {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ShareWindowCommand {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ShareWindowCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
@@ -977,3 +849,5 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -32,20 +32,6 @@ impl ::core::clone::Clone for ICatalog {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICatalog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICatalog {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICatalog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICatalog").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for ICatalog {
     type Vtable = ICatalog_Vtbl;
 }
@@ -99,20 +85,6 @@ impl ::core::clone::Clone for IComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IComponentUtil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IComponentUtil {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IComponentUtil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentUtil").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IComponentUtil {
     type Vtable = IComponentUtil_Vtbl;
 }
@@ -158,20 +130,6 @@ impl ::core::clone::Clone for IPackageUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPackageUtil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPackageUtil {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPackageUtil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPackageUtil").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPackageUtil {
     type Vtable = IPackageUtil_Vtbl;
 }
@@ -210,20 +168,6 @@ impl ::core::clone::Clone for IRemoteComponentUtil {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRemoteComponentUtil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRemoteComponentUtil {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRemoteComponentUtil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteComponentUtil").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtil_Vtbl;
 }
@@ -258,20 +202,6 @@ impl IRoleAssociationUtil {
 impl ::core::clone::Clone for IRoleAssociationUtil {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRoleAssociationUtil {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRoleAssociationUtil {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRoleAssociationUtil {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRoleAssociationUtil").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -404,18 +334,8 @@ impl ::core::clone::Clone for MTSAdminErrorCodes {
         *self
     }
 }
-impl ::core::default::Default for MTSAdminErrorCodes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MTSAdminErrorCodes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MTSAdminErrorCodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MTSAdminErrorCodes").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
@@ -429,18 +349,8 @@ impl ::core::clone::Clone for MTSPackageExportOptions {
         *self
     }
 }
-impl ::core::default::Default for MTSPackageExportOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MTSPackageExportOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MTSPackageExportOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MTSPackageExportOptions").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 #[repr(transparent)]
@@ -454,18 +364,10 @@ impl ::core::clone::Clone for MTSPackageInstallOptions {
         *self
     }
 }
-impl ::core::default::Default for MTSPackageInstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MTSPackageInstallOptions {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for MTSPackageInstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MTSPackageInstallOptions").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

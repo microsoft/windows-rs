@@ -24,17 +24,6 @@ impl ::core::clone::Clone for IGeometrySource2D {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGeometrySource2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGeometrySource2D {}
-impl ::core::fmt::Debug for IGeometrySource2D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGeometrySource2D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
     type DefaultType = ::core::option::Option<Self>;
@@ -65,11 +54,6 @@ impl ::core::clone::Clone for DisplayAdapterId {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayAdapterId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DisplayAdapterId").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayAdapterId {
     type Abi = Self;
 }
@@ -78,17 +62,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayAdapterId {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for DisplayAdapterId {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::core::cmp::Eq for DisplayAdapterId {}
-impl ::core::default::Default for DisplayAdapterId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -102,11 +75,6 @@ impl ::core::clone::Clone for DisplayId {
         *self
     }
 }
-impl ::core::fmt::Debug for DisplayId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DisplayId").field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DisplayId {
     type Abi = Self;
 }
@@ -115,17 +83,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayId {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for DisplayId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for DisplayId {}
-impl ::core::default::Default for DisplayId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -140,11 +97,6 @@ impl ::core::clone::Clone for PointInt32 {
         *self
     }
 }
-impl ::core::fmt::Debug for PointInt32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PointInt32").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PointInt32 {
     type Abi = Self;
 }
@@ -153,17 +105,6 @@ unsafe impl ::windows::core::RuntimeType for PointInt32 {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for PointInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl ::core::cmp::Eq for PointInt32 {}
-impl ::core::default::Default for PointInt32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -180,11 +121,6 @@ impl ::core::clone::Clone for RectInt32 {
         *self
     }
 }
-impl ::core::fmt::Debug for RectInt32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RectInt32").field("X", &self.X).field("Y", &self.Y).field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RectInt32 {
     type Abi = Self;
 }
@@ -193,17 +129,6 @@ unsafe impl ::windows::core::RuntimeType for RectInt32 {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for RectInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl ::core::cmp::Eq for RectInt32 {}
-impl ::core::default::Default for RectInt32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -218,11 +143,6 @@ impl ::core::clone::Clone for SizeInt32 {
         *self
     }
 }
-impl ::core::fmt::Debug for SizeInt32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SizeInt32").field("Width", &self.Width).field("Height", &self.Height).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SizeInt32 {
     type Abi = Self;
 }
@@ -233,16 +153,7 @@ unsafe impl ::windows::core::RuntimeType for SizeInt32 {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for SizeInt32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width && self.Height == other.Height
-    }
-}
-impl ::core::cmp::Eq for SizeInt32 {}
-impl ::core::default::Default for SizeInt32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

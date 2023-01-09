@@ -248,17 +248,6 @@ impl ::core::clone::Clone for MediaTranscoder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaTranscoder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaTranscoder {}
-impl ::core::fmt::Debug for MediaTranscoder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTranscoder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaTranscoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.MediaTranscoder;{190c99d2-a0aa-4d34-86bc-eed1b12c2f5b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -311,17 +300,6 @@ impl ::core::clone::Clone for PrepareTranscodeResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PrepareTranscodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrepareTranscodeResult {}
-impl ::core::fmt::Debug for PrepareTranscodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrepareTranscodeResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PrepareTranscodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Transcoding.PrepareTranscodeResult;{05f25dce-994f-4a34-9d68-97ccce1730d6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -355,18 +333,8 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
         *self
     }
 }
-impl ::core::default::Default for MediaVideoProcessingAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.MediaVideoProcessingAlgorithm;i4)");
@@ -391,18 +359,8 @@ impl ::core::clone::Clone for TranscodeFailureReason {
         *self
     }
 }
-impl ::core::default::Default for TranscodeFailureReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TranscodeFailureReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TranscodeFailureReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
@@ -413,3 +371,5 @@ unsafe impl ::windows::core::RuntimeType for TranscodeFailureReason {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

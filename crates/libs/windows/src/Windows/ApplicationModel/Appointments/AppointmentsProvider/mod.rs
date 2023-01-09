@@ -140,17 +140,6 @@ impl ::core::clone::Clone for AddAppointmentOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AddAppointmentOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddAppointmentOperation {}
-impl ::core::fmt::Debug for AddAppointmentOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddAppointmentOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AddAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -266,17 +255,6 @@ impl ::core::clone::Clone for RemoveAppointmentOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoveAppointmentOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoveAppointmentOperation {}
-impl ::core::fmt::Debug for RemoveAppointmentOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoveAppointmentOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
     type DefaultType = ::core::option::Option<Self>;
@@ -352,17 +330,6 @@ impl ::core::clone::Clone for ReplaceAppointmentOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ReplaceAppointmentOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReplaceAppointmentOperation {}
-impl ::core::fmt::Debug for ReplaceAppointmentOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReplaceAppointmentOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -384,3 +351,5 @@ unsafe impl ::core::marker::Send for ReplaceAppointmentOperation {}
 unsafe impl ::core::marker::Sync for ReplaceAppointmentOperation {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

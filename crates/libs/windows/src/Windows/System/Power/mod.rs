@@ -505,18 +505,8 @@ impl ::core::clone::Clone for BatteryStatus {
         *self
     }
 }
-impl ::core::default::Default for BatteryStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BatteryStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BatteryStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BatteryStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BatteryStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
@@ -540,18 +530,8 @@ impl ::core::clone::Clone for EnergySaverStatus {
         *self
     }
 }
-impl ::core::default::Default for EnergySaverStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EnergySaverStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EnergySaverStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnergySaverStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
@@ -575,18 +555,8 @@ impl ::core::clone::Clone for PowerSupplyStatus {
         *self
     }
 }
-impl ::core::default::Default for PowerSupplyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PowerSupplyStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PowerSupplyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PowerSupplyStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
@@ -597,3 +567,5 @@ unsafe impl ::windows::core::RuntimeType for PowerSupplyStatus {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

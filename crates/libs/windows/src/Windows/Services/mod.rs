@@ -6,3 +6,5 @@ pub mod Store;
 pub mod TargetedContent;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

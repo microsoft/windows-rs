@@ -33,17 +33,6 @@ impl ::core::clone::Clone for IActivatedEventArgsDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IActivatedEventArgsDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActivatedEventArgsDeferral {}
-impl ::core::fmt::Debug for IActivatedEventArgsDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActivatedEventArgsDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -285,17 +274,6 @@ impl ::core::clone::Clone for IWebUIBackgroundTaskInstance {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebUIBackgroundTaskInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUIBackgroundTaskInstance {}
-impl ::core::fmt::Debug for IWebUIBackgroundTaskInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUIBackgroundTaskInstance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
     type DefaultType = ::core::option::Option<Self>;
@@ -362,17 +340,6 @@ impl IWebUINavigatedEventArgs {
 impl ::core::clone::Clone for IWebUINavigatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebUINavigatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUINavigatedEventArgs {}
-impl ::core::fmt::Debug for IWebUINavigatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUINavigatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebUINavigatedEventArgs {
@@ -478,17 +445,6 @@ impl ::core::clone::Clone for ActivatedDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ActivatedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivatedDeferral {}
-impl ::core::fmt::Debug for ActivatedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivatedDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ActivatedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedDeferral;{c3bd1978-a431-49d8-a76a-395a4e03dcf3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -521,17 +477,6 @@ impl ActivatedOperation {
 impl ::core::clone::Clone for ActivatedOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivatedOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivatedOperation {}
-impl ::core::fmt::Debug for ActivatedOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivatedOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ActivatedOperation {
@@ -571,20 +516,6 @@ impl BackgroundActivatedEventArgs {
 impl ::core::clone::Clone for BackgroundActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -655,20 +586,6 @@ impl EnteredBackgroundEventArgs {
 impl ::core::clone::Clone for EnteredBackgroundEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for EnteredBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for EnteredBackgroundEventArgs {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnteredBackgroundEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -837,17 +754,6 @@ impl ::core::clone::Clone for HtmlPrintDocumentSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HtmlPrintDocumentSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HtmlPrintDocumentSource {}
-impl ::core::fmt::Debug for HtmlPrintDocumentSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HtmlPrintDocumentSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HtmlPrintDocumentSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.HtmlPrintDocumentSource;{cea6469a-0e05-467a-abc9-36ec1d4cdcb6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -931,20 +837,6 @@ impl LeavingBackgroundEventArgs {
 impl ::core::clone::Clone for LeavingBackgroundEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for LeavingBackgroundEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for LeavingBackgroundEventArgs {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LeavingBackgroundEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1037,17 +929,6 @@ impl ::core::clone::Clone for NewWebUIViewCreatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NewWebUIViewCreatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NewWebUIViewCreatedEventArgs {}
-impl ::core::fmt::Debug for NewWebUIViewCreatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NewWebUIViewCreatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NewWebUIViewCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.NewWebUIViewCreatedEventArgs;{e8e1b216-be2b-4c9e-85e7-083143ec4be7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1082,20 +963,6 @@ impl SuspendingDeferral {
 impl ::core::clone::Clone for SuspendingDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for SuspendingDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for SuspendingDeferral {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for SuspendingDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingDeferral").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1162,20 +1029,6 @@ impl SuspendingEventArgs {
 impl ::core::clone::Clone for SuspendingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for SuspendingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for SuspendingEventArgs {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for SuspendingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1251,20 +1104,6 @@ impl SuspendingOperation {
 impl ::core::clone::Clone for SuspendingOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for SuspendingOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for SuspendingOperation {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for SuspendingOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingOperation").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -1536,20 +1375,6 @@ impl ::core::clone::Clone for WebUIAppointmentsProviderAddAppointmentActivatedEv
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIAppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1756,20 +1581,6 @@ impl ::core::clone::Clone for WebUIAppointmentsProviderRemoveAppointmentActivate
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1973,20 +1784,6 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
 impl ::core::clone::Clone for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2214,20 +2011,6 @@ impl ::core::clone::Clone for WebUIAppointmentsProviderShowAppointmentDetailsAct
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2440,20 +2223,6 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
 impl ::core::clone::Clone for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2702,17 +2471,6 @@ impl ::core::clone::Clone for WebUIBackgroundTaskInstanceRuntimeClass {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUIBackgroundTaskInstanceRuntimeClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUIBackgroundTaskInstanceRuntimeClass {}
-impl ::core::fmt::Debug for WebUIBackgroundTaskInstanceRuntimeClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIBackgroundTaskInstanceRuntimeClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass;{23f12c25-e2f7-4741-bc9c-394595de24dc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2834,20 +2592,6 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
 impl ::core::clone::Clone for WebUIBarcodeScannerPreviewActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIBarcodeScannerPreviewActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIBarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3030,20 +2774,6 @@ impl ::core::clone::Clone for WebUICachedFileUpdaterActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUICachedFileUpdaterActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUICachedFileUpdaterActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUICachedFileUpdaterActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3219,20 +2949,6 @@ impl ::core::clone::Clone for WebUICameraSettingsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUICameraSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUICameraSettingsActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUICameraSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICameraSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3383,20 +3099,6 @@ impl WebUICommandLineActivatedEventArgs {
 impl ::core::clone::Clone for WebUICommandLineActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUICommandLineActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUICommandLineActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUICommandLineActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandLineActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3597,20 +3299,6 @@ impl ::core::clone::Clone for WebUIContactCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3792,20 +3480,6 @@ impl WebUIContactMapActivatedEventArgs {
 impl ::core::clone::Clone for WebUIContactMapActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactMapActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactMapActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactMapActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactMapActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4002,20 +3676,6 @@ impl ::core::clone::Clone for WebUIContactMessageActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactMessageActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactMessageActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactMessageActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactMessageActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4200,20 +3860,6 @@ impl ::core::clone::Clone for WebUIContactPanelActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactPanelActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactPanelActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactPanelActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactPanelActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4381,20 +4027,6 @@ impl WebUIContactPickerActivatedEventArgs {
 impl ::core::clone::Clone for WebUIContactPickerActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactPickerActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactPickerActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4566,20 +4198,6 @@ impl WebUIContactPostActivatedEventArgs {
 impl ::core::clone::Clone for WebUIContactPostActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactPostActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactPostActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactPostActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactPostActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4776,20 +4394,6 @@ impl ::core::clone::Clone for WebUIContactVideoCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIContactVideoCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIContactVideoCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIContactVideoCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIContactVideoCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4980,20 +4584,6 @@ impl WebUIDeviceActivatedEventArgs {
 impl ::core::clone::Clone for WebUIDeviceActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIDeviceActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIDeviceActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIDeviceActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIDeviceActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5191,20 +4781,6 @@ impl WebUIDevicePairingActivatedEventArgs {
 impl ::core::clone::Clone for WebUIDevicePairingActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIDevicePairingActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIDevicePairingActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIDevicePairingActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIDevicePairingActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5407,20 +4983,6 @@ impl WebUIDialReceiverActivatedEventArgs {
 impl ::core::clone::Clone for WebUIDialReceiverActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIDialReceiverActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIDialReceiverActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIDialReceiverActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIDialReceiverActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5670,20 +5232,6 @@ impl ::core::clone::Clone for WebUIFileActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIFileActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIFileActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIFileActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFileActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5912,20 +5460,6 @@ impl ::core::clone::Clone for WebUIFileOpenPickerActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIFileOpenPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIFileOpenPickerActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIFileOpenPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFileOpenPickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6129,20 +5663,6 @@ impl WebUIFileOpenPickerContinuationEventArgs {
 impl ::core::clone::Clone for WebUIFileOpenPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::PartialEq for WebUIFileOpenPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::Eq for WebUIFileOpenPickerContinuationEventArgs {}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::fmt::Debug for WebUIFileOpenPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFileOpenPickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -6361,20 +5881,6 @@ impl ::core::clone::Clone for WebUIFileSavePickerActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIFileSavePickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIFileSavePickerActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIFileSavePickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFileSavePickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6581,20 +6087,6 @@ impl ::core::clone::Clone for WebUIFileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::PartialEq for WebUIFileSavePickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::Eq for WebUIFileSavePickerContinuationEventArgs {}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::fmt::Debug for WebUIFileSavePickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFileSavePickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6798,20 +6290,6 @@ impl WebUIFolderPickerContinuationEventArgs {
 impl ::core::clone::Clone for WebUIFolderPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::PartialEq for WebUIFolderPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::Eq for WebUIFolderPickerContinuationEventArgs {}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::fmt::Debug for WebUIFolderPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIFolderPickerContinuationEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -7045,20 +6523,6 @@ impl WebUILaunchActivatedEventArgs {
 impl ::core::clone::Clone for WebUILaunchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUILaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUILaunchActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUILaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUILaunchActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -7312,20 +6776,6 @@ impl ::core::clone::Clone for WebUILockScreenActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUILockScreenActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUILockScreenActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUILockScreenActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUILockScreenActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7541,20 +6991,6 @@ impl ::core::clone::Clone for WebUILockScreenCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUILockScreenCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUILockScreenCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUILockScreenCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUILockScreenCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7734,20 +7170,6 @@ impl ::core::clone::Clone for WebUILockScreenComponentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUILockScreenComponentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUILockScreenComponentActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUILockScreenComponentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUILockScreenComponentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7827,17 +7249,6 @@ impl ::core::clone::Clone for WebUINavigatedDeferral {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUINavigatedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUINavigatedDeferral {}
-impl ::core::fmt::Debug for WebUINavigatedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUINavigatedDeferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedDeferral;{d804204d-831f-46e2-b432-3afce211f962})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7870,17 +7281,6 @@ impl WebUINavigatedEventArgs {
 impl ::core::clone::Clone for WebUINavigatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebUINavigatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUINavigatedEventArgs {}
-impl ::core::fmt::Debug for WebUINavigatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUINavigatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedEventArgs {
@@ -7934,17 +7334,6 @@ impl WebUINavigatedOperation {
 impl ::core::clone::Clone for WebUINavigatedOperation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WebUINavigatedOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUINavigatedOperation {}
-impl ::core::fmt::Debug for WebUINavigatedOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUINavigatedOperation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedOperation {
@@ -8027,20 +7416,6 @@ impl WebUIPhoneCallActivatedEventArgs {
 impl ::core::clone::Clone for WebUIPhoneCallActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIPhoneCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIPhoneCallActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIPhoneCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIPhoneCallActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8214,20 +7589,6 @@ impl ::core::clone::Clone for WebUIPrint3DWorkflowActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIPrint3DWorkflowActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIPrint3DWorkflowActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIPrint3DWorkflowActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIPrint3DWorkflowActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8372,20 +7733,6 @@ impl ::core::clone::Clone for WebUIPrintTaskSettingsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIPrintTaskSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIPrintTaskSettingsActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIPrintTaskSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIPrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8518,20 +7865,6 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
 impl ::core::clone::Clone for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIPrintWorkflowForegroundTaskActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8690,20 +8023,6 @@ impl WebUIProtocolActivatedEventArgs {
 impl ::core::clone::Clone for WebUIProtocolActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIProtocolActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIProtocolActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIProtocolActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIProtocolActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -8962,20 +8281,6 @@ impl ::core::clone::Clone for WebUIProtocolForResultsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIProtocolForResultsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIProtocolForResultsActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIProtocolForResultsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIProtocolForResultsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9217,20 +8522,6 @@ impl ::core::clone::Clone for WebUIRestrictedLaunchActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIRestrictedLaunchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIRestrictedLaunchActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIRestrictedLaunchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIRestrictedLaunchActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9421,20 +8712,6 @@ impl WebUISearchActivatedEventArgs {
 impl ::core::clone::Clone for WebUISearchActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUISearchActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUISearchActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUISearchActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUISearchActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -9635,20 +8912,6 @@ impl ::core::clone::Clone for WebUIShareTargetActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIShareTargetActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIShareTargetActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIShareTargetActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIShareTargetActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9821,20 +9084,6 @@ impl WebUIStartupTaskActivatedEventArgs {
 impl ::core::clone::Clone for WebUIStartupTaskActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIStartupTaskActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIStartupTaskActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIStartupTaskActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIStartupTaskActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10026,20 +9275,6 @@ impl ::core::clone::Clone for WebUIToastNotificationActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIToastNotificationActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIToastNotificationActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIToastNotificationActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIToastNotificationActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10203,20 +9438,6 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
 impl ::core::clone::Clone for WebUIUserDataAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIUserDataAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIUserDataAccountProviderActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIUserDataAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIUserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -10833,17 +10054,6 @@ impl ::core::clone::Clone for WebUIView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebUIView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUIView {}
-impl ::core::fmt::Debug for WebUIView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebUIView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIView;{6783f64f-52da-4fd7-be69-8ef6284b423c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10968,20 +10178,6 @@ impl WebUIVoiceCommandActivatedEventArgs {
 impl ::core::clone::Clone for WebUIVoiceCommandActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIVoiceCommandActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIVoiceCommandActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIVoiceCommandActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIVoiceCommandActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11169,20 +10365,6 @@ impl ::core::clone::Clone for WebUIWalletActionActivatedEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::PartialEq for WebUIWalletActionActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::cmp::Eq for WebUIWalletActionActivatedEventArgs {}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl ::core::fmt::Debug for WebUIWalletActionActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIWalletActionActivatedEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11333,20 +10515,6 @@ impl WebUIWebAccountProviderActivatedEventArgs {
 impl ::core::clone::Clone for WebUIWebAccountProviderActivatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIWebAccountProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIWebAccountProviderActivatedEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIWebAccountProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIWebAccountProviderActivatedEventArgs").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11525,20 +10693,6 @@ impl ::core::clone::Clone for WebUIWebAuthenticationBrokerContinuationEventArgs 
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for WebUIWebAuthenticationBrokerContinuationEventArgs {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUIWebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");
     type DefaultType = ::core::option::Option<Self>;
@@ -11664,18 +10818,8 @@ impl ::core::clone::Clone for PrintContent {
         *self
     }
 }
-impl ::core::default::Default for PrintContent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PrintContent {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintContent").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PrintContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
@@ -11750,20 +10894,6 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
 impl ::core::clone::Clone for ActivatedEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for ActivatedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for ActivatedEventHandler {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for ActivatedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivatedEventHandler").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -11861,20 +10991,6 @@ impl ::core::clone::Clone for BackgroundActivatedEventHandler {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::PartialEq for BackgroundActivatedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::cmp::Eq for BackgroundActivatedEventHandler {}
-#[cfg(feature = "ApplicationModel_Activation")]
-impl ::core::fmt::Debug for BackgroundActivatedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundActivatedEventHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Vtable for BackgroundActivatedEventHandler {
     type Vtable = BackgroundActivatedEventHandler_Vtbl;
 }
@@ -11966,20 +11082,6 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>, &::core::o
 impl ::core::clone::Clone for EnteredBackgroundEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for EnteredBackgroundEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for EnteredBackgroundEventHandler {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for EnteredBackgroundEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnteredBackgroundEventHandler").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel")]
@@ -12077,20 +11179,6 @@ impl ::core::clone::Clone for LeavingBackgroundEventHandler {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for LeavingBackgroundEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for LeavingBackgroundEventHandler {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for LeavingBackgroundEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LeavingBackgroundEventHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Vtable for LeavingBackgroundEventHandler {
     type Vtable = LeavingBackgroundEventHandler_Vtbl;
 }
@@ -12177,17 +11265,6 @@ impl ::core::clone::Clone for NavigatedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NavigatedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NavigatedEventHandler {}
-impl ::core::fmt::Debug for NavigatedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NavigatedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for NavigatedEventHandler {
     type Vtable = NavigatedEventHandler_Vtbl;
 }
@@ -12264,17 +11341,6 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windo
 impl ::core::clone::Clone for ResumingEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ResumingEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResumingEventHandler {}
-impl ::core::fmt::Debug for ResumingEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResumingEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ResumingEventHandler {
@@ -12365,20 +11431,6 @@ impl ::core::clone::Clone for SuspendingEventHandler {
     }
 }
 #[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::PartialEq for SuspendingEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::cmp::Eq for SuspendingEventHandler {}
-#[cfg(feature = "ApplicationModel")]
-impl ::core::fmt::Debug for SuspendingEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SuspendingEventHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Vtable for SuspendingEventHandler {
     type Vtable = SuspendingEventHandler_Vtbl;
 }
@@ -12406,3 +11458,5 @@ pub struct SuspendingEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

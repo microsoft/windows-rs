@@ -193,18 +193,8 @@ impl ::core::clone::Clone for MW_FILTERMODE {
         *self
     }
 }
-impl ::core::default::Default for MW_FILTERMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MW_FILTERMODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MW_FILTERMODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MW_FILTERMODE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
@@ -217,24 +207,8 @@ impl ::core::clone::Clone for MAGCOLOREFFECT {
         *self
     }
 }
-impl ::core::fmt::Debug for MAGCOLOREFFECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.transform == other.transform
-    }
-}
-impl ::core::cmp::Eq for MAGCOLOREFFECT {}
-impl ::core::default::Default for MAGCOLOREFFECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
@@ -252,24 +226,8 @@ impl ::core::clone::Clone for MAGIMAGEHEADER {
         *self
     }
 }
-impl ::core::fmt::Debug for MAGIMAGEHEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height && self.format == other.format && self.stride == other.stride && self.offset == other.offset && self.cbSize == other.cbSize
-    }
-}
-impl ::core::cmp::Eq for MAGIMAGEHEADER {}
-impl ::core::default::Default for MAGIMAGEHEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
@@ -282,27 +240,13 @@ impl ::core::clone::Clone for MAGTRANSFORM {
         *self
     }
 }
-impl ::core::fmt::Debug for MAGTRANSFORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MAGTRANSFORM {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MAGTRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.v == other.v
-    }
-}
-impl ::core::cmp::Eq for MAGTRANSFORM {}
-impl ::core::default::Default for MAGTRANSFORM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type MagImageScalingCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -52,17 +52,6 @@ impl ::core::clone::Clone for IGameListEntry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGameListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameListEntry {}
-impl ::core::fmt::Debug for IGameListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameListEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGameListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{735924d3-811f-4494-b69c-c641a0c61543}");
     type DefaultType = ::core::option::Option<Self>;
@@ -524,17 +513,6 @@ impl ::core::clone::Clone for GameListEntry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameListEntry {}
-impl ::core::fmt::Debug for GameListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameListEntry;{735924d3-811f-4494-b69c-c641a0c61543})");
     type DefaultType = ::core::option::Option<Self>;
@@ -737,17 +715,6 @@ impl ::core::clone::Clone for GameModeConfiguration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameModeConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameModeConfiguration {}
-impl ::core::fmt::Debug for GameModeConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameModeConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameModeConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration;{78e591af-b142-4ef0-8830-55bc2be4f5ea})");
     type DefaultType = ::core::option::Option<Self>;
@@ -806,17 +773,6 @@ impl ::core::clone::Clone for GameModeUserConfiguration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameModeUserConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameModeUserConfiguration {}
-impl ::core::fmt::Debug for GameModeUserConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameModeUserConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameModeUserConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration;{72d34af4-756b-470f-a0c2-ba62a90795db})");
     type DefaultType = ::core::option::Option<Self>;
@@ -851,18 +807,8 @@ impl ::core::clone::Clone for GameListCategory {
         *self
     }
 }
-impl ::core::default::Default for GameListCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameListCategory {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameListCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListCategory").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameListCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListCategory;i4)");
@@ -887,18 +833,8 @@ impl ::core::clone::Clone for GameListEntryLaunchableState {
         *self
     }
 }
-impl ::core::default::Default for GameListEntryLaunchableState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameListEntryLaunchableState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameListEntryLaunchableState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameListEntryLaunchableState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState;i4)");
@@ -961,17 +897,6 @@ impl<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result
 impl ::core::clone::Clone for GameListChangedEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameListChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameListChangedEventHandler {}
-impl ::core::fmt::Debug for GameListChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListChangedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for GameListChangedEventHandler {
@@ -1049,17 +974,6 @@ impl ::core::clone::Clone for GameListRemovedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameListRemovedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameListRemovedEventHandler {}
-impl ::core::fmt::Debug for GameListRemovedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameListRemovedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for GameListRemovedEventHandler {
     type Vtable = GameListRemovedEventHandler_Vtbl;
 }
@@ -1081,3 +995,5 @@ pub struct GameListRemovedEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

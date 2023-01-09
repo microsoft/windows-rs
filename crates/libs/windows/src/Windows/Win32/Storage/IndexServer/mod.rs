@@ -71,17 +71,6 @@ impl ::core::clone::Clone for IFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFilter {}
-impl ::core::fmt::Debug for IFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IFilter {
     type Vtable = IFilter_Vtbl;
 }
@@ -129,17 +118,6 @@ impl IPhraseSink {
 impl ::core::clone::Clone for IPhraseSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPhraseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhraseSink {}
-impl ::core::fmt::Debug for IPhraseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhraseSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IPhraseSink {
@@ -449,18 +427,8 @@ impl ::core::clone::Clone for CHUNKSTATE {
         *self
     }
 }
-impl ::core::default::Default for CHUNKSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CHUNKSTATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CHUNKSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHUNKSTATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -482,18 +450,8 @@ impl ::core::clone::Clone for CHUNK_BREAKTYPE {
         *self
     }
 }
-impl ::core::default::Default for CHUNK_BREAKTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CHUNK_BREAKTYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CHUNK_BREAKTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHUNK_BREAKTYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -519,18 +477,8 @@ impl ::core::clone::Clone for DBKINDENUM {
         *self
     }
 }
-impl ::core::default::Default for DBKINDENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DBKINDENUM {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DBKINDENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DBKINDENUM").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -544,18 +492,8 @@ impl ::core::clone::Clone for IFILTER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for IFILTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IFILTER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IFILTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFILTER_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -593,18 +531,8 @@ impl ::core::clone::Clone for IFILTER_INIT {
         *self
     }
 }
-impl ::core::default::Default for IFILTER_INIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for IFILTER_INIT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for IFILTER_INIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFILTER_INIT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
@@ -624,18 +552,8 @@ impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
         *self
     }
 }
-impl ::core::default::Default for WORDREP_BREAK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WORDREP_BREAK_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WORDREP_BREAK_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WORDREP_BREAK_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -662,41 +580,9 @@ impl ::core::clone::Clone for CI_STATE {
         *self
     }
 }
-impl ::core::fmt::Debug for CI_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CI_STATE")
-            .field("cbStruct", &self.cbStruct)
-            .field("cWordList", &self.cWordList)
-            .field("cPersistentIndex", &self.cPersistentIndex)
-            .field("cQueries", &self.cQueries)
-            .field("cDocuments", &self.cDocuments)
-            .field("cFreshTest", &self.cFreshTest)
-            .field("dwMergeProgress", &self.dwMergeProgress)
-            .field("eState", &self.eState)
-            .field("cFilteredDocuments", &self.cFilteredDocuments)
-            .field("cTotalDocuments", &self.cTotalDocuments)
-            .field("cPendingScans", &self.cPendingScans)
-            .field("dwIndexSize", &self.dwIndexSize)
-            .field("cUniqueKeys", &self.cUniqueKeys)
-            .field("cSecQDocuments", &self.cSecQDocuments)
-            .field("dwPropCacheSize", &self.dwPropCacheSize)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CI_STATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CI_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cWordList == other.cWordList && self.cPersistentIndex == other.cPersistentIndex && self.cQueries == other.cQueries && self.cDocuments == other.cDocuments && self.cFreshTest == other.cFreshTest && self.dwMergeProgress == other.dwMergeProgress && self.eState == other.eState && self.cFilteredDocuments == other.cFilteredDocuments && self.cTotalDocuments == other.cTotalDocuments && self.cPendingScans == other.cPendingScans && self.dwIndexSize == other.dwIndexSize && self.cUniqueKeys == other.cUniqueKeys && self.cSecQDocuments == other.cSecQDocuments && self.dwPropCacheSize == other.dwPropCacheSize
-    }
-}
-impl ::core::cmp::Eq for CI_STATE {}
-impl ::core::default::Default for CI_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -717,12 +603,6 @@ impl ::core::clone::Clone for DBID {
 unsafe impl ::windows::core::Abi for DBID {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DBID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -742,12 +622,6 @@ impl ::core::clone::Clone for DBID_0 {
 unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DBID_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -766,12 +640,6 @@ impl ::core::clone::Clone for DBID_1 {
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DBID_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -793,12 +661,6 @@ impl ::core::clone::Clone for DBID {
 unsafe impl ::windows::core::Abi for DBID {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DBID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[cfg(target_arch = "x86")]
@@ -818,12 +680,6 @@ impl ::core::clone::Clone for DBID_0 {
 unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DBID_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(2))]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[cfg(target_arch = "x86")]
@@ -842,12 +698,6 @@ impl ::core::clone::Clone for DBID_1 {
 #[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DBID_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -862,24 +712,8 @@ impl ::core::clone::Clone for FILTERREGION {
         *self
     }
 }
-impl ::core::fmt::Debug for FILTERREGION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for FILTERREGION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILTERREGION {
-    fn eq(&self, other: &Self) -> bool {
-        self.idChunk == other.idChunk && self.cwcStart == other.cwcStart && self.cwcExtent == other.cwcExtent
-    }
-}
-impl ::core::cmp::Eq for FILTERREGION {}
-impl ::core::default::Default for FILTERREGION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -899,12 +733,6 @@ impl ::core::clone::Clone for FULLPROPSPEC {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows::core::Abi for FULLPROPSPEC {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::default::Default for FULLPROPSPEC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -931,11 +759,7 @@ impl ::core::clone::Clone for STAT_CHUNK {
 unsafe impl ::windows::core::Abi for STAT_CHUNK {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::default::Default for STAT_CHUNK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

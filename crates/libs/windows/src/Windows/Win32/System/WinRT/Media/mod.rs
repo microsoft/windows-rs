@@ -16,17 +16,6 @@ impl ::core::clone::Clone for IAudioFrameNative {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAudioFrameNative {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioFrameNative {}
-impl ::core::fmt::Debug for IAudioFrameNative {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioFrameNative").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IAudioFrameNative {
     type Vtable = IAudioFrameNative_Vtbl;
 }
@@ -59,17 +48,6 @@ impl IAudioFrameNativeFactory {
 impl ::core::clone::Clone for IAudioFrameNativeFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAudioFrameNativeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioFrameNativeFactory {}
-impl ::core::fmt::Debug for IAudioFrameNativeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioFrameNativeFactory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IAudioFrameNativeFactory {
@@ -112,17 +90,6 @@ impl ::core::clone::Clone for IVideoFrameNative {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IVideoFrameNative {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoFrameNative {}
-impl ::core::fmt::Debug for IVideoFrameNative {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoFrameNative").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IVideoFrameNative {
     type Vtable = IVideoFrameNative_Vtbl;
 }
@@ -159,17 +126,6 @@ impl ::core::clone::Clone for IVideoFrameNativeFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IVideoFrameNativeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoFrameNativeFactory {}
-impl ::core::fmt::Debug for IVideoFrameNativeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoFrameNativeFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactory_Vtbl;
 }
@@ -191,3 +147,5 @@ pub const CLSID_AudioFrameNativeFactory: ::windows::core::GUID = ::windows::core
 pub const CLSID_VideoFrameNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd194386a_04e3_4814_8100_b2b0ae6d78c7);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

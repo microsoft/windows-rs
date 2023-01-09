@@ -766,46 +766,8 @@ impl ::core::clone::Clone for CONNECTDLGSTRUCT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONNECTDLGSTRUCT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONNECTDLGSTRUCT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONNECTDLGSTRUCT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -821,46 +783,8 @@ impl ::core::clone::Clone for DISCDLGSTRUCT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DISCDLGSTRUCT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DISCDLGSTRUCT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DISCDLGSTRUCT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -878,46 +802,8 @@ impl ::core::clone::Clone for NETINFOSTRUCT_CHARACTERISTICS {
         *self
     }
 }
-impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NETINFOSTRUCT_CHARACTERISTICS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NETINFOSTRUCT_CHARACTERISTICS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NETINFOSTRUCT_CHARACTERISTICS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -933,18 +819,8 @@ impl ::core::clone::Clone for NETWORK_NAME_FORMAT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NETWORK_NAME_FORMAT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NETWORK_NAME_FORMAT_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -964,18 +840,8 @@ impl ::core::clone::Clone for NET_RESOURCE_SCOPE {
         *self
     }
 }
-impl ::core::default::Default for NET_RESOURCE_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_RESOURCE_SCOPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -993,46 +859,8 @@ impl ::core::clone::Clone for NET_RESOURCE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for NET_RESOURCE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NET_RESOURCE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_RESOURCE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_RESOURCE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_RESOURCE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_RESOURCE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1062,46 +890,8 @@ impl ::core::clone::Clone for NET_USE_CONNECT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_USE_CONNECT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_USE_CONNECT_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_USE_CONNECT_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_USE_CONNECT_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1119,18 +909,8 @@ impl ::core::clone::Clone for NPDIRECTORY_NOTIFY_OPERATION {
         *self
     }
 }
-impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NPDIRECTORY_NOTIFY_OPERATION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NPDIRECTORY_NOTIFY_OPERATION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1148,18 +928,8 @@ impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
         *self
     }
 }
-impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NP_PROPERTY_DIALOG_SELECTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1175,18 +945,8 @@ impl ::core::clone::Clone for UNC_INFO_LEVEL {
         *self
     }
 }
-impl ::core::default::Default for UNC_INFO_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UNC_INFO_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UNC_INFO_LEVEL").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1208,46 +968,8 @@ impl ::core::clone::Clone for WNET_OPEN_ENUM_USAGE {
         *self
     }
 }
-impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNET_OPEN_ENUM_USAGE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WNET_OPEN_ENUM_USAGE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WNET_OPEN_ENUM_USAGE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 #[repr(transparent)]
@@ -1265,18 +987,8 @@ impl ::core::clone::Clone for WNPERM_DLG {
         *self
     }
 }
-impl ::core::default::Default for WNPERM_DLG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WNPERM_DLG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WNPERM_DLG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNPERM_DLG").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1297,28 +1009,8 @@ impl ::core::clone::Clone for CONNECTDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONNECTDLGSTRUCTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONNECTDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONNECTDLGSTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CONNECTDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1339,28 +1031,8 @@ impl ::core::clone::Clone for CONNECTDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONNECTDLGSTRUCTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONNECTDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTW {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONNECTDLGSTRUCTW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CONNECTDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1381,28 +1053,8 @@ impl ::core::clone::Clone for DISCDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISCDLGSTRUCTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISCDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISCDLGSTRUCTA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISCDLGSTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DISCDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1423,28 +1075,8 @@ impl ::core::clone::Clone for DISCDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISCDLGSTRUCTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISCDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISCDLGSTRUCTW {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISCDLGSTRUCTW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DISCDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1461,24 +1093,8 @@ impl ::core::clone::Clone for NETCONNECTINFOSTRUCT {
         *self
     }
 }
-impl ::core::fmt::Debug for NETCONNECTINFOSTRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETCONNECTINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwFlags", &self.dwFlags).field("dwSpeed", &self.dwSpeed).field("dwDelay", &self.dwDelay).field("dwOptDataSize", &self.dwOptDataSize).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NETCONNECTINFOSTRUCT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwFlags == other.dwFlags && self.dwSpeed == other.dwSpeed && self.dwDelay == other.dwDelay && self.dwOptDataSize == other.dwOptDataSize
-    }
-}
-impl ::core::cmp::Eq for NETCONNECTINFOSTRUCT {}
-impl ::core::default::Default for NETCONNECTINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1502,28 +1118,8 @@ impl ::core::clone::Clone for NETINFOSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NETINFOSTRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwProviderVersion", &self.dwProviderVersion).field("dwStatus", &self.dwStatus).field("dwCharacteristics", &self.dwCharacteristics).field("dwHandle", &self.dwHandle).field("wNetType", &self.wNetType).field("dwPrinters", &self.dwPrinters).field("dwDrives", &self.dwDrives).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NETINFOSTRUCT {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NETINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwProviderVersion == other.dwProviderVersion && self.dwStatus == other.dwStatus && self.dwCharacteristics == other.dwCharacteristics && self.dwHandle == other.dwHandle && self.wNetType == other.wNetType && self.dwPrinters == other.dwPrinters && self.dwDrives == other.dwDrives
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NETINFOSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NETINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1543,24 +1139,8 @@ impl ::core::clone::Clone for NETRESOURCEA {
         *self
     }
 }
-impl ::core::fmt::Debug for NETRESOURCEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NETRESOURCEA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETRESOURCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-impl ::core::cmp::Eq for NETRESOURCEA {}
-impl ::core::default::Default for NETRESOURCEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1580,24 +1160,8 @@ impl ::core::clone::Clone for NETRESOURCEW {
         *self
     }
 }
-impl ::core::fmt::Debug for NETRESOURCEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NETRESOURCEW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETRESOURCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-impl ::core::cmp::Eq for NETRESOURCEW {}
-impl ::core::default::Default for NETRESOURCEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1616,28 +1180,8 @@ impl ::core::clone::Clone for NOTIFYADD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NOTIFYADD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NOTIFYADD").field("hwndOwner", &self.hwndOwner).field("NetResource", &self.NetResource).field("dwAddFlags", &self.dwAddFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NOTIFYADD {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NOTIFYADD {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwndOwner == other.hwndOwner && self.NetResource == other.NetResource && self.dwAddFlags == other.dwAddFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NOTIFYADD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NOTIFYADD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
@@ -1657,28 +1201,8 @@ impl ::core::clone::Clone for NOTIFYCANCEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NOTIFYCANCEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NOTIFYCANCEL").field("lpName", &self.lpName).field("lpProvider", &self.lpProvider).field("dwFlags", &self.dwFlags).field("fForce", &self.fForce).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for NOTIFYCANCEL {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NOTIFYCANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpName == other.lpName && self.lpProvider == other.lpProvider && self.dwFlags == other.dwFlags && self.fForce == other.fForce
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NOTIFYCANCEL {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NOTIFYCANCEL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1693,24 +1217,8 @@ impl ::core::clone::Clone for NOTIFYINFO {
         *self
     }
 }
-impl ::core::fmt::Debug for NOTIFYINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NOTIFYINFO").field("dwNotifyStatus", &self.dwNotifyStatus).field("dwOperationStatus", &self.dwOperationStatus).field("lpContext", &self.lpContext).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for NOTIFYINFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NOTIFYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNotifyStatus == other.dwNotifyStatus && self.dwOperationStatus == other.dwOperationStatus && self.lpContext == other.lpContext
-    }
-}
-impl ::core::cmp::Eq for NOTIFYINFO {}
-impl ::core::default::Default for NOTIFYINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1757,24 +1265,8 @@ impl ::core::clone::Clone for REMOTE_NAME_INFOA {
         *self
     }
 }
-impl ::core::fmt::Debug for REMOTE_NAME_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REMOTE_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
-    }
-}
-impl ::core::cmp::Eq for REMOTE_NAME_INFOA {}
-impl ::core::default::Default for REMOTE_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1789,24 +1281,8 @@ impl ::core::clone::Clone for REMOTE_NAME_INFOW {
         *self
     }
 }
-impl ::core::fmt::Debug for REMOTE_NAME_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REMOTE_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for REMOTE_NAME_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
-    }
-}
-impl ::core::cmp::Eq for REMOTE_NAME_INFOW {}
-impl ::core::default::Default for REMOTE_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1819,24 +1295,8 @@ impl ::core::clone::Clone for UNIVERSAL_NAME_INFOA {
         *self
     }
 }
-impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UNIVERSAL_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
-    }
-}
-impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOA {}
-impl ::core::default::Default for UNIVERSAL_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1849,24 +1309,8 @@ impl ::core::clone::Clone for UNIVERSAL_NAME_INFOW {
         *self
     }
 }
-impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UNIVERSAL_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
-    }
-}
-impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOW {}
-impl ::core::default::Default for UNIVERSAL_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1949,3 +1393,5 @@ pub type PF_NPPropertyDialog = ::core::option::Option<unsafe extern "system" fn(
 pub type PF_NPSearchDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

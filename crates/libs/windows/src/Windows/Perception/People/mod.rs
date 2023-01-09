@@ -193,17 +193,6 @@ impl ::core::clone::Clone for EyesPose {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EyesPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EyesPose {}
-impl ::core::fmt::Debug for EyesPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EyesPose").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EyesPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.EyesPose;{682a9b23-8a1e-5b86-a060-906ffacb62a4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -288,17 +277,6 @@ impl ::core::clone::Clone for HandMeshObserver {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HandMeshObserver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandMeshObserver {}
-impl ::core::fmt::Debug for HandMeshObserver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandMeshObserver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HandMeshObserver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandMeshObserver;{85ae30cb-6fc3-55c4-a7b4-29e33896ca69})");
     type DefaultType = ::core::option::Option<Self>;
@@ -348,17 +326,6 @@ impl HandMeshVertexState {
 impl ::core::clone::Clone for HandMeshVertexState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HandMeshVertexState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandMeshVertexState {}
-impl ::core::fmt::Debug for HandMeshVertexState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandMeshVertexState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HandMeshVertexState {
@@ -423,17 +390,6 @@ impl ::core::clone::Clone for HandPose {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HandPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandPose {}
-impl ::core::fmt::Debug for HandPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandPose").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HandPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.People.HandPose;{4d98e79a-bb08-5d09-91de-df0dd3fae46c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -488,17 +444,6 @@ impl HeadPose {
 impl ::core::clone::Clone for HeadPose {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HeadPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HeadPose {}
-impl ::core::fmt::Debug for HeadPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HeadPose").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HeadPose {
@@ -558,18 +503,8 @@ impl ::core::clone::Clone for HandJointKind {
         *self
     }
 }
-impl ::core::default::Default for HandJointKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HandJointKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HandJointKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandJointKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HandJointKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
@@ -592,18 +527,8 @@ impl ::core::clone::Clone for JointPoseAccuracy {
         *self
     }
 }
-impl ::core::default::Default for JointPoseAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JointPoseAccuracy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JointPoseAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
@@ -628,12 +553,6 @@ impl ::core::clone::Clone for HandMeshVertex {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for HandMeshVertex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for HandMeshVertex {
     type Abi = Self;
 }
@@ -643,20 +562,6 @@ unsafe impl ::windows::core::RuntimeType for HandMeshVertex {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for HandMeshVertex {
-    fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position && self.Normal == other.Normal
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for HandMeshVertex {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for HandMeshVertex {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -677,12 +582,6 @@ impl ::core::clone::Clone for JointPose {
     }
 }
 #[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for JointPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("JointPose").field("Orientation", &self.Orientation).field("Position", &self.Position).field("Radius", &self.Radius).field("Accuracy", &self.Accuracy).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
 unsafe impl ::windows::core::Abi for JointPose {
     type Abi = Self;
 }
@@ -694,19 +593,7 @@ unsafe impl ::windows::core::RuntimeType for JointPose {
         Ok(*from)
     }
 }
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for JointPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.Orientation == other.Orientation && self.Position == other.Position && self.Radius == other.Radius && self.Accuracy == other.Accuracy
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for JointPose {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for JointPose {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

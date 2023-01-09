@@ -705,20 +705,6 @@ impl ::core::clone::Clone for WalletBarcode {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletBarcode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletBarcode {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletBarcode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletBarcode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletBarcode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletBarcode;{4f857b29-de80-4ea4-a1cd-81cd084dac27})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1211,20 +1197,6 @@ impl ::core::clone::Clone for WalletItem {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletItem {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItem").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItem;{20b54be8-118d-4ec4-996c-b963e7bd3e74})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1350,20 +1322,6 @@ impl WalletItemCustomProperty {
 impl ::core::clone::Clone for WalletItemCustomProperty {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletItemCustomProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletItemCustomProperty {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletItemCustomProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemCustomProperty").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1500,20 +1458,6 @@ impl ::core::clone::Clone for WalletItemStore {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletItemStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletItemStore {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletItemStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemStore").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletItemStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletItemStore;{7160484b-6d49-48f8-91a9-40a1d0f13ef4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1611,20 +1555,6 @@ impl WalletRelevantLocation {
 impl ::core::clone::Clone for WalletRelevantLocation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletRelevantLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletRelevantLocation {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletRelevantLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletRelevantLocation").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1768,20 +1698,6 @@ impl ::core::clone::Clone for WalletTransaction {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletTransaction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletTransaction {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletTransaction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletTransaction").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletTransaction;{40e1e940-2606-4519-81cb-bff1c60d1f79})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1850,20 +1766,6 @@ impl ::core::clone::Clone for WalletVerb {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for WalletVerb {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for WalletVerb {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletVerb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletVerb").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletVerb {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.WalletVerb;{17b826d6-e3c1-4c74-8a94-217aadbc4884})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1911,20 +1813,8 @@ impl ::core::clone::Clone for WalletActionKind {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletActionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for WalletActionKind {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletActionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletActionKind").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletActionKind {
@@ -1963,20 +1853,8 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletBarcodeSymbology {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletBarcodeSymbology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
@@ -2018,20 +1896,8 @@ impl ::core::clone::Clone for WalletDetailViewPosition {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletDetailViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletDetailViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
@@ -2065,20 +1931,8 @@ impl ::core::clone::Clone for WalletItemKind {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletItemKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for WalletItemKind {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletItemKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletItemKind").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletItemKind {
@@ -2108,20 +1962,8 @@ impl ::core::clone::Clone for WalletSummaryViewPosition {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::default::Default for WalletSummaryViewPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {
     type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for WalletSummaryViewPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
@@ -2133,3 +1975,5 @@ unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

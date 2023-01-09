@@ -671,17 +671,6 @@ impl ::core::clone::Clone for IMediaCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMediaCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaCue {}
-impl ::core::fmt::Debug for IMediaCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IMediaCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c7d15e5d-59dc-431f-a0ee-27744323b36d}");
     type DefaultType = ::core::option::Option<Self>;
@@ -741,17 +730,6 @@ impl IMediaSource {}
 impl ::core::clone::Clone for IMediaSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMediaSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaSource {}
-impl ::core::fmt::Debug for IMediaSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IMediaSource {
@@ -1096,17 +1074,6 @@ impl ::core::clone::Clone for IMediaStreamDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMediaStreamDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaStreamDescriptor {}
-impl ::core::fmt::Debug for IMediaStreamDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaStreamDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IMediaStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{80f16e6e-92f7-451e-97d2-afd80742da70}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1198,17 +1165,6 @@ impl ::core::convert::TryFrom<&IMediaStreamDescriptor2> for ::windows::core::InP
 impl ::core::clone::Clone for IMediaStreamDescriptor2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMediaStreamDescriptor2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaStreamDescriptor2 {}
-impl ::core::fmt::Debug for IMediaStreamDescriptor2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaStreamDescriptor2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IMediaStreamDescriptor2 {
@@ -1783,17 +1739,6 @@ impl ::core::clone::Clone for IMediaTrack {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMediaTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaTrack {}
-impl ::core::fmt::Debug for IMediaTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaTrack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IMediaTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{03e1fafc-c931-491a-b46b-c10ee8c256b7}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2159,17 +2104,6 @@ impl ::core::clone::Clone for ISingleSelectMediaTrackList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISingleSelectMediaTrackList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISingleSelectMediaTrackList {}
-impl ::core::fmt::Debug for ISingleSelectMediaTrackList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISingleSelectMediaTrackList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ISingleSelectMediaTrackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{77206f1f-c34f-494f-8077-2bad9ff4ecf1}");
     type DefaultType = ::core::option::Option<Self>;
@@ -2400,17 +2334,6 @@ impl ITimedMetadataTrackProvider {
 impl ::core::clone::Clone for ITimedMetadataTrackProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITimedMetadataTrackProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITimedMetadataTrackProvider {}
-impl ::core::fmt::Debug for ITimedMetadataTrackProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITimedMetadataTrackProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ITimedMetadataTrackProvider {
@@ -3062,17 +2985,6 @@ impl ::core::clone::Clone for AudioStreamDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioStreamDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioStreamDescriptor {}
-impl ::core::fmt::Debug for AudioStreamDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioStreamDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioStreamDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioStreamDescriptor;{1e3692e4-4027-4847-a70b-df1d9a2a7b04})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3219,17 +3131,6 @@ impl ::core::clone::Clone for AudioTrack {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioTrack {}
-impl ::core::fmt::Debug for AudioTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioTrack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3283,17 +3184,6 @@ impl AudioTrackOpenFailedEventArgs {
 impl ::core::clone::Clone for AudioTrackOpenFailedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioTrackOpenFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioTrackOpenFailedEventArgs {}
-impl ::core::fmt::Debug for AudioTrackOpenFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioTrackOpenFailedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioTrackOpenFailedEventArgs {
@@ -3351,17 +3241,6 @@ impl AudioTrackSupportInfo {
 impl ::core::clone::Clone for AudioTrackSupportInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioTrackSupportInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioTrackSupportInfo {}
-impl ::core::fmt::Debug for AudioTrackSupportInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioTrackSupportInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioTrackSupportInfo {
@@ -3452,17 +3331,6 @@ impl ::core::clone::Clone for ChapterCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ChapterCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChapterCue {}
-impl ::core::fmt::Debug for ChapterCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChapterCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ChapterCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ChapterCue;{72a98001-d38a-4c0a-8fa6-75cddaf4664c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3548,17 +3416,6 @@ impl ::core::clone::Clone for CodecInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CodecInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CodecInfo {}
-impl ::core::fmt::Debug for CodecInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CodecInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CodecInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.CodecInfo;{51e89f85-ea97-499c-86ac-4ce5e73f3a42})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3602,17 +3459,6 @@ impl CodecQuery {
 impl ::core::clone::Clone for CodecQuery {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CodecQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CodecQuery {}
-impl ::core::fmt::Debug for CodecQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CodecQuery").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CodecQuery {
@@ -4038,17 +3884,6 @@ impl ::core::clone::Clone for DataCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataCue {}
-impl ::core::fmt::Debug for DataCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.DataCue;{7c7f676d-1fbc-4e2d-9a87-ee38bd1dc637})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4102,17 +3937,6 @@ impl FaceDetectedEventArgs {
 impl ::core::clone::Clone for FaceDetectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FaceDetectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceDetectedEventArgs {}
-impl ::core::fmt::Debug for FaceDetectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FaceDetectedEventArgs {
@@ -4193,17 +4017,6 @@ impl FaceDetectionEffect {
 impl ::core::clone::Clone for FaceDetectionEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FaceDetectionEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceDetectionEffect {}
-impl ::core::fmt::Debug for FaceDetectionEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetectionEffect").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FaceDetectionEffect {
@@ -4302,20 +4115,6 @@ impl FaceDetectionEffectDefinition {
 impl ::core::clone::Clone for FaceDetectionEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Media_Effects")]
-impl ::core::cmp::PartialEq for FaceDetectionEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Media_Effects")]
-impl ::core::cmp::Eq for FaceDetectionEffectDefinition {}
-#[cfg(feature = "Media_Effects")]
-impl ::core::fmt::Debug for FaceDetectionEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetectionEffectDefinition").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Media_Effects")]
@@ -4482,17 +4281,6 @@ impl ::core::clone::Clone for FaceDetectionEffectFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FaceDetectionEffectFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceDetectionEffectFrame {}
-impl ::core::fmt::Debug for FaceDetectionEffectFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetectionEffectFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FaceDetectionEffectFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.FaceDetectionEffectFrame;{8ab08993-5dc8-447b-a247-5270bd802ece})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4574,17 +4362,6 @@ impl ::core::clone::Clone for HighDynamicRangeControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HighDynamicRangeControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HighDynamicRangeControl {}
-impl ::core::fmt::Debug for HighDynamicRangeControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HighDynamicRangeControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HighDynamicRangeControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.HighDynamicRangeControl;{55f1a7ae-d957-4dc9-9d1c-8553a82a7d99})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4628,17 +4405,6 @@ impl HighDynamicRangeOutput {
 impl ::core::clone::Clone for HighDynamicRangeOutput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HighDynamicRangeOutput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HighDynamicRangeOutput {}
-impl ::core::fmt::Debug for HighDynamicRangeOutput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HighDynamicRangeOutput").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HighDynamicRangeOutput {
@@ -4755,17 +4521,6 @@ impl ::core::clone::Clone for ImageCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ImageCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageCue {}
-impl ::core::fmt::Debug for ImageCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ImageCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.ImageCue;{52828282-367b-440b-9116-3c84570dd270})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4837,17 +4592,6 @@ impl InitializeMediaStreamSourceRequestedEventArgs {
 impl ::core::clone::Clone for InitializeMediaStreamSourceRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for InitializeMediaStreamSourceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InitializeMediaStreamSourceRequestedEventArgs {}
-impl ::core::fmt::Debug for InitializeMediaStreamSourceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InitializeMediaStreamSourceRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for InitializeMediaStreamSourceRequestedEventArgs {
@@ -4930,17 +4674,6 @@ impl LowLightFusionResult {
 impl ::core::clone::Clone for LowLightFusionResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LowLightFusionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LowLightFusionResult {}
-impl ::core::fmt::Debug for LowLightFusionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LowLightFusionResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LowLightFusionResult {
@@ -5032,17 +4765,6 @@ impl MediaBinder {
 impl ::core::clone::Clone for MediaBinder {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaBinder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBinder {}
-impl ::core::fmt::Debug for MediaBinder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBinder").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaBinder {
@@ -5153,17 +4875,6 @@ impl ::core::clone::Clone for MediaBindingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaBindingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBindingEventArgs {}
-impl ::core::fmt::Debug for MediaBindingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBindingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaBindingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaBindingEventArgs;{b61cb25a-1b6d-4630-a86d-2f0837f712e5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5198,17 +4909,6 @@ impl MediaCueEventArgs {
 impl ::core::clone::Clone for MediaCueEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaCueEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCueEventArgs {}
-impl ::core::fmt::Debug for MediaCueEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCueEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaCueEventArgs {
@@ -5496,17 +5196,6 @@ impl ::core::clone::Clone for MediaSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSource {}
-impl ::core::fmt::Debug for MediaSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSource;{2eb61048-655f-4c37-b813-b4e45dfa0abe})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5612,17 +5301,6 @@ impl ::core::clone::Clone for MediaSourceAppServiceConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaSourceAppServiceConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceAppServiceConnection {}
-impl ::core::fmt::Debug for MediaSourceAppServiceConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceAppServiceConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaSourceAppServiceConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaSourceAppServiceConnection;{61e1ea97-1916-4810-b7f4-b642be829596})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5655,17 +5333,6 @@ impl MediaSourceError {
 impl ::core::clone::Clone for MediaSourceError {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaSourceError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceError {}
-impl ::core::fmt::Debug for MediaSourceError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceError").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceError {
@@ -5702,17 +5369,6 @@ impl MediaSourceOpenOperationCompletedEventArgs {
 impl ::core::clone::Clone for MediaSourceOpenOperationCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaSourceOpenOperationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceOpenOperationCompletedEventArgs {}
-impl ::core::fmt::Debug for MediaSourceOpenOperationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceOpenOperationCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceOpenOperationCompletedEventArgs {
@@ -5756,17 +5412,6 @@ impl MediaSourceStateChangedEventArgs {
 impl ::core::clone::Clone for MediaSourceStateChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaSourceStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceStateChangedEventArgs {}
-impl ::core::fmt::Debug for MediaSourceStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceStateChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceStateChangedEventArgs {
@@ -5954,17 +5599,6 @@ impl ::core::clone::Clone for MediaStreamSample {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSample {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSample {}
-impl ::core::fmt::Debug for MediaStreamSample {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSample").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSample {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSample;{5c8db627-4b80-4361-9837-6cb7481ad9d6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6064,20 +5698,6 @@ impl MediaStreamSamplePropertySet {
 impl ::core::clone::Clone for MediaStreamSamplePropertySet {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for MediaStreamSamplePropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for MediaStreamSamplePropertySet {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for MediaStreamSamplePropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSamplePropertySet").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -6198,17 +5818,6 @@ impl MediaStreamSampleProtectionProperties {
 impl ::core::clone::Clone for MediaStreamSampleProtectionProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSampleProtectionProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSampleProtectionProperties {}
-impl ::core::fmt::Debug for MediaStreamSampleProtectionProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSampleProtectionProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSampleProtectionProperties {
@@ -6506,17 +6115,6 @@ impl ::core::clone::Clone for MediaStreamSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSource {}
-impl ::core::fmt::Debug for MediaStreamSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSource;{3712d543-45eb-4138-aa62-c01e26f3843f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6572,17 +6170,6 @@ impl ::core::clone::Clone for MediaStreamSourceClosedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceClosedEventArgs {}
-impl ::core::fmt::Debug for MediaStreamSourceClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceClosedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceClosedEventArgs;{cd8c7eb2-4816-4e24-88f0-491ef7386406})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6617,17 +6204,6 @@ impl MediaStreamSourceClosedRequest {
 impl ::core::clone::Clone for MediaStreamSourceClosedRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceClosedRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceClosedRequest {}
-impl ::core::fmt::Debug for MediaStreamSourceClosedRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceClosedRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedRequest {
@@ -6666,17 +6242,6 @@ impl MediaStreamSourceSampleRenderedEventArgs {
 impl ::core::clone::Clone for MediaStreamSourceSampleRenderedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceSampleRenderedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSampleRenderedEventArgs {}
-impl ::core::fmt::Debug for MediaStreamSourceSampleRenderedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSampleRenderedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRenderedEventArgs {
@@ -6737,17 +6302,6 @@ impl ::core::clone::Clone for MediaStreamSourceSampleRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSampleRequest {}
-impl ::core::fmt::Debug for MediaStreamSourceSampleRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSampleRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequest;{4db341a9-3501-4d9b-83f9-8f235c822532})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6779,17 +6333,6 @@ impl MediaStreamSourceSampleRequestDeferral {
 impl ::core::clone::Clone for MediaStreamSourceSampleRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSampleRequestDeferral {}
-impl ::core::fmt::Debug for MediaStreamSourceSampleRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSampleRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestDeferral {
@@ -6828,17 +6371,6 @@ impl ::core::clone::Clone for MediaStreamSourceSampleRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceSampleRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSampleRequestedEventArgs {}
-impl ::core::fmt::Debug for MediaStreamSourceSampleRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSampleRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs;{10f9bb9e-71c5-492f-847f-0da1f35e81f8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6873,17 +6405,6 @@ impl MediaStreamSourceStartingEventArgs {
 impl ::core::clone::Clone for MediaStreamSourceStartingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceStartingEventArgs {}
-impl ::core::fmt::Debug for MediaStreamSourceStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceStartingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingEventArgs {
@@ -6937,17 +6458,6 @@ impl ::core::clone::Clone for MediaStreamSourceStartingRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceStartingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceStartingRequest {}
-impl ::core::fmt::Debug for MediaStreamSourceStartingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceStartingRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceStartingRequest;{2a9093e4-35c4-4b1b-a791-0d99db56dd1d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6979,17 +6489,6 @@ impl MediaStreamSourceStartingRequestDeferral {
 impl ::core::clone::Clone for MediaStreamSourceStartingRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceStartingRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceStartingRequestDeferral {}
-impl ::core::fmt::Debug for MediaStreamSourceStartingRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceStartingRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequestDeferral {
@@ -7042,17 +6541,6 @@ impl ::core::clone::Clone for MediaStreamSourceSwitchStreamsRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequest {}
-impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSwitchStreamsRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest;{41b8808e-38a9-4ec3-9ba0-b69b85501e90})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7084,17 +6572,6 @@ impl MediaStreamSourceSwitchStreamsRequestDeferral {
 impl ::core::clone::Clone for MediaStreamSourceSwitchStreamsRequestDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequestDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequestDeferral {}
-impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequestDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSwitchStreamsRequestDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequestDeferral {
@@ -7131,17 +6608,6 @@ impl MediaStreamSourceSwitchStreamsRequestedEventArgs {
 impl ::core::clone::Clone for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaStreamSourceSwitchStreamsRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
-impl ::core::fmt::Debug for MediaStreamSourceSwitchStreamsRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceSwitchStreamsRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsRequestedEventArgs {
@@ -7368,17 +6834,6 @@ impl ::core::clone::Clone for MseSourceBuffer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MseSourceBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseSourceBuffer {}
-impl ::core::fmt::Debug for MseSourceBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseSourceBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MseSourceBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseSourceBuffer;{0c1aa3e3-df8d-4079-a3fe-6849184b4e2f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7445,17 +6900,6 @@ impl MseSourceBufferList {
 impl ::core::clone::Clone for MseSourceBufferList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MseSourceBufferList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseSourceBufferList {}
-impl ::core::fmt::Debug for MseSourceBufferList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseSourceBufferList").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MseSourceBufferList {
@@ -7624,17 +7068,6 @@ impl ::core::clone::Clone for MseStreamSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MseStreamSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseStreamSource {}
-impl ::core::fmt::Debug for MseStreamSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseStreamSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MseStreamSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.MseStreamSource;{b0b4198d-02f4-4923-88dd-81bc3f360ffa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7730,17 +7163,6 @@ impl ::core::clone::Clone for SceneAnalysisEffect {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneAnalysisEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAnalysisEffect {}
-impl ::core::fmt::Debug for SceneAnalysisEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAnalysisEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffect;{c04ba319-ca41-4813-bffd-7b08b0ed2557})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7815,20 +7237,6 @@ impl SceneAnalysisEffectDefinition {
 impl ::core::clone::Clone for SceneAnalysisEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Media_Effects")]
-impl ::core::cmp::PartialEq for SceneAnalysisEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Media_Effects")]
-impl ::core::cmp::Eq for SceneAnalysisEffectDefinition {}
-#[cfg(feature = "Media_Effects")]
-impl ::core::fmt::Debug for SceneAnalysisEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAnalysisEffectDefinition").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Media_Effects")]
@@ -8009,17 +7417,6 @@ impl ::core::clone::Clone for SceneAnalysisEffectFrame {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneAnalysisEffectFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAnalysisEffectFrame {}
-impl ::core::fmt::Debug for SceneAnalysisEffectFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAnalysisEffectFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffectFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SceneAnalysisEffectFrame;{d8b10e4c-7fd9-42e1-85eb-6572c297c987})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8095,17 +7492,6 @@ impl SceneAnalyzedEventArgs {
 impl ::core::clone::Clone for SceneAnalyzedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneAnalyzedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAnalyzedEventArgs {}
-impl ::core::fmt::Debug for SceneAnalyzedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAnalyzedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneAnalyzedEventArgs {
@@ -8234,17 +7620,6 @@ impl ::core::clone::Clone for SpeechCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeechCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechCue {}
-impl ::core::fmt::Debug for SpeechCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeechCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.SpeechCue;{aee254dc-1725-4bad-8043-a98499b017a2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8360,17 +7735,6 @@ impl TimedMetadataStreamDescriptor {
 impl ::core::clone::Clone for TimedMetadataStreamDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedMetadataStreamDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataStreamDescriptor {}
-impl ::core::fmt::Debug for TimedMetadataStreamDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataStreamDescriptor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedMetadataStreamDescriptor {
@@ -8592,17 +7956,6 @@ impl ::core::clone::Clone for TimedMetadataTrack {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedMetadataTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataTrack {}
-impl ::core::fmt::Debug for TimedMetadataTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataTrack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8665,17 +8018,6 @@ impl ::core::clone::Clone for TimedMetadataTrackError {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedMetadataTrackError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataTrackError {}
-impl ::core::fmt::Debug for TimedMetadataTrackError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataTrackError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedMetadataTrackError;{b3767915-4114-4819-b9d9-dd76089e72f8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8710,17 +8052,6 @@ impl TimedMetadataTrackFailedEventArgs {
 impl ::core::clone::Clone for TimedMetadataTrackFailedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedMetadataTrackFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataTrackFailedEventArgs {}
-impl ::core::fmt::Debug for TimedMetadataTrackFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataTrackFailedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackFailedEventArgs {
@@ -8787,17 +8118,6 @@ impl TimedTextBouten {
 impl ::core::clone::Clone for TimedTextBouten {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextBouten {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextBouten {}
-impl ::core::fmt::Debug for TimedTextBouten {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextBouten").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextBouten {
@@ -8908,17 +8228,6 @@ impl ::core::clone::Clone for TimedTextCue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedTextCue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextCue {}
-impl ::core::fmt::Debug for TimedTextCue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextCue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedTextCue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextCue;{51c79e51-3b86-494d-b359-bb2ea7aca9a9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -8992,17 +8301,6 @@ impl TimedTextLine {
 impl ::core::clone::Clone for TimedTextLine {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextLine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextLine {}
-impl ::core::fmt::Debug for TimedTextLine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextLine").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextLine {
@@ -9177,17 +8475,6 @@ impl ::core::clone::Clone for TimedTextRegion {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedTextRegion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextRegion {}
-impl ::core::fmt::Debug for TimedTextRegion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextRegion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedTextRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextRegion;{1ed0881f-8a06-4222-9f59-b21bf40124b4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9259,17 +8546,6 @@ impl TimedTextRuby {
 impl ::core::clone::Clone for TimedTextRuby {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextRuby {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextRuby {}
-impl ::core::fmt::Debug for TimedTextRuby {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextRuby").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextRuby {
@@ -9410,17 +8686,6 @@ impl ::core::clone::Clone for TimedTextSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedTextSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextSource {}
-impl ::core::fmt::Debug for TimedTextSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedTextSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextSource;{c4ed9ba6-101f-404d-a949-82f33fcd93b7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9464,17 +8729,6 @@ impl TimedTextSourceResolveResultEventArgs {
 impl ::core::clone::Clone for TimedTextSourceResolveResultEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextSourceResolveResultEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextSourceResolveResultEventArgs {}
-impl ::core::fmt::Debug for TimedTextSourceResolveResultEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextSourceResolveResultEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextSourceResolveResultEventArgs {
@@ -9737,17 +8991,6 @@ impl ::core::clone::Clone for TimedTextStyle {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimedTextStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextStyle {}
-impl ::core::fmt::Debug for TimedTextStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimedTextStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.TimedTextStyle;{1bb2384d-a825-40c2-a7f5-281eaedf3b55})");
     type DefaultType = ::core::option::Option<Self>;
@@ -9815,17 +9058,6 @@ impl TimedTextSubformat {
 impl ::core::clone::Clone for TimedTextSubformat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextSubformat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextSubformat {}
-impl ::core::fmt::Debug for TimedTextSubformat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextSubformat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextSubformat {
@@ -9900,17 +9132,6 @@ impl VideoStabilizationEffect {
 impl ::core::clone::Clone for VideoStabilizationEffect {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VideoStabilizationEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoStabilizationEffect {}
-impl ::core::fmt::Debug for VideoStabilizationEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoStabilizationEffect").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffect {
@@ -9990,20 +9211,6 @@ impl ::core::clone::Clone for VideoStabilizationEffectDefinition {
     }
 }
 #[cfg(feature = "Media_Effects")]
-impl ::core::cmp::PartialEq for VideoStabilizationEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Media_Effects")]
-impl ::core::cmp::Eq for VideoStabilizationEffectDefinition {}
-#[cfg(feature = "Media_Effects")]
-impl ::core::fmt::Debug for VideoStabilizationEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoStabilizationEffectDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoStabilizationEffectDefinition;{39f38cf0-8d0f-4f3e-84fc-2d46a5297943})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10066,17 +9273,6 @@ impl VideoStabilizationEffectEnabledChangedEventArgs {
 impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VideoStabilizationEffectEnabledChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoStabilizationEffectEnabledChangedEventArgs {}
-impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoStabilizationEffectEnabledChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChangedEventArgs {
@@ -10175,17 +9371,6 @@ impl VideoStreamDescriptor {
 impl ::core::clone::Clone for VideoStreamDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for VideoStreamDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoStreamDescriptor {}
-impl ::core::fmt::Debug for VideoStreamDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoStreamDescriptor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for VideoStreamDescriptor {
@@ -10334,17 +9519,6 @@ impl ::core::clone::Clone for VideoTrack {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoTrack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoTrack {}
-impl ::core::fmt::Debug for VideoTrack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTrack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10400,17 +9574,6 @@ impl ::core::clone::Clone for VideoTrackOpenFailedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoTrackOpenFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoTrackOpenFailedEventArgs {}
-impl ::core::fmt::Debug for VideoTrackOpenFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTrackOpenFailedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoTrackOpenFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackOpenFailedEventArgs;{7679e231-04f9-4c82-a4ee-8602c8bb4754})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10454,17 +9617,6 @@ impl ::core::clone::Clone for VideoTrackSupportInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VideoTrackSupportInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoTrackSupportInfo {}
-impl ::core::fmt::Debug for VideoTrackSupportInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTrackSupportInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VideoTrackSupportInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Core.VideoTrackSupportInfo;{4bb534a0-fc5f-450d-8ff0-778d590486de})");
     type DefaultType = ::core::option::Option<Self>;
@@ -10500,18 +9652,8 @@ impl ::core::clone::Clone for AudioDecoderDegradation {
         *self
     }
 }
-impl ::core::default::Default for AudioDecoderDegradation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDecoderDegradation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioDecoderDegradation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDecoderDegradation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradation;i4)");
@@ -10535,18 +9677,8 @@ impl ::core::clone::Clone for AudioDecoderDegradationReason {
         *self
     }
 }
-impl ::core::default::Default for AudioDecoderDegradationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDecoderDegradationReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioDecoderDegradationReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDecoderDegradationReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.AudioDecoderDegradationReason;i4)");
@@ -10569,18 +9701,8 @@ impl ::core::clone::Clone for CodecCategory {
         *self
     }
 }
-impl ::core::default::Default for CodecCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CodecCategory {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CodecCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CodecCategory").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CodecCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecCategory;i4)");
@@ -10603,18 +9725,8 @@ impl ::core::clone::Clone for CodecKind {
         *self
     }
 }
-impl ::core::default::Default for CodecKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CodecKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CodecKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CodecKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CodecKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.CodecKind;i4)");
@@ -10638,18 +9750,8 @@ impl ::core::clone::Clone for FaceDetectionMode {
         *self
     }
 }
-impl ::core::default::Default for FaceDetectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FaceDetectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FaceDetectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FaceDetectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.FaceDetectionMode;i4)");
@@ -10674,18 +9776,8 @@ impl ::core::clone::Clone for MediaDecoderStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaDecoderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaDecoderStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaDecoderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaDecoderStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaDecoderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaDecoderStatus;i4)");
@@ -10711,18 +9803,8 @@ impl ::core::clone::Clone for MediaSourceState {
         *self
     }
 }
-impl ::core::default::Default for MediaSourceState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaSourceState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaSourceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceState;i4)");
@@ -10745,18 +9827,8 @@ impl ::core::clone::Clone for MediaSourceStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaSourceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaSourceStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaSourceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaSourceStatus;i4)");
@@ -10784,18 +9856,8 @@ impl ::core::clone::Clone for MediaStreamSourceClosedReason {
         *self
     }
 }
-impl ::core::default::Default for MediaStreamSourceClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaStreamSourceClosedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaStreamSourceClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceClosedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceClosedReason;i4)");
@@ -10824,18 +9886,8 @@ impl ::core::clone::Clone for MediaStreamSourceErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaStreamSourceErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaStreamSourceErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaStreamSourceErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaStreamSourceErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaStreamSourceErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaStreamSourceErrorStatus;i4)");
@@ -10859,18 +9911,8 @@ impl ::core::clone::Clone for MediaTrackKind {
         *self
     }
 }
-impl ::core::default::Default for MediaTrackKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaTrackKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaTrackKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaTrackKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaTrackKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MediaTrackKind;i4)");
@@ -10893,18 +9935,8 @@ impl ::core::clone::Clone for MseAppendMode {
         *self
     }
 }
-impl ::core::default::Default for MseAppendMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MseAppendMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MseAppendMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseAppendMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MseAppendMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseAppendMode;i4)");
@@ -10929,18 +9961,8 @@ impl ::core::clone::Clone for MseEndOfStreamStatus {
         *self
     }
 }
-impl ::core::default::Default for MseEndOfStreamStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MseEndOfStreamStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MseEndOfStreamStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseEndOfStreamStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MseEndOfStreamStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseEndOfStreamStatus;i4)");
@@ -10964,18 +9986,8 @@ impl ::core::clone::Clone for MseReadyState {
         *self
     }
 }
-impl ::core::default::Default for MseReadyState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MseReadyState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MseReadyState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MseReadyState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MseReadyState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.MseReadyState;i4)");
@@ -10999,18 +10011,8 @@ impl ::core::clone::Clone for SceneAnalysisRecommendation {
         *self
     }
 }
-impl ::core::default::Default for SceneAnalysisRecommendation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneAnalysisRecommendation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneAnalysisRecommendation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAnalysisRecommendation").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneAnalysisRecommendation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.SceneAnalysisRecommendation;i4)");
@@ -11039,18 +10041,8 @@ impl ::core::clone::Clone for TimedMetadataKind {
         *self
     }
 }
-impl ::core::default::Default for TimedMetadataKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedMetadataKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedMetadataKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedMetadataKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataKind;i4)");
@@ -11075,18 +10067,8 @@ impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
         *self
     }
 }
-impl ::core::default::Default for TimedMetadataTrackErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedMetadataTrackErrorCode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedMetadataTrackErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataTrackErrorCode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackErrorCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedMetadataTrackErrorCode;i4)");
@@ -11110,18 +10092,8 @@ impl ::core::clone::Clone for TimedTextBoutenPosition {
         *self
     }
 }
-impl ::core::default::Default for TimedTextBoutenPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextBoutenPosition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextBoutenPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextBoutenPosition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextBoutenPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenPosition;i4)");
@@ -11150,18 +10122,8 @@ impl ::core::clone::Clone for TimedTextBoutenType {
         *self
     }
 }
-impl ::core::default::Default for TimedTextBoutenType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextBoutenType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextBoutenType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextBoutenType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextBoutenType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextBoutenType;i4)");
@@ -11185,18 +10147,8 @@ impl ::core::clone::Clone for TimedTextDisplayAlignment {
         *self
     }
 }
-impl ::core::default::Default for TimedTextDisplayAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextDisplayAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextDisplayAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextDisplayAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextDisplayAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextDisplayAlignment;i4)");
@@ -11219,18 +10171,8 @@ impl ::core::clone::Clone for TimedTextFlowDirection {
         *self
     }
 }
-impl ::core::default::Default for TimedTextFlowDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextFlowDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextFlowDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextFlowDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextFlowDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFlowDirection;i4)");
@@ -11254,18 +10196,8 @@ impl ::core::clone::Clone for TimedTextFontStyle {
         *self
     }
 }
-impl ::core::default::Default for TimedTextFontStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextFontStyle {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextFontStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextFontStyle").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextFontStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextFontStyle;i4)");
@@ -11289,18 +10221,8 @@ impl ::core::clone::Clone for TimedTextLineAlignment {
         *self
     }
 }
-impl ::core::default::Default for TimedTextLineAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextLineAlignment {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextLineAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextLineAlignment").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextLineAlignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextLineAlignment;i4)");
@@ -11327,18 +10249,8 @@ impl ::core::clone::Clone for TimedTextRubyAlign {
         *self
     }
 }
-impl ::core::default::Default for TimedTextRubyAlign {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextRubyAlign {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextRubyAlign {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextRubyAlign").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyAlign {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyAlign;i4)");
@@ -11362,18 +10274,8 @@ impl ::core::clone::Clone for TimedTextRubyPosition {
         *self
     }
 }
-impl ::core::default::Default for TimedTextRubyPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextRubyPosition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextRubyPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextRubyPosition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyPosition;i4)");
@@ -11399,18 +10301,8 @@ impl ::core::clone::Clone for TimedTextRubyReserve {
         *self
     }
 }
-impl ::core::default::Default for TimedTextRubyReserve {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextRubyReserve {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextRubyReserve {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextRubyReserve").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextRubyReserve {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextRubyReserve;i4)");
@@ -11433,18 +10325,8 @@ impl ::core::clone::Clone for TimedTextScrollMode {
         *self
     }
 }
-impl ::core::default::Default for TimedTextScrollMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextScrollMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextScrollMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextScrollMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextScrollMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextScrollMode;i4)");
@@ -11467,18 +10349,8 @@ impl ::core::clone::Clone for TimedTextUnit {
         *self
     }
 }
-impl ::core::default::Default for TimedTextUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextUnit {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextUnit").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextUnit;i4)");
@@ -11501,18 +10373,8 @@ impl ::core::clone::Clone for TimedTextWeight {
         *self
     }
 }
-impl ::core::default::Default for TimedTextWeight {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextWeight {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextWeight {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextWeight").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextWeight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWeight;i4)");
@@ -11535,18 +10397,8 @@ impl ::core::clone::Clone for TimedTextWrapping {
         *self
     }
 }
-impl ::core::default::Default for TimedTextWrapping {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextWrapping {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextWrapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextWrapping").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextWrapping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWrapping;i4)");
@@ -11574,18 +10426,8 @@ impl ::core::clone::Clone for TimedTextWritingMode {
         *self
     }
 }
-impl ::core::default::Default for TimedTextWritingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextWritingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TimedTextWritingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedTextWritingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TimedTextWritingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.TimedTextWritingMode;i4)");
@@ -11609,18 +10451,8 @@ impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedReason {
         *self
     }
 }
-impl ::core::default::Default for VideoStabilizationEffectEnabledChangedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VideoStabilizationEffectEnabledChangedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoStabilizationEffectEnabledChangedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChangedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason;i4)");
@@ -11645,12 +10477,6 @@ impl ::core::clone::Clone for MseTimeRange {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for MseTimeRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MseTimeRange").field("Start", &self.Start).field("End", &self.End).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Abi for MseTimeRange {
     type Abi = Self;
 }
@@ -11660,20 +10486,6 @@ unsafe impl ::windows::core::RuntimeType for MseTimeRange {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for MseTimeRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.Start == other.Start && self.End == other.End
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for MseTimeRange {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for MseTimeRange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11688,11 +10500,6 @@ impl ::core::clone::Clone for TimedTextDouble {
         *self
     }
 }
-impl ::core::fmt::Debug for TimedTextDouble {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimedTextDouble").field("Value", &self.Value).field("Unit", &self.Unit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextDouble {
     type Abi = Self;
 }
@@ -11701,17 +10508,6 @@ unsafe impl ::windows::core::RuntimeType for TimedTextDouble {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextDouble {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value && self.Unit == other.Unit
-    }
-}
-impl ::core::cmp::Eq for TimedTextDouble {}
-impl ::core::default::Default for TimedTextDouble {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11729,11 +10525,6 @@ impl ::core::clone::Clone for TimedTextPadding {
         *self
     }
 }
-impl ::core::fmt::Debug for TimedTextPadding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimedTextPadding").field("Before", &self.Before).field("After", &self.After).field("Start", &self.Start).field("End", &self.End).field("Unit", &self.Unit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextPadding {
     type Abi = Self;
 }
@@ -11742,17 +10533,6 @@ unsafe impl ::windows::core::RuntimeType for TimedTextPadding {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextPadding {
-    fn eq(&self, other: &Self) -> bool {
-        self.Before == other.Before && self.After == other.After && self.Start == other.Start && self.End == other.End && self.Unit == other.Unit
-    }
-}
-impl ::core::cmp::Eq for TimedTextPadding {}
-impl ::core::default::Default for TimedTextPadding {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11768,11 +10548,6 @@ impl ::core::clone::Clone for TimedTextPoint {
         *self
     }
 }
-impl ::core::fmt::Debug for TimedTextPoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimedTextPoint").field("X", &self.X).field("Y", &self.Y).field("Unit", &self.Unit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextPoint {
     type Abi = Self;
 }
@@ -11781,17 +10556,6 @@ unsafe impl ::windows::core::RuntimeType for TimedTextPoint {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for TimedTextPoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Unit == other.Unit
-    }
-}
-impl ::core::cmp::Eq for TimedTextPoint {}
-impl ::core::default::Default for TimedTextPoint {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11807,11 +10571,6 @@ impl ::core::clone::Clone for TimedTextSize {
         *self
     }
 }
-impl ::core::fmt::Debug for TimedTextSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TimedTextSize").field("Height", &self.Height).field("Width", &self.Width).field("Unit", &self.Unit).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TimedTextSize {
     type Abi = Self;
 }
@@ -11822,16 +10581,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextSize {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for TimedTextSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.Height == other.Height && self.Width == other.Width && self.Unit == other.Unit
-    }
-}
-impl ::core::cmp::Eq for TimedTextSize {}
-impl ::core::default::Default for TimedTextSize {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

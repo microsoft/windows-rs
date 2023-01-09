@@ -72,18 +72,8 @@ impl ::core::clone::Clone for RESTOREPOINTINFO_EVENT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for RESTOREPOINTINFO_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_EVENT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RESTOREPOINTINFO_EVENT_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 #[repr(transparent)]
@@ -105,18 +95,8 @@ impl ::core::clone::Clone for RESTOREPOINTINFO_TYPE {
         *self
     }
 }
-impl ::core::default::Default for RESTOREPOINTINFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RESTOREPOINTINFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RESTOREPOINTINFO_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
@@ -138,12 +118,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOA {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RESTOREPOINTINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`, `\"Win32_Foundation\"`*"]
@@ -167,12 +141,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOEX {
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOEX {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RESTOREPOINTINFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct RESTOREPOINTINFOW {
@@ -190,11 +158,6 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
 unsafe impl ::windows::core::Abi for RESTOREPOINTINFOW {
     type Abi = Self;
 }
-impl ::core::default::Default for RESTOREPOINTINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_Restore\"`*"]
 pub struct STATEMGRSTATUS {
@@ -210,10 +173,7 @@ impl ::core::clone::Clone for STATEMGRSTATUS {
 unsafe impl ::windows::core::Abi for STATEMGRSTATUS {
     type Abi = Self;
 }
-impl ::core::default::Default for STATEMGRSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

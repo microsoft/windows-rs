@@ -466,17 +466,6 @@ impl ::core::clone::Clone for CoreFrameworkInputView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreFrameworkInputView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreFrameworkInputView {}
-impl ::core::fmt::Debug for CoreFrameworkInputView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreFrameworkInputView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -531,17 +520,6 @@ impl ::core::clone::Clone for CoreFrameworkInputViewAnimationStartingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreFrameworkInputViewAnimationStartingEventArgs {}
-impl ::core::fmt::Debug for CoreFrameworkInputViewAnimationStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreFrameworkInputViewAnimationStartingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
     type DefaultType = ::core::option::Option<Self>;
@@ -585,17 +563,6 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
 impl ::core::clone::Clone for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
-impl ::core::fmt::Debug for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreFrameworkInputViewOcclusionsChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -814,17 +781,6 @@ impl ::core::clone::Clone for CoreInputView {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreInputView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputView {}
-impl ::core::fmt::Debug for CoreInputView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -883,17 +839,6 @@ impl ::core::clone::Clone for CoreInputViewAnimationStartingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreInputViewAnimationStartingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewAnimationStartingEventArgs {}
-impl ::core::fmt::Debug for CoreInputViewAnimationStartingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewAnimationStartingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
     type DefaultType = ::core::option::Option<Self>;
@@ -928,17 +873,6 @@ impl CoreInputViewHidingEventArgs {
 impl ::core::clone::Clone for CoreInputViewHidingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreInputViewHidingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewHidingEventArgs {}
-impl ::core::fmt::Debug for CoreInputViewHidingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewHidingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
@@ -984,17 +918,6 @@ impl CoreInputViewOcclusion {
 impl ::core::clone::Clone for CoreInputViewOcclusion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreInputViewOcclusion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewOcclusion {}
-impl ::core::fmt::Debug for CoreInputViewOcclusion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewOcclusion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
@@ -1046,17 +969,6 @@ impl ::core::clone::Clone for CoreInputViewOcclusionsChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreInputViewOcclusionsChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewOcclusionsChangedEventArgs {}
-impl ::core::fmt::Debug for CoreInputViewOcclusionsChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewOcclusionsChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1091,17 +1003,6 @@ impl CoreInputViewShowingEventArgs {
 impl ::core::clone::Clone for CoreInputViewShowingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreInputViewShowingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewShowingEventArgs {}
-impl ::core::fmt::Debug for CoreInputViewShowingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewShowingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
@@ -1171,17 +1072,6 @@ impl ::core::clone::Clone for CoreInputViewTransferringXYFocusEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreInputViewTransferringXYFocusEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewTransferringXYFocusEventArgs {}
-impl ::core::fmt::Debug for CoreInputViewTransferringXYFocusEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewTransferringXYFocusEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1244,17 +1134,6 @@ impl ::core::clone::Clone for UISettingsController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UISettingsController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UISettingsController {}
-impl ::core::fmt::Debug for UISettingsController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UISettingsController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UISettingsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1293,18 +1172,8 @@ impl ::core::clone::Clone for CoreInputViewKind {
         *self
     }
 }
-impl ::core::default::Default for CoreInputViewKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreInputViewKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewKind;i4)");
@@ -1328,18 +1197,8 @@ impl ::core::clone::Clone for CoreInputViewOcclusionKind {
         *self
     }
 }
-impl ::core::default::Default for CoreInputViewOcclusionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewOcclusionKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewOcclusionKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionKind;i4)");
@@ -1364,18 +1223,8 @@ impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
         *self
     }
 }
-impl ::core::default::Default for CoreInputViewXYFocusTransferDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreInputViewXYFocusTransferDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreInputViewXYFocusTransferDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreInputViewXYFocusTransferDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
@@ -1386,3 +1235,5 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewXYFocusTransferDirecti
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

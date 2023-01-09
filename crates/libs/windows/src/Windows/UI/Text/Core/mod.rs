@@ -512,17 +512,6 @@ impl ::core::clone::Clone for CoreTextCompositionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextCompositionCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextCompositionCompletedEventArgs {}
-impl ::core::fmt::Debug for CoreTextCompositionCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextCompositionCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs;{1f34ebb6-b79f-4121-a5e7-fda9b8616e30})");
     type DefaultType = ::core::option::Option<Self>;
@@ -564,17 +553,6 @@ impl CoreTextCompositionSegment {
 impl ::core::clone::Clone for CoreTextCompositionSegment {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextCompositionSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextCompositionSegment {}
-impl ::core::fmt::Debug for CoreTextCompositionSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextCompositionSegment").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionSegment {
@@ -620,17 +598,6 @@ impl CoreTextCompositionStartedEventArgs {
 impl ::core::clone::Clone for CoreTextCompositionStartedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextCompositionStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextCompositionStartedEventArgs {}
-impl ::core::fmt::Debug for CoreTextCompositionStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextCompositionStartedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextCompositionStartedEventArgs {
@@ -876,17 +843,6 @@ impl ::core::clone::Clone for CoreTextEditContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextEditContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextEditContext {}
-impl ::core::fmt::Debug for CoreTextEditContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextEditContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextEditContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextEditContext;{bf6608af-4041-47c3-b263-a918eb5eaef2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -993,17 +949,6 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextFormatUpdatingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextFormatUpdatingEventArgs {}
-impl ::core::fmt::Debug for CoreTextFormatUpdatingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextFormatUpdatingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs;{7310bd33-b4a8-43b1-b37b-0724d4aca7ab})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1061,17 +1006,6 @@ impl CoreTextLayoutBounds {
 impl ::core::clone::Clone for CoreTextLayoutBounds {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextLayoutBounds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextLayoutBounds {}
-impl ::core::fmt::Debug for CoreTextLayoutBounds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextLayoutBounds").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutBounds {
@@ -1140,17 +1074,6 @@ impl ::core::clone::Clone for CoreTextLayoutRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextLayoutRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextLayoutRequest {}
-impl ::core::fmt::Debug for CoreTextLayoutRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextLayoutRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextLayoutRequest;{2555a8cc-51fd-4f03-98bf-ac78174d68e0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1185,17 +1108,6 @@ impl CoreTextLayoutRequestedEventArgs {
 impl ::core::clone::Clone for CoreTextLayoutRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextLayoutRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextLayoutRequestedEventArgs {}
-impl ::core::fmt::Debug for CoreTextLayoutRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextLayoutRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextLayoutRequestedEventArgs {
@@ -1254,17 +1166,6 @@ impl ::core::clone::Clone for CoreTextSelectionRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextSelectionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextSelectionRequest {}
-impl ::core::fmt::Debug for CoreTextSelectionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextSelectionRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextSelectionRequest;{f0a70403-208b-4301-883c-74ca7485fd8d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1299,17 +1200,6 @@ impl CoreTextSelectionRequestedEventArgs {
 impl ::core::clone::Clone for CoreTextSelectionRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextSelectionRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextSelectionRequestedEventArgs {}
-impl ::core::fmt::Debug for CoreTextSelectionRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextSelectionRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionRequestedEventArgs {
@@ -1373,17 +1263,6 @@ impl CoreTextSelectionUpdatingEventArgs {
 impl ::core::clone::Clone for CoreTextSelectionUpdatingEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextSelectionUpdatingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextSelectionUpdatingEventArgs {}
-impl ::core::fmt::Debug for CoreTextSelectionUpdatingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextSelectionUpdatingEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingEventArgs {
@@ -1475,17 +1354,6 @@ impl ::core::clone::Clone for CoreTextServicesManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextServicesManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextServicesManager {}
-impl ::core::fmt::Debug for CoreTextServicesManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextServicesManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextServicesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextServicesManager;{c2507d83-6e0a-4a8a-bdf8-1948874854ba})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1549,17 +1417,6 @@ impl ::core::clone::Clone for CoreTextTextRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextTextRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextTextRequest {}
-impl ::core::fmt::Debug for CoreTextTextRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextTextRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextRequest;{50d950a9-f51e-4cc1-8ca1-e6346d1a61be})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1594,17 +1451,6 @@ impl CoreTextTextRequestedEventArgs {
 impl ::core::clone::Clone for CoreTextTextRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreTextTextRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextTextRequestedEventArgs {}
-impl ::core::fmt::Debug for CoreTextTextRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextTextRequestedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextTextRequestedEventArgs {
@@ -1693,17 +1539,6 @@ impl ::core::clone::Clone for CoreTextTextUpdatingEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreTextTextUpdatingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextTextUpdatingEventArgs {}
-impl ::core::fmt::Debug for CoreTextTextUpdatingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextTextUpdatingEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs;{eea7918d-cc2b-4f03-8ff6-02fd217db450})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1740,18 +1575,8 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
         *self
     }
 }
-impl ::core::default::Default for CoreTextFormatUpdatingReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingReason;i4)");
@@ -1774,18 +1599,8 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
         *self
     }
 }
-impl ::core::default::Default for CoreTextFormatUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextFormatUpdatingResult;i4)");
@@ -1808,18 +1623,8 @@ impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
         *self
     }
 }
-impl ::core::default::Default for CoreTextInputPaneDisplayPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextInputPaneDisplayPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputPaneDisplayPolicy;i4)");
@@ -1907,18 +1712,8 @@ impl ::core::clone::Clone for CoreTextInputScope {
         *self
     }
 }
-impl ::core::default::Default for CoreTextInputScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextInputScope {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextInputScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextInputScope {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextInputScope;i4)");
@@ -1941,18 +1736,8 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
         *self
     }
 }
-impl ::core::default::Default for CoreTextSelectionUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextSelectionUpdatingResult;i4)");
@@ -1975,18 +1760,8 @@ impl ::core::clone::Clone for CoreTextTextUpdatingResult {
         *self
     }
 }
-impl ::core::default::Default for CoreTextTextUpdatingResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextTextUpdatingResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CoreTextTextUpdatingResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Text.Core.CoreTextTextUpdatingResult;i4)");
@@ -2007,11 +1782,6 @@ impl ::core::clone::Clone for CoreTextRange {
         *self
     }
 }
-impl ::core::fmt::Debug for CoreTextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CoreTextRange").field("StartCaretPosition", &self.StartCaretPosition).field("EndCaretPosition", &self.EndCaretPosition).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CoreTextRange {
     type Abi = Self;
 }
@@ -2022,16 +1792,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextRange {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for CoreTextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartCaretPosition == other.StartCaretPosition && self.EndCaretPosition == other.EndCaretPosition
-    }
-}
-impl ::core::cmp::Eq for CoreTextRange {}
-impl ::core::default::Default for CoreTextRange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

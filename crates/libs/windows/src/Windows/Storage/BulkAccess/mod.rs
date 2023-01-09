@@ -164,17 +164,6 @@ impl ::core::clone::Clone for IStorageItemInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageItemInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemInformation {}
-impl ::core::fmt::Debug for IStorageItemInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
     type DefaultType = ::core::option::Option<Self>;
@@ -672,17 +661,6 @@ impl ::core::clone::Clone for FileInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FileInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileInformation {}
-impl ::core::fmt::Debug for FileInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1032,17 +1010,6 @@ impl FileInformationFactory {
 impl ::core::clone::Clone for FileInformationFactory {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileInformationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileInformationFactory {}
-impl ::core::fmt::Debug for FileInformationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileInformationFactory").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FileInformationFactory {
@@ -1576,17 +1543,6 @@ impl ::core::clone::Clone for FolderInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FolderInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderInformation {}
-impl ::core::fmt::Debug for FolderInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FolderInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1761,3 +1717,5 @@ impl ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InParam<s
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

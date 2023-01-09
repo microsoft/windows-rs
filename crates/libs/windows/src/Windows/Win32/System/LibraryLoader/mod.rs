@@ -575,46 +575,8 @@ impl ::core::clone::Clone for LOAD_LIBRARY_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for LOAD_LIBRARY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LOAD_LIBRARY_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LOAD_LIBRARY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOAD_LIBRARY_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for LOAD_LIBRARY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LOAD_LIBRARY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LOAD_LIBRARY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LOAD_LIBRARY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LOAD_LIBRARY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -629,24 +591,8 @@ impl ::core::clone::Clone for ENUMUILANG {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUMUILANG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUMUILANG").field("NumOfEnumUILang", &self.NumOfEnumUILang).field("SizeOfEnumUIBuffer", &self.SizeOfEnumUIBuffer).field("pEnumUIBuffer", &self.pEnumUIBuffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENUMUILANG {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUMUILANG {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumOfEnumUILang == other.NumOfEnumUILang && self.SizeOfEnumUIBuffer == other.SizeOfEnumUIBuffer && self.pEnumUIBuffer == other.pEnumUIBuffer
-    }
-}
-impl ::core::cmp::Eq for ENUMUILANG {}
-impl ::core::default::Default for ENUMUILANG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -661,24 +607,8 @@ impl ::core::clone::Clone for REDIRECTION_DESCRIPTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for REDIRECTION_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REDIRECTION_DESCRIPTOR").field("Version", &self.Version).field("FunctionCount", &self.FunctionCount).field("Redirections", &self.Redirections).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for REDIRECTION_DESCRIPTOR {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for REDIRECTION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.FunctionCount == other.FunctionCount && self.Redirections == other.Redirections
-    }
-}
-impl ::core::cmp::Eq for REDIRECTION_DESCRIPTOR {}
-impl ::core::default::Default for REDIRECTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -693,24 +623,8 @@ impl ::core::clone::Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
         *self
     }
 }
-impl ::core::fmt::Debug for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("REDIRECTION_FUNCTION_DESCRIPTOR").field("DllName", &self.DllName).field("FunctionName", &self.FunctionName).field("RedirectionTarget", &self.RedirectionTarget).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for REDIRECTION_FUNCTION_DESCRIPTOR {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.DllName == other.DllName && self.FunctionName == other.FunctionName && self.RedirectionTarget == other.RedirectionTarget
-    }
-}
-impl ::core::cmp::Eq for REDIRECTION_FUNCTION_DESCRIPTOR {}
-impl ::core::default::Default for REDIRECTION_FUNCTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -738,3 +652,5 @@ pub type PGET_MODULE_HANDLE_EXA = ::core::option::Option<unsafe extern "system" 
 pub type PGET_MODULE_HANDLE_EXW = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: ::windows::core::PCWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

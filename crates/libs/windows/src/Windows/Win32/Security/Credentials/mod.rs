@@ -1436,18 +1436,8 @@ impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CREDSPP_SUBMIT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CREDSPP_SUBMIT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CREDSPP_SUBMIT_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1477,46 +1467,8 @@ impl ::core::clone::Clone for CREDUIWIN_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CREDUIWIN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CREDUIWIN_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CREDUIWIN_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CREDUIWIN_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CREDUIWIN_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREDUIWIN_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREDUIWIN_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREDUIWIN_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREDUIWIN_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1562,46 +1514,8 @@ impl ::core::clone::Clone for CREDUI_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CREDUI_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CREDUI_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CREDUI_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CREDUI_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CREDUI_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CREDUI_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREDUI_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREDUI_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CREDUI_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1615,46 +1529,8 @@ impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CRED_ENUMERATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_ENUMERATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_ENUMERATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRED_ENUMERATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRED_ENUMERATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRED_ENUMERATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRED_ENUMERATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRED_ENUMERATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1686,46 +1562,8 @@ impl ::core::clone::Clone for CRED_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CRED_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRED_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRED_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRED_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRED_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRED_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1747,18 +1585,8 @@ impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CRED_MARSHAL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_MARSHAL_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_MARSHAL_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1778,46 +1606,8 @@ impl ::core::clone::Clone for CRED_PACK_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for CRED_PACK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_PACK_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_PACK_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CRED_PACK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CRED_PACK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CRED_PACK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CRED_PACK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CRED_PACK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1837,18 +1627,8 @@ impl ::core::clone::Clone for CRED_PERSIST {
         *self
     }
 }
-impl ::core::default::Default for CRED_PERSIST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_PERSIST {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_PERSIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_PERSIST").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1868,18 +1648,8 @@ impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CRED_PROTECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_PROTECTION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_PROTECTION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1907,18 +1677,8 @@ impl ::core::clone::Clone for CRED_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CRED_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CRED_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CRED_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRED_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -1946,46 +1706,8 @@ impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
         *self
     }
 }
-impl ::core::default::Default for KeyCredentialManagerOperationErrorStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyCredentialManagerOperationErrorStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialManagerOperationErrorStates").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for KeyCredentialManagerOperationErrorStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for KeyCredentialManagerOperationErrorStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for KeyCredentialManagerOperationErrorStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for KeyCredentialManagerOperationErrorStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for KeyCredentialManagerOperationErrorStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -2003,18 +1725,8 @@ impl ::core::clone::Clone for KeyCredentialManagerOperationType {
         *self
     }
 }
-impl ::core::default::Default for KeyCredentialManagerOperationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for KeyCredentialManagerOperationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyCredentialManagerOperationType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -2032,18 +1744,8 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
         *self
     }
 }
-impl ::core::default::Default for READER_SEL_REQUEST_MATCH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_MATCH_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("READER_SEL_REQUEST_MATCH_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -2059,18 +1761,8 @@ impl ::core::clone::Clone for SCARD_SCOPE {
         *self
     }
 }
-impl ::core::default::Default for SCARD_SCOPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_SCOPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCARD_SCOPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCARD_SCOPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
@@ -2104,18 +1796,8 @@ impl ::core::clone::Clone for SCARD_STATE {
         *self
     }
 }
-impl ::core::default::Default for SCARD_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SCARD_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SCARD_STATE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2129,24 +1811,8 @@ impl ::core::clone::Clone for BINARY_BLOB_CREDENTIAL_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for BINARY_BLOB_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BINARY_BLOB_CREDENTIAL_INFO").field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BINARY_BLOB_CREDENTIAL_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbBlob == other.cbBlob && self.pbBlob == other.pbBlob
-    }
-}
-impl ::core::cmp::Eq for BINARY_BLOB_CREDENTIAL_INFO {}
-impl ::core::default::Default for BINARY_BLOB_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2160,24 +1826,8 @@ impl ::core::clone::Clone for CERT_CREDENTIAL_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CERT_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CERT_CREDENTIAL_INFO").field("cbSize", &self.cbSize).field("rgbHashOfCert", &self.rgbHashOfCert).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CERT_CREDENTIAL_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CERT_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rgbHashOfCert == other.rgbHashOfCert
-    }
-}
-impl ::core::cmp::Eq for CERT_CREDENTIAL_INFO {}
-impl ::core::default::Default for CERT_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2205,41 +1855,8 @@ impl ::core::clone::Clone for CREDENTIALA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CREDENTIALA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIALA")
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("TargetName", &self.TargetName)
-            .field("Comment", &self.Comment)
-            .field("LastWritten", &self.LastWritten)
-            .field("CredentialBlobSize", &self.CredentialBlobSize)
-            .field("CredentialBlob", &self.CredentialBlob)
-            .field("Persist", &self.Persist)
-            .field("AttributeCount", &self.AttributeCount)
-            .field("Attributes", &self.Attributes)
-            .field("TargetAlias", &self.TargetAlias)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREDENTIALA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CREDENTIALA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CREDENTIALA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CREDENTIALA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2267,41 +1884,8 @@ impl ::core::clone::Clone for CREDENTIALW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CREDENTIALW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIALW")
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("TargetName", &self.TargetName)
-            .field("Comment", &self.Comment)
-            .field("LastWritten", &self.LastWritten)
-            .field("CredentialBlobSize", &self.CredentialBlobSize)
-            .field("CredentialBlob", &self.CredentialBlob)
-            .field("Persist", &self.Persist)
-            .field("AttributeCount", &self.AttributeCount)
-            .field("Attributes", &self.Attributes)
-            .field("TargetAlias", &self.TargetAlias)
-            .field("UserName", &self.UserName)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CREDENTIALW {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CREDENTIALW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CREDENTIALW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CREDENTIALW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2317,24 +1901,8 @@ impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEA {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIAL_ATTRIBUTEA").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEA {}
-impl ::core::default::Default for CREDENTIAL_ATTRIBUTEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2350,24 +1918,8 @@ impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEW {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDENTIAL_ATTRIBUTEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIAL_ATTRIBUTEW").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDENTIAL_ATTRIBUTEW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDENTIAL_ATTRIBUTEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for CREDENTIAL_ATTRIBUTEW {}
-impl ::core::default::Default for CREDENTIAL_ATTRIBUTEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2389,24 +1941,8 @@ impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONA {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONA").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
-    }
-}
-impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONA {}
-impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2428,24 +1964,8 @@ impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONW {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDENTIAL_TARGET_INFORMATIONW").field("TargetName", &self.TargetName).field("NetbiosServerName", &self.NetbiosServerName).field("DnsServerName", &self.DnsServerName).field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("DnsTreeName", &self.DnsTreeName).field("PackageName", &self.PackageName).field("Flags", &self.Flags).field("CredTypeCount", &self.CredTypeCount).field("CredTypes", &self.CredTypes).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDENTIAL_TARGET_INFORMATIONW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
-    }
-}
-impl ::core::cmp::Eq for CREDENTIAL_TARGET_INFORMATIONW {}
-impl ::core::default::Default for CREDENTIAL_TARGET_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2460,24 +1980,8 @@ impl ::core::clone::Clone for CREDSSP_CRED {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDSSP_CRED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDSSP_CRED").field("Type", &self.Type).field("pSchannelCred", &self.pSchannelCred).field("pSpnegoCred", &self.pSpnegoCred).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDSSP_CRED {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDSSP_CRED {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.pSchannelCred == other.pSchannelCred && self.pSpnegoCred == other.pSpnegoCred
-    }
-}
-impl ::core::cmp::Eq for CREDSSP_CRED {}
-impl ::core::default::Default for CREDSSP_CRED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2494,24 +1998,8 @@ impl ::core::clone::Clone for CREDSSP_CRED_EX {
         *self
     }
 }
-impl ::core::fmt::Debug for CREDSSP_CRED_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDSSP_CRED_EX").field("Type", &self.Type).field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cred", &self.Cred).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CREDSSP_CRED_EX {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CREDSSP_CRED_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Cred == other.Cred
-    }
-}
-impl ::core::cmp::Eq for CREDSSP_CRED_EX {}
-impl ::core::default::Default for CREDSSP_CRED_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2532,28 +2020,8 @@ impl ::core::clone::Clone for CREDUI_INFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for CREDUI_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDUI_INFOA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CREDUI_INFOA {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CREDUI_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CREDUI_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CREDUI_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2574,28 +2042,8 @@ impl ::core::clone::Clone for CREDUI_INFOW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for CREDUI_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CREDUI_INFOW").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CREDUI_INFOW {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CREDUI_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CREDUI_INFOW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CREDUI_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -2608,24 +2056,8 @@ impl ::core::clone::Clone for KeyCredentialManagerInfo {
         *self
     }
 }
-impl ::core::fmt::Debug for KeyCredentialManagerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KeyCredentialManagerInfo").field("containerId", &self.containerId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for KeyCredentialManagerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.containerId == other.containerId
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialManagerInfo {}
-impl ::core::default::Default for KeyCredentialManagerInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2664,41 +2096,8 @@ impl ::core::clone::Clone for OPENCARDNAMEA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPENCARDNAMEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARDNAMEA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("dwFlags", &self.dwFlags)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENCARDNAMEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2737,41 +2136,8 @@ impl ::core::clone::Clone for OPENCARDNAMEW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPENCARDNAMEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARDNAMEW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("dwFlags", &self.dwFlags)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARDNAMEW {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENCARDNAMEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -2805,38 +2171,8 @@ impl ::core::clone::Clone for OPENCARDNAME_EXA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for OPENCARDNAME_EXA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARDNAME_EXA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
-            .field("hIcon", &self.hIcon)
-            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXA {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for OPENCARDNAME_EXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -2870,38 +2206,8 @@ impl ::core::clone::Clone for OPENCARDNAME_EXW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for OPENCARDNAME_EXW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARDNAME_EXW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("hSCardContext", &self.hSCardContext)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpstrTitle", &self.lpstrTitle)
-            .field("lpstrSearchDesc", &self.lpstrSearchDesc)
-            .field("hIcon", &self.hIcon)
-            .field("pOpenCardSearchCriteria", &self.pOpenCardSearchCriteria)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .field("lpstrRdr", &self.lpstrRdr)
-            .field("nMaxRdr", &self.nMaxRdr)
-            .field("lpstrCard", &self.lpstrCard)
-            .field("nMaxCard", &self.nMaxCard)
-            .field("dwActiveProtocol", &self.dwActiveProtocol)
-            .field("hCardHandle", &self.hCardHandle)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::core::Abi for OPENCARDNAME_EXW {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for OPENCARDNAME_EXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2930,31 +2236,8 @@ impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARD_SEARCH_CRITERIAA")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAA {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
@@ -2983,31 +2266,8 @@ impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OPENCARD_SEARCH_CRITERIAW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OPENCARD_SEARCH_CRITERIAW")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpstrGroupNames", &self.lpstrGroupNames)
-            .field("nMaxGroupNames", &self.nMaxGroupNames)
-            .field("rgguidInterfaces", &self.rgguidInterfaces)
-            .field("cguidInterfaces", &self.cguidInterfaces)
-            .field("lpstrCardNames", &self.lpstrCardNames)
-            .field("nMaxCardNames", &self.nMaxCardNames)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwShareMode", &self.dwShareMode)
-            .field("dwPreferredProtocols", &self.dwPreferredProtocols)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENCARD_SEARCH_CRITERIAW {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENCARD_SEARCH_CRITERIAW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3026,11 +2286,6 @@ impl ::core::clone::Clone for READER_SEL_REQUEST {
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST {
     type Abi = Self;
 }
-impl ::core::default::Default for READER_SEL_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub union READER_SEL_REQUEST_0 {
@@ -3045,11 +2300,6 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0 {
 }
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for READER_SEL_REQUEST_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3067,24 +2317,8 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for READER_SEL_REQUEST_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("READER_SEL_REQUEST_0_0").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbContainerNameOffset", &self.cbContainerNameOffset).field("cchContainerNameLength", &self.cchContainerNameLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).field("dwCspFlags", &self.dwCspFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbContainerNameOffset == other.cbContainerNameOffset && self.cchContainerNameLength == other.cchContainerNameLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion && self.dwCspFlags == other.dwCspFlags
-    }
-}
-impl ::core::cmp::Eq for READER_SEL_REQUEST_0_0 {}
-impl ::core::default::Default for READER_SEL_REQUEST_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3099,24 +2333,8 @@ impl ::core::clone::Clone for READER_SEL_REQUEST_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for READER_SEL_REQUEST_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("READER_SEL_REQUEST_0_1").field("cbSerialNumberOffset", &self.cbSerialNumberOffset).field("cbSerialNumberLength", &self.cbSerialNumberLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for READER_SEL_REQUEST_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSerialNumberOffset == other.cbSerialNumberOffset && self.cbSerialNumberLength == other.cbSerialNumberLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
-    }
-}
-impl ::core::cmp::Eq for READER_SEL_REQUEST_0_1 {}
-impl ::core::default::Default for READER_SEL_REQUEST_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3132,24 +2350,8 @@ impl ::core::clone::Clone for READER_SEL_RESPONSE {
         *self
     }
 }
-impl ::core::fmt::Debug for READER_SEL_RESPONSE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("READER_SEL_RESPONSE").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbCardNameOffset", &self.cbCardNameOffset).field("cchCardNameLength", &self.cchCardNameLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for READER_SEL_RESPONSE {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for READER_SEL_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbCardNameOffset == other.cbCardNameOffset && self.cchCardNameLength == other.cchCardNameLength
-    }
-}
-impl ::core::cmp::Eq for READER_SEL_RESPONSE {}
-impl ::core::default::Default for READER_SEL_RESPONSE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3164,24 +2366,8 @@ impl ::core::clone::Clone for SCARD_ATRMASK {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_ATRMASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_ATRMASK").field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).field("rgbMask", &self.rgbMask).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_ATRMASK {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_ATRMASK {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr && self.rgbMask == other.rgbMask
-    }
-}
-impl ::core::cmp::Eq for SCARD_ATRMASK {}
-impl ::core::default::Default for SCARD_ATRMASK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3195,24 +2381,8 @@ impl ::core::clone::Clone for SCARD_IO_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_IO_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_IO_REQUEST").field("dwProtocol", &self.dwProtocol).field("cbPciLength", &self.cbPciLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_IO_REQUEST {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_IO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwProtocol == other.dwProtocol && self.cbPciLength == other.cbPciLength
-    }
-}
-impl ::core::cmp::Eq for SCARD_IO_REQUEST {}
-impl ::core::default::Default for SCARD_IO_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3230,24 +2400,8 @@ impl ::core::clone::Clone for SCARD_READERSTATEA {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_READERSTATEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_READERSTATEA").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_READERSTATEA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_READERSTATEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
-    }
-}
-impl ::core::cmp::Eq for SCARD_READERSTATEA {}
-impl ::core::default::Default for SCARD_READERSTATEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3265,24 +2419,8 @@ impl ::core::clone::Clone for SCARD_READERSTATEW {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_READERSTATEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_READERSTATEW").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_READERSTATEW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_READERSTATEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
-    }
-}
-impl ::core::cmp::Eq for SCARD_READERSTATEW {}
-impl ::core::default::Default for SCARD_READERSTATEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3299,24 +2437,8 @@ impl ::core::clone::Clone for SCARD_T0_COMMAND {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_T0_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_T0_COMMAND").field("bCla", &self.bCla).field("bIns", &self.bIns).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bP3", &self.bP3).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_T0_COMMAND {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_T0_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.bCla == other.bCla && self.bIns == other.bIns && self.bP1 == other.bP1 && self.bP2 == other.bP2 && self.bP3 == other.bP3
-    }
-}
-impl ::core::cmp::Eq for SCARD_T0_COMMAND {}
-impl ::core::default::Default for SCARD_T0_COMMAND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3335,11 +2457,6 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST {
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST {
     type Abi = Self;
 }
-impl ::core::default::Default for SCARD_T0_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub union SCARD_T0_REQUEST_0 {
@@ -3355,11 +2472,6 @@ impl ::core::clone::Clone for SCARD_T0_REQUEST_0 {
 unsafe impl ::windows::core::Abi for SCARD_T0_REQUEST_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for SCARD_T0_REQUEST_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub struct SCARD_T1_REQUEST {
@@ -3371,24 +2483,8 @@ impl ::core::clone::Clone for SCARD_T1_REQUEST {
         *self
     }
 }
-impl ::core::fmt::Debug for SCARD_T1_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCARD_T1_REQUEST").field("ioRequest", &self.ioRequest).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SCARD_T1_REQUEST {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCARD_T1_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ioRequest == other.ioRequest
-    }
-}
-impl ::core::cmp::Eq for SCARD_T1_REQUEST {}
-impl ::core::default::Default for SCARD_T1_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3402,24 +2498,8 @@ impl ::core::clone::Clone for SecHandle {
         *self
     }
 }
-impl ::core::fmt::Debug for SecHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SecHandle").field("dwLower", &self.dwLower).field("dwUpper", &self.dwUpper).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SecHandle {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SecHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLower == other.dwLower && self.dwUpper == other.dwUpper
-    }
-}
-impl ::core::cmp::Eq for SecHandle {}
-impl ::core::default::Default for SecHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3433,24 +2513,8 @@ impl ::core::clone::Clone for SecPkgContext_ClientCreds {
         *self
     }
 }
-impl ::core::fmt::Debug for SecPkgContext_ClientCreds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SecPkgContext_ClientCreds").field("AuthBufferLen", &self.AuthBufferLen).field("AuthBuffer", &self.AuthBuffer).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SecPkgContext_ClientCreds {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SecPkgContext_ClientCreds {
-    fn eq(&self, other: &Self) -> bool {
-        self.AuthBufferLen == other.AuthBufferLen && self.AuthBuffer == other.AuthBuffer
-    }
-}
-impl ::core::cmp::Eq for SecPkgContext_ClientCreds {}
-impl ::core::default::Default for SecPkgContext_ClientCreds {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3463,24 +2527,8 @@ impl ::core::clone::Clone for USERNAME_TARGET_CREDENTIAL_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO").field("UserName", &self.UserName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for USERNAME_TARGET_CREDENTIAL_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName
-    }
-}
-impl ::core::cmp::Eq for USERNAME_TARGET_CREDENTIAL_INFO {}
-impl ::core::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3493,3 +2541,5 @@ pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param
 pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

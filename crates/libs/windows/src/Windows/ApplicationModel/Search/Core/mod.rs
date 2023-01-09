@@ -107,17 +107,6 @@ impl ::core::clone::Clone for RequestingFocusOnKeyboardInputEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RequestingFocusOnKeyboardInputEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RequestingFocusOnKeyboardInputEventArgs {}
-impl ::core::fmt::Debug for RequestingFocusOnKeyboardInputEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RequestingFocusOnKeyboardInputEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
     type DefaultType = ::core::option::Option<Self>;
@@ -189,17 +178,6 @@ impl SearchSuggestion {
 impl ::core::clone::Clone for SearchSuggestion {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SearchSuggestion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SearchSuggestion {}
-impl ::core::fmt::Debug for SearchSuggestion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestion").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SearchSuggestion {
@@ -325,17 +303,6 @@ impl ::core::clone::Clone for SearchSuggestionManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SearchSuggestionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SearchSuggestionManager {}
-impl ::core::fmt::Debug for SearchSuggestionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -391,17 +358,6 @@ impl ::core::clone::Clone for SearchSuggestionsRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SearchSuggestionsRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SearchSuggestionsRequestedEventArgs {}
-impl ::core::fmt::Debug for SearchSuggestionsRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestionsRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -436,18 +392,8 @@ impl ::core::clone::Clone for SearchSuggestionKind {
         *self
     }
 }
-impl ::core::default::Default for SearchSuggestionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SearchSuggestionKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SearchSuggestionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");
@@ -458,3 +404,5 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

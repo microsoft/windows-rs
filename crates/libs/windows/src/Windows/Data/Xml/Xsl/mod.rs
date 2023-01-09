@@ -101,17 +101,6 @@ impl ::core::clone::Clone for XsltProcessor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XsltProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XsltProcessor {}
-impl ::core::fmt::Debug for XsltProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XsltProcessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XsltProcessor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Xsl.XsltProcessor;{7b64703f-550c-48c6-a90f-93a5b964518f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -133,3 +122,5 @@ unsafe impl ::core::marker::Send for XsltProcessor {}
 unsafe impl ::core::marker::Sync for XsltProcessor {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

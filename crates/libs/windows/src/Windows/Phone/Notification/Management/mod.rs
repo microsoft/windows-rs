@@ -182,17 +182,6 @@ impl ::core::clone::Clone for IAccessoryNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAccessoryNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessoryNotificationTriggerDetails {}
-impl ::core::fmt::Debug for IAccessoryNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessoryNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAccessoryNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6968a7d4-e3ca-49cb-8c87-2c11cdff9646}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1068,17 +1057,6 @@ impl ::core::clone::Clone for AlarmNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AlarmNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlarmNotificationTriggerDetails {}
-impl ::core::fmt::Debug for AlarmNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlarmNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AlarmNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails;{38f5fa30-c738-4da2-908c-775d83c36abb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1139,17 +1117,6 @@ impl ::core::clone::Clone for AppNotificationInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppNotificationInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppNotificationInfo {}
-impl ::core::fmt::Debug for AppNotificationInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppNotificationInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppNotificationInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.AppNotificationInfo;{2157bea5-e286-45d3-9bea-f790fc216e0e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1189,17 +1156,6 @@ impl BinaryId {
 impl ::core::clone::Clone for BinaryId {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BinaryId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BinaryId {}
-impl ::core::fmt::Debug for BinaryId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BinaryId").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BinaryId {
@@ -1282,17 +1238,6 @@ impl CalendarChangedNotificationTriggerDetails {
 impl ::core::clone::Clone for CalendarChangedNotificationTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CalendarChangedNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CalendarChangedNotificationTriggerDetails {}
-impl ::core::fmt::Debug for CalendarChangedNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CalendarChangedNotificationTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CalendarChangedNotificationTriggerDetails {
@@ -1452,17 +1397,6 @@ impl ::core::clone::Clone for CortanaTileNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CortanaTileNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CortanaTileNotificationTriggerDetails {}
-impl ::core::fmt::Debug for CortanaTileNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CortanaTileNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CortanaTileNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails;{dc0f01d5-1489-46bb-b73b-7f90067ecf27})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1523,17 +1457,6 @@ impl ::core::clone::Clone for EmailAccountInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EmailAccountInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailAccountInfo {}
-impl ::core::fmt::Debug for EmailAccountInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailAccountInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EmailAccountInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailAccountInfo;{dfbc02ab-bda0-4568-927e-b2ede35818a1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1573,17 +1496,6 @@ impl EmailFolderInfo {
 impl ::core::clone::Clone for EmailFolderInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EmailFolderInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailFolderInfo {}
-impl ::core::fmt::Debug for EmailFolderInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailFolderInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for EmailFolderInfo {
@@ -1707,17 +1619,6 @@ impl ::core::clone::Clone for EmailNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EmailNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailNotificationTriggerDetails {}
-impl ::core::fmt::Debug for EmailNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EmailNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailNotificationTriggerDetails;{f3b82612-46cf-4e70-8e0d-7b2e04ab492b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1833,17 +1734,6 @@ impl ::core::clone::Clone for EmailReadNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EmailReadNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailReadNotificationTriggerDetails {}
-impl ::core::fmt::Debug for EmailReadNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailReadNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EmailReadNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails;{f5b7a087-06f3-4e3e-8c42-325e67010413})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1945,17 +1835,6 @@ impl ::core::clone::Clone for MediaControlsTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaControlsTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaControlsTriggerDetails {}
-impl ::core::fmt::Debug for MediaControlsTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaControlsTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaControlsTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.MediaControlsTriggerDetails;{fab4648b-ae45-4548-91ca-4ab0548e33b5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2053,17 +1932,6 @@ impl MediaMetadata {
 impl ::core::clone::Clone for MediaMetadata {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaMetadata {}
-impl ::core::fmt::Debug for MediaMetadata {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaMetadata").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaMetadata {
@@ -2183,17 +2051,6 @@ impl ::core::clone::Clone for PhoneCallDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallDetails {}
-impl ::core::fmt::Debug for PhoneCallDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PhoneCallDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.PhoneCallDetails;{0c1b6f53-f071-483e-bf33-ebd44b724447})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2268,17 +2125,6 @@ impl PhoneLineDetails {
 impl ::core::clone::Clone for PhoneLineDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PhoneLineDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineDetails {}
-impl ::core::fmt::Debug for PhoneLineDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneLineDetails {
@@ -2368,17 +2214,6 @@ impl PhoneNotificationTriggerDetails {
 impl ::core::clone::Clone for PhoneNotificationTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PhoneNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNotificationTriggerDetails {}
-impl ::core::fmt::Debug for PhoneNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNotificationTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNotificationTriggerDetails {
@@ -2528,17 +2363,6 @@ impl ::core::clone::Clone for ReminderNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ReminderNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReminderNotificationTriggerDetails {}
-impl ::core::fmt::Debug for ReminderNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReminderNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ReminderNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails;{5bddaa5d-9f61-4bf0-9feb-10502bc0b0c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2606,17 +2430,6 @@ impl ::core::clone::Clone for SpeedDialEntry {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpeedDialEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeedDialEntry {}
-impl ::core::fmt::Debug for SpeedDialEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeedDialEntry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpeedDialEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.SpeedDialEntry;{9240b6db-872c-46dc-b62a-be4541b166f8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2656,17 +2469,6 @@ impl TextResponse {
 impl ::core::clone::Clone for TextResponse {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TextResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextResponse {}
-impl ::core::fmt::Debug for TextResponse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextResponse").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TextResponse {
@@ -2779,17 +2581,6 @@ impl ::core::clone::Clone for ToastNotificationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationTriggerDetails {}
-impl ::core::fmt::Debug for ToastNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.ToastNotificationTriggerDetails;{c9314895-4e6d-4e9d-afec-9e921b875ae8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2871,17 +2662,6 @@ impl ::core::clone::Clone for VolumeInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VolumeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VolumeInfo {}
-impl ::core::fmt::Debug for VolumeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VolumeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VolumeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Notification.Management.VolumeInfo;{944dd118-7704-4481-b92e-d3ed3ece6322})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2927,46 +2707,8 @@ impl ::core::clone::Clone for AccessoryNotificationType {
         *self
     }
 }
-impl ::core::default::Default for AccessoryNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AccessoryNotificationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AccessoryNotificationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessoryNotificationType").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AccessoryNotificationType {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AccessoryNotificationType {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AccessoryNotificationType {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AccessoryNotificationType {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AccessoryNotificationType {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AccessoryNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.AccessoryNotificationType;u4)");
@@ -2994,18 +2736,8 @@ impl ::core::clone::Clone for CalendarChangedEvent {
         *self
     }
 }
-impl ::core::default::Default for CalendarChangedEvent {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CalendarChangedEvent {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CalendarChangedEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CalendarChangedEvent").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CalendarChangedEvent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.CalendarChangedEvent;i4)");
@@ -3029,18 +2761,8 @@ impl ::core::clone::Clone for PhoneCallAudioEndpoint {
         *self
     }
 }
-impl ::core::default::Default for PhoneCallAudioEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallAudioEndpoint {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallAudioEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallAudioEndpoint").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallAudioEndpoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallAudioEndpoint;i4)");
@@ -3063,18 +2785,8 @@ impl ::core::clone::Clone for PhoneCallDirection {
         *self
     }
 }
-impl ::core::default::Default for PhoneCallDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallDirection;i4)");
@@ -3100,18 +2812,8 @@ impl ::core::clone::Clone for PhoneCallState {
         *self
     }
 }
-impl ::core::default::Default for PhoneCallState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallState;i4)");
@@ -3134,18 +2836,8 @@ impl ::core::clone::Clone for PhoneCallTransport {
         *self
     }
 }
-impl ::core::default::Default for PhoneCallTransport {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneCallTransport {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallTransport").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneCallTransport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneCallTransport;i4)");
@@ -3169,18 +2861,8 @@ impl ::core::clone::Clone for PhoneLineRegistrationState {
         *self
     }
 }
-impl ::core::default::Default for PhoneLineRegistrationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneLineRegistrationState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineRegistrationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineRegistrationState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneLineRegistrationState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneLineRegistrationState;i4)");
@@ -3203,18 +2885,8 @@ impl ::core::clone::Clone for PhoneMediaType {
         *self
     }
 }
-impl ::core::default::Default for PhoneMediaType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneMediaType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneMediaType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneMediaType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneMediaType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneMediaType;i4)");
@@ -3240,18 +2912,8 @@ impl ::core::clone::Clone for PhoneNotificationType {
         *self
     }
 }
-impl ::core::default::Default for PhoneNotificationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PhoneNotificationType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneNotificationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNotificationType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PhoneNotificationType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PhoneNotificationType;i4)");
@@ -3283,46 +2945,8 @@ impl ::core::clone::Clone for PlaybackCapability {
         *self
     }
 }
-impl ::core::default::Default for PlaybackCapability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PlaybackCapability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PlaybackCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackCapability").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PlaybackCapability {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PlaybackCapability {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PlaybackCapability {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PlaybackCapability {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PlaybackCapability {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCapability;u4)");
@@ -3353,18 +2977,8 @@ impl ::core::clone::Clone for PlaybackCommand {
         *self
     }
 }
-impl ::core::default::Default for PlaybackCommand {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PlaybackCommand {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PlaybackCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackCommand").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackCommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackCommand;i4)");
@@ -3390,18 +3004,8 @@ impl ::core::clone::Clone for PlaybackStatus {
         *self
     }
 }
-impl ::core::default::Default for PlaybackStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PlaybackStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PlaybackStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PlaybackStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.PlaybackStatus;i4)");
@@ -3425,18 +3029,8 @@ impl ::core::clone::Clone for ReminderState {
         *self
     }
 }
-impl ::core::default::Default for ReminderState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ReminderState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ReminderState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReminderState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ReminderState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.ReminderState;i4)");
@@ -3461,18 +3055,8 @@ impl ::core::clone::Clone for VibrateState {
         *self
     }
 }
-impl ::core::default::Default for VibrateState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VibrateState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VibrateState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrateState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for VibrateState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
@@ -3483,3 +3067,5 @@ unsafe impl ::windows::core::RuntimeType for VibrateState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

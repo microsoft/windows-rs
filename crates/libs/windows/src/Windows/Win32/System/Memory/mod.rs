@@ -929,46 +929,8 @@ impl ::core::clone::Clone for FILE_MAP {
         *self
     }
 }
-impl ::core::default::Default for FILE_MAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FILE_MAP {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FILE_MAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_MAP").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for FILE_MAP {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_MAP {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_MAP {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_MAP {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_MAP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -990,46 +952,8 @@ impl ::core::clone::Clone for GLOBAL_ALLOC_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for GLOBAL_ALLOC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GLOBAL_ALLOC_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBAL_ALLOC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBAL_ALLOC_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GLOBAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GLOBAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GLOBAL_ALLOC_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GLOBAL_ALLOC_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GLOBAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1075,46 +999,8 @@ impl ::core::clone::Clone for HEAP_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for HEAP_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HEAP_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HEAP_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HEAP_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HEAP_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HEAP_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HEAP_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HEAP_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HEAP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1134,18 +1020,8 @@ impl ::core::clone::Clone for HEAP_INFORMATION_CLASS {
         *self
     }
 }
-impl ::core::default::Default for HEAP_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HEAP_INFORMATION_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HEAP_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HEAP_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1171,46 +1047,8 @@ impl ::core::clone::Clone for LOCAL_ALLOC_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for LOCAL_ALLOC_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LOCAL_ALLOC_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LOCAL_ALLOC_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOCAL_ALLOC_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for LOCAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LOCAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LOCAL_ALLOC_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LOCAL_ALLOC_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LOCAL_ALLOC_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1226,18 +1064,8 @@ impl ::core::clone::Clone for MEMORY_RESOURCE_NOTIFICATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for MEMORY_RESOURCE_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MEMORY_RESOURCE_NOTIFICATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MEMORY_RESOURCE_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MEMORY_RESOURCE_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1265,18 +1093,8 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_TYPE {
         *self
     }
 }
-impl ::core::default::Default for MEM_EXTENDED_PARAMETER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MEM_EXTENDED_PARAMETER_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1296,18 +1114,8 @@ impl ::core::clone::Clone for OFFER_PRIORITY {
         *self
     }
 }
-impl ::core::default::Default for OFFER_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for OFFER_PRIORITY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for OFFER_PRIORITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OFFER_PRIORITY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1397,46 +1205,8 @@ impl ::core::clone::Clone for PAGE_PROTECTION_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for PAGE_PROTECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PAGE_PROTECTION_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PAGE_PROTECTION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PAGE_PROTECTION_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PAGE_PROTECTION_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PAGE_PROTECTION_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PAGE_PROTECTION_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PAGE_PROTECTION_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PAGE_PROTECTION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1454,46 +1224,8 @@ impl ::core::clone::Clone for PAGE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for PAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PAGE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PAGE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PAGE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PAGE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PAGE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PAGE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PAGE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1511,18 +1243,8 @@ impl ::core::clone::Clone for UNMAP_VIEW_OF_FILE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for UNMAP_VIEW_OF_FILE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UNMAP_VIEW_OF_FILE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UNMAP_VIEW_OF_FILE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UNMAP_VIEW_OF_FILE_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1550,46 +1272,8 @@ impl ::core::clone::Clone for VIRTUAL_ALLOCATION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for VIRTUAL_ALLOCATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VIRTUAL_ALLOCATION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VIRTUAL_ALLOCATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VIRTUAL_ALLOCATION_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for VIRTUAL_ALLOCATION_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for VIRTUAL_ALLOCATION_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for VIRTUAL_ALLOCATION_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for VIRTUAL_ALLOCATION_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for VIRTUAL_ALLOCATION_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1605,18 +1289,8 @@ impl ::core::clone::Clone for VIRTUAL_FREE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for VIRTUAL_FREE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for VIRTUAL_FREE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for VIRTUAL_FREE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VIRTUAL_FREE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1630,18 +1304,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_INFORMATION_CLASS {
         *self
     }
 }
-impl ::core::default::Default for WIN32_MEMORY_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_INFORMATION_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WIN32_MEMORY_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WIN32_MEMORY_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[repr(transparent)]
@@ -1657,18 +1321,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
         *self
     }
 }
-impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WIN32_MEMORY_PARTITION_INFORMATION_CLASS").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1682,24 +1336,8 @@ impl ::core::clone::Clone for CFG_CALL_TARGET_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for CFG_CALL_TARGET_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for CFG_CALL_TARGET_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CFG_CALL_TARGET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for CFG_CALL_TARGET_INFO {}
-impl ::core::default::Default for CFG_CALL_TARGET_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1716,24 +1354,8 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
-impl ::core::fmt::Debug for HEAP_SUMMARY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HEAP_SUMMARY").field("cb", &self.cb).field("cbAllocated", &self.cbAllocated).field("cbCommitted", &self.cbCommitted).field("cbReserved", &self.cbReserved).field("cbMaxReserve", &self.cbMaxReserve).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HEAP_SUMMARY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HEAP_SUMMARY {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.cbAllocated == other.cbAllocated && self.cbCommitted == other.cbCommitted && self.cbReserved == other.cbReserved && self.cbMaxReserve == other.cbMaxReserve
-    }
-}
-impl ::core::cmp::Eq for HEAP_SUMMARY {}
-impl ::core::default::Default for HEAP_SUMMARY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1789,28 +1411,8 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("PartitionId", &self.PartitionId).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.PartitionId == other.PartitionId && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1833,28 +1435,8 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     }
 }
 #[cfg(target_arch = "x86")]
-impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION {}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1873,24 +1455,8 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION32 {
         *self
     }
 }
-impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION32 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION32").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION32 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION32 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
-    }
-}
-impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION32 {}
-impl ::core::default::Default for MEMORY_BASIC_INFORMATION32 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1911,24 +1477,8 @@ impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
         *self
     }
 }
-impl ::core::fmt::Debug for MEMORY_BASIC_INFORMATION64 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEMORY_BASIC_INFORMATION64").field("BaseAddress", &self.BaseAddress).field("AllocationBase", &self.AllocationBase).field("AllocationProtect", &self.AllocationProtect).field("__alignment1", &self.__alignment1).field("RegionSize", &self.RegionSize).field("State", &self.State).field("Protect", &self.Protect).field("Type", &self.Type).field("__alignment2", &self.__alignment2).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION64 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.__alignment1 == other.__alignment1 && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type && self.__alignment2 == other.__alignment2
-    }
-}
-impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION64 {}
-impl ::core::default::Default for MEMORY_BASIC_INFORMATION64 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -1943,24 +1493,8 @@ impl ::core::clone::Clone for MEM_ADDRESS_REQUIREMENTS {
         *self
     }
 }
-impl ::core::fmt::Debug for MEM_ADDRESS_REQUIREMENTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEM_ADDRESS_REQUIREMENTS").field("LowestStartingAddress", &self.LowestStartingAddress).field("HighestEndingAddress", &self.HighestEndingAddress).field("Alignment", &self.Alignment).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MEM_ADDRESS_REQUIREMENTS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MEM_ADDRESS_REQUIREMENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowestStartingAddress == other.LowestStartingAddress && self.HighestEndingAddress == other.HighestEndingAddress && self.Alignment == other.Alignment
-    }
-}
-impl ::core::cmp::Eq for MEM_ADDRESS_REQUIREMENTS {}
-impl ::core::default::Default for MEM_ADDRESS_REQUIREMENTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -1981,12 +1515,6 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MEM_EXTENDED_PARAMETER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2002,28 +1530,8 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MEM_EXTENDED_PARAMETER_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MEM_EXTENDED_PARAMETER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MEM_EXTENDED_PARAMETER_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -2046,12 +1554,6 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_1 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MEM_EXTENDED_PARAMETER_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -2076,12 +1578,6 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROCESS_HEAP_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2101,12 +1597,6 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0 {
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROCESS_HEAP_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2123,28 +1613,8 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_HEAP_ENTRY_0_0").field("hMem", &self.hMem).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hMem == other.hMem && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
@@ -2164,28 +1634,8 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PROCESS_HEAP_ENTRY_0_1").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0_1 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwCommittedSize == other.dwCommittedSize && self.dwUnCommittedSize == other.dwUnCommittedSize && self.lpFirstBlock == other.lpFirstBlock && self.lpLastBlock == other.lpLastBlock
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -2214,42 +1664,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION {
         *self
     }
 }
-impl ::core::fmt::Debug for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_PARTITION_INFORMATION")
-            .field("Flags", &self.Flags)
-            .field("NumaNode", &self.NumaNode)
-            .field("Channel", &self.Channel)
-            .field("NumberOfNumaNodes", &self.NumberOfNumaNodes)
-            .field("ResidentAvailablePages", &self.ResidentAvailablePages)
-            .field("CommittedPages", &self.CommittedPages)
-            .field("CommitLimit", &self.CommitLimit)
-            .field("PeakCommitment", &self.PeakCommitment)
-            .field("TotalNumberOfPages", &self.TotalNumberOfPages)
-            .field("AvailablePages", &self.AvailablePages)
-            .field("ZeroPages", &self.ZeroPages)
-            .field("FreePages", &self.FreePages)
-            .field("StandbyPages", &self.StandbyPages)
-            .field("Reserved", &self.Reserved)
-            .field("MaximumCommitLimit", &self.MaximumCommitLimit)
-            .field("Reserved2", &self.Reserved2)
-            .field("PartitionId", &self.PartitionId)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_PARTITION_INFORMATION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.NumaNode == other.NumaNode && self.Channel == other.Channel && self.NumberOfNumaNodes == other.NumberOfNumaNodes && self.ResidentAvailablePages == other.ResidentAvailablePages && self.CommittedPages == other.CommittedPages && self.CommitLimit == other.CommitLimit && self.PeakCommitment == other.PeakCommitment && self.TotalNumberOfPages == other.TotalNumberOfPages && self.AvailablePages == other.AvailablePages && self.ZeroPages == other.ZeroPages && self.FreePages == other.FreePages && self.StandbyPages == other.StandbyPages && self.Reserved == other.Reserved && self.MaximumCommitLimit == other.MaximumCommitLimit && self.Reserved2 == other.Reserved2 && self.PartitionId == other.PartitionId
-    }
-}
-impl ::core::cmp::Eq for WIN32_MEMORY_PARTITION_INFORMATION {}
-impl ::core::default::Default for WIN32_MEMORY_PARTITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -2263,24 +1679,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_RANGE_ENTRY {
         *self
     }
 }
-impl ::core::fmt::Debug for WIN32_MEMORY_RANGE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_RANGE_ENTRY").field("VirtualAddress", &self.VirtualAddress).field("NumberOfBytes", &self.NumberOfBytes).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_RANGE_ENTRY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIN32_MEMORY_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.VirtualAddress == other.VirtualAddress && self.NumberOfBytes == other.NumberOfBytes
-    }
-}
-impl ::core::cmp::Eq for WIN32_MEMORY_RANGE_ENTRY {}
-impl ::core::default::Default for WIN32_MEMORY_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
@@ -2300,11 +1700,6 @@ impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION {
     type Abi = Self;
 }
-impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub union WIN32_MEMORY_REGION_INFORMATION_0 {
@@ -2320,11 +1715,6 @@ impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0 {
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
@@ -2336,24 +1726,8 @@ impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WIN32_MEMORY_REGION_INFORMATION_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for WIN32_MEMORY_REGION_INFORMATION_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
-impl ::core::default::Default for WIN32_MEMORY_REGION_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
@@ -2362,3 +1736,5 @@ pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "sy
 pub type PSECURE_MEMORY_CACHE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

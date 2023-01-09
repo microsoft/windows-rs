@@ -171,17 +171,6 @@ impl ::core::clone::Clone for EndpointPair {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EndpointPair {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EndpointPair {}
-impl ::core::fmt::Debug for EndpointPair {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EndpointPair").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EndpointPair {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -286,17 +275,6 @@ impl ::core::clone::Clone for HostName {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HostName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HostName {}
-impl ::core::fmt::Debug for HostName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostName").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HostName {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -352,18 +330,8 @@ impl ::core::clone::Clone for DomainNameType {
         *self
     }
 }
-impl ::core::default::Default for DomainNameType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DomainNameType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DomainNameType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DomainNameType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DomainNameType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
@@ -386,46 +354,8 @@ impl ::core::clone::Clone for HostNameSortOptions {
         *self
     }
 }
-impl ::core::default::Default for HostNameSortOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HostNameSortOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HostNameSortOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostNameSortOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HostNameSortOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HostNameSortOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HostNameSortOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HostNameSortOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HostNameSortOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
@@ -450,18 +380,8 @@ impl ::core::clone::Clone for HostNameType {
         *self
     }
 }
-impl ::core::default::Default for HostNameType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HostNameType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HostNameType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostNameType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for HostNameType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
@@ -472,3 +392,5 @@ unsafe impl ::windows::core::RuntimeType for HostNameType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -345,18 +345,8 @@ impl ::core::clone::Clone for HCN_NOTIFICATIONS {
         *self
     }
 }
-impl ::core::default::Default for HCN_NOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_NOTIFICATIONS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[repr(transparent)]
@@ -372,18 +362,8 @@ impl ::core::clone::Clone for HCN_PORT_ACCESS {
         *self
     }
 }
-impl ::core::default::Default for HCN_PORT_ACCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_PORT_ACCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_PORT_ACCESS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[repr(transparent)]
@@ -401,18 +381,8 @@ impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
         *self
     }
 }
-impl ::core::default::Default for HCN_PORT_PROTOCOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HCN_PORT_PROTOCOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HCN_PORT_PROTOCOL").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
@@ -433,24 +403,8 @@ impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
         *self
     }
 }
-impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.OwningPartitionId == other.OwningPartitionId && self.TargetPartitionId == other.TargetPartitionId && self.Protocol == other.Protocol && self.Priority == other.Priority && self.ReservationType == other.ReservationType && self.SharingFlags == other.SharingFlags && self.DeliveryMode == other.DeliveryMode && self.StartingPort == other.StartingPort && self.EndingPort == other.EndingPort
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
-impl ::core::default::Default for HCN_PORT_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
@@ -464,26 +418,12 @@ impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
         *self
     }
 }
-impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.startingPort == other.startingPort && self.endingPort == other.endingPort
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
-impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: ::windows::core::PCWSTR) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

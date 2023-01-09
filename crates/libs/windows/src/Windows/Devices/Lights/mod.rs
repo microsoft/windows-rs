@@ -314,17 +314,6 @@ impl ::core::clone::Clone for Lamp {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Lamp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Lamp {}
-impl ::core::fmt::Debug for Lamp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Lamp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Lamp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.Lamp;{047d5b9a-ea45-4b2b-b1a2-14dff00bde7b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -578,17 +567,6 @@ impl ::core::clone::Clone for LampArray {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LampArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampArray {}
-impl ::core::fmt::Debug for LampArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArray").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LampArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampArray;{7ace9787-c8a0-4e95-a1e0-d58676538649})");
     type DefaultType = ::core::option::Option<Self>;
@@ -623,17 +601,6 @@ impl LampAvailabilityChangedEventArgs {
 impl ::core::clone::Clone for LampAvailabilityChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LampAvailabilityChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampAvailabilityChangedEventArgs {}
-impl ::core::fmt::Debug for LampAvailabilityChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampAvailabilityChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
@@ -743,17 +710,6 @@ impl ::core::clone::Clone for LampInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LampInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampInfo {}
-impl ::core::fmt::Debug for LampInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Lights.LampInfo;{30bb521c-0acf-49da-8c10-150b9cf62713})");
     type DefaultType = ::core::option::Option<Self>;
@@ -796,18 +752,8 @@ impl ::core::clone::Clone for LampArrayKind {
         *self
     }
 }
-impl ::core::default::Default for LampArrayKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LampArrayKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LampArrayKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LampArrayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
@@ -835,46 +781,8 @@ impl ::core::clone::Clone for LampPurposes {
         *self
     }
 }
-impl ::core::default::Default for LampPurposes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LampPurposes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LampPurposes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampPurposes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for LampPurposes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LampPurposes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LampPurposes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LampPurposes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LampPurposes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
@@ -885,3 +793,5 @@ unsafe impl ::windows::core::RuntimeType for LampPurposes {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -905,17 +905,6 @@ impl ::core::clone::Clone for LicenseInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LicenseInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseInformation {}
-impl ::core::fmt::Debug for LicenseInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LicenseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseInformation;{8eb7dc30-f170-4ed5-8e21-1516da3fd367})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1019,17 +1008,6 @@ impl ::core::clone::Clone for ListingInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ListingInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ListingInformation {}
-impl ::core::fmt::Debug for ListingInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ListingInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ListingInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ListingInformation;{588b4abf-bc74-4383-b78c-99606323dece})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1087,17 +1065,6 @@ impl ProductLicense {
 impl ::core::clone::Clone for ProductLicense {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ProductLicense {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProductLicense {}
-impl ::core::fmt::Debug for ProductLicense {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductLicense").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ProductLicense {
@@ -1219,17 +1186,6 @@ impl ::core::clone::Clone for ProductListing {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProductListing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProductListing {}
-impl ::core::fmt::Debug for ProductListing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductListing").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProductListing {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductListing;{45a7d6ad-c750-4d9c-947c-b00dcbf9e9c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1314,17 +1270,6 @@ impl ::core::clone::Clone for ProductPurchaseDisplayProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ProductPurchaseDisplayProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProductPurchaseDisplayProperties {}
-impl ::core::fmt::Debug for ProductPurchaseDisplayProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductPurchaseDisplayProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ProductPurchaseDisplayProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties;{d70b7420-bc92-401b-a809-c9b2e5dbbdaf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1382,17 +1327,6 @@ impl ::core::clone::Clone for PurchaseResults {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PurchaseResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PurchaseResults {}
-impl ::core::fmt::Debug for PurchaseResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PurchaseResults").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PurchaseResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.PurchaseResults;{ed50b37e-8656-4f65-b8c8-ac7e0cb1a1c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1443,17 +1377,6 @@ impl ::core::clone::Clone for UnfulfilledConsumable {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UnfulfilledConsumable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnfulfilledConsumable {}
-impl ::core::fmt::Debug for UnfulfilledConsumable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnfulfilledConsumable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UnfulfilledConsumable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.UnfulfilledConsumable;{2df7fbbb-1cdd-4cb8-a014-7b9cf8986927})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1490,18 +1413,8 @@ impl ::core::clone::Clone for FulfillmentResult {
         *self
     }
 }
-impl ::core::default::Default for FulfillmentResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for FulfillmentResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for FulfillmentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FulfillmentResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for FulfillmentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.FulfillmentResult;i4)");
@@ -1526,18 +1439,8 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
         *self
     }
 }
-impl ::core::default::Default for ProductPurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProductPurchaseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProductPurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductPurchaseStatus;i4)");
@@ -1561,18 +1464,8 @@ impl ::core::clone::Clone for ProductType {
         *self
     }
 }
-impl ::core::default::Default for ProductType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ProductType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ProductType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProductType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ProductType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.ProductType;i4)");
@@ -1637,17 +1530,6 @@ impl ::core::clone::Clone for LicenseChangedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LicenseChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseChangedEventHandler {}
-impl ::core::fmt::Debug for LicenseChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for LicenseChangedEventHandler {
     type Vtable = LicenseChangedEventHandler_Vtbl;
 }
@@ -1669,3 +1551,5 @@ pub struct LicenseChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -102,17 +102,6 @@ impl ::core::clone::Clone for IReferenceClock {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IReferenceClock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClock {}
-impl ::core::fmt::Debug for IReferenceClock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IReferenceClock {
     type Vtable = IReferenceClock_Vtbl;
 }
@@ -137,48 +126,11 @@ pub struct IReferenceClock_Vtbl {
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
 pub struct IReferenceClock2(::windows::core::IUnknown);
-impl IReferenceClock2 {
-    pub unsafe fn GetTime(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows::core::Result<usize>
-    where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AdviseTime)(::windows::core::Vtable::as_raw(self), basetime, streamtime, hevent.into(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows::core::Result<usize>
-    where
-        P0: ::std::convert::Into<super::Foundation::HANDLE>,
-    {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.AdvisePeriodic)(::windows::core::Vtable::as_raw(self), starttime, periodtime, hsemaphore.into(), result__.as_mut_ptr()).from_abi(result__)
-    }
-    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).base__.Unadvise)(::windows::core::Vtable::as_raw(self), dwadvisecookie).ok()
-    }
-}
+impl IReferenceClock2 {}
 ::windows::core::interface_hierarchy!(IReferenceClock2, ::windows::core::IUnknown, IReferenceClock);
 impl ::core::clone::Clone for IReferenceClock2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IReferenceClock2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClock2 {}
-impl ::core::fmt::Debug for IReferenceClock2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClock2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IReferenceClock2 {
@@ -208,17 +160,6 @@ impl IReferenceClockTimerControl {
 impl ::core::clone::Clone for IReferenceClockTimerControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IReferenceClockTimerControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClockTimerControl {}
-impl ::core::fmt::Debug for IReferenceClockTimerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClockTimerControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IReferenceClockTimerControl {
@@ -452,46 +393,8 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for TIMECODE_SAMPLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TIMECODE_SAMPLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TIMECODE_SAMPLE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TIMECODE_SAMPLE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -540,11 +443,6 @@ impl ::core::clone::Clone for MMTIME {
 unsafe impl ::windows::core::Abi for MMTIME {
     type Abi = Self;
 }
-impl ::core::default::Default for MMTIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub union MMTIME_0 {
@@ -564,11 +462,6 @@ impl ::core::clone::Clone for MMTIME_0 {
 unsafe impl ::windows::core::Abi for MMTIME_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for MMTIME_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub struct MMTIME_0_0 {
@@ -582,11 +475,6 @@ impl ::core::clone::Clone for MMTIME_0_0 {
 }
 unsafe impl ::windows::core::Abi for MMTIME_0_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for MMTIME_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
@@ -605,24 +493,8 @@ impl ::core::clone::Clone for MMTIME_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for MMTIME_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMTIME_0_1").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MMTIME_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMTIME_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
-    }
-}
-impl ::core::cmp::Eq for MMTIME_0_1 {}
-impl ::core::default::Default for MMTIME_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
@@ -636,24 +508,8 @@ impl ::core::clone::Clone for TIMECAPS {
         *self
     }
 }
-impl ::core::fmt::Debug for TIMECAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TIMECAPS").field("wPeriodMin", &self.wPeriodMin).field("wPeriodMax", &self.wPeriodMax).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TIMECAPS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TIMECAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.wPeriodMin == other.wPeriodMin && self.wPeriodMax == other.wPeriodMax
-    }
-}
-impl ::core::cmp::Eq for TIMECAPS {}
-impl ::core::default::Default for TIMECAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
@@ -670,11 +526,6 @@ impl ::core::clone::Clone for TIMECODE {
 unsafe impl ::windows::core::Abi for TIMECODE {
     type Abi = Self;
 }
-impl ::core::default::Default for TIMECODE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub struct TIMECODE_0 {
@@ -688,24 +539,8 @@ impl ::core::clone::Clone for TIMECODE_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for TIMECODE_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TIMECODE_0").field("wFrameRate", &self.wFrameRate).field("wFrameFract", &self.wFrameFract).field("dwFrames", &self.dwFrames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for TIMECODE_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TIMECODE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.wFrameRate == other.wFrameRate && self.wFrameFract == other.wFrameFract && self.dwFrames == other.dwFrames
-    }
-}
-impl ::core::cmp::Eq for TIMECODE_0 {}
-impl ::core::default::Default for TIMECODE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media\"`*"]
@@ -724,11 +559,6 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE {
 unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE {
     type Abi = Self;
 }
-impl ::core::default::Default for TIMECODE_SAMPLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media\"`, `\"Win32_Media_Multimedia\"`*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;
@@ -736,3 +566,5 @@ pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr:
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -24,17 +24,6 @@ impl ::core::clone::Clone for IItemEnumerator {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IItemEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IItemEnumerator {}
-impl ::core::fmt::Debug for IItemEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IItemEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IItemEnumerator {
     type Vtable = IItemEnumerator_Vtbl;
 }
@@ -106,17 +95,6 @@ impl ISettingsContext {
 impl ::core::clone::Clone for ISettingsContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISettingsContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsContext {}
-impl ::core::fmt::Debug for ISettingsContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISettingsContext {
@@ -237,17 +215,6 @@ impl ::core::clone::Clone for ISettingsEngine {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISettingsEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsEngine {}
-impl ::core::fmt::Debug for ISettingsEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISettingsEngine {
     type Vtable = ISettingsEngine_Vtbl;
 }
@@ -311,17 +278,6 @@ impl ISettingsIdentity {
 impl ::core::clone::Clone for ISettingsIdentity {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISettingsIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsIdentity {}
-impl ::core::fmt::Debug for ISettingsIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsIdentity").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISettingsIdentity {
@@ -464,17 +420,6 @@ impl ::core::clone::Clone for ISettingsItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISettingsItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsItem {}
-impl ::core::fmt::Debug for ISettingsItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISettingsItem {
     type Vtable = ISettingsItem_Vtbl;
 }
@@ -586,17 +531,6 @@ impl ::core::clone::Clone for ISettingsNamespace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISettingsNamespace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsNamespace {}
-impl ::core::fmt::Debug for ISettingsNamespace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsNamespace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISettingsNamespace {
     type Vtable = ISettingsNamespace_Vtbl;
 }
@@ -654,17 +588,6 @@ impl ISettingsResult {
 impl ::core::clone::Clone for ISettingsResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISettingsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsResult {}
-impl ::core::fmt::Debug for ISettingsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISettingsResult {
@@ -821,17 +744,6 @@ impl ITargetInfo {
 impl ::core::clone::Clone for ITargetInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITargetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITargetInfo {}
-impl ::core::fmt::Debug for ITargetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITargetInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ITargetInfo {
@@ -1039,18 +951,8 @@ impl ::core::clone::Clone for WcmDataType {
         *self
     }
 }
-impl ::core::default::Default for WcmDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmDataType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmDataType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1066,18 +968,8 @@ impl ::core::clone::Clone for WcmNamespaceAccess {
         *self
     }
 }
-impl ::core::default::Default for WcmNamespaceAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmNamespaceAccess {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmNamespaceAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmNamespaceAccess").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1095,18 +987,8 @@ impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
         *self
     }
 }
-impl ::core::default::Default for WcmNamespaceEnumerationFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmNamespaceEnumerationFlags {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmNamespaceEnumerationFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmNamespaceEnumerationFlags").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1126,18 +1008,8 @@ impl ::core::clone::Clone for WcmRestrictionFacets {
         *self
     }
 }
-impl ::core::default::Default for WcmRestrictionFacets {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmRestrictionFacets {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmRestrictionFacets {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmRestrictionFacets").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1155,18 +1027,8 @@ impl ::core::clone::Clone for WcmSettingType {
         *self
     }
 }
-impl ::core::default::Default for WcmSettingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmSettingType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmSettingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmSettingType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1182,18 +1044,8 @@ impl ::core::clone::Clone for WcmTargetMode {
         *self
     }
 }
-impl ::core::default::Default for WcmTargetMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmTargetMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WcmTargetMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmTargetMode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
@@ -1215,18 +1067,10 @@ impl ::core::clone::Clone for WcmUserStatus {
         *self
     }
 }
-impl ::core::default::Default for WcmUserStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WcmUserStatus {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for WcmUserStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WcmUserStatus").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -124,17 +124,6 @@ impl ::core::clone::Clone for Playlist {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Playlist {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Playlist {}
-impl ::core::fmt::Debug for Playlist {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Playlist").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Playlist {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playlists.Playlist;{803736f5-cf44-4d97-83b3-7a089e9ab663})");
     type DefaultType = ::core::option::Option<Self>;
@@ -167,18 +156,8 @@ impl ::core::clone::Clone for PlaylistFormat {
         *self
     }
 }
-impl ::core::default::Default for PlaylistFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PlaylistFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PlaylistFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaylistFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playlists.PlaylistFormat;i4)");
@@ -189,3 +168,5 @@ unsafe impl ::windows::core::RuntimeType for PlaylistFormat {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

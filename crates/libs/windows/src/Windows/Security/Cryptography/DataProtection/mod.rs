@@ -127,17 +127,6 @@ impl ::core::clone::Clone for DataProtectionProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DataProtectionProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProtectionProvider {}
-impl ::core::fmt::Debug for DataProtectionProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataProtectionProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.DataProtection.DataProtectionProvider;{09639948-ed22-4270-bd1c-6d72c00f8787})");
     type DefaultType = ::core::option::Option<Self>;
@@ -159,3 +148,5 @@ unsafe impl ::core::marker::Send for DataProtectionProvider {}
 unsafe impl ::core::marker::Sync for DataProtectionProvider {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

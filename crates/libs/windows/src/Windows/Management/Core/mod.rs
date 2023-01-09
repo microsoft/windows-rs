@@ -53,17 +53,6 @@ impl ::core::clone::Clone for ApplicationDataManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationDataManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataManager {}
-impl ::core::fmt::Debug for ApplicationDataManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Core.ApplicationDataManager;{74d10432-2e99-4000-9a3a-64307e858129})");
     type DefaultType = ::core::option::Option<Self>;
@@ -85,3 +74,5 @@ unsafe impl ::core::marker::Send for ApplicationDataManager {}
 unsafe impl ::core::marker::Sync for ApplicationDataManager {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

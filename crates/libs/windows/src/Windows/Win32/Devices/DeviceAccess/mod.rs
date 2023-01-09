@@ -35,17 +35,6 @@ impl ::core::clone::Clone for ICreateDeviceAccessAsync {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICreateDeviceAccessAsync {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICreateDeviceAccessAsync {}
-impl ::core::fmt::Debug for ICreateDeviceAccessAsync {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICreateDeviceAccessAsync").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsync_Vtbl;
 }
@@ -94,17 +83,6 @@ impl ::core::clone::Clone for IDeviceIoControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDeviceIoControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceIoControl {}
-impl ::core::fmt::Debug for IDeviceIoControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceIoControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDeviceIoControl {
     type Vtable = IDeviceIoControl_Vtbl;
 }
@@ -131,17 +109,6 @@ impl IDeviceRequestCompletionCallback {
 impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IDeviceRequestCompletionCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceRequestCompletionCallback {}
-impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceRequestCompletionCallback").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IDeviceRequestCompletionCallback {
@@ -248,3 +215,5 @@ pub const ED_TOP: u32 = 1u32;
 pub const ED_VIDEO: i32 = 33554432i32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

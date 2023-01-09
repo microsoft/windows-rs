@@ -63,17 +63,6 @@ impl ::core::clone::Clone for VibrationDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for VibrationDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VibrationDevice {}
-impl ::core::fmt::Debug for VibrationDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VibrationDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Notification.VibrationDevice;{1b4a6595-cfcd-4e08-92fb-c1906d04498c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -95,3 +84,5 @@ unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

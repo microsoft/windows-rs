@@ -303,17 +303,6 @@ impl ::core::clone::Clone for ILocationPermissions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILocationPermissions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocationPermissions {}
-impl ::core::fmt::Debug for ILocationPermissions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationPermissions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ILocationPermissions {
     type Vtable = ILocationPermissions_Vtbl;
 }
@@ -419,17 +408,6 @@ impl ::core::clone::Clone for ISensor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensor {}
-impl ::core::fmt::Debug for ISensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISensor {
     type Vtable = ISensor_Vtbl;
 }
@@ -511,17 +489,6 @@ impl ::core::clone::Clone for ISensorCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISensorCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorCollection {}
-impl ::core::fmt::Debug for ISensorCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISensorCollection {
     type Vtable = ISensorCollection_Vtbl;
 }
@@ -569,17 +536,6 @@ impl ISensorDataReport {
 impl ::core::clone::Clone for ISensorDataReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISensorDataReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorDataReport {}
-impl ::core::fmt::Debug for ISensorDataReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorDataReport").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISensorDataReport {
@@ -641,17 +597,6 @@ impl ::core::clone::Clone for ISensorEvents {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISensorEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorEvents {}
-impl ::core::fmt::Debug for ISensorEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISensorEvents {
     type Vtable = ISensorEvents_Vtbl;
 }
@@ -709,17 +654,6 @@ impl ::core::clone::Clone for ISensorManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ISensorManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorManager {}
-impl ::core::fmt::Debug for ISensorManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for ISensorManager {
     type Vtable = ISensorManager_Vtbl;
 }
@@ -754,17 +688,6 @@ impl ISensorManagerEvents {
 impl ::core::clone::Clone for ISensorManagerEvents {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ISensorManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorManagerEvents {}
-impl ::core::fmt::Debug for ISensorManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorManagerEvents").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for ISensorManagerEvents {
@@ -1530,18 +1453,8 @@ impl ::core::clone::Clone for ACTIVITY_STATE {
         *self
     }
 }
-impl ::core::default::Default for ACTIVITY_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVITY_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVITY_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1555,18 +1468,8 @@ impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
         *self
     }
 }
-impl ::core::default::Default for ACTIVITY_STATE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTIVITY_STATE_COUNT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1586,18 +1489,8 @@ impl ::core::clone::Clone for AXIS {
         *self
     }
 }
-impl ::core::default::Default for AXIS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AXIS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AXIS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AXIS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1619,18 +1512,8 @@ impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
         *self
     }
 }
-impl ::core::default::Default for ELEVATION_CHANGE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ELEVATION_CHANGE_MODE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1652,18 +1535,8 @@ impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1677,18 +1550,8 @@ impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
         *self
     }
 }
-impl ::core::default::Default for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE_COUNT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1704,18 +1567,8 @@ impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
         *self
     }
 }
-impl ::core::default::Default for LOCATION_DESIRED_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOCATION_DESIRED_ACCURACY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1737,18 +1590,8 @@ impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
         *self
     }
 }
-impl ::core::default::Default for LOCATION_POSITION_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LOCATION_POSITION_SOURCE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1768,18 +1611,8 @@ impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
         *self
     }
 }
-impl ::core::default::Default for MAGNETOMETER_ACCURACY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MAGNETOMETER_ACCURACY").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1799,18 +1632,8 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
         *self
     }
 }
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MagnetometerAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1832,18 +1655,8 @@ impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
         *self
     }
 }
-impl ::core::default::Default for PEDOMETER_STEP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PEDOMETER_STEP_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1857,18 +1670,8 @@ impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
         *self
     }
 }
-impl ::core::default::Default for PEDOMETER_STEP_TYPE_COUNT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PEDOMETER_STEP_TYPE_COUNT").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1886,18 +1689,8 @@ impl ::core::clone::Clone for PROXIMITY_TYPE {
         *self
     }
 }
-impl ::core::default::Default for PROXIMITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PROXIMITY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROXIMITY_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1915,18 +1708,8 @@ impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
         *self
     }
 }
-impl ::core::default::Default for SENSOR_CONNECTION_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SENSOR_CONNECTION_TYPES").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1946,18 +1729,8 @@ impl ::core::clone::Clone for SENSOR_STATE {
         *self
     }
 }
-impl ::core::default::Default for SENSOR_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SENSOR_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SENSOR_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SENSOR_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -1981,18 +1754,8 @@ impl ::core::clone::Clone for SIMPLE_DEVICE_ORIENTATION {
         *self
     }
 }
-impl ::core::default::Default for SIMPLE_DEVICE_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SIMPLE_DEVICE_ORIENTATION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SIMPLE_DEVICE_ORIENTATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SIMPLE_DEVICE_ORIENTATION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -2010,18 +1773,8 @@ impl ::core::clone::Clone for SensorConnectionType {
         *self
     }
 }
-impl ::core::default::Default for SensorConnectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SensorConnectionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorConnectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorConnectionType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -2049,18 +1802,8 @@ impl ::core::clone::Clone for SensorState {
         *self
     }
 }
-impl ::core::default::Default for SensorState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SensorState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorState").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
@@ -2084,18 +1827,8 @@ impl ::core::clone::Clone for SimpleDeviceOrientation {
         *self
     }
 }
-impl ::core::default::Default for SimpleDeviceOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SimpleDeviceOrientation {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SimpleDeviceOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleDeviceOrientation").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2110,11 +1843,6 @@ impl ::core::clone::Clone for MATRIX3X3 {
 }
 unsafe impl ::windows::core::Abi for MATRIX3X3 {
     type Abi = Self;
-}
-impl ::core::default::Default for MATRIX3X3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2131,11 +1859,6 @@ impl ::core::clone::Clone for MATRIX3X3_0 {
 }
 unsafe impl ::windows::core::Abi for MATRIX3X3_0 {
     type Abi = Self;
-}
-impl ::core::default::Default for MATRIX3X3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2156,24 +1879,8 @@ impl ::core::clone::Clone for MATRIX3X3_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for MATRIX3X3_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MATRIX3X3_0_0").field("A11", &self.A11).field("A12", &self.A12).field("A13", &self.A13).field("A21", &self.A21).field("A22", &self.A22).field("A23", &self.A23).field("A31", &self.A31).field("A32", &self.A32).field("A33", &self.A33).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MATRIX3X3_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.A11 == other.A11 && self.A12 == other.A12 && self.A13 == other.A13 && self.A21 == other.A21 && self.A22 == other.A22 && self.A23 == other.A23 && self.A31 == other.A31 && self.A32 == other.A32 && self.A33 == other.A33
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0_0 {}
-impl ::core::default::Default for MATRIX3X3_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2188,24 +1895,8 @@ impl ::core::clone::Clone for MATRIX3X3_0_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for MATRIX3X3_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MATRIX3X3_0_1").field("V1", &self.V1).field("V2", &self.V2).field("V3", &self.V3).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MATRIX3X3_0_1 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MATRIX3X3_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.V1 == other.V1 && self.V2 == other.V2 && self.V3 == other.V3
-    }
-}
-impl ::core::cmp::Eq for MATRIX3X3_0_1 {}
-impl ::core::default::Default for MATRIX3X3_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
@@ -2221,24 +1912,8 @@ impl ::core::clone::Clone for QUATERNION {
         *self
     }
 }
-impl ::core::fmt::Debug for QUATERNION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUATERNION").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUATERNION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUATERNION {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z && self.W == other.W
-    }
-}
-impl ::core::cmp::Eq for QUATERNION {}
-impl ::core::default::Default for QUATERNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -2258,12 +1933,6 @@ impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
 unsafe impl ::windows::core::Abi for SENSOR_COLLECTION_LIST {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::default::Default for SENSOR_COLLECTION_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2281,28 +1950,8 @@ impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::fmt::Debug for SENSOR_PROPERTY_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SENSOR_PROPERTY_LIST").field("AllocatedSizeInBytes", &self.AllocatedSizeInBytes).field("Count", &self.Count).field("List", &self.List).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 unsafe impl ::windows::core::Abi for SENSOR_PROPERTY_LIST {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::cmp::PartialEq for SENSOR_PROPERTY_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        self.AllocatedSizeInBytes == other.AllocatedSizeInBytes && self.Count == other.Count && self.List == other.List
-    }
-}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::cmp::Eq for SENSOR_PROPERTY_LIST {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-impl ::core::default::Default for SENSOR_PROPERTY_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -2321,12 +1970,6 @@ impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
 unsafe impl ::windows::core::Abi for SENSOR_VALUE_PAIR {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-impl ::core::default::Default for SENSOR_VALUE_PAIR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 pub struct VEC3D {
@@ -2340,24 +1983,10 @@ impl ::core::clone::Clone for VEC3D {
         *self
     }
 }
-impl ::core::fmt::Debug for VEC3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("VEC3D").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for VEC3D {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VEC3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-impl ::core::cmp::Eq for VEC3D {}
-impl ::core::default::Default for VEC3D {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

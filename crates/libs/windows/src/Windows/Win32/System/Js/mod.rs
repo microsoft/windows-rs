@@ -639,18 +639,8 @@ impl ::core::clone::Clone for JsErrorCode {
         *self
     }
 }
-impl ::core::default::Default for JsErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JsErrorCode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JsErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsErrorCode").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -668,18 +658,8 @@ impl ::core::clone::Clone for JsMemoryEventType {
         *self
     }
 }
-impl ::core::default::Default for JsMemoryEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JsMemoryEventType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JsMemoryEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsMemoryEventType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -703,18 +683,8 @@ impl ::core::clone::Clone for JsRuntimeAttributes {
         *self
     }
 }
-impl ::core::default::Default for JsRuntimeAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JsRuntimeAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsRuntimeAttributes").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -732,18 +702,8 @@ impl ::core::clone::Clone for JsRuntimeVersion {
         *self
     }
 }
-impl ::core::default::Default for JsRuntimeVersion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JsRuntimeVersion {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JsRuntimeVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsRuntimeVersion").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -773,18 +733,8 @@ impl ::core::clone::Clone for JsValueType {
         *self
     }
 }
-impl ::core::default::Default for JsValueType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for JsValueType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for JsValueType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsValueType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void) -> ()>;
@@ -800,3 +750,5 @@ pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(cal
 pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

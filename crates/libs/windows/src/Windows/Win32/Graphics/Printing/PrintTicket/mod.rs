@@ -145,18 +145,8 @@ impl ::core::clone::Clone for EDefaultDevmodeType {
         *self
     }
 }
-impl ::core::default::Default for EDefaultDevmodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for EDefaultDevmodeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
@@ -174,18 +164,10 @@ impl ::core::clone::Clone for EPrintTicketScope {
         *self
     }
 }
-impl ::core::default::Default for EPrintTicketScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for EPrintTicketScope {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for EPrintTicketScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

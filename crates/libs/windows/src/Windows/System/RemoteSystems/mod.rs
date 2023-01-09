@@ -418,17 +418,6 @@ impl ::core::clone::Clone for IRemoteSystemFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IRemoteSystemFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRemoteSystemFilter {}
-impl ::core::fmt::Debug for IRemoteSystemFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteSystemFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IRemoteSystemFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4a3ba9e4-99eb-45eb-ba16-0367728ff374}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1491,17 +1480,6 @@ impl ::core::clone::Clone for RemoteSystem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystem {}
-impl ::core::fmt::Debug for RemoteSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystem;{ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1536,17 +1514,6 @@ impl RemoteSystemAddedEventArgs {
 impl ::core::clone::Clone for RemoteSystemAddedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAddedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAddedEventArgs {
@@ -1629,17 +1596,6 @@ impl ::core::clone::Clone for RemoteSystemApp {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemApp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemApp {}
-impl ::core::fmt::Debug for RemoteSystemApp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemApp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemApp;{80e5bcbd-d54d-41b1-9b16-6810a871ed4f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1711,17 +1667,6 @@ impl ::core::clone::Clone for RemoteSystemAppRegistration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemAppRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAppRegistration {}
-impl ::core::fmt::Debug for RemoteSystemAppRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAppRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAppRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAppRegistration;{b47947b5-7035-4a5a-b8df-962d8f8431f4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1767,17 +1712,6 @@ impl RemoteSystemAuthorizationKindFilter {
 impl ::core::clone::Clone for RemoteSystemAuthorizationKindFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemAuthorizationKindFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAuthorizationKindFilter {}
-impl ::core::fmt::Debug for RemoteSystemAuthorizationKindFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAuthorizationKindFilter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKindFilter {
@@ -1846,17 +1780,6 @@ impl RemoteSystemConnectionInfo {
 impl ::core::clone::Clone for RemoteSystemConnectionInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemConnectionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemConnectionInfo {}
-impl ::core::fmt::Debug for RemoteSystemConnectionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemConnectionInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionInfo {
@@ -1948,17 +1871,6 @@ impl ::core::clone::Clone for RemoteSystemConnectionRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemConnectionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemConnectionRequest {}
-impl ::core::fmt::Debug for RemoteSystemConnectionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemConnectionRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionRequest;{84ed4104-8d5e-4d72-8238-7621576c7a67})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2006,17 +1918,6 @@ impl ::core::clone::Clone for RemoteSystemDiscoveryTypeFilter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemDiscoveryTypeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemDiscoveryTypeFilter {}
-impl ::core::fmt::Debug for RemoteSystemDiscoveryTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemDiscoveryTypeFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter;{42d9041f-ee5a-43da-ac6a-6fee25460741})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2062,17 +1963,6 @@ impl RemoteSystemEnumerationCompletedEventArgs {}
 impl ::core::clone::Clone for RemoteSystemEnumerationCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemEnumerationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemEnumerationCompletedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemEnumerationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemEnumerationCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
@@ -2128,17 +2018,6 @@ impl RemoteSystemKindFilter {
 impl ::core::clone::Clone for RemoteSystemKindFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemKindFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemKindFilter {}
-impl ::core::fmt::Debug for RemoteSystemKindFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemKindFilter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemKindFilter {
@@ -2261,17 +2140,6 @@ impl ::core::clone::Clone for RemoteSystemRemovedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemRemovedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs;{8b3d16bb-7306-49ea-b7df-67d5714cb013})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2370,17 +2238,6 @@ impl ::core::clone::Clone for RemoteSystemSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSession {}
-impl ::core::fmt::Debug for RemoteSystemSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSession;{69476a01-9ada-490f-9549-d31cb14c9e95})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2437,17 +2294,6 @@ impl RemoteSystemSessionAddedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionAddedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionAddedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionAddedEventArgs {
@@ -2529,17 +2375,6 @@ impl ::core::clone::Clone for RemoteSystemSessionController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionController {}
-impl ::core::fmt::Debug for RemoteSystemSessionController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionController;{e48b2dd2-6820-4867-b425-d89c0a3ef7ba})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2583,17 +2418,6 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionCreationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionCreationResult {}
-impl ::core::fmt::Debug for RemoteSystemSessionCreationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionCreationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionCreationResult;{a79812c2-37de-448c-8b83-a30aa3c4ead6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2628,17 +2452,6 @@ impl RemoteSystemSessionDisconnectedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionDisconnectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionDisconnectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionDisconnectedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionDisconnectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
@@ -2693,17 +2506,6 @@ impl ::core::clone::Clone for RemoteSystemSessionInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInfo {}
-impl ::core::fmt::Debug for RemoteSystemSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInfo;{ff4df648-8b0a-4e9a-9905-69e4b841c588})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2745,17 +2547,6 @@ impl RemoteSystemSessionInvitation {
 impl ::core::clone::Clone for RemoteSystemSessionInvitation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitation {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitation {
@@ -2809,17 +2600,6 @@ impl ::core::clone::Clone for RemoteSystemSessionInvitationListener {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitationListener {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitationListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitationListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener;{08f4003f-bc71-49e1-874a-31ddff9a27b9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2854,17 +2634,6 @@ impl RemoteSystemSessionInvitationReceivedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionInvitationReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitationReceivedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitationReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
@@ -2905,17 +2674,6 @@ impl RemoteSystemSessionJoinRequest {
 impl ::core::clone::Clone for RemoteSystemSessionJoinRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinRequest {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequest {
@@ -2963,17 +2721,6 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinRequestedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs;{dbca4fc3-82b9-4816-9c24-e40e61774bd8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3015,17 +2762,6 @@ impl RemoteSystemSessionJoinResult {
 impl ::core::clone::Clone for RemoteSystemSessionJoinResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinResult {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinResult {
@@ -3127,17 +2863,6 @@ impl ::core::clone::Clone for RemoteSystemSessionMessageChannel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionMessageChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionMessageChannel {}
-impl ::core::fmt::Debug for RemoteSystemSessionMessageChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionMessageChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel;{9524d12a-73d9-4c10-b751-c26784437127})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3185,17 +2910,6 @@ impl ::core::clone::Clone for RemoteSystemSessionOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionOptions {}
-impl ::core::fmt::Debug for RemoteSystemSessionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionOptions;{740ed755-8418-4f01-9353-e21c9ecc6cfc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3241,17 +2955,6 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipant {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipant {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipant {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipant {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipant").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipant {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipant;{7e90058c-acf9-4729-8a17-44e7baed5dcc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3288,17 +2991,6 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantAddedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantAddedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs;{d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3333,17 +3025,6 @@ impl RemoteSystemSessionParticipantRemovedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionParticipantRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantRemovedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
@@ -3435,17 +3116,6 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantWatcher {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher;{dcdd02cc-aa87-4d79-b6cc-4459b3e92075})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3482,17 +3152,6 @@ impl ::core::clone::Clone for RemoteSystemSessionRemovedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionRemovedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs;{af82914e-39a1-4dea-9d63-43798d5bbbd0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3527,17 +3186,6 @@ impl RemoteSystemSessionUpdatedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionUpdatedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
@@ -3583,17 +3231,6 @@ impl RemoteSystemSessionValueSetReceivedEventArgs {
 impl ::core::clone::Clone for RemoteSystemSessionValueSetReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionValueSetReceivedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionValueSetReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
@@ -3685,17 +3322,6 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionWatcher {}
-impl ::core::fmt::Debug for RemoteSystemSessionWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionWatcher;{8003e340-0c41-4a62-b6d7-bdbe2b19be2d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3741,17 +3367,6 @@ impl RemoteSystemStatusTypeFilter {
 impl ::core::clone::Clone for RemoteSystemStatusTypeFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemStatusTypeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemStatusTypeFilter {}
-impl ::core::fmt::Debug for RemoteSystemStatusTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatusTypeFilter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusTypeFilter {
@@ -3807,17 +3422,6 @@ impl RemoteSystemUpdatedEventArgs {
 impl ::core::clone::Clone for RemoteSystemUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemUpdatedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemUpdatedEventArgs {
@@ -3939,17 +3543,6 @@ impl ::core::clone::Clone for RemoteSystemWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWatcher {}
-impl ::core::fmt::Debug for RemoteSystemWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcher;{5d600c7e-2c07-48c5-889c-455d2b099771})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3984,17 +3577,6 @@ impl RemoteSystemWatcherErrorOccurredEventArgs {
 impl ::core::clone::Clone for RemoteSystemWatcherErrorOccurredEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWatcherErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcherErrorOccurredEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
@@ -4046,17 +3628,6 @@ impl RemoteSystemWebAccountFilter {
 impl ::core::clone::Clone for RemoteSystemWebAccountFilter {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteSystemWebAccountFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWebAccountFilter {}
-impl ::core::fmt::Debug for RemoteSystemWebAccountFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWebAccountFilter").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWebAccountFilter {
@@ -4113,18 +3684,8 @@ impl ::core::clone::Clone for RemoteSystemAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
@@ -4147,18 +3708,8 @@ impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemAuthorizationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
@@ -4183,18 +3734,8 @@ impl ::core::clone::Clone for RemoteSystemDiscoveryType {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemDiscoveryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
@@ -4220,18 +3761,8 @@ impl ::core::clone::Clone for RemoteSystemPlatform {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemPlatform {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemPlatform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemPlatform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
@@ -4255,18 +3786,8 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
@@ -4290,18 +3811,8 @@ impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionDisconnectedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
@@ -4327,18 +3838,8 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionJoinStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
@@ -4361,18 +3862,8 @@ impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionMessageChannelReliability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
@@ -4399,18 +3890,8 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionParticipantWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
@@ -4437,18 +3918,8 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemSessionWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
@@ -4473,18 +3944,8 @@ impl ::core::clone::Clone for RemoteSystemStatus {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
@@ -4507,18 +3968,8 @@ impl ::core::clone::Clone for RemoteSystemStatusType {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemStatusType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemStatusType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
@@ -4542,18 +3993,8 @@ impl ::core::clone::Clone for RemoteSystemWatcherError {
         *self
     }
 }
-impl ::core::default::Default for RemoteSystemWatcherError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemWatcherError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
@@ -4564,3 +4005,5 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

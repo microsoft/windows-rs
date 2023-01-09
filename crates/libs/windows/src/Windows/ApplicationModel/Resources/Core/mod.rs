@@ -365,17 +365,6 @@ impl ::core::clone::Clone for NamedResource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NamedResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NamedResource {}
-impl ::core::fmt::Debug for NamedResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NamedResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NamedResource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.NamedResource;{1c98c219-0b13-4240-89a5-d495dc189a00})");
     type DefaultType = ::core::option::Option<Self>;
@@ -474,17 +463,6 @@ impl ::core::clone::Clone for ResourceCandidate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceCandidate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceCandidate {}
-impl ::core::fmt::Debug for ResourceCandidate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCandidate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceCandidate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceCandidate;{af5207d9-c433-4764-b3fd-8fa6bfbcbadc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -560,20 +538,6 @@ impl ResourceCandidateVectorView {
 impl ::core::clone::Clone for ResourceCandidateVectorView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceCandidateVectorView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceCandidateVectorView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceCandidateVectorView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCandidateVectorView").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -808,17 +772,6 @@ impl ::core::clone::Clone for ResourceContext {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceContext {}
-impl ::core::fmt::Debug for ResourceContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceContext;{2fa22f4b-707e-4b27-ad0d-d0d8cd468fd2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -894,20 +847,6 @@ impl ResourceContextLanguagesVectorView {
 impl ::core::clone::Clone for ResourceContextLanguagesVectorView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceContextLanguagesVectorView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceContextLanguagesVectorView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceContextLanguagesVectorView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceContextLanguagesVectorView").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1084,17 +1023,6 @@ impl ::core::clone::Clone for ResourceManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceManager {}
-impl ::core::fmt::Debug for ResourceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceManager;{f744d97b-9988-44fb-abd6-5378844cfa8b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1194,17 +1122,6 @@ impl ResourceMap {
 impl ::core::clone::Clone for ResourceMap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ResourceMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceMap {}
-impl ::core::fmt::Debug for ResourceMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceMap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ResourceMap {
@@ -1336,20 +1253,6 @@ impl ::core::clone::Clone for ResourceMapIterator {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceMapIterator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceMapIterator {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceMapIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceMapIterator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ResourceMapIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceMapIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};pinterface({02b51929-c1c4-4a7e-8940-0312b5c18500};string;rc(Windows.ApplicationModel.Resources.Core.NamedResource;{1c98c219-0b13-4240-89a5-d495dc189a00}))))");
     type DefaultType = ::core::option::Option<Self>;
@@ -1450,20 +1353,6 @@ impl ResourceMapMapView {
 impl ::core::clone::Clone for ResourceMapMapView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceMapMapView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceMapMapView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceMapMapView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceMapMapView").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1602,20 +1491,6 @@ impl ::core::clone::Clone for ResourceMapMapViewIterator {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceMapMapViewIterator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceMapMapViewIterator {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceMapMapViewIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceMapMapViewIterator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ResourceMapMapViewIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceMapMapViewIterator;pinterface({6a79e863-4300-459a-9966-cbb660963ee1};pinterface({02b51929-c1c4-4a7e-8940-0312b5c18500};string;rc(Windows.ApplicationModel.Resources.Core.ResourceMap;{72284824-db8c-42f8-b08c-53ff357dad82}))))");
     type DefaultType = ::core::option::Option<Self>;
@@ -1708,17 +1583,6 @@ impl ::core::clone::Clone for ResourceQualifier {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ResourceQualifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceQualifier {}
-impl ::core::fmt::Debug for ResourceQualifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ResourceQualifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceQualifier;{785da5b2-4afd-4376-a888-c5f9a6b7a05c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1791,20 +1655,6 @@ impl ResourceQualifierMapView {
 impl ::core::clone::Clone for ResourceQualifierMapView {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceQualifierMapView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceQualifierMapView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceQualifierMapView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierMapView").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1988,20 +1838,6 @@ impl ::core::clone::Clone for ResourceQualifierObservableMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceQualifierObservableMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceQualifierObservableMap {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceQualifierObservableMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierObservableMap").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ResourceQualifierObservableMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceQualifierObservableMap;pinterface({65df2bf5-bf39-41b5-aebc-5a9d865e472b};string;string))");
     type DefaultType = ::core::option::Option<Self>;
@@ -2168,20 +2004,6 @@ impl ::core::clone::Clone for ResourceQualifierVectorView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for ResourceQualifierVectorView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for ResourceQualifierVectorView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for ResourceQualifierVectorView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierVectorView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ResourceQualifierVectorView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Resources.Core.ResourceQualifierVectorView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.ApplicationModel.Resources.Core.ResourceQualifier;{785da5b2-4afd-4376-a888-c5f9a6b7a05c})))");
     type DefaultType = ::core::option::Option<Self>;
@@ -2282,18 +2104,8 @@ impl ::core::clone::Clone for ResourceCandidateKind {
         *self
     }
 }
-impl ::core::default::Default for ResourceCandidateKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ResourceCandidateKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ResourceCandidateKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ResourceCandidateKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
@@ -2316,18 +2128,8 @@ impl ::core::clone::Clone for ResourceQualifierPersistence {
         *self
     }
 }
-impl ::core::default::Default for ResourceQualifierPersistence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ResourceQualifierPersistence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ResourceQualifierPersistence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
@@ -2351,11 +2153,6 @@ impl ::core::clone::Clone for ResourceLayoutInfo {
         *self
     }
 }
-impl ::core::fmt::Debug for ResourceLayoutInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ResourceLayoutInfo").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ResourceSubtreeCount", &self.ResourceSubtreeCount).field("NamedResourceCount", &self.NamedResourceCount).field("Checksum", &self.Checksum).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ResourceLayoutInfo {
     type Abi = Self;
 }
@@ -2366,16 +2163,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceLayoutInfo {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for ResourceLayoutInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ResourceSubtreeCount == other.ResourceSubtreeCount && self.NamedResourceCount == other.NamedResourceCount && self.Checksum == other.Checksum
-    }
-}
-impl ::core::cmp::Eq for ResourceLayoutInfo {}
-impl ::core::default::Default for ResourceLayoutInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

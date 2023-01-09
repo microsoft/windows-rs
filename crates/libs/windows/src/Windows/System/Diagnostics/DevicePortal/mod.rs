@@ -238,17 +238,6 @@ impl ::core::clone::Clone for DevicePortalConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DevicePortalConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePortalConnection {}
-impl ::core::fmt::Debug for DevicePortalConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePortalConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnection;{0f447f51-1198-4da1-8d54-bdef393e09b6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -283,17 +272,6 @@ impl DevicePortalConnectionClosedEventArgs {
 impl ::core::clone::Clone for DevicePortalConnectionClosedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DevicePortalConnectionClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePortalConnectionClosedEventArgs {}
-impl ::core::fmt::Debug for DevicePortalConnectionClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePortalConnectionClosedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedEventArgs {
@@ -368,17 +346,6 @@ impl ::core::clone::Clone for DevicePortalConnectionRequestReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DevicePortalConnectionRequestReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePortalConnectionRequestReceivedEventArgs {}
-impl ::core::fmt::Debug for DevicePortalConnectionRequestReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePortalConnectionRequestReceivedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs;{64dae045-6fda-4459-9ebd-ecce22e38559})");
     type DefaultType = ::core::option::Option<Self>;
@@ -416,18 +383,8 @@ impl ::core::clone::Clone for DevicePortalConnectionClosedReason {
         *self
     }
 }
-impl ::core::default::Default for DevicePortalConnectionClosedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DevicePortalConnectionClosedReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePortalConnectionClosedReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
@@ -438,3 +395,5 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason 
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

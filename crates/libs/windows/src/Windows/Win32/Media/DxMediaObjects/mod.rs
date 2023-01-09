@@ -95,17 +95,6 @@ impl ::core::clone::Clone for IDMOQualityControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDMOQualityControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMOQualityControl {}
-impl ::core::fmt::Debug for IDMOQualityControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMOQualityControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDMOQualityControl {
     type Vtable = IDMOQualityControl_Vtbl;
 }
@@ -144,17 +133,6 @@ impl IDMOVideoOutputOptimizations {
 impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IDMOVideoOutputOptimizations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMOVideoOutputOptimizations {}
-impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMOVideoOutputOptimizations").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IDMOVideoOutputOptimizations {
@@ -196,17 +174,6 @@ impl ::core::clone::Clone for IEnumDMO {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IEnumDMO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDMO {}
-impl ::core::fmt::Debug for IEnumDMO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDMO").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IEnumDMO {
     type Vtable = IEnumDMO_Vtbl;
 }
@@ -241,17 +208,6 @@ impl IMediaBuffer {
 impl ::core::clone::Clone for IMediaBuffer {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IMediaBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaBuffer {}
-impl ::core::fmt::Debug for IMediaBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaBuffer").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for IMediaBuffer {
@@ -361,17 +317,6 @@ impl ::core::clone::Clone for IMediaObject {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMediaObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaObject {}
-impl ::core::fmt::Debug for IMediaObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IMediaObject {
     type Vtable = IMediaObject_Vtbl;
 }
@@ -444,17 +389,6 @@ impl ::core::clone::Clone for IMediaObjectInPlace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IMediaObjectInPlace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaObjectInPlace {}
-impl ::core::fmt::Debug for IMediaObjectInPlace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaObjectInPlace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlace_Vtbl;
 }
@@ -513,18 +447,8 @@ impl ::core::clone::Clone for DMO_ENUM_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for DMO_ENUM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DMO_ENUM_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -538,18 +462,8 @@ impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for DMO_REGISTER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DMO_REGISTER_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -565,18 +479,8 @@ impl ::core::clone::Clone for _DMO_INPLACE_PROCESS_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_INPLACE_PROCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_INPLACE_PROCESS_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_INPLACE_PROCESS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_INPLACE_PROCESS_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -596,18 +500,8 @@ impl ::core::clone::Clone for _DMO_INPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_INPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_INPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_INPUT_DATA_BUFFER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_INPUT_DATA_BUFFER_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -621,18 +515,8 @@ impl ::core::clone::Clone for _DMO_INPUT_STATUS_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_INPUT_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_INPUT_STATUS_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_INPUT_STATUS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_INPUT_STATUS_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -652,18 +536,8 @@ impl ::core::clone::Clone for _DMO_INPUT_STREAM_INFO_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_INPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_INPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_INPUT_STREAM_INFO_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_INPUT_STREAM_INFO_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -685,18 +559,8 @@ impl ::core::clone::Clone for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_OUTPUT_DATA_BUFFER_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -718,18 +582,8 @@ impl ::core::clone::Clone for _DMO_OUTPUT_STREAM_INFO_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_OUTPUT_STREAM_INFO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_OUTPUT_STREAM_INFO_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_OUTPUT_STREAM_INFO_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_OUTPUT_STREAM_INFO_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -743,18 +597,8 @@ impl ::core::clone::Clone for _DMO_PROCESS_OUTPUT_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_PROCESS_OUTPUT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_PROCESS_OUTPUT_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_PROCESS_OUTPUT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_PROCESS_OUTPUT_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -768,18 +612,8 @@ impl ::core::clone::Clone for _DMO_QUALITY_STATUS_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_QUALITY_STATUS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_QUALITY_STATUS_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_QUALITY_STATUS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_QUALITY_STATUS_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -795,18 +629,8 @@ impl ::core::clone::Clone for _DMO_SET_TYPE_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_SET_TYPE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_SET_TYPE_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_SET_TYPE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_SET_TYPE_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
@@ -820,18 +644,8 @@ impl ::core::clone::Clone for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
         *self
     }
 }
-impl ::core::default::Default for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMO_VIDEO_OUTPUT_STREAM_FLAGS").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`, `\"Win32_Foundation\"`*"]
@@ -854,28 +668,8 @@ impl ::core::clone::Clone for DMO_MEDIA_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DMO_MEDIA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DMO_MEDIA_TYPE {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DMO_MEDIA_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DMO_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DMO_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
@@ -890,24 +684,8 @@ impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-impl ::core::fmt::Debug for DMO_OUTPUT_DATA_BUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_OUTPUT_DATA_BUFFER").field("pBuffer", &self.pBuffer).field("dwStatus", &self.dwStatus).field("rtTimestamp", &self.rtTimestamp).field("rtTimelength", &self.rtTimelength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DMO_OUTPUT_DATA_BUFFER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DMO_OUTPUT_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.pBuffer == other.pBuffer && self.dwStatus == other.dwStatus && self.rtTimestamp == other.rtTimestamp && self.rtTimelength == other.rtTimelength
-    }
-}
-impl ::core::cmp::Eq for DMO_OUTPUT_DATA_BUFFER {}
-impl ::core::default::Default for DMO_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
@@ -921,24 +699,10 @@ impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
         *self
     }
 }
-impl ::core::fmt::Debug for DMO_PARTIAL_MEDIATYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DMO_PARTIAL_MEDIATYPE").field("type", &self.r#type).field("subtype", &self.subtype).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for DMO_PARTIAL_MEDIATYPE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DMO_PARTIAL_MEDIATYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type && self.subtype == other.subtype
-    }
-}
-impl ::core::cmp::Eq for DMO_PARTIAL_MEDIATYPE {}
-impl ::core::default::Default for DMO_PARTIAL_MEDIATYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

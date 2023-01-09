@@ -38,18 +38,8 @@ impl ::core::clone::Clone for CONDITION_OPERATION {
         *self
     }
 }
-impl ::core::default::Default for CONDITION_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONDITION_OPERATION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CONDITION_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONDITION_OPERATION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
 #[repr(transparent)]
@@ -69,18 +59,10 @@ impl ::core::clone::Clone for CONDITION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for CONDITION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CONDITION_TYPE {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for CONDITION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONDITION_TYPE").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

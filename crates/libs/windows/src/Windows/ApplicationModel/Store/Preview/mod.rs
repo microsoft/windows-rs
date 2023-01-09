@@ -331,17 +331,6 @@ impl ::core::clone::Clone for DeliveryOptimizationSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeliveryOptimizationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeliveryOptimizationSettings {}
-impl ::core::fmt::Debug for DeliveryOptimizationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -611,17 +600,6 @@ impl ::core::clone::Clone for StoreHardwareManufacturerInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StoreHardwareManufacturerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreHardwareManufacturerInfo {}
-impl ::core::fmt::Debug for StoreHardwareManufacturerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreHardwareManufacturerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StoreHardwareManufacturerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo;{f292dc08-c654-43ac-a21f-34801c9d3388})");
     type DefaultType = ::core::option::Option<Self>;
@@ -716,17 +694,6 @@ impl ::core::clone::Clone for StorePreviewProductInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorePreviewProductInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePreviewProductInfo {}
-impl ::core::fmt::Debug for StorePreviewProductInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewProductInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo;{1937dbb3-6c01-4c9d-85cd-5babaac2b351})");
     type DefaultType = ::core::option::Option<Self>;
@@ -761,17 +728,6 @@ impl StorePreviewPurchaseResults {
 impl ::core::clone::Clone for StorePreviewPurchaseResults {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorePreviewPurchaseResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePreviewPurchaseResults {}
-impl ::core::fmt::Debug for StorePreviewPurchaseResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewPurchaseResults").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewPurchaseResults {
@@ -866,17 +822,6 @@ impl ::core::clone::Clone for StorePreviewSkuInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorePreviewSkuInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePreviewSkuInfo {}
-impl ::core::fmt::Debug for StorePreviewSkuInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewSkuInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorePreviewSkuInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo;{81fd76e2-0b26-48d9-98ce-27461c669d6c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -948,18 +893,8 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
         *self
     }
 }
-impl ::core::default::Default for DeliveryOptimizationDownloadMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
@@ -982,18 +917,8 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
         *self
     }
 }
-impl ::core::default::Default for DeliveryOptimizationDownloadModeSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
@@ -1016,46 +941,8 @@ impl ::core::clone::Clone for StoreLogOptions {
         *self
     }
 }
-impl ::core::default::Default for StoreLogOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StoreLogOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreLogOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StoreLogOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StoreLogOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StoreLogOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StoreLogOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StoreLogOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
@@ -1080,18 +967,8 @@ impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
         *self
     }
 }
-impl ::core::default::Default for StorePreviewProductPurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
@@ -1147,18 +1024,8 @@ impl ::core::clone::Clone for StoreSystemFeature {
         *self
     }
 }
-impl ::core::default::Default for StoreSystemFeature {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for StoreSystemFeature {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreSystemFeature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreSystemFeature").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
@@ -1169,3 +1036,5 @@ unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

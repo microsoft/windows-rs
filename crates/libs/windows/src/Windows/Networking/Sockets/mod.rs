@@ -62,17 +62,6 @@ impl ::core::clone::Clone for IControlChannelTriggerEventDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IControlChannelTriggerEventDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IControlChannelTriggerEventDetails {}
-impl ::core::fmt::Debug for IControlChannelTriggerEventDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IControlChannelTriggerEventDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1b36e047-89bb-4236-96ac-71d012bb4869}");
     type DefaultType = ::core::option::Option<Self>;
@@ -138,17 +127,6 @@ impl IControlChannelTriggerResetEventDetails {
 impl ::core::clone::Clone for IControlChannelTriggerResetEventDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IControlChannelTriggerResetEventDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IControlChannelTriggerResetEventDetails {}
-impl ::core::fmt::Debug for IControlChannelTriggerResetEventDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IControlChannelTriggerResetEventDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IControlChannelTriggerResetEventDetails {
@@ -1333,17 +1311,6 @@ impl ::core::clone::Clone for IWebSocket {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebSocket {}
-impl ::core::fmt::Debug for IWebSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebSocket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f877396f-99b1-4e18-bc08-850c9adf156e}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1455,17 +1422,6 @@ impl IWebSocketControl {
 impl ::core::clone::Clone for IWebSocketControl {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebSocketControl {}
-impl ::core::fmt::Debug for IWebSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebSocketControl").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl {
@@ -1597,17 +1553,6 @@ impl ::core::clone::Clone for IWebSocketControl2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IWebSocketControl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebSocketControl2 {}
-impl ::core::fmt::Debug for IWebSocketControl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebSocketControl2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IWebSocketControl2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{79c3be03-f2ca-461e-af4e-9665bc2d0620}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1678,17 +1623,6 @@ impl IWebSocketInformation {
 impl ::core::clone::Clone for IWebSocketInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebSocketInformation {}
-impl ::core::fmt::Debug for IWebSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebSocketInformation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation {
@@ -1795,17 +1729,6 @@ impl ::core::convert::TryFrom<&IWebSocketInformation2> for ::windows::core::InPa
 impl ::core::clone::Clone for IWebSocketInformation2 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWebSocketInformation2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebSocketInformation2 {}
-impl ::core::fmt::Debug for IWebSocketInformation2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebSocketInformation2").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IWebSocketInformation2 {
@@ -1981,17 +1904,6 @@ impl ControlChannelTrigger {
 impl ::core::clone::Clone for ControlChannelTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ControlChannelTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ControlChannelTrigger {}
-impl ::core::fmt::Debug for ControlChannelTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
@@ -2215,17 +2127,6 @@ impl ::core::clone::Clone for DatagramSocket {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DatagramSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocket {}
-impl ::core::fmt::Debug for DatagramSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DatagramSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2332,17 +2233,6 @@ impl ::core::clone::Clone for DatagramSocketControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DatagramSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketControl {}
-impl ::core::fmt::Debug for DatagramSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2398,17 +2288,6 @@ impl DatagramSocketInformation {
 impl ::core::clone::Clone for DatagramSocketInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketInformation {}
-impl ::core::fmt::Debug for DatagramSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketInformation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
@@ -2477,17 +2356,6 @@ impl DatagramSocketMessageReceivedEventArgs {
 impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocketMessageReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketMessageReceivedEventArgs {}
-impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketMessageReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
@@ -2641,17 +2509,6 @@ impl MessageWebSocket {
 impl ::core::clone::Clone for MessageWebSocket {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MessageWebSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageWebSocket {}
-impl ::core::fmt::Debug for MessageWebSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocket").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocket {
@@ -2855,17 +2712,6 @@ impl ::core::clone::Clone for MessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MessageWebSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageWebSocketControl {}
-impl ::core::fmt::Debug for MessageWebSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketControl;{8118388a-c629-4f0a-80fb-81fc05538862})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2988,17 +2834,6 @@ impl ::core::clone::Clone for MessageWebSocketInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MessageWebSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageWebSocketInformation {}
-impl ::core::fmt::Debug for MessageWebSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3098,17 +2933,6 @@ impl ::core::clone::Clone for MessageWebSocketMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MessageWebSocketMessageReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageWebSocketMessageReceivedEventArgs {}
-impl ::core::fmt::Debug for MessageWebSocketMessageReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketMessageReceivedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs;{478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3201,17 +3025,6 @@ impl ::core::clone::Clone for ServerMessageWebSocket {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ServerMessageWebSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServerMessageWebSocket {}
-impl ::core::fmt::Debug for ServerMessageWebSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServerMessageWebSocket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocket;{e3ac9240-813b-5efd-7e11-ae2305fc77f1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3274,17 +3087,6 @@ impl ::core::clone::Clone for ServerMessageWebSocketControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ServerMessageWebSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServerMessageWebSocketControl {}
-impl ::core::fmt::Debug for ServerMessageWebSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServerMessageWebSocketControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerMessageWebSocketControl;{69c2f051-1c1f-587a-4519-2181610192b7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3333,17 +3135,6 @@ impl ServerMessageWebSocketInformation {
 impl ::core::clone::Clone for ServerMessageWebSocketInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ServerMessageWebSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServerMessageWebSocketInformation {}
-impl ::core::fmt::Debug for ServerMessageWebSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServerMessageWebSocketInformation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
@@ -3425,17 +3216,6 @@ impl ::core::clone::Clone for ServerStreamWebSocket {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ServerStreamWebSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServerStreamWebSocket {}
-impl ::core::fmt::Debug for ServerStreamWebSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServerStreamWebSocket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocket;{2ced5bbf-74f6-55e4-79df-9132680dfee8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3508,17 +3288,6 @@ impl ::core::clone::Clone for ServerStreamWebSocketInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ServerStreamWebSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServerStreamWebSocketInformation {}
-impl ::core::fmt::Debug for ServerStreamWebSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ServerStreamWebSocketInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ServerStreamWebSocketInformation;{fc32b45f-4448-5505-6cc9-09aba8915f5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3572,17 +3341,6 @@ impl SocketActivityContext {
 impl ::core::clone::Clone for SocketActivityContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SocketActivityContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityContext {}
-impl ::core::fmt::Debug for SocketActivityContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityContext {
@@ -3676,17 +3434,6 @@ impl ::core::clone::Clone for SocketActivityInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SocketActivityInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityInformation {}
-impl ::core::fmt::Debug for SocketActivityInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SocketActivityInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.SocketActivityInformation;{8d8a42e4-a87e-4b74-9968-185b2511defe})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3728,17 +3475,6 @@ impl SocketActivityTriggerDetails {
 impl ::core::clone::Clone for SocketActivityTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SocketActivityTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityTriggerDetails {}
-impl ::core::fmt::Debug for SocketActivityTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
@@ -3939,17 +3675,6 @@ impl ::core::clone::Clone for StreamSocket {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocket {}
-impl ::core::fmt::Debug for StreamSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamSocket {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocket;{69a22cf3-fc7b-4857-af38-f6e7de6a5b49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4102,17 +3827,6 @@ impl ::core::clone::Clone for StreamSocketControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketControl {}
-impl ::core::fmt::Debug for StreamSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketControl;{fe25adf1-92ab-4af3-9992-0f4c85e36cc4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4248,17 +3962,6 @@ impl ::core::clone::Clone for StreamSocketInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketInformation {}
-impl ::core::fmt::Debug for StreamSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketInformation;{3b80ae30-5e68-4205-88f0-dc85d2e25ded})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4391,17 +4094,6 @@ impl ::core::clone::Clone for StreamSocketListener {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamSocketListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketListener {}
-impl ::core::fmt::Debug for StreamSocketListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListener;{ff513437-df9f-4df0-bf82-0ec5d7b35aae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4458,17 +4150,6 @@ impl StreamSocketListenerConnectionReceivedEventArgs {
 impl ::core::clone::Clone for StreamSocketListenerConnectionReceivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StreamSocketListenerConnectionReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketListenerConnectionReceivedEventArgs {}
-impl ::core::fmt::Debug for StreamSocketListenerConnectionReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketListenerConnectionReceivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
@@ -4555,17 +4236,6 @@ impl ::core::clone::Clone for StreamSocketListenerControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamSocketListenerControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketListenerControl {}
-impl ::core::fmt::Debug for StreamSocketListenerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketListenerControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamSocketListenerControl;{20d8c576-8d8a-4dba-9722-a16c4d984980})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4600,17 +4270,6 @@ impl StreamSocketListenerInformation {
 impl ::core::clone::Clone for StreamSocketListenerInformation {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StreamSocketListenerInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamSocketListenerInformation {}
-impl ::core::fmt::Debug for StreamSocketListenerInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamSocketListenerInformation").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
@@ -4732,17 +4391,6 @@ impl StreamWebSocket {
 impl ::core::clone::Clone for StreamWebSocket {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StreamWebSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamWebSocket {}
-impl ::core::fmt::Debug for StreamWebSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamWebSocket").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StreamWebSocket {
@@ -4924,17 +4572,6 @@ impl ::core::clone::Clone for StreamWebSocketControl {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamWebSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamWebSocketControl {}
-impl ::core::fmt::Debug for StreamWebSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamWebSocketControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketControl;{b4f478b1-a45a-48db-953a-645b7d964c07})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5057,17 +4694,6 @@ impl ::core::clone::Clone for StreamWebSocketInformation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StreamWebSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamWebSocketInformation {}
-impl ::core::fmt::Debug for StreamWebSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StreamWebSocketInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StreamWebSocketInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.StreamWebSocketInformation;{5e01e316-c92a-47a5-b25f-07847639d181})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5149,17 +4775,6 @@ impl ::core::clone::Clone for WebSocketClosedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebSocketClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebSocketClosedEventArgs {}
-impl ::core::fmt::Debug for WebSocketClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebSocketClosedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketClosedEventArgs;{ceb78d07-d0a8-4703-a091-c8c2c0915bc3})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5227,20 +4842,6 @@ impl WebSocketKeepAlive {
 impl ::core::clone::Clone for WebSocketKeepAlive {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::cmp::PartialEq for WebSocketKeepAlive {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::cmp::Eq for WebSocketKeepAlive {}
-#[cfg(feature = "ApplicationModel_Background")]
-impl ::core::fmt::Debug for WebSocketKeepAlive {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebSocketKeepAlive").field(&self.0).finish()
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -5348,17 +4949,6 @@ impl ::core::clone::Clone for WebSocketServerCustomValidationRequestedEventArgs 
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WebSocketServerCustomValidationRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebSocketServerCustomValidationRequestedEventArgs {}
-impl ::core::fmt::Debug for WebSocketServerCustomValidationRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebSocketServerCustomValidationRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs;{ffeffe48-022a-4ab7-8b36-e10af4640e6b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5394,18 +4984,8 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
         *self
     }
 }
-impl ::core::default::Default for ControlChannelTriggerResetReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
@@ -5428,18 +5008,8 @@ impl ::core::clone::Clone for ControlChannelTriggerResourceType {
         *self
     }
 }
-impl ::core::default::Default for ControlChannelTriggerResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
@@ -5467,18 +5037,8 @@ impl ::core::clone::Clone for ControlChannelTriggerStatus {
         *self
     }
 }
-impl ::core::default::Default for ControlChannelTriggerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
@@ -5501,18 +5061,8 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
         *self
     }
 }
-impl ::core::default::Default for MessageWebSocketReceiveMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
@@ -5535,18 +5085,8 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
         *self
     }
 }
-impl ::core::default::Default for SocketActivityConnectedStandbyAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
@@ -5571,18 +5111,8 @@ impl ::core::clone::Clone for SocketActivityKind {
         *self
     }
 }
-impl ::core::default::Default for SocketActivityKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
@@ -5608,18 +5138,8 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
         *self
     }
 }
-impl ::core::default::Default for SocketActivityTriggerReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityTriggerReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
@@ -5671,18 +5191,8 @@ impl ::core::clone::Clone for SocketErrorStatus {
         *self
     }
 }
-impl ::core::default::Default for SocketErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketErrorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
@@ -5705,18 +5215,8 @@ impl ::core::clone::Clone for SocketMessageType {
         *self
     }
 }
-impl ::core::default::Default for SocketMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketMessageType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketMessageType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketMessageType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
@@ -5747,18 +5247,8 @@ impl ::core::clone::Clone for SocketProtectionLevel {
         *self
     }
 }
-impl ::core::default::Default for SocketProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketProtectionLevel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
@@ -5781,18 +5271,8 @@ impl ::core::clone::Clone for SocketQualityOfService {
         *self
     }
 }
-impl ::core::default::Default for SocketQualityOfService {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketQualityOfService {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketQualityOfService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
@@ -5816,18 +5296,8 @@ impl ::core::clone::Clone for SocketSslErrorSeverity {
         *self
     }
 }
-impl ::core::default::Default for SocketSslErrorSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketSslErrorSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
@@ -5852,11 +5322,6 @@ impl ::core::clone::Clone for BandwidthStatistics {
         *self
     }
 }
-impl ::core::fmt::Debug for BandwidthStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for BandwidthStatistics {
     type Abi = Self;
 }
@@ -5865,17 +5330,6 @@ unsafe impl ::windows::core::RuntimeType for BandwidthStatistics {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for BandwidthStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.OutboundBitsPerSecond == other.OutboundBitsPerSecond && self.InboundBitsPerSecond == other.InboundBitsPerSecond && self.OutboundBitsPerSecondInstability == other.OutboundBitsPerSecondInstability && self.InboundBitsPerSecondInstability == other.InboundBitsPerSecondInstability && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
-    }
-}
-impl ::core::cmp::Eq for BandwidthStatistics {}
-impl ::core::default::Default for BandwidthStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -5892,11 +5346,6 @@ impl ::core::clone::Clone for RoundTripTimeStatistics {
         *self
     }
 }
-impl ::core::fmt::Debug for RoundTripTimeStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {
     type Abi = Self;
 }
@@ -5907,16 +5356,7 @@ unsafe impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        self.Variance == other.Variance && self.Max == other.Max && self.Min == other.Min && self.Sum == other.Sum
-    }
-}
-impl ::core::cmp::Eq for RoundTripTimeStatistics {}
-impl ::core::default::Default for RoundTripTimeStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

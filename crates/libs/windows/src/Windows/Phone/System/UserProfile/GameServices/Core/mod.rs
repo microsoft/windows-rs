@@ -177,17 +177,6 @@ impl ::core::clone::Clone for GameServicePropertyCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameServicePropertyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameServicePropertyCollection {}
-impl ::core::fmt::Debug for GameServicePropertyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameServicePropertyCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -223,18 +212,8 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
         *self
     }
 }
-impl ::core::default::Default for GameServiceGameOutcome {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameServiceGameOutcome {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameServiceGameOutcome {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameServiceGameOutcome").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameServiceGameOutcome {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceGameOutcome;i4)");
@@ -257,18 +236,8 @@ impl ::core::clone::Clone for GameServiceScoreKind {
         *self
     }
 }
-impl ::core::default::Default for GameServiceScoreKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameServiceScoreKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameServiceScoreKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameServiceScoreKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameServiceScoreKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
@@ -279,3 +248,5 @@ unsafe impl ::windows::core::RuntimeType for GameServiceScoreKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

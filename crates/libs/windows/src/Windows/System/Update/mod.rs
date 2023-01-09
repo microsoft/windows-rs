@@ -174,17 +174,6 @@ impl ::core::clone::Clone for SystemUpdateItem {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemUpdateItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateItem {}
-impl ::core::fmt::Debug for SystemUpdateItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Update.SystemUpdateItem;{779740eb-5624-519e-a8e2-09e9173b3fb7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -233,17 +222,6 @@ impl SystemUpdateLastErrorInfo {
 impl ::core::clone::Clone for SystemUpdateLastErrorInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemUpdateLastErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateLastErrorInfo {}
-impl ::core::fmt::Debug for SystemUpdateLastErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateLastErrorInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateLastErrorInfo {
@@ -448,18 +426,8 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
         *self
     }
 }
-impl ::core::default::Default for SystemUpdateAttentionRequiredReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateAttentionRequiredReason;i4)");
@@ -489,18 +457,8 @@ impl ::core::clone::Clone for SystemUpdateItemState {
         *self
     }
 }
-impl ::core::default::Default for SystemUpdateItemState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateItemState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemUpdateItemState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateItemState;i4)");
@@ -533,18 +491,8 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
         *self
     }
 }
-impl ::core::default::Default for SystemUpdateManagerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateManagerState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemUpdateManagerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateManagerState;i4)");
@@ -567,18 +515,8 @@ impl ::core::clone::Clone for SystemUpdateStartInstallAction {
         *self
     }
 }
-impl ::core::default::Default for SystemUpdateStartInstallAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemUpdateStartInstallAction {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
@@ -589,3 +527,5 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateStartInstallAction {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

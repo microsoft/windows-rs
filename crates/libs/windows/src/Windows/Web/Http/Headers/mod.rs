@@ -1505,17 +1505,6 @@ impl ::core::clone::Clone for HttpCacheDirectiveHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpCacheDirectiveHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCacheDirectiveHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpCacheDirectiveHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCacheDirectiveHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpCacheDirectiveHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection;{9a586b89-d5d0-4fbe-bd9d-b5b3636811b4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1693,17 +1682,6 @@ impl ::core::clone::Clone for HttpChallengeHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpChallengeHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpChallengeHeaderValue {}
-impl ::core::fmt::Debug for HttpChallengeHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpChallengeHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValue;{393361af-0f7d-4820-9fdd-a2b956eeaeab})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1871,17 +1849,6 @@ impl ::core::clone::Clone for HttpChallengeHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpChallengeHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpChallengeHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpChallengeHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpChallengeHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection;{ca9e5f81-aee0-4353-a10b-e625babd64c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2035,17 +2002,6 @@ impl HttpConnectionOptionHeaderValue {
 impl ::core::clone::Clone for HttpConnectionOptionHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpConnectionOptionHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpConnectionOptionHeaderValue {}
-impl ::core::fmt::Debug for HttpConnectionOptionHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpConnectionOptionHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValue {
@@ -2215,17 +2171,6 @@ impl ::core::clone::Clone for HttpConnectionOptionHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpConnectionOptionHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpConnectionOptionHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpConnectionOptionHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpConnectionOptionHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection;{e4f56c1d-5142-4e00-8e0f-019509337629})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2379,17 +2324,6 @@ impl HttpContentCodingHeaderValue {
 impl ::core::clone::Clone for HttpContentCodingHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpContentCodingHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentCodingHeaderValue {}
-impl ::core::fmt::Debug for HttpContentCodingHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentCodingHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValue {
@@ -2557,17 +2491,6 @@ impl HttpContentCodingHeaderValueCollection {
 impl ::core::clone::Clone for HttpContentCodingHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpContentCodingHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentCodingHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpContentCodingHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentCodingHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValueCollection {
@@ -2740,17 +2663,6 @@ impl ::core::clone::Clone for HttpContentCodingWithQualityHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpContentCodingWithQualityHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentCodingWithQualityHeaderValue {}
-impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentCodingWithQualityHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue;{94531cd5-8b13-4d73-8651-f76b38f88495})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2916,17 +2828,6 @@ impl HttpContentCodingWithQualityHeaderValueCollection {
 impl ::core::clone::Clone for HttpContentCodingWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpContentCodingWithQualityHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentCodingWithQualityHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentCodingWithQualityHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValueCollection {
@@ -3147,17 +3048,6 @@ impl HttpContentDispositionHeaderValue {
 impl ::core::clone::Clone for HttpContentDispositionHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpContentDispositionHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentDispositionHeaderValue {}
-impl ::core::fmt::Debug for HttpContentDispositionHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentDispositionHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpContentDispositionHeaderValue {
@@ -3442,17 +3332,6 @@ impl ::core::clone::Clone for HttpContentHeaderCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpContentHeaderCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentHeaderCollection {}
-impl ::core::fmt::Debug for HttpContentHeaderCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentHeaderCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpContentHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentHeaderCollection;{40612a44-47ae-4b7e-9124-69628b64aa18})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3651,17 +3530,6 @@ impl ::core::clone::Clone for HttpContentRangeHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpContentRangeHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpContentRangeHeaderValue {}
-impl ::core::fmt::Debug for HttpContentRangeHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpContentRangeHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpContentRangeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentRangeHeaderValue;{04d967d3-a4f6-495c-9530-8579fcba8aa9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3772,17 +3640,6 @@ impl HttpCookiePairHeaderValue {
 impl ::core::clone::Clone for HttpCookiePairHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpCookiePairHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCookiePairHeaderValue {}
-impl ::core::fmt::Debug for HttpCookiePairHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookiePairHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValue {
@@ -3950,17 +3807,6 @@ impl HttpCookiePairHeaderValueCollection {
 impl ::core::clone::Clone for HttpCookiePairHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpCookiePairHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCookiePairHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpCookiePairHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCookiePairHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValueCollection {
@@ -4140,17 +3986,6 @@ impl ::core::clone::Clone for HttpCredentialsHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpCredentialsHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCredentialsHeaderValue {}
-impl ::core::fmt::Debug for HttpCredentialsHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpCredentialsHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpCredentialsHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCredentialsHeaderValue;{c34cc3cb-542e-4177-a6c7-b674ce193fbf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4244,17 +4079,6 @@ impl HttpDateOrDeltaHeaderValue {
 impl ::core::clone::Clone for HttpDateOrDeltaHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpDateOrDeltaHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDateOrDeltaHeaderValue {}
-impl ::core::fmt::Debug for HttpDateOrDeltaHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpDateOrDeltaHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpDateOrDeltaHeaderValue {
@@ -4376,17 +4200,6 @@ impl HttpExpectationHeaderValue {
 impl ::core::clone::Clone for HttpExpectationHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpExpectationHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpExpectationHeaderValue {}
-impl ::core::fmt::Debug for HttpExpectationHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpExpectationHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValue {
@@ -4554,17 +4367,6 @@ impl HttpExpectationHeaderValueCollection {
 impl ::core::clone::Clone for HttpExpectationHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpExpectationHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpExpectationHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpExpectationHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpExpectationHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValueCollection {
@@ -4794,17 +4596,6 @@ impl ::core::clone::Clone for HttpLanguageHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpLanguageHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpLanguageHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpLanguageHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpLanguageHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpLanguageHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection;{9ebd7ca3-8219-44f6-9902-8c56dfd3340c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4975,17 +4766,6 @@ impl ::core::clone::Clone for HttpLanguageRangeWithQualityHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpLanguageRangeWithQualityHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpLanguageRangeWithQualityHeaderValue {}
-impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpLanguageRangeWithQualityHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue;{7256e102-0080-4db4-a083-7de7b2e5ba4c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5151,17 +4931,6 @@ impl HttpLanguageRangeWithQualityHeaderValueCollection {
 impl ::core::clone::Clone for HttpLanguageRangeWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpLanguageRangeWithQualityHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpLanguageRangeWithQualityHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValueCollection {
@@ -5343,17 +5112,6 @@ impl ::core::clone::Clone for HttpMediaTypeHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpMediaTypeHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMediaTypeHeaderValue {}
-impl ::core::fmt::Debug for HttpMediaTypeHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMediaTypeHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeHeaderValue;{16b28533-e728-4fcb-bdb0-08a431a14844})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5496,17 +5254,6 @@ impl HttpMediaTypeWithQualityHeaderValue {
 impl ::core::clone::Clone for HttpMediaTypeWithQualityHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpMediaTypeWithQualityHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMediaTypeWithQualityHeaderValue {}
-impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMediaTypeWithQualityHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValue {
@@ -5674,17 +5421,6 @@ impl HttpMediaTypeWithQualityHeaderValueCollection {
 impl ::core::clone::Clone for HttpMediaTypeWithQualityHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpMediaTypeWithQualityHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMediaTypeWithQualityHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMediaTypeWithQualityHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValueCollection {
@@ -5914,17 +5650,6 @@ impl ::core::clone::Clone for HttpMethodHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpMethodHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpMethodHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpMethodHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpMethodHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpMethodHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMethodHeaderValueCollection;{43bc3ff4-6119-4adf-938c-34bfffcf92ed})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6097,17 +5822,6 @@ impl ::core::clone::Clone for HttpNameValueHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpNameValueHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpNameValueHeaderValue {}
-impl ::core::fmt::Debug for HttpNameValueHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpNameValueHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpNameValueHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpNameValueHeaderValue;{d8ba7463-5b9a-4d1b-93f9-aa5b44ecfddf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6216,17 +5930,6 @@ impl ::core::clone::Clone for HttpProductHeaderValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpProductHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpProductHeaderValue {}
-impl ::core::fmt::Debug for HttpProductHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpProductHeaderValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpProductHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductHeaderValue;{f4feee03-ebd4-4160-b9ff-807c5183b6e6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6333,17 +6036,6 @@ impl HttpProductInfoHeaderValue {
 impl ::core::clone::Clone for HttpProductInfoHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpProductInfoHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpProductInfoHeaderValue {}
-impl ::core::fmt::Debug for HttpProductInfoHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpProductInfoHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValue {
@@ -6511,17 +6203,6 @@ impl HttpProductInfoHeaderValueCollection {
 impl ::core::clone::Clone for HttpProductInfoHeaderValueCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpProductInfoHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpProductInfoHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpProductInfoHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpProductInfoHeaderValueCollection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValueCollection {
@@ -6923,17 +6604,6 @@ impl ::core::clone::Clone for HttpRequestHeaderCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpRequestHeaderCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpRequestHeaderCollection {}
-impl ::core::fmt::Debug for HttpRequestHeaderCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpRequestHeaderCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpRequestHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpRequestHeaderCollection;{af40329b-b544-469b-86b9-ac3d466fea36})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7237,17 +6907,6 @@ impl ::core::clone::Clone for HttpResponseHeaderCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpResponseHeaderCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpResponseHeaderCollection {}
-impl ::core::fmt::Debug for HttpResponseHeaderCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpResponseHeaderCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpResponseHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpResponseHeaderCollection;{7a990969-fa3f-41ed-aac6-bf957975c16b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7410,17 +7069,6 @@ impl HttpTransferCodingHeaderValue {
 impl ::core::clone::Clone for HttpTransferCodingHeaderValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HttpTransferCodingHeaderValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpTransferCodingHeaderValue {}
-impl ::core::fmt::Debug for HttpTransferCodingHeaderValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpTransferCodingHeaderValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValue {
@@ -7590,17 +7238,6 @@ impl ::core::clone::Clone for HttpTransferCodingHeaderValueCollection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HttpTransferCodingHeaderValueCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpTransferCodingHeaderValueCollection {}
-impl ::core::fmt::Debug for HttpTransferCodingHeaderValueCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HttpTransferCodingHeaderValueCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection;{202c8c34-2c03-49b8-9665-73e27cb2fc79})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7704,3 +7341,5 @@ unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValueCollection {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

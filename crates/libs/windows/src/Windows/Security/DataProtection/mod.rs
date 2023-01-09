@@ -127,17 +127,6 @@ impl ::core::clone::Clone for UserDataAvailabilityStateChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataAvailabilityStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAvailabilityStateChangedEventArgs {}
-impl ::core::fmt::Debug for UserDataAvailabilityStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAvailabilityStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs;{a76582c9-06a2-4273-a803-834c9f87fbeb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -181,17 +170,6 @@ impl UserDataBufferUnprotectResult {
 impl ::core::clone::Clone for UserDataBufferUnprotectResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserDataBufferUnprotectResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataBufferUnprotectResult {}
-impl ::core::fmt::Debug for UserDataBufferUnprotectResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataBufferUnprotectResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectResult {
@@ -316,17 +294,6 @@ impl ::core::clone::Clone for UserDataProtectionManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataProtectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataProtectionManager {}
-impl ::core::fmt::Debug for UserDataProtectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataProtectionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataProtectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataProtectionManager;{1f13237d-b42e-4a88-9480-0f240924c876})");
     type DefaultType = ::core::option::Option<Self>;
@@ -363,17 +330,6 @@ impl ::core::clone::Clone for UserDataStorageItemProtectionInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserDataStorageItemProtectionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataStorageItemProtectionInfo {}
-impl ::core::fmt::Debug for UserDataStorageItemProtectionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataStorageItemProtectionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.DataProtection.UserDataStorageItemProtectionInfo;{5b6680f6-e87f-40a1-b19d-a6187a0c662f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -408,18 +364,8 @@ impl ::core::clone::Clone for UserDataAvailability {
         *self
     }
 }
-impl ::core::default::Default for UserDataAvailability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataAvailability {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAvailability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAvailability").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
@@ -442,18 +388,8 @@ impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
         *self
     }
 }
-impl ::core::default::Default for UserDataBufferUnprotectStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
@@ -477,18 +413,8 @@ impl ::core::clone::Clone for UserDataStorageItemProtectionStatus {
         *self
     }
 }
-impl ::core::default::Default for UserDataStorageItemProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserDataStorageItemProtectionStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataStorageItemProtectionStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
@@ -499,3 +425,5 @@ unsafe impl ::windows::core::RuntimeType for UserDataStorageItemProtectionStatus
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

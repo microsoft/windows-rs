@@ -196,17 +196,6 @@ impl ::core::clone::Clone for IStorageItemAccessList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IStorageItemAccessList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemAccessList {}
-impl ::core::fmt::Debug for IStorageItemAccessList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemAccessList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
     type DefaultType = ::core::option::Option<Self>;
@@ -362,20 +351,6 @@ impl ::core::clone::Clone for AccessListEntryView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for AccessListEntryView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for AccessListEntryView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for AccessListEntryView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessListEntryView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
     type DefaultType = ::core::option::Option<Self>;
@@ -472,17 +447,6 @@ impl ItemRemovedEventArgs {
 impl ::core::clone::Clone for ItemRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ItemRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ItemRemovedEventArgs {}
-impl ::core::fmt::Debug for ItemRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ItemRemovedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
@@ -689,17 +653,6 @@ impl StorageItemAccessList {
 impl ::core::clone::Clone for StorageItemAccessList {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorageItemAccessList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemAccessList {}
-impl ::core::fmt::Debug for StorageItemAccessList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemAccessList").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorageItemAccessList {
@@ -916,17 +869,6 @@ impl ::core::clone::Clone for StorageItemMostRecentlyUsedList {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageItemMostRecentlyUsedList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemMostRecentlyUsedList {}
-impl ::core::fmt::Debug for StorageItemMostRecentlyUsedList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemMostRecentlyUsedList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
     type DefaultType = ::core::option::Option<Self>;
@@ -980,46 +922,8 @@ impl ::core::clone::Clone for AccessCacheOptions {
         *self
     }
 }
-impl ::core::default::Default for AccessCacheOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AccessCacheOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AccessCacheOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AccessCacheOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AccessCacheOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AccessCacheOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AccessCacheOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AccessCacheOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
@@ -1042,18 +946,8 @@ impl ::core::clone::Clone for RecentStorageItemVisibility {
         *self
     }
 }
-impl ::core::default::Default for RecentStorageItemVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for RecentStorageItemVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
@@ -1073,11 +967,6 @@ impl ::core::clone::Clone for AccessListEntry {
         Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
     }
 }
-impl ::core::fmt::Debug for AccessListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AccessListEntry {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
@@ -1088,16 +977,7 @@ unsafe impl ::windows::core::RuntimeType for AccessListEntry {
         Ok(from.clone())
     }
 }
-impl ::core::cmp::PartialEq for AccessListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token && self.Metadata == other.Metadata
-    }
-}
-impl ::core::cmp::Eq for AccessListEntry {}
-impl ::core::default::Default for AccessListEntry {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

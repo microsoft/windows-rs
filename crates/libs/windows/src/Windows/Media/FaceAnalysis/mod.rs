@@ -161,17 +161,6 @@ impl ::core::clone::Clone for DetectedFace {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DetectedFace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DetectedFace {}
-impl ::core::fmt::Debug for DetectedFace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DetectedFace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DetectedFace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.DetectedFace;{8200d454-66bc-34df-9410-e89400195414})");
     type DefaultType = ::core::option::Option<Self>;
@@ -284,17 +273,6 @@ impl ::core::clone::Clone for FaceDetector {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FaceDetector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceDetector {}
-impl ::core::fmt::Debug for FaceDetector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceDetector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FaceDetector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceDetector;{16b672dc-fe6f-3117-8d95-c3f04d51630c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -398,17 +376,6 @@ impl ::core::clone::Clone for FaceTracker {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for FaceTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceTracker {}
-impl ::core::fmt::Debug for FaceTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FaceTracker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for FaceTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.FaceAnalysis.FaceTracker;{6ba67d8c-a841-4420-93e6-2420a1884fcf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -430,3 +397,5 @@ unsafe impl ::core::marker::Send for FaceTracker {}
 unsafe impl ::core::marker::Sync for FaceTracker {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

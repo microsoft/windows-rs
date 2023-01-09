@@ -423,17 +423,6 @@ impl ::core::clone::Clone for KeyboardCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for KeyboardCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyboardCapabilities {}
-impl ::core::fmt::Debug for KeyboardCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyboardCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for KeyboardCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.KeyboardCapabilities;{3a3f9b56-6798-4bbc-833e-0f34b17c65ff})");
     type DefaultType = ::core::option::Option<Self>;
@@ -505,17 +494,6 @@ impl ::core::clone::Clone for MouseCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MouseCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseCapabilities {}
-impl ::core::fmt::Debug for MouseCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MouseCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseCapabilities;{bca5e023-7dd9-4b6b-9a92-55d43cb38f73})");
     type DefaultType = ::core::option::Option<Self>;
@@ -571,17 +549,6 @@ impl ::core::clone::Clone for MouseDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MouseDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseDevice {}
-impl ::core::fmt::Debug for MouseDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MouseDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseDevice;{88edf458-f2c8-49f4-be1f-c256b388bc11})");
     type DefaultType = ::core::option::Option<Self>;
@@ -614,17 +581,6 @@ impl MouseEventArgs {
 impl ::core::clone::Clone for MouseEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MouseEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseEventArgs {}
-impl ::core::fmt::Debug for MouseEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MouseEventArgs {
@@ -732,17 +688,6 @@ impl ::core::clone::Clone for PenButtonListener {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PenButtonListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenButtonListener {}
-impl ::core::fmt::Debug for PenButtonListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenButtonListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PenButtonListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenButtonListener;{8245c376-1ee3-53f7-b1f7-8334a16f2815})");
     type DefaultType = ::core::option::Option<Self>;
@@ -797,17 +742,6 @@ impl PenDevice {
 impl ::core::clone::Clone for PenDevice {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PenDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDevice {}
-impl ::core::fmt::Debug for PenDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDevice").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PenDevice {
@@ -902,17 +836,6 @@ impl ::core::clone::Clone for PenDockListener {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PenDockListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDockListener {}
-impl ::core::fmt::Debug for PenDockListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDockListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PenDockListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockListener;{759f4d90-1dc0-55cb-ad18-b9101456f592})");
     type DefaultType = ::core::option::Option<Self>;
@@ -939,17 +862,6 @@ impl PenDockedEventArgs {}
 impl ::core::clone::Clone for PenDockedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PenDockedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDockedEventArgs {}
-impl ::core::fmt::Debug for PenDockedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDockedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PenDockedEventArgs {
@@ -980,17 +892,6 @@ impl ::core::clone::Clone for PenTailButtonClickedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PenTailButtonClickedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonClickedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonClickedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonClickedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PenTailButtonClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonClickedEventArgs;{5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1017,17 +918,6 @@ impl PenTailButtonDoubleClickedEventArgs {}
 impl ::core::clone::Clone for PenTailButtonDoubleClickedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PenTailButtonDoubleClickedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonDoubleClickedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonDoubleClickedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonDoubleClickedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
@@ -1058,17 +948,6 @@ impl ::core::clone::Clone for PenTailButtonLongPressedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PenTailButtonLongPressedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonLongPressedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonLongPressedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonLongPressedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PenTailButtonLongPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonLongPressedEventArgs;{f37c606e-c60a-5f42-b818-a53112406c13})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1095,17 +974,6 @@ impl PenUndockedEventArgs {}
 impl ::core::clone::Clone for PenUndockedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PenUndockedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenUndockedEventArgs {}
-impl ::core::fmt::Debug for PenUndockedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenUndockedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PenUndockedEventArgs {
@@ -1211,17 +1079,6 @@ impl ::core::clone::Clone for PointerDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PointerDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointerDevice {}
-impl ::core::fmt::Debug for PointerDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointerDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PointerDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PointerDevice;{93c9bafc-ebcb-467e-82c6-276feae36b5a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1270,17 +1127,6 @@ impl ::core::clone::Clone for TouchCapabilities {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TouchCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TouchCapabilities {}
-impl ::core::fmt::Debug for TouchCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TouchCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TouchCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.TouchCapabilities;{20dd55f9-13f1-46c8-9285-2c05fa3eda6f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1315,18 +1161,8 @@ impl ::core::clone::Clone for PointerDeviceType {
         *self
     }
 }
-impl ::core::default::Default for PointerDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PointerDeviceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PointerDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointerDeviceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PointerDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.PointerDeviceType;i4)");
@@ -1347,11 +1183,6 @@ impl ::core::clone::Clone for MouseDelta {
         *self
     }
 }
-impl ::core::fmt::Debug for MouseDelta {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MouseDelta").field("X", &self.X).field("Y", &self.Y).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MouseDelta {
     type Abi = Self;
 }
@@ -1360,17 +1191,6 @@ unsafe impl ::windows::core::RuntimeType for MouseDelta {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for MouseDelta {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y
-    }
-}
-impl ::core::cmp::Eq for MouseDelta {}
-impl ::core::default::Default for MouseDelta {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1391,11 +1211,6 @@ impl ::core::clone::Clone for PointerDeviceUsage {
         *self
     }
 }
-impl ::core::fmt::Debug for PointerDeviceUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PointerDeviceUsage").field("UsagePage", &self.UsagePage).field("Usage", &self.Usage).field("MinLogical", &self.MinLogical).field("MaxLogical", &self.MaxLogical).field("MinPhysical", &self.MinPhysical).field("MaxPhysical", &self.MaxPhysical).field("Unit", &self.Unit).field("PhysicalMultiplier", &self.PhysicalMultiplier).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for PointerDeviceUsage {
     type Abi = Self;
 }
@@ -1406,16 +1221,7 @@ unsafe impl ::windows::core::RuntimeType for PointerDeviceUsage {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for PointerDeviceUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsagePage == other.UsagePage && self.Usage == other.Usage && self.MinLogical == other.MinLogical && self.MaxLogical == other.MaxLogical && self.MinPhysical == other.MinPhysical && self.MaxPhysical == other.MaxPhysical && self.Unit == other.Unit && self.PhysicalMultiplier == other.PhysicalMultiplier
-    }
-}
-impl ::core::cmp::Eq for PointerDeviceUsage {}
-impl ::core::default::Default for PointerDeviceUsage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

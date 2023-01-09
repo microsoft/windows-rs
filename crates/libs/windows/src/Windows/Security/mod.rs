@@ -16,3 +16,5 @@ pub mod ExchangeActiveSyncProvisioning;
 pub mod Isolation;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

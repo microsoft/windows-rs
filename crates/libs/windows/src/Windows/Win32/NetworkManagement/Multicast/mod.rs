@@ -67,11 +67,6 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
 unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
     type Abi = Self;
 }
-impl ::core::default::Default for IPNG_ADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_CLIENT_UID {
@@ -84,24 +79,8 @@ impl ::core::clone::Clone for MCAST_CLIENT_UID {
         *self
     }
 }
-impl ::core::fmt::Debug for MCAST_CLIENT_UID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientUID == other.ClientUID && self.ClientUIDLength == other.ClientUIDLength
-    }
-}
-impl ::core::cmp::Eq for MCAST_CLIENT_UID {}
-impl ::core::default::Default for MCAST_CLIENT_UID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
@@ -124,11 +103,6 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
 unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
     type Abi = Self;
 }
-impl ::core::default::Default for MCAST_LEASE_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_LEASE_RESPONSE {
@@ -147,11 +121,6 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
 unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
     type Abi = Self;
 }
-impl ::core::default::Default for MCAST_LEASE_RESPONSE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_SCOPE_CTX {
@@ -167,11 +136,6 @@ impl ::core::clone::Clone for MCAST_SCOPE_CTX {
 }
 unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
     type Abi = Self;
-}
-impl ::core::default::Default for MCAST_SCOPE_CTX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
@@ -194,11 +158,7 @@ impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
 unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCAST_SCOPE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

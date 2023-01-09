@@ -39,17 +39,6 @@ impl ::core::clone::Clone for DisplayRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DisplayRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayRequest {}
-impl ::core::fmt::Debug for DisplayRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DisplayRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Display.DisplayRequest;{e5732044-f49f-4b60-8dd4-5e7e3a632ac0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -69,3 +58,5 @@ impl ::windows::core::RuntimeName for DisplayRequest {
 ::windows::core::interface_hierarchy!(DisplayRequest, ::windows::core::IUnknown, ::windows::core::IInspectable);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

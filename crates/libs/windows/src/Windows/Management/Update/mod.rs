@@ -570,17 +570,6 @@ impl ::core::clone::Clone for PreviewBuildsManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PreviewBuildsManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PreviewBuildsManager {}
-impl ::core::fmt::Debug for PreviewBuildsManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PreviewBuildsManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
     type DefaultType = ::core::option::Option<Self>;
@@ -617,17 +606,6 @@ impl PreviewBuildsState {
 impl ::core::clone::Clone for PreviewBuildsState {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PreviewBuildsState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PreviewBuildsState {}
-impl ::core::fmt::Debug for PreviewBuildsState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PreviewBuildsState").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsState {
@@ -830,17 +808,6 @@ impl ::core::clone::Clone for WindowsUpdate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdate {}
-impl ::core::fmt::Debug for WindowsUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdate;{c3c88dd7-0ef3-52b2-a9ad-66bfc6bd9582})");
     type DefaultType = ::core::option::Option<Self>;
@@ -898,17 +865,6 @@ impl ::core::clone::Clone for WindowsUpdateActionCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateActionCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateActionCompletedEventArgs {}
-impl ::core::fmt::Debug for WindowsUpdateActionCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateActionCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateActionCompletedEventArgs;{2c44b950-a655-5321-aec1-aee762922131})");
     type DefaultType = ::core::option::Option<Self>;
@@ -950,17 +906,6 @@ impl WindowsUpdateActionProgress {
 impl ::core::clone::Clone for WindowsUpdateActionProgress {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateActionProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateActionProgress {}
-impl ::core::fmt::Debug for WindowsUpdateActionProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateActionProgress").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateActionProgress {
@@ -1020,17 +965,6 @@ impl WindowsUpdateActionResult {
 impl ::core::clone::Clone for WindowsUpdateActionResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateActionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateActionResult {}
-impl ::core::fmt::Debug for WindowsUpdateActionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateActionResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateActionResult {
@@ -1127,17 +1061,6 @@ impl WindowsUpdateAdministrator {
 impl ::core::clone::Clone for WindowsUpdateAdministrator {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateAdministrator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateAdministrator {}
-impl ::core::fmt::Debug for WindowsUpdateAdministrator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAdministrator").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAdministrator {
@@ -1271,17 +1194,6 @@ impl ::core::clone::Clone for WindowsUpdateApprovalData {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateApprovalData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateApprovalData {}
-impl ::core::fmt::Debug for WindowsUpdateApprovalData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateApprovalData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateApprovalData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateApprovalData;{aadf5bfd-84db-59bc-85e2-ad4fc1f62f7c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1327,17 +1239,6 @@ impl ::core::clone::Clone for WindowsUpdateAttentionRequiredInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateAttentionRequiredInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateAttentionRequiredInfo {}
-impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAttentionRequiredInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredInfo;{44df2579-74d3-5ffa-b6ce-09e187e1e0ed})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1381,17 +1282,6 @@ impl ::core::clone::Clone for WindowsUpdateAttentionRequiredReasonChangedEventAr
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateAttentionRequiredReasonChangedEventArgs {}
-impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAttentionRequiredReasonChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateAttentionRequiredReasonChangedEventArgs;{0627abca-dbb8-524a-b1d2-d9df004eeb31})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1433,17 +1323,6 @@ impl WindowsUpdateGetAdministratorResult {
 impl ::core::clone::Clone for WindowsUpdateGetAdministratorResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateGetAdministratorResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateGetAdministratorResult {}
-impl ::core::fmt::Debug for WindowsUpdateGetAdministratorResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateGetAdministratorResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateGetAdministratorResult {
@@ -1533,17 +1412,6 @@ impl WindowsUpdateItem {
 impl ::core::clone::Clone for WindowsUpdateItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateItem {}
-impl ::core::fmt::Debug for WindowsUpdateItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateItem {
@@ -1730,17 +1598,6 @@ impl ::core::clone::Clone for WindowsUpdateManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateManager {}
-impl ::core::fmt::Debug for WindowsUpdateManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateManager;{5dd966c0-a71a-5602-bbd0-09a70e4573fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1782,17 +1639,6 @@ impl WindowsUpdateProgressChangedEventArgs {
 impl ::core::clone::Clone for WindowsUpdateProgressChangedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WindowsUpdateProgressChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateProgressChangedEventArgs {}
-impl ::core::fmt::Debug for WindowsUpdateProgressChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateProgressChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
@@ -1925,17 +1771,6 @@ impl ::core::clone::Clone for WindowsUpdateRestartRequestOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateRestartRequestOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateRestartRequestOptions {}
-impl ::core::fmt::Debug for WindowsUpdateRestartRequestOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateRestartRequestOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateRestartRequestOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateRestartRequestOptions;{38cfb7d3-4188-5222-905c-6c4443c951ee})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1995,17 +1830,6 @@ impl ::core::clone::Clone for WindowsUpdateScanCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WindowsUpdateScanCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowsUpdateScanCompletedEventArgs {}
-impl ::core::fmt::Debug for WindowsUpdateScanCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateScanCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.WindowsUpdateScanCompletedEventArgs;{95b6953e-ba5c-5fe8-b115-12de184a6bb0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2041,46 +1865,8 @@ impl ::core::clone::Clone for WindowsUpdateAdministratorOptions {
         *self
     }
 }
-impl ::core::default::Default for WindowsUpdateAdministratorOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WindowsUpdateAdministratorOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WindowsUpdateAdministratorOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAdministratorOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WindowsUpdateAdministratorOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WindowsUpdateAdministratorOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WindowsUpdateAdministratorOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WindowsUpdateAdministratorOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WindowsUpdateAdministratorOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAdministratorOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorOptions;u4)");
@@ -2104,18 +1890,8 @@ impl ::core::clone::Clone for WindowsUpdateAdministratorStatus {
         *self
     }
 }
-impl ::core::default::Default for WindowsUpdateAdministratorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WindowsUpdateAdministratorStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WindowsUpdateAdministratorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAdministratorStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAdministratorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAdministratorStatus;i4)");
@@ -2169,18 +1945,8 @@ impl ::core::clone::Clone for WindowsUpdateAttentionRequiredReason {
         *self
     }
 }
-impl ::core::default::Default for WindowsUpdateAttentionRequiredReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WindowsUpdateAttentionRequiredReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowsUpdateAttentionRequiredReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAttentionRequiredReason;i4)");
@@ -2191,3 +1957,5 @@ unsafe impl ::windows::core::RuntimeType for WindowsUpdateAttentionRequiredReaso
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

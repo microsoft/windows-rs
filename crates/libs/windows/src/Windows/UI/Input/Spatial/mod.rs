@@ -1260,17 +1260,6 @@ impl ::core::clone::Clone for SpatialGestureRecognizer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialGestureRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialGestureRecognizer {}
-impl ::core::fmt::Debug for SpatialGestureRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialGestureRecognizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialGestureRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialGestureRecognizer;{71605bcc-0c35-4673-adbd-cc04caa6ef45})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1307,17 +1296,6 @@ impl ::core::clone::Clone for SpatialHoldCanceledEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialHoldCanceledEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialHoldCanceledEventArgs {}
-impl ::core::fmt::Debug for SpatialHoldCanceledEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialHoldCanceledEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialHoldCanceledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs;{5dfcb667-4caa-4093-8c35-b601a839f31b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1352,17 +1330,6 @@ impl SpatialHoldCompletedEventArgs {
 impl ::core::clone::Clone for SpatialHoldCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialHoldCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialHoldCompletedEventArgs {}
-impl ::core::fmt::Debug for SpatialHoldCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialHoldCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialHoldCompletedEventArgs {
@@ -1410,17 +1377,6 @@ impl ::core::clone::Clone for SpatialHoldStartedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialHoldStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialHoldStartedEventArgs {}
-impl ::core::fmt::Debug for SpatialHoldStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialHoldStartedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialHoldStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs;{8e343d79-acb6-4144-8615-2cfba8a3cb3f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1455,17 +1411,6 @@ impl SpatialInteraction {
 impl ::core::clone::Clone for SpatialInteraction {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialInteraction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteraction {}
-impl ::core::fmt::Debug for SpatialInteraction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteraction").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteraction {
@@ -1559,17 +1504,6 @@ impl ::core::clone::Clone for SpatialInteractionController {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionController {}
-impl ::core::fmt::Debug for SpatialInteractionController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionController").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionController;{5f0e5ba3-0954-4e97-86c5-e7f30b114dfd})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1648,17 +1582,6 @@ impl ::core::clone::Clone for SpatialInteractionControllerProperties {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionControllerProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionControllerProperties {}
-impl ::core::fmt::Debug for SpatialInteractionControllerProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionControllerProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionControllerProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionControllerProperties;{61056fb1-7ba9-4e35-b93f-9272cba9b28b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1716,17 +1639,6 @@ impl SpatialInteractionDetectedEventArgs {
 impl ::core::clone::Clone for SpatialInteractionDetectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialInteractionDetectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionDetectedEventArgs {}
-impl ::core::fmt::Debug for SpatialInteractionDetectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionDetectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionDetectedEventArgs {
@@ -1879,17 +1791,6 @@ impl ::core::clone::Clone for SpatialInteractionManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionManager {}
-impl ::core::fmt::Debug for SpatialInteractionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionManager;{32a64ea8-a15a-3995-b8bd-80513cb5adef})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1995,17 +1896,6 @@ impl ::core::clone::Clone for SpatialInteractionSource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSource {}
-impl ::core::fmt::Debug for SpatialInteractionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSource;{fb5433ba-b0b3-3148-9f3b-e9f5de568f5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2047,17 +1937,6 @@ impl SpatialInteractionSourceEventArgs {
 impl ::core::clone::Clone for SpatialInteractionSourceEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialInteractionSourceEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceEventArgs {}
-impl ::core::fmt::Debug for SpatialInteractionSourceEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceEventArgs {
@@ -2139,17 +2018,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceLocation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSourceLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceLocation {}
-impl ::core::fmt::Debug for SpatialInteractionSourceLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceLocation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceLocation;{ea4696c4-7e8b-30ca-bcc5-c77189cea30a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2202,17 +2070,6 @@ impl SpatialInteractionSourceProperties {
 impl ::core::clone::Clone for SpatialInteractionSourceProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialInteractionSourceProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceProperties {}
-impl ::core::fmt::Debug for SpatialInteractionSourceProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceProperties {
@@ -2327,17 +2184,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceState {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSourceState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceState {}
-impl ::core::fmt::Debug for SpatialInteractionSourceState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceState;{d5c475ef-4b63-37ec-98b9-9fc652b9d2f2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2372,17 +2218,6 @@ impl SpatialManipulationCanceledEventArgs {
 impl ::core::clone::Clone for SpatialManipulationCanceledEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialManipulationCanceledEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialManipulationCanceledEventArgs {}
-impl ::core::fmt::Debug for SpatialManipulationCanceledEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialManipulationCanceledEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationCanceledEventArgs {
@@ -2430,17 +2265,6 @@ impl ::core::clone::Clone for SpatialManipulationCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialManipulationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialManipulationCompletedEventArgs {}
-impl ::core::fmt::Debug for SpatialManipulationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialManipulationCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs;{05086802-f301-4343-9250-2fbaa5f87a37})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2477,17 +2301,6 @@ impl SpatialManipulationDelta {
 impl ::core::clone::Clone for SpatialManipulationDelta {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialManipulationDelta {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialManipulationDelta {}
-impl ::core::fmt::Debug for SpatialManipulationDelta {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialManipulationDelta").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationDelta {
@@ -2535,17 +2348,6 @@ impl ::core::clone::Clone for SpatialManipulationStartedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialManipulationStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialManipulationStartedEventArgs {}
-impl ::core::fmt::Debug for SpatialManipulationStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialManipulationStartedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs;{a1d6bbce-42a5-377b-ada6-d28e3d384737})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2591,17 +2393,6 @@ impl ::core::clone::Clone for SpatialManipulationUpdatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialManipulationUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialManipulationUpdatedEventArgs {}
-impl ::core::fmt::Debug for SpatialManipulationUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialManipulationUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs;{5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2636,17 +2427,6 @@ impl SpatialNavigationCanceledEventArgs {
 impl ::core::clone::Clone for SpatialNavigationCanceledEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialNavigationCanceledEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialNavigationCanceledEventArgs {}
-impl ::core::fmt::Debug for SpatialNavigationCanceledEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialNavigationCanceledEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationCanceledEventArgs {
@@ -2692,17 +2472,6 @@ impl SpatialNavigationCompletedEventArgs {
 impl ::core::clone::Clone for SpatialNavigationCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialNavigationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialNavigationCompletedEventArgs {}
-impl ::core::fmt::Debug for SpatialNavigationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialNavigationCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationCompletedEventArgs {
@@ -2771,17 +2540,6 @@ impl ::core::clone::Clone for SpatialNavigationStartedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialNavigationStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialNavigationStartedEventArgs {}
-impl ::core::fmt::Debug for SpatialNavigationStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialNavigationStartedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs;{754a348a-fb64-4656-8ebd-9deecaafe475})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2825,17 +2583,6 @@ impl SpatialNavigationUpdatedEventArgs {
 impl ::core::clone::Clone for SpatialNavigationUpdatedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialNavigationUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialNavigationUpdatedEventArgs {}
-impl ::core::fmt::Debug for SpatialNavigationUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialNavigationUpdatedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationUpdatedEventArgs {
@@ -2908,17 +2655,6 @@ impl SpatialPointerInteractionSourcePose {
 impl ::core::clone::Clone for SpatialPointerInteractionSourcePose {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialPointerInteractionSourcePose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialPointerInteractionSourcePose {}
-impl ::core::fmt::Debug for SpatialPointerInteractionSourcePose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialPointerInteractionSourcePose").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialPointerInteractionSourcePose {
@@ -3004,17 +2740,6 @@ impl ::core::clone::Clone for SpatialPointerPose {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialPointerPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialPointerPose {}
-impl ::core::fmt::Debug for SpatialPointerPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialPointerPose").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialPointerPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerPose;{6953a42e-c17e-357d-97a1-7269d0ed2d10})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3049,17 +2774,6 @@ impl SpatialRecognitionEndedEventArgs {
 impl ::core::clone::Clone for SpatialRecognitionEndedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialRecognitionEndedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialRecognitionEndedEventArgs {}
-impl ::core::fmt::Debug for SpatialRecognitionEndedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialRecognitionEndedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialRecognitionEndedEventArgs {
@@ -3114,17 +2828,6 @@ impl ::core::clone::Clone for SpatialRecognitionStartedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialRecognitionStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialRecognitionStartedEventArgs {}
-impl ::core::fmt::Debug for SpatialRecognitionStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialRecognitionStartedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialRecognitionStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs;{24da128f-0008-4a6d-aa50-2a76f9cfb264})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3177,17 +2880,6 @@ impl ::core::clone::Clone for SpatialTappedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialTappedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialTappedEventArgs {}
-impl ::core::fmt::Debug for SpatialTappedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialTappedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialTappedEventArgs;{296d83de-f444-4aa1-b2bf-9dc88d567da6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3230,46 +2922,8 @@ impl ::core::clone::Clone for SpatialGestureSettings {
         *self
     }
 }
-impl ::core::default::Default for SpatialGestureSettings {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialGestureSettings {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialGestureSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SpatialGestureSettings {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SpatialGestureSettings {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SpatialGestureSettings {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SpatialGestureSettings {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SpatialGestureSettings {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
@@ -3296,18 +2950,8 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
         *self
     }
 }
-impl ::core::default::Default for SpatialInteractionPressKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionPressKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialInteractionPressKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
@@ -3331,18 +2975,8 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
         *self
     }
 }
-impl ::core::default::Default for SpatialInteractionSourceHandedness {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
@@ -3367,18 +3001,8 @@ impl ::core::clone::Clone for SpatialInteractionSourceKind {
         *self
     }
 }
-impl ::core::default::Default for SpatialInteractionSourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialInteractionSourceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
@@ -3401,18 +3025,8 @@ impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
         *self
     }
 }
-impl ::core::default::Default for SpatialInteractionSourcePositionAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialInteractionSourcePositionAccuracy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
@@ -3423,3 +3037,5 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourcePositionAcc
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

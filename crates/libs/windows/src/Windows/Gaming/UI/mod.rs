@@ -224,17 +224,6 @@ impl ::core::clone::Clone for GameChatMessageReceivedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameChatMessageReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameChatMessageReceivedEventArgs {}
-impl ::core::fmt::Debug for GameChatMessageReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatMessageReceivedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameChatMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameChatMessageReceivedEventArgs;{a28201f1-3fb9-4e42-a403-7afce2023b1e})");
     type DefaultType = ::core::option::Option<Self>;
@@ -288,17 +277,6 @@ impl GameChatOverlay {
 impl ::core::clone::Clone for GameChatOverlay {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameChatOverlay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameChatOverlay {}
-impl ::core::fmt::Debug for GameChatOverlay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatOverlay").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameChatOverlay {
@@ -356,17 +334,6 @@ impl GameChatOverlayMessageSource {
 impl ::core::clone::Clone for GameChatOverlayMessageSource {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GameChatOverlayMessageSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameChatOverlayMessageSource {}
-impl ::core::fmt::Debug for GameChatOverlayMessageSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatOverlayMessageSource").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GameChatOverlayMessageSource {
@@ -440,17 +407,6 @@ impl ::core::clone::Clone for GameUIProviderActivatedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GameUIProviderActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameUIProviderActivatedEventArgs {}
-impl ::core::fmt::Debug for GameUIProviderActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameUIProviderActivatedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GameUIProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.UI.GameUIProviderActivatedEventArgs;{a7b3203e-caf7-4ded-bbd2-47de43bb6dd5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -506,18 +462,8 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
         *self
     }
 }
-impl ::core::default::Default for GameChatMessageOrigin {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameChatMessageOrigin {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameChatMessageOrigin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatMessageOrigin").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatMessageOrigin;i4)");
@@ -546,18 +492,8 @@ impl ::core::clone::Clone for GameChatOverlayPosition {
         *self
     }
 }
-impl ::core::default::Default for GameChatOverlayPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GameChatOverlayPosition {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GameChatOverlayPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameChatOverlayPosition").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
@@ -568,3 +504,5 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

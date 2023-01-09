@@ -254,17 +254,6 @@ impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILearningModelFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelFeatureDescriptor {}
-impl ::core::fmt::Debug for ILearningModelFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelFeatureDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
     type DefaultType = ::core::option::Option<Self>;
@@ -305,17 +294,6 @@ impl ::core::clone::Clone for ILearningModelFeatureValue {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ILearningModelFeatureValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelFeatureValue {}
-impl ::core::fmt::Debug for ILearningModelFeatureValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelFeatureValue").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
     type DefaultType = ::core::option::Option<Self>;
@@ -343,17 +321,6 @@ impl ILearningModelOperatorProvider {}
 impl ::core::clone::Clone for ILearningModelOperatorProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ILearningModelOperatorProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelOperatorProvider {}
-impl ::core::fmt::Debug for ILearningModelOperatorProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelOperatorProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ILearningModelOperatorProvider {
@@ -607,17 +574,6 @@ impl ::core::convert::TryFrom<&ITensor> for ::windows::core::InParam<ILearningMo
 impl ::core::clone::Clone for ITensor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ITensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITensor {}
-impl ::core::fmt::Debug for ITensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITensor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ITensor {
@@ -1567,17 +1523,6 @@ impl ::core::clone::Clone for ImageFeatureDescriptor {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ImageFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageFeatureDescriptor {}
-impl ::core::fmt::Debug for ImageFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageFeatureDescriptor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1653,17 +1598,6 @@ impl ImageFeatureValue {
 impl ::core::clone::Clone for ImageFeatureValue {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ImageFeatureValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageFeatureValue {}
-impl ::core::fmt::Debug for ImageFeatureValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageFeatureValue").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ImageFeatureValue {
@@ -1881,17 +1815,6 @@ impl ::core::clone::Clone for LearningModel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LearningModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModel {}
-impl ::core::fmt::Debug for LearningModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LearningModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2016,17 +1939,6 @@ impl LearningModelBinding {
 impl ::core::clone::Clone for LearningModelBinding {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LearningModelBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelBinding {}
-impl ::core::fmt::Debug for LearningModelBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelBinding").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LearningModelBinding {
@@ -2164,17 +2076,6 @@ impl ::core::clone::Clone for LearningModelDevice {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LearningModelDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelDevice {}
-impl ::core::fmt::Debug for LearningModelDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LearningModelDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2232,17 +2133,6 @@ impl LearningModelEvaluationResult {
 impl ::core::clone::Clone for LearningModelEvaluationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LearningModelEvaluationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelEvaluationResult {}
-impl ::core::fmt::Debug for LearningModelEvaluationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelEvaluationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
@@ -2373,17 +2263,6 @@ impl ::core::clone::Clone for LearningModelSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LearningModelSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelSession {}
-impl ::core::fmt::Debug for LearningModelSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LearningModelSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2468,17 +2347,6 @@ impl ::core::clone::Clone for LearningModelSessionOptions {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for LearningModelSessionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelSessionOptions {}
-impl ::core::fmt::Debug for LearningModelSessionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelSessionOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for LearningModelSessionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2548,17 +2416,6 @@ impl MapFeatureDescriptor {
 impl ::core::clone::Clone for MapFeatureDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MapFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapFeatureDescriptor {}
-impl ::core::fmt::Debug for MapFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapFeatureDescriptor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MapFeatureDescriptor {
@@ -2642,17 +2499,6 @@ impl SequenceFeatureDescriptor {
 impl ::core::clone::Clone for SequenceFeatureDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SequenceFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SequenceFeatureDescriptor {}
-impl ::core::fmt::Debug for SequenceFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SequenceFeatureDescriptor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
@@ -2820,17 +2666,6 @@ impl TensorBoolean {
 impl ::core::clone::Clone for TensorBoolean {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorBoolean {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorBoolean {}
-impl ::core::fmt::Debug for TensorBoolean {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorBoolean").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorBoolean {
@@ -3063,17 +2898,6 @@ impl ::core::clone::Clone for TensorDouble {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorDouble {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorDouble {}
-impl ::core::fmt::Debug for TensorDouble {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorDouble").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorDouble {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3227,17 +3051,6 @@ impl TensorFeatureDescriptor {
 impl ::core::clone::Clone for TensorFeatureDescriptor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFeatureDescriptor {}
-impl ::core::fmt::Debug for TensorFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFeatureDescriptor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
@@ -3405,17 +3218,6 @@ impl TensorFloat {
 impl ::core::clone::Clone for TensorFloat {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorFloat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFloat {}
-impl ::core::fmt::Debug for TensorFloat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFloat").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorFloat {
@@ -3648,17 +3450,6 @@ impl ::core::clone::Clone for TensorFloat16Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorFloat16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFloat16Bit {}
-impl ::core::fmt::Debug for TensorFloat16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFloat16Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorFloat16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3887,17 +3678,6 @@ impl TensorInt16Bit {
 impl ::core::clone::Clone for TensorInt16Bit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorInt16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt16Bit {}
-impl ::core::fmt::Debug for TensorInt16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt16Bit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorInt16Bit {
@@ -4130,17 +3910,6 @@ impl ::core::clone::Clone for TensorInt32Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorInt32Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt32Bit {}
-impl ::core::fmt::Debug for TensorInt32Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt32Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorInt32Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4369,17 +4138,6 @@ impl TensorInt64Bit {
 impl ::core::clone::Clone for TensorInt64Bit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorInt64Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt64Bit {}
-impl ::core::fmt::Debug for TensorInt64Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt64Bit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorInt64Bit {
@@ -4612,17 +4370,6 @@ impl ::core::clone::Clone for TensorInt8Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorInt8Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt8Bit {}
-impl ::core::fmt::Debug for TensorInt8Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt8Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4839,17 +4586,6 @@ impl TensorString {
 impl ::core::clone::Clone for TensorString {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorString {}
-impl ::core::fmt::Debug for TensorString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorString").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorString {
@@ -5082,17 +4818,6 @@ impl ::core::clone::Clone for TensorUInt16Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt16Bit {}
-impl ::core::fmt::Debug for TensorUInt16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt16Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorUInt16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5321,17 +5046,6 @@ impl TensorUInt32Bit {
 impl ::core::clone::Clone for TensorUInt32Bit {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TensorUInt32Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt32Bit {}
-impl ::core::fmt::Debug for TensorUInt32Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt32Bit").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TensorUInt32Bit {
@@ -5564,17 +5278,6 @@ impl ::core::clone::Clone for TensorUInt64Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt64Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt64Bit {}
-impl ::core::fmt::Debug for TensorUInt64Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt64Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorUInt64Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5805,17 +5508,6 @@ impl ::core::clone::Clone for TensorUInt8Bit {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt8Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt8Bit {}
-impl ::core::fmt::Debug for TensorUInt8Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt8Bit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TensorUInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5934,18 +5626,8 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
         *self
     }
 }
-impl ::core::default::Default for LearningModelDeviceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelDeviceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelDeviceKind;i4)");
@@ -5970,18 +5652,8 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
         *self
     }
 }
-impl ::core::default::Default for LearningModelFeatureKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelFeatureKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelFeatureKind;i4)");
@@ -6005,18 +5677,8 @@ impl ::core::clone::Clone for LearningModelPixelRange {
         *self
     }
 }
-impl ::core::default::Default for LearningModelPixelRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LearningModelPixelRange {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LearningModelPixelRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.LearningModelPixelRange;i4)");
@@ -6053,18 +5715,8 @@ impl ::core::clone::Clone for TensorKind {
         *self
     }
 }
-impl ::core::default::Default for TensorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for TensorKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for TensorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for TensorKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.TensorKind;i4)");
@@ -6075,3 +5727,5 @@ unsafe impl ::windows::core::RuntimeType for TensorKind {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

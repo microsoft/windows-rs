@@ -36,17 +36,6 @@ impl ::core::clone::Clone for ICustomGameControllerFactory {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICustomGameControllerFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICustomGameControllerFactory {}
-impl ::core::fmt::Debug for ICustomGameControllerFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICustomGameControllerFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
     type DefaultType = ::core::option::Option<Self>;
@@ -119,17 +108,6 @@ impl ::core::clone::Clone for IGameControllerInputSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGameControllerInputSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameControllerInputSink {}
-impl ::core::fmt::Debug for IGameControllerInputSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameControllerInputSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
     type DefaultType = ::core::option::Option<Self>;
@@ -194,17 +172,6 @@ impl IGameControllerProvider {
 impl ::core::clone::Clone for IGameControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGameControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameControllerProvider {}
-impl ::core::fmt::Debug for IGameControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameControllerProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IGameControllerProvider {
@@ -293,17 +260,6 @@ impl ::core::clone::Clone for IGipGameControllerInputSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IGipGameControllerInputSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGipGameControllerInputSink {}
-impl ::core::fmt::Debug for IGipGameControllerInputSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGipGameControllerInputSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IGipGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
     type DefaultType = ::core::option::Option<Self>;
@@ -386,17 +342,6 @@ impl ::core::clone::Clone for IHidGameControllerInputSink {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IHidGameControllerInputSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHidGameControllerInputSink {}
-impl ::core::fmt::Debug for IHidGameControllerInputSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHidGameControllerInputSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IHidGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
     type DefaultType = ::core::option::Option<Self>;
@@ -475,17 +420,6 @@ impl ::core::convert::TryFrom<&IXusbGameControllerInputSink> for ::windows::core
 impl ::core::clone::Clone for IXusbGameControllerInputSink {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IXusbGameControllerInputSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXusbGameControllerInputSink {}
-impl ::core::fmt::Debug for IXusbGameControllerInputSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXusbGameControllerInputSink").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IXusbGameControllerInputSink {
@@ -603,17 +537,6 @@ impl ::core::clone::Clone for GipFirmwareUpdateResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GipFirmwareUpdateResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GipFirmwareUpdateResult {}
-impl ::core::fmt::Debug for GipFirmwareUpdateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipFirmwareUpdateResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipFirmwareUpdateResult;{6b794d32-8553-4292-8e03-e16651a2f8bc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -697,17 +620,6 @@ impl GipGameControllerProvider {
 impl ::core::clone::Clone for GipGameControllerProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GipGameControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GipGameControllerProvider {}
-impl ::core::fmt::Debug for GipGameControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipGameControllerProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GipGameControllerProvider {
@@ -819,17 +731,6 @@ impl ::core::clone::Clone for HidGameControllerProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for HidGameControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidGameControllerProvider {}
-impl ::core::fmt::Debug for HidGameControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidGameControllerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for HidGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.HidGameControllerProvider;{95ce3af4-abf0-4b68-a081-3b7de73ff0e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -917,17 +818,6 @@ impl ::core::clone::Clone for XusbGameControllerProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for XusbGameControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XusbGameControllerProvider {}
-impl ::core::fmt::Debug for XusbGameControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XusbGameControllerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for XusbGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.XusbGameControllerProvider;{6e2971eb-0efb-48b4-808b-837643b2f216})");
     type DefaultType = ::core::option::Option<Self>;
@@ -981,18 +871,8 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
         *self
     }
 }
-impl ::core::default::Default for GipFirmwareUpdateStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipFirmwareUpdateStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipFirmwareUpdateStatus;i4)");
@@ -1016,18 +896,8 @@ impl ::core::clone::Clone for GipMessageClass {
         *self
     }
 }
-impl ::core::default::Default for GipMessageClass {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for GipMessageClass {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for GipMessageClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GipMessageClass").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for GipMessageClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.GipMessageClass;i4)");
@@ -1059,18 +929,8 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
         *self
     }
 }
-impl ::core::default::Default for XusbDeviceSubtype {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for XusbDeviceSubtype {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for XusbDeviceSubtype {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XusbDeviceSubtype").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for XusbDeviceSubtype {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceSubtype;i4)");
@@ -1093,18 +953,8 @@ impl ::core::clone::Clone for XusbDeviceType {
         *self
     }
 }
-impl ::core::default::Default for XusbDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for XusbDeviceType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for XusbDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XusbDeviceType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for XusbDeviceType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
@@ -1127,11 +977,6 @@ impl ::core::clone::Clone for GameControllerVersionInfo {
         *self
     }
 }
-impl ::core::fmt::Debug for GameControllerVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GameControllerVersionInfo").field("Major", &self.Major).field("Minor", &self.Minor).field("Build", &self.Build).field("Revision", &self.Revision).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GameControllerVersionInfo {
     type Abi = Self;
 }
@@ -1140,17 +985,6 @@ unsafe impl ::windows::core::RuntimeType for GameControllerVersionInfo {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for GameControllerVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.Major == other.Major && self.Minor == other.Minor && self.Build == other.Build && self.Revision == other.Revision
-    }
-}
-impl ::core::cmp::Eq for GameControllerVersionInfo {}
-impl ::core::default::Default for GameControllerVersionInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -1165,11 +999,6 @@ impl ::core::clone::Clone for GipFirmwareUpdateProgress {
         *self
     }
 }
-impl ::core::fmt::Debug for GipFirmwareUpdateProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GipFirmwareUpdateProgress").field("PercentCompleted", &self.PercentCompleted).field("CurrentComponentId", &self.CurrentComponentId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateProgress {
     type Abi = Self;
 }
@@ -1180,16 +1009,7 @@ unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateProgress {
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for GipFirmwareUpdateProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.PercentCompleted == other.PercentCompleted && self.CurrentComponentId == other.CurrentComponentId
-    }
-}
-impl ::core::cmp::Eq for GipFirmwareUpdateProgress {}
-impl ::core::default::Default for GipFirmwareUpdateProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

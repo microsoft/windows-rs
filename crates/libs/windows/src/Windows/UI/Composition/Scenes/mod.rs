@@ -706,17 +706,6 @@ impl ::core::clone::Clone for SceneBoundingBox {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneBoundingBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneBoundingBox {}
-impl ::core::fmt::Debug for SceneBoundingBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneBoundingBox").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneBoundingBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneBoundingBox;{5d8ffc70-c618-4083-8251-9962593114aa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -927,17 +916,6 @@ impl SceneComponent {
 impl ::core::clone::Clone for SceneComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneComponent {}
-impl ::core::fmt::Debug for SceneComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneComponent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneComponent {
@@ -1257,20 +1235,6 @@ impl ::core::clone::Clone for SceneComponentCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for SceneComponentCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for SceneComponentCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for SceneComponentCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneComponentCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SceneComponentCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})))");
     type DefaultType = ::core::option::Option<Self>;
@@ -1551,17 +1515,6 @@ impl ::core::clone::Clone for SceneMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMaterial {}
-impl ::core::fmt::Debug for SceneMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterial;{8ca74b7c-30df-4e07-9490-37875af1a123})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1765,17 +1718,6 @@ impl SceneMaterialInput {
 impl ::core::clone::Clone for SceneMaterialInput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneMaterialInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMaterialInput {}
-impl ::core::fmt::Debug for SceneMaterialInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMaterialInput").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneMaterialInput {
@@ -2020,17 +1962,6 @@ impl SceneMesh {
 impl ::core::clone::Clone for SceneMesh {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneMesh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMesh {}
-impl ::core::fmt::Debug for SceneMesh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMesh").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneMesh {
@@ -2302,17 +2233,6 @@ impl SceneMeshMaterialAttributeMap {
 impl ::core::clone::Clone for SceneMeshMaterialAttributeMap {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneMeshMaterialAttributeMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMeshMaterialAttributeMap {}
-impl ::core::fmt::Debug for SceneMeshMaterialAttributeMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMeshMaterialAttributeMap").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneMeshMaterialAttributeMap {
@@ -2628,17 +2548,6 @@ impl SceneMeshRendererComponent {
 impl ::core::clone::Clone for SceneMeshRendererComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneMeshRendererComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMeshRendererComponent {}
-impl ::core::fmt::Debug for SceneMeshRendererComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMeshRendererComponent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneMeshRendererComponent {
@@ -3064,17 +2973,6 @@ impl ::core::clone::Clone for SceneMetallicRoughnessMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneMetallicRoughnessMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneMetallicRoughnessMaterial {}
-impl ::core::fmt::Debug for SceneMetallicRoughnessMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneMetallicRoughnessMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneMetallicRoughnessMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial;{c1d91446-799c-429e-a4e4-5da645f18e61})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3392,17 +3290,6 @@ impl ::core::clone::Clone for SceneModelTransform {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneModelTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneModelTransform {}
-impl ::core::fmt::Debug for SceneModelTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneModelTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneModelTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneModelTransform;{c05576c2-32b1-4269-980d-b98537100ae4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3656,17 +3543,6 @@ impl SceneNode {
 impl ::core::clone::Clone for SceneNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneNode {}
-impl ::core::fmt::Debug for SceneNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneNode {
@@ -3974,20 +3850,6 @@ impl ::core::clone::Clone for SceneNodeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for SceneNodeCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for SceneNodeCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for SceneNodeCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneNodeCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SceneNodeCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNodeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})))");
     type DefaultType = ::core::option::Option<Self>;
@@ -4266,17 +4128,6 @@ impl SceneObject {
 impl ::core::clone::Clone for SceneObject {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneObject {}
-impl ::core::fmt::Debug for SceneObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneObject").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneObject {
@@ -4581,17 +4432,6 @@ impl ::core::clone::Clone for ScenePbrMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ScenePbrMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScenePbrMaterial {}
-impl ::core::fmt::Debug for ScenePbrMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScenePbrMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ScenePbrMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.ScenePbrMaterial;{aab6ebbe-d680-46df-8294-b6800a9f95e7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4817,17 +4657,6 @@ impl SceneRendererComponent {
 impl ::core::clone::Clone for SceneRendererComponent {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneRendererComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneRendererComponent {}
-impl ::core::fmt::Debug for SceneRendererComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneRendererComponent").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneRendererComponent {
@@ -5107,17 +4936,6 @@ impl SceneSurfaceMaterialInput {
 impl ::core::clone::Clone for SceneSurfaceMaterialInput {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SceneSurfaceMaterialInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneSurfaceMaterialInput {}
-impl ::core::fmt::Debug for SceneSurfaceMaterialInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneSurfaceMaterialInput").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SceneSurfaceMaterialInput {
@@ -5653,17 +5471,6 @@ impl ::core::clone::Clone for SceneVisual {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SceneVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneVisual {}
-impl ::core::fmt::Debug for SceneVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SceneVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneVisual;{8e672c1e-d734-47b1-be14-3d694ffa4301})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5784,18 +5591,8 @@ impl ::core::clone::Clone for SceneAlphaMode {
         *self
     }
 }
-impl ::core::default::Default for SceneAlphaMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneAlphaMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneAlphaMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAlphaMode;i4)");
@@ -5823,18 +5620,8 @@ impl ::core::clone::Clone for SceneAttributeSemantic {
         *self
     }
 }
-impl ::core::default::Default for SceneAttributeSemantic {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneAttributeSemantic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneAttributeSemantic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneAttributeSemantic;i4)");
@@ -5856,18 +5643,8 @@ impl ::core::clone::Clone for SceneComponentType {
         *self
     }
 }
-impl ::core::default::Default for SceneComponentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneComponentType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneComponentType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneComponentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneComponentType;i4)");
@@ -5891,18 +5668,8 @@ impl ::core::clone::Clone for SceneWrappingMode {
         *self
     }
 }
-impl ::core::default::Default for SceneWrappingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SceneWrappingMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SceneWrappingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SceneWrappingMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SceneWrappingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
@@ -5913,3 +5680,5 @@ unsafe impl ::windows::core::RuntimeType for SceneWrappingMode {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -872,18 +872,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATE {
         *self
     }
 }
-impl ::core::default::Default for ENUM_SERVICE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ENUM_SERVICE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ENUM_SERVICE_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -915,46 +905,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for ENUM_SERVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ENUM_SERVICE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ENUM_SERVICE_TYPE").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_SERVICE_TYPE {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_SERVICE_TYPE {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -976,18 +928,8 @@ impl ::core::clone::Clone for SC_ACTION_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SC_ACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SC_ACTION_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SC_ACTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SC_ACTION_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1001,18 +943,8 @@ impl ::core::clone::Clone for SC_ENUM_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SC_ENUM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SC_ENUM_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SC_ENUM_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SC_ENUM_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1030,18 +962,8 @@ impl ::core::clone::Clone for SC_EVENT_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SC_EVENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SC_EVENT_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SC_EVENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SC_EVENT_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1055,18 +977,8 @@ impl ::core::clone::Clone for SC_STATUS_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SC_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SC_STATUS_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SC_STATUS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SC_STATUS_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1098,18 +1010,8 @@ impl ::core::clone::Clone for SERVICE_CONFIG {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_CONFIG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_CONFIG {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_CONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_CONFIG").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1125,18 +1027,8 @@ impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_DIRECTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_DIRECTORY_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_DIRECTORY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_DIRECTORY_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1156,18 +1048,8 @@ impl ::core::clone::Clone for SERVICE_ERROR {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_ERROR {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_ERROR").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1199,46 +1081,8 @@ impl ::core::clone::Clone for SERVICE_NOTIFY {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_NOTIFY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_NOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_NOTIFY").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SERVICE_NOTIFY {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_NOTIFY {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_NOTIFY {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_NOTIFY {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_NOTIFY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1256,18 +1100,8 @@ impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_REGISTRY_STATE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_REGISTRY_STATE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_REGISTRY_STATE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_REGISTRY_STATE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1283,18 +1117,8 @@ impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_RUNS_IN_PROCESS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_RUNS_IN_PROCESS {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_RUNS_IN_PROCESS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1308,18 +1132,8 @@ impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_SHARED_DIRECTORY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_SHARED_DIRECTORY_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1333,18 +1147,8 @@ impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_SHARED_REGISTRY_STATE_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1366,18 +1170,8 @@ impl ::core::clone::Clone for SERVICE_START_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_START_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_START_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_START_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_START_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1403,18 +1197,8 @@ impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_STATUS_CURRENT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_STATUS_CURRENT_STATE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_STATUS_CURRENT_STATE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1430,18 +1214,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_TRIGGER_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_ACTION {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_TRIGGER_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_TRIGGER_ACTION").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1463,18 +1237,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
@@ -1500,18 +1264,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
         *self
     }
 }
-impl ::core::default::Default for SERVICE_TRIGGER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_TYPE {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SERVICE_TRIGGER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERVICE_TRIGGER_TYPE").field(&self.0).finish()
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1526,24 +1280,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUSA {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUSA {}
-impl ::core::default::Default for ENUM_SERVICE_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1558,24 +1296,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUSW {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUSW {}
-impl ::core::default::Default for ENUM_SERVICE_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1590,24 +1312,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSA {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
-impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1622,24 +1328,8 @@ impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSW {
         *self
     }
 }
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ENUM_SERVICE_STATUS_PROCESSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
-impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1660,24 +1350,8 @@ impl ::core::clone::Clone for QUERY_SERVICE_CONFIGA {
         *self
     }
 }
-impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_CONFIGA").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGA {}
-impl ::core::default::Default for QUERY_SERVICE_CONFIGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1698,24 +1372,8 @@ impl ::core::clone::Clone for QUERY_SERVICE_CONFIGW {
         *self
     }
 }
-impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_CONFIGW").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGW {}
-impl ::core::default::Default for QUERY_SERVICE_CONFIGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1730,24 +1388,8 @@ impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSA {
         *self
     }
 }
-impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_LOCK_STATUSA").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
-    }
-}
-impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
-impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1762,24 +1404,8 @@ impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSW {
         *self
     }
 }
-impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERY_SERVICE_LOCK_STATUSW").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
-    }
-}
-impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSW {}
-impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1793,24 +1419,8 @@ impl ::core::clone::Clone for SC_ACTION {
         *self
     }
 }
-impl ::core::fmt::Debug for SC_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SC_ACTION").field("Type", &self.Type).field("Delay", &self.Delay).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SC_ACTION {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SC_ACTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Delay == other.Delay
-    }
-}
-impl ::core::cmp::Eq for SC_ACTION {}
-impl ::core::default::Default for SC_ACTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1825,24 +1435,8 @@ impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSA").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
-impl ::core::default::Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1857,24 +1451,8 @@ impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSW").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
-impl ::core::default::Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1889,11 +1467,6 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
 }
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1910,11 +1483,6 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     type Abi = Self;
 }
-impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
@@ -1927,24 +1495,8 @@ impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0").field("DataOffset", &self.DataOffset).field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataOffset == other.DataOffset && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
-impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
@@ -1961,28 +1513,8 @@ impl ::core::clone::Clone for SERVICE_DELAYED_AUTO_START_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_DELAYED_AUTO_START_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_DELAYED_AUTO_START_INFO").field("fDelayedAutostart", &self.fDelayedAutostart).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_DELAYED_AUTO_START_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDelayedAutostart == other.fDelayedAutostart
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_DELAYED_AUTO_START_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SERVICE_DELAYED_AUTO_START_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -1995,24 +1527,8 @@ impl ::core::clone::Clone for SERVICE_DESCRIPTIONA {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_DESCRIPTIONA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_DESCRIPTIONA").field("lpDescription", &self.lpDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-impl ::core::cmp::Eq for SERVICE_DESCRIPTIONA {}
-impl ::core::default::Default for SERVICE_DESCRIPTIONA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2025,24 +1541,8 @@ impl ::core::clone::Clone for SERVICE_DESCRIPTIONW {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_DESCRIPTIONW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_DESCRIPTIONW").field("lpDescription", &self.lpDescription).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-impl ::core::cmp::Eq for SERVICE_DESCRIPTIONW {}
-impl ::core::default::Default for SERVICE_DESCRIPTIONW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2059,24 +1559,8 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSA {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONSA").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
-impl ::core::default::Default for SERVICE_FAILURE_ACTIONSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2093,24 +1577,8 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSW {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONSW").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
-impl ::core::default::Default for SERVICE_FAILURE_ACTIONSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
@@ -2127,28 +1595,8 @@ impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONS_FLAG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_FAILURE_ACTIONS_FLAG").field("fFailureActionsOnNonCrashFailures", &self.fFailureActionsOnNonCrashFailures).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.fFailureActionsOnNonCrashFailures == other.fFailureActionsOnNonCrashFailures
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2161,24 +1609,8 @@ impl ::core::clone::Clone for SERVICE_LAUNCH_PROTECTED_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_LAUNCH_PROTECTED_INFO").field("dwLaunchProtected", &self.dwLaunchProtected).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLaunchProtected == other.dwLaunchProtected
-    }
-}
-impl ::core::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
-impl ::core::default::Default for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2195,18 +1627,8 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_NOTIFY_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_NOTIFY_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2225,18 +1647,8 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2A {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_NOTIFY_2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2255,18 +1667,8 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2W {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_NOTIFY_2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
@@ -2284,28 +1686,8 @@ impl ::core::clone::Clone for SERVICE_PREFERRED_NODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_PREFERRED_NODE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_PREFERRED_NODE_INFO").field("usPreferredNode", &self.usPreferredNode).field("fDelete", &self.fDelete).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_PREFERRED_NODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.usPreferredNode == other.usPreferredNode && self.fDelete == other.fDelete
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_PREFERRED_NODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SERVICE_PREFERRED_NODE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2318,24 +1700,8 @@ impl ::core::clone::Clone for SERVICE_PRESHUTDOWN_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_PRESHUTDOWN_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_PRESHUTDOWN_INFO").field("dwPreshutdownTimeout", &self.dwPreshutdownTimeout).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPreshutdownTimeout == other.dwPreshutdownTimeout
-    }
-}
-impl ::core::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
-impl ::core::default::Default for SERVICE_PRESHUTDOWN_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2348,24 +1714,8 @@ impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOA").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
-impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2378,24 +1728,8 @@ impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOW").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
-impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2408,24 +1742,8 @@ impl ::core::clone::Clone for SERVICE_SID_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_SID_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_SID_INFO").field("dwServiceSidType", &self.dwServiceSidType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_SID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceSidType == other.dwServiceSidType
-    }
-}
-impl ::core::cmp::Eq for SERVICE_SID_INFO {}
-impl ::core::default::Default for SERVICE_SID_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2438,24 +1756,8 @@ impl ::core::clone::Clone for SERVICE_START_REASON {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_START_REASON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_START_REASON").field("dwReason", &self.dwReason).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_START_REASON {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason
-    }
-}
-impl ::core::cmp::Eq for SERVICE_START_REASON {}
-impl ::core::default::Default for SERVICE_START_REASON {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2474,24 +1776,8 @@ impl ::core::clone::Clone for SERVICE_STATUS {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_STATUS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_STATUS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint
-    }
-}
-impl ::core::cmp::Eq for SERVICE_STATUS {}
-impl ::core::default::Default for SERVICE_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2544,24 +1830,8 @@ impl ::core::clone::Clone for SERVICE_STATUS_PROCESS {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_STATUS_PROCESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_STATUS_PROCESS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).field("dwProcessId", &self.dwProcessId).field("dwServiceFlags", &self.dwServiceFlags).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint && self.dwProcessId == other.dwProcessId && self.dwServiceFlags == other.dwServiceFlags
-    }
-}
-impl ::core::cmp::Eq for SERVICE_STATUS_PROCESS {}
-impl ::core::default::Default for SERVICE_STATUS_PROCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2575,18 +1845,8 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_TABLE_ENTRYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2600,18 +1860,8 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
     type Abi = Self;
-}
-impl ::core::default::Default for SERVICE_TABLE_ENTRYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2625,24 +1875,8 @@ impl ::core::clone::Clone for SERVICE_TIMECHANGE_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TIMECHANGE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TIMECHANGE_INFO").field("liNewTime", &self.liNewTime).field("liOldTime", &self.liOldTime).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.liNewTime == other.liNewTime && self.liOldTime == other.liOldTime
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
-impl ::core::default::Default for SERVICE_TIMECHANGE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2659,24 +1893,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER").field("dwTriggerType", &self.dwTriggerType).field("dwAction", &self.dwAction).field("pTriggerSubtype", &self.pTriggerSubtype).field("cDataItems", &self.cDataItems).field("pDataItems", &self.pDataItems).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTriggerType == other.dwTriggerType && self.dwAction == other.dwAction && self.pTriggerSubtype == other.pTriggerSubtype && self.cDataItems == other.cDataItems && self.pDataItems == other.pDataItems
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER {}
-impl ::core::default::Default for SERVICE_TRIGGER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2689,24 +1907,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_CUSTOM_STATE_ID").field("Data", &self.Data).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
-impl ::core::default::Default for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2721,24 +1923,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_INFO {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_INFO").field("cTriggers", &self.cTriggers).field("pTriggers", &self.pTriggers).field("pReserved", &self.pReserved).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTriggers == other.cTriggers && self.pTriggers == other.pTriggers && self.pReserved == other.pReserved
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_INFO {}
-impl ::core::default::Default for SERVICE_TRIGGER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2753,24 +1939,8 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
         *self
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM").field("dwDataType", &self.dwDataType).field("cbData", &self.cbData).field("pData", &self.pData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataType == other.dwDataType && self.cbData == other.cbData && self.pData == other.pData
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
-impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
@@ -2796,3 +1966,5 @@ pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" 
 pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut ::windows::core::PWSTR) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -632,17 +632,6 @@ impl ::core::clone::Clone for IAudioInputNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAudioInputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioInputNode {}
-impl ::core::fmt::Debug for IAudioInputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioInputNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d148005c-8428-4784-b7fd-a99d468c5d20}");
     type DefaultType = ::core::option::Option<Self>;
@@ -857,17 +846,6 @@ impl ::core::clone::Clone for IAudioInputNode2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IAudioInputNode2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioInputNode2 {}
-impl ::core::fmt::Debug for IAudioInputNode2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioInputNode2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{905156b7-ca68-4c6d-a8bc-e3ee17fe3fd2}");
     type DefaultType = ::core::option::Option<Self>;
@@ -996,17 +974,6 @@ impl ::core::convert::TryFrom<&IAudioNode> for ::windows::core::InParam<super::s
 impl ::core::clone::Clone for IAudioNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAudioNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioNode {}
-impl ::core::fmt::Debug for IAudioNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAudioNode {
@@ -1406,17 +1373,6 @@ impl ::core::convert::TryFrom<&IAudioNodeWithListener> for ::windows::core::InPa
 impl ::core::clone::Clone for IAudioNodeWithListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IAudioNodeWithListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioNodeWithListener {}
-impl ::core::fmt::Debug for IAudioNodeWithListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioNodeWithListener").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IAudioNodeWithListener {
@@ -2301,17 +2257,6 @@ impl ::core::clone::Clone for AudioDeviceInputNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioDeviceInputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceInputNode {}
-impl ::core::fmt::Debug for AudioDeviceInputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceInputNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioDeviceInputNode;{b01b6be1-6f4e-49e2-ac01-559d62beb3a9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2516,17 +2461,6 @@ impl AudioDeviceOutputNode {
 impl ::core::clone::Clone for AudioDeviceOutputNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioDeviceOutputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceOutputNode {}
-impl ::core::fmt::Debug for AudioDeviceOutputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceOutputNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
@@ -2852,17 +2786,6 @@ impl ::core::clone::Clone for AudioFileInputNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioFileInputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFileInputNode {}
-impl ::core::fmt::Debug for AudioFileInputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFileInputNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioFileInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileInputNode;{905b67c8-6f65-4cd4-8890-4694843c276d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3076,17 +2999,6 @@ impl ::core::clone::Clone for AudioFileOutputNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioFileOutputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFileOutputNode {}
-impl ::core::fmt::Debug for AudioFileOutputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFileOutputNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioFileOutputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFileOutputNode;{50e01980-5166-4093-80f8-ada00089e9cf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3162,17 +3074,6 @@ impl AudioFrameCompletedEventArgs {
 impl ::core::clone::Clone for AudioFrameCompletedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioFrameCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFrameCompletedEventArgs {}
-impl ::core::fmt::Debug for AudioFrameCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFrameCompletedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
@@ -3378,17 +3279,6 @@ impl ::core::clone::Clone for AudioFrameInputNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioFrameInputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFrameInputNode {}
-impl ::core::fmt::Debug for AudioFrameInputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFrameInputNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioFrameInputNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioFrameInputNode;{01b266c7-fd96-4ff5-a3c5-d27a9bf44237})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3580,17 +3470,6 @@ impl AudioFrameOutputNode {
 impl ::core::clone::Clone for AudioFrameOutputNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioFrameOutputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFrameOutputNode {}
-impl ::core::fmt::Debug for AudioFrameOutputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFrameOutputNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioFrameOutputNode {
@@ -3975,17 +3854,6 @@ impl ::core::clone::Clone for AudioGraph {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioGraph {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraph {}
-impl ::core::fmt::Debug for AudioGraph {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraph").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioGraph {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraph;{1ad46eed-e48c-4e14-9660-2c4f83e9cdd8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4044,20 +3912,6 @@ impl AudioGraphBatchUpdater {
 impl ::core::clone::Clone for AudioGraphBatchUpdater {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for AudioGraphBatchUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for AudioGraphBatchUpdater {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for AudioGraphBatchUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphBatchUpdater").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4134,17 +3988,6 @@ impl AudioGraphConnection {
 impl ::core::clone::Clone for AudioGraphConnection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioGraphConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraphConnection {}
-impl ::core::fmt::Debug for AudioGraphConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphConnection").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphConnection {
@@ -4278,17 +4121,6 @@ impl ::core::clone::Clone for AudioGraphSettings {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioGraphSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraphSettings {}
-impl ::core::fmt::Debug for AudioGraphSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioGraphSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioGraphSettings;{1d59647f-e6fe-4628-84f8-9d8bdba25785})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4323,17 +4155,6 @@ impl AudioGraphUnrecoverableErrorOccurredEventArgs {
 impl ::core::clone::Clone for AudioGraphUnrecoverableErrorOccurredEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioGraphUnrecoverableErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraphUnrecoverableErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for AudioGraphUnrecoverableErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphUnrecoverableErrorOccurredEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -4493,17 +4314,6 @@ impl ::core::clone::Clone for AudioNodeEmitter {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioNodeEmitter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitter {}
-impl ::core::fmt::Debug for AudioNodeEmitter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitter;{3676971d-880a-47b8-adf7-1323a9d965be})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4552,17 +4362,6 @@ impl AudioNodeEmitterConeProperties {
 impl ::core::clone::Clone for AudioNodeEmitterConeProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioNodeEmitterConeProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterConeProperties {}
-impl ::core::fmt::Debug for AudioNodeEmitterConeProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterConeProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
@@ -4639,17 +4438,6 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayModel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioNodeEmitterDecayModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterDecayModel {}
-impl ::core::fmt::Debug for AudioNodeEmitterDecayModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterDecayModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioNodeEmitterDecayModel;{1d1d5af7-0d53-4fa9-bd84-d5816a86f3ff})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4691,17 +4479,6 @@ impl AudioNodeEmitterNaturalDecayModelProperties {
 impl ::core::clone::Clone for AudioNodeEmitterNaturalDecayModelProperties {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioNodeEmitterNaturalDecayModelProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterNaturalDecayModelProperties {}
-impl ::core::fmt::Debug for AudioNodeEmitterNaturalDecayModelProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterNaturalDecayModelProperties").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
@@ -4762,17 +4539,6 @@ impl AudioNodeEmitterShape {
 impl ::core::clone::Clone for AudioNodeEmitterShape {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioNodeEmitterShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterShape {}
-impl ::core::fmt::Debug for AudioNodeEmitterShape {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterShape").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
@@ -4865,17 +4631,6 @@ impl AudioNodeListener {
 impl ::core::clone::Clone for AudioNodeListener {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioNodeListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeListener {}
-impl ::core::fmt::Debug for AudioNodeListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeListener").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeListener {
@@ -4988,17 +4743,6 @@ impl ::core::clone::Clone for AudioPlaybackConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioPlaybackConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioPlaybackConnection {}
-impl ::core::fmt::Debug for AudioPlaybackConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioPlaybackConnection;{1a4c1dea-cafc-50e7-8718-ea3f81cbfa51})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5062,17 +4806,6 @@ impl AudioPlaybackConnectionOpenResult {
 impl ::core::clone::Clone for AudioPlaybackConnectionOpenResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioPlaybackConnectionOpenResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioPlaybackConnectionOpenResult {}
-impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnectionOpenResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
@@ -5189,17 +4922,6 @@ impl AudioStateMonitor {
 impl ::core::clone::Clone for AudioStateMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioStateMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioStateMonitor {}
-impl ::core::fmt::Debug for AudioStateMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioStateMonitor").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AudioStateMonitor {
@@ -5349,17 +5071,6 @@ impl ::core::clone::Clone for AudioSubmixNode {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AudioSubmixNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioSubmixNode {}
-impl ::core::fmt::Debug for AudioSubmixNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioSubmixNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AudioSubmixNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.AudioSubmixNode;{d148005c-8428-4784-b7fd-a99d468c5d20})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5489,17 +5200,6 @@ impl ::core::clone::Clone for CreateAudioDeviceInputNodeResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CreateAudioDeviceInputNodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateAudioDeviceInputNodeResult {}
-impl ::core::fmt::Debug for CreateAudioDeviceInputNodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateAudioDeviceInputNodeResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioDeviceInputNodeResult;{16eec7a8-1ca7-40ef-91a4-d346e0aa1bba})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5548,17 +5248,6 @@ impl CreateAudioDeviceOutputNodeResult {
 impl ::core::clone::Clone for CreateAudioDeviceOutputNodeResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CreateAudioDeviceOutputNodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateAudioDeviceOutputNodeResult {}
-impl ::core::fmt::Debug for CreateAudioDeviceOutputNodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateAudioDeviceOutputNodeResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
@@ -5611,17 +5300,6 @@ impl ::core::clone::Clone for CreateAudioFileInputNodeResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CreateAudioFileInputNodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateAudioFileInputNodeResult {}
-impl ::core::fmt::Debug for CreateAudioFileInputNodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateAudioFileInputNodeResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioFileInputNodeResult;{ce83d61c-e297-4c50-9ce7-1c7a69d6bd09})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5670,17 +5348,6 @@ impl CreateAudioFileOutputNodeResult {
 impl ::core::clone::Clone for CreateAudioFileOutputNodeResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CreateAudioFileOutputNodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateAudioFileOutputNodeResult {}
-impl ::core::fmt::Debug for CreateAudioFileOutputNodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateAudioFileOutputNodeResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
@@ -5733,17 +5400,6 @@ impl ::core::clone::Clone for CreateAudioGraphResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CreateAudioGraphResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateAudioGraphResult {}
-impl ::core::fmt::Debug for CreateAudioGraphResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateAudioGraphResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CreateAudioGraphResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.CreateAudioGraphResult;{5453ef7e-7bde-4b76-bb5d-48f79cfc8c0b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5792,17 +5448,6 @@ impl CreateMediaSourceAudioInputNodeResult {
 impl ::core::clone::Clone for CreateMediaSourceAudioInputNodeResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CreateMediaSourceAudioInputNodeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreateMediaSourceAudioInputNodeResult {}
-impl ::core::fmt::Debug for CreateMediaSourceAudioInputNodeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreateMediaSourceAudioInputNodeResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
@@ -5896,17 +5541,6 @@ impl ::core::clone::Clone for EchoEffectDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EchoEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EchoEffectDefinition {}
-impl ::core::fmt::Debug for EchoEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EchoEffectDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EchoEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EchoEffectDefinition;{0e4d3faa-36b8-4c91-b9da-11f44a8a6610})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5991,17 +5625,6 @@ impl ::core::clone::Clone for EqualizerBand {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EqualizerBand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EqualizerBand {}
-impl ::core::fmt::Debug for EqualizerBand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EqualizerBand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EqualizerBand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerBand;{c00a5a6a-262d-4b85-9bb7-43280b62ed0c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6069,17 +5692,6 @@ impl ::core::clone::Clone for EqualizerEffectDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for EqualizerEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EqualizerEffectDefinition {}
-impl ::core::fmt::Debug for EqualizerEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EqualizerEffectDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.EqualizerEffectDefinition;{023f6f1f-83fe-449a-a822-c696442d16b0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6136,17 +5748,6 @@ impl FrameInputNodeQuantumStartedEventArgs {
 impl ::core::clone::Clone for FrameInputNodeQuantumStartedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FrameInputNodeQuantumStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FrameInputNodeQuantumStartedEventArgs {}
-impl ::core::fmt::Debug for FrameInputNodeQuantumStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FrameInputNodeQuantumStartedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
@@ -6227,17 +5828,6 @@ impl LimiterEffectDefinition {
 impl ::core::clone::Clone for LimiterEffectDefinition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LimiterEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LimiterEffectDefinition {}
-impl ::core::fmt::Debug for LimiterEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LimiterEffectDefinition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LimiterEffectDefinition {
@@ -6523,17 +6113,6 @@ impl MediaSourceAudioInputNode {
 impl ::core::clone::Clone for MediaSourceAudioInputNode {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MediaSourceAudioInputNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceAudioInputNode {}
-impl ::core::fmt::Debug for MediaSourceAudioInputNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceAudioInputNode").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
@@ -6926,17 +6505,6 @@ impl ::core::clone::Clone for ReverbEffectDefinition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ReverbEffectDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReverbEffectDefinition {}
-impl ::core::fmt::Debug for ReverbEffectDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReverbEffectDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ReverbEffectDefinition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.ReverbEffectDefinition;{4606aa89-f563-4d0a-8f6e-f0cddff35d84})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6993,17 +6561,6 @@ impl SetDefaultSpatialAudioFormatResult {
 impl ::core::clone::Clone for SetDefaultSpatialAudioFormatResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SetDefaultSpatialAudioFormatResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetDefaultSpatialAudioFormatResult {}
-impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetDefaultSpatialAudioFormatResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult {
@@ -7105,17 +6662,6 @@ impl ::core::clone::Clone for SpatialAudioDeviceConfiguration {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SpatialAudioDeviceConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAudioDeviceConfiguration {}
-impl ::core::fmt::Debug for SpatialAudioDeviceConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAudioDeviceConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Audio.SpatialAudioDeviceConfiguration;{ee830034-61cf-5749-9da4-10f0fe028199})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7183,17 +6729,6 @@ impl SpatialAudioFormatConfiguration {
 impl ::core::clone::Clone for SpatialAudioFormatConfiguration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SpatialAudioFormatConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAudioFormatConfiguration {}
-impl ::core::fmt::Debug for SpatialAudioFormatConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAudioFormatConfiguration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
@@ -7291,18 +6826,8 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
         *self
     }
 }
-impl ::core::default::Default for AudioDeviceNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioDeviceNodeCreationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
@@ -7328,18 +6853,8 @@ impl ::core::clone::Clone for AudioFileNodeCreationStatus {
         *self
     }
 }
-impl ::core::default::Default for AudioFileNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioFileNodeCreationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
@@ -7364,18 +6879,8 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
         *self
     }
 }
-impl ::core::default::Default for AudioGraphCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioGraphCreationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioGraphCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
@@ -7400,18 +6905,8 @@ impl ::core::clone::Clone for AudioGraphUnrecoverableError {
         *self
     }
 }
-impl ::core::default::Default for AudioGraphUnrecoverableError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioGraphUnrecoverableError {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
@@ -7434,18 +6929,8 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
         *self
     }
 }
-impl ::core::default::Default for AudioNodeEmitterDecayKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterDecayKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
@@ -7468,46 +6953,8 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
         *self
     }
 }
-impl ::core::default::Default for AudioNodeEmitterSettings {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterSettings {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioNodeEmitterSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AudioNodeEmitterSettings {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AudioNodeEmitterSettings {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AudioNodeEmitterSettings {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AudioNodeEmitterSettings {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AudioNodeEmitterSettings {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
@@ -7530,18 +6977,8 @@ impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
         *self
     }
 }
-impl ::core::default::Default for AudioNodeEmitterShapeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioNodeEmitterShapeKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
@@ -7566,18 +7003,8 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
         *self
     }
 }
-impl ::core::default::Default for AudioPlaybackConnectionOpenResultStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionOpenResultStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
@@ -7600,18 +7027,8 @@ impl ::core::clone::Clone for AudioPlaybackConnectionState {
         *self
     }
 }
-impl ::core::default::Default for AudioPlaybackConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioPlaybackConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
@@ -7636,18 +7053,8 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
         *self
     }
 }
-impl ::core::default::Default for MediaSourceAudioInputNodeCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaSourceAudioInputNodeCreationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
@@ -7670,18 +7077,8 @@ impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
         *self
     }
 }
-impl ::core::default::Default for MixedRealitySpatialAudioFormatPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MixedRealitySpatialAudioFormatPolicy {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
@@ -7705,18 +7102,8 @@ impl ::core::clone::Clone for QuantumSizeSelectionMode {
         *self
     }
 }
-impl ::core::default::Default for QuantumSizeSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for QuantumSizeSelectionMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for QuantumSizeSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
@@ -7743,18 +7130,8 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
         *self
     }
 }
-impl ::core::default::Default for SetDefaultSpatialAudioFormatStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SetDefaultSpatialAudioFormatStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
@@ -7777,18 +7154,8 @@ impl ::core::clone::Clone for SpatialAudioModel {
         *self
     }
 }
-impl ::core::default::Default for SpatialAudioModel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SpatialAudioModel {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialAudioModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAudioModel").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SpatialAudioModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
@@ -7799,3 +7166,5 @@ unsafe impl ::windows::core::RuntimeType for SpatialAudioModel {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

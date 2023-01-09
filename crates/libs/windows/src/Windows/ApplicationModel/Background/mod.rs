@@ -183,17 +183,6 @@ impl ::core::clone::Clone for IBackgroundCondition {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCondition {}
-impl ::core::fmt::Debug for IBackgroundCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCondition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundCondition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -293,17 +282,6 @@ impl IBackgroundTask {
 impl ::core::clone::Clone for IBackgroundTask {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTask {}
-impl ::core::fmt::Debug for IBackgroundTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTask").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTask {
@@ -512,17 +490,6 @@ impl ::core::clone::Clone for IBackgroundTaskInstance {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTaskInstance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskInstance {}
-impl ::core::fmt::Debug for IBackgroundTaskInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskInstance").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
     type DefaultType = ::core::option::Option<Self>;
@@ -654,17 +621,6 @@ impl ::core::clone::Clone for IBackgroundTaskInstance2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTaskInstance2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskInstance2 {}
-impl ::core::fmt::Debug for IBackgroundTaskInstance2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskInstance2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
     type DefaultType = ::core::option::Option<Self>;
@@ -784,17 +740,6 @@ impl ::core::clone::Clone for IBackgroundTaskInstance4 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTaskInstance4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskInstance4 {}
-impl ::core::fmt::Debug for IBackgroundTaskInstance4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskInstance4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance4 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
     type DefaultType = ::core::option::Option<Self>;
@@ -890,17 +835,6 @@ impl IBackgroundTaskRegistration {
 impl ::core::clone::Clone for IBackgroundTaskRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTaskRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskRegistration {}
-impl ::core::fmt::Debug for IBackgroundTaskRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskRegistration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
@@ -1025,17 +959,6 @@ impl ::core::clone::Clone for IBackgroundTaskRegistration2 {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IBackgroundTaskRegistration2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskRegistration2 {}
-impl ::core::fmt::Debug for IBackgroundTaskRegistration2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskRegistration2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
     type DefaultType = ::core::option::Option<Self>;
@@ -1138,17 +1061,6 @@ impl ::core::convert::TryFrom<&IBackgroundTaskRegistration3> for ::windows::core
 impl ::core::clone::Clone for IBackgroundTaskRegistration3 {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTaskRegistration3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTaskRegistration3 {}
-impl ::core::fmt::Debug for IBackgroundTaskRegistration3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTaskRegistration3").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration3 {
@@ -1259,17 +1171,6 @@ impl IBackgroundTrigger {}
 impl ::core::clone::Clone for IBackgroundTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IBackgroundTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundTrigger {}
-impl ::core::fmt::Debug for IBackgroundTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for IBackgroundTrigger {
@@ -2486,17 +2387,6 @@ impl ::core::clone::Clone for ActivitySensorTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ActivitySensorTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorTrigger {}
-impl ::core::fmt::Debug for ActivitySensorTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2591,17 +2481,6 @@ impl AppBroadcastTrigger {
 impl ::core::clone::Clone for AppBroadcastTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppBroadcastTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastTrigger {}
-impl ::core::fmt::Debug for AppBroadcastTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTrigger {
@@ -2722,17 +2601,6 @@ impl ::core::clone::Clone for AppBroadcastTriggerProviderInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AppBroadcastTriggerProviderInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastTriggerProviderInfo {}
-impl ::core::fmt::Debug for AppBroadcastTriggerProviderInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppBroadcastTriggerProviderInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerProviderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2785,17 +2653,6 @@ impl ApplicationTrigger {
 impl ::core::clone::Clone for ApplicationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ApplicationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationTrigger {}
-impl ::core::fmt::Debug for ApplicationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationTrigger {
@@ -2855,17 +2712,6 @@ impl ::core::clone::Clone for ApplicationTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ApplicationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationTriggerDetails {}
-impl ::core::fmt::Debug for ApplicationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2900,17 +2746,6 @@ impl AppointmentStoreNotificationTrigger {
 impl ::core::clone::Clone for AppointmentStoreNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentStoreNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreNotificationTrigger {}
-impl ::core::fmt::Debug for AppointmentStoreNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentStoreNotificationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger {
@@ -3134,17 +2969,6 @@ impl ::core::clone::Clone for BackgroundTaskBuilder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTaskBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskBuilder {}
-impl ::core::fmt::Debug for BackgroundTaskBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3183,17 +3007,6 @@ impl ::core::clone::Clone for BackgroundTaskCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskCompletedEventArgs {}
-impl ::core::fmt::Debug for BackgroundTaskCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3225,17 +3038,6 @@ impl BackgroundTaskDeferral {
 impl ::core::clone::Clone for BackgroundTaskDeferral {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTaskDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskDeferral {}
-impl ::core::fmt::Debug for BackgroundTaskDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskDeferral").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskDeferral {
@@ -3279,17 +3081,6 @@ impl BackgroundTaskProgressEventArgs {
 impl ::core::clone::Clone for BackgroundTaskProgressEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTaskProgressEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskProgressEventArgs {}
-impl ::core::fmt::Debug for BackgroundTaskProgressEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskProgressEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventArgs {
@@ -3413,17 +3204,6 @@ impl BackgroundTaskRegistration {
 impl ::core::clone::Clone for BackgroundTaskRegistration {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTaskRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskRegistration {}
-impl ::core::fmt::Debug for BackgroundTaskRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskRegistration").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistration {
@@ -3567,17 +3347,6 @@ impl ::core::clone::Clone for BackgroundTaskRegistrationGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTaskRegistrationGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskRegistrationGroup {}
-impl ::core::fmt::Debug for BackgroundTaskRegistrationGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskRegistrationGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistrationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3691,17 +3460,6 @@ impl BluetoothLEAdvertisementPublisherTrigger {
 impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherTrigger {}
-impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEAdvertisementPublisherTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
@@ -3836,17 +3594,6 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherTrigger {}
-impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BluetoothLEAdvertisementWatcherTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3900,17 +3647,6 @@ impl CachedFileUpdaterTrigger {
 impl ::core::clone::Clone for CachedFileUpdaterTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CachedFileUpdaterTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileUpdaterTrigger {}
-impl ::core::fmt::Debug for CachedFileUpdaterTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileUpdaterTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTrigger {
@@ -3986,17 +3722,6 @@ impl ::core::clone::Clone for CachedFileUpdaterTriggerDetails {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CachedFileUpdaterTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileUpdaterTriggerDetails {}
-impl ::core::fmt::Debug for CachedFileUpdaterTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileUpdaterTriggerDetails").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4031,17 +3756,6 @@ impl ChatMessageNotificationTrigger {
 impl ::core::clone::Clone for ChatMessageNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ChatMessageNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageNotificationTrigger {}
-impl ::core::fmt::Debug for ChatMessageNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageNotificationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTrigger {
@@ -4099,17 +3813,6 @@ impl ::core::clone::Clone for ChatMessageReceivedNotificationTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageReceivedNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageReceivedNotificationTrigger {}
-impl ::core::fmt::Debug for ChatMessageReceivedNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageReceivedNotificationTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ChatMessageReceivedNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4165,17 +3868,6 @@ impl ::core::clone::Clone for CommunicationBlockingAppSetAsActiveTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CommunicationBlockingAppSetAsActiveTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommunicationBlockingAppSetAsActiveTrigger {}
-impl ::core::fmt::Debug for CommunicationBlockingAppSetAsActiveTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommunicationBlockingAppSetAsActiveTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4229,17 +3921,6 @@ impl ContactStoreNotificationTrigger {
 impl ::core::clone::Clone for ContactStoreNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactStoreNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactStoreNotificationTrigger {}
-impl ::core::fmt::Debug for ContactStoreNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStoreNotificationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTrigger {
@@ -4319,17 +4000,6 @@ impl ::core::clone::Clone for ContentPrefetchTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ContentPrefetchTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentPrefetchTrigger {}
-impl ::core::fmt::Debug for ContentPrefetchTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentPrefetchTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ContentPrefetchTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4381,17 +4051,6 @@ impl ConversationalAgentTrigger {
 impl ::core::clone::Clone for ConversationalAgentTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ConversationalAgentTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentTrigger {}
-impl ::core::fmt::Debug for ConversationalAgentTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentTrigger {
@@ -4463,17 +4122,6 @@ impl CustomSystemEventTrigger {
 impl ::core::clone::Clone for CustomSystemEventTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CustomSystemEventTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSystemEventTrigger {}
-impl ::core::fmt::Debug for CustomSystemEventTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSystemEventTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTrigger {
@@ -4560,17 +4208,6 @@ impl ::core::clone::Clone for DeviceConnectionChangeTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeviceConnectionChangeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceConnectionChangeTrigger {}
-impl ::core::fmt::Debug for DeviceConnectionChangeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceConnectionChangeTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4655,20 +4292,6 @@ impl ::core::clone::Clone for DeviceManufacturerNotificationTrigger {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for DeviceManufacturerNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for DeviceManufacturerNotificationTrigger {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for DeviceManufacturerNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceManufacturerNotificationTrigger").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4747,17 +4370,6 @@ impl ::core::clone::Clone for DeviceServicingTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeviceServicingTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceServicingTrigger {}
-impl ::core::fmt::Debug for DeviceServicingTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceServicingTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DeviceServicingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4831,17 +4443,6 @@ impl ::core::clone::Clone for DeviceUseTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DeviceUseTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceUseTrigger {}
-impl ::core::fmt::Debug for DeviceUseTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceUseTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DeviceUseTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -4887,17 +4488,6 @@ impl DeviceWatcherTrigger {}
 impl ::core::clone::Clone for DeviceWatcherTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeviceWatcherTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcherTrigger {}
-impl ::core::fmt::Debug for DeviceWatcherTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcherTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for DeviceWatcherTrigger {
@@ -4951,17 +4541,6 @@ impl EmailStoreNotificationTrigger {
 impl ::core::clone::Clone for EmailStoreNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EmailStoreNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailStoreNotificationTrigger {}
-impl ::core::fmt::Debug for EmailStoreNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailStoreNotificationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTrigger {
@@ -5056,17 +4635,6 @@ impl ::core::clone::Clone for GattCharacteristicNotificationTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattCharacteristicNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattCharacteristicNotificationTrigger {}
-impl ::core::fmt::Debug for GattCharacteristicNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattCharacteristicNotificationTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5159,17 +4727,6 @@ impl ::core::clone::Clone for GattServiceProviderTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattServiceProviderTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderTrigger {}
-impl ::core::fmt::Debug for GattServiceProviderTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5234,17 +4791,6 @@ impl ::core::clone::Clone for GattServiceProviderTriggerResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for GattServiceProviderTriggerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderTriggerResult {}
-impl ::core::fmt::Debug for GattServiceProviderTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GattServiceProviderTriggerResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5294,17 +4840,6 @@ impl GeovisitTrigger {
 impl ::core::clone::Clone for GeovisitTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GeovisitTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeovisitTrigger {}
-impl ::core::fmt::Debug for GeovisitTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeovisitTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for GeovisitTrigger {
@@ -5371,17 +4906,6 @@ impl LocationTrigger {
 impl ::core::clone::Clone for LocationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for LocationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocationTrigger {}
-impl ::core::fmt::Debug for LocationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for LocationTrigger {
@@ -5457,17 +4981,6 @@ impl ::core::clone::Clone for MaintenanceTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MaintenanceTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MaintenanceTrigger {}
-impl ::core::fmt::Debug for MaintenanceTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MaintenanceTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MaintenanceTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5539,17 +5052,6 @@ impl ::core::clone::Clone for MediaProcessingTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MediaProcessingTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaProcessingTrigger {}
-impl ::core::fmt::Debug for MediaProcessingTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProcessingTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5601,17 +5103,6 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
 impl ::core::clone::Clone for MobileBroadbandDeviceServiceNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MobileBroadbandDeviceServiceNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MobileBroadbandDeviceServiceNotificationTrigger {}
-impl ::core::fmt::Debug for MobileBroadbandDeviceServiceNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandDeviceServiceNotificationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
@@ -5669,17 +5160,6 @@ impl ::core::clone::Clone for MobileBroadbandPcoDataChangeTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MobileBroadbandPcoDataChangeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MobileBroadbandPcoDataChangeTrigger {}
-impl ::core::fmt::Debug for MobileBroadbandPcoDataChangeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandPcoDataChangeTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5733,17 +5213,6 @@ impl MobileBroadbandPinLockStateChangeTrigger {
 impl ::core::clone::Clone for MobileBroadbandPinLockStateChangeTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MobileBroadbandPinLockStateChangeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MobileBroadbandPinLockStateChangeTrigger {}
-impl ::core::fmt::Debug for MobileBroadbandPinLockStateChangeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandPinLockStateChangeTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
@@ -5801,17 +5270,6 @@ impl ::core::clone::Clone for MobileBroadbandRadioStateChangeTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for MobileBroadbandRadioStateChangeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MobileBroadbandRadioStateChangeTrigger {}
-impl ::core::fmt::Debug for MobileBroadbandRadioStateChangeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandRadioStateChangeTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5865,17 +5323,6 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
 impl ::core::clone::Clone for MobileBroadbandRegistrationStateChangeTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for MobileBroadbandRegistrationStateChangeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MobileBroadbandRegistrationStateChangeTrigger {}
-impl ::core::fmt::Debug for MobileBroadbandRegistrationStateChangeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandRegistrationStateChangeTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
@@ -5933,17 +5380,6 @@ impl ::core::clone::Clone for NetworkOperatorDataUsageTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkOperatorDataUsageTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkOperatorDataUsageTrigger {}
-impl ::core::fmt::Debug for NetworkOperatorDataUsageTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkOperatorDataUsageTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -5997,17 +5433,6 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
 impl ::core::clone::Clone for NetworkOperatorHotspotAuthenticationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NetworkOperatorHotspotAuthenticationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkOperatorHotspotAuthenticationTrigger {}
-impl ::core::fmt::Debug for NetworkOperatorHotspotAuthenticationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkOperatorHotspotAuthenticationTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
@@ -6074,17 +5499,6 @@ impl ::core::clone::Clone for NetworkOperatorNotificationTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for NetworkOperatorNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkOperatorNotificationTrigger {}
-impl ::core::fmt::Debug for NetworkOperatorNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkOperatorNotificationTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6136,17 +5550,6 @@ impl PaymentAppCanMakePaymentTrigger {
 impl ::core::clone::Clone for PaymentAppCanMakePaymentTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for PaymentAppCanMakePaymentTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentAppCanMakePaymentTrigger {}
-impl ::core::fmt::Debug for PaymentAppCanMakePaymentTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PaymentAppCanMakePaymentTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTrigger {
@@ -6226,17 +5629,6 @@ impl ::core::clone::Clone for PhoneTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PhoneTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneTrigger {}
-impl ::core::fmt::Debug for PhoneTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PhoneTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6303,17 +5695,6 @@ impl ::core::clone::Clone for PushNotificationTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PushNotificationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PushNotificationTrigger {}
-impl ::core::fmt::Debug for PushNotificationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PushNotificationTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PushNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6367,17 +5748,6 @@ impl RcsEndUserMessageAvailableTrigger {
 impl ::core::clone::Clone for RcsEndUserMessageAvailableTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessageAvailableTrigger {}
-impl ::core::fmt::Debug for RcsEndUserMessageAvailableTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessageAvailableTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTrigger {
@@ -6494,17 +5864,6 @@ impl ::core::clone::Clone for RfcommConnectionTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RfcommConnectionTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RfcommConnectionTrigger {}
-impl ::core::fmt::Debug for RfcommConnectionTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RfcommConnectionTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RfcommConnectionTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6561,20 +5920,6 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
 impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationTrigger {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationTrigger").field(&self.0).finish()
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6648,17 +5993,6 @@ impl ::core::clone::Clone for SensorDataThresholdTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SensorDataThresholdTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorDataThresholdTrigger {}
-impl ::core::fmt::Debug for SensorDataThresholdTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorDataThresholdTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6729,17 +6063,6 @@ impl ::core::clone::Clone for SmartCardTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SmartCardTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardTrigger {}
-impl ::core::fmt::Debug for SmartCardTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SmartCardTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6797,17 +6120,6 @@ impl SmsMessageReceivedTrigger {
 impl ::core::clone::Clone for SmsMessageReceivedTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmsMessageReceivedTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsMessageReceivedTrigger {}
-impl ::core::fmt::Debug for SmsMessageReceivedTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmsMessageReceivedTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTrigger {
@@ -6872,17 +6184,6 @@ impl ::core::clone::Clone for SocketActivityTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SocketActivityTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityTrigger {}
-impl ::core::fmt::Debug for SocketActivityTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -6942,17 +6243,6 @@ impl StorageLibraryChangeTrackerTrigger {
 impl ::core::clone::Clone for StorageLibraryChangeTrackerTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeTrackerTrigger {}
-impl ::core::fmt::Debug for StorageLibraryChangeTrackerTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryChangeTrackerTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTrigger {
@@ -7028,17 +6318,6 @@ impl ::core::clone::Clone for StorageLibraryContentChangedTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for StorageLibraryContentChangedTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryContentChangedTrigger {}
-impl ::core::fmt::Debug for StorageLibraryContentChangedTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageLibraryContentChangedTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7101,17 +6380,6 @@ impl SystemCondition {
 impl ::core::clone::Clone for SystemCondition {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SystemCondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemCondition {}
-impl ::core::fmt::Debug for SystemCondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemCondition").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for SystemCondition {
@@ -7185,17 +6453,6 @@ impl ::core::clone::Clone for SystemTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for SystemTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemTrigger {}
-impl ::core::fmt::Debug for SystemTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for SystemTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7247,17 +6504,6 @@ impl TetheringEntitlementCheckTrigger {
 impl ::core::clone::Clone for TetheringEntitlementCheckTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TetheringEntitlementCheckTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TetheringEntitlementCheckTrigger {}
-impl ::core::fmt::Debug for TetheringEntitlementCheckTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TetheringEntitlementCheckTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for TetheringEntitlementCheckTrigger {
@@ -7333,17 +6579,6 @@ impl ::core::clone::Clone for TimeTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for TimeTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimeTrigger {}
-impl ::core::fmt::Debug for TimeTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimeTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for TimeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7406,17 +6641,6 @@ impl ToastNotificationActionTrigger {
 impl ::core::clone::Clone for ToastNotificationActionTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ToastNotificationActionTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationActionTrigger {}
-impl ::core::fmt::Debug for ToastNotificationActionTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationActionTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTrigger {
@@ -7485,17 +6709,6 @@ impl ::core::clone::Clone for ToastNotificationHistoryChangedTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationHistoryChangedTrigger {}
-impl ::core::fmt::Debug for ToastNotificationHistoryChangedTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationHistoryChangedTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7557,17 +6770,6 @@ impl ::core::clone::Clone for UserNotificationChangedTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserNotificationChangedTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationChangedTrigger {}
-impl ::core::fmt::Debug for UserNotificationChangedTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationChangedTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7621,17 +6823,6 @@ impl WiFiOnDemandHotspotConnectTrigger {
 impl ::core::clone::Clone for WiFiOnDemandHotspotConnectTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for WiFiOnDemandHotspotConnectTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiOnDemandHotspotConnectTrigger {}
-impl ::core::fmt::Debug for WiFiOnDemandHotspotConnectTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiOnDemandHotspotConnectTrigger").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
@@ -7689,17 +6880,6 @@ impl ::core::clone::Clone for WiFiOnDemandHotspotUpdateMetadataTrigger {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiOnDemandHotspotUpdateMetadataTrigger {}
-impl ::core::fmt::Debug for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WiFiOnDemandHotspotUpdateMetadataTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.WiFiOnDemandHotspotUpdateMetadataTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -7754,18 +6934,8 @@ impl ::core::clone::Clone for AlarmAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for AlarmAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AlarmAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlarmAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AlarmAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.AlarmAccessStatus;i4)");
@@ -7790,18 +6960,8 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
         *self
     }
 }
-impl ::core::default::Default for ApplicationTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationTriggerResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.ApplicationTriggerResult;i4)");
@@ -7824,18 +6984,8 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
         *self
     }
 }
-impl ::core::default::Default for BackgroundAccessRequestKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundAccessRequestKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAccessRequestKind").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessRequestKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessRequestKind;i4)");
@@ -7864,18 +7014,8 @@ impl ::core::clone::Clone for BackgroundAccessStatus {
         *self
     }
 }
-impl ::core::default::Default for BackgroundAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundAccessStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundAccessStatus;i4)");
@@ -7908,18 +7048,8 @@ impl ::core::clone::Clone for BackgroundTaskCancellationReason {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTaskCancellationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskCancellationReason").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCancellationReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskCancellationReason;i4)");
@@ -7943,18 +7073,8 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
         *self
     }
 }
-impl ::core::default::Default for BackgroundTaskThrottleCounter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskThrottleCounter").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskThrottleCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundTaskThrottleCounter;i4)");
@@ -7978,18 +7098,8 @@ impl ::core::clone::Clone for BackgroundWorkCostValue {
         *self
     }
 }
-impl ::core::default::Default for BackgroundWorkCostValue {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BackgroundWorkCostValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundWorkCostValue").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BackgroundWorkCostValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.BackgroundWorkCostValue;i4)");
@@ -8012,18 +7122,8 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
         *self
     }
 }
-impl ::core::default::Default for CustomSystemEventTriggerRecurrence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSystemEventTriggerRecurrence").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTriggerRecurrence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.CustomSystemEventTriggerRecurrence;i4)");
@@ -8048,18 +7148,8 @@ impl ::core::clone::Clone for DeviceTriggerResult {
         *self
     }
 }
-impl ::core::default::Default for DeviceTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for DeviceTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceTriggerResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for DeviceTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.DeviceTriggerResult;i4)");
@@ -8081,18 +7171,8 @@ impl ::core::clone::Clone for LocationTriggerType {
         *self
     }
 }
-impl ::core::default::Default for LocationTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for LocationTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocationTriggerType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for LocationTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.LocationTriggerType;i4)");
@@ -8117,18 +7197,8 @@ impl ::core::clone::Clone for MediaProcessingTriggerResult {
         *self
     }
 }
-impl ::core::default::Default for MediaProcessingTriggerResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaProcessingTriggerResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaProcessingTriggerResult").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.MediaProcessingTriggerResult;i4)");
@@ -8158,18 +7228,8 @@ impl ::core::clone::Clone for SystemConditionType {
         *self
     }
 }
-impl ::core::default::Default for SystemConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemConditionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemConditionType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemConditionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemConditionType;i4)");
@@ -8206,18 +7266,8 @@ impl ::core::clone::Clone for SystemTriggerType {
         *self
     }
 }
-impl ::core::default::Default for SystemTriggerType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for SystemTriggerType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for SystemTriggerType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SystemTriggerType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for SystemTriggerType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Background.SystemTriggerType;i4)");
@@ -8284,17 +7334,6 @@ impl<F: FnMut(&::core::option::Option<IBackgroundTaskInstance>, BackgroundTaskCa
 impl ::core::clone::Clone for BackgroundTaskCanceledEventHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundTaskCanceledEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskCanceledEventHandler {}
-impl ::core::fmt::Debug for BackgroundTaskCanceledEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskCanceledEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for BackgroundTaskCanceledEventHandler {
@@ -8372,17 +7411,6 @@ impl ::core::clone::Clone for BackgroundTaskCompletedEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskCompletedEventHandler {}
-impl ::core::fmt::Debug for BackgroundTaskCompletedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskCompletedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for BackgroundTaskCompletedEventHandler {
     type Vtable = BackgroundTaskCompletedEventHandler_Vtbl;
 }
@@ -8458,17 +7486,6 @@ impl ::core::clone::Clone for BackgroundTaskProgressEventHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BackgroundTaskProgressEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskProgressEventHandler {}
-impl ::core::fmt::Debug for BackgroundTaskProgressEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundTaskProgressEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for BackgroundTaskProgressEventHandler {
     type Vtable = BackgroundTaskProgressEventHandler_Vtbl;
 }
@@ -8490,3 +7507,5 @@ pub struct BackgroundTaskProgressEventHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

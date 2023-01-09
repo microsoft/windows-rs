@@ -149,17 +149,6 @@ impl ::core::clone::Clone for DesktopWindowTarget {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for DesktopWindowTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DesktopWindowTarget {}
-impl ::core::fmt::Debug for DesktopWindowTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DesktopWindowTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for DesktopWindowTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
     type DefaultType = ::core::option::Option<Self>;
@@ -252,3 +241,5 @@ unsafe impl ::core::marker::Send for DesktopWindowTarget {}
 unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

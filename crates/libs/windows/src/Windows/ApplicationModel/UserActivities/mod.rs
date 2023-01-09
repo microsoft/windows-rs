@@ -243,17 +243,6 @@ impl ::core::clone::Clone for IUserActivityContentInfo {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IUserActivityContentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserActivityContentInfo {}
-impl ::core::fmt::Debug for IUserActivityContentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserActivityContentInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for IUserActivityContentInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
     type DefaultType = ::core::option::Option<Self>;
@@ -665,17 +654,6 @@ impl ::core::clone::Clone for UserActivity {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserActivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivity {}
-impl ::core::fmt::Debug for UserActivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserActivity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -760,17 +738,6 @@ impl UserActivityAttribution {
 impl ::core::clone::Clone for UserActivityAttribution {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserActivityAttribution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityAttribution {}
-impl ::core::fmt::Debug for UserActivityAttribution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityAttribution").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivityAttribution {
@@ -887,17 +854,6 @@ impl ::core::clone::Clone for UserActivityChannel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserActivityChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityChannel {}
-impl ::core::fmt::Debug for UserActivityChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserActivityChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -943,17 +899,6 @@ impl UserActivityContentInfo {
 impl ::core::clone::Clone for UserActivityContentInfo {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserActivityContentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityContentInfo {}
-impl ::core::fmt::Debug for UserActivityContentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityContentInfo").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivityContentInfo {
@@ -1006,17 +951,6 @@ impl UserActivityRequest {
 impl ::core::clone::Clone for UserActivityRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserActivityRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequest {}
-impl ::core::fmt::Debug for UserActivityRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivityRequest {
@@ -1074,17 +1008,6 @@ impl ::core::clone::Clone for UserActivityRequestManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserActivityRequestManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequestManager {}
-impl ::core::fmt::Debug for UserActivityRequestManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequestManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserActivityRequestManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1128,17 +1051,6 @@ impl ::core::clone::Clone for UserActivityRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserActivityRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequestedEventArgs {}
-impl ::core::fmt::Debug for UserActivityRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1179,17 +1091,6 @@ impl UserActivitySession {
 impl ::core::clone::Clone for UserActivitySession {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserActivitySession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivitySession {}
-impl ::core::fmt::Debug for UserActivitySession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivitySession").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivitySession {
@@ -1266,17 +1167,6 @@ impl UserActivitySessionHistoryItem {
 impl ::core::clone::Clone for UserActivitySessionHistoryItem {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UserActivitySessionHistoryItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivitySessionHistoryItem {}
-impl ::core::fmt::Debug for UserActivitySessionHistoryItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivitySessionHistoryItem").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
@@ -1386,17 +1276,6 @@ impl ::core::clone::Clone for UserActivityVisualElements {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for UserActivityVisualElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityVisualElements {}
-impl ::core::fmt::Debug for UserActivityVisualElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityVisualElements").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for UserActivityVisualElements {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1430,18 +1309,8 @@ impl ::core::clone::Clone for UserActivityState {
         *self
     }
 }
-impl ::core::default::Default for UserActivityState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for UserActivityState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for UserActivityState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for UserActivityState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
@@ -1452,3 +1321,5 @@ unsafe impl ::windows::core::RuntimeType for UserActivityState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

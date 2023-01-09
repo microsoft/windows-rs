@@ -27,17 +27,6 @@ impl ::core::clone::Clone for IDisplayDeviceInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDisplayDeviceInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDisplayDeviceInterop {}
-impl ::core::fmt::Debug for IDisplayDeviceInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDisplayDeviceInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInterop_Vtbl;
 }
@@ -78,17 +67,6 @@ impl ::core::clone::Clone for IDisplayPathInterop {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for IDisplayPathInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDisplayPathInterop {}
-impl ::core::fmt::Debug for IDisplayPathInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDisplayPathInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for IDisplayPathInterop {
     type Vtable = IDisplayPathInterop_Vtbl;
 }
@@ -107,3 +85,5 @@ pub struct IDisplayPathInterop_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

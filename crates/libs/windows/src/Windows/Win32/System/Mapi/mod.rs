@@ -130,24 +130,8 @@ impl ::core::clone::Clone for MapiFileDesc {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiFileDesc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiFileDesc {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiFileDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
-    }
-}
-impl ::core::cmp::Eq for MapiFileDesc {}
-impl ::core::default::Default for MapiFileDesc {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -165,24 +149,8 @@ impl ::core::clone::Clone for MapiFileDescW {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiFileDescW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiFileDescW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiFileDescW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
-    }
-}
-impl ::core::cmp::Eq for MapiFileDescW {}
-impl ::core::default::Default for MapiFileDescW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -199,24 +167,8 @@ impl ::core::clone::Clone for MapiFileTagExt {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiFileTagExt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiFileTagExt").field("ulReserved", &self.ulReserved).field("cbTag", &self.cbTag).field("lpTag", &self.lpTag).field("cbEncoding", &self.cbEncoding).field("lpEncoding", &self.lpEncoding).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiFileTagExt {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiFileTagExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.cbTag == other.cbTag && self.lpTag == other.lpTag && self.cbEncoding == other.cbEncoding && self.lpEncoding == other.lpEncoding
-    }
-}
-impl ::core::cmp::Eq for MapiFileTagExt {}
-impl ::core::default::Default for MapiFileTagExt {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -240,37 +192,8 @@ impl ::core::clone::Clone for MapiMessage {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiMessage")
-            .field("ulReserved", &self.ulReserved)
-            .field("lpszSubject", &self.lpszSubject)
-            .field("lpszNoteText", &self.lpszNoteText)
-            .field("lpszMessageType", &self.lpszMessageType)
-            .field("lpszDateReceived", &self.lpszDateReceived)
-            .field("lpszConversationID", &self.lpszConversationID)
-            .field("flFlags", &self.flFlags)
-            .field("lpOriginator", &self.lpOriginator)
-            .field("nRecipCount", &self.nRecipCount)
-            .field("lpRecips", &self.lpRecips)
-            .field("nFileCount", &self.nFileCount)
-            .field("lpFiles", &self.lpFiles)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiMessage {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
-    }
-}
-impl ::core::cmp::Eq for MapiMessage {}
-impl ::core::default::Default for MapiMessage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -294,37 +217,8 @@ impl ::core::clone::Clone for MapiMessageW {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiMessageW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiMessageW")
-            .field("ulReserved", &self.ulReserved)
-            .field("lpszSubject", &self.lpszSubject)
-            .field("lpszNoteText", &self.lpszNoteText)
-            .field("lpszMessageType", &self.lpszMessageType)
-            .field("lpszDateReceived", &self.lpszDateReceived)
-            .field("lpszConversationID", &self.lpszConversationID)
-            .field("flFlags", &self.flFlags)
-            .field("lpOriginator", &self.lpOriginator)
-            .field("nRecipCount", &self.nRecipCount)
-            .field("lpRecips", &self.lpRecips)
-            .field("nFileCount", &self.nFileCount)
-            .field("lpFiles", &self.lpFiles)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiMessageW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiMessageW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.lpszSubject == other.lpszSubject && self.lpszNoteText == other.lpszNoteText && self.lpszMessageType == other.lpszMessageType && self.lpszDateReceived == other.lpszDateReceived && self.lpszConversationID == other.lpszConversationID && self.flFlags == other.flFlags && self.lpOriginator == other.lpOriginator && self.nRecipCount == other.nRecipCount && self.lpRecips == other.lpRecips && self.nFileCount == other.nFileCount && self.lpFiles == other.lpFiles
-    }
-}
-impl ::core::cmp::Eq for MapiMessageW {}
-impl ::core::default::Default for MapiMessageW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -342,24 +236,8 @@ impl ::core::clone::Clone for MapiRecipDesc {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiRecipDesc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiRecipDesc {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiRecipDesc {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
-    }
-}
-impl ::core::cmp::Eq for MapiRecipDesc {}
-impl ::core::default::Default for MapiRecipDesc {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
@@ -377,24 +255,8 @@ impl ::core::clone::Clone for MapiRecipDescW {
         *self
     }
 }
-impl ::core::fmt::Debug for MapiRecipDescW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MapiRecipDescW {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MapiRecipDescW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
-    }
-}
-impl ::core::cmp::Eq for MapiRecipDescW {}
-impl ::core::default::Default for MapiRecipDescW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub type LPMAPIADDRESS = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: ::windows::core::PCSTR, neditfields: u32, lpszlabels: ::windows::core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
@@ -424,3 +286,5 @@ pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhses
 pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

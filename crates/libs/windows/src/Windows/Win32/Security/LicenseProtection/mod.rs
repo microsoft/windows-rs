@@ -38,18 +38,10 @@ impl ::core::clone::Clone for LicenseProtectionStatus {
         *self
     }
 }
-impl ::core::default::Default for LicenseProtectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for LicenseProtectionStatus {
     type Abi = Self;
 }
-impl ::core::fmt::Debug for LicenseProtectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseProtectionStatus").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

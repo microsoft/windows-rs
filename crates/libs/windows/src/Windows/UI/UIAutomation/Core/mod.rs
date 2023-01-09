@@ -35,17 +35,6 @@ impl ::core::clone::Clone for ICoreAutomationConnectionBoundObjectProvider {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ICoreAutomationConnectionBoundObjectProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreAutomationConnectionBoundObjectProvider {}
-impl ::core::fmt::Debug for ICoreAutomationConnectionBoundObjectProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreAutomationConnectionBoundObjectProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0620bb64-9616-5593-be3a-eb8e6daeb3fa}");
     type DefaultType = ::core::option::Option<Self>;
@@ -152,17 +141,6 @@ impl ICoreAutomationRemoteOperationExtensionProvider {
 impl ::core::clone::Clone for ICoreAutomationRemoteOperationExtensionProvider {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ICoreAutomationRemoteOperationExtensionProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICoreAutomationRemoteOperationExtensionProvider {}
-impl ::core::fmt::Debug for ICoreAutomationRemoteOperationExtensionProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICoreAutomationRemoteOperationExtensionProvider").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
@@ -348,17 +326,6 @@ impl ::core::clone::Clone for AutomationRemoteOperationResult {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for AutomationRemoteOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationRemoteOperationResult {}
-impl ::core::fmt::Debug for AutomationRemoteOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationRemoteOperationResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -446,17 +413,6 @@ impl ::core::clone::Clone for CoreAutomationRemoteOperation {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperation {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
     type DefaultType = ::core::option::Option<Self>;
@@ -505,17 +461,6 @@ impl CoreAutomationRemoteOperationContext {
 impl ::core::clone::Clone for CoreAutomationRemoteOperationContext {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperationContext {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperationContext").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperationContext {
@@ -621,17 +566,6 @@ impl ::core::clone::Clone for RemoteAutomationClientSession {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationClientSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationClientSession {}
-impl ::core::fmt::Debug for RemoteAutomationClientSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationClientSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationClientSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationClientSession;{5c8a091d-94cc-5b33-afdb-678cded2bd54})");
     type DefaultType = ::core::option::Option<Self>;
@@ -675,17 +609,6 @@ impl ::core::clone::Clone for RemoteAutomationConnectionRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationConnectionRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationConnectionRequestedEventArgs {}
-impl ::core::fmt::Debug for RemoteAutomationConnectionRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationConnectionRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationConnectionRequestedEventArgs;{ea3319a8-e3a8-5dc6-adf8-044e46b14af5})");
     type DefaultType = ::core::option::Option<Self>;
@@ -720,17 +643,6 @@ impl RemoteAutomationDisconnectedEventArgs {
 impl ::core::clone::Clone for RemoteAutomationDisconnectedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RemoteAutomationDisconnectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationDisconnectedEventArgs {}
-impl ::core::fmt::Debug for RemoteAutomationDisconnectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationDisconnectedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationDisconnectedEventArgs {
@@ -793,17 +705,6 @@ impl ::core::clone::Clone for RemoteAutomationWindow {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for RemoteAutomationWindow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteAutomationWindow {}
-impl ::core::fmt::Debug for RemoteAutomationWindow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteAutomationWindow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for RemoteAutomationWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.RemoteAutomationWindow;{7c607689-496d-512a-9bd5-c050cfaf1428})");
     type DefaultType = ::core::option::Option<Self>;
@@ -840,18 +741,8 @@ impl ::core::clone::Clone for AutomationRemoteOperationStatus {
         *self
     }
 }
-impl ::core::default::Default for AutomationRemoteOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationStatus {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for AutomationRemoteOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationRemoteOperationStatus").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
@@ -871,11 +762,6 @@ impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationAnnotationTypeRegistration {
     type Abi = Self;
 }
@@ -884,17 +770,6 @@ unsafe impl ::windows::core::RuntimeType for AutomationAnnotationTypeRegistratio
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for AutomationAnnotationTypeRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocalId == other.LocalId
-    }
-}
-impl ::core::cmp::Eq for AutomationAnnotationTypeRegistration {}
-impl ::core::default::Default for AutomationAnnotationTypeRegistration {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -908,11 +783,6 @@ impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
         *self
     }
 }
-impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for AutomationRemoteOperationOperandId {
     type Abi = Self;
 }
@@ -923,16 +793,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationOperandId 
         Ok(*from)
     }
 }
-impl ::core::cmp::PartialEq for AutomationRemoteOperationOperandId {
-    fn eq(&self, other: &Self) -> bool {
-        self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for AutomationRemoteOperationOperandId {}
-impl ::core::default::Default for AutomationRemoteOperationOperandId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -184,17 +184,6 @@ impl ::core::clone::Clone for ThreadPoolTimer {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for ThreadPoolTimer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThreadPoolTimer {}
-impl ::core::fmt::Debug for ThreadPoolTimer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ThreadPoolTimer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for ThreadPoolTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.ThreadPoolTimer;{594ebe78-55ea-4a88-a50d-3402ae1f9cf2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -228,46 +217,8 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
-impl ::core::default::Default for WorkItemOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WorkItemOptions {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WorkItemOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WorkItemOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WorkItemOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WorkItemOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WorkItemOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WorkItemOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemOptions;u4)");
@@ -291,18 +242,8 @@ impl ::core::clone::Clone for WorkItemPriority {
         *self
     }
 }
-impl ::core::default::Default for WorkItemPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for WorkItemPriority {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for WorkItemPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemPriority").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Threading.WorkItemPriority;i4)");
@@ -365,17 +306,6 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
 impl ::core::clone::Clone for TimerDestroyedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimerDestroyedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimerDestroyedHandler {}
-impl ::core::fmt::Debug for TimerDestroyedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimerDestroyedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for TimerDestroyedHandler {
@@ -451,17 +381,6 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
 impl ::core::clone::Clone for TimerElapsedHandler {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for TimerElapsedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimerElapsedHandler {}
-impl ::core::fmt::Debug for TimerElapsedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimerElapsedHandler").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::Vtable for TimerElapsedHandler {
@@ -551,20 +470,6 @@ impl ::core::clone::Clone for WorkItemHandler {
     }
 }
 #[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for WorkItemHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for WorkItemHandler {}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for WorkItemHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WorkItemHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Vtable for WorkItemHandler {
     type Vtable = WorkItemHandler_Vtbl;
 }
@@ -592,3 +497,5 @@ pub struct WorkItemHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

@@ -934,17 +934,6 @@ impl ::core::clone::Clone for Print3DManager {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DManager {}
-impl ::core::fmt::Debug for Print3DManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DManager;{4d2fcb0a-7366-4971-8bd5-17c4e3e8c6c0})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1026,17 +1015,6 @@ impl ::core::clone::Clone for Print3DTask {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTask {}
-impl ::core::fmt::Debug for Print3DTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTask").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTask;{8ce3d080-2118-4c28-80de-f426d70191ae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1080,17 +1058,6 @@ impl ::core::clone::Clone for Print3DTaskCompletedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DTaskCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskCompletedEventArgs {}
-impl ::core::fmt::Debug for Print3DTaskCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskCompletedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs;{cc1914af-2614-4f1d-accc-d6fc4fda5455})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1125,17 +1092,6 @@ impl Print3DTaskRequest {
 impl ::core::clone::Clone for Print3DTaskRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Print3DTaskRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskRequest {}
-impl ::core::fmt::Debug for Print3DTaskRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskRequest").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DTaskRequest {
@@ -1174,17 +1130,6 @@ impl ::core::clone::Clone for Print3DTaskRequestedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DTaskRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskRequestedEventArgs {}
-impl ::core::fmt::Debug for Print3DTaskRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskRequestedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs;{150cb77f-18c5-40d7-9f40-fab3096e05a9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1221,17 +1166,6 @@ impl ::core::clone::Clone for Print3DTaskSourceChangedEventArgs {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DTaskSourceChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskSourceChangedEventArgs {}
-impl ::core::fmt::Debug for Print3DTaskSourceChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskSourceChangedEventArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fcf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1263,17 +1197,6 @@ impl Print3DTaskSourceRequestedArgs {
 impl ::core::clone::Clone for Print3DTaskSourceRequestedArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskSourceRequestedArgs {}
-impl ::core::fmt::Debug for Print3DTaskSourceRequestedArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskSourceRequestedArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
@@ -1429,17 +1352,6 @@ impl ::core::clone::Clone for Printing3D3MFPackage {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3D3MFPackage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3D3MFPackage {}
-impl ::core::fmt::Debug for Printing3D3MFPackage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3D3MFPackage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3D3MFPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3D3MFPackage;{f64dd5c8-2ab7-45a9-a1b7-267e948d5b18})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1515,17 +1427,6 @@ impl ::core::clone::Clone for Printing3DBaseMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DBaseMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DBaseMaterial {}
-impl ::core::fmt::Debug for Printing3DBaseMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DBaseMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterial;{d0f0e743-c50c-4bcb-9d04-fc16adcea2c9})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1580,17 +1481,6 @@ impl Printing3DBaseMaterialGroup {
 impl ::core::clone::Clone for Printing3DBaseMaterialGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DBaseMaterialGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DBaseMaterialGroup {}
-impl ::core::fmt::Debug for Printing3DBaseMaterialGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DBaseMaterialGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
@@ -1655,17 +1545,6 @@ impl ::core::clone::Clone for Printing3DColorMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DColorMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DColorMaterial {}
-impl ::core::fmt::Debug for Printing3DColorMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DColorMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterial;{e1899928-7ce7-4285-a35d-f145c9510c7b})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1720,17 +1599,6 @@ impl Printing3DColorMaterialGroup {
 impl ::core::clone::Clone for Printing3DColorMaterialGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DColorMaterialGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DColorMaterialGroup {}
-impl ::core::fmt::Debug for Printing3DColorMaterialGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DColorMaterialGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
@@ -1833,17 +1701,6 @@ impl ::core::clone::Clone for Printing3DComponent {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DComponent {}
-impl ::core::fmt::Debug for Printing3DComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DComponent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponent;{7e287845-bf7f-4cdb-a27f-30a01437fede})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1906,17 +1763,6 @@ impl ::core::clone::Clone for Printing3DComponentWithMatrix {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DComponentWithMatrix {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DComponentWithMatrix {}
-impl ::core::fmt::Debug for Printing3DComponentWithMatrix {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DComponentWithMatrix").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponentWithMatrix;{3279f335-0ef0-456b-9a21-49bebe8b51c2})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1960,17 +1806,6 @@ impl Printing3DCompositeMaterial {
 impl ::core::clone::Clone for Printing3DCompositeMaterial {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DCompositeMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DCompositeMaterial {}
-impl ::core::fmt::Debug for Printing3DCompositeMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DCompositeMaterial").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
@@ -2049,17 +1884,6 @@ impl ::core::clone::Clone for Printing3DCompositeMaterialGroup {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DCompositeMaterialGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DCompositeMaterialGroup {}
-impl ::core::fmt::Debug for Printing3DCompositeMaterialGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DCompositeMaterialGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup;{8d946a5b-40f1-496d-a5fb-340a5a678e30})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2127,17 +1951,6 @@ impl Printing3DFaceReductionOptions {
 impl ::core::clone::Clone for Printing3DFaceReductionOptions {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DFaceReductionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DFaceReductionOptions {}
-impl ::core::fmt::Debug for Printing3DFaceReductionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DFaceReductionOptions").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
@@ -2219,17 +2032,6 @@ impl Printing3DMaterial {
 impl ::core::clone::Clone for Printing3DMaterial {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMaterial {}
-impl ::core::fmt::Debug for Printing3DMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMaterial").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DMaterial {
@@ -2413,17 +2215,6 @@ impl ::core::clone::Clone for Printing3DMesh {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DMesh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMesh {}
-impl ::core::fmt::Debug for Printing3DMesh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMesh").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMesh;{192e90dc-0228-2e01-bc20-c5290cbf32c4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2476,17 +2267,6 @@ impl Printing3DMeshVerificationResult {
 impl ::core::clone::Clone for Printing3DMeshVerificationResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DMeshVerificationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMeshVerificationResult {}
-impl ::core::fmt::Debug for Printing3DMeshVerificationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMeshVerificationResult").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
@@ -2684,17 +2464,6 @@ impl ::core::clone::Clone for Printing3DModel {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DModel {}
-impl ::core::fmt::Debug for Printing3DModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DModel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModel;{2d012ef0-52fb-919a-77b0-4b1a3b80324f})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2764,17 +2533,6 @@ impl ::core::clone::Clone for Printing3DModelTexture {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DModelTexture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DModelTexture {}
-impl ::core::fmt::Debug for Printing3DModelTexture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DModelTexture").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DModelTexture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModelTexture;{5dafcf01-b59d-483c-97bb-a4d546d1c75c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2818,17 +2576,6 @@ impl Printing3DMultiplePropertyMaterial {
 impl ::core::clone::Clone for Printing3DMultiplePropertyMaterial {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMultiplePropertyMaterial {}
-impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMultiplePropertyMaterial").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial {
@@ -2894,17 +2641,6 @@ impl Printing3DMultiplePropertyMaterialGroup {
 impl ::core::clone::Clone for Printing3DMultiplePropertyMaterialGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterialGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMultiplePropertyMaterialGroup {}
-impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterialGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMultiplePropertyMaterialGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
@@ -2976,17 +2712,6 @@ impl ::core::clone::Clone for Printing3DTexture2CoordMaterial {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterial {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DTexture2CoordMaterial {}
-impl ::core::fmt::Debug for Printing3DTexture2CoordMaterial {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTexture2CoordMaterial").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial;{8d844bfb-07e9-4986-9833-8dd3d48c6859})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3052,17 +2777,6 @@ impl Printing3DTexture2CoordMaterialGroup {
 impl ::core::clone::Clone for Printing3DTexture2CoordMaterialGroup {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterialGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DTexture2CoordMaterialGroup {}
-impl ::core::fmt::Debug for Printing3DTexture2CoordMaterialGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTexture2CoordMaterialGroup").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
@@ -3131,17 +2845,6 @@ impl ::core::clone::Clone for Printing3DTextureResource {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Printing3DTextureResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DTextureResource {}
-impl ::core::fmt::Debug for Printing3DTextureResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTextureResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for Printing3DTextureResource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTextureResource;{a70df32d-6ab1-44ae-bc45-a27382c0d38c})");
     type DefaultType = ::core::option::Option<Self>;
@@ -3178,18 +2881,8 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
         *self
     }
 }
-impl ::core::default::Default for Print3DTaskCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DTaskCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
@@ -3217,18 +2910,8 @@ impl ::core::clone::Clone for Print3DTaskDetail {
         *self
     }
 }
-impl ::core::default::Default for Print3DTaskDetail {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Print3DTaskDetail {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DTaskDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
@@ -3256,18 +2939,8 @@ impl ::core::clone::Clone for Printing3DBufferFormat {
         *self
     }
 }
-impl ::core::default::Default for Printing3DBufferFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DBufferFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
@@ -3290,18 +2963,8 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
         *self
     }
 }
-impl ::core::default::Default for Printing3DMeshVerificationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
@@ -3328,18 +2991,8 @@ impl ::core::clone::Clone for Printing3DModelUnit {
         *self
     }
 }
-impl ::core::default::Default for Printing3DModelUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DModelUnit {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DModelUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
@@ -3363,18 +3016,8 @@ impl ::core::clone::Clone for Printing3DObjectType {
         *self
     }
 }
-impl ::core::default::Default for Printing3DObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DObjectType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
@@ -3398,18 +3041,8 @@ impl ::core::clone::Clone for Printing3DPackageCompression {
         *self
     }
 }
-impl ::core::default::Default for Printing3DPackageCompression {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DPackageCompression {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
@@ -3434,18 +3067,8 @@ impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
         *self
     }
 }
-impl ::core::default::Default for Printing3DTextureEdgeBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
@@ -3466,11 +3089,6 @@ impl ::core::clone::Clone for Printing3DBufferDescription {
         *self
     }
 }
-impl ::core::fmt::Debug for Printing3DBufferDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
     type Abi = Self;
 }
@@ -3479,17 +3097,6 @@ unsafe impl ::windows::core::RuntimeType for Printing3DBufferDescription {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DBufferDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.Format == other.Format && self.Stride == other.Stride
-    }
-}
-impl ::core::cmp::Eq for Printing3DBufferDescription {}
-impl ::core::default::Default for Printing3DBufferDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3548,17 +3155,6 @@ impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskSourceRequestedHandler {}
-impl ::core::fmt::Debug for Print3DTaskSourceRequestedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskSourceRequestedHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::Vtable for Print3DTaskSourceRequestedHandler {
     type Vtable = Print3DTaskSourceRequestedHandler_Vtbl;
 }
@@ -3580,3 +3176,5 @@ pub struct Print3DTaskSourceRequestedHandler_Vtbl {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

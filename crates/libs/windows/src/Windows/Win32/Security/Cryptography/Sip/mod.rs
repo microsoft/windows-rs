@@ -153,24 +153,8 @@ impl ::core::clone::Clone for MS_ADDINFO_BLOB {
         *self
     }
 }
-impl ::core::fmt::Debug for MS_ADDINFO_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MS_ADDINFO_BLOB").field("cbStruct", &self.cbStruct).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MS_ADDINFO_BLOB {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MS_ADDINFO_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
-    }
-}
-impl ::core::cmp::Eq for MS_ADDINFO_BLOB {}
-impl ::core::default::Default for MS_ADDINFO_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]
@@ -184,24 +168,8 @@ impl ::core::clone::Clone for MS_ADDINFO_FLAT {
         *self
     }
 }
-impl ::core::fmt::Debug for MS_ADDINFO_FLAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MS_ADDINFO_FLAT").field("cbStruct", &self.cbStruct).field("pIndirectData", &self.pIndirectData).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for MS_ADDINFO_FLAT {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MS_ADDINFO_FLAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pIndirectData == other.pIndirectData
-    }
-}
-impl ::core::cmp::Eq for MS_ADDINFO_FLAT {}
-impl ::core::default::Default for MS_ADDINFO_FLAT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]
@@ -225,37 +193,8 @@ impl ::core::clone::Clone for SIP_ADD_NEWPROVIDER {
         *self
     }
 }
-impl ::core::fmt::Debug for SIP_ADD_NEWPROVIDER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_ADD_NEWPROVIDER")
-            .field("cbStruct", &self.cbStruct)
-            .field("pgSubject", &self.pgSubject)
-            .field("pwszDLLFileName", &self.pwszDLLFileName)
-            .field("pwszMagicNumber", &self.pwszMagicNumber)
-            .field("pwszIsFunctionName", &self.pwszIsFunctionName)
-            .field("pwszGetFuncName", &self.pwszGetFuncName)
-            .field("pwszPutFuncName", &self.pwszPutFuncName)
-            .field("pwszCreateFuncName", &self.pwszCreateFuncName)
-            .field("pwszVerifyFuncName", &self.pwszVerifyFuncName)
-            .field("pwszRemoveFuncName", &self.pwszRemoveFuncName)
-            .field("pwszIsFunctionNameFmt2", &self.pwszIsFunctionNameFmt2)
-            .field("pwszGetCapFuncName", &self.pwszGetCapFuncName)
-            .finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SIP_ADD_NEWPROVIDER {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SIP_ADD_NEWPROVIDER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.pgSubject == other.pgSubject && self.pwszDLLFileName == other.pwszDLLFileName && self.pwszMagicNumber == other.pwszMagicNumber && self.pwszIsFunctionName == other.pwszIsFunctionName && self.pwszGetFuncName == other.pwszGetFuncName && self.pwszPutFuncName == other.pwszPutFuncName && self.pwszCreateFuncName == other.pwszCreateFuncName && self.pwszVerifyFuncName == other.pwszVerifyFuncName && self.pwszRemoveFuncName == other.pwszRemoveFuncName && self.pwszIsFunctionNameFmt2 == other.pwszIsFunctionNameFmt2 && self.pwszGetCapFuncName == other.pwszGetCapFuncName
-    }
-}
-impl ::core::cmp::Eq for SIP_ADD_NEWPROVIDER {}
-impl ::core::default::Default for SIP_ADD_NEWPROVIDER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
@@ -275,28 +214,8 @@ impl ::core::clone::Clone for SIP_CAP_SET_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SIP_CAP_SET_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_CAP_SET_V2").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V2 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SIP_CAP_SET_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.isMultiSign == other.isMultiSign && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SIP_CAP_SET_V2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SIP_CAP_SET_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
@@ -319,12 +238,6 @@ impl ::core::clone::Clone for SIP_CAP_SET_V3 {
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SIP_CAP_SET_V3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -343,12 +256,6 @@ impl ::core::clone::Clone for SIP_CAP_SET_V3_0 {
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3_0 {
     type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SIP_CAP_SET_V3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
@@ -371,20 +278,8 @@ impl ::core::clone::Clone for SIP_DISPATCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::fmt::Debug for SIP_DISPATCH_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::core::Abi for SIP_DISPATCH_INFO {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::default::Default for SIP_DISPATCH_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]
@@ -399,24 +294,8 @@ impl ::core::clone::Clone for SIP_INDIRECT_DATA {
         *self
     }
 }
-impl ::core::fmt::Debug for SIP_INDIRECT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIP_INDIRECT_DATA").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
-    }
-}
 unsafe impl ::windows::core::Abi for SIP_INDIRECT_DATA {
     type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SIP_INDIRECT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
-    }
-}
-impl ::core::cmp::Eq for SIP_INDIRECT_DATA {}
-impl ::core::default::Default for SIP_INDIRECT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
@@ -453,12 +332,6 @@ impl ::core::clone::Clone for SIP_SUBJECTINFO {
 unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::default::Default for SIP_SUBJECTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
@@ -478,12 +351,6 @@ impl ::core::clone::Clone for SIP_SUBJECTINFO_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::core::Abi for SIP_SUBJECTINFO_0 {
     type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::default::Default for SIP_SUBJECTINFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
@@ -514,3 +381,5 @@ pub type pfnIsFileSupported = ::core::option::Option<unsafe extern "system" fn(h
 pub type pfnIsFileSupportedName = ::core::option::Option<unsafe extern "system" fn(pwszfilename: ::windows::core::PCWSTR, pgsubject: *mut ::windows::core::GUID) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

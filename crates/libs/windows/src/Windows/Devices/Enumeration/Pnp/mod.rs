@@ -232,17 +232,6 @@ impl ::core::clone::Clone for PnpObject {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PnpObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObject {}
-impl ::core::fmt::Debug for PnpObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PnpObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
     type DefaultType = ::core::option::Option<Self>;
@@ -318,20 +307,6 @@ impl PnpObjectCollection {
 impl ::core::clone::Clone for PnpObjectCollection {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for PnpObjectCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for PnpObjectCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for PnpObjectCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectCollection").field(&self.0).finish()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -453,17 +428,6 @@ impl ::core::clone::Clone for PnpObjectUpdate {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PnpObjectUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObjectUpdate {}
-impl ::core::fmt::Debug for PnpObjectUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectUpdate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PnpObjectUpdate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
     type DefaultType = ::core::option::Option<Self>;
@@ -583,17 +547,6 @@ impl ::core::clone::Clone for PnpObjectWatcher {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for PnpObjectWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObjectWatcher {}
-impl ::core::fmt::Debug for PnpObjectWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectWatcher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for PnpObjectWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
     type DefaultType = ::core::option::Option<Self>;
@@ -634,18 +587,8 @@ impl ::core::clone::Clone for PnpObjectType {
         *self
     }
 }
-impl ::core::default::Default for PnpObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for PnpObjectType {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for PnpObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectType").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for PnpObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
@@ -656,3 +599,5 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectType {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

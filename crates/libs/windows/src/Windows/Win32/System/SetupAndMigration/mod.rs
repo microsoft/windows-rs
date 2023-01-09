@@ -23,3 +23,5 @@ pub unsafe fn UnregisterWaitUntilOOBECompleted(waithandle: *const ::core::ffi::c
 pub type OOBE_COMPLETED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackcontext: *const ::core::ffi::c_void) -> ()>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");

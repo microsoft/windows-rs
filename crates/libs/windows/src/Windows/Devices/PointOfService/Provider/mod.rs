@@ -801,17 +801,6 @@ impl ::core::clone::Clone for BarcodeScannerDisableScannerRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerDisableScannerRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerDisableScannerRequest {}
-impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerDisableScannerRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest;{88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8})");
     type DefaultType = ::core::option::Option<Self>;
@@ -855,17 +844,6 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerDisableScannerRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerDisableScannerRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerDisableScannerRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerDisableScannerRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerDisableScannerRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequestEventArgs {
@@ -933,17 +911,6 @@ impl ::core::clone::Clone for BarcodeScannerEnableScannerRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerEnableScannerRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerEnableScannerRequest {}
-impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerEnableScannerRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest;{c0b3e9ba-816a-452b-bd77-b7e453ec446d})");
     type DefaultType = ::core::option::Option<Self>;
@@ -987,17 +954,6 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerEnableScannerRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerEnableScannerRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerEnableScannerRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerEnableScannerRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerEnableScannerRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequestEventArgs {
@@ -1084,17 +1040,6 @@ impl ::core::clone::Clone for BarcodeScannerFrameReader {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerFrameReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerFrameReader {}
-impl ::core::fmt::Debug for BarcodeScannerFrameReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerFrameReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader;{dbc72b07-64c3-482b-93c8-65fb33c22208})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1153,17 +1098,6 @@ impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
 impl ::core::clone::Clone for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerFrameReaderFrameArrivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerFrameReaderFrameArrivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerFrameReaderFrameArrivedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReaderFrameArrivedEventArgs {
@@ -1238,17 +1172,6 @@ impl ::core::clone::Clone for BarcodeScannerGetSymbologyAttributesRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerGetSymbologyAttributesRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerGetSymbologyAttributesRequest {}
-impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerGetSymbologyAttributesRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest;{9774c46a-58e4-4c5f-b8e9-e41467632700})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1292,17 +1215,6 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerGetSymbologyAttributesRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
@@ -1370,17 +1282,6 @@ impl ::core::clone::Clone for BarcodeScannerHideVideoPreviewRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerHideVideoPreviewRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerHideVideoPreviewRequest {}
-impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerHideVideoPreviewRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest;{fa4ebe7f-6670-40e1-b90b-bb10d8d425fa})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1424,17 +1325,6 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerHideVideoPreviewRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerHideVideoPreviewRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerHideVideoPreviewRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerHideVideoPreviewRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerHideVideoPreviewRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewRequestEventArgs {
@@ -1715,17 +1605,6 @@ impl ::core::clone::Clone for BarcodeScannerProviderConnection {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerProviderConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerProviderConnection {}
-impl ::core::fmt::Debug for BarcodeScannerProviderConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerProviderConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection;{b44acbed-0b3a-4fa3-86c5-491ea30780eb})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1782,17 +1661,6 @@ impl BarcodeScannerProviderTriggerDetails {
 impl ::core::clone::Clone for BarcodeScannerProviderTriggerDetails {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerProviderTriggerDetails {}
-impl ::core::fmt::Debug for BarcodeScannerProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerProviderTriggerDetails").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderTriggerDetails {
@@ -1869,17 +1737,6 @@ impl ::core::clone::Clone for BarcodeScannerSetActiveSymbologiesRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerSetActiveSymbologiesRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerSetActiveSymbologiesRequest {}
-impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerSetActiveSymbologiesRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest;{db3f32b9-f7da-41a1-9f79-07bcd95f0bdf})");
     type DefaultType = ::core::option::Option<Self>;
@@ -1923,17 +1780,6 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerSetActiveSymbologiesRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
@@ -2015,17 +1861,6 @@ impl ::core::clone::Clone for BarcodeScannerSetSymbologyAttributesRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerSetSymbologyAttributesRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerSetSymbologyAttributesRequest {}
-impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerSetSymbologyAttributesRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest;{32fb814f-a37f-48b0-acea-dce1480f12ae})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2069,17 +1904,6 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerSetSymbologyAttributesRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
@@ -2147,17 +1971,6 @@ impl ::core::clone::Clone for BarcodeScannerStartSoftwareTriggerRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerStartSoftwareTriggerRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStartSoftwareTriggerRequest {}
-impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStartSoftwareTriggerRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest;{e3fa7b27-ff62-4454-af4a-cb6144a3e3f7})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2201,17 +2014,6 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStartSoftwareTriggerRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
@@ -2279,17 +2081,6 @@ impl ::core::clone::Clone for BarcodeScannerStopSoftwareTriggerRequest {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerStopSoftwareTriggerRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStopSoftwareTriggerRequest {}
-impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStopSoftwareTriggerRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest;{6f9faf35-e287-4ca8-b70d-5a91d694f668})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2333,17 +2124,6 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
 impl ::core::clone::Clone for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStopSoftwareTriggerRequestEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
@@ -2411,17 +2191,6 @@ impl BarcodeScannerVideoFrame {
 impl ::core::clone::Clone for BarcodeScannerVideoFrame {
     fn clone(&self) -> Self {
         Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerVideoFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerVideoFrame {}
-impl ::core::fmt::Debug for BarcodeScannerVideoFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerVideoFrame").field(&self.0).finish()
     }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerVideoFrame {
@@ -2522,17 +2291,6 @@ impl ::core::clone::Clone for BarcodeSymbologyAttributesBuilder {
         Self(self.0.clone())
     }
 }
-impl ::core::cmp::PartialEq for BarcodeSymbologyAttributesBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeSymbologyAttributesBuilder {}
-impl ::core::fmt::Debug for BarcodeSymbologyAttributesBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeSymbologyAttributesBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributesBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder;{c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4})");
     type DefaultType = ::core::option::Option<Self>;
@@ -2566,18 +2324,8 @@ impl ::core::clone::Clone for BarcodeScannerTriggerState {
         *self
     }
 }
-impl ::core::default::Default for BarcodeScannerTriggerState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
 unsafe impl ::windows::core::Abi for BarcodeScannerTriggerState {
     type Abi = Self;
-}
-impl ::core::fmt::Debug for BarcodeScannerTriggerState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()
-    }
 }
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.Provider.BarcodeScannerTriggerState;i4)");
@@ -2588,3 +2336,5 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
+#[cfg(feature = "default")]
+::core::include!("default.rs");
