@@ -2,16 +2,22 @@ use windows::{
     core::*, Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*,
 };
 
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED)?;
 
         let manager: IBackgroundCopyManager =
             CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;
 
-        let mut job_id = Default::default();
         let mut job = None;
-        manager.CreateJob(w!("sample"), BG_JOB_TYPE_DOWNLOAD, &mut job_id, &mut job)?;
+
+        manager.CreateJob(
+            w!("sample"),
+            BG_JOB_TYPE_DOWNLOAD,
+            &mut Default::default(),
+            &mut job,
+        )?;
+
         let job = job.unwrap();
         job.AddFile(w!("https://kennykerr.ca/favicon.svg"), w!("D:\\rust.svg"))?;
 
