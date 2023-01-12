@@ -10,8 +10,6 @@ pub fn round(size: usize, round: usize) -> usize {
 }
 
 pub fn write(_name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> Vec<u8> {
-    let mut _blobs = heaps::Blobs::default();
-    let mut _string = heaps::Strings::default();
     let mut references = heaps::References::default();
     let mut definitions = heaps::Definitions::default();
 
@@ -32,6 +30,11 @@ pub fn write(_name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) ->
 
     // References are now staged, meaning they cannot change and each has a stable index.
     let _references = references.stage();
+
+    let mut _blobs = heaps::Blobs::default();
+    let mut _string = heaps::Strings::default();
+
+    // TODO: now that we have stable type indexes, walk the items and build blobs and index strings.
 
     todo!()
 }
