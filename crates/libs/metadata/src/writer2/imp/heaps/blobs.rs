@@ -7,6 +7,8 @@ pub struct Blobs {
     stream: Vec<u8>,
 }
 
+pub struct StagedBlobs(Blobs);
+
 impl Blobs {
     pub fn insert(&mut self, value: &[u8]) {
         if !value.is_empty() {
@@ -14,7 +16,7 @@ impl Blobs {
         }
     }
 
-    pub fn stage(&mut self) -> &[u8] {
+    pub fn stage(mut self) -> StagedBlobs {
         self.stream = vec![0];
 
         for (value, index) in self.map.iter_mut() {
@@ -38,14 +40,20 @@ impl Blobs {
         }
 
         self.stream.resize(round(self.stream.len(), 4), 0);
-        &self.stream
+        StagedBlobs(self)
+    }
+}
+
+impl StagedBlobs {
+    pub fn stream(&self) -> &[u8] {
+        &self.0.stream
     }
 
-    pub fn get(&self, value: &[u8]) -> u32 {
+    pub fn index(&self, value: &[u8]) -> u32 {
         if value.is_empty() {
             0
         } else {
-            self.map[value]
+            self.0.map[value]
         }
     }
 }

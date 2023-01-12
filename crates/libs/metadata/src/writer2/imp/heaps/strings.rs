@@ -7,6 +7,8 @@ pub struct Strings<'a> {
     stream: Vec<u8>,
 }
 
+pub struct StagedStrings<'a>(Strings<'a>);
+
 impl<'a> Strings<'a> {
     pub fn insert(&mut self, value: &'a str) {
         if !value.is_empty() {
@@ -14,7 +16,7 @@ impl<'a> Strings<'a> {
         }
     }
 
-    pub fn stage(&mut self) -> &[u8] {
+    pub fn stage(mut self) -> StagedStrings<'a> {
         self.stream = vec![0];
 
         for (value, index) in self.map.iter_mut() {
@@ -25,14 +27,20 @@ impl<'a> Strings<'a> {
         }
 
         self.stream.resize(round(self.stream.len(), 4), 0);
-        &self.stream
+        StagedStrings(self)
+    }
+}
+
+impl<'a> StagedStrings<'a> {
+    pub fn stream(&self) -> &[u8] {
+        &self.0.stream
     }
 
-    pub fn get(&self, value: &str) -> u32 {
+    pub fn index(&self, value: &str) -> u32 {
         if value.is_empty() {
             0
         } else {
-            self.map[value]
+            self.0.map[value]
         }
     }
 }
