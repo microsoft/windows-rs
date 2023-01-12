@@ -32,6 +32,7 @@ jobs:
             >> $env:GITHUB_ENV
       - name: Run cargo clippy
         run: |
+          cargo clippy -p sample_bits &&
           cargo clippy -p sample_com_uri &&
           cargo clippy -p sample_consent &&
           cargo clippy -p sample_core_app &&

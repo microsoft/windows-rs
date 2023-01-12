@@ -82,6 +82,7 @@ jobs:
           }
       - name: Test
         run: >
+          cargo test --target ${{ matrix.target }} -p sample_bits &&
           cargo test --target ${{ matrix.target }} -p sample_com_uri &&
           cargo test --target ${{ matrix.target }} -p sample_consent &&
           cargo test --target ${{ matrix.target }} -p sample_core_app &&
@@ -131,8 +132,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_enums &&
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
-          cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo clean &&
+          cargo test --target ${{ matrix.target }} -p test_extensions &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&

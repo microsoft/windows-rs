@@ -1,0 +1,12 @@
+[package]
+name = "sample_bits"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies.windows]
+path = "../../../libs/windows"
+features = [
+    "implement",
+    "Win32_System_Com",
+    "Win32_Networking_BackgroundIntelligentTransferService",
+]

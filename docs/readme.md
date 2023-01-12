@@ -7,14 +7,14 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
     * [windows](https://microsoft.github.io/windows-docs-rs/)
     * [windows-sys](https://docs.rs/windows-sys)
 * [Frequently Asked Questions](https://github.com/microsoft/windows-rs/tree/master/docs/FAQ.md)
-* [Samples](https://github.com/microsoft/windows-rs/tree/0.43.0/crates/samples)
+* [Samples](https://github.com/microsoft/windows-rs/tree/0.44.0/crates/samples)
 * [Changelog](https://github.com/microsoft/windows-rs/releases)
 
 Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.43.0"
+version = "0.44.0"
 features = [
     "Data_Xml_Dom",
     "Win32_Foundation",
@@ -62,7 +62,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-sys]
-version = "0.43.0"
+version = "0.42.0"
 features = [
     "Win32_Foundation",
     "Win32_Security",
