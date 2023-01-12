@@ -1,5 +1,7 @@
 mod blobs;
 mod strings;
+mod tables;
+mod references;
 
 use std::collections::BTreeMap;
 

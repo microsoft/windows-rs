@@ -1,16 +1,16 @@
 use super::*;
 
 #[derive(Default)]
-pub struct Strings {
+pub struct Strings<'a> {
     // Strings don't need to be sorted. A map is used to collapse duplicates. A `BTreeMap` in particular is used to help with reproducible builds.
-    map: BTreeMap<String, u32>,
+    map: BTreeMap<&'a str, u32>,
     stream: Vec<u8>,
 }
 
-impl Strings {
-    pub fn insert(&mut self, value: &str) {
+impl<'a> Strings<'a> {
+    pub fn insert(&mut self, value: &'a str) {
         if !value.is_empty() {
-            self.map.entry(value.to_string()).or_default();
+            self.map.entry(value).or_default();
         }
     }
 
