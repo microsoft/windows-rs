@@ -409,7 +409,6 @@ impl<'a> Reader<'a> {
     pub fn field_cfg(&self, row: Field) -> Cfg {
         let mut cfg = Cfg::default();
         self.field_cfg_combine(row, None, &mut cfg);
-        self.cfg_add_attributes(&mut cfg, self.field_attributes(row));
         cfg
     }
     fn field_cfg_combine(&'a self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg<'a>) {
