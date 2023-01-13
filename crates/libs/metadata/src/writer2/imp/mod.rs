@@ -36,6 +36,8 @@ pub fn write(_name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) ->
 
     // TODO: now that we have stable type indexes, walk the items and build blobs and index strings.
 
+    // TODO: when that's done simply write out ECMA tables.
+
     todo!()
 }
 
