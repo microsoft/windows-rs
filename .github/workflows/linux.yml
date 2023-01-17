@@ -19,4 +19,4 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update stable && rustup default stable
       - name: Run cargo build
-        run: cargo build -p test_component --target x86_64-unknown-linux-gnu
+        run: cargo build -p test_simple_component --target x86_64-unknown-linux-gnu
