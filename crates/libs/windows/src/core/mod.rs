@@ -144,12 +144,23 @@ macro_rules! link {
     )
 }
 
-#[cfg(not(windows_raw_dylib))]
+#[cfg(all(windows, not(windows_raw_dylib)))]
 #[macro_export]
 #[doc(hidden)]
 macro_rules! link {
     ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
         #[link(name = "windows")]
+        extern $abi {
+            pub fn $name($($arg: $argty),*) -> $ret;
+        }
+    )
+}
+
+#[cfg(all(not(windows), not(windows_raw_dylib)))]
+#[macro_export]
+#[doc(hidden)]
+macro_rules! link {
+    ($library:literal $abi:literal fn $name:ident($($arg:ident: $argty:ty),*)->$ret:ty) => (
         extern $abi {
             pub fn $name($($arg: $argty),*) -> $ret;
         }
