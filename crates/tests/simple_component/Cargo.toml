@@ -1,0 +1,13 @@
+[package]
+name = "test_simple_component"
+version = "0.0.0"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Win32_Foundation",
+]
