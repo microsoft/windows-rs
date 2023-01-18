@@ -29631,13 +29631,13 @@ impl IIndexableConcept {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetDimensionality)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn GetAt<P0>(&self, contextobject: P0, indexers: &[IModelObject], object: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()>
+    pub unsafe fn GetAt<P0>(&self, contextobject: P0, indexers: &[::core::option::Option<IModelObject>], object: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
     {
         (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), contextobject.into().abi(), indexers.len() as _, ::core::mem::transmute(indexers.as_ptr()), ::core::mem::transmute(object), ::core::mem::transmute(metadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn SetAt<P0, P1>(&self, contextobject: P0, indexers: &[IModelObject], value: P1) -> ::windows::core::Result<()>
+    pub unsafe fn SetAt<P0, P1>(&self, contextobject: P0, indexers: &[::core::option::Option<IModelObject>], value: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
         P1: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
@@ -30591,7 +30591,7 @@ pub struct IModelKeyReference2_Vtbl {
 #[repr(transparent)]
 pub struct IModelMethod(::windows::core::IUnknown);
 impl IModelMethod {
-    pub unsafe fn Call<P0>(&self, pcontextobject: P0, pparguments: &[IModelObject], ppresult: *mut ::core::option::Option<IModelObject>, ppmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()>
+    pub unsafe fn Call<P0>(&self, pcontextobject: P0, pparguments: &[::core::option::Option<IModelObject>], ppresult: *mut ::core::option::Option<IModelObject>, ppmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IModelObject>>,
     {

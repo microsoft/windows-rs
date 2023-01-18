@@ -3399,7 +3399,7 @@ impl IConditionFactory2 {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Search_Common\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
-    pub unsafe fn CreateCompoundFromArray<T>(&self, ct: Common::CONDITION_TYPE, ppcondsubs: &[ICondition], cco: CONDITION_CREATION_OPTIONS) -> ::windows::core::Result<T>
+    pub unsafe fn CreateCompoundFromArray<T>(&self, ct: Common::CONDITION_TYPE, ppcondsubs: &[::core::option::Option<ICondition>], cco: CONDITION_CREATION_OPTIONS) -> ::windows::core::Result<T>
     where
         T: ::windows::core::Interface,
     {

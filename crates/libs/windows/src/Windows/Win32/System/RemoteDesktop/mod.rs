@@ -4004,7 +4004,7 @@ impl ITsSbTaskPlugin {
     {
         (::windows::core::Vtable::vtable(self).InitializeTaskPlugin)(::windows::core::Vtable::as_raw(self), pitssbtaskpluginnotifysink.into().abi()).ok()
     }
-    pub unsafe fn SetTaskQueue(&self, pszhostname: &::windows::core::BSTR, pitssbtaskinfo: &[ITsSbTaskInfo]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetTaskQueue(&self, pszhostname: &::windows::core::BSTR, pitssbtaskinfo: &[::core::option::Option<ITsSbTaskInfo>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetTaskQueue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(pszhostname), pitssbtaskinfo.len() as _, ::core::mem::transmute(pitssbtaskinfo.as_ptr())).ok()
     }
 }

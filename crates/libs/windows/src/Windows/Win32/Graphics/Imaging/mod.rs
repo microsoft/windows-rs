@@ -663,7 +663,7 @@ impl IWICBitmapEncoder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetEncoderInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[IWICColorContext]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[::core::option::Option<IWICColorContext>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
@@ -1008,7 +1008,7 @@ impl IWICBitmapFrameEncode {
     pub unsafe fn SetPixelFormat(&self, ppixelformat: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPixelFormat)(::windows::core::Vtable::as_raw(self), ppixelformat).ok()
     }
-    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[IWICColorContext]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetColorContexts(&self, ppicolorcontext: &[::core::option::Option<IWICColorContext>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetColorContexts)(::windows::core::Vtable::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(ppicolorcontext.as_ptr())).ok()
     }
     pub unsafe fn SetPalette<P0>(&self, pipalette: P0) -> ::windows::core::Result<()>
@@ -3904,7 +3904,7 @@ impl IWICPlanarBitmapFrameEncode {
     pub unsafe fn WritePixels(&self, linecount: u32, pplanes: &[WICBitmapPlane]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).WritePixels)(::windows::core::Vtable::as_raw(self), linecount, ::core::mem::transmute(pplanes.as_ptr()), pplanes.len() as _).ok()
     }
-    pub unsafe fn WriteSource(&self, ppplanes: &[IWICBitmapSource], prcsource: *const WICRect) -> ::windows::core::Result<()> {
+    pub unsafe fn WriteSource(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], prcsource: *const WICRect) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).WriteSource)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppplanes.as_ptr()), ppplanes.len() as _, prcsource).ok()
     }
 }
@@ -4007,7 +4007,7 @@ impl IWICPlanarFormatConverter {
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.CopyPixels)(::windows::core::Vtable::as_raw(self), prc, cbstride, pbbuffer.len() as _, ::core::mem::transmute(pbbuffer.as_ptr())).ok()
     }
-    pub unsafe fn Initialize<P0>(&self, ppplanes: &[IWICBitmapSource], dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: P0, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: P0, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IWICPalette>>,
     {

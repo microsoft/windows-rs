@@ -9541,7 +9541,7 @@ impl IPropertyPage {
     pub unsafe fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPageInfo)(::windows::core::Vtable::as_raw(self), ppageinfo).ok()
     }
-    pub unsafe fn SetObjects(&self, ppunk: &[::windows::core::IUnknown]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
@@ -9648,7 +9648,7 @@ impl IPropertyPage2 {
     pub unsafe fn GetPageInfo(&self, ppageinfo: *mut PROPPAGEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetPageInfo)(::windows::core::Vtable::as_raw(self), ppageinfo).ok()
     }
-    pub unsafe fn SetObjects(&self, ppunk: &[::windows::core::IUnknown]) -> ::windows::core::Result<()> {
+    pub unsafe fn SetObjects(&self, ppunk: &[::core::option::Option<::windows::core::IUnknown>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetObjects)(::windows::core::Vtable::as_raw(self), ppunk.len() as _, ::core::mem::transmute(ppunk.as_ptr())).ok()
     }
     pub unsafe fn Show(&self, ncmdshow: u32) -> ::windows::core::Result<()> {
