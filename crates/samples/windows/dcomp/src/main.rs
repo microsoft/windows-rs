@@ -518,7 +518,7 @@ fn create_image() -> Result<IWICFormatConverter> {
         let path = if PathFileExistsW(w!("image.jpg")).into() {
             w!("image.jpg")
         } else {
-            w!("crates/samples/dcomp/image.jpg")
+            w!("crates/samples/windows/dcomp/image.jpg")
         };
 
         let decoder = factory.CreateDecoderFromFilename(
@@ -660,11 +660,10 @@ fn create_effect(
         let post_transform = device.CreateMatrixTransform3D()?;
         post_transform.SetMatrix(&post_matrix)?;
 
-        // TODO: workaround for https://github.com/microsoft/windows-rs/issues/2105
         let transform = device.CreateTransform3DGroup(&[
-            pre_transform.cast()?,
-            rotation.cast()?,
-            post_transform.cast()?,
+            pre_transform.cast().ok(),
+            rotation.cast().ok(),
+            post_transform.cast().ok(),
         ])?;
 
         visual.SetEffect(&transform)

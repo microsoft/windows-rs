@@ -6144,7 +6144,7 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize2(&self, streams: &[super::super::System::Com::IStream]) -> ::windows::core::Result<()> {
+    pub unsafe fn Initialize2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Initialize2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6157,7 +6157,7 @@ impl IStreamConcatenate {
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Append2(&self, streams: &[super::super::System::Com::IStream]) -> ::windows::core::Result<()> {
+    pub unsafe fn Append2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Append2)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
     }
 }

@@ -409,7 +409,7 @@ mod d3d12_hello_triangle {
                 populate_command_list(resources).unwrap();
 
                 // Execute the command list.
-                let command_list = ID3D12CommandList::from(&resources.command_list);
+                let command_list = Some(ID3D12CommandList::from(&resources.command_list));
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
                 // Present the frame.

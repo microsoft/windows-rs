@@ -333,7 +333,7 @@ pub unsafe fn PSCreateMemoryPropertyStore(riid: *const ::windows::core::GUID, pp
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
-pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::windows::core::IUnknown], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Option<::windows::core::IUnknown>], riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     ::windows::core::link ! ( "propsys.dll""system" fn PSCreateMultiplexPropertyStore ( prgpunkstores : *const * mut::core::ffi::c_void , cstores : u32 , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
     PSCreateMultiplexPropertyStore(::core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len() as _, riid, ppv).ok()
 }

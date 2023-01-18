@@ -1254,7 +1254,7 @@ impl IMDSPStorage4 {
     {
         (::windows::core::Vtable::vtable(self).base__.SetMetadata)(::windows::core::Vtable::as_raw(self), pmetadata.into().abi()).ok()
     }
-    pub unsafe fn SetReferences(&self, ppispstorage: ::core::option::Option<&[IMDSPStorage]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReferences(&self, ppispstorage: ::core::option::Option<&[::core::option::Option<IMDSPStorage>]>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetReferences)(::windows::core::Vtable::as_raw(self), ppispstorage.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppispstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::core::option::Option<IMDSPStorage>) -> ::windows::core::Result<()> {
@@ -3679,7 +3679,7 @@ impl IWMDMStorage4 {
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: ::core::option::Option<&[WMDMMetadataView]>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetEnumPreference)(::windows::core::Vtable::as_raw(self), pmode, pviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    pub unsafe fn SetReferences(&self, ppiwmdmstorage: ::core::option::Option<&[IWMDMStorage]>) -> ::windows::core::Result<()> {
+    pub unsafe fn SetReferences(&self, ppiwmdmstorage: ::core::option::Option<&[::core::option::Option<IWMDMStorage>]>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetReferences)(::windows::core::Vtable::as_raw(self), ppiwmdmstorage.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppiwmdmstorage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::core::option::Option<IWMDMStorage>) -> ::windows::core::Result<()> {

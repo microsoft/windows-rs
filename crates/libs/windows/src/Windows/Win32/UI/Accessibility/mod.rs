@@ -4889,7 +4889,7 @@ impl IUIAutomation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -4907,7 +4907,7 @@ impl IUIAutomation {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5377,7 +5377,7 @@ impl IUIAutomation2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5395,7 +5395,7 @@ impl IUIAutomation2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5787,7 +5787,7 @@ impl IUIAutomation3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -5805,7 +5805,7 @@ impl IUIAutomation3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6202,7 +6202,7 @@ impl IUIAutomation4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6220,7 +6220,7 @@ impl IUIAutomation4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6632,7 +6632,7 @@ impl IUIAutomation5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -6650,7 +6650,7 @@ impl IUIAutomation5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7077,7 +7077,7 @@ impl IUIAutomation6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateAndConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateAndConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateAndConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
@@ -7095,7 +7095,7 @@ impl IUIAutomation6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateOrConditionFromArray)(::windows::core::Vtable::as_raw(self), conditions, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[IUIAutomationCondition]) -> ::windows::core::Result<IUIAutomationCondition> {
+    pub unsafe fn CreateOrConditionFromNativeArray(&self, conditions: &[::core::option::Option<IUIAutomationCondition>]) -> ::windows::core::Result<IUIAutomationCondition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.CreateOrConditionFromNativeArray)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(conditions.as_ptr()), conditions.len() as _, result__.as_mut_ptr()).from_abi(result__)
     }
