@@ -1,18 +1,18 @@
-mod file;
 mod blobs;
-mod strings;
-mod references;
-mod definitions;
-mod tables;
 mod codes;
+mod definitions;
+mod file;
+mod references;
+mod strings;
+mod tables;
 
 use super::*;
 use blobs::*;
-use strings::*;
-use references::*;
-use definitions::*;
-use tables::Tables;
 use codes::*;
+use definitions::*;
+use references::*;
+use strings::*;
+use tables::Tables;
 
 use std::collections::BTreeMap;
 
