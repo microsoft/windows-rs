@@ -1,7 +1,7 @@
 use super::*;
 use std::mem::*;
 
-pub fn write(tables: tables::Tables, strings: heaps::StagedStrings, blobs: heaps::StagedBlobs) -> Vec<u8> {
+pub fn write(tables: Tables, strings: StagedStrings, blobs: StagedBlobs) -> Vec<u8> {
     unsafe {
         let mut tables = tables.stream();
         let mut strings = strings.stream();

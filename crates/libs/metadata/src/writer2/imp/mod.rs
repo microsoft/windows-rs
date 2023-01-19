@@ -1,7 +1,18 @@
 mod file;
-mod heaps;
+mod blobs;
+mod strings;
+mod references;
+mod definitions;
 mod tables;
+mod codes;
+
 use super::*;
+use blobs::*;
+use strings::*;
+use references::*;
+use definitions::*;
+use tables::Tables;
+use codes::*;
 
 use std::collections::BTreeMap;
 
@@ -13,14 +24,14 @@ pub fn round(size: usize, round: usize) -> usize {
 pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> Vec<u8> {
     // Build sorted list of definitions.
     let definitions = {
-        let mut definitions = heaps::Definitions::default();
+        let mut definitions = Definitions::default();
         items.iter().for_each(|item| definitions.insert(item));
         definitions.stage()
     };
 
     // Build sorted list of references used by definitions.
     let _references = {
-        let mut references = heaps::References::default();
+        let mut references = References::default();
         for item in items {
             match item {
                 Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, &definitions, &mut references)),
@@ -33,8 +44,8 @@ pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> 
 
     // Now that we have stable type indexes, walk the items and build blobs and index strings.
     let (blobs, strings) = {
-        let blobs = heaps::Blobs::default();
-        let mut strings = heaps::Strings::new(name);
+        let blobs = Blobs::default();
+        let mut strings = Strings::new(name);
 
         for item in items {
             match item {
@@ -58,12 +69,12 @@ pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> 
 
     // Now that everything is indexed in various heaps, we can write out the table records.
     let tables = {
-        let mut tables = tables::Tables::default();
+        let mut tables = Tables::default();
         tables.Module.push(tables::Module { Name: strings.index(name), Mvid: 1, ..Default::default() });
         tables.TypeDef.push(tables::TypeDef { TypeName: strings.index("<Module>"), ..Default::default() });
         let mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
-        // let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
-        // let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+        let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+        let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
 
         tables
     };
@@ -72,7 +83,7 @@ pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> 
     file::write(tables, strings, blobs)
 }
 
-fn type_reference<'a>(ty: &'a Type, definitions: &heaps::StagedDefinitions, references: &mut heaps::References<'a>) {
+fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, references: &mut References<'a>) {
     match ty {
         Type::Named((namespace, name)) => {
             if definitions.get(namespace, name).is_none() {
