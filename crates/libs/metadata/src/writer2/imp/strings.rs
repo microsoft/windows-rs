@@ -10,17 +10,6 @@ pub struct Strings<'a> {
 pub struct StagedStrings<'a>(Strings<'a>);
 
 impl<'a> Strings<'a> {
-    pub fn new(module: &'a str) -> Self {
-        let mut strings = Self::default();
-        strings.insert(module);
-        strings.insert("<Module>");
-        strings.insert("mscorlib");
-        strings.insert("System");
-        strings.insert("ValueType");
-        strings.insert("Enum");
-        strings
-    }
-
     pub fn insert(&mut self, value: &'a str) {
         if !value.is_empty() {
             self.map.entry(value).or_default();

@@ -14,7 +14,7 @@ pub struct ParamAttributes(pub usize);
 pub struct PInvokeAttributes(pub usize);
 
 #[derive(Default)]
-pub struct TypeAttributes(pub usize);
+pub struct TypeAttributes(pub u32);
 
 impl FieldAttributes {
     pub fn literal(&self) -> bool {

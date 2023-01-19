@@ -21,33 +21,39 @@ pub fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> Vec<u8> {
+pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]) -> Vec<u8> {
     // Build sorted list of definitions.
     let definitions = {
-        let mut definitions = Definitions::default();
-        items.iter().for_each(|item| definitions.insert(item));
-        definitions.stage()
+        let mut index = Definitions::default();
+        definitions.iter().for_each(|item| index.insert(item));
+        index.stage()
     };
 
-    // Build sorted list of references used by definitions.
+    // Build sorted list of references.
     let _references = {
-        let mut references = References::default();
-        for item in items {
+        let mut index = References::default();
+        for item in definitions.items() {
             match item {
-                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, &definitions, &mut references)),
+                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, &definitions, &mut index)),
                 Item::Interface(_ty) => {}
                 _ => {}
             }
         }
-        references.stage()
+        index.stage()
     };
 
-    // Now that we have stable type indexes, walk the items and build blobs and index strings.
+    // Now that we have stable type indexes, build blobs and index strings.
     let (blobs, strings) = {
         let blobs = Blobs::default();
-        let mut strings = Strings::new(name);
+        let mut strings = Strings::default();
+        strings.insert(name);
+        strings.insert("<Module>");
+        strings.insert("mscorlib");
+        strings.insert("System");
+        strings.insert("ValueType");
+        strings.insert("Enum");
 
-        for item in items {
+        for item in definitions.items() {
             match item {
                 Item::Struct(ty) => {
                     strings.insert(&ty.namespace);
@@ -67,19 +73,41 @@ pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> 
         (blobs.stage(), strings.stage())
     };
 
-    // Now that everything is indexed in various heaps, we can write out the table records.
+    // Now that everything is indexed in various heaps, write out the table records.
     let tables = {
         let mut tables = Tables::default();
         tables.Module.push(tables::Module { Name: strings.index(name), Mvid: 1, ..Default::default() });
         tables.TypeDef.push(tables::TypeDef { TypeName: strings.index("<Module>"), ..Default::default() });
         let mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
         let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
-        let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+        let _enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+
+        for (index, item) in definitions.iter() {
+            match item {
+                Item::Struct(ty) => {
+                    let mut flags = TypeAttributes(0);
+                    flags.set_public();
+                    if winrt {
+                        flags.set_winrt();
+                    }
+                    tables.TypeDef.push(tables::TypeDef {
+                        Flags: flags.0,
+                        TypeName: strings.index(&ty.name),
+                        TypeNamespace: strings.index(&ty.namespace),
+                        Extends: TypeDefOrRef::TypeRef(value_type).encode(),
+                        FieldList: tables.Field.len() as _,
+                        MethodList: 0,
+                    });
+                }
+                Item::Enum(ty) => {}
+                Item::Interface(ty) => {}
+            }
+        }
 
         tables
     };
 
-    // With all of the streams prepared, we can write out ECMA-335 file format.
+    // With all of the streams prepared, write out ECMA-335 file format.
     file::write(tables, strings, blobs)
 }
 

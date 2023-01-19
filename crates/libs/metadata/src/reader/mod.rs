@@ -789,7 +789,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
-        TypeAttributes(self.row_usize(row.0, 0))
+        TypeAttributes(self.row_usize(row.0, 0) as _)
     }
     pub fn type_def_name(&self, row: TypeDef) -> &str {
         self.row_str(row.0, 1)

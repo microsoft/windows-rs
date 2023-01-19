@@ -41,4 +41,12 @@ impl<'a> StagedDefinitions<'a> {
     pub fn index(&self, namespace: &str, name: &str) -> u32 {
         self.0.map[&(namespace, name)].index
     }
+
+    pub fn items(&self) -> impl Iterator<Item = &Item> {
+        self.0.map.values().map(|value| value.item)
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = (u32, &Item)> {
+        self.0.map.values().map(|value| (value.index, value.item))
+    }
 }

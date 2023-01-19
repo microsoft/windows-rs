@@ -32,22 +32,24 @@ pub struct Interface {
 pub struct Field {
     pub name: String,
     pub ty: Type,
+    pub(crate) blob: Vec<u8>,
 }
 
 impl Field {
     pub fn new(name: &str, ty: Type) -> Self {
-        Self { name: name.to_string(), ty }
+        Self { name: name.to_string(), ty, blob: Vec::new() }
     }
 }
 
 pub struct Constant {
     pub name: String,
     pub value: Value,
+    pub(crate) blob: Vec<u8>,
 }
 
 impl Constant {
     pub fn new(name: &str, value: Value) -> Self {
-        Self { name: name.to_string(), value }
+        Self { name: name.to_string(), value, blob: Vec::new() }
     }
 }
 
