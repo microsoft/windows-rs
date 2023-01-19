@@ -29,7 +29,6 @@ pub struct Interface {
     pub name: String,
 }
 
-
 pub struct Field {
     pub name: String,
     pub ty: Type,

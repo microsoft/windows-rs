@@ -1,21 +1,14 @@
 use super::*;
 use std::mem::*;
 
-pub struct Streams {
-    pub tables: Vec<u8>,
-    pub strings: Vec<u8>,
-    pub blobs: Vec<u8>,
-    pub guids: Vec<u8>,
-}
-
-impl Streams {
-    fn len(&self) -> usize {
-        self.tables.len() + self.guids.len() + self.strings.len() + self.blobs.len()
-    }
-}
-
-pub fn write(mut streams: Streams) -> Vec<u8> {
+pub fn write(tables: tables::Tables, strings: heaps::StagedStrings, blobs: heaps::StagedBlobs) -> Vec<u8> {
     unsafe {
+        let mut tables = tables.stream();
+        let mut strings = strings.stream();
+        let mut blobs = blobs.stream();
+        let mut guids = vec![0; 16]; // zero guid
+        let size_of_streams = tables.len() + guids.len() + strings.len() + blobs.len();
+
         let mut dos: IMAGE_DOS_HEADER = zeroed();
         dos.e_magic = IMAGE_DOS_SIGNATURE as _;
         dos.e_lfarlc = 64;
@@ -73,7 +66,7 @@ pub fn write(mut streams: Streams) -> Vec<u8> {
         type BlobsHeader = StreamHeader<8>;
 
         let size_of_stream_headers = size_of::<TablesHeader>() + size_of::<StringsHeader>() + size_of::<GuidsHeader>() + size_of::<BlobsHeader>();
-        let size_of_image = optional.FileAlignment as usize + size_of::<IMAGE_COR20_HEADER>() + size_of::<METADATA_HEADER>() + size_of_stream_headers + streams.len();
+        let size_of_image = optional.FileAlignment as usize + size_of::<IMAGE_COR20_HEADER>() + size_of::<METADATA_HEADER>() + size_of_stream_headers + size_of_streams;
 
         optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as _) as _;
         section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
@@ -98,20 +91,20 @@ pub fn write(mut streams: Streams) -> Vec<u8> {
         buffer.write_header(&metadata);
 
         let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
-        let tables_header = TablesHeader::new(stream_offset as _, streams.tables.len() as _, b"#~\0\0");
-        let strings_header = StringsHeader::new(tables_header.next_offset(), streams.strings.len() as _, b"#Strings\0\0\0\0");
-        let guids_header = GuidsHeader::new(strings_header.next_offset(), streams.guids.len() as _, b"#GUID\0\0\0");
-        let blobs_header = BlobsHeader::new(guids_header.next_offset(), streams.blobs.len() as _, b"#Blob\0\0\0");
+        let tables_header = TablesHeader::new(stream_offset as _, tables.len() as _, b"#~\0\0");
+        let strings_header = StringsHeader::new(tables_header.next_offset(), strings.len() as _, b"#Strings\0\0\0\0");
+        let guids_header = GuidsHeader::new(strings_header.next_offset(), guids.len() as _, b"#GUID\0\0\0");
+        let blobs_header = BlobsHeader::new(guids_header.next_offset(), blobs.len() as _, b"#Blob\0\0\0");
 
         buffer.write_header(&tables_header);
         buffer.write_header(&strings_header);
         buffer.write_header(&guids_header);
         buffer.write_header(&blobs_header);
 
-        buffer.append(&mut streams.tables);
-        buffer.append(&mut streams.strings);
-        buffer.append(&mut streams.guids);
-        buffer.append(&mut streams.blobs);
+        buffer.append(&mut tables);
+        buffer.append(&mut strings);
+        buffer.append(&mut guids);
+        buffer.append(&mut blobs);
 
         assert_eq!(clr.MetaData.Size as usize, buffer.len() - metadata_offset);
         assert_eq!(size_of_image, buffer.len());

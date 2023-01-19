@@ -1,6 +1,6 @@
+mod file;
 mod heaps;
 mod tables;
-mod file;
 use super::*;
 
 use std::collections::BTreeMap;
@@ -61,20 +61,15 @@ pub fn write(name: &str, _winrt: bool, items: &[Item], _assemblies: &[&str]) -> 
         let mut tables = tables::Tables::default();
         tables.Module.push(tables::Module { Name: strings.index(name), Mvid: 1, ..Default::default() });
         tables.TypeDef.push(tables::TypeDef { TypeName: strings.index("<Module>"), ..Default::default() });
-        let _mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
+        let mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
         // let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
         // let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
 
-        tables.stream()
+        tables
     };
 
     // With all of the streams prepared, we can write out ECMA-335 file format.
-    file::write(file::Streams {
-        tables: tables,
-        strings: strings.stream(),
-        blobs: blobs.stream(),
-        guids: vec![0; 16], // zero guid
-    })
+    file::write(tables, strings, blobs)
 }
 
 fn type_reference<'a>(ty: &'a Type, definitions: &heaps::StagedDefinitions, references: &mut heaps::References<'a>) {
