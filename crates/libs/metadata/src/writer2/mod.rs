@@ -1,4 +1,5 @@
 mod imp;
+use super::*;
 
 // Generates an in-memory .winmd file.
 pub fn write(name: &str, winrt: bool, items: &[Item], assemblies: &[&str]) -> Vec<u8> {
@@ -8,22 +9,7 @@ pub fn write(name: &str, winrt: bool, items: &[Item], assemblies: &[&str]) -> Ve
 pub enum Item {
     Struct(Struct),
     Enum(Enum),
-}
-
-impl Item {
-    pub(crate) fn type_name(&self) -> (&str, &str) {
-        match self {
-            Self::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
-            Self::Enum(ty) => (ty.namespace.as_str(), ty.name.as_str()),
-        }
-    }
-
-    pub(crate) fn is_value_type(&self) -> bool {
-        match self {
-            Self::Struct(_) => true,
-            Self::Enum(_) => true,
-        }
-    }
+    Interface(Interface),
 }
 
 pub struct Struct {
@@ -37,6 +23,12 @@ pub struct Enum {
     pub name: String,
     pub constants: Vec<Constant>,
 }
+
+pub struct Interface {
+    pub namespace: String,
+    pub name: String,
+}
+
 
 pub struct Field {
     pub name: String,

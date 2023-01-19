@@ -45,8 +45,8 @@ impl Blobs {
 }
 
 impl StagedBlobs {
-    pub fn stream(&self) -> &[u8] {
-        &self.0.stream
+    pub fn stream(self) -> Vec<u8> {
+        self.0.stream
     }
 
     pub fn index(&self, value: &[u8]) -> u32 {

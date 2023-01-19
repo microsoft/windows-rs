@@ -14,7 +14,14 @@ pub struct StagedDefinitions<'a>(Definitions<'a>);
 
 impl<'a> Definitions<'a> {
     pub fn insert(&mut self, item: &'a Item) {
-        if self.map.insert(item.type_name(), Definition { item, index: 0 }).is_some() {
+        let type_name = 
+                match item {
+                    Item::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+                    Item::Enum(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+                    Item::Interface(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+                };
+                    
+        if self.map.insert(type_name, Definition { item, index: 0 }).is_some() {
             panic!("Duplicate type found");
         }
     }
