@@ -55,6 +55,7 @@ rust-version = "1.64"
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
+rustc-args = ["--cfg", "docsrs"]
 
 [target.'cfg(not(windows_raw_dylib))'.dependencies]
 windows-targets = { path = "../targets",  version = "0.42.1" }
