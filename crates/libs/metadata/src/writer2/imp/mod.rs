@@ -23,18 +23,18 @@ pub fn round(size: usize, round: usize) -> usize {
 
 pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]) -> Vec<u8> {
     // Build sorted list of definitions.
-    let definitions = {
+    let definitions = &{
         let mut index = Definitions::default();
         definitions.iter().for_each(|item| index.insert(item));
         index.stage()
     };
 
     // Build sorted list of references.
-    let _references = {
+    let references = &{
         let mut index = References::default();
         for item in definitions.items() {
             match item {
-                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, &definitions, &mut index)),
+                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, definitions, &mut index)),
                 Item::Interface(_ty) => {}
                 _ => {}
             }
@@ -44,7 +44,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
 
     // Now that we have stable type indexes, build blobs and index strings.
     let (blobs, strings) = {
-        let blobs = Blobs::default();
+        let mut blobs = Blobs::default();
         let mut strings = Strings::default();
         strings.insert(name);
         strings.insert("<Module>");
@@ -58,6 +58,10 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
                 Item::Struct(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
+                    ty.fields.iter().for_each(|field| { 
+                        strings.insert(&field.name);
+                        blobs.insert(field_blob(field, definitions, references)); 
+                    });
                 }
                 Item::Enum(ty) => {
                     strings.insert(&ty.namespace);
@@ -82,7 +86,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
         let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
         let _enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
 
-        for (index, item) in definitions.iter() {
+        for (_index, item) in definitions.iter() {
             match item {
                 Item::Struct(ty) => {
                     let mut flags = TypeAttributes(0);
@@ -98,9 +102,14 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
                         FieldList: tables.Field.len() as _,
                         MethodList: 0,
                     });
+                    for field in &ty.fields {
+                        let mut flags = FieldAttributes(0);
+                        flags.set_public();
+                        tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(field, definitions, references)) })
+                    }
                 }
-                Item::Enum(ty) => {}
-                Item::Interface(ty) => {}
+                Item::Enum(_ty) => {}
+                Item::Interface(_ty) => {}
             }
         }
 
@@ -120,6 +129,18 @@ fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, references:
         }
         _ => {}
     }
+}
+
+fn item_type_name(item: &Item) -> (&str, &str) {
+    match item {
+        Item::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+        Item::Enum(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+        Item::Interface(ty) => (ty.namespace.as_str(), ty.name.as_str()),
+    }
+}
+
+fn field_blob(_field: &Field, _definitions: &StagedDefinitions, _references: &StagedReferences) -> Vec<u8> {
+    vec![]
 }
 
 pub trait Write {

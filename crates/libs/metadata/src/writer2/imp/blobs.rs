@@ -10,9 +10,9 @@ pub struct Blobs {
 pub struct StagedBlobs(Blobs);
 
 impl Blobs {
-    pub fn insert(&mut self, value: &[u8]) {
+    pub fn insert(&mut self, value: Vec<u8>) {
         if !value.is_empty() {
-            self.map.entry(value.to_vec()).or_default();
+            self.map.entry(value).or_default();
         }
     }
 

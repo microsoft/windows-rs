@@ -1,5 +1,5 @@
 #[derive(Default)]
-pub struct FieldAttributes(pub usize);
+pub struct FieldAttributes(pub u16);
 
 #[derive(Default)]
 pub struct MethodAttributes(pub usize);
@@ -17,8 +17,23 @@ pub struct PInvokeAttributes(pub usize);
 pub struct TypeAttributes(pub u32);
 
 impl FieldAttributes {
+    pub fn public(&self) -> bool {
+        self.0 & 0x6 != 0
+    }
+    pub fn set_public(&mut self) {
+        self.0 |= 0x6;
+    }
     pub fn literal(&self) -> bool {
         self.0 & 0x40 != 0
+    }
+    pub fn set_literal(&mut self) {
+        self.0 |= 0x40;
+    }
+    pub fn r#static(&self) -> bool {
+        self.0 & 0x10 != 0
+    }
+    pub fn set_static(&mut self) {
+        self.0 |= 0x10;
     }
 }
 

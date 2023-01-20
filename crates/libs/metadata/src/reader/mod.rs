@@ -366,7 +366,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn field_flags(&self, row: Field) -> FieldAttributes {
-        FieldAttributes(self.row_usize(row.0, 0))
+        FieldAttributes(self.row_usize(row.0, 0) as _)
     }
     pub fn field_name(&self, row: Field) -> &str {
         self.row_str(row.0, 1)

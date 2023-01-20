@@ -96,7 +96,7 @@ impl Tables {
         }
 
         for type_def in &self.type_def {
-            buffer.write(&(type_def.flags.0 as u32));
+            buffer.write(&type_def.flags.0);
             buffer.write(&strings.insert(&type_def.type_name.name));
             buffer.write(&strings.insert(&type_def.type_name.namespace));
             write_coded_index(&mut buffer, type_def.extends_index.encode(), type_def_or_ref);
