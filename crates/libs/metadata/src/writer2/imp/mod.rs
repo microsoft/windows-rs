@@ -139,8 +139,33 @@ fn item_type_name(item: &Item) -> (&str, &str) {
     }
 }
 
-fn field_blob(_field: &Field, _definitions: &StagedDefinitions, _references: &StagedReferences) -> Vec<u8> {
-    vec![]
+fn field_blob(field: &Field, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
+    let mut blob = vec![0x6];
+    type_blob(&field.ty, &mut blob, definitions, references);
+    blob
+}
+
+fn type_blob(ty: &Type, blob: &mut Vec<u8>, definitions: &StagedDefinitions, references: &StagedReferences) {
+    match ty {
+        Type::Void => blob.push(0x01),
+        Type::Bool => blob.push(0x02),
+        Type::Char => blob.push(0x03),
+        Type::I8 => blob.push(0x04),
+        Type::U8 => blob.push(0x05),
+        Type::I16 => blob.push(0x06),
+        Type::U16 => blob.push(0x07),
+        Type::I32 => blob.push(0x08),
+        Type::U32 => blob.push(0x09),
+        Type::I64 => blob.push(0x0a),
+        Type::U64 => blob.push(0x0b),
+        Type::F32 => blob.push(0x0c),
+        Type::F64 => blob.push(0x0d),
+        Type::ISize => blob.push(0x18),
+        Type::USize => blob.push(0x19),
+        Type::String => blob.push(0x0e),
+        //Type::IInspectable => blob.push(0x1c),
+        _ => {}
+    }
 }
 
 pub trait Write {
