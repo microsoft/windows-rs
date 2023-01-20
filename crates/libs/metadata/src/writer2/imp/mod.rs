@@ -21,7 +21,11 @@ pub fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]) -> Vec<u8> {
+pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str]) -> Vec<u8> {
+    // Index assemblies used to resolve references to existing winmd files.
+    let assemblies = reader::File::with_default(assemblies).expect("Assemblies could not be loaded");
+    let assemblies = &reader::Reader::new(&assemblies);
+
     // Build sorted list of definitions.
     let definitions = &{
         let mut index = Definitions::default();
@@ -34,7 +38,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
         let mut index = References::default();
         for item in definitions.items() {
             match item {
-                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, definitions, &mut index)),
+                Item::Struct(ty) => ty.fields.iter().for_each(|field| type_reference(&field.ty, definitions, assemblies, &mut index)),
                 Item::Interface(_ty) => {}
                 _ => {}
             }
@@ -120,11 +124,11 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], _assemblies: &[&str]
     file::write(tables, strings, blobs)
 }
 
-fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, references: &mut References<'a>) {
+fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, assemblies: &reader::Reader, references: &mut References<'a>) {
     match ty {
         Type::Named((namespace, name)) => {
             if definitions.get(namespace, name).is_none() {
-                references.insert(namespace, name);
+                references.insert(namespace, name, assemblies);
             }
         }
         _ => {}
@@ -139,13 +143,20 @@ fn item_type_name(item: &Item) -> (&str, &str) {
     }
 }
 
+fn item_value_type(item: &Item) -> bool {
+    match item {
+        Item::Struct(_) | Item::Enum(_) => true,
+        Item::Interface(_) => false,
+    }
+}
+
 fn field_blob(field: &Field, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
     let mut blob = vec![0x6];
     type_blob(&field.ty, &mut blob, definitions, references);
     blob
 }
 
-fn type_blob(ty: &Type, blob: &mut Vec<u8>, definitions: &StagedDefinitions, references: &StagedReferences) {
+fn type_blob(ty: &Type, blob: &mut Vec<u8>, _definitions: &StagedDefinitions, _references: &StagedReferences) {
     match ty {
         Type::Void => blob.push(0x01),
         Type::Bool => blob.push(0x02),
@@ -164,8 +175,19 @@ fn type_blob(ty: &Type, blob: &mut Vec<u8>, definitions: &StagedDefinitions, ref
         Type::USize => blob.push(0x19),
         Type::String => blob.push(0x0e),
         //Type::IInspectable => blob.push(0x1c),
+        //Type::Names((namespace, name)) => 
         _ => {}
     }
+}
+
+/// Returns the TypeDefOrRef-encoded value for the type name as well as whether the type is a value type, needed
+/// in some cases like when a TypeDefOrRef appears in a signature.
+fn type_name_encode(namespace: &str, name:&str, definitions: &StagedDefinitions, references: &StagedReferences) -> (bool, u32) {
+    if let Some(definition) = definitions.get(namespace, name) {
+        return (definition.value_type, TypeDefOrRef::TypeDef(definition.index).encode());
+    }
+    let reference = references.get(namespace, name).expect("Type not found");
+    return (reference.value_type, TypeDefOrRef::TypeRef(reference.index).encode());
 }
 
 pub trait Write {

@@ -5,16 +5,17 @@ pub struct Definitions<'a> {
     map: BTreeMap<(&'a str, &'a str), Definition<'a>>,
 }
 
-struct Definition<'a> {
+pub struct Definition<'a> {
     pub item: &'a Item,
     pub index: u32,
+    pub value_type: bool,
 }
 
 pub struct StagedDefinitions<'a>(Definitions<'a>);
 
 impl<'a> Definitions<'a> {
     pub fn insert(&mut self, item: &'a Item) {
-        if self.map.insert(item_type_name(item), Definition { item, index: 0 }).is_some() {
+        if self.map.insert(item_type_name(item), Definition { item, index: 0, value_type: item_value_type(item) }).is_some() {
             panic!("Duplicate type found");
         }
     }
@@ -28,13 +29,10 @@ impl<'a> Definitions<'a> {
 }
 
 impl<'a> StagedDefinitions<'a> {
-    pub fn get(&self, namespace: &str, name: &str) -> Option<&'a Item> {
-        self.0.map.get(&(namespace, name)).map(|value| value.item)
+    pub fn get(&self, namespace: &'a str, name: &'a str) -> Option<&'a Definition> {
+        self.0.map.get(&(namespace, name))
     }
 
-    pub fn index(&self, namespace: &str, name: &str) -> u32 {
-        self.0.map[&(namespace, name)].index
-    }
 
     pub fn items(&self) -> impl Iterator<Item = &Item> {
         self.0.map.values().map(|value| value.item)
