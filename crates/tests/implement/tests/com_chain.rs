@@ -18,11 +18,11 @@ impl IPersistStream_Impl for Test {
         S_OK
     }
 
-    fn Load(&self, _: &Option<IStream>) -> Result<()> {
+    fn Load(&self, _: Option<&IStream>) -> Result<()> {
         Ok(())
     }
 
-    fn Save(&self, _: &Option<IStream>, _: BOOL) -> Result<()> {
+    fn Save(&self, _: Option<&IStream>, _: BOOL) -> Result<()> {
         Ok(())
     }
 

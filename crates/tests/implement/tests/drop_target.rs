@@ -22,7 +22,7 @@ impl IDataObject_Impl for DataObject {
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
         todo!()
     }
-    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: &Option<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: Option<&IAdviseSink>) -> Result<u32> {
         assert!(!format.is_null());
         assert_eq!(value, 789);
         assert!(sink.is_none());
@@ -40,9 +40,9 @@ impl IDataObject_Impl for DataObject {
 struct DropTarget();
 
 impl IDropTarget_Impl for DropTarget {
-    fn DragEnter(&self, object: &Option<IDataObject>, state: MODIFIERKEYS_FLAGS, point: &POINTL, effect: *mut DROPEFFECT) -> Result<()> {
+    fn DragEnter(&self, object: Option<&IDataObject>, state: MODIFIERKEYS_FLAGS, point: &POINTL, effect: *mut DROPEFFECT) -> Result<()> {
         unsafe {
-            assert_eq!(object.as_ref().unwrap().DAdvise(&FORMATETC::default(), 789, None)?, 123);
+            assert_eq!(object.unwrap().DAdvise(&FORMATETC::default(), 789, None)?, 123);
             assert_eq!(state, MK_MBUTTON);
             assert_eq!(*effect, DROPEFFECT_LINK);
             *effect = DROPEFFECT_MOVE;
@@ -56,7 +56,7 @@ impl IDropTarget_Impl for DropTarget {
     fn DragLeave(&self) -> Result<()> {
         Ok(())
     }
-    fn Drop(&self, _: &Option<IDataObject>, _: MODIFIERKEYS_FLAGS, _: &POINTL, _: *mut DROPEFFECT) -> Result<()> {
+    fn Drop(&self, _: Option<&IDataObject>, _: MODIFIERKEYS_FLAGS, _: &POINTL, _: *mut DROPEFFECT) -> Result<()> {
         todo!()
     }
 }

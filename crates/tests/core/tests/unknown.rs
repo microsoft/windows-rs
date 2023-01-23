@@ -34,7 +34,7 @@ fn test_unknown() {
 
         {
             let raw_borrowed: *mut std::ffi::c_void = test.as_raw();
-            let unknown_borrowed: &IUnknown = IUnknown::from_raw_borrowed(&raw_borrowed);
+            let unknown_borrowed: &IUnknown = IUnknown::from_raw_borrowed(&raw_borrowed).unwrap();
             assert_eq!(unknown_borrowed.as_raw(), test.as_raw());
             let test_query: ITest = unknown_borrowed.cast().unwrap();
             assert_eq!(test_query.Test(), 0);
@@ -46,6 +46,8 @@ fn test_unknown() {
             let test_query: ITest = unknown_owned.cast().unwrap();
             assert_eq!(test_query.Test(), 0);
         }
+
+        assert!(IUnknown::from_raw_borrowed(&std::ptr::null_mut()).is_none());
 
         assert_eq!(test.Test(), 0);
         drop(test);
@@ -61,7 +63,7 @@ fn test_pointer_conversion_functions() {
 
         {
             let raw_borrowed: *mut std::ffi::c_void = test.as_raw();
-            let test_borrowed: &ITest = ITest::from_raw_borrowed(&raw_borrowed);
+            let test_borrowed: &ITest = ITest::from_raw_borrowed(&raw_borrowed).unwrap();
             assert_eq!(test_borrowed.as_raw(), test.as_raw());
             assert_eq!(test_borrowed.Test(), 0);
         }
