@@ -56,7 +56,7 @@ pub unsafe trait Vtable: Sized {
     ///
     /// The `raw` pointer must be a valid COM interface pointer. In other words, it must point to a vtable
     /// beginning with the `IUnknown` function pointers and match the vtable of `Interface`.
-    unsafe fn from_raw_borrowed<'a>(raw: &'a *mut std::ffi::c_void) -> Option<&'a Self> {
+    unsafe fn from_raw_borrowed(raw: &*mut std::ffi::c_void) -> Option<&Self> {
         if raw.is_null() {
             None
         } else {
@@ -66,6 +66,6 @@ pub unsafe trait Vtable: Sized {
 }
 
 #[doc(hidden)]
-pub unsafe fn from_raw_borrowed<'a, T: Vtable>(raw: &'a *mut std::ffi::c_void) -> Option<&'a T> {
-    T::from_raw_borrowed(&raw)
+pub unsafe fn from_raw_borrowed<T: Vtable>(raw: &*mut std::ffi::c_void) -> Option<&T> {
+    T::from_raw_borrowed(raw)
 }
