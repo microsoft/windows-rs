@@ -1,3 +1,5 @@
+#![cfg_attr(docsrs, doc = "This is a stub. The latest API documentation is here: <https://microsoft.github.io/windows-docs-rs/>")]
+#![cfg_attr(docsrs, doc = "")]
 /*!
 Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
 */
