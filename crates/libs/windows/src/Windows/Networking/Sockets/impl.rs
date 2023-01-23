@@ -90,9 +90,9 @@ impl IControlChannelTriggerResetEventDetails_Vtbl {
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IWebSocket_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream>;
-    fn ConnectAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn ConnectAsync(&self, uri: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
     fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn Closed(&self, eventhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn Closed(&self, eventhandler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveClosed(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -118,7 +118,7 @@ impl IWebSocket_Vtbl {
         unsafe extern "system" fn ConnectAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectAsync(::core::mem::transmute(&uri)) {
+            match this.ConnectAsync(::windows::core::from_raw_borrowed(&uri)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -135,7 +135,7 @@ impl IWebSocket_Vtbl {
         unsafe extern "system" fn Closed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocket_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Closed(::core::mem::transmute(&eventhandler)) {
+            match this.Closed(::windows::core::from_raw_borrowed(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -174,9 +174,9 @@ pub trait IWebSocketControl_Impl: Sized {
     fn OutboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32>;
     fn SetOutboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()>;
     fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetServerCredential(&self, value: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetProxyCredential(&self, value: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn SupportedProtocols(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
@@ -218,7 +218,7 @@ impl IWebSocketControl_Vtbl {
         unsafe extern "system" fn SetServerCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServerCredential(::core::mem::transmute(&value)).into()
+            this.SetServerCredential(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn ProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -235,7 +235,7 @@ impl IWebSocketControl_Vtbl {
         unsafe extern "system" fn SetProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProxyCredential(::core::mem::transmute(&value)).into()
+            this.SetProxyCredential(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn SupportedProtocols<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebSocketControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

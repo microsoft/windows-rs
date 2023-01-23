@@ -34,8 +34,8 @@ impl IObjectArray_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`, `\"implement\"`*"]
 pub trait IObjectCollection_Impl: Sized + IObjectArray_Impl {
-    fn AddObject(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn AddFromArray(&self, poasource: &::core::option::Option<IObjectArray>) -> ::windows::core::Result<()>;
+    fn AddObject(&self, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddFromArray(&self, poasource: ::core::option::Option<&IObjectArray>) -> ::windows::core::Result<()>;
     fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
@@ -45,12 +45,12 @@ impl IObjectCollection_Vtbl {
         unsafe extern "system" fn AddObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddObject(::core::mem::transmute(&punk)).into()
+            this.AddObject(::windows::core::from_raw_borrowed(&punk)).into()
         }
         unsafe extern "system" fn AddFromArray<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poasource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddFromArray(::core::mem::transmute(&poasource)).into()
+            this.AddFromArray(::windows::core::from_raw_borrowed(&poasource)).into()
         }
         unsafe extern "system" fn RemoveObjectAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObjectCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

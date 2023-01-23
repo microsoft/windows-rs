@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
 pub trait IVpnChannelStatics_Impl: Sized {
-    fn ProcessEventAsync(&self, thirdpartyplugin: &::core::option::Option<::windows::core::IInspectable>, event: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn ProcessEventAsync(&self, thirdpartyplugin: ::core::option::Option<&::windows::core::IInspectable>, event: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVpnChannelStatics {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
@@ -10,7 +10,7 @@ impl IVpnChannelStatics_Vtbl {
         unsafe extern "system" fn ProcessEventAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnChannelStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, thirdpartyplugin: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessEventAsync(::core::mem::transmute(&thirdpartyplugin), ::core::mem::transmute(&event)).into()
+            this.ProcessEventAsync(::windows::core::from_raw_borrowed(&thirdpartyplugin), ::windows::core::from_raw_borrowed(&event)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IVpnChannelStatics, OFFSET>(),
@@ -257,7 +257,7 @@ impl IVpnCustomPromptElement_Vtbl {
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnDomainNameInfoFactory_Impl: Sized {
-    fn CreateVpnDomainNameInfo(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
+    fn CreateVpnDomainNameInfo(&self, name: &::windows::core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: ::core::option::Option<&super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: ::core::option::Option<&super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows::core::Result<VpnDomainNameInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnDomainNameInfoFactory {
@@ -269,7 +269,7 @@ impl IVpnDomainNameInfoFactory_Vtbl {
         unsafe extern "system" fn CreateVpnDomainNameInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnDomainNameInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, nametype: VpnDomainNameType, dnsserverlist: *mut ::core::ffi::c_void, proxyserverlist: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVpnDomainNameInfo(::core::mem::transmute(&name), nametype, ::core::mem::transmute(&dnsserverlist), ::core::mem::transmute(&proxyserverlist)) {
+            match this.CreateVpnDomainNameInfo(::core::mem::transmute(&name), nametype, ::windows::core::from_raw_borrowed(&dnsserverlist), ::windows::core::from_raw_borrowed(&proxyserverlist)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -320,7 +320,7 @@ impl IVpnInterfaceIdFactory_Vtbl {
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnNamespaceInfoFactory_Impl: Sized {
-    fn CreateVpnNamespaceInfo(&self, name: &::windows::core::HSTRING, dnsserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: &::core::option::Option<super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
+    fn CreateVpnNamespaceInfo(&self, name: &::windows::core::HSTRING, dnsserverlist: ::core::option::Option<&super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: ::core::option::Option<&super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows::core::Result<VpnNamespaceInfo>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IVpnNamespaceInfoFactory {
@@ -332,7 +332,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
         unsafe extern "system" fn CreateVpnNamespaceInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnNamespaceInfoFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, dnsserverlist: *mut ::core::ffi::c_void, proxyserverlist: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVpnNamespaceInfo(::core::mem::transmute(&name), ::core::mem::transmute(&dnsserverlist), ::core::mem::transmute(&proxyserverlist)) {
+            match this.CreateVpnNamespaceInfo(::core::mem::transmute(&name), ::windows::core::from_raw_borrowed(&dnsserverlist), ::windows::core::from_raw_borrowed(&proxyserverlist)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -352,7 +352,7 @@ impl IVpnNamespaceInfoFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
 pub trait IVpnPacketBufferFactory_Impl: Sized {
-    fn CreateVpnPacketBuffer(&self, parentbuffer: &::core::option::Option<VpnPacketBuffer>, offset: u32, length: u32) -> ::windows::core::Result<VpnPacketBuffer>;
+    fn CreateVpnPacketBuffer(&self, parentbuffer: ::core::option::Option<&VpnPacketBuffer>, offset: u32, length: u32) -> ::windows::core::Result<VpnPacketBuffer>;
 }
 impl ::windows::core::RuntimeName for IVpnPacketBufferFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
@@ -362,7 +362,7 @@ impl IVpnPacketBufferFactory_Vtbl {
         unsafe extern "system" fn CreateVpnPacketBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPacketBufferFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentbuffer: *mut ::core::ffi::c_void, offset: u32, length: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVpnPacketBuffer(::core::mem::transmute(&parentbuffer), offset, length) {
+            match this.CreateVpnPacketBuffer(::windows::core::from_raw_borrowed(&parentbuffer), offset, length) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -382,11 +382,11 @@ impl IVpnPacketBufferFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
 pub trait IVpnPlugIn_Impl: Sized {
-    fn Connect(&self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
-    fn Disconnect(&self, channel: &::core::option::Option<VpnChannel>) -> ::windows::core::Result<()>;
-    fn GetKeepAlivePayload(&self, channel: &::core::option::Option<VpnChannel>, keepalivepacket: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
-    fn Encapsulate(&self, channel: &::core::option::Option<VpnChannel>, packets: &::core::option::Option<VpnPacketBufferList>, encapulatedpackets: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
-    fn Decapsulate(&self, channel: &::core::option::Option<VpnChannel>, encapbuffer: &::core::option::Option<VpnPacketBuffer>, decapsulatedpackets: &::core::option::Option<VpnPacketBufferList>, controlpacketstosend: &::core::option::Option<VpnPacketBufferList>) -> ::windows::core::Result<()>;
+    fn Connect(&self, channel: ::core::option::Option<&VpnChannel>) -> ::windows::core::Result<()>;
+    fn Disconnect(&self, channel: ::core::option::Option<&VpnChannel>) -> ::windows::core::Result<()>;
+    fn GetKeepAlivePayload(&self, channel: ::core::option::Option<&VpnChannel>, keepalivepacket: &mut ::core::option::Option<VpnPacketBuffer>) -> ::windows::core::Result<()>;
+    fn Encapsulate(&self, channel: ::core::option::Option<&VpnChannel>, packets: ::core::option::Option<&VpnPacketBufferList>, encapulatedpackets: ::core::option::Option<&VpnPacketBufferList>) -> ::windows::core::Result<()>;
+    fn Decapsulate(&self, channel: ::core::option::Option<&VpnChannel>, encapbuffer: ::core::option::Option<&VpnPacketBuffer>, decapsulatedpackets: ::core::option::Option<&VpnPacketBufferList>, controlpacketstosend: ::core::option::Option<&VpnPacketBufferList>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IVpnPlugIn {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
@@ -396,27 +396,27 @@ impl IVpnPlugIn_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(::core::mem::transmute(&channel)).into()
+            this.Connect(::windows::core::from_raw_borrowed(&channel)).into()
         }
         unsafe extern "system" fn Disconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Disconnect(::core::mem::transmute(&channel)).into()
+            this.Disconnect(::windows::core::from_raw_borrowed(&channel)).into()
         }
         unsafe extern "system" fn GetKeepAlivePayload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void, keepalivepacket: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetKeepAlivePayload(::core::mem::transmute(&channel), ::core::mem::transmute_copy(&keepalivepacket)).into()
+            this.GetKeepAlivePayload(::windows::core::from_raw_borrowed(&channel), ::core::mem::transmute_copy(&keepalivepacket)).into()
         }
         unsafe extern "system" fn Encapsulate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void, packets: *mut ::core::ffi::c_void, encapulatedpackets: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Encapsulate(::core::mem::transmute(&channel), ::core::mem::transmute(&packets), ::core::mem::transmute(&encapulatedpackets)).into()
+            this.Encapsulate(::windows::core::from_raw_borrowed(&channel), ::windows::core::from_raw_borrowed(&packets), ::windows::core::from_raw_borrowed(&encapulatedpackets)).into()
         }
         unsafe extern "system" fn Decapsulate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channel: *mut ::core::ffi::c_void, encapbuffer: *mut ::core::ffi::c_void, decapsulatedpackets: *mut ::core::ffi::c_void, controlpacketstosend: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Decapsulate(::core::mem::transmute(&channel), ::core::mem::transmute(&encapbuffer), ::core::mem::transmute(&decapsulatedpackets), ::core::mem::transmute(&controlpacketstosend)).into()
+            this.Decapsulate(::windows::core::from_raw_borrowed(&channel), ::windows::core::from_raw_borrowed(&encapbuffer), ::windows::core::from_raw_borrowed(&decapsulatedpackets), ::windows::core::from_raw_borrowed(&controlpacketstosend)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IVpnPlugIn, OFFSET>(),
@@ -571,7 +571,7 @@ impl IVpnProfile_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`, `\"implement\"`*"]
 pub trait IVpnRouteFactory_Impl: Sized {
-    fn CreateVpnRoute(&self, address: &::core::option::Option<super::HostName>, prefixsize: u8) -> ::windows::core::Result<VpnRoute>;
+    fn CreateVpnRoute(&self, address: ::core::option::Option<&super::HostName>, prefixsize: u8) -> ::windows::core::Result<VpnRoute>;
 }
 impl ::windows::core::RuntimeName for IVpnRouteFactory {
     const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
@@ -581,7 +581,7 @@ impl IVpnRouteFactory_Vtbl {
         unsafe extern "system" fn CreateVpnRoute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVpnRouteFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, address: *mut ::core::ffi::c_void, prefixsize: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateVpnRoute(::core::mem::transmute(&address), prefixsize) {
+            match this.CreateVpnRoute(::windows::core::from_raw_borrowed(&address), prefixsize) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

@@ -112,7 +112,7 @@ impl INDCustomData_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait INDDownloadEngine_Impl: Sized {
-    fn Open(&self, uri: &::core::option::Option<super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows::core::Result<()>;
+    fn Open(&self, uri: ::core::option::Option<&super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows::core::Result<()>;
     fn Pause(&self) -> ::windows::core::Result<()>;
     fn Resume(&self) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -132,7 +132,7 @@ impl INDDownloadEngine_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(::core::mem::transmute(&uri), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _)).into()
+            this.Open(::windows::core::from_raw_borrowed(&uri), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&sessionidbytes), sessionIDBytes_array_size as _)).into()
         }
         unsafe extern "system" fn Pause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -224,7 +224,7 @@ impl INDDownloadEngine_Vtbl {
 pub trait INDDownloadEngineNotifier_Impl: Sized {
     fn OnStreamOpened(&self) -> ::windows::core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> ::windows::core::Result<()>;
-    fn OnContentIDReceived(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
+    fn OnContentIDReceived(&self, licensefetchdescriptor: ::core::option::Option<&INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
     fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> ::windows::core::Result<()>;
     fn OnEndOfStream(&self) -> ::windows::core::Result<()>;
     fn OnNetworkError(&self) -> ::windows::core::Result<()>;
@@ -249,7 +249,7 @@ impl INDDownloadEngineNotifier_Vtbl {
         unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnContentIDReceived(::core::mem::transmute(&licensefetchdescriptor)).into()
+            this.OnContentIDReceived(::windows::core::from_raw_borrowed(&licensefetchdescriptor)).into()
         }
         unsafe extern "system" fn OnDataReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataBytes_array_size: u32, databytes: *const u8, bytesreceived: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -319,7 +319,7 @@ pub trait INDLicenseFetchDescriptor_Impl: Sized {
     fn ContentIDType(&self) -> ::windows::core::Result<NDContentIDType>;
     fn ContentID(&self) -> ::windows::core::Result<::windows::core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> ::windows::core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licensefetchchallengecustomdata: &::core::option::Option<INDCustomData>) -> ::windows::core::Result<()>;
+    fn SetLicenseFetchChallengeCustomData(&self, licensefetchchallengecustomdata: ::core::option::Option<&INDCustomData>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for INDLicenseFetchDescriptor {
@@ -368,7 +368,7 @@ impl INDLicenseFetchDescriptor_Vtbl {
         unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchchallengecustomdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLicenseFetchChallengeCustomData(::core::mem::transmute(&licensefetchchallengecustomdata)).into()
+            this.SetLicenseFetchChallengeCustomData(::windows::core::from_raw_borrowed(&licensefetchchallengecustomdata)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, INDLicenseFetchDescriptor, OFFSET>(),
@@ -658,7 +658,7 @@ impl INDStartResult_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait INDStorageFileHelper_Impl: Sized {
-    fn GetFileURLs(&self, file: &::core::option::Option<super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
+    fn GetFileURLs(&self, file: ::core::option::Option<&super::super::super::Storage::IStorageFile>) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStorageFileHelper {
@@ -670,7 +670,7 @@ impl INDStorageFileHelper_Vtbl {
         unsafe extern "system" fn GetFileURLs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetFileURLs(::core::mem::transmute(&file)) {
+            match this.GetFileURLs(::windows::core::from_raw_borrowed(&file)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -689,7 +689,7 @@ impl INDStorageFileHelper_Vtbl {
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParser_Impl: Sized {
     fn ParseData(&self, databytes: &[u8]) -> ::windows::core::Result<()>;
-    fn GetStreamInformation(&self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>;
+    fn GetStreamInformation(&self, descriptor: ::core::option::Option<&super::super::Core::IMediaStreamDescriptor>, streamtype: &mut NDMediaStreamType) -> ::windows::core::Result<u32>;
     fn BeginOfStream(&self) -> ::windows::core::Result<()>;
     fn EndOfStream(&self) -> ::windows::core::Result<()>;
     fn Notifier(&self) -> ::windows::core::Result<NDStreamParserNotifier>;
@@ -709,7 +709,7 @@ impl INDStreamParser_Vtbl {
         unsafe extern "system" fn GetStreamInformation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: *mut ::core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetStreamInformation(::core::mem::transmute(&descriptor), ::core::mem::transmute_copy(&streamtype)) {
+            match this.GetStreamInformation(::windows::core::from_raw_borrowed(&descriptor), ::core::mem::transmute_copy(&streamtype)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -756,10 +756,10 @@ impl INDStreamParser_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifier_Impl: Sized {
-    fn OnContentIDReceived(&self, licensefetchdescriptor: &::core::option::Option<INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audiostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videostreamdescriptors: &::core::option::Option<super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
-    fn OnSampleParsed(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: &::core::option::Option<super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows::core::Result<()>;
-    fn OnBeginSetupDecryptor(&self, descriptor: &::core::option::Option<super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>;
+    fn OnContentIDReceived(&self, licensefetchdescriptor: ::core::option::Option<&INDLicenseFetchDescriptor>) -> ::windows::core::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&self, audiostreamdescriptors: ::core::option::Option<&super::super::super::Foundation::Collections::IVector<super::super::Core::AudioStreamDescriptor>>, videostreamdescriptors: ::core::option::Option<&super::super::super::Foundation::Collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> ::windows::core::Result<()>;
+    fn OnSampleParsed(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: ::core::option::Option<&super::super::Core::MediaStreamSample>, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows::core::Result<()>;
+    fn OnBeginSetupDecryptor(&self, descriptor: ::core::option::Option<&super::super::Core::IMediaStreamDescriptor>, keyid: &::windows::core::GUID, probytes: &[u8]) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for INDStreamParserNotifier {
@@ -771,22 +771,22 @@ impl INDStreamParserNotifier_Vtbl {
         unsafe extern "system" fn OnContentIDReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, licensefetchdescriptor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnContentIDReceived(::core::mem::transmute(&licensefetchdescriptor)).into()
+            this.OnContentIDReceived(::windows::core::from_raw_borrowed(&licensefetchdescriptor)).into()
         }
         unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostreamdescriptors: *mut ::core::ffi::c_void, videostreamdescriptors: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnMediaStreamDescriptorCreated(::core::mem::transmute(&audiostreamdescriptors), ::core::mem::transmute(&videostreamdescriptors)).into()
+            this.OnMediaStreamDescriptorCreated(::windows::core::from_raw_borrowed(&audiostreamdescriptors), ::windows::core::from_raw_borrowed(&videostreamdescriptors)).into()
         }
         unsafe extern "system" fn OnSampleParsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut ::core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccDataBytes_array_size: u32, ccdatabytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnSampleParsed(streamid, streamtype, ::core::mem::transmute(&streamsample), pts, ccformat, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&ccdatabytes), ccDataBytes_array_size as _)).into()
+            this.OnSampleParsed(streamid, streamtype, ::windows::core::from_raw_borrowed(&streamsample), pts, ccformat, ::core::slice::from_raw_parts(::core::mem::transmute_copy(&ccdatabytes), ccDataBytes_array_size as _)).into()
         }
         unsafe extern "system" fn OnBeginSetupDecryptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptor: *mut ::core::ffi::c_void, keyid: ::windows::core::GUID, proBytes_array_size: u32, probytes: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBeginSetupDecryptor(::core::mem::transmute(&descriptor), ::core::mem::transmute(&keyid), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&probytes), proBytes_array_size as _)).into()
+            this.OnBeginSetupDecryptor(::windows::core::from_raw_borrowed(&descriptor), ::core::mem::transmute(&keyid), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&probytes), proBytes_array_size as _)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, INDStreamParserNotifier, OFFSET>(),
@@ -1186,7 +1186,7 @@ impl IPlayReadyLicense_Vtbl {
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn ContentHeader(&self) -> ::windows::core::Result<PlayReadyContentHeader>;
-    fn SetContentHeader(&self, value: &::core::option::Option<PlayReadyContentHeader>) -> ::windows::core::Result<()>;
+    fn SetContentHeader(&self, value: ::core::option::Option<&PlayReadyContentHeader>) -> ::windows::core::Result<()>;
     fn DomainServiceId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn SetDomainServiceId(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
@@ -1212,7 +1212,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
         unsafe extern "system" fn SetContentHeader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContentHeader(::core::mem::transmute(&value)).into()
+            this.SetContentHeader(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn DomainServiceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1246,7 +1246,7 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"implement\"`*"]
 pub trait IPlayReadyLicenseSession_Impl: Sized {
     fn CreateLAServiceRequest(&self) -> ::windows::core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
-    fn ConfigureMediaProtectionManager(&self, mpm: &::core::option::Option<super::MediaProtectionManager>) -> ::windows::core::Result<()>;
+    fn ConfigureMediaProtectionManager(&self, mpm: ::core::option::Option<&super::MediaProtectionManager>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
@@ -1268,7 +1268,7 @@ impl IPlayReadyLicenseSession_Vtbl {
         unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mpm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConfigureMediaProtectionManager(::core::mem::transmute(&mpm)).into()
+            this.ConfigureMediaProtectionManager(::windows::core::from_raw_borrowed(&mpm)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPlayReadyLicenseSession, OFFSET>(),
@@ -1283,7 +1283,7 @@ impl IPlayReadyLicenseSession_Vtbl {
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2_Impl: Sized + IPlayReadyLicenseSession_Impl {
-    fn CreateLicenseIterable(&self, contentheader: &::core::option::Option<PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&self, contentheader: ::core::option::Option<&PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows::core::Result<PlayReadyLicenseIterable>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPlayReadyLicenseSession2 {
@@ -1295,7 +1295,7 @@ impl IPlayReadyLicenseSession2_Vtbl {
         unsafe extern "system" fn CreateLicenseIterable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contentheader: *mut ::core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateLicenseIterable(::core::mem::transmute(&contentheader), fullyevaluated) {
+            match this.CreateLicenseIterable(::windows::core::from_raw_borrowed(&contentheader), fullyevaluated) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -1407,7 +1407,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
 #[cfg(feature = "Foundation")]
 pub trait IPlayReadyServiceRequest_Impl: Sized + super::IMediaProtectionServiceRequest_Impl {
     fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri>;
-    fn SetUri(&self, value: &::core::option::Option<super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SetUri(&self, value: ::core::option::Option<&super::super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn ResponseCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ChallengeCustomData(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetChallengeCustomData(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
@@ -1438,7 +1438,7 @@ impl IPlayReadyServiceRequest_Vtbl {
         unsafe extern "system" fn SetUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUri(::core::mem::transmute(&value)).into()
+            this.SetUri(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn ResponseCustomData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

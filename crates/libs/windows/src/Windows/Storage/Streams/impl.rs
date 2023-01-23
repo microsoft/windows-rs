@@ -441,8 +441,8 @@ pub trait IDataWriter_Impl: Sized {
     fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()>;
     fn WriteByte(&self, value: u8) -> ::windows::core::Result<()>;
     fn WriteBytes(&self, value: &[u8]) -> ::windows::core::Result<()>;
-    fn WriteBuffer(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
-    fn WriteBufferRange(&self, buffer: &::core::option::Option<IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
+    fn WriteBuffer(&self, buffer: ::core::option::Option<&IBuffer>) -> ::windows::core::Result<()>;
+    fn WriteBufferRange(&self, buffer: ::core::option::Option<&IBuffer>, start: u32, count: u32) -> ::windows::core::Result<()>;
     fn WriteBoolean(&self, value: bool) -> ::windows::core::Result<()>;
     fn WriteGuid(&self, value: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn WriteInt16(&self, value: i16) -> ::windows::core::Result<()>;
@@ -528,12 +528,12 @@ impl IDataWriter_Vtbl {
         unsafe extern "system" fn WriteBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteBuffer(::core::mem::transmute(&buffer)).into()
+            this.WriteBuffer(::windows::core::from_raw_borrowed(&buffer)).into()
         }
         unsafe extern "system" fn WriteBufferRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, start: u32, count: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteBufferRange(::core::mem::transmute(&buffer), start, count).into()
+            this.WriteBufferRange(::windows::core::from_raw_borrowed(&buffer), start, count).into()
         }
         unsafe extern "system" fn WriteBoolean<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -705,7 +705,7 @@ impl IDataWriter_Vtbl {
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IInputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn ReadAsync(&self, buffer: &::core::option::Option<IBuffer>, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
+    fn ReadAsync(&self, buffer: ::core::option::Option<&IBuffer>, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IInputStream {
@@ -717,7 +717,7 @@ impl IInputStream_Vtbl {
         unsafe extern "system" fn ReadAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, count: u32, options: InputStreamOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReadAsync(::core::mem::transmute(&buffer), count, options) {
+            match this.ReadAsync(::windows::core::from_raw_borrowed(&buffer), count, options) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -768,7 +768,7 @@ impl IInputStreamReference_Vtbl {
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait IOutputStream_Impl: Sized + super::super::Foundation::IClosable_Impl {
-    fn WriteAsync(&self, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
+    fn WriteAsync(&self, buffer: ::core::option::Option<&IBuffer>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>;
     fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>;
 }
 #[cfg(feature = "Foundation")]
@@ -781,7 +781,7 @@ impl IOutputStream_Vtbl {
         unsafe extern "system" fn WriteAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOutputStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.WriteAsync(::core::mem::transmute(&buffer)) {
+            match this.WriteAsync(::windows::core::from_raw_borrowed(&buffer)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -815,8 +815,8 @@ impl IOutputStream_Vtbl {
 #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializer_Impl: Sized {
-    fn Serialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
-    fn Deserialize(&self, propertyset: &::core::option::Option<super::super::Foundation::Collections::IPropertySet>, buffer: &::core::option::Option<IBuffer>) -> ::windows::core::Result<()>;
+    fn Serialize(&self, propertyset: ::core::option::Option<&super::super::Foundation::Collections::IPropertySet>) -> ::windows::core::Result<IBuffer>;
+    fn Deserialize(&self, propertyset: ::core::option::Option<&super::super::Foundation::Collections::IPropertySet>, buffer: ::core::option::Option<&IBuffer>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for IPropertySetSerializer {
@@ -828,7 +828,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Serialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Serialize(::core::mem::transmute(&propertyset)) {
+            match this.Serialize(::windows::core::from_raw_borrowed(&propertyset)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -840,7 +840,7 @@ impl IPropertySetSerializer_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertySetSerializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyset: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Deserialize(::core::mem::transmute(&propertyset), ::core::mem::transmute(&buffer)).into()
+            this.Deserialize(::windows::core::from_raw_borrowed(&propertyset), ::windows::core::from_raw_borrowed(&buffer)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IPropertySetSerializer, OFFSET>(),

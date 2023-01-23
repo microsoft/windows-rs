@@ -13,7 +13,7 @@ impl IBackgroundCondition_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"implement\"`*"]
 pub trait IBackgroundTask_Impl: Sized {
-    fn Run(&self, taskinstance: &::core::option::Option<IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
+    fn Run(&self, taskinstance: ::core::option::Option<&IBackgroundTaskInstance>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
@@ -23,7 +23,7 @@ impl IBackgroundTask_Vtbl {
         unsafe extern "system" fn Run<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, taskinstance: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Run(::core::mem::transmute(&taskinstance)).into()
+            this.Run(::windows::core::from_raw_borrowed(&taskinstance)).into()
         }
         Self { base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IBackgroundTask, OFFSET>(), Run: Run::<Identity, Impl, OFFSET> }
     }
@@ -39,7 +39,7 @@ pub trait IBackgroundTaskInstance_Impl: Sized {
     fn Progress(&self) -> ::windows::core::Result<u32>;
     fn SetProgress(&self, value: u32) -> ::windows::core::Result<()>;
     fn TriggerDetails(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn Canceled(&self, cancelhandler: &::core::option::Option<BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn Canceled(&self, cancelhandler: ::core::option::Option<&BackgroundTaskCanceledEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCanceled(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn SuspendedCount(&self) -> ::windows::core::Result<u32>;
     fn GetDeferral(&self) -> ::windows::core::Result<BackgroundTaskDeferral>;
@@ -107,7 +107,7 @@ impl IBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn Canceled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cancelhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Canceled(::core::mem::transmute(&cancelhandler)) {
+            match this.Canceled(::windows::core::from_raw_borrowed(&cancelhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -230,9 +230,9 @@ impl IBackgroundTaskInstance4_Vtbl {
 pub trait IBackgroundTaskRegistration_Impl: Sized {
     fn TaskId(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn Progress(&self, handler: &::core::option::Option<BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn Progress(&self, handler: ::core::option::Option<&BackgroundTaskProgressEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveProgress(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn Completed(&self, handler: &::core::option::Option<BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn Completed(&self, handler: ::core::option::Option<&BackgroundTaskCompletedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveCompleted(&self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Unregister(&self, canceltask: bool) -> ::windows::core::Result<()>;
 }
@@ -270,7 +270,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         unsafe extern "system" fn Progress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Progress(::core::mem::transmute(&handler)) {
+            match this.Progress(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -287,7 +287,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         unsafe extern "system" fn Completed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Completed(::core::mem::transmute(&handler)) {
+            match this.Completed(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

@@ -65,7 +65,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusUISource_Impl: Sized {
     fn GetStatusUI(&self) -> ::windows::core::Result<StorageProviderStatusUI>;
-    fn StatusUIChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn StatusUIChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveStatusUIChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
@@ -90,7 +90,7 @@ impl IStorageProviderStatusUISource_Vtbl {
         unsafe extern "system" fn StatusUIChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderStatusUISource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.StatusUIChanged(::core::mem::transmute(&handler)) {
+            match this.StatusUIChanged(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -229,8 +229,8 @@ impl IStorageProviderUICommand_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
 pub trait IStorageProviderUriSource_Impl: Sized {
-    fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
-    fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: &::core::option::Option<StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
+    fn GetPathForContentUri(&self, contenturi: &::windows::core::HSTRING, result: ::core::option::Option<&StorageProviderGetPathForContentUriResult>) -> ::windows::core::Result<()>;
+    fn GetContentInfoForPath(&self, path: &::windows::core::HSTRING, result: ::core::option::Option<&StorageProviderGetContentInfoForPathResult>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
@@ -240,12 +240,12 @@ impl IStorageProviderUriSource_Vtbl {
         unsafe extern "system" fn GetPathForContentUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contenturi: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPathForContentUri(::core::mem::transmute(&contenturi), ::core::mem::transmute(&result)).into()
+            this.GetPathForContentUri(::core::mem::transmute(&contenturi), ::windows::core::from_raw_borrowed(&result)).into()
         }
         unsafe extern "system" fn GetContentInfoForPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageProviderUriSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContentInfoForPath(::core::mem::transmute(&path), ::core::mem::transmute(&result)).into()
+            this.GetContentInfoForPath(::core::mem::transmute(&path), ::windows::core::from_raw_borrowed(&result)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageProviderUriSource, OFFSET>(),

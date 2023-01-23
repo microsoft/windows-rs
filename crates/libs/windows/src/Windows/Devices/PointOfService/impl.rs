@@ -681,18 +681,18 @@ pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()>;
     fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()>;
     fn SetPrintArea(&self, value: &super::super::Foundation::Rect) -> ::windows::core::Result<()>;
-    fn SetBitmap(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
-    fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
-    fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
+    fn SetBitmap(&self, bitmapnumber: u32, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
+    fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
+    fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
+    fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
     fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()>;
     fn DrawRuledLine(&self, positionlist: &::windows::core::HSTRING, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()>;
     fn PrintBarcode(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
     fn PrintBarcodeCustomAlign(&self, data: &::windows::core::HSTRING, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn PrintBitmap(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
-    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
-    fn PrintCustomAlignedBitmap(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
-    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &::core::option::Option<super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
+    fn PrintBitmap(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>;
+    fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>;
+    fn PrintCustomAlignedBitmap(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32) -> ::windows::core::Result<()>;
+    fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: ::core::option::Option<&super::super::Graphics::Imaging::BitmapFrame>, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
 impl ::windows::core::RuntimeName for IReceiptOrSlipJob {
@@ -719,22 +719,22 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn SetBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmap(bitmapnumber, ::core::mem::transmute(&bitmap), alignment).into()
+            this.SetBitmap(bitmapnumber, ::windows::core::from_raw_borrowed(&bitmap), alignment).into()
         }
         unsafe extern "system" fn SetBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmapCustomWidthStandardAlign(bitmapnumber, ::core::mem::transmute(&bitmap), alignment, width).into()
+            this.SetBitmapCustomWidthStandardAlign(bitmapnumber, ::windows::core::from_raw_borrowed(&bitmap), alignment, width).into()
         }
         unsafe extern "system" fn SetCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCustomAlignedBitmap(bitmapnumber, ::core::mem::transmute(&bitmap), alignmentdistance).into()
+            this.SetCustomAlignedBitmap(bitmapnumber, ::windows::core::from_raw_borrowed(&bitmap), alignmentdistance).into()
         }
         unsafe extern "system" fn SetBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBitmapCustomWidthCustomAlign(bitmapnumber, ::core::mem::transmute(&bitmap), alignmentdistance, width).into()
+            this.SetBitmapCustomWidthCustomAlign(bitmapnumber, ::windows::core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
         }
         unsafe extern "system" fn PrintSavedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapnumber: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -759,22 +759,22 @@ impl IReceiptOrSlipJob_Vtbl {
         unsafe extern "system" fn PrintBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmap(::core::mem::transmute(&bitmap), alignment).into()
+            this.PrintBitmap(::windows::core::from_raw_borrowed(&bitmap), alignment).into()
         }
         unsafe extern "system" fn PrintBitmapCustomWidthStandardAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmapCustomWidthStandardAlign(::core::mem::transmute(&bitmap), alignment, width).into()
+            this.PrintBitmapCustomWidthStandardAlign(::windows::core::from_raw_borrowed(&bitmap), alignment, width).into()
         }
         unsafe extern "system" fn PrintCustomAlignedBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintCustomAlignedBitmap(::core::mem::transmute(&bitmap), alignmentdistance).into()
+            this.PrintCustomAlignedBitmap(::windows::core::from_raw_borrowed(&bitmap), alignmentdistance).into()
         }
         unsafe extern "system" fn PrintBitmapCustomWidthCustomAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReceiptOrSlipJob_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, alignmentdistance: u32, width: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrintBitmapCustomWidthCustomAlign(::core::mem::transmute(&bitmap), alignmentdistance, width).into()
+            this.PrintBitmapCustomWidthCustomAlign(::windows::core::from_raw_borrowed(&bitmap), alignmentdistance, width).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IReceiptOrSlipJob, OFFSET>(),

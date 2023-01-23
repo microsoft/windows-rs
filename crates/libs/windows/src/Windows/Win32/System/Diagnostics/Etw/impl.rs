@@ -116,9 +116,9 @@ impl ITraceEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"implement\"`*"]
 pub trait ITraceEventCallback_Impl: Sized {
-    fn OnBeginProcessTrace(&self, headerevent: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
-    fn OnFinalizeProcessTrace(&self, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
-    fn OnEvent(&self, event: &::core::option::Option<ITraceEvent>, relogger: &::core::option::Option<ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnBeginProcessTrace(&self, headerevent: ::core::option::Option<&ITraceEvent>, relogger: ::core::option::Option<&ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnFinalizeProcessTrace(&self, relogger: ::core::option::Option<&ITraceRelogger>) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, event: ::core::option::Option<&ITraceEvent>, relogger: ::core::option::Option<&ITraceRelogger>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITraceEventCallback {}
 impl ITraceEventCallback_Vtbl {
@@ -126,17 +126,17 @@ impl ITraceEventCallback_Vtbl {
         unsafe extern "system" fn OnBeginProcessTrace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, headerevent: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnBeginProcessTrace(::core::mem::transmute(&headerevent), ::core::mem::transmute(&relogger)).into()
+            this.OnBeginProcessTrace(::windows::core::from_raw_borrowed(&headerevent), ::windows::core::from_raw_borrowed(&relogger)).into()
         }
         unsafe extern "system" fn OnFinalizeProcessTrace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnFinalizeProcessTrace(::core::mem::transmute(&relogger)).into()
+            this.OnFinalizeProcessTrace(::windows::core::from_raw_borrowed(&relogger)).into()
         }
         unsafe extern "system" fn OnEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceEventCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEvent(::core::mem::transmute(&event), ::core::mem::transmute(&relogger)).into()
+            this.OnEvent(::windows::core::from_raw_borrowed(&event), ::windows::core::from_raw_borrowed(&relogger)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -154,8 +154,8 @@ impl ITraceEventCallback_Vtbl {
 pub trait ITraceRelogger_Impl: Sized {
     fn AddLogfileTraceStream(&self, logfilename: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE>;
     fn AddRealtimeTraceStream(&self, loggername: &::windows::core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows::core::Result<RELOGSTREAM_HANDLE>;
-    fn RegisterCallback(&self, callback: &::core::option::Option<ITraceEventCallback>) -> ::windows::core::Result<()>;
-    fn Inject(&self, event: &::core::option::Option<ITraceEvent>) -> ::windows::core::Result<()>;
+    fn RegisterCallback(&self, callback: ::core::option::Option<&ITraceEventCallback>) -> ::windows::core::Result<()>;
+    fn Inject(&self, event: ::core::option::Option<&ITraceEvent>) -> ::windows::core::Result<()>;
     fn CreateEventInstance(&self, tracehandle: RELOGSTREAM_HANDLE, flags: u32) -> ::windows::core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> ::windows::core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -192,12 +192,12 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn RegisterCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterCallback(::core::mem::transmute(&callback)).into()
+            this.RegisterCallback(::windows::core::from_raw_borrowed(&callback)).into()
         }
         unsafe extern "system" fn Inject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Inject(::core::mem::transmute(&event)).into()
+            this.Inject(::windows::core::from_raw_borrowed(&event)).into()
         }
         unsafe extern "system" fn CreateEventInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

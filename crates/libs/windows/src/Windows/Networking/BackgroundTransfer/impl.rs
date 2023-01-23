@@ -3,9 +3,9 @@
 pub trait IBackgroundTransferBase_Impl: Sized {
     fn SetRequestHeader(&self, headername: &::windows::core::HSTRING, headervalue: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetServerCredential(&self, credential: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, credential: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetProxyCredential(&self, credential: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetMethod(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -40,7 +40,7 @@ impl IBackgroundTransferBase_Vtbl {
         unsafe extern "system" fn SetServerCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServerCredential(::core::mem::transmute(&credential)).into()
+            this.SetServerCredential(::windows::core::from_raw_borrowed(&credential)).into()
         }
         unsafe extern "system" fn ProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -57,7 +57,7 @@ impl IBackgroundTransferBase_Vtbl {
         unsafe extern "system" fn SetProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, credential: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProxyCredential(::core::mem::transmute(&credential)).into()
+            this.SetProxyCredential(::windows::core::from_raw_borrowed(&credential)).into()
         }
         unsafe extern "system" fn Method<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
