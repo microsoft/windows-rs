@@ -31,7 +31,7 @@ impl IWSDAddress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDAsyncCallback_Impl: Sized {
-    fn AsyncOperationComplete(&self, pasyncresult: &::core::option::Option<IWSDAsyncResult>, pasyncstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AsyncOperationComplete(&self, pasyncresult: ::core::option::Option<&IWSDAsyncResult>, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWSDAsyncCallback {}
 impl IWSDAsyncCallback_Vtbl {
@@ -39,7 +39,7 @@ impl IWSDAsyncCallback_Vtbl {
         unsafe extern "system" fn AsyncOperationComplete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDAsyncCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AsyncOperationComplete(::core::mem::transmute(&pasyncresult), ::core::mem::transmute(&pasyncstate)).into()
+            this.AsyncOperationComplete(::windows::core::from_raw_borrowed(&pasyncresult), ::windows::core::from_raw_borrowed(&pasyncstate)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AsyncOperationComplete: AsyncOperationComplete::<Identity, Impl, OFFSET> }
     }
@@ -50,7 +50,7 @@ impl IWSDAsyncCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDAsyncResult_Impl: Sized {
-    fn SetCallback(&self, pcallback: &::core::option::Option<IWSDAsyncCallback>, pasyncstate: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetCallback(&self, pcallback: ::core::option::Option<&IWSDAsyncCallback>, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetWaitHandle(&self, hwaithandle: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn HasCompleted(&self) -> ::windows::core::Result<()>;
     fn GetAsyncState(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -66,7 +66,7 @@ impl IWSDAsyncResult_Vtbl {
         unsafe extern "system" fn SetCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCallback(::core::mem::transmute(&pcallback), ::core::mem::transmute(&pasyncstate)).into()
+            this.SetCallback(::windows::core::from_raw_borrowed(&pcallback), ::windows::core::from_raw_borrowed(&pasyncstate)).into()
         }
         unsafe extern "system" fn SetWaitHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDAsyncResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwaithandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -139,15 +139,15 @@ impl IWSDAttachment_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDDeviceHost_Impl: Sized {
-    fn Init(&self, pszlocalid: &::windows::core::PCWSTR, pcontext: &::core::option::Option<IWSDXMLContext>, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows::core::Result<()>;
-    fn Start(&self, ullinstanceid: u64, pscopelist: *const WSD_URI_LIST, pnotificationsink: &::core::option::Option<IWSDDeviceHostNotify>) -> ::windows::core::Result<()>;
+    fn Init(&self, pszlocalid: &::windows::core::PCWSTR, pcontext: ::core::option::Option<&IWSDXMLContext>, pphostaddresses: *const ::core::option::Option<IWSDAddress>, dwhostaddresscount: u32) -> ::windows::core::Result<()>;
+    fn Start(&self, ullinstanceid: u64, pscopelist: *const WSD_URI_LIST, pnotificationsink: ::core::option::Option<&IWSDDeviceHostNotify>) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn Terminate(&self) -> ::windows::core::Result<()>;
     fn RegisterPortType(&self, pporttype: *const WSD_PORT_TYPE) -> ::windows::core::Result<()>;
     fn SetMetadata(&self, pthismodelmetadata: *const WSD_THIS_MODEL_METADATA, pthisdevicemetadata: *const WSD_THIS_DEVICE_METADATA, phostmetadata: *const WSD_HOST_METADATA, pcustommetadata: *const WSD_METADATA_SECTION_LIST) -> ::windows::core::Result<()>;
-    fn RegisterService(&self, pszserviceid: &::windows::core::PCWSTR, pservice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RegisterService(&self, pszserviceid: &::windows::core::PCWSTR, pservice: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RetireService(&self, pszserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn AddDynamicService(&self, pszserviceid: &::windows::core::PCWSTR, pszendpointaddress: &::windows::core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddDynamicService(&self, pszserviceid: &::windows::core::PCWSTR, pszendpointaddress: &::windows::core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RemoveDynamicService(&self, pszserviceid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetServiceDiscoverable(&self, pszserviceid: &::windows::core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SignalEvent(&self, pszserviceid: &::windows::core::PCWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
@@ -160,12 +160,12 @@ impl IWSDDeviceHost_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszlocalid: ::windows::core::PCWSTR, pcontext: *mut ::core::ffi::c_void, pphostaddresses: *const *mut ::core::ffi::c_void, dwhostaddresscount: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Init(::core::mem::transmute(&pszlocalid), ::core::mem::transmute(&pcontext), ::core::mem::transmute_copy(&pphostaddresses), ::core::mem::transmute_copy(&dwhostaddresscount)).into()
+            this.Init(::core::mem::transmute(&pszlocalid), ::windows::core::from_raw_borrowed(&pcontext), ::core::mem::transmute_copy(&pphostaddresses), ::core::mem::transmute_copy(&dwhostaddresscount)).into()
         }
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullinstanceid: u64, pscopelist: *const WSD_URI_LIST, pnotificationsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&pscopelist), ::core::mem::transmute(&pnotificationsink)).into()
+            this.Start(::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&pscopelist), ::windows::core::from_raw_borrowed(&pnotificationsink)).into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -190,7 +190,7 @@ impl IWSDDeviceHost_Vtbl {
         unsafe extern "system" fn RegisterService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszserviceid: ::windows::core::PCWSTR, pservice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterService(::core::mem::transmute(&pszserviceid), ::core::mem::transmute(&pservice)).into()
+            this.RegisterService(::core::mem::transmute(&pszserviceid), ::windows::core::from_raw_borrowed(&pservice)).into()
         }
         unsafe extern "system" fn RetireService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszserviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -200,7 +200,7 @@ impl IWSDDeviceHost_Vtbl {
         unsafe extern "system" fn AddDynamicService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszserviceid: ::windows::core::PCWSTR, pszendpointaddress: ::windows::core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddDynamicService(::core::mem::transmute(&pszserviceid), ::core::mem::transmute(&pszendpointaddress), ::core::mem::transmute_copy(&pporttype), ::core::mem::transmute_copy(&pportname), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pservice)).into()
+            this.AddDynamicService(::core::mem::transmute(&pszserviceid), ::core::mem::transmute(&pszendpointaddress), ::core::mem::transmute_copy(&pporttype), ::core::mem::transmute_copy(&pportname), ::core::mem::transmute_copy(&pany), ::windows::core::from_raw_borrowed(&pservice)).into()
         }
         unsafe extern "system" fn RemoveDynamicService<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszserviceid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -263,9 +263,9 @@ impl IWSDDeviceHostNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDDeviceProxy_Impl: Sized {
-    fn Init(&self, pszdeviceid: &::windows::core::PCWSTR, pdeviceaddress: &::core::option::Option<IWSDAddress>, pszlocalid: &::windows::core::PCWSTR, pcontext: &::core::option::Option<IWSDXMLContext>, psponsor: &::core::option::Option<IWSDDeviceProxy>) -> ::windows::core::Result<()>;
+    fn Init(&self, pszdeviceid: &::windows::core::PCWSTR, pdeviceaddress: ::core::option::Option<&IWSDAddress>, pszlocalid: &::windows::core::PCWSTR, pcontext: ::core::option::Option<&IWSDXMLContext>, psponsor: ::core::option::Option<&IWSDDeviceProxy>) -> ::windows::core::Result<()>;
     fn BeginGetMetadata(&self) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndGetMetadata(&self, presult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<()>;
+    fn EndGetMetadata(&self, presult: ::core::option::Option<&IWSDAsyncResult>) -> ::windows::core::Result<()>;
     fn GetHostMetadata(&self) -> ::windows::core::Result<*mut WSD_HOST_METADATA>;
     fn GetThisModelMetadata(&self) -> ::windows::core::Result<*mut WSD_THIS_MODEL_METADATA>;
     fn GetThisDeviceMetadata(&self) -> ::windows::core::Result<*mut WSD_THIS_DEVICE_METADATA>;
@@ -280,7 +280,7 @@ impl IWSDDeviceProxy_Vtbl {
         unsafe extern "system" fn Init<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdeviceid: ::windows::core::PCWSTR, pdeviceaddress: *mut ::core::ffi::c_void, pszlocalid: ::windows::core::PCWSTR, pcontext: *mut ::core::ffi::c_void, psponsor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Init(::core::mem::transmute(&pszdeviceid), ::core::mem::transmute(&pdeviceaddress), ::core::mem::transmute(&pszlocalid), ::core::mem::transmute(&pcontext), ::core::mem::transmute(&psponsor)).into()
+            this.Init(::core::mem::transmute(&pszdeviceid), ::windows::core::from_raw_borrowed(&pdeviceaddress), ::core::mem::transmute(&pszlocalid), ::windows::core::from_raw_borrowed(&pcontext), ::windows::core::from_raw_borrowed(&psponsor)).into()
         }
         unsafe extern "system" fn BeginGetMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -296,7 +296,7 @@ impl IWSDDeviceProxy_Vtbl {
         unsafe extern "system" fn EndGetMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndGetMetadata(::core::mem::transmute(&presult)).into()
+            this.EndGetMetadata(::windows::core::from_raw_borrowed(&presult)).into()
         }
         unsafe extern "system" fn GetHostMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDDeviceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphostmetadata: *mut *mut WSD_HOST_METADATA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -398,8 +398,8 @@ impl IWSDDeviceProxy_Vtbl {
 pub trait IWSDEndpointProxy_Impl: Sized {
     fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
     fn SendTwoWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> ::windows::core::Result<()>;
-    fn SendTwoWayRequestAsync(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pcallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn AbortAsyncOperation(&self, pasyncresult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<()>;
+    fn SendTwoWayRequestAsync(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pcallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
+    fn AbortAsyncOperation(&self, pasyncresult: ::core::option::Option<&IWSDAsyncResult>) -> ::windows::core::Result<()>;
     fn ProcessFault(&self, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
     fn GetErrorInfo(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetFaultInfo(&self) -> ::windows::core::Result<*mut WSD_SOAP_FAULT>;
@@ -422,7 +422,7 @@ impl IWSDEndpointProxy_Vtbl {
         unsafe extern "system" fn SendTwoWayRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendTwoWayRequestAsync(::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pcallback)) {
+            match this.SendTwoWayRequestAsync(::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation), ::windows::core::from_raw_borrowed(&pasyncstate), ::windows::core::from_raw_borrowed(&pcallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -433,7 +433,7 @@ impl IWSDEndpointProxy_Vtbl {
         unsafe extern "system" fn AbortAsyncOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AbortAsyncOperation(::core::mem::transmute(&pasyncresult)).into()
+            this.AbortAsyncOperation(::windows::core::from_raw_borrowed(&pasyncresult)).into()
         }
         unsafe extern "system" fn ProcessFault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDEndpointProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -614,7 +614,7 @@ pub trait IWSDHttpMessageParameters_Impl: Sized + IWSDMessageParameters_Impl {
     fn GetOutboundHttpHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn SetID(&self, pszid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetID(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn SetContext(&self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetContext(&self, pcontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetContext(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
@@ -672,7 +672,7 @@ impl IWSDHttpMessageParameters_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContext(::core::mem::transmute(&pcontext)).into()
+            this.SetContext(::windows::core::from_raw_borrowed(&pcontext)).into()
         }
         unsafe extern "system" fn GetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDHttpMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -734,9 +734,9 @@ impl IWSDInboundAttachment_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDMessageParameters_Impl: Sized {
     fn GetLocalAddress(&self) -> ::windows::core::Result<IWSDAddress>;
-    fn SetLocalAddress(&self, paddress: &::core::option::Option<IWSDAddress>) -> ::windows::core::Result<()>;
+    fn SetLocalAddress(&self, paddress: ::core::option::Option<&IWSDAddress>) -> ::windows::core::Result<()>;
     fn GetRemoteAddress(&self) -> ::windows::core::Result<IWSDAddress>;
-    fn SetRemoteAddress(&self, paddress: &::core::option::Option<IWSDAddress>) -> ::windows::core::Result<()>;
+    fn SetRemoteAddress(&self, paddress: ::core::option::Option<&IWSDAddress>) -> ::windows::core::Result<()>;
     fn GetLowerParameters(&self) -> ::windows::core::Result<IWSDMessageParameters>;
 }
 impl ::windows::core::RuntimeName for IWSDMessageParameters {}
@@ -756,7 +756,7 @@ impl IWSDMessageParameters_Vtbl {
         unsafe extern "system" fn SetLocalAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetLocalAddress(::core::mem::transmute(&paddress)).into()
+            this.SetLocalAddress(::windows::core::from_raw_borrowed(&paddress)).into()
         }
         unsafe extern "system" fn GetRemoteAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -772,7 +772,7 @@ impl IWSDMessageParameters_Vtbl {
         unsafe extern "system" fn SetRemoteAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRemoteAddress(::core::mem::transmute(&paddress)).into()
+            this.SetRemoteAddress(::windows::core::from_raw_borrowed(&paddress)).into()
         }
         unsafe extern "system" fn GetLowerParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDMessageParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptxparams: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -951,8 +951,8 @@ impl IWSDScopeMatchingRule_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDServiceMessaging_Impl: Sized {
-    fn SendResponse(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
-    fn FaultRequest(&self, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
+    fn SendResponse(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>) -> ::windows::core::Result<()>;
+    fn FaultRequest(&self, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWSDServiceMessaging {}
 impl IWSDServiceMessaging_Vtbl {
@@ -960,12 +960,12 @@ impl IWSDServiceMessaging_Vtbl {
         unsafe extern "system" fn SendResponse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceMessaging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SendResponse(::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&pmessageparameters)).into()
+            this.SendResponse(::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation), ::windows::core::from_raw_borrowed(&pmessageparameters)).into()
         }
         unsafe extern "system" fn FaultRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceMessaging_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FaultRequest(::core::mem::transmute_copy(&prequestheader), ::core::mem::transmute(&pmessageparameters), ::core::mem::transmute_copy(&pfault)).into()
+            this.FaultRequest(::core::mem::transmute_copy(&prequestheader), ::windows::core::from_raw_borrowed(&pmessageparameters), ::core::mem::transmute_copy(&pfault)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -980,11 +980,11 @@ impl IWSDServiceMessaging_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDServiceProxy_Impl: Sized + IWSDMetadataExchange_Impl {
     fn BeginGetMetadata(&self) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndGetMetadata(&self, presult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
+    fn EndGetMetadata(&self, presult: ::core::option::Option<&IWSDAsyncResult>) -> ::windows::core::Result<*mut WSD_METADATA_SECTION_LIST>;
     fn GetServiceMetadata(&self) -> ::windows::core::Result<*mut WSD_SERVICE_METADATA>;
-    fn SubscribeToOperation(&self, poperation: *const WSD_OPERATION, punknown: &::core::option::Option<::windows::core::IUnknown>, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn SubscribeToOperation(&self, poperation: *const WSD_OPERATION, punknown: ::core::option::Option<&::windows::core::IUnknown>, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
     fn UnsubscribeToOperation(&self, poperation: *const WSD_OPERATION) -> ::windows::core::Result<()>;
-    fn SetEventingStatusCallback(&self, pstatus: &::core::option::Option<IWSDEventingStatus>) -> ::windows::core::Result<()>;
+    fn SetEventingStatusCallback(&self, pstatus: ::core::option::Option<&IWSDEventingStatus>) -> ::windows::core::Result<()>;
     fn GetEndpointProxy(&self) -> ::windows::core::Result<IWSDEndpointProxy>;
 }
 impl ::windows::core::RuntimeName for IWSDServiceProxy {}
@@ -1004,7 +1004,7 @@ impl IWSDServiceProxy_Vtbl {
         unsafe extern "system" fn EndGetMetadata<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void, ppmetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EndGetMetadata(::core::mem::transmute(&presult)) {
+            match this.EndGetMetadata(::windows::core::from_raw_borrowed(&presult)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1026,7 +1026,7 @@ impl IWSDServiceProxy_Vtbl {
         unsafe extern "system" fn SubscribeToOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION, punknown: *mut ::core::ffi::c_void, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SubscribeToOperation(::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pany), ::core::mem::transmute_copy(&ppany)).into()
+            this.SubscribeToOperation(::core::mem::transmute_copy(&poperation), ::windows::core::from_raw_borrowed(&punknown), ::core::mem::transmute_copy(&pany), ::core::mem::transmute_copy(&ppany)).into()
         }
         unsafe extern "system" fn UnsubscribeToOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1036,7 +1036,7 @@ impl IWSDServiceProxy_Vtbl {
         unsafe extern "system" fn SetEventingStatusCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventingStatusCallback(::core::mem::transmute(&pstatus)).into()
+            this.SetEventingStatusCallback(::windows::core::from_raw_borrowed(&pstatus)).into()
         }
         unsafe extern "system" fn GetEndpointProxy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproxy: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1067,18 +1067,18 @@ impl IWSDServiceProxy_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWSDServiceProxyEventing_Impl: Sized + IWSDServiceProxy_Impl {
-    fn SubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: &::core::option::Option<::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn BeginSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: &::core::option::Option<::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn SubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: ::core::option::Option<&::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn BeginSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: ::core::option::Option<&::windows::core::IUnknown>, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pasynccallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
+    fn EndSubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::core::option::Option<&IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
     fn UnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn BeginUnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndUnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>) -> ::windows::core::Result<()>;
+    fn BeginUnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pasynccallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
+    fn EndUnsubscribeToMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::core::option::Option<&IWSDAsyncResult>) -> ::windows::core::Result<()>;
     fn RenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn BeginRenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndRenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn BeginRenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pasynccallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
+    fn EndRenewMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::core::option::Option<&IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
     fn GetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn BeginGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: &::core::option::Option<::windows::core::IUnknown>, pasynccallback: &::core::option::Option<IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
-    fn EndGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: &::core::option::Option<IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn BeginGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: ::core::option::Option<&::windows::core::IUnknown>, pasynccallback: ::core::option::Option<&IWSDAsyncCallback>) -> ::windows::core::Result<IWSDAsyncResult>;
+    fn EndGetStatusForMultipleOperations(&self, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: ::core::option::Option<&IWSDAsyncResult>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWSDServiceProxyEventing {}
@@ -1088,12 +1088,12 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn SubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
+            this.SubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&punknown), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
         }
         unsafe extern "system" fn BeginSubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginSubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
+            match this.BeginSubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&punknown), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::windows::core::from_raw_borrowed(&pasyncstate), ::windows::core::from_raw_borrowed(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1104,7 +1104,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn EndSubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndSubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
+            this.EndSubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
         }
         unsafe extern "system" fn UnsubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1114,7 +1114,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn BeginUnsubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginUnsubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
+            match this.BeginUnsubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::windows::core::from_raw_borrowed(&pasyncstate), ::windows::core::from_raw_borrowed(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1125,7 +1125,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn EndUnsubscribeToMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndUnsubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&presult)).into()
+            this.EndUnsubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&presult)).into()
         }
         unsafe extern "system" fn RenewMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1135,7 +1135,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn BeginRenewMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginRenewMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
+            match this.BeginRenewMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::windows::core::from_raw_borrowed(&pasyncstate), ::windows::core::from_raw_borrowed(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1146,7 +1146,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn EndRenewMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndRenewMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
+            this.EndRenewMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
         }
         unsafe extern "system" fn GetStatusForMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1156,7 +1156,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn BeginGetStatusForMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
+            match this.BeginGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::windows::core::from_raw_borrowed(&pasyncstate), ::windows::core::from_raw_borrowed(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1167,7 +1167,7 @@ impl IWSDServiceProxyEventing_Vtbl {
         unsafe extern "system" fn EndGetStatusForMultipleOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDServiceProxyEventing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
+            this.EndGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::windows::core::from_raw_borrowed(&presult), ::core::mem::transmute_copy(&ppexpires), ::core::mem::transmute_copy(&ppany)).into()
         }
         Self {
             base__: IWSDServiceProxy_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1652,7 +1652,7 @@ impl IWSDiscoveredService_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryProvider_Impl: Sized {
     fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()>;
-    fn Attach(&self, psink: &::core::option::Option<IWSDiscoveryProviderNotify>) -> ::windows::core::Result<()>;
+    fn Attach(&self, psink: ::core::option::Option<&IWSDiscoveryProviderNotify>) -> ::windows::core::Result<()>;
     fn Detach(&self) -> ::windows::core::Result<()>;
     fn SearchById(&self, pszid: &::windows::core::PCWSTR, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SearchByAddress(&self, pszaddress: &::windows::core::PCWSTR, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -1670,7 +1670,7 @@ impl IWSDiscoveryProvider_Vtbl {
         unsafe extern "system" fn Attach<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Attach(::core::mem::transmute(&psink)).into()
+            this.Attach(::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn Detach<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1720,8 +1720,8 @@ impl IWSDiscoveryProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryProviderNotify_Impl: Sized {
-    fn Add(&self, pservice: &::core::option::Option<IWSDiscoveredService>) -> ::windows::core::Result<()>;
-    fn Remove(&self, pservice: &::core::option::Option<IWSDiscoveredService>) -> ::windows::core::Result<()>;
+    fn Add(&self, pservice: ::core::option::Option<&IWSDiscoveredService>) -> ::windows::core::Result<()>;
+    fn Remove(&self, pservice: ::core::option::Option<&IWSDiscoveredService>) -> ::windows::core::Result<()>;
     fn SearchFailed(&self, hr: ::windows::core::HRESULT, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SearchComplete(&self, psztag: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -1731,12 +1731,12 @@ impl IWSDiscoveryProviderNotify_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryProviderNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pservice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&pservice)).into()
+            this.Add(::windows::core::from_raw_borrowed(&pservice)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryProviderNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pservice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(::core::mem::transmute(&pservice)).into()
+            this.Remove(::windows::core::from_raw_borrowed(&pservice)).into()
         }
         unsafe extern "system" fn SearchFailed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryProviderNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, psztag: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1763,17 +1763,17 @@ impl IWSDiscoveryProviderNotify_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryPublisher_Impl: Sized {
     fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows::core::Result<()>;
-    fn RegisterNotificationSink(&self, psink: &::core::option::Option<IWSDiscoveryPublisherNotify>) -> ::windows::core::Result<()>;
-    fn UnRegisterNotificationSink(&self, psink: &::core::option::Option<IWSDiscoveryPublisherNotify>) -> ::windows::core::Result<()>;
+    fn RegisterNotificationSink(&self, psink: ::core::option::Option<&IWSDiscoveryPublisherNotify>) -> ::windows::core::Result<()>;
+    fn UnRegisterNotificationSink(&self, psink: ::core::option::Option<&IWSDiscoveryPublisherNotify>) -> ::windows::core::Result<()>;
     fn Publish(&self, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>;
     fn UnPublish(&self, pszid: &::windows::core::PCWSTR, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn MatchProbe(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>;
-    fn MatchResolve(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>;
+    fn MatchProbe(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>;
+    fn MatchResolve(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::Result<()>;
     fn PublishEx(&self, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn MatchProbeEx(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn MatchResolveEx(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
-    fn RegisterScopeMatchingRule(&self, pscopematchingrule: &::core::option::Option<IWSDScopeMatchingRule>) -> ::windows::core::Result<()>;
-    fn UnRegisterScopeMatchingRule(&self, pscopematchingrule: &::core::option::Option<IWSDScopeMatchingRule>) -> ::windows::core::Result<()>;
+    fn MatchProbeEx(&self, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn MatchResolveEx(&self, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>, pszid: &::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: &::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::Result<()>;
+    fn RegisterScopeMatchingRule(&self, pscopematchingrule: ::core::option::Option<&IWSDScopeMatchingRule>) -> ::windows::core::Result<()>;
+    fn UnRegisterScopeMatchingRule(&self, pscopematchingrule: ::core::option::Option<&IWSDScopeMatchingRule>) -> ::windows::core::Result<()>;
     fn GetXMLContext(&self) -> ::windows::core::Result<IWSDXMLContext>;
 }
 impl ::windows::core::RuntimeName for IWSDiscoveryPublisher {}
@@ -1787,12 +1787,12 @@ impl IWSDiscoveryPublisher_Vtbl {
         unsafe extern "system" fn RegisterNotificationSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterNotificationSink(::core::mem::transmute(&psink)).into()
+            this.RegisterNotificationSink(::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn UnRegisterNotificationSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnRegisterNotificationSink(::core::mem::transmute(&psink)).into()
+            this.UnRegisterNotificationSink(::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn Publish<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszid: ::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1807,12 +1807,12 @@ impl IWSDiscoveryPublisher_Vtbl {
         unsafe extern "system" fn MatchProbe<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MatchProbe(::core::mem::transmute_copy(&pprobemessage), ::core::mem::transmute(&pmessageparameters), ::core::mem::transmute(&pszid), ::core::mem::transmute_copy(&ullmetadataversion), ::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&ullmessagenumber), ::core::mem::transmute(&pszsessionid), ::core::mem::transmute_copy(&ptypeslist), ::core::mem::transmute_copy(&pscopeslist), ::core::mem::transmute_copy(&pxaddrslist)).into()
+            this.MatchProbe(::core::mem::transmute_copy(&pprobemessage), ::windows::core::from_raw_borrowed(&pmessageparameters), ::core::mem::transmute(&pszid), ::core::mem::transmute_copy(&ullmetadataversion), ::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&ullmessagenumber), ::core::mem::transmute(&pszsessionid), ::core::mem::transmute_copy(&ptypeslist), ::core::mem::transmute_copy(&pscopeslist), ::core::mem::transmute_copy(&pxaddrslist)).into()
         }
         unsafe extern "system" fn MatchResolve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MatchResolve(::core::mem::transmute_copy(&presolvemessage), ::core::mem::transmute(&pmessageparameters), ::core::mem::transmute(&pszid), ::core::mem::transmute_copy(&ullmetadataversion), ::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&ullmessagenumber), ::core::mem::transmute(&pszsessionid), ::core::mem::transmute_copy(&ptypeslist), ::core::mem::transmute_copy(&pscopeslist), ::core::mem::transmute_copy(&pxaddrslist)).into()
+            this.MatchResolve(::core::mem::transmute_copy(&presolvemessage), ::windows::core::from_raw_borrowed(&pmessageparameters), ::core::mem::transmute(&pszid), ::core::mem::transmute_copy(&ullmetadataversion), ::core::mem::transmute_copy(&ullinstanceid), ::core::mem::transmute_copy(&ullmessagenumber), ::core::mem::transmute(&pszsessionid), ::core::mem::transmute_copy(&ptypeslist), ::core::mem::transmute_copy(&pscopeslist), ::core::mem::transmute_copy(&pxaddrslist)).into()
         }
         unsafe extern "system" fn PublishEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszid: ::windows::core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows::core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1839,7 +1839,7 @@ impl IWSDiscoveryPublisher_Vtbl {
             let this = (*this).get_impl();
             this.MatchProbeEx(
                 ::core::mem::transmute_copy(&pprobemessage),
-                ::core::mem::transmute(&pmessageparameters),
+                ::windows::core::from_raw_borrowed(&pmessageparameters),
                 ::core::mem::transmute(&pszid),
                 ::core::mem::transmute_copy(&ullmetadataversion),
                 ::core::mem::transmute_copy(&ullinstanceid),
@@ -1861,7 +1861,7 @@ impl IWSDiscoveryPublisher_Vtbl {
             let this = (*this).get_impl();
             this.MatchResolveEx(
                 ::core::mem::transmute_copy(&presolvemessage),
-                ::core::mem::transmute(&pmessageparameters),
+                ::windows::core::from_raw_borrowed(&pmessageparameters),
                 ::core::mem::transmute(&pszid),
                 ::core::mem::transmute_copy(&ullmetadataversion),
                 ::core::mem::transmute_copy(&ullinstanceid),
@@ -1881,12 +1881,12 @@ impl IWSDiscoveryPublisher_Vtbl {
         unsafe extern "system" fn RegisterScopeMatchingRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscopematchingrule: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterScopeMatchingRule(::core::mem::transmute(&pscopematchingrule)).into()
+            this.RegisterScopeMatchingRule(::windows::core::from_raw_borrowed(&pscopematchingrule)).into()
         }
         unsafe extern "system" fn UnRegisterScopeMatchingRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscopematchingrule: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnRegisterScopeMatchingRule(::core::mem::transmute(&pscopematchingrule)).into()
+            this.UnRegisterScopeMatchingRule(::windows::core::from_raw_borrowed(&pscopematchingrule)).into()
         }
         unsafe extern "system" fn GetXMLContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisher_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1922,8 +1922,8 @@ impl IWSDiscoveryPublisher_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`, `\"implement\"`*"]
 pub trait IWSDiscoveryPublisherNotify_Impl: Sized {
-    fn ProbeHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
-    fn ResolveHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: &::core::option::Option<IWSDMessageParameters>) -> ::windows::core::Result<()>;
+    fn ProbeHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>) -> ::windows::core::Result<()>;
+    fn ResolveHandler(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: ::core::option::Option<&IWSDMessageParameters>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWSDiscoveryPublisherNotify {}
 impl IWSDiscoveryPublisherNotify_Vtbl {
@@ -1931,12 +1931,12 @@ impl IWSDiscoveryPublisherNotify_Vtbl {
         unsafe extern "system" fn ProbeHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisherNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProbeHandler(::core::mem::transmute_copy(&psoap), ::core::mem::transmute(&pmessageparameters)).into()
+            this.ProbeHandler(::core::mem::transmute_copy(&psoap), ::windows::core::from_raw_borrowed(&pmessageparameters)).into()
         }
         unsafe extern "system" fn ResolveHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSDiscoveryPublisherNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResolveHandler(::core::mem::transmute_copy(&psoap), ::core::mem::transmute(&pmessageparameters)).into()
+            this.ResolveHandler(::core::mem::transmute_copy(&psoap), ::windows::core::from_raw_borrowed(&pmessageparameters)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

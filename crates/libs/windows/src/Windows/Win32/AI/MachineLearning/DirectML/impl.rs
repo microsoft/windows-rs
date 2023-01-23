@@ -53,7 +53,7 @@ impl IDMLBindingTable_Vtbl {
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IDMLCommandRecorder_Impl: Sized + IDMLDeviceChild_Impl {
-    fn RecordDispatch(&self, commandlist: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: &::core::option::Option<IDMLDispatchable>, bindings: &::core::option::Option<IDMLBindingTable>);
+    fn RecordDispatch(&self, commandlist: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: ::core::option::Option<&IDMLDispatchable>, bindings: ::core::option::Option<&IDMLBindingTable>);
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::windows::core::RuntimeName for IDMLCommandRecorder {}
@@ -63,7 +63,7 @@ impl IDMLCommandRecorder_Vtbl {
         unsafe extern "system" fn RecordDispatch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandlist: *mut ::core::ffi::c_void, dispatchable: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RecordDispatch(::core::mem::transmute(&commandlist), ::core::mem::transmute(&dispatchable), ::core::mem::transmute(&bindings))
+            this.RecordDispatch(::windows::core::from_raw_borrowed(&commandlist), ::windows::core::from_raw_borrowed(&dispatchable), ::windows::core::from_raw_borrowed(&bindings))
         }
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, Impl, OFFSET> }
     }
@@ -108,7 +108,7 @@ impl IDMLDebugDevice_Vtbl {
 pub trait IDMLDevice_Impl: Sized + IDMLObject_Impl {
     fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CompileOperator(&self, op: &::core::option::Option<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CompileOperator(&self, op: ::core::option::Option<&IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateOperatorInitializer(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateCommandRecorder(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateBindingTable(&self, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
@@ -135,7 +135,7 @@ impl IDMLDevice_Vtbl {
         unsafe extern "system" fn CompileOperator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CompileOperator(::core::mem::transmute(&op), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            this.CompileOperator(::windows::core::from_raw_borrowed(&op), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn CreateOperatorInitializer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -251,7 +251,7 @@ impl IDMLDispatchable_Vtbl {
 pub trait IDMLObject_Impl: Sized {
     fn GetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, data: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, data: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IDMLObject {}
@@ -270,7 +270,7 @@ impl IDMLObject_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&data)).into()
+            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDMLObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

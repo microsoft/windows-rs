@@ -55,7 +55,7 @@ impl IUPnPAsyncResult_Vtbl {
 pub trait IUPnPDescriptionDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ReadyState(&self) -> ::windows::core::Result<i32>;
     fn Load(&self, bstrurl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn LoadAsync(&self, bstrurl: &::windows::core::BSTR, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn LoadAsync(&self, bstrurl: &::windows::core::BSTR, punkcallback: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn LoadResult(&self) -> ::windows::core::Result<i32>;
     fn Abort(&self) -> ::windows::core::Result<()>;
     fn RootDevice(&self) -> ::windows::core::Result<IUPnPDevice>;
@@ -85,7 +85,7 @@ impl IUPnPDescriptionDocument_Vtbl {
         unsafe extern "system" fn LoadAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadAsync(::core::mem::transmute(&bstrurl), ::core::mem::transmute(&punkcallback)).into()
+            this.LoadAsync(::core::mem::transmute(&bstrurl), ::windows::core::from_raw_borrowed(&punkcallback)).into()
         }
         unsafe extern "system" fn LoadResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDescriptionDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerror: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -538,7 +538,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPDeviceFinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn FindByType(&self, bstrtypeuri: &::windows::core::BSTR, dwflags: u32) -> ::windows::core::Result<IUPnPDevices>;
-    fn CreateAsyncFind(&self, bstrtypeuri: &::windows::core::BSTR, dwflags: u32, punkdevicefindercallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<i32>;
+    fn CreateAsyncFind(&self, bstrtypeuri: &::windows::core::BSTR, dwflags: u32, punkdevicefindercallback: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<i32>;
     fn StartAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()>;
     fn CancelAsyncFind(&self, lfinddata: i32) -> ::windows::core::Result<()>;
     fn FindByUDN(&self, bstrudn: &::windows::core::BSTR) -> ::windows::core::Result<IUPnPDevice>;
@@ -562,7 +562,7 @@ impl IUPnPDeviceFinder_Vtbl {
         unsafe extern "system" fn CreateAsyncFind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDeviceFinder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtypeuri: *mut ::core::ffi::c_void, dwflags: u32, punkdevicefindercallback: *mut ::core::ffi::c_void, plfinddata: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateAsyncFind(::core::mem::transmute(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&punkdevicefindercallback)) {
+            match this.CreateAsyncFind(::core::mem::transmute(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags), ::windows::core::from_raw_borrowed(&punkdevicefindercallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(plfinddata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -607,7 +607,7 @@ impl IUPnPDeviceFinder_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderAddCallbackWithInterface_Impl: Sized {
-    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn DeviceAddedWithInterface(&self, lfinddata: i32, pdevice: ::core::option::Option<&IUPnPDevice>, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IUPnPDeviceFinderAddCallbackWithInterface {}
@@ -617,7 +617,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
         unsafe extern "system" fn DeviceAddedWithInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDeviceFinderAddCallbackWithInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: *mut ::core::ffi::c_void, pguidinterface: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeviceAddedWithInterface(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pguidinterface)).into()
+            this.DeviceAddedWithInterface(::core::mem::transmute_copy(&lfinddata), ::windows::core::from_raw_borrowed(&pdevice), ::core::mem::transmute_copy(&pguidinterface)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), DeviceAddedWithInterface: DeviceAddedWithInterface::<Identity, Impl, OFFSET> }
     }
@@ -628,7 +628,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPDeviceFinderCallback_Impl: Sized {
-    fn DeviceAdded(&self, lfinddata: i32, pdevice: &::core::option::Option<IUPnPDevice>) -> ::windows::core::Result<()>;
+    fn DeviceAdded(&self, lfinddata: i32, pdevice: ::core::option::Option<&IUPnPDevice>) -> ::windows::core::Result<()>;
     fn DeviceRemoved(&self, lfinddata: i32, bstrudn: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SearchComplete(&self, lfinddata: i32) -> ::windows::core::Result<()>;
 }
@@ -640,7 +640,7 @@ impl IUPnPDeviceFinderCallback_Vtbl {
         unsafe extern "system" fn DeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeviceAdded(::core::mem::transmute_copy(&lfinddata), ::core::mem::transmute(&pdevice)).into()
+            this.DeviceAdded(::core::mem::transmute_copy(&lfinddata), ::windows::core::from_raw_borrowed(&pdevice)).into()
         }
         unsafe extern "system" fn DeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPDeviceFinderCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfinddata: i32, bstrudn: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -776,8 +776,8 @@ impl IUPnPEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPEventSource_Impl: Sized {
-    fn Advise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
-    fn Unadvise(&self, pessubscriber: &::core::option::Option<IUPnPEventSink>) -> ::windows::core::Result<()>;
+    fn Advise(&self, pessubscriber: ::core::option::Option<&IUPnPEventSink>) -> ::windows::core::Result<()>;
+    fn Unadvise(&self, pessubscriber: ::core::option::Option<&IUPnPEventSink>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUPnPEventSource {}
 impl IUPnPEventSource_Vtbl {
@@ -785,12 +785,12 @@ impl IUPnPEventSource_Vtbl {
         unsafe extern "system" fn Advise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Advise(::core::mem::transmute(&pessubscriber)).into()
+            this.Advise(::windows::core::from_raw_borrowed(&pessubscriber)).into()
         }
         unsafe extern "system" fn Unadvise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pessubscriber: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Unadvise(::core::mem::transmute(&pessubscriber)).into()
+            this.Unadvise(::windows::core::from_raw_borrowed(&pessubscriber)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -824,7 +824,7 @@ impl IUPnPHttpHeaderControl_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUPnPRegistrar_Impl: Sized {
     fn RegisterDevice(&self, bstrxmldesc: &::windows::core::BSTR, bstrprogiddevicecontrolclass: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR, bstrcontainerid: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn RegisterRunningDevice(&self, bstrxmldesc: &::windows::core::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn RegisterRunningDevice(&self, bstrxmldesc: &::windows::core::BSTR, punkdevicecontrol: ::core::option::Option<&::windows::core::IUnknown>, bstrinitstring: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn RegisterDeviceProvider(&self, bstrprovidername: &::windows::core::BSTR, bstrprogidproviderclass: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR, bstrcontainerid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetUniqueDeviceName(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrtemplateudn: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR>;
     fn UnregisterDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, fpermanent: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -849,7 +849,7 @@ impl IUPnPRegistrar_Vtbl {
         unsafe extern "system" fn RegisterRunningDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPRegistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxmldesc: *mut ::core::ffi::c_void, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: *mut ::core::ffi::c_void, bstrresourcepath: *mut ::core::ffi::c_void, nlifetime: i32, pbstrdeviceidentifier: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterRunningDevice(::core::mem::transmute(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
+            match this.RegisterRunningDevice(::core::mem::transmute(&bstrxmldesc), ::windows::core::from_raw_borrowed(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pbstrdeviceidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -953,7 +953,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"implement\"`*"]
 pub trait IUPnPReregistrar_Impl: Sized {
     fn ReregisterDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrxmldesc: &::windows::core::BSTR, bstrprogiddevicecontrolclass: &::windows::core::BSTR, bstrinitstring: &::windows::core::BSTR, bstrcontainerid: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
-    fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrxmldesc: &::windows::core::BSTR, punkdevicecontrol: &::core::option::Option<::windows::core::IUnknown>, bstrinitstring: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
+    fn ReregisterRunningDevice(&self, bstrdeviceidentifier: &::windows::core::BSTR, bstrxmldesc: &::windows::core::BSTR, punkdevicecontrol: ::core::option::Option<&::windows::core::IUnknown>, bstrinitstring: &::windows::core::BSTR, bstrresourcepath: &::windows::core::BSTR, nlifetime: i32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUPnPReregistrar {}
 impl IUPnPReregistrar_Vtbl {
@@ -966,7 +966,7 @@ impl IUPnPReregistrar_Vtbl {
         unsafe extern "system" fn ReregisterRunningDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPReregistrar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: *mut ::core::ffi::c_void, bstrxmldesc: *mut ::core::ffi::c_void, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: *mut ::core::ffi::c_void, bstrresourcepath: *mut ::core::ffi::c_void, nlifetime: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReregisterRunningDevice(::core::mem::transmute(&bstrdeviceidentifier), ::core::mem::transmute(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)).into()
+            this.ReregisterRunningDevice(::core::mem::transmute(&bstrdeviceidentifier), ::core::mem::transmute(&bstrxmldesc), ::windows::core::from_raw_borrowed(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -984,7 +984,7 @@ pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch
     fn QueryStateVariable(&self, bstrvariablename: &::windows::core::BSTR) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>;
     fn InvokeAction(&self, bstractionname: &::windows::core::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn ServiceTypeIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn AddCallback(&self, punkcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AddCallback(&self, punkcallback: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn LastTransportStatus(&self) -> ::windows::core::Result<i32>;
 }
@@ -1023,7 +1023,7 @@ impl IUPnPService_Vtbl {
         unsafe extern "system" fn AddCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddCallback(::core::mem::transmute(&punkcallback)).into()
+            this.AddCallback(::windows::core::from_raw_borrowed(&punkcallback)).into()
         }
         unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1064,13 +1064,13 @@ impl IUPnPService_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceAsync_Impl: Sized {
-    fn BeginInvokeAction(&self, bstractionname: &::windows::core::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn BeginInvokeAction(&self, bstractionname: &::windows::core::BSTR, vinactionargs: &super::super::super::System::Com::VARIANT, pasyncresult: ::core::option::Option<&IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
     fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Com::VARIANT, pvretval: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BeginQueryStateVariable(&self, bstrvariablename: &::windows::core::BSTR, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn BeginQueryStateVariable(&self, bstrvariablename: &::windows::core::BSTR, pasyncresult: ::core::option::Option<&IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
     fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn BeginSubscribeToEvents(&self, punkcallback: &::core::option::Option<::windows::core::IUnknown>, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn BeginSubscribeToEvents(&self, punkcallback: ::core::option::Option<&::windows::core::IUnknown>, pasyncresult: ::core::option::Option<&IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
     fn EndSubscribeToEvents(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
-    fn BeginSCPDDownload(&self, pasyncresult: &::core::option::Option<IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
+    fn BeginSCPDDownload(&self, pasyncresult: ::core::option::Option<&IUPnPAsyncResult>) -> ::windows::core::Result<u64>;
     fn EndSCPDDownload(&self, ullrequestid: u64) -> ::windows::core::Result<::windows::core::BSTR>;
     fn CancelAsyncOperation(&self, ullrequestid: u64) -> ::windows::core::Result<()>;
 }
@@ -1082,7 +1082,7 @@ impl IUPnPServiceAsync_Vtbl {
         unsafe extern "system" fn BeginInvokeAction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: *mut ::core::ffi::c_void, vinactionargs: super::super::super::System::Com::VARIANT, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginInvokeAction(::core::mem::transmute(&bstractionname), ::core::mem::transmute(&vinactionargs), ::core::mem::transmute(&pasyncresult)) {
+            match this.BeginInvokeAction(::core::mem::transmute(&bstractionname), ::core::mem::transmute(&vinactionargs), ::windows::core::from_raw_borrowed(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1098,7 +1098,7 @@ impl IUPnPServiceAsync_Vtbl {
         unsafe extern "system" fn BeginQueryStateVariable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrvariablename: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginQueryStateVariable(::core::mem::transmute(&bstrvariablename), ::core::mem::transmute(&pasyncresult)) {
+            match this.BeginQueryStateVariable(::core::mem::transmute(&bstrvariablename), ::windows::core::from_raw_borrowed(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1114,7 +1114,7 @@ impl IUPnPServiceAsync_Vtbl {
         unsafe extern "system" fn BeginSubscribeToEvents<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginSubscribeToEvents(::core::mem::transmute(&punkcallback), ::core::mem::transmute(&pasyncresult)) {
+            match this.BeginSubscribeToEvents(::windows::core::from_raw_borrowed(&punkcallback), ::windows::core::from_raw_borrowed(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1130,7 +1130,7 @@ impl IUPnPServiceAsync_Vtbl {
         unsafe extern "system" fn BeginSCPDDownload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceAsync_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.BeginSCPDDownload(::core::mem::transmute(&pasyncresult)) {
+            match this.BeginSCPDDownload(::windows::core::from_raw_borrowed(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1174,8 +1174,8 @@ impl IUPnPServiceAsync_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IUPnPServiceCallback_Impl: Sized {
-    fn StateVariableChanged(&self, pus: &::core::option::Option<IUPnPService>, pcwszstatevarname: &::windows::core::PCWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn ServiceInstanceDied(&self, pus: &::core::option::Option<IUPnPService>) -> ::windows::core::Result<()>;
+    fn StateVariableChanged(&self, pus: ::core::option::Option<&IUPnPService>, pcwszstatevarname: &::windows::core::PCWSTR, vavalue: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn ServiceInstanceDied(&self, pus: ::core::option::Option<&IUPnPService>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IUPnPServiceCallback {}
@@ -1185,12 +1185,12 @@ impl IUPnPServiceCallback_Vtbl {
         unsafe extern "system" fn StateVariableChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void, pcwszstatevarname: ::windows::core::PCWSTR, vavalue: super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StateVariableChanged(::core::mem::transmute(&pus), ::core::mem::transmute(&pcwszstatevarname), ::core::mem::transmute(&vavalue)).into()
+            this.StateVariableChanged(::windows::core::from_raw_borrowed(&pus), ::core::mem::transmute(&pcwszstatevarname), ::core::mem::transmute(&vavalue)).into()
         }
         unsafe extern "system" fn ServiceInstanceDied<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUPnPServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ServiceInstanceDied(::core::mem::transmute(&pus)).into()
+            this.ServiceInstanceDied(::windows::core::from_raw_borrowed(&pus)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

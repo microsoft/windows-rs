@@ -1483,7 +1483,7 @@ pub trait IContactManager_Impl: Sized {
     fn Load(&self, pszcontactid: &::windows::core::PCWSTR) -> ::windows::core::Result<IContact>;
     fn MergeContactIDs(&self, psznewcontactid: &::windows::core::PCWSTR, pszoldcontactid: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn GetMeContact(&self) -> ::windows::core::Result<IContact>;
-    fn SetMeContact(&self, pmecontact: &::core::option::Option<IContact>) -> ::windows::core::Result<()>;
+    fn SetMeContact(&self, pmecontact: ::core::option::Option<&IContact>) -> ::windows::core::Result<()>;
     fn GetContactCollection(&self) -> ::windows::core::Result<IContactCollection>;
 }
 impl ::windows::core::RuntimeName for IContactManager {}
@@ -1524,7 +1524,7 @@ impl IContactManager_Vtbl {
         unsafe extern "system" fn SetMeContact<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmecontact: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMeContact(::core::mem::transmute(&pmecontact)).into()
+            this.SetMeContact(::windows::core::from_raw_borrowed(&pmecontact)).into()
         }
         unsafe extern "system" fn GetContactCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContactManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontactcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1560,7 +1560,7 @@ pub trait IContactProperties_Impl: Sized {
     fn GetLabels(&self, pszarrayelementname: &::windows::core::PCWSTR, dwflags: u32, pszlabels: &::windows::core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows::core::Result<()>;
     fn SetString(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32, pszvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn SetDate(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32, ftdatetime: &super::super::Foundation::FILETIME) -> ::windows::core::Result<()>;
-    fn SetBinary(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32, pszcontenttype: &::windows::core::PCWSTR, pstream: &::core::option::Option<super::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetBinary(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32, pszcontenttype: &::windows::core::PCWSTR, pstream: ::core::option::Option<&super::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetLabels(&self, pszarrayelementname: &::windows::core::PCWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn CreateArrayNode(&self, pszarrayname: &::windows::core::PCWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: &::windows::core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows::core::Result<()>;
     fn DeleteProperty(&self, pszpropertyname: &::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()>;
@@ -1606,7 +1606,7 @@ impl IContactProperties_Vtbl {
         unsafe extern "system" fn SetBinary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows::core::PCWSTR, dwflags: u32, pszcontenttype: ::windows::core::PCWSTR, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBinary(::core::mem::transmute(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszcontenttype), ::core::mem::transmute(&pstream)).into()
+            this.SetBinary(::core::mem::transmute(&pszpropertyname), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pszcontenttype), ::windows::core::from_raw_borrowed(&pstream)).into()
         }
         unsafe extern "system" fn SetLabels<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContactProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszarrayelementname: ::windows::core::PCWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

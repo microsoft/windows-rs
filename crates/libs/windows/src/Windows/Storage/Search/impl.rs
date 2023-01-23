@@ -5,7 +5,7 @@ pub trait IIndexableContent_Impl: Sized {
     fn SetId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>;
     fn Stream(&self) -> ::windows::core::Result<super::Streams::IRandomAccessStream>;
-    fn SetStream(&self, value: &::core::option::Option<super::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
+    fn SetStream(&self, value: ::core::option::Option<&super::Streams::IRandomAccessStream>) -> ::windows::core::Result<()>;
     fn StreamContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetStreamContentType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
 }
@@ -60,7 +60,7 @@ impl IIndexableContent_Vtbl {
         unsafe extern "system" fn SetStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStream(::core::mem::transmute(&value)).into()
+            this.SetStream(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn StreamContentType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIndexableContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -100,18 +100,18 @@ pub trait IStorageFolderQueryOperations_Impl: Sized {
     fn GetIndexedStateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFileQueryResult>;
     fn CreateFileQuery(&self, query: CommonFileQuery) -> ::windows::core::Result<StorageFileQueryResult>;
-    fn CreateFileQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFileQueryResult>;
+    fn CreateFileQueryWithOptions(&self, queryoptions: ::core::option::Option<&QueryOptions>) -> ::windows::core::Result<StorageFileQueryResult>;
     fn CreateFolderQueryOverloadDefault(&self) -> ::windows::core::Result<StorageFolderQueryResult>;
     fn CreateFolderQuery(&self, query: CommonFolderQuery) -> ::windows::core::Result<StorageFolderQueryResult>;
-    fn CreateFolderQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageFolderQueryResult>;
+    fn CreateFolderQueryWithOptions(&self, queryoptions: ::core::option::Option<&QueryOptions>) -> ::windows::core::Result<StorageFolderQueryResult>;
     fn CreateItemQuery(&self) -> ::windows::core::Result<StorageItemQueryResult>;
-    fn CreateItemQueryWithOptions(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<StorageItemQueryResult>;
+    fn CreateItemQueryWithOptions(&self, queryoptions: ::core::option::Option<&QueryOptions>) -> ::windows::core::Result<StorageItemQueryResult>;
     fn GetFilesAsync(&self, query: CommonFileQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFilesAsyncOverloadDefaultStartAndCount(&self, query: CommonFileQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>;
     fn GetFoldersAsync(&self, query: CommonFolderQuery, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetFoldersAsyncOverloadDefaultStartAndCount(&self, query: CommonFolderQuery) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>>;
     fn GetItemsAsync(&self, startindex: u32, maxitemstoretrieve: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>>;
-    fn AreQueryOptionsSupported(&self, queryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<bool>;
+    fn AreQueryOptionsSupported(&self, queryoptions: ::core::option::Option<&QueryOptions>) -> ::windows::core::Result<bool>;
     fn IsCommonFolderQuerySupported(&self, query: CommonFolderQuery) -> ::windows::core::Result<bool>;
     fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> ::windows::core::Result<bool>;
 }
@@ -161,7 +161,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn CreateFileQueryWithOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFileQueryWithOptions(::core::mem::transmute(&queryoptions)) {
+            match this.CreateFileQueryWithOptions(::windows::core::from_raw_borrowed(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -197,7 +197,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn CreateFolderQueryWithOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateFolderQueryWithOptions(::core::mem::transmute(&queryoptions)) {
+            match this.CreateFolderQueryWithOptions(::windows::core::from_raw_borrowed(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -221,7 +221,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn CreateItemQueryWithOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateItemQueryWithOptions(::core::mem::transmute(&queryoptions)) {
+            match this.CreateItemQueryWithOptions(::windows::core::from_raw_borrowed(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -293,7 +293,7 @@ impl IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn AreQueryOptionsSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queryoptions: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AreQueryOptionsSupported(::core::mem::transmute(&queryoptions)) {
+            match this.AreQueryOptionsSupported(::windows::core::from_raw_borrowed(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -356,13 +356,13 @@ impl IStorageFolderQueryOperations_Vtbl {
 pub trait IStorageQueryResultBase_Impl: Sized {
     fn GetItemCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn Folder(&self) -> ::windows::core::Result<super::StorageFolder>;
-    fn ContentsChanged(&self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn ContentsChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveContentsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn OptionsChanged(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn OptionsChanged(&self, changedhandler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageQueryResultBase, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveOptionsChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn FindStartIndexAsync(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
+    fn FindStartIndexAsync(&self, value: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>>;
     fn GetCurrentQueryOptions(&self) -> ::windows::core::Result<QueryOptions>;
-    fn ApplyNewQueryOptions(&self, newqueryoptions: &::core::option::Option<QueryOptions>) -> ::windows::core::Result<()>;
+    fn ApplyNewQueryOptions(&self, newqueryoptions: ::core::option::Option<&QueryOptions>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IStorageQueryResultBase {
@@ -398,7 +398,7 @@ impl IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn ContentsChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ContentsChanged(::core::mem::transmute(&handler)) {
+            match this.ContentsChanged(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -415,7 +415,7 @@ impl IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn OptionsChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OptionsChanged(::core::mem::transmute(&changedhandler)) {
+            match this.OptionsChanged(::windows::core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -432,7 +432,7 @@ impl IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn FindStartIndexAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.FindStartIndexAsync(::core::mem::transmute(&value)) {
+            match this.FindStartIndexAsync(::windows::core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -456,7 +456,7 @@ impl IStorageQueryResultBase_Vtbl {
         unsafe extern "system" fn ApplyNewQueryOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageQueryResultBase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newqueryoptions: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplyNewQueryOptions(::core::mem::transmute(&newqueryoptions)).into()
+            this.ApplyNewQueryOptions(::windows::core::from_raw_borrowed(&newqueryoptions)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IStorageQueryResultBase, OFFSET>(),

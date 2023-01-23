@@ -94,7 +94,7 @@ impl IXmlCharacterData_Vtbl {
 #[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetNodeValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SetNodeValue(&self, value: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()>;
     fn NodeType(&self) -> ::windows::core::Result<NodeType>;
     fn NodeName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ParentNode(&self) -> ::windows::core::Result<IXmlNode>;
@@ -106,16 +106,16 @@ pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl
     fn Attributes(&self) -> ::windows::core::Result<XmlNamedNodeMap>;
     fn HasChildNodes(&self) -> ::windows::core::Result<bool>;
     fn OwnerDocument(&self) -> ::windows::core::Result<XmlDocument>;
-    fn InsertBefore(&self, newchild: &::core::option::Option<IXmlNode>, referencechild: &::core::option::Option<IXmlNode>) -> ::windows::core::Result<IXmlNode>;
-    fn ReplaceChild(&self, newchild: &::core::option::Option<IXmlNode>, referencechild: &::core::option::Option<IXmlNode>) -> ::windows::core::Result<IXmlNode>;
-    fn RemoveChild(&self, childnode: &::core::option::Option<IXmlNode>) -> ::windows::core::Result<IXmlNode>;
-    fn AppendChild(&self, newchild: &::core::option::Option<IXmlNode>) -> ::windows::core::Result<IXmlNode>;
+    fn InsertBefore(&self, newchild: ::core::option::Option<&IXmlNode>, referencechild: ::core::option::Option<&IXmlNode>) -> ::windows::core::Result<IXmlNode>;
+    fn ReplaceChild(&self, newchild: ::core::option::Option<&IXmlNode>, referencechild: ::core::option::Option<&IXmlNode>) -> ::windows::core::Result<IXmlNode>;
+    fn RemoveChild(&self, childnode: ::core::option::Option<&IXmlNode>) -> ::windows::core::Result<IXmlNode>;
+    fn AppendChild(&self, newchild: ::core::option::Option<&IXmlNode>) -> ::windows::core::Result<IXmlNode>;
     fn CloneNode(&self, deep: bool) -> ::windows::core::Result<IXmlNode>;
     fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn LocalName(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn Prefix(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
     fn Normalize(&self) -> ::windows::core::Result<()>;
-    fn SetPrefix(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SetPrefix(&self, value: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IXmlNode {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNode";
@@ -137,7 +137,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn SetNodeValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNodeValue(::core::mem::transmute(&value)).into()
+            this.SetNodeValue(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn NodeType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut NodeType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -274,7 +274,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn InsertBefore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, referencechild: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InsertBefore(::core::mem::transmute(&newchild), ::core::mem::transmute(&referencechild)) {
+            match this.InsertBefore(::windows::core::from_raw_borrowed(&newchild), ::windows::core::from_raw_borrowed(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -286,7 +286,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn ReplaceChild<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, referencechild: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReplaceChild(::core::mem::transmute(&newchild), ::core::mem::transmute(&referencechild)) {
+            match this.ReplaceChild(::windows::core::from_raw_borrowed(&newchild), ::windows::core::from_raw_borrowed(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -298,7 +298,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn RemoveChild<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, childnode: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RemoveChild(::core::mem::transmute(&childnode)) {
+            match this.RemoveChild(::windows::core::from_raw_borrowed(&childnode)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -310,7 +310,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn AppendChild<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newchild: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AppendChild(::core::mem::transmute(&newchild)) {
+            match this.AppendChild(::windows::core::from_raw_borrowed(&newchild)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -375,7 +375,7 @@ impl IXmlNode_Vtbl {
         unsafe extern "system" fn SetPrefix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrefix(::core::mem::transmute(&value)).into()
+            this.SetPrefix(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IXmlNode, OFFSET>(),
@@ -412,8 +412,8 @@ impl IXmlNode_Vtbl {
 pub trait IXmlNodeSelector_Impl: Sized {
     fn SelectSingleNode(&self, xpath: &::windows::core::HSTRING) -> ::windows::core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &::windows::core::HSTRING) -> ::windows::core::Result<XmlNodeList>;
-    fn SelectSingleNodeNS(&self, xpath: &::windows::core::HSTRING, namespaces: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<IXmlNode>;
-    fn SelectNodesNS(&self, xpath: &::windows::core::HSTRING, namespaces: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XmlNodeList>;
+    fn SelectSingleNodeNS(&self, xpath: &::windows::core::HSTRING, namespaces: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<IXmlNode>;
+    fn SelectNodesNS(&self, xpath: &::windows::core::HSTRING, namespaces: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<XmlNodeList>;
 }
 impl ::windows::core::RuntimeName for IXmlNodeSelector {
     const NAME: &'static str = "Windows.Data.Xml.Dom.IXmlNodeSelector";
@@ -447,7 +447,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectSingleNodeNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SelectSingleNodeNS(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
+            match this.SelectSingleNodeNS(::core::mem::transmute(&xpath), ::windows::core::from_raw_borrowed(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -459,7 +459,7 @@ impl IXmlNodeSelector_Vtbl {
         unsafe extern "system" fn SelectNodesNS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlNodeSelector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: *mut ::core::ffi::c_void, namespaces: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SelectNodesNS(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
+            match this.SelectNodesNS(::core::mem::transmute(&xpath), ::windows::core::from_raw_borrowed(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

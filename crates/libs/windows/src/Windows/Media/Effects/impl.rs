@@ -50,8 +50,8 @@ impl IAudioEffectDefinition_Vtbl {
 pub trait IBasicAudioEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> ::windows::core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&self, context: &::core::option::Option<ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
+    fn SetEncodingProperties(&self, encodingproperties: ::core::option::Option<&super::MediaProperties::AudioEncodingProperties>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&self, context: ::core::option::Option<&ProcessAudioFrameContext>) -> ::windows::core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
     fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
@@ -89,12 +89,12 @@ impl IBasicAudioEffect_Vtbl {
         unsafe extern "system" fn SetEncodingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncodingProperties(::core::mem::transmute(&encodingproperties)).into()
+            this.SetEncodingProperties(::windows::core::from_raw_borrowed(&encodingproperties)).into()
         }
         unsafe extern "system" fn ProcessFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessFrame(::core::mem::transmute(&context)).into()
+            this.ProcessFrame(::windows::core::from_raw_borrowed(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicAudioEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -127,8 +127,8 @@ pub trait IBasicVideoEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn SupportedMemoryTypes(&self) -> ::windows::core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn ProcessFrame(&self, context: &::core::option::Option<ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn SetEncodingProperties(&self, encodingproperties: ::core::option::Option<&super::MediaProperties::VideoEncodingProperties>, device: ::core::option::Option<&super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn ProcessFrame(&self, context: ::core::option::Option<&ProcessVideoFrameContext>) -> ::windows::core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
     fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
@@ -190,12 +190,12 @@ impl IBasicVideoEffect_Vtbl {
         unsafe extern "system" fn SetEncodingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncodingProperties(::core::mem::transmute(&encodingproperties), ::core::mem::transmute(&device)).into()
+            this.SetEncodingProperties(::windows::core::from_raw_borrowed(&encodingproperties), ::windows::core::from_raw_borrowed(&device)).into()
         }
         unsafe extern "system" fn ProcessFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessFrame(::core::mem::transmute(&context)).into()
+            this.ProcessFrame(::windows::core::from_raw_borrowed(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBasicVideoEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -227,8 +227,8 @@ impl IBasicVideoEffect_Vtbl {
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: Sized + super::IMediaExtension_Impl {
     fn TimeIndependent(&self) -> ::windows::core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundproperties: &::core::option::Option<super::MediaProperties::VideoEncodingProperties>, device: &::core::option::Option<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
-    fn CompositeFrame(&self, context: &::core::option::Option<CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
+    fn SetEncodingProperties(&self, backgroundproperties: ::core::option::Option<&super::MediaProperties::VideoEncodingProperties>, device: ::core::option::Option<&super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> ::windows::core::Result<()>;
+    fn CompositeFrame(&self, context: ::core::option::Option<&CompositeVideoFrameContext>) -> ::windows::core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()>;
     fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()>;
 }
@@ -254,12 +254,12 @@ impl IVideoCompositor_Vtbl {
         unsafe extern "system" fn SetEncodingProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, backgroundproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEncodingProperties(::core::mem::transmute(&backgroundproperties), ::core::mem::transmute(&device)).into()
+            this.SetEncodingProperties(::windows::core::from_raw_borrowed(&backgroundproperties), ::windows::core::from_raw_borrowed(&device)).into()
         }
         unsafe extern "system" fn CompositeFrame<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CompositeFrame(::core::mem::transmute(&context)).into()
+            this.CompositeFrame(::windows::core::from_raw_borrowed(&context)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVideoCompositor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

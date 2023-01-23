@@ -1223,7 +1223,7 @@ pub struct MenuOpenedEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct SizeChangedEventHandler(pub ::windows::core::IUnknown);
 impl SizeChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = SizeChangedEventHandlerBox::<F> { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1233,12 +1233,12 @@ impl SizeChangedEventHandler {
     }
 }
 #[repr(C)]
-struct SizeChangedEventHandlerBox<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct SizeChangedEventHandlerBox<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const SizeChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SizeChangedEventHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SizeChangedEventHandlerBox<F> {
     const VTABLE: SizeChangedEventHandler_Vtbl = SizeChangedEventHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1267,7 +1267,7 @@ impl<F: FnMut(&::core::option::Option<WebUICommandBarSizeChangedEventArgs>) -> :
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, eventargs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&eventargs)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&eventargs)).into()
     }
 }
 impl ::core::clone::Clone for SizeChangedEventHandler {

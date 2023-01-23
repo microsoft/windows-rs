@@ -209,7 +209,7 @@ pub trait IMediaObject_Impl: Sized {
     fn AllocateStreamingResources(&self) -> ::windows::core::Result<()>;
     fn FreeStreamingResources(&self) -> ::windows::core::Result<()>;
     fn GetInputStatus(&self, dwinputstreamindex: u32) -> ::windows::core::Result<u32>;
-    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: &::core::option::Option<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: ::core::option::Option<&IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()>;
     fn Lock(&self, block: i32) -> ::windows::core::Result<()>;
 }
@@ -335,7 +335,7 @@ impl IMediaObject_Vtbl {
         unsafe extern "system" fn ProcessInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputstreamindex: u32, pbuffer: *mut ::core::ffi::c_void, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessInput(::core::mem::transmute_copy(&dwinputstreamindex), ::core::mem::transmute(&pbuffer), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&rttimestamp), ::core::mem::transmute_copy(&rttimelength)).into()
+            this.ProcessInput(::core::mem::transmute_copy(&dwinputstreamindex), ::windows::core::from_raw_borrowed(&pbuffer), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&rttimestamp), ::core::mem::transmute_copy(&rttimelength)).into()
         }
         unsafe extern "system" fn ProcessOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

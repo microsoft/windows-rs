@@ -68,7 +68,7 @@ pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamIni
     fn SaveData(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> ::windows::core::Result<()>;
     fn GetDataSize(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::core::Result<()>;
-    fn SaveDataToStream(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SaveDataToStream(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn LoadFromMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn SaveToMem(&self, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::Result<()>;
 }
@@ -155,7 +155,7 @@ impl IITPropList_Vtbl {
         unsafe extern "system" fn SaveDataToStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveDataToStream(::core::mem::transmute_copy(&lpvheader), ::core::mem::transmute_copy(&dwhdrsize), ::core::mem::transmute(&pstream)).into()
+            this.SaveDataToStream(::core::mem::transmute_copy(&lpvheader), ::core::mem::transmute_copy(&dwhdrsize), ::windows::core::from_raw_borrowed(&pstream)).into()
         }
         unsafe extern "system" fn LoadFromMem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITPropList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void, dwbufsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -208,8 +208,8 @@ pub trait IITResultSet_Impl: Sized {
     fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::core::Result<()>;
     fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::core::ffi::c_void, lpvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn Copy(&self, prscopy: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
-    fn AppendRows(&self, pressrc: &::core::option::Option<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>;
+    fn Copy(&self, prscopy: ::core::option::Option<&IITResultSet>) -> ::windows::core::Result<()>;
+    fn AppendRows(&self, pressrc: ::core::option::Option<&IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::Result<()>;
     fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::Result<()>;
     fn GetKeyProp(&self, keypropid: *mut u32) -> ::windows::core::Result<()>;
     fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::core::Result<()>;
@@ -295,12 +295,12 @@ impl IITResultSet_Vtbl {
         unsafe extern "system" fn Copy<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prscopy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Copy(::core::mem::transmute(&prscopy)).into()
+            this.Copy(::windows::core::from_raw_borrowed(&prscopy)).into()
         }
         unsafe extern "system" fn AppendRows<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pressrc: *mut ::core::ffi::c_void, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AppendRows(::core::mem::transmute(&pressrc), ::core::mem::transmute_copy(&lrowsrcfirst), ::core::mem::transmute_copy(&csrcrows), ::core::mem::transmute_copy(&lrowfirstdest)).into()
+            this.AppendRows(::windows::core::from_raw_borrowed(&pressrc), ::core::mem::transmute_copy(&lrowsrcfirst), ::core::mem::transmute_copy(&csrcrows), ::core::mem::transmute_copy(&lrowfirstdest)).into()
         }
         unsafe extern "system" fn Get<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITResultSet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -423,19 +423,19 @@ impl IITResultSet_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_HtmlHelp\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITWordWheel_Impl: Sized {
-    fn Open(&self, lpitdb: &::core::option::Option<IITDatabase>, lpszmoniker: &::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
+    fn Open(&self, lpitdb: ::core::option::Option<&IITDatabase>, lpszmoniker: &::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::core::Result<()>;
     fn Count(&self, pcentries: *mut i32) -> ::windows::core::Result<()>;
     fn Lookup(&self, lpcvprefix: *const ::core::ffi::c_void, fexactmatch: super::super::Foundation::BOOL, plentry: *mut i32) -> ::windows::core::Result<()>;
-    fn Lookup2(&self, lentry: i32, lpitresult: &::core::option::Option<IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
+    fn Lookup2(&self, lentry: i32, lpitresult: ::core::option::Option<&IITResultSet>, centries: i32) -> ::windows::core::Result<()>;
     fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::Result<()>;
     fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows::core::Result<()>;
     fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::core::Result<()>;
-    fn GetData(&self, lentry: i32, lpitresult: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
-    fn GetDataColumns(&self, prs: &::core::option::Option<IITResultSet>) -> ::windows::core::Result<()>;
+    fn GetData(&self, lentry: i32, lpitresult: ::core::option::Option<&IITResultSet>) -> ::windows::core::Result<()>;
+    fn GetDataColumns(&self, prs: ::core::option::Option<&IITResultSet>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IITWordWheel {}
@@ -445,7 +445,7 @@ impl IITWordWheel_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpitdb: *mut ::core::ffi::c_void, lpszmoniker: ::windows::core::PCWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(::core::mem::transmute(&lpitdb), ::core::mem::transmute(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
+            this.Open(::windows::core::from_raw_borrowed(&lpitdb), ::core::mem::transmute(&lpszmoniker), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -475,7 +475,7 @@ impl IITWordWheel_Vtbl {
         unsafe extern "system" fn Lookup2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: *mut ::core::ffi::c_void, centries: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Lookup2(::core::mem::transmute_copy(&lentry), ::core::mem::transmute(&lpitresult), ::core::mem::transmute_copy(&centries)).into()
+            this.Lookup2(::core::mem::transmute_copy(&lentry), ::windows::core::from_raw_borrowed(&lpitresult), ::core::mem::transmute_copy(&centries)).into()
         }
         unsafe extern "system" fn Lookup3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpvkeybuf: *mut ::core::ffi::c_void, cbkeybuf: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -500,12 +500,12 @@ impl IITWordWheel_Vtbl {
         unsafe extern "system" fn GetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lentry: i32, lpitresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetData(::core::mem::transmute_copy(&lentry), ::core::mem::transmute(&lpitresult)).into()
+            this.GetData(::core::mem::transmute_copy(&lentry), ::windows::core::from_raw_borrowed(&lpitresult)).into()
         }
         unsafe extern "system" fn GetDataColumns<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IITWordWheel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prs: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDataColumns(::core::mem::transmute(&prs)).into()
+            this.GetDataColumns(::windows::core::from_raw_borrowed(&prs)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -563,7 +563,7 @@ pub trait IStemmerConfig_Impl: Sized {
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()>;
     fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
-    fn LoadExternalStemmerData(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
+    fn LoadExternalStemmerData(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IStemmerConfig {}
@@ -593,7 +593,7 @@ impl IStemmerConfig_Vtbl {
         unsafe extern "system" fn LoadExternalStemmerData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStemmerConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, dwextdatatype: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadExternalStemmerData(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&dwextdatatype)).into()
+            this.LoadExternalStemmerData(::windows::core::from_raw_borrowed(&pstream), ::core::mem::transmute_copy(&dwextdatatype)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -617,8 +617,8 @@ pub trait IWordBreakerConfig_Impl: Sized {
     fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> ::windows::core::Result<()>;
     fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()>;
-    fn LoadExternalBreakerData(&self, pstream: &::core::option::Option<super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
-    fn SetWordStemmer(&self, rclsid: *const ::windows::core::GUID, pstemmer: &::core::option::Option<super::super::System::Search::IStemmer>) -> ::windows::core::Result<()>;
+    fn LoadExternalBreakerData(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>, dwextdatatype: u32) -> ::windows::core::Result<()>;
+    fn SetWordStemmer(&self, rclsid: *const ::windows::core::GUID, pstemmer: ::core::option::Option<&super::super::System::Search::IStemmer>) -> ::windows::core::Result<()>;
     fn GetWordStemmer(&self) -> ::windows::core::Result<super::super::System::Search::IStemmer>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
@@ -659,12 +659,12 @@ impl IWordBreakerConfig_Vtbl {
         unsafe extern "system" fn LoadExternalBreakerData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, dwextdatatype: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LoadExternalBreakerData(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&dwextdatatype)).into()
+            this.LoadExternalBreakerData(::windows::core::from_raw_borrowed(&pstream), ::core::mem::transmute_copy(&dwextdatatype)).into()
         }
         unsafe extern "system" fn SetWordStemmer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pstemmer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWordStemmer(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pstemmer)).into()
+            this.SetWordStemmer(::core::mem::transmute_copy(&rclsid), ::windows::core::from_raw_borrowed(&pstemmer)).into()
         }
         unsafe extern "system" fn GetWordStemmer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWordBreakerConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstemmer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

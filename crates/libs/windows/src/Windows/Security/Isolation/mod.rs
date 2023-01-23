@@ -2663,7 +2663,7 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
 pub struct HostMessageReceivedCallback(pub ::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl HostMessageReceivedCallback {
-    pub fn new<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -2680,13 +2680,13 @@ impl HostMessageReceivedCallback {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-struct HostMessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct HostMessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const HostMessageReceivedCallback_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> HostMessageReceivedCallbackBox<F> {
+impl<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> HostMessageReceivedCallbackBox<F> {
     const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -2715,7 +2715,7 @@ impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foun
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&receiverid), ::core::mem::transmute(&message)).into()
+        ((*this).invoke)(::core::mem::transmute(&receiverid), ::windows::core::from_raw_borrowed(&message)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2770,7 +2770,7 @@ pub struct HostMessageReceivedCallback_Vtbl {
 pub struct MessageReceivedCallback(pub ::windows::core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl MessageReceivedCallback {
-    pub fn new<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedCallbackBox::<F> { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -2787,13 +2787,13 @@ impl MessageReceivedCallback {
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
-struct MessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct MessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MessageReceivedCallback_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedCallbackBox<F> {
+impl<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedCallbackBox<F> {
     const VTABLE: MessageReceivedCallback_Vtbl = MessageReceivedCallback_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -2822,7 +2822,7 @@ impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foun
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&receiverid), ::core::mem::transmute(&message)).into()
+        ((*this).invoke)(::core::mem::transmute(&receiverid), ::windows::core::from_raw_borrowed(&message)).into()
     }
 }
 #[cfg(feature = "Foundation_Collections")]

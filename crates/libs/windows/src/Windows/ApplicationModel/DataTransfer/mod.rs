@@ -3665,7 +3665,7 @@ unsafe impl ::windows::core::RuntimeType for ShareUITheme {
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
-    pub fn new<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DataProviderHandlerBox::<F> { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3675,12 +3675,12 @@ impl DataProviderHandler {
     }
 }
 #[repr(C)]
-struct DataProviderHandlerBox<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct DataProviderHandlerBox<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DataProviderHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DataProviderHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&DataProviderRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DataProviderHandlerBox<F> {
     const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -3709,7 +3709,7 @@ impl<F: FnMut(&::core::option::Option<DataProviderRequest>) -> ::windows::core::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&request)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&request)).into()
     }
 }
 impl ::core::clone::Clone for DataProviderHandler {
@@ -3751,7 +3751,7 @@ pub struct DataProviderHandler_Vtbl {
 #[repr(transparent)]
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = ShareProviderHandlerBox::<F> { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3761,12 +3761,12 @@ impl ShareProviderHandler {
     }
 }
 #[repr(C)]
-struct ShareProviderHandlerBox<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct ShareProviderHandlerBox<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const ShareProviderHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ShareProviderHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ShareProviderOperation>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> ShareProviderHandlerBox<F> {
     const VTABLE: ShareProviderHandler_Vtbl = ShareProviderHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -3795,7 +3795,7 @@ impl<F: FnMut(&::core::option::Option<ShareProviderOperation>) -> ::windows::cor
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, operation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&operation)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&operation)).into()
     }
 }
 impl ::core::clone::Clone for ShareProviderHandler {

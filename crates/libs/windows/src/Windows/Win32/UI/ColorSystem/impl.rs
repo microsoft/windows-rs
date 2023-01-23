@@ -6,7 +6,7 @@ pub trait IDeviceModelPlugIn_Impl: Sized {
     fn DeviceToColorimetricColors(&self, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::Result<()>;
     fn ColorimetricToDeviceColors(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF) -> ::windows::core::Result<f32>;
     fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32>;
-    fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: &::core::option::Option<IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
+    fn SetTransformDeviceModelInfo(&self, imodelposition: u32, pidevicemodelother: ::core::option::Option<&IDeviceModelPlugIn>) -> ::windows::core::Result<()>;
     fn GetPrimarySamples(&self, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::Result<()>;
     fn GetGamutBoundaryMeshSize(&self, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows::core::Result<()>;
     fn GetGamutBoundaryMesh(&self, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows::core::Result<()>;
@@ -64,7 +64,7 @@ impl IDeviceModelPlugIn_Vtbl {
         unsafe extern "system" fn SetTransformDeviceModelInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imodelposition: u32, pidevicemodelother: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTransformDeviceModelInfo(::core::mem::transmute_copy(&imodelposition), ::core::mem::transmute(&pidevicemodelother)).into()
+            this.SetTransformDeviceModelInfo(::core::mem::transmute_copy(&imodelposition), ::windows::core::from_raw_borrowed(&pidevicemodelother)).into()
         }
         unsafe extern "system" fn GetPrimarySamples<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDeviceModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprimarycolor: *mut PrimaryXYZColors) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -118,7 +118,7 @@ impl IDeviceModelPlugIn_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"implement\"`*"]
 pub trait IGamutMapModelPlugIn_Impl: Sized {
-    fn Initialize(&self, bstrxml: &::windows::core::BSTR, psrcplugin: &::core::option::Option<IDeviceModelPlugIn>, pdestplugin: &::core::option::Option<IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
+    fn Initialize(&self, bstrxml: &::windows::core::BSTR, psrcplugin: ::core::option::Option<&IDeviceModelPlugIn>, pdestplugin: ::core::option::Option<&IDeviceModelPlugIn>, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::Result<()>;
     fn SourceToDestinationAppearanceColors(&self, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IGamutMapModelPlugIn {}
@@ -127,7 +127,7 @@ impl IGamutMapModelPlugIn_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&bstrxml), ::core::mem::transmute(&psrcplugin), ::core::mem::transmute(&pdestplugin), ::core::mem::transmute_copy(&psrcgbd), ::core::mem::transmute_copy(&pdestgbd)).into()
+            this.Initialize(::core::mem::transmute(&bstrxml), ::windows::core::from_raw_borrowed(&psrcplugin), ::windows::core::from_raw_borrowed(&pdestplugin), ::core::mem::transmute_copy(&psrcgbd), ::core::mem::transmute_copy(&pdestgbd)).into()
         }
         unsafe extern "system" fn SourceToDestinationAppearanceColors<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGamutMapModelPlugIn_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

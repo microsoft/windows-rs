@@ -97,10 +97,10 @@ pub trait IAssemblyName_Impl: Sized {
     fn GetProperty(&self, propertyid: u32, pvproperty: *mut ::core::ffi::c_void, pcbproperty: *mut u32) -> ::windows::core::Result<()>;
     fn Finalize(&self) -> ::windows::core::Result<()>;
     fn GetDisplayName(&self, szdisplayname: ::windows::core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> ::windows::core::Result<()>;
-    fn Reserved(&self, refiid: *const ::windows::core::GUID, punkreserved1: &::core::option::Option<::windows::core::IUnknown>, punkreserved2: &::core::option::Option<::windows::core::IUnknown>, szreserved: &::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Reserved(&self, refiid: *const ::windows::core::GUID, punkreserved1: ::core::option::Option<&::windows::core::IUnknown>, punkreserved2: ::core::option::Option<&::windows::core::IUnknown>, szreserved: &::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetName(&self, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> ::windows::core::Result<()>;
-    fn IsEqual(&self, pname: &::core::option::Option<IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
+    fn IsEqual(&self, pname: ::core::option::Option<&IAssemblyName>, dwcmpflags: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IAssemblyName>;
 }
 impl ::windows::core::RuntimeName for IAssemblyName {}
@@ -129,7 +129,7 @@ impl IAssemblyName_Vtbl {
         unsafe extern "system" fn Reserved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, punkreserved1: *mut ::core::ffi::c_void, punkreserved2: *mut ::core::ffi::c_void, szreserved: ::windows::core::PCWSTR, llreserved: i64, pvreserved: *mut ::core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reserved(::core::mem::transmute_copy(&refiid), ::core::mem::transmute(&punkreserved1), ::core::mem::transmute(&punkreserved2), ::core::mem::transmute(&szreserved), ::core::mem::transmute_copy(&llreserved), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&cbreserved), ::core::mem::transmute_copy(&ppreserved)).into()
+            this.Reserved(::core::mem::transmute_copy(&refiid), ::windows::core::from_raw_borrowed(&punkreserved1), ::windows::core::from_raw_borrowed(&punkreserved2), ::core::mem::transmute(&szreserved), ::core::mem::transmute_copy(&llreserved), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&cbreserved), ::core::mem::transmute_copy(&ppreserved)).into()
         }
         unsafe extern "system" fn GetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcwbuffer: *mut u32, pwzname: ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -144,7 +144,7 @@ impl IAssemblyName_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut ::core::ffi::c_void, dwcmpflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsEqual(::core::mem::transmute(&pname), ::core::mem::transmute_copy(&dwcmpflags)).into()
+            this.IsEqual(::windows::core::from_raw_borrowed(&pname), ::core::mem::transmute_copy(&dwcmpflags)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAssemblyName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

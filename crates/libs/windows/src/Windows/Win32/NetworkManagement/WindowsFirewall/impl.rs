@@ -504,8 +504,8 @@ impl IEnumNetSharingPublicConnection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INATEventManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetExternalIPAddressCallback(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetNumberOfEntriesCallback(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetExternalIPAddressCallback(&self, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetNumberOfEntriesCallback(&self, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for INATEventManager {}
@@ -515,12 +515,12 @@ impl INATEventManager_Vtbl {
         unsafe extern "system" fn SetExternalIPAddressCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INATEventManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetExternalIPAddressCallback(::core::mem::transmute(&punk)).into()
+            this.SetExternalIPAddressCallback(::windows::core::from_raw_borrowed(&punk)).into()
         }
         unsafe extern "system" fn SetNumberOfEntriesCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INATEventManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNumberOfEntriesCallback(::core::mem::transmute(&punk)).into()
+            this.SetNumberOfEntriesCallback(::windows::core::from_raw_borrowed(&punk)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -652,7 +652,7 @@ impl INetConnection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetConnectionConnectUi_Impl: Sized {
-    fn SetConnection(&self, pcon: &::core::option::Option<INetConnection>) -> ::windows::core::Result<()>;
+    fn SetConnection(&self, pcon: ::core::option::Option<&INetConnection>) -> ::windows::core::Result<()>;
     fn Connect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
     fn Disconnect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::Result<()>;
 }
@@ -664,7 +664,7 @@ impl INetConnectionConnectUi_Vtbl {
         unsafe extern "system" fn SetConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcon: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetConnection(::core::mem::transmute(&pcon)).into()
+            this.SetConnection(::windows::core::from_raw_borrowed(&pcon)).into()
         }
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetConnectionConnectUi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -947,7 +947,7 @@ impl INetFwAuthorizedApplication_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwAuthorizedApplications_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, app: &::core::option::Option<INetFwAuthorizedApplication>) -> ::windows::core::Result<()>;
+    fn Add(&self, app: ::core::option::Option<&INetFwAuthorizedApplication>) -> ::windows::core::Result<()>;
     fn Remove(&self, imagefilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Item(&self, imagefilename: &::windows::core::BSTR) -> ::windows::core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -971,7 +971,7 @@ impl INetFwAuthorizedApplications_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, app: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&app)).into()
+            this.Add(::windows::core::from_raw_borrowed(&app)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwAuthorizedApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, imagefilename: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1468,7 +1468,7 @@ impl INetFwOpenPort_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwOpenPorts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, port: &::core::option::Option<INetFwOpenPort>) -> ::windows::core::Result<()>;
+    fn Add(&self, port: ::core::option::Option<&INetFwOpenPort>) -> ::windows::core::Result<()>;
     fn Remove(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<()>;
     fn Item(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::Result<INetFwOpenPort>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1492,7 +1492,7 @@ impl INetFwOpenPorts_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, port: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&port)).into()
+            this.Add(::windows::core::from_raw_borrowed(&port)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwOpenPorts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1900,7 +1900,7 @@ impl INetFwProduct_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwProducts_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Register(&self, product: &::core::option::Option<INetFwProduct>) -> ::windows::core::Result<::windows::core::IUnknown>;
+    fn Register(&self, product: ::core::option::Option<&INetFwProduct>) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows::core::Result<INetFwProduct>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }
@@ -1923,7 +1923,7 @@ impl INetFwProducts_Vtbl {
         unsafe extern "system" fn Register<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwProducts_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, product: *mut ::core::ffi::c_void, registration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Register(::core::mem::transmute(&product)) {
+            match this.Register(::windows::core::from_raw_borrowed(&product)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(registration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -2792,7 +2792,7 @@ impl INetFwRule3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INetFwRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, rule: &::core::option::Option<INetFwRule>) -> ::windows::core::Result<()>;
+    fn Add(&self, rule: ::core::option::Option<&INetFwRule>) -> ::windows::core::Result<()>;
     fn Remove(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Item(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<INetFwRule>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -2816,7 +2816,7 @@ impl INetFwRules_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rule: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&rule)).into()
+            this.Add(::windows::core::from_raw_borrowed(&rule)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetFwRules_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3125,7 +3125,7 @@ pub trait INetSharingConfiguration_Impl: Sized + super::super::System::Com::IDis
     fn EnableInternetFirewall(&self) -> ::windows::core::Result<()>;
     fn get_EnumPortMappings(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPortMappingCollection>;
     fn AddPortMapping(&self, bstrname: &::windows::core::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: &::windows::core::BSTR, etargettype: ICS_TARGETTYPE) -> ::windows::core::Result<INetSharingPortMapping>;
-    fn RemovePortMapping(&self, pmapping: &::core::option::Option<INetSharingPortMapping>) -> ::windows::core::Result<()>;
+    fn RemovePortMapping(&self, pmapping: ::core::option::Option<&INetSharingPortMapping>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for INetSharingConfiguration {}
@@ -3210,7 +3210,7 @@ impl INetSharingConfiguration_Vtbl {
         unsafe extern "system" fn RemovePortMapping<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetSharingConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmapping: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemovePortMapping(::core::mem::transmute(&pmapping)).into()
+            this.RemovePortMapping(::windows::core::from_raw_borrowed(&pmapping)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3279,9 +3279,9 @@ pub trait INetSharingManager_Impl: Sized + super::super::System::Com::IDispatch_
     fn SharingInstalled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn get_EnumPublicConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPublicConnectionCollection>;
     fn get_EnumPrivateConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> ::windows::core::Result<INetSharingPrivateConnectionCollection>;
-    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: &::core::option::Option<INetConnection>) -> ::windows::core::Result<INetSharingConfiguration>;
+    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: ::core::option::Option<&INetConnection>) -> ::windows::core::Result<INetSharingConfiguration>;
     fn EnumEveryConnection(&self) -> ::windows::core::Result<INetSharingEveryConnectionCollection>;
-    fn get_NetConnectionProps(&self, pnetconnection: &::core::option::Option<INetConnection>) -> ::windows::core::Result<INetConnectionProps>;
+    fn get_NetConnectionProps(&self, pnetconnection: ::core::option::Option<&INetConnection>) -> ::windows::core::Result<INetConnectionProps>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for INetSharingManager {}
@@ -3324,7 +3324,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_INetSharingConfigurationForINetConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetconnection: *mut ::core::ffi::c_void, ppnetsharingconfiguration: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_INetSharingConfigurationForINetConnection(::core::mem::transmute(&pnetconnection)) {
+            match this.get_INetSharingConfigurationForINetConnection(::windows::core::from_raw_borrowed(&pnetconnection)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppnetsharingconfiguration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3346,7 +3346,7 @@ impl INetSharingManager_Vtbl {
         unsafe extern "system" fn get_NetConnectionProps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetSharingManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnetconnection: *mut ::core::ffi::c_void, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.get_NetConnectionProps(::core::mem::transmute(&pnetconnection)) {
+            match this.get_NetConnectionProps(::windows::core::from_raw_borrowed(&pnetconnection)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppprops, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

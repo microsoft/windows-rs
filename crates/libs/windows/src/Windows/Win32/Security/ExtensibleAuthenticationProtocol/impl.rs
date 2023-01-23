@@ -231,8 +231,8 @@ impl IEAPProviderConfig3_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRouterProtocolConfig_Impl: Sized {
-    fn AddProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
-    fn RemoveProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: &::core::option::Option<::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
+    fn AddProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: ::core::option::Option<&::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
+    fn RemoveProtocol(&self, pszmachinename: &::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: ::core::option::Option<&::windows::core::IUnknown>, ureserved1: usize) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IRouterProtocolConfig {}
@@ -242,12 +242,12 @@ impl IRouterProtocolConfig_Vtbl {
         unsafe extern "system" fn AddProtocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
+            this.AddProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::windows::core::from_raw_borrowed(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
         unsafe extern "system" fn RemoveProtocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRouterProtocolConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszmachinename: ::windows::core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
+            this.RemoveProtocol(::core::mem::transmute(&pszmachinename), ::core::mem::transmute_copy(&dwtransportid), ::core::mem::transmute_copy(&dwprotocolid), ::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&dwflags), ::windows::core::from_raw_borrowed(&prouter), ::core::mem::transmute_copy(&ureserved1)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

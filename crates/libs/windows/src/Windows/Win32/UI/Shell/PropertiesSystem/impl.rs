@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait ICreateObject_Impl: Sized {
-    fn CreateObject(&self, clsid: *const ::windows::core::GUID, punkouter: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateObject(&self, clsid: *const ::windows::core::GUID, punkouter: ::core::option::Option<&::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICreateObject {}
 impl ICreateObject_Vtbl {
@@ -8,7 +8,7 @@ impl ICreateObject_Vtbl {
         unsafe extern "system" fn CreateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICreateObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateObject(::core::mem::transmute_copy(&clsid), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            this.CreateObject(::core::mem::transmute_copy(&clsid), ::windows::core::from_raw_borrowed(&punkouter), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateObject: CreateObject::<Identity, Impl, OFFSET> }
     }
@@ -55,7 +55,7 @@ impl IInitializeWithFile_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: Sized {
-    fn Initialize(&self, pstream: &::core::option::Option<super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pstream: ::core::option::Option<&super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IInitializeWithStream {}
@@ -65,7 +65,7 @@ impl IInitializeWithStream_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInitializeWithStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, grfmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&grfmode)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&pstream), ::core::mem::transmute_copy(&grfmode)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
@@ -264,9 +264,9 @@ impl IPropertyChange_Vtbl {
 pub trait IPropertyChangeArray_Impl: Sized {
     fn GetCount(&self) -> ::windows::core::Result<u32>;
     fn GetAt(&self, iindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn InsertAt(&self, iindex: u32, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn Append(&self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
-    fn AppendOrReplace(&self, ppropchange: &::core::option::Option<IPropertyChange>) -> ::windows::core::Result<()>;
+    fn InsertAt(&self, iindex: u32, ppropchange: ::core::option::Option<&IPropertyChange>) -> ::windows::core::Result<()>;
+    fn Append(&self, ppropchange: ::core::option::Option<&IPropertyChange>) -> ::windows::core::Result<()>;
+    fn AppendOrReplace(&self, ppropchange: ::core::option::Option<&IPropertyChange>) -> ::windows::core::Result<()>;
     fn RemoveAt(&self, iindex: u32) -> ::windows::core::Result<()>;
     fn IsKeyInArray(&self, key: *const PROPERTYKEY) -> ::windows::core::Result<()>;
 }
@@ -292,17 +292,17 @@ impl IPropertyChangeArray_Vtbl {
         unsafe extern "system" fn InsertAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: u32, ppropchange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertAt(::core::mem::transmute_copy(&iindex), ::core::mem::transmute(&ppropchange)).into()
+            this.InsertAt(::core::mem::transmute_copy(&iindex), ::windows::core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn Append<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropchange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(::core::mem::transmute(&ppropchange)).into()
+            this.Append(::windows::core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn AppendOrReplace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropchange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AppendOrReplace(::core::mem::transmute(&ppropchange)).into()
+            this.AppendOrReplace(::windows::core::from_raw_borrowed(&ppropchange)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChangeArray_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1069,7 +1069,7 @@ impl IPropertyStoreCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 pub trait IPropertyStoreFactory_Impl: Sized {
-    fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: &::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: ::core::option::Option<&::windows::core::IUnknown>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetPropertyStoreForKeys(&self, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPropertyStoreFactory {}
@@ -1078,7 +1078,7 @@ impl IPropertyStoreFactory_Vtbl {
         unsafe extern "system" fn GetPropertyStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, punkfactory: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetPropertyStore(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&punkfactory), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
+            this.GetPropertyStore(::core::mem::transmute_copy(&flags), ::windows::core::from_raw_borrowed(&punkfactory), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
         unsafe extern "system" fn GetPropertyStoreForKeys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

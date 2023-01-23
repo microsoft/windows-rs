@@ -7,6 +7,7 @@ edition = "2018"
 path = "../../../libs/windows"
 features = [
     "implement",
+    "Win32_Foundation",
     "Win32_System_Com",
     "Win32_Networking_BackgroundIntelligentTransferService",
 ]

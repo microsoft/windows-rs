@@ -2402,7 +2402,7 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> MapChangedEventHandler<K, V> {
-    pub fn new<F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&IObservableMap<K, V>>, ::core::option::Option<&IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = MapChangedEventHandlerBox::<K, V, F> { vtable: &MapChangedEventHandlerBox::<K, V, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -2418,7 +2418,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 #[repr(C)]
-struct MapChangedEventHandlerBox<K, V, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
+struct MapChangedEventHandlerBox<K, V, F: FnMut(::core::option::Option<&IObservableMap<K, V>>, ::core::option::Option<&IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
@@ -2427,7 +2427,7 @@ where
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableMap<K, V>>, &::core::option::Option<IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MapChangedEventHandlerBox<K, V, F> {
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<&IObservableMap<K, V>>, ::core::option::Option<&IMapChangedEventArgs<K>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MapChangedEventHandlerBox<K, V, F> {
     const VTABLE: MapChangedEventHandler_Vtbl<K, V> = MapChangedEventHandler_Vtbl::<K, V> {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -2458,7 +2458,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender), ::windows::core::from_raw_borrowed(&event)).into()
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for MapChangedEventHandler<K, V> {
@@ -2508,7 +2508,7 @@ pub struct VectorChangedEventHandler<T>(pub ::windows::core::IUnknown, ::core::m
 where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
-    pub fn new<F: FnMut(&::core::option::Option<IObservableVector<T>>, &::core::option::Option<IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&IObservableVector<T>>, ::core::option::Option<&IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = VectorChangedEventHandlerBox::<T, F> { vtable: &VectorChangedEventHandlerBox::<T, F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -2524,7 +2524,7 @@ impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
     }
 }
 #[repr(C)]
-struct VectorChangedEventHandlerBox<T, F: FnMut(&::core::option::Option<IObservableVector<T>>, &::core::option::Option<IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
+struct VectorChangedEventHandlerBox<T, F: FnMut(::core::option::Option<&IObservableVector<T>>, ::core::option::Option<&IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
@@ -2532,7 +2532,7 @@ where
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option<IObservableVector<T>>, &::core::option::Option<IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> VectorChangedEventHandlerBox<T, F> {
+impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(::core::option::Option<&IObservableVector<T>>, ::core::option::Option<&IVectorChangedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> VectorChangedEventHandlerBox<T, F> {
     const VTABLE: VectorChangedEventHandler_Vtbl<T> = VectorChangedEventHandler_Vtbl::<T> {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -2562,7 +2562,7 @@ impl<T: ::windows::core::RuntimeType + 'static, F: FnMut(&::core::option::Option
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&event)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender), ::windows::core::from_raw_borrowed(&event)).into()
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for VectorChangedEventHandler<T> {

@@ -133,7 +133,7 @@ impl IContactFieldFactory_Vtbl {
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
     fn CreateInstantMessage_Default(&self, username: &::windows::core::HSTRING) -> ::windows::core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory) -> ::windows::core::Result<ContactInstantMessageField>;
-    fn CreateInstantMessage_All(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
+    fn CreateInstantMessage_All(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows::core::Result<ContactInstantMessageField>;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for IContactInstantMessageFieldFactory {
@@ -169,7 +169,7 @@ impl IContactInstantMessageFieldFactory_Vtbl {
         unsafe extern "system" fn CreateInstantMessage_All<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, username: *mut ::core::ffi::c_void, category: ContactFieldCategory, service: *mut ::core::ffi::c_void, displaytext: *mut ::core::ffi::c_void, verb: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateInstantMessage_All(::core::mem::transmute(&username), category, ::core::mem::transmute(&service), ::core::mem::transmute(&displaytext), ::core::mem::transmute(&verb)) {
+            match this.CreateInstantMessage_All(::core::mem::transmute(&username), category, ::core::mem::transmute(&service), ::core::mem::transmute(&displaytext), ::windows::core::from_raw_borrowed(&verb)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

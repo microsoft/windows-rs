@@ -1313,7 +1313,7 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVssProviderNotifications_Impl: Sized {
-    fn OnLoad(&self, pcallback: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnLoad(&self, pcallback: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1324,7 +1324,7 @@ impl IVssProviderNotifications_Vtbl {
         unsafe extern "system" fn OnLoad<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnLoad(::core::mem::transmute(&pcallback)).into()
+            this.OnLoad(::windows::core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn OnUnload<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

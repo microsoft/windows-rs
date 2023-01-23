@@ -12,11 +12,11 @@ pub trait IRichEditOle_Impl: Sized {
     fn SetLinkAvailable(&self, iob: i32, favailable: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn SetDvaspect(&self, iob: i32, dvaspect: u32) -> ::windows::core::Result<()>;
     fn HandsOffStorage(&self, iob: i32) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&self, iob: i32, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, iob: i32, lpstg: ::core::option::Option<&super::super::super::System::Com::StructuredStorage::IStorage>) -> ::windows::core::Result<()>;
     fn InPlaceDeactivate(&self) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
-    fn ImportDataObject(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn ImportDataObject(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRichEditOle {}
@@ -87,7 +87,7 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn SaveCompleted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iob: i32, lpstg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveCompleted(::core::mem::transmute_copy(&iob), ::core::mem::transmute(&lpstg)).into()
+            this.SaveCompleted(::core::mem::transmute_copy(&iob), ::windows::core::from_raw_borrowed(&lpstg)).into()
         }
         unsafe extern "system" fn InPlaceDeactivate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -107,7 +107,7 @@ impl IRichEditOle_Vtbl {
         unsafe extern "system" fn ImportDataObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, cf: u16, hmetapict: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ImportDataObject(::core::mem::transmute(&lpdataobj), ::core::mem::transmute_copy(&cf), ::core::mem::transmute_copy(&hmetapict)).into()
+            this.ImportDataObject(::windows::core::from_raw_borrowed(&lpdataobj), ::core::mem::transmute_copy(&cf), ::core::mem::transmute_copy(&hmetapict)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -139,13 +139,13 @@ pub trait IRichEditOleCallback_Impl: Sized {
     fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage>;
     fn GetInPlaceContext(&self, lplpframe: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: *mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: *mut super::super::super::System::Ole::OLEINPLACEFRAMEINFO) -> ::windows::core::Result<()>;
     fn ShowContainerUI(&self, fshow: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn QueryInsertObject(&self, lpclsid: *mut ::windows::core::GUID, lpstg: &::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
-    fn DeleteObject(&self, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
-    fn QueryAcceptData(&self, lpdataobj: &::core::option::Option<super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
+    fn QueryInsertObject(&self, lpclsid: *mut ::windows::core::GUID, lpstg: ::core::option::Option<&super::super::super::System::Com::StructuredStorage::IStorage>, cp: i32) -> ::windows::core::Result<()>;
+    fn DeleteObject(&self, lpoleobj: ::core::option::Option<&super::super::super::System::Ole::IOleObject>) -> ::windows::core::Result<()>;
+    fn QueryAcceptData(&self, lpdataobj: ::core::option::Option<&super::super::super::System::Com::IDataObject>, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::Result<()>;
     fn ContextSensitiveHelp(&self, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: u32, lplpdataobj: *mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()>;
     fn GetDragDropEffect(&self, fdrag: super::super::super::Foundation::BOOL, grfkeystate: super::super::super::System::SystemServices::MODIFIERKEYS_FLAGS, pdweffect: *mut super::super::super::System::Ole::DROPEFFECT) -> ::windows::core::Result<()>;
-    fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: &::core::option::Option<super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
+    fn GetContextMenu(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: ::core::option::Option<&super::super::super::System::Ole::IOleObject>, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_SystemServices", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IRichEditOleCallback {}
@@ -176,17 +176,17 @@ impl IRichEditOleCallback_Vtbl {
         unsafe extern "system" fn QueryInsertObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclsid: *mut ::windows::core::GUID, lpstg: *mut ::core::ffi::c_void, cp: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryInsertObject(::core::mem::transmute_copy(&lpclsid), ::core::mem::transmute(&lpstg), ::core::mem::transmute_copy(&cp)).into()
+            this.QueryInsertObject(::core::mem::transmute_copy(&lpclsid), ::windows::core::from_raw_borrowed(&lpstg), ::core::mem::transmute_copy(&cp)).into()
         }
         unsafe extern "system" fn DeleteObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpoleobj: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteObject(::core::mem::transmute(&lpoleobj)).into()
+            this.DeleteObject(::windows::core::from_raw_borrowed(&lpoleobj)).into()
         }
         unsafe extern "system" fn QueryAcceptData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdataobj: *mut ::core::ffi::c_void, lpcfformat: *mut u16, reco: super::super::super::System::SystemServices::RECO_FLAGS, freally: super::super::super::Foundation::BOOL, hmetapict: isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryAcceptData(::core::mem::transmute(&lpdataobj), ::core::mem::transmute_copy(&lpcfformat), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&freally), ::core::mem::transmute_copy(&hmetapict)).into()
+            this.QueryAcceptData(::windows::core::from_raw_borrowed(&lpdataobj), ::core::mem::transmute_copy(&lpcfformat), ::core::mem::transmute_copy(&reco), ::core::mem::transmute_copy(&freally), ::core::mem::transmute_copy(&hmetapict)).into()
         }
         unsafe extern "system" fn ContextSensitiveHelp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fentermode: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -206,7 +206,7 @@ impl IRichEditOleCallback_Vtbl {
         unsafe extern "system" fn GetContextMenu<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: *mut ::core::ffi::c_void, lpchrg: *mut CHARRANGE, lphmenu: *mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContextMenu(::core::mem::transmute_copy(&seltype), ::core::mem::transmute(&lpoleobj), ::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&lphmenu)).into()
+            this.GetContextMenu(::core::mem::transmute_copy(&seltype), ::windows::core::from_raw_borrowed(&lpoleobj), ::core::mem::transmute_copy(&lpchrg), ::core::mem::transmute_copy(&lphmenu)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -490,9 +490,9 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn SetCaretType(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetDisplays(&self) -> ::windows::core::Result<ITextDisplays>;
     fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont2>;
-    fn SetDocumentFont(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn SetDocumentFont(&self, pfont: ::core::option::Option<&ITextFont2>) -> ::windows::core::Result<()>;
     fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara2>;
-    fn SetDocumentPara(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn SetDocumentPara(&self, ppara: ::core::option::Option<&ITextPara2>) -> ::windows::core::Result<()>;
     fn GetEastAsianFlags(&self) -> ::windows::core::Result<tomConstants>;
     fn GetGenerator(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetIMEInProgress(&self, value: i32) -> ::windows::core::Result<()>;
@@ -503,7 +503,7 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetTypographyOptions(&self) -> ::windows::core::Result<i32>;
     fn GetVersion(&self) -> ::windows::core::Result<i32>;
     fn GetWindow(&self) -> ::windows::core::Result<i64>;
-    fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AttachMsgFilter(&self, pfilter: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn CheckTextLimit(&self, cch: i32, pcch: *const i32) -> ::windows::core::Result<()>;
     fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetClientRect(&self, r#type: tomConstants, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::Result<()>;
@@ -515,7 +515,7 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn Notify(&self, notify: i32) -> ::windows::core::Result<()>;
     fn Range2(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
     fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> ::windows::core::Result<ITextRange2>;
-    fn ReleaseCallManager(&self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseCallManager(&self, pvoid: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()>;
     fn SetEffectColor(&self, index: i32, value: i32) -> ::windows::core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
@@ -526,7 +526,7 @@ pub trait ITextDocument2_Impl: Sized + ITextDocument_Impl {
     fn GetMathProperties(&self) -> ::windows::core::Result<i32>;
     fn SetMathProperties(&self, options: i32, mask: i32) -> ::windows::core::Result<()>;
     fn GetActiveStory(&self) -> ::windows::core::Result<ITextStory>;
-    fn SetActiveStory(&self, pstory: &::core::option::Option<ITextStory>) -> ::windows::core::Result<()>;
+    fn SetActiveStory(&self, pstory: ::core::option::Option<&ITextStory>) -> ::windows::core::Result<()>;
     fn GetMainStory(&self) -> ::windows::core::Result<ITextStory>;
     fn GetNewStory(&self) -> ::windows::core::Result<ITextStory>;
     fn GetStory(&self, index: i32) -> ::windows::core::Result<ITextStory>;
@@ -577,7 +577,7 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn SetDocumentFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDocumentFont(::core::mem::transmute(&pfont)).into()
+            this.SetDocumentFont(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn GetDocumentPara<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppara: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -593,7 +593,7 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn SetDocumentPara<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDocumentPara(::core::mem::transmute(&ppara)).into()
+            this.SetDocumentPara(::windows::core::from_raw_borrowed(&ppara)).into()
         }
         unsafe extern "system" fn GetEastAsianFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflags: *mut tomConstants) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -696,7 +696,7 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn AttachMsgFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachMsgFilter(::core::mem::transmute(&pfilter)).into()
+            this.AttachMsgFilter(::windows::core::from_raw_borrowed(&pfilter)).into()
         }
         unsafe extern "system" fn CheckTextLimit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cch: i32, pcch: *const i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -798,7 +798,7 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn ReleaseCallManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseCallManager(::core::mem::transmute(&pvoid)).into()
+            this.ReleaseCallManager(::windows::core::from_raw_borrowed(&pvoid)).into()
         }
         unsafe extern "system" fn ReleaseImmContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: i64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -865,7 +865,7 @@ impl ITextDocument2_Vtbl {
         unsafe extern "system" fn SetActiveStory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstory: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetActiveStory(::core::mem::transmute(&pstory)).into()
+            this.SetActiveStory(::windows::core::from_raw_borrowed(&pstory)).into()
         }
         unsafe extern "system" fn GetMainStory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -955,7 +955,7 @@ impl ITextDocument2_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
-    fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn AttachMsgFilter(&self, pfilter: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetEffectColor(&self, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::COLORREF>;
     fn GetCaretType(&self) -> ::windows::core::Result<i32>;
@@ -978,7 +978,7 @@ pub trait ITextDocument2Old_Impl: Sized + ITextDocument_Impl {
     fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont>;
     fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara>;
     fn GetCallManager(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ReleaseCallManager(&self, pvoid: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseCallManager(&self, pvoid: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITextDocument2Old {}
@@ -988,7 +988,7 @@ impl ITextDocument2Old_Vtbl {
         unsafe extern "system" fn AttachMsgFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AttachMsgFilter(::core::mem::transmute(&pfilter)).into()
+            this.AttachMsgFilter(::windows::core::from_raw_borrowed(&pfilter)).into()
         }
         unsafe extern "system" fn SetEffectColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1163,7 +1163,7 @@ impl ITextDocument2Old_Vtbl {
         unsafe extern "system" fn ReleaseCallManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseCallManager(::core::mem::transmute(&pvoid)).into()
+            this.ReleaseCallManager(::windows::core::from_raw_borrowed(&pvoid)).into()
         }
         Self {
             base__: ITextDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1201,9 +1201,9 @@ impl ITextDocument2Old_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextFont_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont>;
-    fn SetDuplicate(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
+    fn SetDuplicate(&self, pfont: ::core::option::Option<&ITextFont>) -> ::windows::core::Result<()>;
     fn CanChange(&self) -> ::windows::core::Result<i32>;
-    fn IsEqual(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, pfont: ::core::option::Option<&ITextFont>) -> ::windows::core::Result<i32>;
     fn Reset(&self, value: tomConstants) -> ::windows::core::Result<()>;
     fn GetStyle(&self) -> ::windows::core::Result<i32>;
     fn SetStyle(&self, value: i32) -> ::windows::core::Result<()>;
@@ -1275,7 +1275,7 @@ impl ITextFont_Vtbl {
         unsafe extern "system" fn SetDuplicate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDuplicate(::core::mem::transmute(&pfont)).into()
+            this.SetDuplicate(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn CanChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1291,7 +1291,7 @@ impl ITextFont_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual(::core::mem::transmute(&pfont)) {
+            match this.IsEqual(::windows::core::from_raw_borrowed(&pfont)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1788,7 +1788,7 @@ pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn GetDoubleStrike(&self) -> ::windows::core::Result<i32>;
     fn SetDoubleStrike(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetDuplicate2(&self) -> ::windows::core::Result<ITextFont2>;
-    fn SetDuplicate2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn SetDuplicate2(&self, pfont: ::core::option::Option<&ITextFont2>) -> ::windows::core::Result<()>;
     fn GetLinkType(&self) -> ::windows::core::Result<i32>;
     fn GetMathZone(&self) -> ::windows::core::Result<i32>;
     fn SetMathZone(&self, value: i32) -> ::windows::core::Result<()>;
@@ -1812,7 +1812,7 @@ pub trait ITextFont2_Impl: Sized + ITextFont_Impl {
     fn GetEffects2(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
     fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
     fn GetPropertyInfo(&self, index: i32, ptype: *mut i32, pvalue: *mut i32) -> ::windows::core::Result<()>;
-    fn IsEqual2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<i32>;
+    fn IsEqual2(&self, pfont: ::core::option::Option<&ITextFont2>) -> ::windows::core::Result<i32>;
     fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
     fn SetEffects2(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
@@ -1975,7 +1975,7 @@ impl ITextFont2_Vtbl {
         unsafe extern "system" fn SetDuplicate2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDuplicate2(::core::mem::transmute(&pfont)).into()
+            this.SetDuplicate2(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn GetLinkType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2161,7 +2161,7 @@ impl ITextFont2_Vtbl {
         unsafe extern "system" fn IsEqual2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextFont2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void, pb: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual2(::core::mem::transmute(&pfont)) {
+            match this.IsEqual2(::windows::core::from_raw_borrowed(&pfont)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -2639,9 +2639,9 @@ impl ITextHost2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextPara_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara>;
-    fn SetDuplicate(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
+    fn SetDuplicate(&self, ppara: ::core::option::Option<&ITextPara>) -> ::windows::core::Result<()>;
     fn CanChange(&self) -> ::windows::core::Result<i32>;
-    fn IsEqual(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, ppara: ::core::option::Option<&ITextPara>) -> ::windows::core::Result<i32>;
     fn Reset(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetStyle(&self) -> ::windows::core::Result<i32>;
     fn SetStyle(&self, value: i32) -> ::windows::core::Result<()>;
@@ -2706,7 +2706,7 @@ impl ITextPara_Vtbl {
         unsafe extern "system" fn SetDuplicate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDuplicate(::core::mem::transmute(&ppara)).into()
+            this.SetDuplicate(::windows::core::from_raw_borrowed(&ppara)).into()
         }
         unsafe extern "system" fn CanChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2722,7 +2722,7 @@ impl ITextPara_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual(::core::mem::transmute(&ppara)) {
+            match this.IsEqual(::windows::core::from_raw_borrowed(&ppara)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3137,7 +3137,7 @@ impl ITextPara_Vtbl {
 pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn GetBorders(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetDuplicate2(&self) -> ::windows::core::Result<ITextPara2>;
-    fn SetDuplicate2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn SetDuplicate2(&self, ppara: ::core::option::Option<&ITextPara2>) -> ::windows::core::Result<()>;
     fn GetFontAlignment(&self) -> ::windows::core::Result<i32>;
     fn SetFontAlignment(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetHangingPunctuation(&self) -> ::windows::core::Result<i32>;
@@ -3148,7 +3148,7 @@ pub trait ITextPara2_Impl: Sized + ITextPara_Impl {
     fn SetTrimPunctuationAtStart(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetEffects(&self, pvalue: *mut i32, pmask: *mut i32) -> ::windows::core::Result<()>;
     fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
-    fn IsEqual2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<i32>;
+    fn IsEqual2(&self, ppara: ::core::option::Option<&ITextPara2>) -> ::windows::core::Result<i32>;
     fn SetEffects(&self, value: i32, mask: i32) -> ::windows::core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
 }
@@ -3182,7 +3182,7 @@ impl ITextPara2_Vtbl {
         unsafe extern "system" fn SetDuplicate2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDuplicate2(::core::mem::transmute(&ppara)).into()
+            this.SetDuplicate2(::windows::core::from_raw_borrowed(&ppara)).into()
         }
         unsafe extern "system" fn GetFontAlignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3267,7 +3267,7 @@ impl ITextPara2_Vtbl {
         unsafe extern "system" fn IsEqual2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextPara2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void, pb: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual2(::core::mem::transmute(&ppara)) {
+            match this.IsEqual2(::windows::core::from_raw_borrowed(&ppara)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3318,15 +3318,15 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn SetChar(&self, char: i32) -> ::windows::core::Result<()>;
     fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange>;
     fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange>;
-    fn SetFormattedText(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<()>;
+    fn SetFormattedText(&self, prange: ::core::option::Option<&ITextRange>) -> ::windows::core::Result<()>;
     fn GetStart(&self) -> ::windows::core::Result<i32>;
     fn SetStart(&self, cpfirst: i32) -> ::windows::core::Result<()>;
     fn GetEnd(&self) -> ::windows::core::Result<i32>;
     fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()>;
     fn GetFont(&self) -> ::windows::core::Result<ITextFont>;
-    fn SetFont(&self, pfont: &::core::option::Option<ITextFont>) -> ::windows::core::Result<()>;
+    fn SetFont(&self, pfont: ::core::option::Option<&ITextFont>) -> ::windows::core::Result<()>;
     fn GetPara(&self) -> ::windows::core::Result<ITextPara>;
-    fn SetPara(&self, ppara: &::core::option::Option<ITextPara>) -> ::windows::core::Result<()>;
+    fn SetPara(&self, ppara: ::core::option::Option<&ITextPara>) -> ::windows::core::Result<()>;
     fn GetStoryLength(&self) -> ::windows::core::Result<i32>;
     fn GetStoryType(&self) -> ::windows::core::Result<i32>;
     fn Collapse(&self, bstart: i32) -> ::windows::core::Result<()>;
@@ -3334,9 +3334,9 @@ pub trait ITextRange_Impl: Sized + super::super::super::System::Com::IDispatch_I
     fn GetIndex(&self, unit: i32) -> ::windows::core::Result<i32>;
     fn SetIndex(&self, unit: i32, index: i32, extend: i32) -> ::windows::core::Result<()>;
     fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()>;
-    fn InRange(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
-    fn InStory(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
-    fn IsEqual(&self, prange: &::core::option::Option<ITextRange>) -> ::windows::core::Result<i32>;
+    fn InRange(&self, prange: ::core::option::Option<&ITextRange>) -> ::windows::core::Result<i32>;
+    fn InStory(&self, prange: ::core::option::Option<&ITextRange>) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, prange: ::core::option::Option<&ITextRange>) -> ::windows::core::Result<i32>;
     fn Select(&self) -> ::windows::core::Result<()>;
     fn StartOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
     fn EndOf(&self, unit: i32, extend: i32) -> ::windows::core::Result<i32>;
@@ -3426,7 +3426,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn SetFormattedText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormattedText(::core::mem::transmute(&prange)).into()
+            this.SetFormattedText(::windows::core::from_raw_borrowed(&prange)).into()
         }
         unsafe extern "system" fn GetStart<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcpfirst: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3474,7 +3474,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn SetFont<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFont(::core::mem::transmute(&pfont)).into()
+            this.SetFont(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn GetPara<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppara: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3490,7 +3490,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn SetPara<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPara(::core::mem::transmute(&ppara)).into()
+            this.SetPara(::windows::core::from_raw_borrowed(&ppara)).into()
         }
         unsafe extern "system" fn GetStoryLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3554,7 +3554,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn InRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InRange(::core::mem::transmute(&prange)) {
+            match this.InRange(::windows::core::from_raw_borrowed(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3565,7 +3565,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn InStory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.InStory(::core::mem::transmute(&prange)) {
+            match this.InStory(::windows::core::from_raw_borrowed(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3576,7 +3576,7 @@ impl ITextRange_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual(::core::mem::transmute(&prange)) {
+            match this.IsEqual(::windows::core::from_raw_borrowed(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3902,13 +3902,13 @@ pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn GetCount(&self) -> ::windows::core::Result<i32>;
     fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2>;
     fn GetFont2(&self) -> ::windows::core::Result<ITextFont2>;
-    fn SetFont2(&self, pfont: &::core::option::Option<ITextFont2>) -> ::windows::core::Result<()>;
+    fn SetFont2(&self, pfont: ::core::option::Option<&ITextFont2>) -> ::windows::core::Result<()>;
     fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2>;
-    fn SetFormattedText2(&self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn SetFormattedText2(&self, prange: ::core::option::Option<&ITextRange2>) -> ::windows::core::Result<()>;
     fn GetGravity(&self) -> ::windows::core::Result<i32>;
     fn SetGravity(&self, value: i32) -> ::windows::core::Result<()>;
     fn GetPara2(&self) -> ::windows::core::Result<ITextPara2>;
-    fn SetPara2(&self, ppara: &::core::option::Option<ITextPara2>) -> ::windows::core::Result<()>;
+    fn SetPara2(&self, ppara: ::core::option::Option<&ITextPara2>) -> ::windows::core::Result<()>;
     fn GetRow(&self) -> ::windows::core::Result<ITextRow>;
     fn GetStartPara(&self) -> ::windows::core::Result<i32>;
     fn GetTable(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -3917,7 +3917,7 @@ pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn AddSubrange(&self, cp1: i32, cp2: i32, activate: i32) -> ::windows::core::Result<()>;
     fn BuildUpMath(&self, flags: i32) -> ::windows::core::Result<()>;
     fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()>;
-    fn Find(&self, prange: &::core::option::Option<ITextRange2>, count: i32, flags: i32) -> ::windows::core::Result<i32>;
+    fn Find(&self, prange: ::core::option::Option<&ITextRange2>, count: i32, flags: i32) -> ::windows::core::Result<i32>;
     fn GetChar2(&self, pchar: *mut i32, offset: i32) -> ::windows::core::Result<()>;
     fn GetDropCap(&self, pcline: *mut i32, pposition: *mut i32) -> ::windows::core::Result<()>;
     fn GetInlineObject(&self, ptype: *mut i32, palign: *mut i32, pchar: *mut i32, pchar1: *mut i32, pchar2: *mut i32, pcount: *mut i32, ptexstyle: *mut i32, pccol: *mut i32, plevel: *mut i32) -> ::windows::core::Result<()>;
@@ -3935,7 +3935,7 @@ pub trait ITextRange2_Impl: Sized + ITextSelection_Impl {
     fn UnicodeToHex(&self) -> ::windows::core::Result<()>;
     fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()>;
     fn GetMathFunctionType(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
-    fn InsertImage(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn InsertImage(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: &::windows::core::BSTR, pstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITextRange2 {}
@@ -4011,7 +4011,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn SetFont2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFont2(::core::mem::transmute(&pfont)).into()
+            this.SetFont2(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn GetFormattedText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4027,7 +4027,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn SetFormattedText2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormattedText2(::core::mem::transmute(&prange)).into()
+            this.SetFormattedText2(::windows::core::from_raw_borrowed(&prange)).into()
         }
         unsafe extern "system" fn GetGravity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4059,7 +4059,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn SetPara2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppara: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPara2(::core::mem::transmute(&ppara)).into()
+            this.SetPara2(::windows::core::from_raw_borrowed(&ppara)).into()
         }
         unsafe extern "system" fn GetRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprow: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4128,7 +4128,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn Find<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, count: i32, flags: i32, pdelta: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Find(::core::mem::transmute(&prange), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
+            match this.Find(::windows::core::from_raw_borrowed(&prange), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4242,7 +4242,7 @@ impl ITextRange2_Vtbl {
         unsafe extern "system" fn InsertImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRange2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InsertImage(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&ascent), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&bstralttext), ::core::mem::transmute(&pstream)).into()
+            this.InsertImage(::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height), ::core::mem::transmute_copy(&ascent), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&bstralttext), ::windows::core::from_raw_borrowed(&pstream)).into()
         }
         Self {
             base__: ITextSelection_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -4338,7 +4338,7 @@ pub trait ITextRow_Impl: Sized + super::super::super::System::Com::IDispatch_Imp
     fn CanChange(&self) -> ::windows::core::Result<i32>;
     fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
     fn Insert(&self, crow: i32) -> ::windows::core::Result<()>;
-    fn IsEqual(&self, prow: &::core::option::Option<ITextRow>) -> ::windows::core::Result<i32>;
+    fn IsEqual(&self, prow: ::core::option::Option<&ITextRow>) -> ::windows::core::Result<i32>;
     fn Reset(&self, value: i32) -> ::windows::core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
 }
@@ -4685,7 +4685,7 @@ impl ITextRow_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextRow_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prow: *mut ::core::ffi::c_void, pb: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsEqual(::core::mem::transmute(&prow)) {
+            match this.IsEqual(::windows::core::from_raw_borrowed(&prow)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -5073,7 +5073,7 @@ impl ITextServices_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextServices2_Impl: Sized + ITextServices_Impl {
     fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::super::super::Graphics::Gdi::HDC, hictargetdev: super::super::super::Graphics::Gdi::HDC, ptd: *mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::super::super::Foundation::SIZE, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> ::windows::core::Result<()>;
-    fn TxDrawD2D(&self, prendertarget: &::core::option::Option<super::super::super::Graphics::Direct2D::ID2D1RenderTarget>, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>;
+    fn TxDrawD2D(&self, prendertarget: ::core::option::Option<&super::super::super::Graphics::Direct2D::ID2D1RenderTarget>, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ITextServices2 {}
@@ -5088,7 +5088,7 @@ impl ITextServices2_Vtbl {
         unsafe extern "system" fn TxDrawD2D<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextServices2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendertarget: *mut ::core::ffi::c_void, lprcbounds: *mut super::super::super::Foundation::RECTL, lprcupdate: *mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.TxDrawD2D(::core::mem::transmute(&prendertarget), ::core::mem::transmute_copy(&lprcbounds), ::core::mem::transmute_copy(&lprcupdate), ::core::mem::transmute_copy(&lviewid)).into()
+            this.TxDrawD2D(::windows::core::from_raw_borrowed(&prendertarget), ::core::mem::transmute_copy(&lprcbounds), ::core::mem::transmute_copy(&lprcupdate), ::core::mem::transmute_copy(&lviewid)).into()
         }
         Self {
             base__: ITextServices_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -5112,7 +5112,7 @@ pub trait ITextStory_Impl: Sized {
     fn GetProperty(&self, r#type: i32) -> ::windows::core::Result<i32>;
     fn GetRange(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2>;
     fn GetText(&self, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn SetFormattedText(&self, punk: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetFormattedText(&self, punk: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()>;
     fn SetText(&self, flags: i32, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -5211,7 +5211,7 @@ impl ITextStory_Vtbl {
         unsafe extern "system" fn SetFormattedText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormattedText(::core::mem::transmute(&punk)).into()
+            this.SetFormattedText(::windows::core::from_raw_borrowed(&punk)).into()
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5332,19 +5332,19 @@ pub trait ITextStrings_Impl: Sized + super::super::super::System::Com::IDispatch
     fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange2>;
     fn GetCount(&self) -> ::windows::core::Result<i32>;
     fn Add(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Append(&self, prange: &::core::option::Option<ITextRange2>, istring: i32) -> ::windows::core::Result<()>;
+    fn Append(&self, prange: ::core::option::Option<&ITextRange2>, istring: i32) -> ::windows::core::Result<()>;
     fn Cat2(&self, istring: i32) -> ::windows::core::Result<()>;
     fn CatTop2(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn DeleteRange(&self, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
-    fn EncodeFunction(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn DeleteRange(&self, prange: ::core::option::Option<&ITextRange2>) -> ::windows::core::Result<()>;
+    fn EncodeFunction(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: ::core::option::Option<&ITextRange2>) -> ::windows::core::Result<()>;
     fn GetCch(&self, istring: i32) -> ::windows::core::Result<i32>;
     fn InsertNullStr(&self, istring: i32) -> ::windows::core::Result<()>;
     fn MoveBoundary(&self, istring: i32, cch: i32) -> ::windows::core::Result<()>;
     fn PrefixTop(&self, bstr: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()>;
-    fn SetFormattedText(&self, pranged: &::core::option::Option<ITextRange2>, pranges: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn SetFormattedText(&self, pranged: ::core::option::Option<&ITextRange2>, pranges: ::core::option::Option<&ITextRange2>) -> ::windows::core::Result<()>;
     fn SetOpCp(&self, istring: i32, cp: i32) -> ::windows::core::Result<()>;
-    fn SuffixTop(&self, bstr: &::windows::core::BSTR, prange: &::core::option::Option<ITextRange2>) -> ::windows::core::Result<()>;
+    fn SuffixTop(&self, bstr: &::windows::core::BSTR, prange: ::core::option::Option<&ITextRange2>) -> ::windows::core::Result<()>;
     fn Swap(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5382,7 +5382,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn Append<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, istring: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(::core::mem::transmute(&prange), ::core::mem::transmute_copy(&istring)).into()
+            this.Append(::windows::core::from_raw_borrowed(&prange), ::core::mem::transmute_copy(&istring)).into()
         }
         unsafe extern "system" fn Cat2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, istring: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5397,12 +5397,12 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn DeleteRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteRange(::core::mem::transmute(&prange)).into()
+            this.DeleteRange(::windows::core::from_raw_borrowed(&prange)).into()
         }
         unsafe extern "system" fn EncodeFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EncodeFunction(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&align), ::core::mem::transmute_copy(&char), ::core::mem::transmute_copy(&char1), ::core::mem::transmute_copy(&char2), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&texstyle), ::core::mem::transmute_copy(&ccol), ::core::mem::transmute(&prange)).into()
+            this.EncodeFunction(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&align), ::core::mem::transmute_copy(&char), ::core::mem::transmute_copy(&char1), ::core::mem::transmute_copy(&char2), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&texstyle), ::core::mem::transmute_copy(&ccol), ::windows::core::from_raw_borrowed(&prange)).into()
         }
         unsafe extern "system" fn GetCch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, istring: i32, pcch: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5438,7 +5438,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn SetFormattedText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pranged: *mut ::core::ffi::c_void, pranges: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetFormattedText(::core::mem::transmute(&pranged), ::core::mem::transmute(&pranges)).into()
+            this.SetFormattedText(::windows::core::from_raw_borrowed(&pranged), ::windows::core::from_raw_borrowed(&pranges)).into()
         }
         unsafe extern "system" fn SetOpCp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, istring: i32, cp: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5448,7 +5448,7 @@ impl ITextStrings_Vtbl {
         unsafe extern "system" fn SuffixTop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstr: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SuffixTop(::core::mem::transmute(&bstr), ::core::mem::transmute(&prange)).into()
+            this.SuffixTop(::core::mem::transmute(&bstr), ::windows::core::from_raw_borrowed(&prange)).into()
         }
         unsafe extern "system" fn Swap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextStrings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

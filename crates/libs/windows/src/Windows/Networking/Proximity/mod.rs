@@ -1213,7 +1213,7 @@ unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
 #[repr(transparent)]
 pub struct DeviceArrivedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceArrivedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DeviceArrivedEventHandlerBox::<F> { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1223,12 +1223,12 @@ impl DeviceArrivedEventHandler {
     }
 }
 #[repr(C)]
-struct DeviceArrivedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct DeviceArrivedEventHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DeviceArrivedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceArrivedEventHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1257,7 +1257,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender)).into()
     }
 }
 impl ::core::clone::Clone for DeviceArrivedEventHandler {
@@ -1299,7 +1299,7 @@ pub struct DeviceArrivedEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct DeviceDepartedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceDepartedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = DeviceDepartedEventHandlerBox::<F> { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1309,12 +1309,12 @@ impl DeviceDepartedEventHandler {
     }
 }
 #[repr(C)]
-struct DeviceDepartedEventHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct DeviceDepartedEventHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const DeviceDepartedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceDepartedEventHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ProximityDevice>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1343,7 +1343,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender)).into()
     }
 }
 impl ::core::clone::Clone for DeviceDepartedEventHandler {
@@ -1385,7 +1385,7 @@ pub struct DeviceDepartedEventHandler_Vtbl {
 #[repr(transparent)]
 pub struct MessageReceivedHandler(pub ::windows::core::IUnknown);
 impl MessageReceivedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedHandlerBox::<F> { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1395,12 +1395,12 @@ impl MessageReceivedHandler {
     }
 }
 #[repr(C)]
-struct MessageReceivedHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct MessageReceivedHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MessageReceivedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ProximityDevice>, ::core::option::Option<&ProximityMessage>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1429,7 +1429,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, &::core::option::Option<
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&message)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender), ::windows::core::from_raw_borrowed(&message)).into()
     }
 }
 impl ::core::clone::Clone for MessageReceivedHandler {
@@ -1471,7 +1471,7 @@ pub struct MessageReceivedHandler_Vtbl {
 #[repr(transparent)]
 pub struct MessageTransmittedHandler(pub ::windows::core::IUnknown);
 impl MessageTransmittedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = MessageTransmittedHandlerBox::<F> { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -1481,12 +1481,12 @@ impl MessageTransmittedHandler {
     }
 }
 #[repr(C)]
-struct MessageTransmittedHandlerBox<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct MessageTransmittedHandlerBox<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const MessageTransmittedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageTransmittedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ProximityDevice>, i64) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -1515,7 +1515,7 @@ impl<F: FnMut(&::core::option::Option<ProximityDevice>, i64) -> ::windows::core:
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, messageid: i64) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), messageid).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender), messageid).into()
     }
 }
 impl ::core::clone::Clone for MessageTransmittedHandler {

@@ -43,7 +43,7 @@ impl IDirectInput2W_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7A_Impl: Sized + IDirectInput2A_Impl {
-    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDirectInput7A {}
@@ -53,7 +53,7 @@ impl IDirectInput7A_Vtbl {
         unsafe extern "system" fn CreateDeviceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDeviceEx(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateDeviceEx(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         Self { base__: IDirectInput2A_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
@@ -64,7 +64,7 @@ impl IDirectInput7A_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput7W_Impl: Sized + IDirectInput2W_Impl {
-    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDirectInput7W {}
@@ -74,7 +74,7 @@ impl IDirectInput7W_Vtbl {
         unsafe extern "system" fn CreateDeviceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDeviceEx(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateDeviceEx(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         Self { base__: IDirectInput2W_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, Impl, OFFSET> }
     }
@@ -85,7 +85,7 @@ impl IDirectInput7W_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8A_Impl: Sized {
-    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8A>, param2: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
@@ -102,7 +102,7 @@ impl IDirectInput8A_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2)).into()
+            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::windows::core::from_raw_borrowed(&param2)).into()
         }
         unsafe extern "system" fn EnumDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -158,7 +158,7 @@ impl IDirectInput8A_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInput8W_Impl: Sized {
-    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDevice8W>, param2: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
@@ -175,7 +175,7 @@ impl IDirectInput8W_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2)).into()
+            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::windows::core::from_raw_borrowed(&param2)).into()
         }
         unsafe extern "system" fn EnumDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -231,7 +231,7 @@ impl IDirectInput8W_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputA_Impl: Sized {
-    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceA>, param2: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
@@ -245,7 +245,7 @@ impl IDirectInputA_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2)).into()
+            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::windows::core::from_raw_borrowed(&param2)).into()
         }
         unsafe extern "system" fn EnumDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputA_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -283,7 +283,7 @@ impl IDirectInputA_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2A_Impl: Sized + IDirectInputDeviceA_Impl {
-    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
@@ -301,7 +301,7 @@ impl IDirectInputDevice2A_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         unsafe extern "system" fn EnumEffects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -363,7 +363,7 @@ impl IDirectInputDevice2A_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputDevice2W_Impl: Sized + IDirectInputDeviceW_Impl {
-    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
@@ -381,7 +381,7 @@ impl IDirectInputDevice2W_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         unsafe extern "system" fn EnumEffects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -520,7 +520,7 @@ pub trait IDirectInputDevice8A_Impl: Sized {
     fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
@@ -618,7 +618,7 @@ impl IDirectInputDevice8A_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         unsafe extern "system" fn EnumEffects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -740,7 +740,7 @@ pub trait IDirectInputDevice8W_Impl: Sized {
     fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateEffect(&self, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut ::core::option::Option<IDirectInputEffect>, param3: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::core::Result<()>;
@@ -838,7 +838,7 @@ impl IDirectInputDevice8W_Vtbl {
         unsafe extern "system" fn CreateEffect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::core::mem::transmute(&param3)).into()
+            this.CreateEffect(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2), ::windows::core::from_raw_borrowed(&param3)).into()
         }
         unsafe extern "system" fn EnumEffects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1625,7 +1625,7 @@ impl IDirectInputJoyConfig8_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectInputW_Impl: Sized {
-    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, param0: *const ::windows::core::GUID, param1: *mut ::core::option::Option<IDirectInputDeviceW>, param2: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::core::Result<()>;
@@ -1639,7 +1639,7 @@ impl IDirectInputW_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *const ::windows::core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::core::mem::transmute(&param2)).into()
+            this.CreateDevice(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&param1), ::windows::core::from_raw_borrowed(&param2)).into()
         }
         unsafe extern "system" fn EnumDevices<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectInputW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

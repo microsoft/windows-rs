@@ -298,8 +298,8 @@ pub trait IRdcLibrary_Impl: Sized {
     fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters>;
     fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> ::windows::core::Result<IRdcGeneratorParameters>;
     fn CreateGenerator(&self, depth: u32, igeneratorparametersarray: *const ::core::option::Option<IRdcGeneratorParameters>) -> ::windows::core::Result<IRdcGenerator>;
-    fn CreateComparator(&self, iseedsignaturesfile: &::core::option::Option<IRdcFileReader>, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>;
-    fn CreateSignatureReader(&self, ifilereader: &::core::option::Option<IRdcFileReader>) -> ::windows::core::Result<IRdcSignatureReader>;
+    fn CreateComparator(&self, iseedsignaturesfile: ::core::option::Option<&IRdcFileReader>, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator>;
+    fn CreateSignatureReader(&self, ifilereader: ::core::option::Option<&IRdcFileReader>) -> ::windows::core::Result<IRdcSignatureReader>;
     fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRdcLibrary {}
@@ -352,7 +352,7 @@ impl IRdcLibrary_Vtbl {
         unsafe extern "system" fn CreateComparator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iseedsignaturesfile: *mut ::core::ffi::c_void, comparatorbuffersize: u32, icomparator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateComparator(::core::mem::transmute(&iseedsignaturesfile), ::core::mem::transmute_copy(&comparatorbuffersize)) {
+            match this.CreateComparator(::windows::core::from_raw_borrowed(&iseedsignaturesfile), ::core::mem::transmute_copy(&comparatorbuffersize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(icomparator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -363,7 +363,7 @@ impl IRdcLibrary_Vtbl {
         unsafe extern "system" fn CreateSignatureReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ifilereader: *mut ::core::ffi::c_void, isignaturereader: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSignatureReader(::core::mem::transmute(&ifilereader)) {
+            match this.CreateSignatureReader(::windows::core::from_raw_borrowed(&ifilereader)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(isignaturereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -466,11 +466,11 @@ impl IRdcSimilarityGenerator_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarity_Impl: Sized {
     fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: ::core::option::Option<&ISimilarityTraitsMapping>, fileidfile: ::core::option::Option<&IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> ::windows::core::Result<()>;
     fn FindSimilarFileId(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> ::windows::core::Result<IFindSimilarResults>;
-    fn CopyAndSwap(&self, newsimilaritytables: &::core::option::Option<ISimilarity>, reportprogress: &::core::option::Option<ISimilarityReportProgress>) -> ::windows::core::Result<()>;
+    fn CopyAndSwap(&self, newsimilaritytables: ::core::option::Option<&ISimilarity>, reportprogress: ::core::option::Option<&ISimilarityReportProgress>) -> ::windows::core::Result<()>;
     fn GetRecordCount(&self) -> ::windows::core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -492,7 +492,7 @@ impl ISimilarity_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mapping: *mut ::core::ffi::c_void, fileidfile: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTableIndirect(::core::mem::transmute(&mapping), ::core::mem::transmute(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
+            match this.CreateTableIndirect(::windows::core::from_raw_borrowed(&mapping), ::windows::core::from_raw_borrowed(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -524,7 +524,7 @@ impl ISimilarity_Vtbl {
         unsafe extern "system" fn CopyAndSwap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newsimilaritytables: *mut ::core::ffi::c_void, reportprogress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyAndSwap(::core::mem::transmute(&newsimilaritytables), ::core::mem::transmute(&reportprogress)).into()
+            this.CopyAndSwap(::windows::core::from_raw_borrowed(&newsimilaritytables), ::windows::core::from_raw_borrowed(&reportprogress)).into()
         }
         unsafe extern "system" fn GetRecordCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recordcount: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -556,7 +556,7 @@ impl ISimilarity_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityFileIdTable_Impl: Sized {
     fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, fileidfile: &::core::option::Option<IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, fileidfile: ::core::option::Option<&IRdcFileWriter>, truncate: super::super::Foundation::BOOL, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId) -> ::windows::core::Result<u32>;
     fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::Result<()>;
@@ -582,7 +582,7 @@ impl ISimilarityFileIdTable_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileidfile: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTableIndirect(::core::mem::transmute(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
+            match this.CreateTableIndirect(::windows::core::from_raw_borrowed(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -823,7 +823,7 @@ impl ISimilarityTraitsMapping_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISimilarityTraitsTable_Impl: Sized {
     fn CreateTable(&self, path: &::windows::core::PCWSTR, truncate: super::super::Foundation::BOOL, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: &::core::option::Option<ISimilarityTraitsMapping>, truncate: super::super::Foundation::BOOL) -> ::windows::core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: ::core::option::Option<&ISimilarityTraitsMapping>, truncate: super::super::Foundation::BOOL) -> ::windows::core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn Append(&self, data: *const SimilarityData, fileindex: u32) -> ::windows::core::Result<()>;
     fn FindSimilarFileIndex(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> ::windows::core::Result<()>;
@@ -849,7 +849,7 @@ impl ISimilarityTraitsTable_Vtbl {
         unsafe extern "system" fn CreateTableIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mapping: *mut ::core::ffi::c_void, truncate: super::super::Foundation::BOOL, isnew: *mut RdcCreatedTables) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateTableIndirect(::core::mem::transmute(&mapping), ::core::mem::transmute_copy(&truncate)) {
+            match this.CreateTableIndirect(::windows::core::from_raw_borrowed(&mapping), ::core::mem::transmute_copy(&truncate)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

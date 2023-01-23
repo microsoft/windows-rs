@@ -118,7 +118,7 @@ pub trait IPrintOptionDetails_Impl: Sized {
     fn SetState(&self, value: PrintOptionStates) -> ::windows::core::Result<()>;
     fn State(&self) -> ::windows::core::Result<PrintOptionStates>;
     fn Value(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn TrySetValue(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
+    fn TrySetValue(&self, value: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
@@ -198,7 +198,7 @@ impl IPrintOptionDetails_Vtbl {
         unsafe extern "system" fn TrySetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TrySetValue(::core::mem::transmute(&value)) {
+            match this.TrySetValue(::windows::core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

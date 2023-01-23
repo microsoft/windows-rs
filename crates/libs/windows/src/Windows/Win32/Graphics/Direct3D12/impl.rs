@@ -37,14 +37,14 @@ impl ID3D12CommandList_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12CommandQueue_Impl: Sized + ID3D12Pageable_Impl {
-    fn UpdateTileMappings(&self, presource: &::core::option::Option<ID3D12Resource>, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: &::core::option::Option<ID3D12Heap>, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS);
-    fn CopyTileMappings(&self, pdstresource: &::core::option::Option<ID3D12Resource>, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: &::core::option::Option<ID3D12Resource>, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS);
+    fn UpdateTileMappings(&self, presource: ::core::option::Option<&ID3D12Resource>, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: ::core::option::Option<&ID3D12Heap>, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS);
+    fn CopyTileMappings(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: ::core::option::Option<&ID3D12Resource>, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS);
     fn ExecuteCommandLists(&self, numcommandlists: u32, ppcommandlists: *const ::core::option::Option<ID3D12CommandList>);
     fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn Signal(&self, pfence: &::core::option::Option<ID3D12Fence>, value: u64) -> ::windows::core::Result<()>;
-    fn Wait(&self, pfence: &::core::option::Option<ID3D12Fence>, value: u64) -> ::windows::core::Result<()>;
+    fn Signal(&self, pfence: ::core::option::Option<&ID3D12Fence>, value: u64) -> ::windows::core::Result<()>;
+    fn Wait(&self, pfence: ::core::option::Option<&ID3D12Fence>, value: u64) -> ::windows::core::Result<()>;
     fn GetTimestampFrequency(&self) -> ::windows::core::Result<u64>;
     fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> ::windows::core::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
@@ -57,12 +57,12 @@ impl ID3D12CommandQueue_Vtbl {
         unsafe extern "system" fn UpdateTileMappings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: *mut ::core::ffi::c_void, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateTileMappings(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&numresourceregions), ::core::mem::transmute_copy(&presourceregionstartcoordinates), ::core::mem::transmute_copy(&presourceregionsizes), ::core::mem::transmute(&pheap), ::core::mem::transmute_copy(&numranges), ::core::mem::transmute_copy(&prangeflags), ::core::mem::transmute_copy(&pheaprangestartoffsets), ::core::mem::transmute_copy(&prangetilecounts), ::core::mem::transmute_copy(&flags))
+            this.UpdateTileMappings(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&numresourceregions), ::core::mem::transmute_copy(&presourceregionstartcoordinates), ::core::mem::transmute_copy(&presourceregionsizes), ::windows::core::from_raw_borrowed(&pheap), ::core::mem::transmute_copy(&numranges), ::core::mem::transmute_copy(&prangeflags), ::core::mem::transmute_copy(&pheaprangestartoffsets), ::core::mem::transmute_copy(&prangetilecounts), ::core::mem::transmute_copy(&flags))
         }
         unsafe extern "system" fn CopyTileMappings<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: *mut ::core::ffi::c_void, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyTileMappings(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&pdstregionstartcoordinate), ::core::mem::transmute(&psrcresource), ::core::mem::transmute_copy(&psrcregionstartcoordinate), ::core::mem::transmute_copy(&pregionsize), ::core::mem::transmute_copy(&flags))
+            this.CopyTileMappings(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&pdstregionstartcoordinate), ::windows::core::from_raw_borrowed(&psrcresource), ::core::mem::transmute_copy(&psrcregionstartcoordinate), ::core::mem::transmute_copy(&pregionsize), ::core::mem::transmute_copy(&flags))
         }
         unsafe extern "system" fn ExecuteCommandLists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numcommandlists: u32, ppcommandlists: *const *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -87,12 +87,12 @@ impl ID3D12CommandQueue_Vtbl {
         unsafe extern "system" fn Signal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Signal(::core::mem::transmute(&pfence), ::core::mem::transmute_copy(&value)).into()
+            this.Signal(::windows::core::from_raw_borrowed(&pfence), ::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn Wait<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Wait(::core::mem::transmute(&pfence), ::core::mem::transmute_copy(&value)).into()
+            this.Wait(::windows::core::from_raw_borrowed(&pfence), ::core::mem::transmute_copy(&value)).into()
         }
         unsafe extern "system" fn GetTimestampFrequency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrequency: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -305,7 +305,7 @@ impl ID3D12Debug5_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList_Impl: Sized {
-    fn AssertResourceState(&self, presource: &::core::option::Option<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
     fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
 }
@@ -317,7 +317,7 @@ impl ID3D12DebugCommandList_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AssertResourceState(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
+            this.AssertResourceState(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
         }
         unsafe extern "system" fn SetFeatureMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -343,7 +343,7 @@ impl ID3D12DebugCommandList_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandList1_Impl: Sized {
-    fn AssertResourceState(&self, presource: &::core::option::Option<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
     fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
     fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::Result<()>;
 }
@@ -355,7 +355,7 @@ impl ID3D12DebugCommandList1_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AssertResourceState(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
+            this.AssertResourceState(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
         }
         unsafe extern "system" fn SetDebugParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -412,7 +412,7 @@ impl ID3D12DebugCommandList2_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12DebugCommandQueue_Impl: Sized {
-    fn AssertResourceState(&self, presource: &::core::option::Option<ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
+    fn AssertResourceState(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, state: u32) -> super::super::Foundation::BOOL;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ID3D12DebugCommandQueue {}
@@ -422,7 +422,7 @@ impl ID3D12DebugCommandQueue_Vtbl {
         unsafe extern "system" fn AssertResourceState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AssertResourceState(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
+            this.AssertResourceState(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&state))
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AssertResourceState: AssertResourceState::<Identity, Impl, OFFSET> }
     }
@@ -571,16 +571,16 @@ pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn CreateCommandAllocator(&self, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateGraphicsPipelineState(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateComputePipelineState(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateCommandList(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: &::core::option::Option<ID3D12CommandAllocator>, pinitialstate: &::core::option::Option<ID3D12PipelineState>, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateCommandList(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::core::option::Option<&ID3D12CommandAllocator>, pinitialstate: ::core::option::Option<&ID3D12PipelineState>, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()>;
     fn CreateDescriptorHeap(&self, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32;
     fn CreateRootSignature(&self, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::core::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateConstantBufferView(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
-    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D12Resource>, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
-    fn CreateUnorderedAccessView(&self, presource: &::core::option::Option<ID3D12Resource>, pcounterresource: &::core::option::Option<ID3D12Resource>, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
-    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D12Resource>, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
-    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D12Resource>, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn CreateShaderResourceView(&self, presource: ::core::option::Option<&ID3D12Resource>, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn CreateUnorderedAccessView(&self, presource: ::core::option::Option<&ID3D12Resource>, pcounterresource: ::core::option::Option<&ID3D12Resource>, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn CreateRenderTargetView(&self, presource: ::core::option::Option<&ID3D12Resource>, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn CreateDepthStencilView(&self, presource: ::core::option::Option<&ID3D12Resource>, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn CreateSampler(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE);
     fn CopyDescriptorsSimple(&self, numdescriptors: u32, destdescriptorrangestart: &D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: &D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE);
@@ -588,9 +588,9 @@ pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn GetCustomHeapProperties(&self, nodemask: u32, heaptype: D3D12_HEAP_TYPE) -> D3D12_HEAP_PROPERTIES;
     fn CreateCommittedResource(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateHeap(&self, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreatePlacedResource(&self, pheap: &::core::option::Option<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreatePlacedResource(&self, pheap: ::core::option::Option<&ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateReservedResource(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateSharedHandle(&self, pobject: &::core::option::Option<ID3D12DeviceChild>, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: ::core::option::Option<&ID3D12DeviceChild>, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
     fn OpenSharedHandle(&self, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn OpenSharedHandleByName(&self, name: &::windows::core::PCWSTR, access: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>;
     fn MakeResident(&self, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>) -> ::windows::core::Result<()>;
@@ -600,8 +600,8 @@ pub trait ID3D12Device_Impl: Sized + ID3D12Object_Impl {
     fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
     fn CreateQueryHeap(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetStablePowerState(&self, enable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn CreateCommandSignature(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: &::core::option::Option<ID3D12RootSignature>, riid: *const ::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetResourceTiling(&self, ptiledresource: &::core::option::Option<ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
+    fn CreateCommandSignature(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: ::core::option::Option<&ID3D12RootSignature>, riid: *const ::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn GetResourceTiling(&self, ptiledresource: ::core::option::Option<&ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::super::Foundation::LUID;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -637,7 +637,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateCommandList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: *mut ::core::ffi::c_void, pinitialstate: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateCommandList(::core::mem::transmute_copy(&nodemask), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute(&pcommandallocator), ::core::mem::transmute(&pinitialstate), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppcommandlist)).into()
+            this.CreateCommandList(::core::mem::transmute_copy(&nodemask), ::core::mem::transmute_copy(&r#type), ::windows::core::from_raw_borrowed(&pcommandallocator), ::windows::core::from_raw_borrowed(&pinitialstate), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppcommandlist)).into()
         }
         unsafe extern "system" fn CheckFeatureSupport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -667,22 +667,22 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
+            this.CreateShaderResourceView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateUnorderedAccessView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pcounterresource: *mut ::core::ffi::c_void, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute(&pcounterresource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
+            this.CreateUnorderedAccessView(::windows::core::from_raw_borrowed(&presource), ::windows::core::from_raw_borrowed(&pcounterresource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
+            this.CreateRenderTargetView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
+            this.CreateDepthStencilView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn CreateSampler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -722,7 +722,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreatePlacedResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: *mut ::core::ffi::c_void, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreatePlacedResource(::core::mem::transmute(&pheap), ::core::mem::transmute_copy(&heapoffset), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
+            this.CreatePlacedResource(::windows::core::from_raw_borrowed(&pheap), ::core::mem::transmute_copy(&heapoffset), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
         }
         unsafe extern "system" fn CreateReservedResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -732,7 +732,7 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: ::windows::core::PCWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSharedHandle(::core::mem::transmute(&pobject), ::core::mem::transmute_copy(&pattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
+            match this.CreateSharedHandle(::windows::core::from_raw_borrowed(&pobject), ::core::mem::transmute_copy(&pattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -794,12 +794,12 @@ impl ID3D12Device_Vtbl {
         unsafe extern "system" fn CreateCommandSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateCommandSignature(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&prootsignature), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvcommandsignature)).into()
+            this.CreateCommandSignature(::core::mem::transmute_copy(&pdesc), ::windows::core::from_raw_borrowed(&prootsignature), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvcommandsignature)).into()
         }
         unsafe extern "system" fn GetResourceTiling<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetResourceTiling(::core::mem::transmute(&ptiledresource), ::core::mem::transmute_copy(&pnumtilesforentireresource), ::core::mem::transmute_copy(&ppackedmipdesc), ::core::mem::transmute_copy(&pstandardtileshapefornonpackedmips), ::core::mem::transmute_copy(&pnumsubresourcetilings), ::core::mem::transmute_copy(&firstsubresourcetilingtoget), ::core::mem::transmute_copy(&psubresourcetilingsfornonpackedmips))
+            this.GetResourceTiling(::windows::core::from_raw_borrowed(&ptiledresource), ::core::mem::transmute_copy(&pnumtilesforentireresource), ::core::mem::transmute_copy(&ppackedmipdesc), ::core::mem::transmute_copy(&pstandardtileshapefornonpackedmips), ::core::mem::transmute_copy(&pnumsubresourcetilings), ::core::mem::transmute_copy(&firstsubresourcetilingtoget), ::core::mem::transmute_copy(&psubresourcetilingsfornonpackedmips))
         }
         unsafe extern "system" fn GetAdapterLuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -915,7 +915,7 @@ impl ID3D12Device2_Vtbl {
 pub trait ID3D12Device3_Impl: Sized + ID3D12Device2_Impl {
     fn OpenExistingHeapFromAddress(&self, paddress: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, pfencetosignal: &::core::option::Option<ID3D12Fence>, fencevaluetosignal: u64) -> ::windows::core::Result<()>;
+    fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::core::option::Option<ID3D12Pageable>, pfencetosignal: ::core::option::Option<&ID3D12Fence>, fencevaluetosignal: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ::windows::core::RuntimeName for ID3D12Device3 {}
@@ -935,7 +935,7 @@ impl ID3D12Device3_Vtbl {
         unsafe extern "system" fn EnqueueMakeResident<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const *mut ::core::ffi::c_void, pfencetosignal: *mut ::core::ffi::c_void, fencevaluetosignal: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnqueueMakeResident(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&numobjects), ::core::mem::transmute_copy(&ppobjects), ::core::mem::transmute(&pfencetosignal), ::core::mem::transmute_copy(&fencevaluetosignal)).into()
+            this.EnqueueMakeResident(::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&numobjects), ::core::mem::transmute_copy(&ppobjects), ::windows::core::from_raw_borrowed(&pfencetosignal), ::core::mem::transmute_copy(&fencevaluetosignal)).into()
         }
         Self {
             base__: ID3D12Device2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -953,9 +953,9 @@ impl ID3D12Device3_Vtbl {
 pub trait ID3D12Device4_Impl: Sized + ID3D12Device3_Impl {
     fn CreateCommandList1(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateProtectedResourceSession(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateCommittedResource1(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: &::core::option::Option<ID3D12ProtectedResourceSession>, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateHeap1(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: &::core::option::Option<ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: &::core::option::Option<ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateCommittedResource1(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateHeap1(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -976,17 +976,17 @@ impl ID3D12Device4_Vtbl {
         unsafe extern "system" fn CreateCommittedResource1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut ::core::ffi::c_void, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateCommittedResource1(::core::mem::transmute_copy(&pheapproperties), ::core::mem::transmute_copy(&heapflags), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialresourcestate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute(&pprotectedsession), ::core::mem::transmute_copy(&riidresource), ::core::mem::transmute_copy(&ppvresource)).into()
+            this.CreateCommittedResource1(::core::mem::transmute_copy(&pheapproperties), ::core::mem::transmute_copy(&heapflags), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialresourcestate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::windows::core::from_raw_borrowed(&pprotectedsession), ::core::mem::transmute_copy(&riidresource), ::core::mem::transmute_copy(&ppvresource)).into()
         }
         unsafe extern "system" fn CreateHeap1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateHeap1(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute(&pprotectedsession), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvheap)).into()
+            this.CreateHeap1(::core::mem::transmute_copy(&pdesc), ::windows::core::from_raw_borrowed(&pprotectedsession), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvheap)).into()
         }
         unsafe extern "system" fn CreateReservedResource1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateReservedResource1(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute(&pprotectedsession), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
+            this.CreateReservedResource1(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::windows::core::from_raw_borrowed(&pprotectedsession), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
         }
         unsafe extern "system" fn GetResourceAllocationInfo1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1010,7 +1010,7 @@ impl ID3D12Device4_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device5_Impl: Sized + ID3D12Device4_Impl {
-    fn CreateLifetimeTracker(&self, powner: &::core::option::Option<ID3D12LifetimeOwner>, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateLifetimeTracker(&self, powner: ::core::option::Option<&ID3D12LifetimeOwner>, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn RemoveDevice(&self);
     fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::Result<()>;
     fn EnumerateMetaCommandParameters(&self, commandid: *const ::windows::core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> ::windows::core::Result<()>;
@@ -1027,7 +1027,7 @@ impl ID3D12Device5_Vtbl {
         unsafe extern "system" fn CreateLifetimeTracker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, powner: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateLifetimeTracker(::core::mem::transmute(&powner), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvtracker)).into()
+            this.CreateLifetimeTracker(::windows::core::from_raw_borrowed(&powner), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvtracker)).into()
         }
         unsafe extern "system" fn RemoveDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1104,7 +1104,7 @@ impl ID3D12Device6_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Security\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device7_Impl: Sized + ID3D12Device6_Impl {
-    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: &::core::option::Option<ID3D12StateObject>, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::core::option::Option<&ID3D12StateObject>, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1115,7 +1115,7 @@ impl ID3D12Device7_Vtbl {
         unsafe extern "system" fn AddToStateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddToStateObject(::core::mem::transmute_copy(&paddition), ::core::mem::transmute(&pstateobjecttogrowfrom), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppnewstateobject)).into()
+            this.AddToStateObject(::core::mem::transmute_copy(&paddition), ::windows::core::from_raw_borrowed(&pstateobjecttogrowfrom), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppnewstateobject)).into()
         }
         unsafe extern "system" fn CreateProtectedResourceSession1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1136,9 +1136,9 @@ impl ID3D12Device7_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device8_Impl: Sized + ID3D12Device7_Impl {
     fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
-    fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: &::core::option::Option<ID3D12ProtectedResourceSession>, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreatePlacedResource1(&self, pheap: &::core::option::Option<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: &::core::option::Option<ID3D12Resource>, pfeedbackresource: &::core::option::Option<ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
+    fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::core::option::Option<&ID3D12ProtectedResourceSession>, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreatePlacedResource1(&self, pheap: ::core::option::Option<&ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: ::core::option::Option<&ID3D12Resource>, pfeedbackresource: ::core::option::Option<&ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -1154,17 +1154,17 @@ impl ID3D12Device8_Vtbl {
         unsafe extern "system" fn CreateCommittedResource2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut ::core::ffi::c_void, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateCommittedResource2(::core::mem::transmute_copy(&pheapproperties), ::core::mem::transmute_copy(&heapflags), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialresourcestate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute(&pprotectedsession), ::core::mem::transmute_copy(&riidresource), ::core::mem::transmute_copy(&ppvresource)).into()
+            this.CreateCommittedResource2(::core::mem::transmute_copy(&pheapproperties), ::core::mem::transmute_copy(&heapflags), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialresourcestate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::windows::core::from_raw_borrowed(&pprotectedsession), ::core::mem::transmute_copy(&riidresource), ::core::mem::transmute_copy(&ppvresource)).into()
         }
         unsafe extern "system" fn CreatePlacedResource1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: *mut ::core::ffi::c_void, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreatePlacedResource1(::core::mem::transmute(&pheap), ::core::mem::transmute_copy(&heapoffset), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
+            this.CreatePlacedResource1(::windows::core::from_raw_borrowed(&pheap), ::core::mem::transmute_copy(&heapoffset), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&initialstate), ::core::mem::transmute_copy(&poptimizedclearvalue), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvresource)).into()
         }
         unsafe extern "system" fn CreateSamplerFeedbackUnorderedAccessView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetedresource: *mut ::core::ffi::c_void, pfeedbackresource: *mut ::core::ffi::c_void, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateSamplerFeedbackUnorderedAccessView(::core::mem::transmute(&ptargetedresource), ::core::mem::transmute(&pfeedbackresource), ::core::mem::transmute(&destdescriptor))
+            this.CreateSamplerFeedbackUnorderedAccessView(::windows::core::from_raw_borrowed(&ptargetedresource), ::windows::core::from_raw_borrowed(&pfeedbackresource), ::core::mem::transmute(&destdescriptor))
         }
         unsafe extern "system" fn GetCopyableFootprints1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1573,27 +1573,27 @@ impl ID3D12FunctionReflection {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList_Impl: Sized + ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn Reset(&self, pallocator: &::core::option::Option<ID3D12CommandAllocator>, pinitialstate: &::core::option::Option<ID3D12PipelineState>) -> ::windows::core::Result<()>;
-    fn ClearState(&self, ppipelinestate: &::core::option::Option<ID3D12PipelineState>);
+    fn Reset(&self, pallocator: ::core::option::Option<&ID3D12CommandAllocator>, pinitialstate: ::core::option::Option<&ID3D12PipelineState>) -> ::windows::core::Result<()>;
+    fn ClearState(&self, ppipelinestate: ::core::option::Option<&ID3D12PipelineState>);
     fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
     fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
     fn Dispatch(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
-    fn CopyBufferRegion(&self, pdstbuffer: &::core::option::Option<ID3D12Resource>, dstoffset: u64, psrcbuffer: &::core::option::Option<ID3D12Resource>, srcoffset: u64, numbytes: u64);
+    fn CopyBufferRegion(&self, pdstbuffer: ::core::option::Option<&ID3D12Resource>, dstoffset: u64, psrcbuffer: ::core::option::Option<&ID3D12Resource>, srcoffset: u64, numbytes: u64);
     fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX);
-    fn CopyResource(&self, pdstresource: &::core::option::Option<ID3D12Resource>, psrcresource: &::core::option::Option<ID3D12Resource>);
-    fn CopyTiles(&self, ptiledresource: &::core::option::Option<ID3D12Resource>, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: &::core::option::Option<ID3D12Resource>, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS);
-    fn ResolveSubresource(&self, pdstresource: &::core::option::Option<ID3D12Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D12Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn CopyResource(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, psrcresource: ::core::option::Option<&ID3D12Resource>);
+    fn CopyTiles(&self, ptiledresource: ::core::option::Option<&ID3D12Resource>, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::core::option::Option<&ID3D12Resource>, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS);
+    fn ResolveSubresource(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, dstsubresource: u32, psrcresource: ::core::option::Option<&ID3D12Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
     fn IASetPrimitiveTopology(&self, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT);
     fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
     fn OMSetBlendFactor(&self, blendfactor: *const f32);
     fn OMSetStencilRef(&self, stencilref: u32);
-    fn SetPipelineState(&self, ppipelinestate: &::core::option::Option<ID3D12PipelineState>);
+    fn SetPipelineState(&self, ppipelinestate: ::core::option::Option<&ID3D12PipelineState>);
     fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER);
-    fn ExecuteBundle(&self, pcommandlist: &::core::option::Option<ID3D12GraphicsCommandList>);
+    fn ExecuteBundle(&self, pcommandlist: ::core::option::Option<&ID3D12GraphicsCommandList>);
     fn SetDescriptorHeaps(&self, numdescriptorheaps: u32, ppdescriptorheaps: *const ::core::option::Option<ID3D12DescriptorHeap>);
-    fn SetComputeRootSignature(&self, prootsignature: &::core::option::Option<ID3D12RootSignature>);
-    fn SetGraphicsRootSignature(&self, prootsignature: &::core::option::Option<ID3D12RootSignature>);
+    fn SetComputeRootSignature(&self, prootsignature: ::core::option::Option<&ID3D12RootSignature>);
+    fn SetGraphicsRootSignature(&self, prootsignature: ::core::option::Option<&ID3D12RootSignature>);
     fn SetComputeRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: &D3D12_GPU_DESCRIPTOR_HANDLE);
     fn SetGraphicsRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: &D3D12_GPU_DESCRIPTOR_HANDLE);
     fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32);
@@ -1612,17 +1612,17 @@ pub trait ID3D12GraphicsCommandList_Impl: Sized + ID3D12CommandList_Impl {
     fn OMSetRenderTargets(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE);
     fn ClearDepthStencilView(&self, depthstencilview: &D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT);
     fn ClearRenderTargetView(&self, rendertargetview: &D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn ClearUnorderedAccessViewUint(&self, viewgpuhandleincurrentheap: &D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: &D3D12_CPU_DESCRIPTOR_HANDLE, presource: &::core::option::Option<ID3D12Resource>, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn ClearUnorderedAccessViewFloat(&self, viewgpuhandleincurrentheap: &D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: &D3D12_CPU_DESCRIPTOR_HANDLE, presource: &::core::option::Option<ID3D12Resource>, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn DiscardResource(&self, presource: &::core::option::Option<ID3D12Resource>, pregion: *const D3D12_DISCARD_REGION);
-    fn BeginQuery(&self, pqueryheap: &::core::option::Option<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
-    fn EndQuery(&self, pqueryheap: &::core::option::Option<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
-    fn ResolveQueryData(&self, pqueryheap: &::core::option::Option<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: &::core::option::Option<ID3D12Resource>, aligneddestinationbufferoffset: u64);
-    fn SetPredication(&self, pbuffer: &::core::option::Option<ID3D12Resource>, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP);
+    fn ClearUnorderedAccessViewUint(&self, viewgpuhandleincurrentheap: &D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: &D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::core::option::Option<&ID3D12Resource>, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT);
+    fn ClearUnorderedAccessViewFloat(&self, viewgpuhandleincurrentheap: &D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: &D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::core::option::Option<&ID3D12Resource>, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT);
+    fn DiscardResource(&self, presource: ::core::option::Option<&ID3D12Resource>, pregion: *const D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: ::core::option::Option<&ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: ::core::option::Option<&ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: ::core::option::Option<&ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: ::core::option::Option<&ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: ::core::option::Option<&ID3D12Resource>, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP);
     fn SetMarker(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn ExecuteIndirect(&self, pcommandsignature: &::core::option::Option<ID3D12CommandSignature>, maxcommandcount: u32, pargumentbuffer: &::core::option::Option<ID3D12Resource>, argumentbufferoffset: u64, pcountbuffer: &::core::option::Option<ID3D12Resource>, countbufferoffset: u64);
+    fn ExecuteIndirect(&self, pcommandsignature: ::core::option::Option<&ID3D12CommandSignature>, maxcommandcount: u32, pargumentbuffer: ::core::option::Option<&ID3D12Resource>, argumentbufferoffset: u64, pcountbuffer: ::core::option::Option<&ID3D12Resource>, countbufferoffset: u64);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList {}
@@ -1637,12 +1637,12 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallocator: *mut ::core::ffi::c_void, pinitialstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset(::core::mem::transmute(&pallocator), ::core::mem::transmute(&pinitialstate)).into()
+            this.Reset(::windows::core::from_raw_borrowed(&pallocator), ::windows::core::from_raw_borrowed(&pinitialstate)).into()
         }
         unsafe extern "system" fn ClearState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipelinestate: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearState(::core::mem::transmute(&ppipelinestate))
+            this.ClearState(::windows::core::from_raw_borrowed(&ppipelinestate))
         }
         unsafe extern "system" fn DrawInstanced<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1662,7 +1662,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn CopyBufferRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, numbytes: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyBufferRegion(::core::mem::transmute(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::core::mem::transmute(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&numbytes))
+            this.CopyBufferRegion(::windows::core::from_raw_borrowed(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::windows::core::from_raw_borrowed(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&numbytes))
         }
         unsafe extern "system" fn CopyTextureRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1672,17 +1672,17 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn CopyResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, psrcresource: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyResource(::core::mem::transmute(&pdstresource), ::core::mem::transmute(&psrcresource))
+            this.CopyResource(::windows::core::from_raw_borrowed(&pdstresource), ::windows::core::from_raw_borrowed(&psrcresource))
         }
         unsafe extern "system" fn CopyTiles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: *mut ::core::ffi::c_void, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyTiles(::core::mem::transmute(&ptiledresource), ::core::mem::transmute_copy(&ptileregionstartcoordinate), ::core::mem::transmute_copy(&ptileregionsize), ::core::mem::transmute(&pbuffer), ::core::mem::transmute_copy(&bufferstartoffsetinbytes), ::core::mem::transmute_copy(&flags))
+            this.CopyTiles(::windows::core::from_raw_borrowed(&ptiledresource), ::core::mem::transmute_copy(&ptileregionstartcoordinate), ::core::mem::transmute_copy(&ptileregionsize), ::windows::core::from_raw_borrowed(&pbuffer), ::core::mem::transmute_copy(&bufferstartoffsetinbytes), ::core::mem::transmute_copy(&flags))
         }
         unsafe extern "system" fn ResolveSubresource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResolveSubresource(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&format))
+            this.ResolveSubresource(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::windows::core::from_raw_borrowed(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&format))
         }
         unsafe extern "system" fn IASetPrimitiveTopology<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1712,7 +1712,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn SetPipelineState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipelinestate: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPipelineState(::core::mem::transmute(&ppipelinestate))
+            this.SetPipelineState(::windows::core::from_raw_borrowed(&ppipelinestate))
         }
         unsafe extern "system" fn ResourceBarrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1722,7 +1722,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn ExecuteBundle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandlist: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExecuteBundle(::core::mem::transmute(&pcommandlist))
+            this.ExecuteBundle(::windows::core::from_raw_borrowed(&pcommandlist))
         }
         unsafe extern "system" fn SetDescriptorHeaps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdescriptorheaps: u32, ppdescriptorheaps: *const *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1732,12 +1732,12 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn SetComputeRootSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prootsignature: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetComputeRootSignature(::core::mem::transmute(&prootsignature))
+            this.SetComputeRootSignature(::windows::core::from_raw_borrowed(&prootsignature))
         }
         unsafe extern "system" fn SetGraphicsRootSignature<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prootsignature: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetGraphicsRootSignature(::core::mem::transmute(&prootsignature))
+            this.SetGraphicsRootSignature(::windows::core::from_raw_borrowed(&prootsignature))
         }
         unsafe extern "system" fn SetComputeRootDescriptorTable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1832,37 +1832,37 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn ClearUnorderedAccessViewUint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: *mut ::core::ffi::c_void, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearUnorderedAccessViewUint(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            this.ClearUnorderedAccessViewUint(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn ClearUnorderedAccessViewFloat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: *mut ::core::ffi::c_void, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearUnorderedAccessViewFloat(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::core::mem::transmute(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
+            this.ClearUnorderedAccessViewFloat(::core::mem::transmute(&viewgpuhandleincurrentheap), ::core::mem::transmute(&viewcpuhandle), ::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&values), ::core::mem::transmute_copy(&numrects), ::core::mem::transmute_copy(&prects))
         }
         unsafe extern "system" fn DiscardResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pregion: *const D3D12_DISCARD_REGION) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DiscardResource(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pregion))
+            this.DiscardResource(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pregion))
         }
         unsafe extern "system" fn BeginQuery<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: *mut ::core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BeginQuery(::core::mem::transmute(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&index))
+            this.BeginQuery(::windows::core::from_raw_borrowed(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&index))
         }
         unsafe extern "system" fn EndQuery<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: *mut ::core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EndQuery(::core::mem::transmute(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&index))
+            this.EndQuery(::windows::core::from_raw_borrowed(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&index))
         }
         unsafe extern "system" fn ResolveQueryData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: *mut ::core::ffi::c_void, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut ::core::ffi::c_void, aligneddestinationbufferoffset: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResolveQueryData(::core::mem::transmute(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&numqueries), ::core::mem::transmute(&pdestinationbuffer), ::core::mem::transmute_copy(&aligneddestinationbufferoffset))
+            this.ResolveQueryData(::windows::core::from_raw_borrowed(&pqueryheap), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&startindex), ::core::mem::transmute_copy(&numqueries), ::windows::core::from_raw_borrowed(&pdestinationbuffer), ::core::mem::transmute_copy(&aligneddestinationbufferoffset))
         }
         unsafe extern "system" fn SetPredication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPredication(::core::mem::transmute(&pbuffer), ::core::mem::transmute_copy(&alignedbufferoffset), ::core::mem::transmute_copy(&operation))
+            this.SetPredication(::windows::core::from_raw_borrowed(&pbuffer), ::core::mem::transmute_copy(&alignedbufferoffset), ::core::mem::transmute_copy(&operation))
         }
         unsafe extern "system" fn SetMarker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1882,7 +1882,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         unsafe extern "system" fn ExecuteIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandsignature: *mut ::core::ffi::c_void, maxcommandcount: u32, pargumentbuffer: *mut ::core::ffi::c_void, argumentbufferoffset: u64, pcountbuffer: *mut ::core::ffi::c_void, countbufferoffset: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExecuteIndirect(::core::mem::transmute(&pcommandsignature), ::core::mem::transmute_copy(&maxcommandcount), ::core::mem::transmute(&pargumentbuffer), ::core::mem::transmute_copy(&argumentbufferoffset), ::core::mem::transmute(&pcountbuffer), ::core::mem::transmute_copy(&countbufferoffset))
+            this.ExecuteIndirect(::windows::core::from_raw_borrowed(&pcommandsignature), ::core::mem::transmute_copy(&maxcommandcount), ::windows::core::from_raw_borrowed(&pargumentbuffer), ::core::mem::transmute_copy(&argumentbufferoffset), ::windows::core::from_raw_borrowed(&pcountbuffer), ::core::mem::transmute_copy(&countbufferoffset))
         }
         Self {
             base__: ID3D12CommandList_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1946,11 +1946,11 @@ impl ID3D12GraphicsCommandList_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList1_Impl: Sized + ID3D12GraphicsCommandList_Impl {
-    fn AtomicCopyBufferUINT(&self, pdstbuffer: &::core::option::Option<ID3D12Resource>, dstoffset: u64, psrcbuffer: &::core::option::Option<ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
-    fn AtomicCopyBufferUINT64(&self, pdstbuffer: &::core::option::Option<ID3D12Resource>, dstoffset: u64, psrcbuffer: &::core::option::Option<ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
+    fn AtomicCopyBufferUINT(&self, pdstbuffer: ::core::option::Option<&ID3D12Resource>, dstoffset: u64, psrcbuffer: ::core::option::Option<&ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
+    fn AtomicCopyBufferUINT64(&self, pdstbuffer: ::core::option::Option<&ID3D12Resource>, dstoffset: u64, psrcbuffer: ::core::option::Option<&ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::core::option::Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
     fn OMSetDepthBounds(&self, min: f32, max: f32);
     fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION);
-    fn ResolveSubresourceRegion(&self, pdstresource: &::core::option::Option<ID3D12Resource>, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: &::core::option::Option<ID3D12Resource>, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE);
+    fn ResolveSubresourceRegion(&self, pdstresource: ::core::option::Option<&ID3D12Resource>, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::core::option::Option<&ID3D12Resource>, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE);
     fn SetViewInstanceMask(&self, mask: u32);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1961,12 +1961,12 @@ impl ID3D12GraphicsCommandList1_Vtbl {
         unsafe extern "system" fn AtomicCopyBufferUINT<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, dependencies: u32, ppdependentresources: *const *mut ::core::ffi::c_void, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AtomicCopyBufferUINT(::core::mem::transmute(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::core::mem::transmute(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&dependencies), ::core::mem::transmute_copy(&ppdependentresources), ::core::mem::transmute_copy(&pdependentsubresourceranges))
+            this.AtomicCopyBufferUINT(::windows::core::from_raw_borrowed(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::windows::core::from_raw_borrowed(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&dependencies), ::core::mem::transmute_copy(&ppdependentresources), ::core::mem::transmute_copy(&pdependentsubresourceranges))
         }
         unsafe extern "system" fn AtomicCopyBufferUINT64<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut ::core::ffi::c_void, srcoffset: u64, dependencies: u32, ppdependentresources: *const *mut ::core::ffi::c_void, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AtomicCopyBufferUINT64(::core::mem::transmute(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::core::mem::transmute(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&dependencies), ::core::mem::transmute_copy(&ppdependentresources), ::core::mem::transmute_copy(&pdependentsubresourceranges))
+            this.AtomicCopyBufferUINT64(::windows::core::from_raw_borrowed(&pdstbuffer), ::core::mem::transmute_copy(&dstoffset), ::windows::core::from_raw_borrowed(&psrcbuffer), ::core::mem::transmute_copy(&srcoffset), ::core::mem::transmute_copy(&dependencies), ::core::mem::transmute_copy(&ppdependentresources), ::core::mem::transmute_copy(&pdependentsubresourceranges))
         }
         unsafe extern "system" fn OMSetDepthBounds<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, min: f32, max: f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1981,7 +1981,7 @@ impl ID3D12GraphicsCommandList1_Vtbl {
         unsafe extern "system" fn ResolveSubresourceRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResolveSubresourceRegion(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&dstx), ::core::mem::transmute_copy(&dsty), ::core::mem::transmute(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&psrcrect), ::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&resolvemode))
+            this.ResolveSubresourceRegion(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&dstx), ::core::mem::transmute_copy(&dsty), ::windows::core::from_raw_borrowed(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&psrcrect), ::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&resolvemode))
         }
         unsafe extern "system" fn SetViewInstanceMask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2026,7 +2026,7 @@ impl ID3D12GraphicsCommandList2_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList3_Impl: Sized + ID3D12GraphicsCommandList2_Impl {
-    fn SetProtectedResourceSession(&self, pprotectedresourcesession: &::core::option::Option<ID3D12ProtectedResourceSession>);
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: ::core::option::Option<&ID3D12ProtectedResourceSession>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList3 {}
@@ -2036,7 +2036,7 @@ impl ID3D12GraphicsCommandList3_Vtbl {
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotectedresourcesession: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProtectedResourceSession(::core::mem::transmute(&pprotectedresourcesession))
+            this.SetProtectedResourceSession(::windows::core::from_raw_borrowed(&pprotectedresourcesession))
         }
         Self {
             base__: ID3D12GraphicsCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2052,12 +2052,12 @@ impl ID3D12GraphicsCommandList3_Vtbl {
 pub trait ID3D12GraphicsCommandList4_Impl: Sized + ID3D12GraphicsCommandList3_Impl {
     fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS);
     fn EndRenderPass(&self);
-    fn InitializeMetaCommand(&self, pmetacommand: &::core::option::Option<ID3D12MetaCommand>, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize);
-    fn ExecuteMetaCommand(&self, pmetacommand: &::core::option::Option<ID3D12MetaCommand>, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize);
+    fn InitializeMetaCommand(&self, pmetacommand: ::core::option::Option<&ID3D12MetaCommand>, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize);
+    fn ExecuteMetaCommand(&self, pmetacommand: ::core::option::Option<&ID3D12MetaCommand>, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize);
     fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC);
     fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64);
     fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE);
-    fn SetPipelineState1(&self, pstateobject: &::core::option::Option<ID3D12StateObject>);
+    fn SetPipelineState1(&self, pstateobject: ::core::option::Option<&ID3D12StateObject>);
     fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -2078,12 +2078,12 @@ impl ID3D12GraphicsCommandList4_Vtbl {
         unsafe extern "system" fn InitializeMetaCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmetacommand: *mut ::core::ffi::c_void, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeMetaCommand(::core::mem::transmute(&pmetacommand), ::core::mem::transmute_copy(&pinitializationparametersdata), ::core::mem::transmute_copy(&initializationparametersdatasizeinbytes))
+            this.InitializeMetaCommand(::windows::core::from_raw_borrowed(&pmetacommand), ::core::mem::transmute_copy(&pinitializationparametersdata), ::core::mem::transmute_copy(&initializationparametersdatasizeinbytes))
         }
         unsafe extern "system" fn ExecuteMetaCommand<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmetacommand: *mut ::core::ffi::c_void, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExecuteMetaCommand(::core::mem::transmute(&pmetacommand), ::core::mem::transmute_copy(&pexecutionparametersdata), ::core::mem::transmute_copy(&executionparametersdatasizeinbytes))
+            this.ExecuteMetaCommand(::windows::core::from_raw_borrowed(&pmetacommand), ::core::mem::transmute_copy(&pexecutionparametersdata), ::core::mem::transmute_copy(&executionparametersdatasizeinbytes))
         }
         unsafe extern "system" fn BuildRaytracingAccelerationStructure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2103,7 +2103,7 @@ impl ID3D12GraphicsCommandList4_Vtbl {
         unsafe extern "system" fn SetPipelineState1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateobject: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPipelineState1(::core::mem::transmute(&pstateobject))
+            this.SetPipelineState1(::windows::core::from_raw_borrowed(&pstateobject))
         }
         unsafe extern "system" fn DispatchRays<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_DISPATCH_RAYS_DESC) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2131,7 +2131,7 @@ impl ID3D12GraphicsCommandList4_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList5_Impl: Sized + ID3D12GraphicsCommandList4_Impl {
     fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER);
-    fn RSSetShadingRateImage(&self, shadingrateimage: &::core::option::Option<ID3D12Resource>);
+    fn RSSetShadingRateImage(&self, shadingrateimage: ::core::option::Option<&ID3D12Resource>);
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for ID3D12GraphicsCommandList5 {}
@@ -2146,7 +2146,7 @@ impl ID3D12GraphicsCommandList5_Vtbl {
         unsafe extern "system" fn RSSetShadingRateImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shadingrateimage: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RSSetShadingRateImage(::core::mem::transmute(&shadingrateimage))
+            this.RSSetShadingRateImage(::windows::core::from_raw_borrowed(&shadingrateimage))
         }
         Self {
             base__: ID3D12GraphicsCommandList4_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -2562,7 +2562,7 @@ impl ID3D12LifetimeOwner_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 pub trait ID3D12LifetimeTracker_Impl: Sized + ID3D12DeviceChild_Impl {
-    fn DestroyOwnedObject(&self, pobject: &::core::option::Option<ID3D12DeviceChild>) -> ::windows::core::Result<()>;
+    fn DestroyOwnedObject(&self, pobject: ::core::option::Option<&ID3D12DeviceChild>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ID3D12LifetimeTracker {}
 impl ID3D12LifetimeTracker_Vtbl {
@@ -2570,7 +2570,7 @@ impl ID3D12LifetimeTracker_Vtbl {
         unsafe extern "system" fn DestroyOwnedObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12LifetimeTracker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DestroyOwnedObject(::core::mem::transmute(&pobject)).into()
+            this.DestroyOwnedObject(::windows::core::from_raw_borrowed(&pobject)).into()
         }
         Self { base__: ID3D12DeviceChild_Vtbl::new::<Identity, Impl, OFFSET>(), DestroyOwnedObject: DestroyOwnedObject::<Identity, Impl, OFFSET> }
     }
@@ -2603,7 +2603,7 @@ impl ID3D12MetaCommand_Vtbl {
 pub trait ID3D12Object_Impl: Sized {
     fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn SetName(&self, name: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ID3D12Object {}
@@ -2622,7 +2622,7 @@ impl ID3D12Object_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Object_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
+            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::windows::core::from_raw_borrowed(&pdata)).into()
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12Object_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2655,7 +2655,7 @@ impl ID3D12Pageable_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12PipelineLibrary_Impl: Sized + ID3D12DeviceChild_Impl {
-    fn StorePipeline(&self, pname: &::windows::core::PCWSTR, ppipeline: &::core::option::Option<ID3D12PipelineState>) -> ::windows::core::Result<()>;
+    fn StorePipeline(&self, pname: &::windows::core::PCWSTR, ppipeline: ::core::option::Option<&ID3D12PipelineState>) -> ::windows::core::Result<()>;
     fn LoadGraphicsPipeline(&self, pname: &::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn LoadComputePipeline(&self, pname: &::windows::core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetSerializedSize(&self) -> usize;
@@ -2669,7 +2669,7 @@ impl ID3D12PipelineLibrary_Vtbl {
         unsafe extern "system" fn StorePipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, ppipeline: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StorePipeline(::core::mem::transmute(&pname), ::core::mem::transmute(&ppipeline)).into()
+            this.StorePipeline(::core::mem::transmute(&pname), ::windows::core::from_raw_borrowed(&ppipeline)).into()
         }
         unsafe extern "system" fn LoadGraphicsPipeline<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::windows::core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3230,13 +3230,13 @@ pub trait ID3D12ShaderReflectionType_Impl: Sized {
     fn GetMemberTypeByIndex(&self, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetMemberTypeByName(&self, name: &::windows::core::PCSTR) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetMemberTypeName(&self, index: u32) -> ::windows::core::PSTR;
-    fn IsEqual(&self, ptype: &::core::option::Option<ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn IsEqual(&self, ptype: ::core::option::Option<&ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
     fn GetSubType(&self) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetBaseClass(&self) -> ::core::option::Option<ID3D12ShaderReflectionType>;
     fn GetNumInterfaces(&self) -> u32;
     fn GetInterfaceByIndex(&self, uindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionType>;
-    fn IsOfType(&self, ptype: &::core::option::Option<ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
-    fn ImplementsInterface(&self, pbase: &::core::option::Option<ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn IsOfType(&self, ptype: ::core::option::Option<&ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
+    fn ImplementsInterface(&self, pbase: ::core::option::Option<&ID3D12ShaderReflectionType>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionType_Vtbl {
@@ -3264,7 +3264,7 @@ impl ID3D12ShaderReflectionType_Vtbl {
         unsafe extern "system" fn IsEqual<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.IsEqual(::core::mem::transmute(&ptype)).into()
+            this.IsEqual(::windows::core::from_raw_borrowed(&ptype)).into()
         }
         unsafe extern "system" fn GetSubType<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType> {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -3289,12 +3289,12 @@ impl ID3D12ShaderReflectionType_Vtbl {
         unsafe extern "system" fn IsOfType<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.IsOfType(::core::mem::transmute(&ptype)).into()
+            this.IsOfType(::windows::core::from_raw_borrowed(&ptype)).into()
         }
         unsafe extern "system" fn ImplementsInterface<Impl: ID3D12ShaderReflectionType_Impl>(this: *mut ::core::ffi::c_void, pbase: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.ImplementsInterface(::core::mem::transmute(&pbase)).into()
+            this.ImplementsInterface(::windows::core::from_raw_borrowed(&pbase)).into()
         }
         Self {
             GetDesc: GetDesc::<Impl>,
@@ -3373,8 +3373,8 @@ impl ID3D12ShaderReflectionVariable {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D12SharingContract_Impl: Sized {
-    fn Present(&self, presource: &::core::option::Option<ID3D12Resource>, subresource: u32, window: super::super::Foundation::HWND);
-    fn SharedFenceSignal(&self, pfence: &::core::option::Option<ID3D12Fence>, fencevalue: u64);
+    fn Present(&self, presource: ::core::option::Option<&ID3D12Resource>, subresource: u32, window: super::super::Foundation::HWND);
+    fn SharedFenceSignal(&self, pfence: ::core::option::Option<&ID3D12Fence>, fencevalue: u64);
     fn BeginCapturableWork(&self, guid: *const ::windows::core::GUID);
     fn EndCapturableWork(&self, guid: *const ::windows::core::GUID);
 }
@@ -3386,12 +3386,12 @@ impl ID3D12SharingContract_Vtbl {
         unsafe extern "system" fn Present<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, window: super::super::Foundation::HWND) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Present(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&window))
+            this.Present(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&window))
         }
         unsafe extern "system" fn SharedFenceSignal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: *mut ::core::ffi::c_void, fencevalue: u64) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SharedFenceSignal(::core::mem::transmute(&pfence), ::core::mem::transmute_copy(&fencevalue))
+            this.SharedFenceSignal(::windows::core::from_raw_borrowed(&pfence), ::core::mem::transmute_copy(&fencevalue))
         }
         unsafe extern "system" fn BeginCapturableWork<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

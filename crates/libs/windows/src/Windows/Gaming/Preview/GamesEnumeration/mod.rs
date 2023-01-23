@@ -911,7 +911,7 @@ unsafe impl ::windows::core::RuntimeType for GameListEntryLaunchableState {
 #[repr(transparent)]
 pub struct GameListChangedEventHandler(pub ::windows::core::IUnknown);
 impl GameListChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = GameListChangedEventHandlerBox::<F> { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -921,12 +921,12 @@ impl GameListChangedEventHandler {
     }
 }
 #[repr(C)]
-struct GameListChangedEventHandlerBox<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct GameListChangedEventHandlerBox<F: FnMut(::core::option::Option<&GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const GameListChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> GameListChangedEventHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&GameListEntry>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> GameListChangedEventHandlerBox<F> {
     const VTABLE: GameListChangedEventHandler_Vtbl = GameListChangedEventHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -955,7 +955,7 @@ impl<F: FnMut(&::core::option::Option<GameListEntry>) -> ::windows::core::Result
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, game: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&game)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&game)).into()
     }
 }
 impl ::core::clone::Clone for GameListChangedEventHandler {

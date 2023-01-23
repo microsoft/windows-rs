@@ -43,16 +43,16 @@ pub trait ISensor_Impl: Sized {
     fn GetType(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn GetFriendlyName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetProperty(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetProperties(&self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn GetProperties(&self, pkeys: ::core::option::Option<&super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
     fn GetSupportedDataFields(&self) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceKeyCollection>;
-    fn SetProperties(&self, pproperties: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn SetProperties(&self, pproperties: ::core::option::Option<&super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
     fn SupportsDataField(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetState(&self) -> ::windows::core::Result<SensorState>;
     fn GetData(&self) -> ::windows::core::Result<ISensorDataReport>;
     fn SupportsEvent(&self, eventguid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetEventInterest(&self, ppvalues: *mut *mut ::windows::core::GUID, pcount: *mut u32) -> ::windows::core::Result<()>;
     fn SetEventInterest(&self, pvalues: *const ::windows::core::GUID, count: u32) -> ::windows::core::Result<()>;
-    fn SetEventSink(&self, pevents: &::core::option::Option<ISensorEvents>) -> ::windows::core::Result<()>;
+    fn SetEventSink(&self, pevents: ::core::option::Option<&ISensorEvents>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows::core::RuntimeName for ISensor {}
@@ -117,7 +117,7 @@ impl ISensor_Vtbl {
         unsafe extern "system" fn GetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkeys: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetProperties(::core::mem::transmute(&pkeys)) {
+            match this.GetProperties(::windows::core::from_raw_borrowed(&pkeys)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -139,7 +139,7 @@ impl ISensor_Vtbl {
         unsafe extern "system" fn SetProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: *mut ::core::ffi::c_void, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetProperties(::core::mem::transmute(&pproperties)) {
+            match this.SetProperties(::windows::core::from_raw_borrowed(&pproperties)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppresults, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -204,7 +204,7 @@ impl ISensor_Vtbl {
         unsafe extern "system" fn SetEventSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventSink(::core::mem::transmute(&pevents)).into()
+            this.SetEventSink(::windows::core::from_raw_borrowed(&pevents)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -233,8 +233,8 @@ impl ISensor_Vtbl {
 pub trait ISensorCollection_Impl: Sized {
     fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<ISensor>;
     fn GetCount(&self) -> ::windows::core::Result<u32>;
-    fn Add(&self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
-    fn Remove(&self, psensor: &::core::option::Option<ISensor>) -> ::windows::core::Result<()>;
+    fn Add(&self, psensor: ::core::option::Option<&ISensor>) -> ::windows::core::Result<()>;
+    fn Remove(&self, psensor: ::core::option::Option<&ISensor>) -> ::windows::core::Result<()>;
     fn RemoveByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
 }
@@ -266,12 +266,12 @@ impl ISensorCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&psensor)).into()
+            this.Add(::windows::core::from_raw_borrowed(&psensor)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Remove(::core::mem::transmute(&psensor)).into()
+            this.Remove(::windows::core::from_raw_borrowed(&psensor)).into()
         }
         unsafe extern "system" fn RemoveByID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sensorid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -302,7 +302,7 @@ impl ISensorCollection_Vtbl {
 pub trait ISensorDataReport_Impl: Sized {
     fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME>;
     fn GetSensorValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetSensorValues(&self, pkeys: &::core::option::Option<super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
+    fn GetSensorValues(&self, pkeys: ::core::option::Option<&super::PortableDevices::IPortableDeviceKeyCollection>) -> ::windows::core::Result<super::PortableDevices::IPortableDeviceValues>;
 }
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows::core::RuntimeName for ISensorDataReport {}
@@ -334,7 +334,7 @@ impl ISensorDataReport_Vtbl {
         unsafe extern "system" fn GetSensorValues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorDataReport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkeys: *mut ::core::ffi::c_void, ppvalues: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetSensorValues(::core::mem::transmute(&pkeys)) {
+            match this.GetSensorValues(::windows::core::from_raw_borrowed(&pkeys)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppvalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -356,9 +356,9 @@ impl ISensorDataReport_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"Win32_Devices_PortableDevices\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait ISensorEvents_Impl: Sized {
-    fn OnStateChanged(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
-    fn OnDataUpdated(&self, psensor: &::core::option::Option<ISensor>, pnewdata: &::core::option::Option<ISensorDataReport>) -> ::windows::core::Result<()>;
-    fn OnEvent(&self, psensor: &::core::option::Option<ISensor>, eventid: *const ::windows::core::GUID, peventdata: &::core::option::Option<super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<()>;
+    fn OnStateChanged(&self, psensor: ::core::option::Option<&ISensor>, state: SensorState) -> ::windows::core::Result<()>;
+    fn OnDataUpdated(&self, psensor: ::core::option::Option<&ISensor>, pnewdata: ::core::option::Option<&ISensorDataReport>) -> ::windows::core::Result<()>;
+    fn OnEvent(&self, psensor: ::core::option::Option<&ISensor>, eventid: *const ::windows::core::GUID, peventdata: ::core::option::Option<&super::PortableDevices::IPortableDeviceValues>) -> ::windows::core::Result<()>;
     fn OnLeave(&self, id: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Devices_PortableDevices")]
@@ -369,17 +369,17 @@ impl ISensorEvents_Vtbl {
         unsafe extern "system" fn OnStateChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, state: SensorState) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnStateChanged(::core::mem::transmute(&psensor), ::core::mem::transmute_copy(&state)).into()
+            this.OnStateChanged(::windows::core::from_raw_borrowed(&psensor), ::core::mem::transmute_copy(&state)).into()
         }
         unsafe extern "system" fn OnDataUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, pnewdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDataUpdated(::core::mem::transmute(&psensor), ::core::mem::transmute(&pnewdata)).into()
+            this.OnDataUpdated(::windows::core::from_raw_borrowed(&psensor), ::windows::core::from_raw_borrowed(&pnewdata)).into()
         }
         unsafe extern "system" fn OnEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, eventid: *const ::windows::core::GUID, peventdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEvent(::core::mem::transmute(&psensor), ::core::mem::transmute_copy(&eventid), ::core::mem::transmute(&peventdata)).into()
+            this.OnEvent(::windows::core::from_raw_borrowed(&psensor), ::core::mem::transmute_copy(&eventid), ::windows::core::from_raw_borrowed(&peventdata)).into()
         }
         unsafe extern "system" fn OnLeave<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -404,8 +404,8 @@ pub trait ISensorManager_Impl: Sized {
     fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
     fn GetSensorsByType(&self, sensortype: *const ::windows::core::GUID) -> ::windows::core::Result<ISensorCollection>;
     fn GetSensorByID(&self, sensorid: *const ::windows::core::GUID) -> ::windows::core::Result<ISensor>;
-    fn SetEventSink(&self, pevents: &::core::option::Option<ISensorManagerEvents>) -> ::windows::core::Result<()>;
-    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, psensors: &::core::option::Option<ISensorCollection>, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SetEventSink(&self, pevents: ::core::option::Option<&ISensorManagerEvents>) -> ::windows::core::Result<()>;
+    fn RequestPermissions(&self, hparent: super::super::Foundation::HWND, psensors: ::core::option::Option<&ISensorCollection>, fmodal: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ISensorManager {}
@@ -448,12 +448,12 @@ impl ISensorManager_Vtbl {
         unsafe extern "system" fn SetEventSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventSink(::core::mem::transmute(&pevents)).into()
+            this.SetEventSink(::windows::core::from_raw_borrowed(&pevents)).into()
         }
         unsafe extern "system" fn RequestPermissions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, psensors: *mut ::core::ffi::c_void, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RequestPermissions(::core::mem::transmute_copy(&hparent), ::core::mem::transmute(&psensors), ::core::mem::transmute_copy(&fmodal)).into()
+            this.RequestPermissions(::core::mem::transmute_copy(&hparent), ::windows::core::from_raw_borrowed(&psensors), ::core::mem::transmute_copy(&fmodal)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -470,7 +470,7 @@ impl ISensorManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`, `\"implement\"`*"]
 pub trait ISensorManagerEvents_Impl: Sized {
-    fn OnSensorEnter(&self, psensor: &::core::option::Option<ISensor>, state: SensorState) -> ::windows::core::Result<()>;
+    fn OnSensorEnter(&self, psensor: ::core::option::Option<&ISensor>, state: SensorState) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISensorManagerEvents {}
 impl ISensorManagerEvents_Vtbl {
@@ -478,7 +478,7 @@ impl ISensorManagerEvents_Vtbl {
         unsafe extern "system" fn OnSensorEnter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISensorManagerEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, state: SensorState) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnSensorEnter(::core::mem::transmute(&psensor), ::core::mem::transmute_copy(&state)).into()
+            this.OnSensorEnter(::windows::core::from_raw_borrowed(&psensor), ::core::mem::transmute_copy(&state)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnSensorEnter: OnSensorEnter::<Identity, Impl, OFFSET> }
     }

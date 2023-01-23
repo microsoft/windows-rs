@@ -1,11 +1,11 @@
 #[doc = "*Required features: `\"Gaming_Input\"`, `\"Foundation\"`, `\"System\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IGameController_Impl: Sized {
-    fn HeadsetConnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn HeadsetConnected(&self, value: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn HeadsetDisconnected(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn HeadsetDisconnected(&self, value: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetDisconnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn UserChanged(&self, value: &::core::option::Option<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn UserChanged(&self, value: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUserChanged(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
     fn Headset(&self) -> ::windows::core::Result<Headset>;
     fn IsWireless(&self) -> ::windows::core::Result<bool>;
@@ -21,7 +21,7 @@ impl IGameController_Vtbl {
         unsafe extern "system" fn HeadsetConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HeadsetConnected(::core::mem::transmute(&value)) {
+            match this.HeadsetConnected(::windows::core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -38,7 +38,7 @@ impl IGameController_Vtbl {
         unsafe extern "system" fn HeadsetDisconnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.HeadsetDisconnected(::core::mem::transmute(&value)) {
+            match this.HeadsetDisconnected(::windows::core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -55,7 +55,7 @@ impl IGameController_Vtbl {
         unsafe extern "system" fn UserChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGameController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UserChanged(::core::mem::transmute(&value)) {
+            match this.UserChanged(::windows::core::from_raw_borrowed(&value)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

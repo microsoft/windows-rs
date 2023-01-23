@@ -94,7 +94,7 @@ pub trait IDXCoreAdapterFactory_Impl: Sized {
     fn CreateAdapterList(&self, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetAdapterByLuid(&self, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool;
-    fn RegisterEventNotification(&self, dxcoreobject: &::core::option::Option<::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
+    fn RegisterEventNotification(&self, dxcoreobject: ::core::option::Option<&::windows::core::IUnknown>, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<u32>;
     fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -120,7 +120,7 @@ impl IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn RegisterEventNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RegisterEventNotification(::core::mem::transmute(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute_copy(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {
+            match this.RegisterEventNotification(::windows::core::from_raw_borrowed(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute_copy(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(eventcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

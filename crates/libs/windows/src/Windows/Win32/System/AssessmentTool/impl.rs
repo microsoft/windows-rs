@@ -25,8 +25,8 @@ impl IAccessibleWinSAT_Vtbl {
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInitiateWinSATAssessment_Impl: Sized {
-    fn InitiateAssessment(&self, cmdline: &::windows::core::PCWSTR, pcallbacks: &::core::option::Option<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
-    fn InitiateFormalAssessment(&self, pcallbacks: &::core::option::Option<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn InitiateAssessment(&self, cmdline: &::windows::core::PCWSTR, pcallbacks: ::core::option::Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
+    fn InitiateFormalAssessment(&self, pcallbacks: ::core::option::Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn CancelAssessment(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -37,12 +37,12 @@ impl IInitiateWinSATAssessment_Vtbl {
         unsafe extern "system" fn InitiateAssessment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmdline: ::windows::core::PCWSTR, pcallbacks: *mut ::core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitiateAssessment(::core::mem::transmute(&cmdline), ::core::mem::transmute(&pcallbacks), ::core::mem::transmute_copy(&callerhwnd)).into()
+            this.InitiateAssessment(::core::mem::transmute(&cmdline), ::windows::core::from_raw_borrowed(&pcallbacks), ::core::mem::transmute_copy(&callerhwnd)).into()
         }
         unsafe extern "system" fn InitiateFormalAssessment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallbacks: *mut ::core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitiateFormalAssessment(::core::mem::transmute(&pcallbacks), ::core::mem::transmute_copy(&callerhwnd)).into()
+            this.InitiateFormalAssessment(::windows::core::from_raw_borrowed(&pcallbacks), ::core::mem::transmute_copy(&callerhwnd)).into()
         }
         unsafe extern "system" fn CancelAssessment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

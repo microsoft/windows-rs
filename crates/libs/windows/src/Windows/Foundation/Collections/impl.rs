@@ -389,7 +389,7 @@ where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static,
 {
-    fn MapChanged(&self, vhnd: &::core::option::Option<MapChangedEventHandler<K, V>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn MapChanged(&self, vhnd: ::core::option::Option<&MapChangedEventHandler<K, V>>) -> ::windows::core::Result<super::EventRegistrationToken>;
     fn RemoveMapChanged(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IObservableMap<K, V> {
@@ -400,7 +400,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe extern "system" fn MapChanged<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObservableMap_Impl<K, V>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhnd: *mut ::core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.MapChanged(::core::mem::transmute(&vhnd)) {
+            match this.MapChanged(::windows::core::from_raw_borrowed(&vhnd)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -431,7 +431,7 @@ pub trait IObservableVector_Impl<T>: Sized + IIterable_Impl<T> + IVector_Impl<T>
 where
     T: ::windows::core::RuntimeType + 'static,
 {
-    fn VectorChanged(&self, vhnd: &::core::option::Option<VectorChangedEventHandler<T>>) -> ::windows::core::Result<super::EventRegistrationToken>;
+    fn VectorChanged(&self, vhnd: ::core::option::Option<&VectorChangedEventHandler<T>>) -> ::windows::core::Result<super::EventRegistrationToken>;
     fn RemoveVectorChanged(&self, token: &super::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IObservableVector<T> {
@@ -442,7 +442,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
         unsafe extern "system" fn VectorChanged<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IObservableVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vhnd: *mut ::core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.VectorChanged(::core::mem::transmute(&vhnd)) {
+            match this.VectorChanged(::windows::core::from_raw_borrowed(&vhnd)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

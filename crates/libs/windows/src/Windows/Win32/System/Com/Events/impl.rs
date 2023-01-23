@@ -314,7 +314,7 @@ impl IEventClass2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
-    fn SetPublisherFilter(&self, methodname: &::windows::core::BSTR, ppublisherfilter: &::core::option::Option<IPublisherFilter>) -> ::windows::core::Result<()>;
+    fn SetPublisherFilter(&self, methodname: &::windows::core::BSTR, ppublisherfilter: ::core::option::Option<&IPublisherFilter>) -> ::windows::core::Result<()>;
     fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetAllowInprocActivation(&self, fallowinprocactivation: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetSubscriptions(&self, methodname: &::windows::core::BSTR, optionalcriteria: &::windows::core::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
@@ -328,7 +328,7 @@ impl IEventControl_Vtbl {
         unsafe extern "system" fn SetPublisherFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, ppublisherfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPublisherFilter(::core::mem::transmute(&methodname), ::core::mem::transmute(&ppublisherfilter)).into()
+            this.SetPublisherFilter(::core::mem::transmute(&methodname), ::windows::core::from_raw_borrowed(&ppublisherfilter)).into()
         }
         unsafe extern "system" fn AllowInprocActivation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfallowinprocactivation: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -757,7 +757,7 @@ pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriberCLSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn SubscriberInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn SetSubscriberInterface(&self, psubscriberinterface: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetSubscriberInterface(&self, psubscriberinterface: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn PerUser(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
     fn SetPerUser(&self, fperuser: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn OwnerSID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -894,7 +894,7 @@ impl IEventSubscription_Vtbl {
         unsafe extern "system" fn SetSubscriberInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriberinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSubscriberInterface(::core::mem::transmute(&psubscriberinterface)).into()
+            this.SetSubscriberInterface(::windows::core::from_raw_borrowed(&psubscriberinterface)).into()
         }
         unsafe extern "system" fn PerUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSubscription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfperuser: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1102,7 +1102,7 @@ impl IEventSubscription_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn Query(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn Store(&self, progid: &::windows::core::BSTR, pinterface: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Store(&self, progid: &::windows::core::BSTR, pinterface: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Remove(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
     fn EventObjectChangeEventClassID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn QueryS(&self, progid: &::windows::core::BSTR, querycriteria: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown>;
@@ -1121,7 +1121,7 @@ impl IEventSystem_Vtbl {
         unsafe extern "system" fn Store<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: *mut ::core::ffi::c_void, pinterface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Store(::core::mem::transmute(&progid), ::core::mem::transmute(&pinterface)).into()
+            this.Store(::core::mem::transmute(&progid), ::windows::core::from_raw_borrowed(&pinterface)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: *mut ::core::ffi::c_void, querycriteria: *mut ::core::ffi::c_void, errorindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1178,7 +1178,7 @@ impl IEventSystem_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
-    fn FireSubscription(&self, subscription: &::core::option::Option<IEventSubscription>) -> ::windows::core::Result<()>;
+    fn FireSubscription(&self, subscription: ::core::option::Option<&IEventSubscription>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFiringControl {}
@@ -1188,7 +1188,7 @@ impl IFiringControl_Vtbl {
         unsafe extern "system" fn FireSubscription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFiringControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subscription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FireSubscription(::core::mem::transmute(&subscription)).into()
+            this.FireSubscription(::windows::core::from_raw_borrowed(&subscription)).into()
         }
         Self { base__: super::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), FireSubscription: FireSubscription::<Identity, Impl, OFFSET> }
     }
@@ -1199,7 +1199,7 @@ impl IFiringControl_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMultiInterfaceEventControl_Impl: Sized {
-    fn SetMultiInterfacePublisherFilter(&self, classfilter: &::core::option::Option<IMultiInterfacePublisherFilter>) -> ::windows::core::Result<()>;
+    fn SetMultiInterfacePublisherFilter(&self, classfilter: ::core::option::Option<&IMultiInterfacePublisherFilter>) -> ::windows::core::Result<()>;
     fn GetSubscriptions(&self, eventiid: *const ::windows::core::GUID, bstrmethodname: &::windows::core::BSTR, optionalcriteria: &::windows::core::BSTR, optionalerrorindex: *const i32) -> ::windows::core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, eventiid: *const ::windows::core::GUID, bstrmethodname: &::windows::core::BSTR, bstrcriteria: &::windows::core::BSTR) -> ::windows::core::Result<i32>;
     fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL>;
@@ -1215,7 +1215,7 @@ impl IMultiInterfaceEventControl_Vtbl {
         unsafe extern "system" fn SetMultiInterfacePublisherFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMultiInterfacePublisherFilter(::core::mem::transmute(&classfilter)).into()
+            this.SetMultiInterfacePublisherFilter(::windows::core::from_raw_borrowed(&classfilter)).into()
         }
         unsafe extern "system" fn GetSubscriptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfaceEventControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventiid: *const ::windows::core::GUID, bstrmethodname: *mut ::core::ffi::c_void, optionalcriteria: *mut ::core::ffi::c_void, optionalerrorindex: *const i32, ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1288,8 +1288,8 @@ impl IMultiInterfaceEventControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IMultiInterfacePublisherFilter_Impl: Sized {
-    fn Initialize(&self, peic: &::core::option::Option<IMultiInterfaceEventControl>) -> ::windows::core::Result<()>;
-    fn PrepareToFire(&self, iid: *const ::windows::core::GUID, methodname: &::windows::core::BSTR, firingcontrol: &::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, peic: ::core::option::Option<&IMultiInterfaceEventControl>) -> ::windows::core::Result<()>;
+    fn PrepareToFire(&self, iid: *const ::windows::core::GUID, methodname: &::windows::core::BSTR, firingcontrol: ::core::option::Option<&IFiringControl>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMultiInterfacePublisherFilter {}
 impl IMultiInterfacePublisherFilter_Vtbl {
@@ -1297,12 +1297,12 @@ impl IMultiInterfacePublisherFilter_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&peic)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&peic)).into()
         }
         unsafe extern "system" fn PrepareToFire<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: *mut ::core::ffi::c_void, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrepareToFire(::core::mem::transmute_copy(&iid), ::core::mem::transmute(&methodname), ::core::mem::transmute(&firingcontrol)).into()
+            this.PrepareToFire(::core::mem::transmute_copy(&iid), ::core::mem::transmute(&methodname), ::windows::core::from_raw_borrowed(&firingcontrol)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1316,8 +1316,8 @@ impl IMultiInterfacePublisherFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IPublisherFilter_Impl: Sized {
-    fn Initialize(&self, methodname: &::windows::core::BSTR, dispuserdefined: &::core::option::Option<super::IDispatch>) -> ::windows::core::Result<()>;
-    fn PrepareToFire(&self, methodname: &::windows::core::BSTR, firingcontrol: &::core::option::Option<IFiringControl>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, methodname: &::windows::core::BSTR, dispuserdefined: ::core::option::Option<&super::IDispatch>) -> ::windows::core::Result<()>;
+    fn PrepareToFire(&self, methodname: &::windows::core::BSTR, firingcontrol: ::core::option::Option<&IFiringControl>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IPublisherFilter {}
 impl IPublisherFilter_Vtbl {
@@ -1325,12 +1325,12 @@ impl IPublisherFilter_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, dispuserdefined: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&methodname), ::core::mem::transmute(&dispuserdefined)).into()
+            this.Initialize(::core::mem::transmute(&methodname), ::windows::core::from_raw_borrowed(&dispuserdefined)).into()
         }
         unsafe extern "system" fn PrepareToFire<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPublisherFilter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, methodname: *mut ::core::ffi::c_void, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrepareToFire(::core::mem::transmute(&methodname), ::core::mem::transmute(&firingcontrol)).into()
+            this.PrepareToFire(::core::mem::transmute(&methodname), ::windows::core::from_raw_borrowed(&firingcontrol)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

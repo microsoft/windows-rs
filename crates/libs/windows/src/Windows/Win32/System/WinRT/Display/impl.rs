@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub trait IDisplayDeviceInterop_Impl: Sized {
-    fn CreateSharedHandle(&self, pobject: &::core::option::Option<::windows::core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: ::core::option::Option<&::windows::core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::HANDLE>;
     fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -12,7 +12,7 @@ impl IDisplayDeviceInterop_Vtbl {
         unsafe extern "system" fn CreateSharedHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDisplayDeviceInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: *mut ::core::ffi::c_void, phandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSharedHandle(::core::mem::transmute(&pobject), ::core::mem::transmute_copy(&psecurityattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
+            match this.CreateSharedHandle(::windows::core::from_raw_borrowed(&pobject), ::core::mem::transmute_copy(&psecurityattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

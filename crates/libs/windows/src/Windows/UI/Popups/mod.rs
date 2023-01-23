@@ -717,7 +717,7 @@ unsafe impl ::windows::core::RuntimeType for Placement {
 #[repr(transparent)]
 pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
 impl UICommandInvokedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -731,12 +731,12 @@ impl UICommandInvokedHandler {
     }
 }
 #[repr(C)]
-struct UICommandInvokedHandlerBox<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct UICommandInvokedHandlerBox<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const UICommandInvokedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&IUICommand>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> UICommandInvokedHandlerBox<F> {
     const VTABLE: UICommandInvokedHandler_Vtbl = UICommandInvokedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -765,7 +765,7 @@ impl<F: FnMut(&::core::option::Option<IUICommand>) -> ::windows::core::Result<()
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&command)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&command)).into()
     }
 }
 impl ::core::clone::Clone for UICommandInvokedHandler {

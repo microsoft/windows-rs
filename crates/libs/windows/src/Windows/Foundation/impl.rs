@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IAsyncAction_Impl: Sized + IAsyncInfo_Impl {
-    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
+    fn SetCompleted(&self, handler: ::core::option::Option<&AsyncActionCompletedHandler>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler>;
     fn GetResults(&self) -> ::windows::core::Result<()>;
 }
@@ -12,7 +12,7 @@ impl IAsyncAction_Vtbl {
         unsafe extern "system" fn SetCompleted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCompleted(::core::mem::transmute(&handler)).into()
+            this.SetCompleted(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Completed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncAction_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -47,9 +47,9 @@ pub trait IAsyncActionWithProgress_Impl<TProgress>: Sized + IAsyncInfo_Impl
 where
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress(&self, handler: &::core::option::Option<AsyncActionProgressHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn SetProgress(&self, handler: ::core::option::Option<&AsyncActionProgressHandler<TProgress>>) -> ::windows::core::Result<()>;
     fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>>;
-    fn SetCompleted(&self, handler: &::core::option::Option<AsyncActionWithProgressCompletedHandler<TProgress>>) -> ::windows::core::Result<()>;
+    fn SetCompleted(&self, handler: ::core::option::Option<&AsyncActionWithProgressCompletedHandler<TProgress>>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
     fn GetResults(&self) -> ::windows::core::Result<()>;
 }
@@ -61,7 +61,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         unsafe extern "system" fn SetProgress<TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProgress(::core::mem::transmute(&handler)).into()
+            this.SetProgress(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Progress<TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -78,7 +78,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
         unsafe extern "system" fn SetCompleted<TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCompleted(::core::mem::transmute(&handler)).into()
+            this.SetCompleted(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Completed<TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -188,7 +188,7 @@ pub trait IAsyncOperation_Impl<TResult>: Sized + IAsyncInfo_Impl
 where
     TResult: ::windows::core::RuntimeType + 'static,
 {
-    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
+    fn SetCompleted(&self, handler: ::core::option::Option<&AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
     fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
@@ -200,7 +200,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResu
         unsafe extern "system" fn SetCompleted<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCompleted(::core::mem::transmute(&handler)).into()
+            this.SetCompleted(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Completed<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -244,9 +244,9 @@ where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static,
 {
-    fn SetProgress(&self, handler: &::core::option::Option<AsyncOperationProgressHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn SetProgress(&self, handler: ::core::option::Option<&AsyncOperationProgressHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
     fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
-    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
+    fn SetCompleted(&self, handler: ::core::option::Option<&AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>) -> ::windows::core::Result<()>;
     fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>;
     fn GetResults(&self) -> ::windows::core::Result<TResult>;
 }
@@ -258,7 +258,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         unsafe extern "system" fn SetProgress<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProgress(::core::mem::transmute(&handler)).into()
+            this.SetProgress(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Progress<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -275,7 +275,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
         unsafe extern "system" fn SetCompleted<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetCompleted(::core::mem::transmute(&handler)).into()
+            this.SetCompleted(::windows::core::from_raw_borrowed(&handler)).into()
         }
         unsafe extern "system" fn Completed<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperationWithProgress_Impl<TResult, TProgress>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -396,7 +396,7 @@ impl IMemoryBuffer_Vtbl {
 #[doc = "*Required features: `\"Foundation\"`, `\"implement\"`*"]
 pub trait IMemoryBufferReference_Impl: Sized + IClosable_Impl {
     fn Capacity(&self) -> ::windows::core::Result<u32>;
-    fn Closed(&self, handler: &::core::option::Option<TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
+    fn Closed(&self, handler: ::core::option::Option<&TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>) -> ::windows::core::Result<EventRegistrationToken>;
     fn RemoveClosed(&self, cookie: &EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMemoryBufferReference {
@@ -419,7 +419,7 @@ impl IMemoryBufferReference_Vtbl {
         unsafe extern "system" fn Closed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Closed(::core::mem::transmute(&handler)) {
+            match this.Closed(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

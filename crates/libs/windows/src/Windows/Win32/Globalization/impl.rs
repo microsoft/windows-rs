@@ -450,7 +450,7 @@ impl IMLangFontLink2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait IMLangLineBreakConsole_Impl: Sized {
-    fn BreakLineML(&self, psrcmlstr: &::core::option::Option<IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>;
+    fn BreakLineML(&self, psrcmlstr: ::core::option::Option<&IMLangString>, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::Result<()>;
     fn BreakLineW(&self, locale: u32, pszsrc: &::windows::core::PCWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()>;
     fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &::windows::core::PCSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::Result<()>;
 }
@@ -460,7 +460,7 @@ impl IMLangLineBreakConsole_Vtbl {
         unsafe extern "system" fn BreakLineML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psrcmlstr: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: *mut i32, plskiplen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BreakLineML(::core::mem::transmute(&psrcmlstr), ::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen), ::core::mem::transmute_copy(&cmincolumns), ::core::mem::transmute_copy(&cmaxcolumns), ::core::mem::transmute_copy(&pllinelen), ::core::mem::transmute_copy(&plskiplen)).into()
+            this.BreakLineML(::windows::core::from_raw_borrowed(&psrcmlstr), ::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen), ::core::mem::transmute_copy(&cmincolumns), ::core::mem::transmute_copy(&cmaxcolumns), ::core::mem::transmute_copy(&pllinelen), ::core::mem::transmute_copy(&plskiplen)).into()
         }
         unsafe extern "system" fn BreakLineW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangLineBreakConsole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: u32, pszsrc: ::windows::core::PCWSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -488,8 +488,8 @@ impl IMLangLineBreakConsole_Vtbl {
 pub trait IMLangString_Impl: Sized {
     fn Sync(&self, fnoaccess: super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetLength(&self, pllen: *mut i32) -> ::windows::core::Result<()>;
-    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: &::core::option::Option<::windows::core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>;
-    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: &::core::option::Option<::windows::core::IUnknown>, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetMLStr(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: ::core::option::Option<&::windows::core::IUnknown>, lsrcpos: i32, lsrclen: i32) -> ::windows::core::Result<()>;
+    fn GetMLStr(&self, lsrcpos: i32, lsrclen: i32, punkouter: ::core::option::Option<&::windows::core::IUnknown>, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut ::core::option::Option<::windows::core::IUnknown>, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMLangString {}
@@ -509,12 +509,12 @@ impl IMLangString_Vtbl {
         unsafe extern "system" fn SetMLStr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcmlstr: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMLStr(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::core::mem::transmute(&psrcmlstr), ::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen)).into()
+            this.SetMLStr(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::windows::core::from_raw_borrowed(&psrcmlstr), ::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen)).into()
         }
         unsafe extern "system" fn GetMLStr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangString_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut *mut ::core::ffi::c_void, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMLStr(::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&ppdestmlstr), ::core::mem::transmute_copy(&pldestpos), ::core::mem::transmute_copy(&pldestlen)).into()
+            this.GetMLStr(::core::mem::transmute_copy(&lsrcpos), ::core::mem::transmute_copy(&lsrclen), ::windows::core::from_raw_borrowed(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&piid), ::core::mem::transmute_copy(&ppdestmlstr), ::core::mem::transmute_copy(&pldestpos), ::core::mem::transmute_copy(&pldestlen)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -532,7 +532,7 @@ impl IMLangString_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringAStr_Impl: Sized + IMLangString_Impl {
     fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &::windows::core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
-    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: &::core::option::Option<IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetStrBufA(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: ::core::option::Option<&IMLangStringBufA>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: ::windows::core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: *mut i32) -> ::windows::core::Result<()>;
     fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut ::windows::core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
@@ -553,7 +553,7 @@ impl IMLangStringAStr_Vtbl {
         unsafe extern "system" fn SetStrBufA<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: *mut ::core::ffi::c_void, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrBufA(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::core::mem::transmute_copy(&ucodepage), ::core::mem::transmute(&psrcbuf), ::core::mem::transmute_copy(&pcchactual), ::core::mem::transmute_copy(&plactuallen)).into()
+            this.SetStrBufA(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::core::mem::transmute_copy(&ucodepage), ::windows::core::from_raw_borrowed(&psrcbuf), ::core::mem::transmute_copy(&pcchactual), ::core::mem::transmute_copy(&plactuallen)).into()
         }
         unsafe extern "system" fn GetAStr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringAStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: ::windows::core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -706,7 +706,7 @@ impl IMLangStringBufW_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMLangStringWStr_Impl: Sized + IMLangString_Impl {
     fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &::windows::core::PCWSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
-    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: &::core::option::Option<IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
+    fn SetStrBufW(&self, ldestpos: i32, ldestlen: i32, psrcbuf: ::core::option::Option<&IMLangStringBufW>, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: ::windows::core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::Result<()>;
     fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut ::core::option::Option<IMLangStringBufW>, pldestlen: *mut i32) -> ::windows::core::Result<()>;
     fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: *mut ::windows::core::PWSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::Result<()>;
@@ -727,7 +727,7 @@ impl IMLangStringWStr_Vtbl {
         unsafe extern "system" fn SetStrBufW<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcbuf: *mut ::core::ffi::c_void, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStrBufW(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::core::mem::transmute(&psrcbuf), ::core::mem::transmute_copy(&pcchactual), ::core::mem::transmute_copy(&plactuallen)).into()
+            this.SetStrBufW(::core::mem::transmute_copy(&ldestpos), ::core::mem::transmute_copy(&ldestlen), ::windows::core::from_raw_borrowed(&psrcbuf), ::core::mem::transmute_copy(&pcchactual), ::core::mem::transmute_copy(&plactuallen)).into()
         }
         unsafe extern "system" fn GetWStr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLangStringWStr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, pszdest: ::windows::core::PWSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -948,10 +948,10 @@ pub trait IMultiLanguage2_Impl: Sized {
     fn EnumRfc1766(&self, langid: u16) -> ::windows::core::Result<IEnumRfc1766>;
     fn GetRfc1766Info(&self, locale: u32, langid: u16, prfc1766info: *mut RFC1766INFO) -> ::windows::core::Result<()>;
     fn CreateConvertCharset(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows::core::Result<IMLangConvertCharset>;
-    fn ConvertStringInIStream(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: &::windows::core::PCWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: &::core::option::Option<super::System::Com::IStream>, pstmout: &::core::option::Option<super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn ConvertStringInIStream(&self, pdwmode: *mut u32, dwflag: u32, lpfallback: &::windows::core::PCWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: ::core::option::Option<&super::System::Com::IStream>, pstmout: ::core::option::Option<&super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn ConvertStringToUnicodeEx(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ConvertStringFromUnicodeEx(&self, pdwmode: *mut u32, dwencoding: u32, psrcstr: &::windows::core::PCWSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn DetectCodepageInIStream(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: &::core::option::Option<super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
+    fn DetectCodepageInIStream(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: ::core::option::Option<&super::System::Com::IStream>, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
     fn DetectInputCodepage(&self, dwflag: u32, dwprefwincodepage: u32, psrcstr: &::windows::core::PCSTR, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::Result<()>;
     fn ValidateCodePage(&self, uicodepage: u32, hwnd: super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn GetCodePageDescription(&self, uicodepage: u32, lcid: u32, lpwidecharstr: ::windows::core::PWSTR, cchwidechar: i32) -> ::windows::core::Result<()>;
@@ -1080,7 +1080,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn ConvertStringInIStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwflag: u32, lpfallback: ::windows::core::PCWSTR, dwsrcencoding: u32, dwdstencoding: u32, pstmin: *mut ::core::ffi::c_void, pstmout: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConvertStringInIStream(::core::mem::transmute_copy(&pdwmode), ::core::mem::transmute_copy(&dwflag), ::core::mem::transmute(&lpfallback), ::core::mem::transmute_copy(&dwsrcencoding), ::core::mem::transmute_copy(&dwdstencoding), ::core::mem::transmute(&pstmin), ::core::mem::transmute(&pstmout)).into()
+            this.ConvertStringInIStream(::core::mem::transmute_copy(&pdwmode), ::core::mem::transmute_copy(&dwflag), ::core::mem::transmute(&lpfallback), ::core::mem::transmute_copy(&dwsrcencoding), ::core::mem::transmute_copy(&dwdstencoding), ::windows::core::from_raw_borrowed(&pstmin), ::windows::core::from_raw_borrowed(&pstmout)).into()
         }
         unsafe extern "system" fn ConvertStringToUnicodeEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmode: *mut u32, dwencoding: u32, psrcstr: ::windows::core::PCSTR, pcsrcsize: *mut u32, pdststr: ::windows::core::PWSTR, pcdstsize: *mut u32, dwflag: u32, lpfallback: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1095,7 +1095,7 @@ impl IMultiLanguage2_Vtbl {
         unsafe extern "system" fn DetectCodepageInIStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflag: u32, dwprefwincodepage: u32, pstmin: *mut ::core::ffi::c_void, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DetectCodepageInIStream(::core::mem::transmute_copy(&dwflag), ::core::mem::transmute_copy(&dwprefwincodepage), ::core::mem::transmute(&pstmin), ::core::mem::transmute_copy(&lpencoding), ::core::mem::transmute_copy(&pnscores)).into()
+            this.DetectCodepageInIStream(::core::mem::transmute_copy(&dwflag), ::core::mem::transmute_copy(&dwprefwincodepage), ::windows::core::from_raw_borrowed(&pstmin), ::core::mem::transmute_copy(&lpencoding), ::core::mem::transmute_copy(&pnscores)).into()
         }
         unsafe extern "system" fn DetectInputCodepage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflag: u32, dwprefwincodepage: u32, psrcstr: ::windows::core::PCSTR, pcsrcsize: *mut i32, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1188,7 +1188,7 @@ impl IMultiLanguage2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMultiLanguage3_Impl: Sized + IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &::windows::core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: &::core::option::Option<super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn DetectOutboundCodePageInIStream(&self, dwflags: u32, pstrin: ::core::option::Option<&super::System::Com::IStream>, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IMultiLanguage3 {}
@@ -1203,7 +1203,7 @@ impl IMultiLanguage3_Vtbl {
         unsafe extern "system" fn DetectOutboundCodePageInIStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMultiLanguage3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pstrin: *mut ::core::ffi::c_void, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DetectOutboundCodePageInIStream(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pstrin), ::core::mem::transmute_copy(&puipreferredcodepages), ::core::mem::transmute_copy(&npreferredcodepages), ::core::mem::transmute_copy(&puidetectedcodepages), ::core::mem::transmute_copy(&pndetectedcodepages), ::core::mem::transmute(&lpspecialchar)).into()
+            this.DetectOutboundCodePageInIStream(::core::mem::transmute_copy(&dwflags), ::windows::core::from_raw_borrowed(&pstrin), ::core::mem::transmute_copy(&puipreferredcodepages), ::core::mem::transmute_copy(&npreferredcodepages), ::core::mem::transmute_copy(&puidetectedcodepages), ::core::mem::transmute_copy(&pndetectedcodepages), ::core::mem::transmute(&lpspecialchar)).into()
         }
         Self {
             base__: IMultiLanguage2_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1296,7 +1296,7 @@ pub trait ISpellCheckProvider_Impl: Sized {
     fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn LocalizedName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetOptionDescription(&self, optionid: &::windows::core::PCWSTR) -> ::windows::core::Result<IOptionDescription>;
-    fn InitializeWordlist(&self, wordlisttype: WORDLIST_TYPE, words: &::core::option::Option<super::System::Com::IEnumString>) -> ::windows::core::Result<()>;
+    fn InitializeWordlist(&self, wordlisttype: WORDLIST_TYPE, words: ::core::option::Option<&super::System::Com::IEnumString>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISpellCheckProvider {}
@@ -1399,7 +1399,7 @@ impl ISpellCheckProvider_Vtbl {
         unsafe extern "system" fn InitializeWordlist<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wordlisttype: WORDLIST_TYPE, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeWordlist(::core::mem::transmute_copy(&wordlisttype), ::core::mem::transmute(&words)).into()
+            this.InitializeWordlist(::core::mem::transmute_copy(&wordlisttype), ::windows::core::from_raw_borrowed(&words)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1488,7 +1488,7 @@ pub trait ISpellChecker_Impl: Sized {
     fn OptionIds(&self) -> ::windows::core::Result<super::System::Com::IEnumString>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn LocalizedName(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
-    fn add_SpellCheckerChanged(&self, handler: &::core::option::Option<ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
+    fn add_SpellCheckerChanged(&self, handler: ::core::option::Option<&ISpellCheckerChangedEventHandler>) -> ::windows::core::Result<u32>;
     fn remove_SpellCheckerChanged(&self, eventcookie: u32) -> ::windows::core::Result<()>;
     fn GetOptionDescription(&self, optionid: &::windows::core::PCWSTR) -> ::windows::core::Result<IOptionDescription>;
     fn ComprehensiveCheck(&self, text: &::windows::core::PCWSTR) -> ::windows::core::Result<IEnumSpellingError>;
@@ -1593,7 +1593,7 @@ impl ISpellChecker_Vtbl {
         unsafe extern "system" fn add_SpellCheckerChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpellChecker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.add_SpellCheckerChanged(::core::mem::transmute(&handler)) {
+            match this.add_SpellCheckerChanged(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(eventcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1673,7 +1673,7 @@ impl ISpellChecker2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"implement\"`*"]
 pub trait ISpellCheckerChangedEventHandler_Impl: Sized {
-    fn Invoke(&self, sender: &::core::option::Option<ISpellChecker>) -> ::windows::core::Result<()>;
+    fn Invoke(&self, sender: ::core::option::Option<&ISpellChecker>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISpellCheckerChangedEventHandler {}
 impl ISpellCheckerChangedEventHandler_Vtbl {
@@ -1681,7 +1681,7 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         unsafe extern "system" fn Invoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpellCheckerChangedEventHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Invoke(::core::mem::transmute(&sender)).into()
+            this.Invoke(::windows::core::from_raw_borrowed(&sender)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }

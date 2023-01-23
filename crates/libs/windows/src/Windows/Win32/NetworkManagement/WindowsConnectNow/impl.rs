@@ -29,7 +29,7 @@ impl IWCNConnectNotify_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"implement\"`*"]
 pub trait IWCNDevice_Impl: Sized {
     fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows::core::Result<()>;
-    fn Connect(&self, pnotify: &::core::option::Option<IWCNConnectNotify>) -> ::windows::core::Result<()>;
+    fn Connect(&self, pnotify: ::core::option::Option<&IWCNConnectNotify>) -> ::windows::core::Result<()>;
     fn GetAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::Result<()>;
     fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32>;
     fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -51,7 +51,7 @@ impl IWCNDevice_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWCNDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Connect(::core::mem::transmute(&pnotify)).into()
+            this.Connect(::windows::core::from_raw_borrowed(&pnotify)).into()
         }
         unsafe extern "system" fn GetAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWCNDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

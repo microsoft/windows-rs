@@ -47,7 +47,7 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
 pub trait IMediaDeviceController_Impl: Sized {
     fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>;
     fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties>;
-    fn SetMediaStreamPropertiesAsync(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: &::core::option::Option<super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
+    fn SetMediaStreamPropertiesAsync(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: ::core::option::Option<&super::MediaProperties::IMediaEncodingProperties>) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
 impl ::windows::core::RuntimeName for IMediaDeviceController {
@@ -83,7 +83,7 @@ impl IMediaDeviceController_Vtbl {
         unsafe extern "system" fn SetMediaStreamPropertiesAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMediaDeviceController_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SetMediaStreamPropertiesAsync(mediastreamtype, ::core::mem::transmute(&mediaencodingproperties)) {
+            match this.SetMediaStreamPropertiesAsync(mediastreamtype, ::windows::core::from_raw_borrowed(&mediaencodingproperties)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

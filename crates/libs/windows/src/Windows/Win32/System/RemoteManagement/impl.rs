@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
-    fn CreateSession(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
+    fn CreateSession(&self, connection: &::windows::core::BSTR, flags: i32, connectionoptions: ::core::option::Option<&super::Com::IDispatch>) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CreateConnectionOptions(&self) -> ::windows::core::Result<super::Com::IDispatch>;
     fn CommandLine(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Error(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -14,7 +14,7 @@ impl IWSMan_Vtbl {
         unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSMan_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void, flags: i32, connectionoptions: *mut ::core::ffi::c_void, session: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateSession(::core::mem::transmute(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
+            match this.CreateSession(::core::mem::transmute(&connection), ::core::mem::transmute_copy(&flags), ::windows::core::from_raw_borrowed(&connectionoptions)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(session, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -737,7 +737,7 @@ impl IWSManEx3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&self, session: &::core::option::Option<super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
+    fn ConfigSDDL(&self, session: ::core::option::Option<&super::Com::IDispatch>, resourceuri: &super::Com::VARIANT, flags: i32) -> ::windows::core::Result<::windows::core::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IWSManInternal {}
@@ -747,7 +747,7 @@ impl IWSManInternal_Vtbl {
         unsafe extern "system" fn ConfigSDDL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWSManInternal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, resourceuri: super::Com::VARIANT, flags: i32, resource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
+            match this.ConfigSDDL(::windows::core::from_raw_borrowed(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

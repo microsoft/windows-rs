@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"implement\"`*"]
 pub trait ISpiControllerProvider_Impl: Sized {
-    fn GetDeviceProvider(&self, settings: &::core::option::Option<ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: ::core::option::Option<&ProviderSpiConnectionSettings>) -> ::windows::core::Result<ISpiDeviceProvider>;
 }
 impl ::windows::core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
@@ -10,7 +10,7 @@ impl ISpiControllerProvider_Vtbl {
         unsafe extern "system" fn GetDeviceProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetDeviceProvider(::core::mem::transmute(&settings)) {
+            match this.GetDeviceProvider(::windows::core::from_raw_borrowed(&settings)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

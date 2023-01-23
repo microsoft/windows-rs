@@ -883,7 +883,7 @@ impl ICounters_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDataCollector_Impl: Sized + super::Com::IDispatch_Impl {
     fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&self, group: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
+    fn SetDataCollectorSet(&self, group: ::core::option::Option<&IDataCollectorSet>) -> ::windows::core::Result<()>;
     fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType>;
     fn FileName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetFileName(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -927,7 +927,7 @@ impl IDataCollector_Vtbl {
         unsafe extern "system" fn SetDataCollectorSet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetDataCollectorSet(::core::mem::transmute(&group)).into()
+            this.SetDataCollectorSet(::windows::core::from_raw_borrowed(&group)).into()
         }
         unsafe extern "system" fn DataCollectorType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut DataCollectorType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1167,10 +1167,10 @@ pub trait IDataCollectorCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollector>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, collector: &::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
+    fn Add(&self, collector: ::core::option::Option<&IDataCollector>) -> ::windows::core::Result<()>;
     fn Remove(&self, collector: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, collectors: &::core::option::Option<IDataCollectorCollection>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, collectors: ::core::option::Option<&IDataCollectorCollection>) -> ::windows::core::Result<()>;
     fn CreateDataCollectorFromXml(&self, bstrxml: &::windows::core::BSTR, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()>;
     fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector>;
 }
@@ -1215,7 +1215,7 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&collector)).into()
+            this.Add(::windows::core::from_raw_borrowed(&collector)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1230,7 +1230,7 @@ impl IDataCollectorCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectors: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&collectors)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&collectors)).into()
         }
         unsafe extern "system" fn CreateDataCollectorFromXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, pvalidation: *mut *mut ::core::ffi::c_void, pcollector: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1912,10 +1912,10 @@ pub trait IDataCollectorSetCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IDataCollectorSet>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, set: &::core::option::Option<IDataCollectorSet>) -> ::windows::core::Result<()>;
+    fn Add(&self, set: ::core::option::Option<&IDataCollectorSet>) -> ::windows::core::Result<()>;
     fn Remove(&self, set: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, sets: &::core::option::Option<IDataCollectorSetCollection>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, sets: ::core::option::Option<&IDataCollectorSetCollection>) -> ::windows::core::Result<()>;
     fn GetDataCollectorSets(&self, server: &::windows::core::BSTR, filter: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1959,7 +1959,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&set)).into()
+            this.Add(::windows::core::from_raw_borrowed(&set)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1974,7 +1974,7 @@ impl IDataCollectorSetCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sets: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&sets)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&sets)).into()
         }
         unsafe extern "system" fn GetDataCollectorSets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataCollectorSetCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, server: *mut ::core::ffi::c_void, filter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2370,10 +2370,10 @@ pub trait IFolderActionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<u32>;
     fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<IFolderAction>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, action: &::core::option::Option<IFolderAction>) -> ::windows::core::Result<()>;
+    fn Add(&self, action: ::core::option::Option<&IFolderAction>) -> ::windows::core::Result<()>;
     fn Remove(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, actions: &::core::option::Option<IFolderActionCollection>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, actions: ::core::option::Option<&IFolderActionCollection>) -> ::windows::core::Result<()>;
     fn CreateFolderAction(&self) -> ::windows::core::Result<IFolderAction>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2417,7 +2417,7 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&action)).into()
+            this.Add(::windows::core::from_raw_borrowed(&action)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2432,7 +2432,7 @@ impl IFolderActionCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actions: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&actions)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&actions)).into()
         }
         unsafe extern "system" fn CreateFolderAction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFolderActionCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folderaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2781,10 +2781,10 @@ pub trait IScheduleCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<ISchedule>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, pschedule: &::core::option::Option<ISchedule>) -> ::windows::core::Result<()>;
+    fn Add(&self, pschedule: ::core::option::Option<&ISchedule>) -> ::windows::core::Result<()>;
     fn Remove(&self, vschedule: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, pschedules: &::core::option::Option<IScheduleCollection>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, pschedules: ::core::option::Option<&IScheduleCollection>) -> ::windows::core::Result<()>;
     fn CreateSchedule(&self) -> ::windows::core::Result<ISchedule>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2828,7 +2828,7 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschedule: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&pschedule)).into()
+            this.Add(::windows::core::from_raw_borrowed(&pschedule)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vschedule: super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2843,7 +2843,7 @@ impl IScheduleCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschedules: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&pschedules)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&pschedules)).into()
         }
         unsafe extern "system" fn CreateSchedule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IScheduleCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schedule: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2884,7 +2884,7 @@ pub trait ISystemMonitor_Impl: Sized {
     fn ForeColor(&self) -> ::windows::core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()>;
     fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
+    fn putref_Font(&self, pfont: ::core::option::Option<&super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
     fn Counters(&self) -> ::windows::core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn ShowVerticalGrid(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2916,7 +2916,7 @@ pub trait ISystemMonitor_Impl: Sized {
     fn DisplayProperties(&self) -> ::windows::core::Result<()>;
     fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &::windows::core::BSTR) -> ::windows::core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
+    fn DeleteCounter(&self, pctr: ::core::option::Option<&ICounterItem>) -> ::windows::core::Result<()>;
     fn BackColorCtl(&self) -> ::windows::core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -3035,7 +3035,7 @@ impl ISystemMonitor_Vtbl {
         unsafe extern "system" fn putref_Font<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_Font(::core::mem::transmute(&pfont)).into()
+            this.putref_Font(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn Counters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppicounters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3285,7 +3285,7 @@ impl ISystemMonitor_Vtbl {
         unsafe extern "system" fn DeleteCounter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteCounter(::core::mem::transmute(&pctr)).into()
+            this.DeleteCounter(::windows::core::from_raw_borrowed(&pctr)).into()
         }
         unsafe extern "system" fn BackColorCtl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISystemMonitor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4326,7 +4326,7 @@ pub trait ITraceDataProvider_Impl: Sized + super::Com::IDispatch_Impl {
     fn FilterData(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>;
     fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn Query(&self, bstrname: &::windows::core::BSTR, bstrserver: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn Resolve(&self, pfrom: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Resolve(&self, pfrom: ::core::option::Option<&super::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn SetSecurity(&self, sddl: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetSecurity(&self, securityinfo: u32) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetRegisteredProcesses(&self) -> ::windows::core::Result<IValueMap>;
@@ -4468,7 +4468,7 @@ impl ITraceDataProvider_Vtbl {
         unsafe extern "system" fn Resolve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrom: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Resolve(::core::mem::transmute(&pfrom)).into()
+            this.Resolve(::windows::core::from_raw_borrowed(&pfrom)).into()
         }
         unsafe extern "system" fn SetSecurity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sddl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4530,10 +4530,10 @@ pub trait ITraceDataProviderCollection_Impl: Sized + super::Com::IDispatch_Impl 
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn get_Item(&self, index: &super::Com::VARIANT) -> ::windows::core::Result<ITraceDataProvider>;
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn Add(&self, pprovider: &::core::option::Option<ITraceDataProvider>) -> ::windows::core::Result<()>;
+    fn Add(&self, pprovider: ::core::option::Option<&ITraceDataProvider>) -> ::windows::core::Result<()>;
     fn Remove(&self, vprovider: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, providers: &::core::option::Option<ITraceDataProviderCollection>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, providers: ::core::option::Option<&ITraceDataProviderCollection>) -> ::windows::core::Result<()>;
     fn CreateTraceDataProvider(&self) -> ::windows::core::Result<ITraceDataProvider>;
     fn GetTraceDataProviders(&self, server: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetTraceDataProvidersByProcess(&self, server: &::windows::core::BSTR, pid: u32) -> ::windows::core::Result<()>;
@@ -4579,7 +4579,7 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&pprovider)).into()
+            this.Add(::windows::core::from_raw_borrowed(&pprovider)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprovider: super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4594,7 +4594,7 @@ impl ITraceDataProviderCollection_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providers: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&providers)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&providers)).into()
         }
         unsafe extern "system" fn CreateTraceDataProvider<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITraceDataProviderCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4650,7 +4650,7 @@ pub trait IValueMap_Impl: Sized + super::Com::IDispatch_Impl {
     fn Add(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Remove(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Clear(&self) -> ::windows::core::Result<()>;
-    fn AddRange(&self, map: &::core::option::Option<IValueMap>) -> ::windows::core::Result<()>;
+    fn AddRange(&self, map: ::core::option::Option<&IValueMap>) -> ::windows::core::Result<()>;
     fn CreateValueMapItem(&self) -> ::windows::core::Result<IValueMapItem>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4757,7 +4757,7 @@ impl IValueMap_Vtbl {
         unsafe extern "system" fn AddRange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, map: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddRange(::core::mem::transmute(&map)).into()
+            this.AddRange(::windows::core::from_raw_borrowed(&map)).into()
         }
         unsafe extern "system" fn CreateValueMapItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IValueMap_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5111,7 +5111,7 @@ pub trait _ISystemMonitorUnion_Impl: Sized {
     fn ForeColor(&self) -> ::windows::core::Result<u32>;
     fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()>;
     fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: &::core::option::Option<super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
+    fn putref_Font(&self, pfont: ::core::option::Option<&super::Ole::IFontDisp>) -> ::windows::core::Result<()>;
     fn Counters(&self) -> ::windows::core::Result<ICounters>;
     fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn ShowVerticalGrid(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5143,7 +5143,7 @@ pub trait _ISystemMonitorUnion_Impl: Sized {
     fn DisplayProperties(&self) -> ::windows::core::Result<()>;
     fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem>;
     fn AddCounter(&self, bspath: &::windows::core::BSTR) -> ::windows::core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: &::core::option::Option<ICounterItem>) -> ::windows::core::Result<()>;
+    fn DeleteCounter(&self, pctr: ::core::option::Option<&ICounterItem>) -> ::windows::core::Result<()>;
     fn BackColorCtl(&self) -> ::windows::core::Result<u32>;
     fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()>;
     fn SetLogFileName(&self, bsfilename: &::windows::core::BSTR) -> ::windows::core::Result<()>;
@@ -5282,7 +5282,7 @@ impl _ISystemMonitorUnion_Vtbl {
         unsafe extern "system" fn putref_Font<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_Font(::core::mem::transmute(&pfont)).into()
+            this.putref_Font(::windows::core::from_raw_borrowed(&pfont)).into()
         }
         unsafe extern "system" fn Counters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppicounters: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5532,7 +5532,7 @@ impl _ISystemMonitorUnion_Vtbl {
         unsafe extern "system" fn DeleteCounter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteCounter(::core::mem::transmute(&pctr)).into()
+            this.DeleteCounter(::windows::core::from_raw_borrowed(&pctr)).into()
         }
         unsafe extern "system" fn BackColorCtl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: _ISystemMonitorUnion_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
