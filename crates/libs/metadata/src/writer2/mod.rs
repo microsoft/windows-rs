@@ -84,7 +84,7 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn new(namespace: &str, name: &str) -> Self {
+    pub fn named(namespace: &str, name: &str) -> Self {
         Self::Named((namespace.to_string(), name.to_string()))
     }
 }

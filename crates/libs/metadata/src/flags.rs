@@ -17,6 +17,13 @@ pub struct PInvokeAttributes(pub usize);
 pub struct TypeAttributes(pub u32);
 
 impl FieldAttributes {
+    pub fn private(&self) -> bool {
+        self.0 & 0x1 != 0
+    }
+    pub fn set_private(&mut self) {
+        self.0 |= 0x1;
+    }
+
     pub fn public(&self) -> bool {
         self.0 & 0x6 != 0
     }
@@ -29,11 +36,26 @@ impl FieldAttributes {
     pub fn set_literal(&mut self) {
         self.0 |= 0x40;
     }
+
     pub fn r#static(&self) -> bool {
         self.0 & 0x10 != 0
     }
     pub fn set_static(&mut self) {
         self.0 |= 0x10;
+    }
+
+    pub fn special(&self) -> bool {
+        self.0 & 0x200 != 0
+    }
+    pub fn set_special(&mut self) {
+        self.0 |= 0x200
+    }
+
+    pub fn runtime_special(&self) -> bool {
+        self.0 & 0x400 != 0
+    }
+    pub fn set_runtime_special(&mut self) {
+        self.0 |= 0x400
     }
 }
 

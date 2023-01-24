@@ -49,6 +49,7 @@ impl StagedBlobs {
         self.0.stream
     }
 
+    #[track_caller]
     pub fn index(&self, value: &[u8]) -> u32 {
         if value.is_empty() {
             0

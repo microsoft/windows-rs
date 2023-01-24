@@ -56,6 +56,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         strings.insert("System");
         strings.insert("ValueType");
         strings.insert("Enum");
+        strings.insert("value__");
 
         for item in definitions.items() {
             match item {
@@ -64,12 +65,19 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     strings.insert(&ty.name);
                     ty.fields.iter().for_each(|field| {
                         strings.insert(&field.name);
-                        blobs.insert(field_blob(field, definitions, references));
+                        blobs.insert(field_blob(&field.ty, definitions, references));
                     });
                 }
                 Item::Enum(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
+                    let enum_type = Type::named(&ty.namespace, &ty.name);
+                    blobs.insert(field_blob(&enum_type, definitions, references));
+                    blobs.insert(field_blob(&value_to_type(&ty.constants[0].value), definitions, references));
+                    ty.constants.iter().for_each(|constant| {
+                        strings.insert(&constant.name);
+                        blobs.insert(value_blob(&constant.value));
+                    });
                 }
                 Item::Interface(ty) => {
                     strings.insert(&ty.namespace);
@@ -109,7 +117,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     for field in &ty.fields {
                         let mut flags = FieldAttributes(0);
                         flags.set_public();
-                        tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(field, definitions, references)) })
+                        tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(&field.ty, definitions, references)) });
                     }
                 }
                 Item::Enum(ty) => {
@@ -126,11 +134,18 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         FieldList: tables.Field.len() as _,
                         MethodList: 0,
                     });
-                    // for field in &ty.fields {
-                    //     let mut flags = FieldAttributes(0);
-                    //     flags.set_public();
-                    //     tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(field, definitions, references)) })
-                    // }
+                    let enum_type = Type::named(&ty.namespace, &ty.name);
+                    let mut flags = FieldAttributes(0);
+                    flags.set_private();
+                    flags.set_special();
+                    flags.set_runtime_special();
+                    tables.Field.push2(tables::Field { Flags: flags.0, Name: strings.index("value__"), Signature: blobs.index(&field_blob(&value_to_type(&ty.constants[0].value), definitions, references)) });
+                    for constant in &ty.constants {
+                        let mut flags = FieldAttributes(0);
+                        flags.set_public();
+                        let field = tables.Field.push2(tables::Field { Flags: flags.0, Name: strings.index(&constant.name), Signature: blobs.index(&field_blob(&enum_type, definitions, references)) });
+                        tables.Constant.push(tables::Constant { Type: value_type_code(&constant.value), Parent: HasConstant::Field(field).encode(), Value: blobs.index(&value_blob(&constant.value)) });
+                    }
                 }
                 Item::Interface(_ty) => {}
             }
@@ -169,10 +184,52 @@ fn item_value_type(item: &Item) -> bool {
     }
 }
 
-fn field_blob(field: &Field, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
+fn field_blob(ty: &Type, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
     let mut blob = vec![0x6];
-    type_blob(&field.ty, &mut blob, definitions, references);
+    type_blob(ty, &mut blob, definitions, references);
     blob
+}
+
+fn value_blob(value:&Value) -> Vec<u8> {
+    match value {
+        Value::I8 (value) => value.to_le_bytes().to_vec(),
+        Value::U8 (value) => value.to_le_bytes().to_vec(),
+        Value::I16(value) => value.to_le_bytes().to_vec(),
+        Value::U16(value) => value.to_le_bytes().to_vec(),
+        Value::I32(value) => value.to_le_bytes().to_vec(),
+        Value::U32(value) => value.to_le_bytes().to_vec(),
+        Value::I64(value) => value.to_le_bytes().to_vec(),
+        Value::U64(value) => value.to_le_bytes().to_vec(),
+        _ => panic!("Unsupported value type"),
+        }
+}
+
+fn value_to_type(value:&Value) -> Type {
+    match value {
+        Value::I8(_)  => Type::I8,
+        Value::U8(_)  => Type::U8,
+        Value::I16(_) => Type::I16,
+        Value::U16(_) => Type::U16,
+        Value::I32(_) => Type::I32,
+        Value::U32(_) => Type::U32,
+        Value::I64(_) => Type::I64,
+        Value::U64(_) => Type::U64,
+        _ => panic!("Unsupported value type"),
+        }
+}
+
+fn value_type_code(value: &Value) -> u16 {
+    match value {
+    Value::I8(_)  => 0x04,
+    Value::U8(_)  => 0x05,
+    Value::I16(_) => 0x06,
+    Value::U16(_) => 0x07,
+    Value::I32(_) => 0x08,
+    Value::U32(_) => 0x09,
+    Value::I64(_) => 0x0a,
+    Value::U64(_) => 0x0b,
+    _ => panic!("Unsupported value type"),
+    }
 }
 
 fn type_blob(ty: &Type, blob: &mut Vec<u8>, definitions: &StagedDefinitions, references: &StagedReferences) {
