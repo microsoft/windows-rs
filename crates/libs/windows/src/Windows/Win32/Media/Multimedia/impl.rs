@@ -3,7 +3,7 @@
 pub trait IAVIEditStream_Impl: Sized {
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
     fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows::core::Result<()>;
-    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: &::core::option::Option<IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: ::core::option::Option<&IAVIStream>, lstart: i32, lend: i32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::core::Result<()>;
 }
@@ -25,7 +25,7 @@ impl IAVIEditStream_Vtbl {
         unsafe extern "system" fn Paste<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Paste(::core::mem::transmute_copy(&plpos), ::core::mem::transmute_copy(&pllength), ::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&lstart), ::core::mem::transmute_copy(&lend)).into()
+            this.Paste(::core::mem::transmute_copy(&plpos), ::core::mem::transmute_copy(&pllength), ::windows::core::from_raw_borrowed(&pstream), ::core::mem::transmute_copy(&lstart), ::core::mem::transmute_copy(&lend)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

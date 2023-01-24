@@ -142,7 +142,7 @@ pub trait ID3D10Debug_Impl: Sized {
     fn GetFeatureMask(&self) -> u32;
     fn SetPresentPerRenderOpDelay(&self, milliseconds: u32) -> ::windows::core::Result<()>;
     fn GetPresentPerRenderOpDelay(&self) -> u32;
-    fn SetSwapChain(&self, pswapchain: &::core::option::Option<super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
+    fn SetSwapChain(&self, pswapchain: ::core::option::Option<&super::Dxgi::IDXGISwapChain>) -> ::windows::core::Result<()>;
     fn GetSwapChain(&self) -> ::windows::core::Result<super::Dxgi::IDXGISwapChain>;
     fn Validate(&self) -> ::windows::core::Result<()>;
 }
@@ -174,7 +174,7 @@ impl ID3D10Debug_Vtbl {
         unsafe extern "system" fn SetSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pswapchain: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSwapChain(::core::mem::transmute(&pswapchain)).into()
+            this.SetSwapChain(::windows::core::from_raw_borrowed(&pswapchain)).into()
         }
         unsafe extern "system" fn GetSwapChain<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Debug_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppswapchain: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -254,40 +254,40 @@ impl ID3D10DepthStencilView_Vtbl {
 pub trait ID3D10Device_Impl: Sized {
     fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
     fn PSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
-    fn PSSetShader(&self, ppixelshader: &::core::option::Option<ID3D10PixelShader>);
+    fn PSSetShader(&self, ppixelshader: ::core::option::Option<&ID3D10PixelShader>);
     fn PSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn VSSetShader(&self, pvertexshader: &::core::option::Option<ID3D10VertexShader>);
+    fn VSSetShader(&self, pvertexshader: ::core::option::Option<&ID3D10VertexShader>);
     fn DrawIndexed(&self, indexcount: u32, startindexlocation: u32, basevertexlocation: i32);
     fn Draw(&self, vertexcount: u32, startvertexlocation: u32);
     fn PSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
-    fn IASetInputLayout(&self, pinputlayout: &::core::option::Option<ID3D10InputLayout>);
+    fn IASetInputLayout(&self, pinputlayout: ::core::option::Option<&ID3D10InputLayout>);
     fn IASetVertexBuffers(&self, startslot: u32, numbuffers: u32, ppvertexbuffers: *const ::core::option::Option<ID3D10Buffer>, pstrides: *const u32, poffsets: *const u32);
-    fn IASetIndexBuffer(&self, pindexbuffer: &::core::option::Option<ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
+    fn IASetIndexBuffer(&self, pindexbuffer: ::core::option::Option<&ID3D10Buffer>, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32);
     fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
     fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
     fn GSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D10Buffer>);
-    fn GSSetShader(&self, pshader: &::core::option::Option<ID3D10GeometryShader>);
+    fn GSSetShader(&self, pshader: ::core::option::Option<&ID3D10GeometryShader>);
     fn IASetPrimitiveTopology(&self, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY);
     fn VSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
     fn VSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn SetPredication(&self, ppredicate: &::core::option::Option<ID3D10Predicate>, predicatevalue: super::super::Foundation::BOOL);
+    fn SetPredication(&self, ppredicate: ::core::option::Option<&ID3D10Predicate>, predicatevalue: super::super::Foundation::BOOL);
     fn GSSetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *const ::core::option::Option<ID3D10ShaderResourceView>);
     fn GSSetSamplers(&self, startslot: u32, numsamplers: u32, ppsamplers: *const ::core::option::Option<ID3D10SamplerState>);
-    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D10RenderTargetView>, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>);
-    fn OMSetBlendState(&self, pblendstate: &::core::option::Option<ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
-    fn OMSetDepthStencilState(&self, pdepthstencilstate: &::core::option::Option<ID3D10DepthStencilState>, stencilref: u32);
+    fn OMSetRenderTargets(&self, numviews: u32, pprendertargetviews: *const ::core::option::Option<ID3D10RenderTargetView>, pdepthstencilview: ::core::option::Option<&ID3D10DepthStencilView>);
+    fn OMSetBlendState(&self, pblendstate: ::core::option::Option<&ID3D10BlendState>, blendfactor: *const f32, samplemask: u32);
+    fn OMSetDepthStencilState(&self, pdepthstencilstate: ::core::option::Option<&ID3D10DepthStencilState>, stencilref: u32);
     fn SOSetTargets(&self, numbuffers: u32, ppsotargets: *const ::core::option::Option<ID3D10Buffer>, poffsets: *const u32);
     fn DrawAuto(&self);
-    fn RSSetState(&self, prasterizerstate: &::core::option::Option<ID3D10RasterizerState>);
+    fn RSSetState(&self, prasterizerstate: ::core::option::Option<&ID3D10RasterizerState>);
     fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D10_VIEWPORT);
     fn RSSetScissorRects(&self, numrects: u32, prects: *const super::super::Foundation::RECT);
-    fn CopySubresourceRegion(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
-    fn CopyResource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, psrcresource: &::core::option::Option<ID3D10Resource>);
-    fn UpdateSubresource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
-    fn ClearRenderTargetView(&self, prendertargetview: &::core::option::Option<ID3D10RenderTargetView>, colorrgba: *const f32);
-    fn ClearDepthStencilView(&self, pdepthstencilview: &::core::option::Option<ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
-    fn GenerateMips(&self, pshaderresourceview: &::core::option::Option<ID3D10ShaderResourceView>);
-    fn ResolveSubresource(&self, pdstresource: &::core::option::Option<ID3D10Resource>, dstsubresource: u32, psrcresource: &::core::option::Option<ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
+    fn CopySubresourceRegion(&self, pdstresource: ::core::option::Option<&ID3D10Resource>, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: ::core::option::Option<&ID3D10Resource>, srcsubresource: u32, psrcbox: *const D3D10_BOX);
+    fn CopyResource(&self, pdstresource: ::core::option::Option<&ID3D10Resource>, psrcresource: ::core::option::Option<&ID3D10Resource>);
+    fn UpdateSubresource(&self, pdstresource: ::core::option::Option<&ID3D10Resource>, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32);
+    fn ClearRenderTargetView(&self, prendertargetview: ::core::option::Option<&ID3D10RenderTargetView>, colorrgba: *const f32);
+    fn ClearDepthStencilView(&self, pdepthstencilview: ::core::option::Option<&ID3D10DepthStencilView>, clearflags: u32, depth: f32, stencil: u8);
+    fn GenerateMips(&self, pshaderresourceview: ::core::option::Option<&ID3D10ShaderResourceView>);
+    fn ResolveSubresource(&self, pdstresource: ::core::option::Option<&ID3D10Resource>, dstsubresource: u32, psrcresource: ::core::option::Option<&ID3D10Resource>, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT);
     fn VSGetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D10Buffer>);
     fn PSGetShaderResources(&self, startslot: u32, numviews: u32, ppshaderresourceviews: *mut ::core::option::Option<ID3D10ShaderResourceView>);
     fn PSGetShader(&self, pppixelshader: *mut ::core::option::Option<ID3D10PixelShader>) -> ();
@@ -317,16 +317,16 @@ pub trait ID3D10Device_Impl: Sized {
     fn GetExceptionMode(&self) -> u32;
     fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn ClearState(&self);
     fn Flush(&self);
     fn CreateBuffer(&self, pdesc: *const D3D10_BUFFER_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA, ppbuffer: *mut ::core::option::Option<ID3D10Buffer>) -> ::windows::core::Result<()>;
     fn CreateTexture1D(&self, pdesc: *const D3D10_TEXTURE1D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture1D>;
     fn CreateTexture2D(&self, pdesc: *const D3D10_TEXTURE2D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture2D>;
     fn CreateTexture3D(&self, pdesc: *const D3D10_TEXTURE3D_DESC, pinitialdata: *const D3D10_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D10Texture3D>;
-    fn CreateShaderResourceView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut ::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
-    fn CreateRenderTargetView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: *mut ::core::option::Option<ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
-    fn CreateDepthStencilView(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
+    fn CreateShaderResourceView(&self, presource: ::core::option::Option<&ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut ::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn CreateRenderTargetView(&self, presource: ::core::option::Option<&ID3D10Resource>, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: *mut ::core::option::Option<ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
+    fn CreateDepthStencilView(&self, presource: ::core::option::Option<&ID3D10Resource>, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut ::core::option::Option<ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
     fn CreateInputLayout(&self, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut ::core::option::Option<ID3D10InputLayout>) -> ::windows::core::Result<()>;
     fn CreateVertexShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppvertexshader: *mut ::core::option::Option<ID3D10VertexShader>) -> ::windows::core::Result<()>;
     fn CreateGeometryShader(&self, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, ppgeometryshader: *mut ::core::option::Option<ID3D10GeometryShader>) -> ::windows::core::Result<()>;
@@ -366,7 +366,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn PSSetShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppixelshader: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PSSetShader(::core::mem::transmute(&ppixelshader))
+            this.PSSetShader(::windows::core::from_raw_borrowed(&ppixelshader))
         }
         unsafe extern "system" fn PSSetSamplers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -376,7 +376,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn VSSetShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvertexshader: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.VSSetShader(::core::mem::transmute(&pvertexshader))
+            this.VSSetShader(::windows::core::from_raw_borrowed(&pvertexshader))
         }
         unsafe extern "system" fn DrawIndexed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexcount: u32, startindexlocation: u32, basevertexlocation: i32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -396,7 +396,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn IASetInputLayout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputlayout: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IASetInputLayout(::core::mem::transmute(&pinputlayout))
+            this.IASetInputLayout(::windows::core::from_raw_borrowed(&pinputlayout))
         }
         unsafe extern "system" fn IASetVertexBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppvertexbuffers: *const *mut ::core::ffi::c_void, pstrides: *const u32, poffsets: *const u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -406,7 +406,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn IASetIndexBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pindexbuffer: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IASetIndexBuffer(::core::mem::transmute(&pindexbuffer), ::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&offset))
+            this.IASetIndexBuffer(::windows::core::from_raw_borrowed(&pindexbuffer), ::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&offset))
         }
         unsafe extern "system" fn DrawIndexedInstanced<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -426,7 +426,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn GSSetShader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshader: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GSSetShader(::core::mem::transmute(&pshader))
+            this.GSSetShader(::windows::core::from_raw_borrowed(&pshader))
         }
         unsafe extern "system" fn IASetPrimitiveTopology<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -446,7 +446,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn SetPredication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppredicate: *mut ::core::ffi::c_void, predicatevalue: super::super::Foundation::BOOL) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPredication(::core::mem::transmute(&ppredicate), ::core::mem::transmute_copy(&predicatevalue))
+            this.SetPredication(::windows::core::from_raw_borrowed(&ppredicate), ::core::mem::transmute_copy(&predicatevalue))
         }
         unsafe extern "system" fn GSSetShaderResources<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -461,17 +461,17 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn OMSetRenderTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numviews: u32, pprendertargetviews: *const *mut ::core::ffi::c_void, pdepthstencilview: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OMSetRenderTargets(::core::mem::transmute_copy(&numviews), ::core::mem::transmute_copy(&pprendertargetviews), ::core::mem::transmute(&pdepthstencilview))
+            this.OMSetRenderTargets(::core::mem::transmute_copy(&numviews), ::core::mem::transmute_copy(&pprendertargetviews), ::windows::core::from_raw_borrowed(&pdepthstencilview))
         }
         unsafe extern "system" fn OMSetBlendState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblendstate: *mut ::core::ffi::c_void, blendfactor: *const f32, samplemask: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OMSetBlendState(::core::mem::transmute(&pblendstate), ::core::mem::transmute_copy(&blendfactor), ::core::mem::transmute_copy(&samplemask))
+            this.OMSetBlendState(::windows::core::from_raw_borrowed(&pblendstate), ::core::mem::transmute_copy(&blendfactor), ::core::mem::transmute_copy(&samplemask))
         }
         unsafe extern "system" fn OMSetDepthStencilState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdepthstencilstate: *mut ::core::ffi::c_void, stencilref: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OMSetDepthStencilState(::core::mem::transmute(&pdepthstencilstate), ::core::mem::transmute_copy(&stencilref))
+            this.OMSetDepthStencilState(::windows::core::from_raw_borrowed(&pdepthstencilstate), ::core::mem::transmute_copy(&stencilref))
         }
         unsafe extern "system" fn SOSetTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbuffers: u32, ppsotargets: *const *mut ::core::ffi::c_void, poffsets: *const u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -486,7 +486,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn RSSetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prasterizerstate: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RSSetState(::core::mem::transmute(&prasterizerstate))
+            this.RSSetState(::windows::core::from_raw_borrowed(&prasterizerstate))
         }
         unsafe extern "system" fn RSSetViewports<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numviewports: u32, pviewports: *const D3D10_VIEWPORT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -501,37 +501,37 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CopySubresourceRegion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, psrcbox: *const D3D10_BOX) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopySubresourceRegion(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&dstx), ::core::mem::transmute_copy(&dsty), ::core::mem::transmute_copy(&dstz), ::core::mem::transmute(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&psrcbox))
+            this.CopySubresourceRegion(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&dstx), ::core::mem::transmute_copy(&dsty), ::core::mem::transmute_copy(&dstz), ::windows::core::from_raw_borrowed(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&psrcbox))
         }
         unsafe extern "system" fn CopyResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, psrcresource: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CopyResource(::core::mem::transmute(&pdstresource), ::core::mem::transmute(&psrcresource))
+            this.CopyResource(::windows::core::from_raw_borrowed(&pdstresource), ::windows::core::from_raw_borrowed(&psrcresource))
         }
         unsafe extern "system" fn UpdateSubresource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D10_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateSubresource(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&pdstbox), ::core::mem::transmute_copy(&psrcdata), ::core::mem::transmute_copy(&srcrowpitch), ::core::mem::transmute_copy(&srcdepthpitch))
+            this.UpdateSubresource(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute_copy(&pdstbox), ::core::mem::transmute_copy(&psrcdata), ::core::mem::transmute_copy(&srcrowpitch), ::core::mem::transmute_copy(&srcdepthpitch))
         }
         unsafe extern "system" fn ClearRenderTargetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendertargetview: *mut ::core::ffi::c_void, colorrgba: *const f32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearRenderTargetView(::core::mem::transmute(&prendertargetview), ::core::mem::transmute_copy(&colorrgba))
+            this.ClearRenderTargetView(::windows::core::from_raw_borrowed(&prendertargetview), ::core::mem::transmute_copy(&colorrgba))
         }
         unsafe extern "system" fn ClearDepthStencilView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdepthstencilview: *mut ::core::ffi::c_void, clearflags: u32, depth: f32, stencil: u8) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ClearDepthStencilView(::core::mem::transmute(&pdepthstencilview), ::core::mem::transmute_copy(&clearflags), ::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&stencil))
+            this.ClearDepthStencilView(::windows::core::from_raw_borrowed(&pdepthstencilview), ::core::mem::transmute_copy(&clearflags), ::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&stencil))
         }
         unsafe extern "system" fn GenerateMips<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pshaderresourceview: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GenerateMips(::core::mem::transmute(&pshaderresourceview))
+            this.GenerateMips(::windows::core::from_raw_borrowed(&pshaderresourceview))
         }
         unsafe extern "system" fn ResolveSubresource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ResolveSubresource(::core::mem::transmute(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::core::mem::transmute(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&format))
+            this.ResolveSubresource(::windows::core::from_raw_borrowed(&pdstresource), ::core::mem::transmute_copy(&dstsubresource), ::windows::core::from_raw_borrowed(&psrcresource), ::core::mem::transmute_copy(&srcsubresource), ::core::mem::transmute_copy(&format))
         }
         unsafe extern "system" fn VSGetConstantBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -681,7 +681,7 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
+            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::windows::core::from_raw_borrowed(&pdata)).into()
         }
         unsafe extern "system" fn ClearState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -734,17 +734,17 @@ impl ID3D10Device_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppsrview)).into()
+            this.CreateShaderResourceView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppsrview)).into()
         }
         unsafe extern "system" fn CreateRenderTargetView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D10_RENDER_TARGET_VIEW_DESC, pprtview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pprtview)).into()
+            this.CreateRenderTargetView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pprtview)).into()
         }
         unsafe extern "system" fn CreateDepthStencilView<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D10_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppdepthstencilview)).into()
+            this.CreateDepthStencilView(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppdepthstencilview)).into()
         }
         unsafe extern "system" fn CreateInputLayout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinputelementdescs: *const D3D10_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -964,7 +964,7 @@ impl ID3D10Device_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D10Device1_Impl: Sized + ID3D10Device_Impl {
-    fn CreateShaderResourceView1(&self, presource: &::core::option::Option<ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut ::core::option::Option<ID3D10ShaderResourceView1>) -> ::windows::core::Result<()>;
+    fn CreateShaderResourceView1(&self, presource: ::core::option::Option<&ID3D10Resource>, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut ::core::option::Option<ID3D10ShaderResourceView1>) -> ::windows::core::Result<()>;
     fn CreateBlendState1(&self, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: *mut ::core::option::Option<ID3D10BlendState1>) -> ::windows::core::Result<()>;
     fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
 }
@@ -976,7 +976,7 @@ impl ID3D10Device1_Vtbl {
         unsafe extern "system" fn CreateShaderResourceView1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, ppsrview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateShaderResourceView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppsrview)).into()
+            this.CreateShaderResourceView1(::windows::core::from_raw_borrowed(&presource), ::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&ppsrview)).into()
         }
         unsafe extern "system" fn CreateBlendState1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10Device1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblendstatedesc: *const D3D10_BLEND_DESC1, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1004,7 +1004,7 @@ pub trait ID3D10DeviceChild_Impl: Sized {
     fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D10Device>) -> ();
     fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const ::windows::core::GUID, pdata: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ID3D10DeviceChild {}
 impl ID3D10DeviceChild_Vtbl {
@@ -1027,7 +1027,7 @@ impl ID3D10DeviceChild_Vtbl {
         unsafe extern "system" fn SetPrivateDataInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D10DeviceChild_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::core::mem::transmute(&pdata)).into()
+            this.SetPrivateDataInterface(::core::mem::transmute_copy(&guid), ::windows::core::from_raw_borrowed(&pdata)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1201,9 +1201,9 @@ impl ID3D10EffectBlendVariable {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectConstantBuffer_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetConstantBuffer(&self, pconstantbuffer: &::core::option::Option<ID3D10Buffer>) -> ::windows::core::Result<()>;
+    fn SetConstantBuffer(&self, pconstantbuffer: ::core::option::Option<&ID3D10Buffer>) -> ::windows::core::Result<()>;
     fn GetConstantBuffer(&self) -> ::windows::core::Result<ID3D10Buffer>;
-    fn SetTextureBuffer(&self, ptexturebuffer: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn SetTextureBuffer(&self, ptexturebuffer: ::core::option::Option<&ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
     fn GetTextureBuffer(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1212,7 +1212,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
         unsafe extern "system" fn SetConstantBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pconstantbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.SetConstantBuffer(::core::mem::transmute(&pconstantbuffer)).into()
+            this.SetConstantBuffer(::windows::core::from_raw_borrowed(&pconstantbuffer)).into()
         }
         unsafe extern "system" fn GetConstantBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, ppconstantbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -1228,7 +1228,7 @@ impl ID3D10EffectConstantBuffer_Vtbl {
         unsafe extern "system" fn SetTextureBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, ptexturebuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.SetTextureBuffer(::core::mem::transmute(&ptexturebuffer)).into()
+            this.SetTextureBuffer(::windows::core::from_raw_borrowed(&ptexturebuffer)).into()
         }
         unsafe extern "system" fn GetTextureBuffer<Impl: ID3D10EffectConstantBuffer_Impl>(this: *mut ::core::ffi::c_void, pptexturebuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -1311,7 +1311,7 @@ impl ID3D10EffectDepthStencilVariable {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectDepthStencilViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetDepthStencil(&self, presource: &::core::option::Option<ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
+    fn SetDepthStencil(&self, presource: ::core::option::Option<&ID3D10DepthStencilView>) -> ::windows::core::Result<()>;
     fn GetDepthStencil(&self) -> ::windows::core::Result<ID3D10DepthStencilView>;
     fn SetDepthStencilArray(&self, ppresources: *const ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetDepthStencilArray(&self, ppresources: *mut ::core::option::Option<ID3D10DepthStencilView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
@@ -1322,7 +1322,7 @@ impl ID3D10EffectDepthStencilViewVariable_Vtbl {
         unsafe extern "system" fn SetDepthStencil<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.SetDepthStencil(::core::mem::transmute(&presource)).into()
+            this.SetDepthStencil(::windows::core::from_raw_borrowed(&presource)).into()
         }
         unsafe extern "system" fn GetDepthStencil<Impl: ID3D10EffectDepthStencilViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -1605,7 +1605,7 @@ impl ID3D10EffectRasterizerVariable {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectRenderTargetViewVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetRenderTarget(&self, presource: &::core::option::Option<ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
+    fn SetRenderTarget(&self, presource: ::core::option::Option<&ID3D10RenderTargetView>) -> ::windows::core::Result<()>;
     fn GetRenderTarget(&self) -> ::windows::core::Result<ID3D10RenderTargetView>;
     fn SetRenderTargetArray(&self, ppresources: *const ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetRenderTargetArray(&self, ppresources: *mut ::core::option::Option<ID3D10RenderTargetView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
@@ -1616,7 +1616,7 @@ impl ID3D10EffectRenderTargetViewVariable_Vtbl {
         unsafe extern "system" fn SetRenderTarget<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.SetRenderTarget(::core::mem::transmute(&presource)).into()
+            this.SetRenderTarget(::windows::core::from_raw_borrowed(&presource)).into()
         }
         unsafe extern "system" fn GetRenderTarget<Impl: ID3D10EffectRenderTargetViewVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
@@ -1838,7 +1838,7 @@ impl ID3D10EffectScalarVariable {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D10\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID3D10EffectShaderResourceVariable_Impl: Sized + ID3D10EffectVariable_Impl {
-    fn SetResource(&self, presource: &::core::option::Option<ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
+    fn SetResource(&self, presource: ::core::option::Option<&ID3D10ShaderResourceView>) -> ::windows::core::Result<()>;
     fn GetResource(&self) -> ::windows::core::Result<ID3D10ShaderResourceView>;
     fn SetResourceArray(&self, ppresources: *const ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
     fn GetResourceArray(&self, ppresources: *mut ::core::option::Option<ID3D10ShaderResourceView>, offset: u32, count: u32) -> ::windows::core::Result<()>;
@@ -1849,7 +1849,7 @@ impl ID3D10EffectShaderResourceVariable_Vtbl {
         unsafe extern "system" fn SetResource<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;
             let this = &*((*this).this as *const Impl);
-            this.SetResource(::core::mem::transmute(&presource)).into()
+            this.SetResource(::windows::core::from_raw_borrowed(&presource)).into()
         }
         unsafe extern "system" fn GetResource<Impl: ID3D10EffectShaderResourceVariable_Impl>(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *mut *mut ::core::ffi::c_void) as *const ::windows::core::ScopedHeap;

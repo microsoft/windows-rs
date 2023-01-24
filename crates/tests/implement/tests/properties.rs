@@ -6,7 +6,7 @@ use windows::{core::*, Win32::System::Com::StructuredStorage::*, Win32::System::
 struct Object();
 
 impl IInitializeWithStream_Impl for Object {
-    fn Initialize(&self, _: &Option<IStream>, _: u32) -> Result<()> {
+    fn Initialize(&self, _: Option<&IStream>, _: u32) -> Result<()> {
         Ok(())
     }
 }

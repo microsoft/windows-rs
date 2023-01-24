@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ISysStorageProviderEventSource_Impl: Sized {
-    fn EventReceived(&self, handler: &::core::option::Option<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
+    fn EventReceived(&self, handler: ::core::option::Option<&super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>;
     fn RemoveEventReceived(&self, token: &super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
@@ -14,7 +14,7 @@ impl ISysStorageProviderEventSource_Vtbl {
         unsafe extern "system" fn EventReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.EventReceived(::core::mem::transmute(&handler)) {
+            match this.EventReceived(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -85,7 +85,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized {
-    fn SendRequestAsync(&self, request: &::core::option::Option<super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&self, request: ::core::option::Option<&super::super::super::Web::Http::HttpRequestMessage>) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
 impl ::windows::core::RuntimeName for ISysStorageProviderHttpRequestProvider {
@@ -97,7 +97,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
         unsafe extern "system" fn SendRequestAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendRequestAsync(::core::mem::transmute(&request)) {
+            match this.SendRequestAsync(::windows::core::from_raw_borrowed(&request)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

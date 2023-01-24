@@ -24,7 +24,7 @@ impl IClosable_Impl for Object {
 struct Factory();
 
 impl IClassFactory_Impl for Factory {
-    fn CreateInstance(&self, outer: &Option<IUnknown>, iid: *const GUID, object: *mut *mut core::ffi::c_void) -> Result<()> {
+    fn CreateInstance(&self, outer: Option<&IUnknown>, iid: *const GUID, object: *mut *mut core::ffi::c_void) -> Result<()> {
         assert!(outer.is_none());
         let unknown: IInspectable = Object().into();
         unsafe { unknown.query(&*iid, object as *mut _).ok() }

@@ -51,7 +51,7 @@ impl IBindHttpSecurity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IBindProtocol_Impl: Sized {
-    fn CreateBinding(&self, szurl: &::windows::core::PCWSTR, pbc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<super::IBinding>;
+    fn CreateBinding(&self, szurl: &::windows::core::PCWSTR, pbc: ::core::option::Option<&super::IBindCtx>) -> ::windows::core::Result<super::IBinding>;
 }
 impl ::windows::core::RuntimeName for IBindProtocol {}
 impl IBindProtocol_Vtbl {
@@ -59,7 +59,7 @@ impl IBindProtocol_Vtbl {
         unsafe extern "system" fn CreateBinding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBindProtocol_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, pbc: *mut ::core::ffi::c_void, ppb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateBinding(::core::mem::transmute(&szurl), ::core::mem::transmute(&pbc)) {
+            match this.CreateBinding(::core::mem::transmute(&szurl), ::windows::core::from_raw_borrowed(&pbc)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -516,7 +516,7 @@ impl IInternetProtocol_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolEx_Impl: Sized + IInternetProtocol_Impl {
-    fn StartEx(&self, puri: &::core::option::Option<super::IUri>, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn StartEx(&self, puri: ::core::option::Option<&super::IUri>, poiprotsink: ::core::option::Option<&IInternetProtocolSink>, poibindinfo: ::core::option::Option<&IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IInternetProtocolEx {}
@@ -526,7 +526,7 @@ impl IInternetProtocolEx_Vtbl {
         unsafe extern "system" fn StartEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetProtocolEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, poiprotsink: *mut ::core::ffi::c_void, poibindinfo: *mut ::core::ffi::c_void, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartEx(::core::mem::transmute(&puri), ::core::mem::transmute(&poiprotsink), ::core::mem::transmute(&poibindinfo), ::core::mem::transmute_copy(&grfpi), ::core::mem::transmute_copy(&dwreserved)).into()
+            this.StartEx(::windows::core::from_raw_borrowed(&puri), ::windows::core::from_raw_borrowed(&poiprotsink), ::windows::core::from_raw_borrowed(&poibindinfo), ::core::mem::transmute_copy(&grfpi), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self { base__: IInternetProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), StartEx: StartEx::<Identity, Impl, OFFSET> }
     }
@@ -579,7 +579,7 @@ impl IInternetProtocolInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolRoot_Impl: Sized {
-    fn Start(&self, szurl: &::windows::core::PCWSTR, poiprotsink: &::core::option::Option<IInternetProtocolSink>, poibindinfo: &::core::option::Option<IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
+    fn Start(&self, szurl: &::windows::core::PCWSTR, poiprotsink: ::core::option::Option<&IInternetProtocolSink>, poibindinfo: ::core::option::Option<&IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::Result<()>;
     fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()>;
     fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()>;
     fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()>;
@@ -594,7 +594,7 @@ impl IInternetProtocolRoot_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetProtocolRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, poiprotsink: *mut ::core::ffi::c_void, poibindinfo: *mut ::core::ffi::c_void, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(::core::mem::transmute(&szurl), ::core::mem::transmute(&poiprotsink), ::core::mem::transmute(&poibindinfo), ::core::mem::transmute_copy(&grfpi), ::core::mem::transmute_copy(&dwreserved)).into()
+            this.Start(::core::mem::transmute(&szurl), ::windows::core::from_raw_borrowed(&poiprotsink), ::windows::core::from_raw_borrowed(&poibindinfo), ::core::mem::transmute_copy(&grfpi), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         unsafe extern "system" fn Continue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetProtocolRoot_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -679,7 +679,7 @@ impl IInternetProtocolSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetProtocolSinkStackable_Impl: Sized {
-    fn SwitchSink(&self, poiprotsink: &::core::option::Option<IInternetProtocolSink>) -> ::windows::core::Result<()>;
+    fn SwitchSink(&self, poiprotsink: ::core::option::Option<&IInternetProtocolSink>) -> ::windows::core::Result<()>;
     fn CommitSwitch(&self) -> ::windows::core::Result<()>;
     fn RollbackSwitch(&self) -> ::windows::core::Result<()>;
 }
@@ -689,7 +689,7 @@ impl IInternetProtocolSinkStackable_Vtbl {
         unsafe extern "system" fn SwitchSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetProtocolSinkStackable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poiprotsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SwitchSink(::core::mem::transmute(&poiprotsink)).into()
+            this.SwitchSink(::windows::core::from_raw_borrowed(&poiprotsink)).into()
         }
         unsafe extern "system" fn CommitSwitch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetProtocolSinkStackable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -714,7 +714,7 @@ impl IInternetProtocolSinkStackable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSecurityManager_Impl: Sized {
-    fn SetSecuritySite(&self, psite: &::core::option::Option<IInternetSecurityMgrSite>) -> ::windows::core::Result<()>;
+    fn SetSecuritySite(&self, psite: ::core::option::Option<&IInternetSecurityMgrSite>) -> ::windows::core::Result<()>;
     fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite>;
     fn MapUrlToZone(&self, pwszurl: &::windows::core::PCWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()>;
     fn GetSecurityId(&self, pwszurl: &::windows::core::PCWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
@@ -729,7 +729,7 @@ impl IInternetSecurityManager_Vtbl {
         unsafe extern "system" fn SetSecuritySite<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psite: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSecuritySite(::core::mem::transmute(&psite)).into()
+            this.SetSecuritySite(::windows::core::from_raw_borrowed(&psite)).into()
         }
         unsafe extern "system" fn GetSecuritySite<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsite: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -808,10 +808,10 @@ impl IInternetSecurityManagerEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSecurityManagerEx2_Impl: Sized + IInternetSecurityManagerEx_Impl {
-    fn MapUrlToZoneEx2(&self, puri: &::core::option::Option<super::IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut ::windows::core::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
-    fn ProcessUrlActionEx2(&self, puri: &::core::option::Option<super::IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
-    fn GetSecurityIdEx2(&self, puri: &::core::option::Option<super::IUri>, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
-    fn QueryCustomPolicyEx2(&self, puri: &::core::option::Option<super::IUri>, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn MapUrlToZoneEx2(&self, puri: ::core::option::Option<&super::IUri>, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut ::windows::core::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
+    fn ProcessUrlActionEx2(&self, puri: ::core::option::Option<&super::IUri>, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::Result<()>;
+    fn GetSecurityIdEx2(&self, puri: ::core::option::Option<&super::IUri>, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()>;
+    fn QueryCustomPolicyEx2(&self, puri: ::core::option::Option<&super::IUri>, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IInternetSecurityManagerEx2 {}
 impl IInternetSecurityManagerEx2_Vtbl {
@@ -819,22 +819,22 @@ impl IInternetSecurityManagerEx2_Vtbl {
         unsafe extern "system" fn MapUrlToZoneEx2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut ::windows::core::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MapUrlToZoneEx2(::core::mem::transmute(&puri), ::core::mem::transmute_copy(&pdwzone), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ppwszmappedurl), ::core::mem::transmute_copy(&pdwoutflags)).into()
+            this.MapUrlToZoneEx2(::windows::core::from_raw_borrowed(&puri), ::core::mem::transmute_copy(&pdwzone), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&ppwszmappedurl), ::core::mem::transmute_copy(&pdwoutflags)).into()
         }
         unsafe extern "system" fn ProcessUrlActionEx2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessUrlActionEx2(::core::mem::transmute(&puri), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&ppolicy), ::core::mem::transmute_copy(&cbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&pdwoutflags)).into()
+            this.ProcessUrlActionEx2(::windows::core::from_raw_borrowed(&puri), ::core::mem::transmute_copy(&dwaction), ::core::mem::transmute_copy(&ppolicy), ::core::mem::transmute_copy(&cbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&pdwoutflags)).into()
         }
         unsafe extern "system" fn GetSecurityIdEx2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetSecurityIdEx2(::core::mem::transmute(&puri), ::core::mem::transmute_copy(&pbsecurityid), ::core::mem::transmute_copy(&pcbsecurityid), ::core::mem::transmute_copy(&dwreserved)).into()
+            this.GetSecurityIdEx2(::windows::core::from_raw_borrowed(&puri), ::core::mem::transmute_copy(&pbsecurityid), ::core::mem::transmute_copy(&pcbsecurityid), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         unsafe extern "system" fn QueryCustomPolicyEx2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSecurityManagerEx2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryCustomPolicyEx2(::core::mem::transmute(&puri), ::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwreserved)).into()
+            this.QueryCustomPolicyEx2(::windows::core::from_raw_borrowed(&puri), ::core::mem::transmute_copy(&guidkey), ::core::mem::transmute_copy(&pppolicy), ::core::mem::transmute_copy(&pcbpolicy), ::core::mem::transmute_copy(&pcontext), ::core::mem::transmute_copy(&cbcontext), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         Self {
             base__: IInternetSecurityManagerEx_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -887,11 +887,11 @@ impl IInternetSecurityMgrSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
 pub trait IInternetSession_Impl: Sized {
-    fn RegisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: &::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
-    fn UnregisterNameSpace(&self, pcf: &::core::option::Option<super::IClassFactory>, pszprotocol: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn RegisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn UnregisterMimeFilter(&self, pcf: &::core::option::Option<super::IClassFactory>, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn CreateBinding(&self, pbc: &::core::option::Option<super::IBindCtx>, szurl: &::windows::core::PCWSTR, punkouter: &::core::option::Option<::windows::core::IUnknown>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>;
+    fn RegisterNameSpace(&self, pcf: ::core::option::Option<&super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwzprotocol: &::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::Result<()>;
+    fn UnregisterNameSpace(&self, pcf: ::core::option::Option<&super::IClassFactory>, pszprotocol: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn RegisterMimeFilter(&self, pcf: ::core::option::Option<&super::IClassFactory>, rclsid: *const ::windows::core::GUID, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn UnregisterMimeFilter(&self, pcf: ::core::option::Option<&super::IClassFactory>, pwztype: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
+    fn CreateBinding(&self, pbc: ::core::option::Option<&super::IBindCtx>, szurl: &::windows::core::PCWSTR, punkouter: ::core::option::Option<&::windows::core::IUnknown>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>, ppoinetprot: *mut ::core::option::Option<IInternetProtocol>, dwoption: u32) -> ::windows::core::Result<()>;
     fn SetSessionOption(&self, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::Result<()>;
     fn GetSessionOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::Result<()>;
 }
@@ -901,27 +901,27 @@ impl IInternetSession_Vtbl {
         unsafe extern "system" fn RegisterNameSpace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwzprotocol: ::windows::core::PCWSTR, cpatterns: u32, ppwzpatterns: *const ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterNameSpace(::core::mem::transmute(&pcf), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pwzprotocol), ::core::mem::transmute_copy(&cpatterns), ::core::mem::transmute_copy(&ppwzpatterns), ::core::mem::transmute_copy(&dwreserved)).into()
+            this.RegisterNameSpace(::windows::core::from_raw_borrowed(&pcf), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pwzprotocol), ::core::mem::transmute_copy(&cpatterns), ::core::mem::transmute_copy(&ppwzpatterns), ::core::mem::transmute_copy(&dwreserved)).into()
         }
         unsafe extern "system" fn UnregisterNameSpace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, pszprotocol: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnregisterNameSpace(::core::mem::transmute(&pcf), ::core::mem::transmute(&pszprotocol)).into()
+            this.UnregisterNameSpace(::windows::core::from_raw_borrowed(&pcf), ::core::mem::transmute(&pszprotocol)).into()
         }
         unsafe extern "system" fn RegisterMimeFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, pwztype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterMimeFilter(::core::mem::transmute(&pcf), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pwztype)).into()
+            this.RegisterMimeFilter(::windows::core::from_raw_borrowed(&pcf), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&pwztype)).into()
         }
         unsafe extern "system" fn UnregisterMimeFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: *mut ::core::ffi::c_void, pwztype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnregisterMimeFilter(::core::mem::transmute(&pcf), ::core::mem::transmute(&pwztype)).into()
+            this.UnregisterMimeFilter(::windows::core::from_raw_borrowed(&pcf), ::core::mem::transmute(&pwztype)).into()
         }
         unsafe extern "system" fn CreateBinding<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, szurl: ::windows::core::PCWSTR, punkouter: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void, ppoinetprot: *mut *mut ::core::ffi::c_void, dwoption: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateBinding(::core::mem::transmute(&pbc), ::core::mem::transmute(&szurl), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&ppunk), ::core::mem::transmute_copy(&ppoinetprot), ::core::mem::transmute_copy(&dwoption)).into()
+            this.CreateBinding(::windows::core::from_raw_borrowed(&pbc), ::core::mem::transmute(&szurl), ::windows::core::from_raw_borrowed(&punkouter), ::core::mem::transmute_copy(&ppunk), ::core::mem::transmute_copy(&ppoinetprot), ::core::mem::transmute_copy(&dwoption)).into()
         }
         unsafe extern "system" fn SetSessionOption<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInternetSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1182,9 +1182,9 @@ impl IMonikerProp_Vtbl {
 pub trait IPersistMoniker_Impl: Sized {
     fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID>;
     fn IsDirty(&self) -> ::windows::core::HRESULT;
-    fn Load(&self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>, grfmode: u32) -> ::windows::core::Result<()>;
-    fn Save(&self, pimkname: &::core::option::Option<super::IMoniker>, pbc: &::core::option::Option<super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveCompleted(&self, pimkname: &::core::option::Option<super::IMoniker>, pibc: &::core::option::Option<super::IBindCtx>) -> ::windows::core::Result<()>;
+    fn Load(&self, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: ::core::option::Option<&super::IMoniker>, pibc: ::core::option::Option<&super::IBindCtx>, grfmode: u32) -> ::windows::core::Result<()>;
+    fn Save(&self, pimkname: ::core::option::Option<&super::IMoniker>, pbc: ::core::option::Option<&super::IBindCtx>, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveCompleted(&self, pimkname: ::core::option::Option<&super::IMoniker>, pibc: ::core::option::Option<&super::IBindCtx>) -> ::windows::core::Result<()>;
     fn GetCurMoniker(&self) -> ::windows::core::Result<super::IMoniker>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1211,17 +1211,17 @@ impl IPersistMoniker_Vtbl {
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: *mut ::core::ffi::c_void, pibc: *mut ::core::ffi::c_void, grfmode: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Load(::core::mem::transmute_copy(&ffullyavailable), ::core::mem::transmute(&pimkname), ::core::mem::transmute(&pibc), ::core::mem::transmute_copy(&grfmode)).into()
+            this.Load(::core::mem::transmute_copy(&ffullyavailable), ::windows::core::from_raw_borrowed(&pimkname), ::windows::core::from_raw_borrowed(&pibc), ::core::mem::transmute_copy(&grfmode)).into()
         }
         unsafe extern "system" fn Save<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimkname: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Save(::core::mem::transmute(&pimkname), ::core::mem::transmute(&pbc), ::core::mem::transmute_copy(&fremember)).into()
+            this.Save(::windows::core::from_raw_borrowed(&pimkname), ::windows::core::from_raw_borrowed(&pbc), ::core::mem::transmute_copy(&fremember)).into()
         }
         unsafe extern "system" fn SaveCompleted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimkname: *mut ::core::ffi::c_void, pibc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveCompleted(::core::mem::transmute(&pimkname), ::core::mem::transmute(&pibc)).into()
+            this.SaveCompleted(::windows::core::from_raw_borrowed(&pimkname), ::windows::core::from_raw_borrowed(&pibc)).into()
         }
         unsafe extern "system" fn GetCurMoniker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPersistMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppimkname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1251,10 +1251,10 @@ impl IPersistMoniker_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Data_Xml_MsXml\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 pub trait ISoftDistExt_Impl: Sized {
-    fn ProcessSoftDist(&self, szcdfurl: &::windows::core::PCWSTR, psoftdistelement: &::core::option::Option<super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
+    fn ProcessSoftDist(&self, szcdfurl: &::windows::core::PCWSTR, psoftdistelement: ::core::option::Option<&super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::Result<()>;
     fn GetFirstCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
     fn GetNextCodeBase(&self, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::Result<()>;
-    fn AsyncInstallDistributionUnit(&self, pbc: &::core::option::Option<super::IBindCtx>, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>;
+    fn AsyncInstallDistributionUnit(&self, pbc: ::core::option::Option<&super::IBindCtx>, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 impl ::windows::core::RuntimeName for ISoftDistExt {}
@@ -1264,7 +1264,7 @@ impl ISoftDistExt_Vtbl {
         unsafe extern "system" fn ProcessSoftDist<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcdfurl: ::windows::core::PCWSTR, psoftdistelement: *mut ::core::ffi::c_void, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ProcessSoftDist(::core::mem::transmute(&szcdfurl), ::core::mem::transmute(&psoftdistelement), ::core::mem::transmute_copy(&lpsdi)).into()
+            this.ProcessSoftDist(::core::mem::transmute(&szcdfurl), ::windows::core::from_raw_borrowed(&psoftdistelement), ::core::mem::transmute_copy(&lpsdi)).into()
         }
         unsafe extern "system" fn GetFirstCodeBase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const ::windows::core::PCWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1279,7 +1279,7 @@ impl ISoftDistExt_Vtbl {
         unsafe extern "system" fn AsyncInstallDistributionUnit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISoftDistExt_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: *mut ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AsyncInstallDistributionUnit(::core::mem::transmute(&pbc), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&lpcbh)).into()
+            this.AsyncInstallDistributionUnit(::windows::core::from_raw_borrowed(&pbc), ::core::mem::transmute_copy(&pvreserved), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&lpcbh)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

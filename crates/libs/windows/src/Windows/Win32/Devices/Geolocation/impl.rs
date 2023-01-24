@@ -135,7 +135,7 @@ impl ICivicAddressReportFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait IDefaultLocation_Impl: Sized {
-    fn SetReport(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn SetReport(&self, reporttype: *const ::windows::core::GUID, plocationreport: ::core::option::Option<&ILocationReport>) -> ::windows::core::Result<()>;
     fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
 }
 impl ::windows::core::RuntimeName for IDefaultLocation {}
@@ -144,7 +144,7 @@ impl IDefaultLocation_Vtbl {
         unsafe extern "system" fn SetReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetReport(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute(&plocationreport)).into()
+            this.SetReport(::core::mem::transmute_copy(&reporttype), ::windows::core::from_raw_borrowed(&plocationreport)).into()
         }
         unsafe extern "system" fn GetReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDefaultLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -495,7 +495,7 @@ impl ILatLongReportFactory_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"Win32_Devices_Sensors\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
 pub trait ILocation_Impl: Sized {
-    fn RegisterForReport(&self, pevents: &::core::option::Option<ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
+    fn RegisterForReport(&self, pevents: ::core::option::Option<&ILocationEvents>, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()>;
     fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport>;
     fn GetReportStatus(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS>;
@@ -513,7 +513,7 @@ impl ILocation_Vtbl {
         unsafe extern "system" fn RegisterForReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterForReport(::core::mem::transmute(&pevents), ::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&dwrequestedreportinterval)).into()
+            this.RegisterForReport(::windows::core::from_raw_borrowed(&pevents), ::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&dwrequestedreportinterval)).into()
         }
         unsafe extern "system" fn UnregisterForReport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -598,7 +598,7 @@ impl ILocation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`, `\"implement\"`*"]
 pub trait ILocationEvents_Impl: Sized {
-    fn OnLocationChanged(&self, reporttype: *const ::windows::core::GUID, plocationreport: &::core::option::Option<ILocationReport>) -> ::windows::core::Result<()>;
+    fn OnLocationChanged(&self, reporttype: *const ::windows::core::GUID, plocationreport: ::core::option::Option<&ILocationReport>) -> ::windows::core::Result<()>;
     fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ILocationEvents {}
@@ -607,7 +607,7 @@ impl ILocationEvents_Vtbl {
         unsafe extern "system" fn OnLocationChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnLocationChanged(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute(&plocationreport)).into()
+            this.OnLocationChanged(::core::mem::transmute_copy(&reporttype), ::windows::core::from_raw_borrowed(&plocationreport)).into()
         }
         unsafe extern "system" fn OnStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILocationEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -26,7 +26,7 @@ struct CoreAppView();
 
 #[allow(non_snake_case)]
 impl IFrameworkView_Impl for CoreAppView {
-    fn Initialize(&self, _: &Option<CoreApplicationView>) -> Result<()> {
+    fn Initialize(&self, _: Option<&CoreApplicationView>) -> Result<()> {
         Ok(())
     }
 
@@ -48,7 +48,7 @@ impl IFrameworkView_Impl for CoreAppView {
         Ok(())
     }
 
-    fn SetWindow(&self, _: &Option<CoreWindow>) -> Result<()> {
+    fn SetWindow(&self, _: Option<&CoreWindow>) -> Result<()> {
         Ok(())
     }
 }

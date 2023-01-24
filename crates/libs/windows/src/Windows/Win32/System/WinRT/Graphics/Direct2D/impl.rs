@@ -2,7 +2,7 @@
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 pub trait IGeometrySource2DInterop_Impl: Sized {
     fn GetGeometry(&self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
-    fn TryGetGeometryUsingFactory(&self, factory: &::core::option::Option<super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
+    fn TryGetGeometryUsingFactory(&self, factory: ::core::option::Option<&super::super::super::super::Graphics::Direct2D::ID2D1Factory>) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 impl ::windows::core::RuntimeName for IGeometrySource2DInterop {}
@@ -23,7 +23,7 @@ impl IGeometrySource2DInterop_Vtbl {
         unsafe extern "system" fn TryGetGeometryUsingFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeometrySource2DInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.TryGetGeometryUsingFactory(::core::mem::transmute(&factory)) {
+            match this.TryGetGeometryUsingFactory(::windows::core::from_raw_borrowed(&factory)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)

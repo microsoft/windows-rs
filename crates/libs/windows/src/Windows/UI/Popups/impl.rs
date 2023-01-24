@@ -3,9 +3,9 @@ pub trait IUICommand_Impl: Sized {
     fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLabel(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Invoked(&self) -> ::windows::core::Result<UICommandInvokedHandler>;
-    fn SetInvoked(&self, value: &::core::option::Option<UICommandInvokedHandler>) -> ::windows::core::Result<()>;
+    fn SetInvoked(&self, value: ::core::option::Option<&UICommandInvokedHandler>) -> ::windows::core::Result<()>;
     fn Id(&self) -> ::windows::core::Result<::windows::core::IInspectable>;
-    fn SetId(&self, value: &::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()>;
+    fn SetId(&self, value: ::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IUICommand {
     const NAME: &'static str = "Windows.UI.Popups.IUICommand";
@@ -44,7 +44,7 @@ impl IUICommand_Vtbl {
         unsafe extern "system" fn SetInvoked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInvoked(::core::mem::transmute(&value)).into()
+            this.SetInvoked(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Id<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -61,7 +61,7 @@ impl IUICommand_Vtbl {
         unsafe extern "system" fn SetId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUICommand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetId(::core::mem::transmute(&value)).into()
+            this.SetId(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IUICommand, OFFSET>(),

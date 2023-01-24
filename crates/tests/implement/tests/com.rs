@@ -15,7 +15,7 @@ impl IStringable_Impl for Mix {
     }
 }
 impl ISwapChainInterop_Impl for Mix {
-    fn SetSwapChain(&self, _: &Option<IUnknown>) -> Result<()> {
+    fn SetSwapChain(&self, _: Option<&IUnknown>) -> Result<()> {
         Ok(())
     }
 }

@@ -2,9 +2,9 @@
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 pub trait ISyndicationClient_Impl: Sized {
     fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetServerCredential(&self, value: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: &::core::option::Option<super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
+    fn SetProxyCredential(&self, value: ::core::option::Option<&super::super::Security::Credentials::PasswordCredential>) -> ::windows::core::Result<()>;
     fn MaxResponseBufferSize(&self) -> ::windows::core::Result<u32>;
     fn SetMaxResponseBufferSize(&self, value: u32) -> ::windows::core::Result<()>;
     fn Timeout(&self) -> ::windows::core::Result<u32>;
@@ -12,7 +12,7 @@ pub trait ISyndicationClient_Impl: Sized {
     fn BypassCacheOnRetrieve(&self) -> ::windows::core::Result<bool>;
     fn SetBypassCacheOnRetrieve(&self, value: bool) -> ::windows::core::Result<()>;
     fn SetRequestHeader(&self, name: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
-    fn RetrieveFeedAsync(&self, uri: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
+    fn RetrieveFeedAsync(&self, uri: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 impl ::windows::core::RuntimeName for ISyndicationClient {
@@ -36,7 +36,7 @@ impl ISyndicationClient_Vtbl {
         unsafe extern "system" fn SetServerCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetServerCredential(::core::mem::transmute(&value)).into()
+            this.SetServerCredential(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn ProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -53,7 +53,7 @@ impl ISyndicationClient_Vtbl {
         unsafe extern "system" fn SetProxyCredential<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetProxyCredential(::core::mem::transmute(&value)).into()
+            this.SetProxyCredential(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn MaxResponseBufferSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -114,7 +114,7 @@ impl ISyndicationClient_Vtbl {
         unsafe extern "system" fn RetrieveFeedAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.RetrieveFeedAsync(::core::mem::transmute(&uri)) {
+            match this.RetrieveFeedAsync(::windows::core::from_raw_borrowed(&uri)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -155,7 +155,7 @@ pub trait ISyndicationNode_Impl: Sized {
     fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn BaseUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri>;
-    fn SetBaseUri(&self, value: &::core::option::Option<super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
+    fn SetBaseUri(&self, value: ::core::option::Option<&super::super::Foundation::Uri>) -> ::windows::core::Result<()>;
     fn AttributeExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>>;
     fn ElementExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>>;
     fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
@@ -250,7 +250,7 @@ impl ISyndicationNode_Vtbl {
         unsafe extern "system" fn SetBaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBaseUri(::core::mem::transmute(&value)).into()
+            this.SetBaseUri(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn AttributeExtensions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationNode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -317,7 +317,7 @@ pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
     fn Type(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn SetType(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Xml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument>;
-    fn SetXml(&self, value: &::core::option::Option<super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
+    fn SetXml(&self, value: ::core::option::Option<&super::super::Data::Xml::Dom::XmlDocument>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for ISyndicationText {
@@ -375,7 +375,7 @@ impl ISyndicationText_Vtbl {
         unsafe extern "system" fn SetXml<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISyndicationText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetXml(::core::mem::transmute(&value)).into()
+            this.SetXml(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ISyndicationText, OFFSET>(),

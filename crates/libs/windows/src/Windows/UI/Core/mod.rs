@@ -6411,7 +6411,7 @@ pub struct DispatchedHandler_Vtbl {
 #[repr(transparent)]
 pub struct IdleDispatchedHandler(pub ::windows::core::IUnknown);
 impl IdleDispatchedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = IdleDispatchedHandlerBox::<F> { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -6421,12 +6421,12 @@ impl IdleDispatchedHandler {
     }
 }
 #[repr(C)]
-struct IdleDispatchedHandlerBox<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct IdleDispatchedHandlerBox<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const IdleDispatchedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> IdleDispatchedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&IdleDispatchedHandlerArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -6455,7 +6455,7 @@ impl<F: FnMut(&::core::option::Option<IdleDispatchedHandlerArgs>) -> ::windows::
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&e)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&e)).into()
     }
 }
 impl ::core::clone::Clone for IdleDispatchedHandler {

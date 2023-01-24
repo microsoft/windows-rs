@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2DataEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, progress: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscFormat2DataEvents {}
@@ -11,7 +11,7 @@ impl DDiscFormat2DataEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscFormat2DataEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, progress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::windows::core::from_raw_borrowed(&progress)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -22,7 +22,7 @@ impl DDiscFormat2DataEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2EraseEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscFormat2EraseEvents {}
@@ -32,7 +32,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscFormat2EraseEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute_copy(&elapsedseconds), ::core::mem::transmute_copy(&estimatedtotalseconds)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::core::mem::transmute_copy(&elapsedseconds), ::core::mem::transmute_copy(&estimatedtotalseconds)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -43,7 +43,7 @@ impl DDiscFormat2EraseEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2RawCDEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, progress: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscFormat2RawCDEvents {}
@@ -53,7 +53,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscFormat2RawCDEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, progress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::windows::core::from_raw_borrowed(&progress)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -64,7 +64,7 @@ impl DDiscFormat2RawCDEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscFormat2TrackAtOnceEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, progress: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscFormat2TrackAtOnceEvents {}
@@ -74,7 +74,7 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscFormat2TrackAtOnceEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, progress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::windows::core::from_raw_borrowed(&progress)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -85,8 +85,8 @@ impl DDiscFormat2TrackAtOnceEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DDiscMaster2Events_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn NotifyDeviceAdded(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn NotifyDeviceRemoved(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceAdded(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn NotifyDeviceRemoved(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, uniqueid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DDiscMaster2Events {}
@@ -96,12 +96,12 @@ impl DDiscMaster2Events_Vtbl {
         unsafe extern "system" fn NotifyDeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyDeviceAdded(::core::mem::transmute(&object), ::core::mem::transmute(&uniqueid)).into()
+            this.NotifyDeviceAdded(::windows::core::from_raw_borrowed(&object), ::core::mem::transmute(&uniqueid)).into()
         }
         unsafe extern "system" fn NotifyDeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DDiscMaster2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, uniqueid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyDeviceRemoved(::core::mem::transmute(&object), ::core::mem::transmute(&uniqueid)).into()
+            this.NotifyDeviceRemoved(::windows::core::from_raw_borrowed(&object), ::core::mem::transmute(&uniqueid)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -116,7 +116,7 @@ impl DDiscMaster2Events_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, currentfile: &::windows::core::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, currentfile: &::windows::core::BSTR, copiedsectors: i32, totalsectors: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DFileSystemImageEvents {}
@@ -126,7 +126,7 @@ impl DFileSystemImageEvents_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, currentfile: *mut ::core::ffi::c_void, copiedsectors: i32, totalsectors: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&currentfile), ::core::mem::transmute_copy(&copiedsectors), ::core::mem::transmute_copy(&totalsectors)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::core::mem::transmute(&currentfile), ::core::mem::transmute_copy(&copiedsectors), ::core::mem::transmute_copy(&totalsectors)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -137,7 +137,7 @@ impl DFileSystemImageEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DFileSystemImageImportEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn UpdateImport(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &::windows::core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
+    fn UpdateImport(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, filesystem: FsiFileSystems, currentitem: &::windows::core::BSTR, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DFileSystemImageImportEvents {}
@@ -147,7 +147,7 @@ impl DFileSystemImageImportEvents_Vtbl {
         unsafe extern "system" fn UpdateImport<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DFileSystemImageImportEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, currentitem: *mut ::core::ffi::c_void, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateImport(::core::mem::transmute(&object), ::core::mem::transmute_copy(&filesystem), ::core::mem::transmute(&currentitem), ::core::mem::transmute_copy(&importeddirectoryitems), ::core::mem::transmute_copy(&totaldirectoryitems), ::core::mem::transmute_copy(&importedfileitems), ::core::mem::transmute_copy(&totalfileitems)).into()
+            this.UpdateImport(::windows::core::from_raw_borrowed(&object), ::core::mem::transmute_copy(&filesystem), ::core::mem::transmute(&currentitem), ::core::mem::transmute_copy(&importeddirectoryitems), ::core::mem::transmute_copy(&totaldirectoryitems), ::core::mem::transmute_copy(&importedfileitems), ::core::mem::transmute_copy(&totalfileitems)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), UpdateImport: UpdateImport::<Identity, Impl, OFFSET> }
     }
@@ -158,7 +158,7 @@ impl DFileSystemImageImportEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait DWriteEngine2Events_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn Update(&self, object: &::core::option::Option<super::super::System::Com::IDispatch>, progress: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn Update(&self, object: ::core::option::Option<&super::super::System::Com::IDispatch>, progress: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for DWriteEngine2Events {}
@@ -168,7 +168,7 @@ impl DWriteEngine2Events_Vtbl {
         unsafe extern "system" fn Update<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: DWriteEngine2Events_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, progress: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Update(::core::mem::transmute(&object), ::core::mem::transmute(&progress)).into()
+            this.Update(::windows::core::from_raw_borrowed(&object), ::windows::core::from_raw_borrowed(&progress)).into()
         }
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(), Update: Update::<Identity, Impl, OFFSET> }
     }
@@ -257,7 +257,7 @@ pub trait IBootOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Emulation(&self) -> ::windows::core::Result<EmulationType>;
     fn SetEmulation(&self, newval: EmulationType) -> ::windows::core::Result<()>;
     fn ImageSize(&self) -> ::windows::core::Result<u32>;
-    fn AssignBootImage(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AssignBootImage(&self, newval: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IBootOptions {}
@@ -337,7 +337,7 @@ impl IBootOptions_Vtbl {
         unsafe extern "system" fn AssignBootImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBootOptions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AssignBootImage(::core::mem::transmute(&newval)).into()
+            this.AssignBootImage(::windows::core::from_raw_borrowed(&newval)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -393,8 +393,8 @@ impl IBurnVerification_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn IsRecorderSupported(&self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsCurrentMediaSupported(&self, recorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsRecorderSupported(&self, recorder: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsCurrentMediaSupported(&self, recorder: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MediaPhysicallyBlank(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MediaHeuristicallyBlank(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SupportedMediaTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
@@ -407,7 +407,7 @@ impl IDiscFormat2_Vtbl {
         unsafe extern "system" fn IsRecorderSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recorder: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsRecorderSupported(::core::mem::transmute(&recorder)) {
+            match this.IsRecorderSupported(::windows::core::from_raw_borrowed(&recorder)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -418,7 +418,7 @@ impl IDiscFormat2_Vtbl {
         unsafe extern "system" fn IsCurrentMediaSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recorder: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IsCurrentMediaSupported(::core::mem::transmute(&recorder)) {
+            match this.IsCurrentMediaSupported(::windows::core::from_raw_borrowed(&recorder)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -475,7 +475,7 @@ impl IDiscFormat2_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2Data_Impl: Sized + IDiscFormat2_Impl {
-    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -504,7 +504,7 @@ pub trait IDiscFormat2Data_Impl: Sized + IDiscFormat2_Impl {
     fn SetForceOverwrite(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn ForceOverwrite(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MultisessionInterfaces(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn Write(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Write(&self, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn CancelWrite(&self) -> ::windows::core::Result<()>;
     fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
@@ -516,7 +516,7 @@ impl IDiscFormat2Data_Vtbl {
         unsafe extern "system" fn SetRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorder(::core::mem::transmute(&value)).into()
+            this.SetRecorder(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Recorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -793,7 +793,7 @@ impl IDiscFormat2Data_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write(::core::mem::transmute(&data)).into()
+            this.Write(::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn CancelWrite<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Data_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -917,7 +917,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2Erase_Impl: Sized + IDiscFormat2_Impl {
-    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetFullErase(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn FullErase(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -934,7 +934,7 @@ impl IDiscFormat2Erase_Vtbl {
         unsafe extern "system" fn SetRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorder(::core::mem::transmute(&value)).into()
+            this.SetRecorder(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Recorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2Erase_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1015,12 +1015,12 @@ impl IDiscFormat2Erase_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2RawCD_Impl: Sized + IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> ::windows::core::Result<()>;
-    fn WriteMedia(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn WriteMedia2(&self, data: &::core::option::Option<super::super::System::Com::IStream>, streamleadinsectors: i32) -> ::windows::core::Result<()>;
+    fn WriteMedia(&self, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn WriteMedia2(&self, data: ::core::option::Option<&super::super::System::Com::IStream>, streamleadinsectors: i32) -> ::windows::core::Result<()>;
     fn CancelWrite(&self) -> ::windows::core::Result<()>;
     fn ReleaseMedia(&self) -> ::windows::core::Result<()>;
     fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1052,12 +1052,12 @@ impl IDiscFormat2RawCD_Vtbl {
         unsafe extern "system" fn WriteMedia<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteMedia(::core::mem::transmute(&data)).into()
+            this.WriteMedia(::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn WriteMedia2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, streamleadinsectors: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteMedia2(::core::mem::transmute(&data), ::core::mem::transmute_copy(&streamleadinsectors)).into()
+            this.WriteMedia2(::windows::core::from_raw_borrowed(&data), ::core::mem::transmute_copy(&streamleadinsectors)).into()
         }
         unsafe extern "system" fn CancelWrite<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1077,7 +1077,7 @@ impl IDiscFormat2RawCD_Vtbl {
         unsafe extern "system" fn SetRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorder(::core::mem::transmute(&value)).into()
+            this.SetRecorder(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Recorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2RawCD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1340,11 +1340,11 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IDiscFormat2TrackAtOnce_Impl: Sized + IDiscFormat2_Impl {
     fn PrepareMedia(&self) -> ::windows::core::Result<()>;
-    fn AddAudioTrack(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddAudioTrack(&self, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn CancelAddTrack(&self) -> ::windows::core::Result<()>;
     fn ReleaseMedia(&self) -> ::windows::core::Result<()>;
     fn SetWriteSpeed(&self, requestedsectorspersecond: i32, rotationtypeispurecav: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2>;
     fn SetBufferUnderrunFreeDisabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn BufferUnderrunFreeDisabled(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1378,7 +1378,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
         unsafe extern "system" fn AddAudioTrack<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddAudioTrack(::core::mem::transmute(&data)).into()
+            this.AddAudioTrack(::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn CancelAddTrack<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1398,7 +1398,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
         unsafe extern "system" fn SetRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorder(::core::mem::transmute(&value)).into()
+            this.SetRecorder(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Recorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscFormat2TrackAtOnce_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1701,9 +1701,9 @@ pub trait IDiscMaster_Impl: Sized {
     fn SetActiveDiscMasterFormat(&self, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn EnumDiscRecorders(&self) -> ::windows::core::Result<IEnumDiscRecorders>;
     fn GetActiveDiscRecorder(&self) -> ::windows::core::Result<IDiscRecorder>;
-    fn SetActiveDiscRecorder(&self, precorder: &::core::option::Option<IDiscRecorder>) -> ::windows::core::Result<()>;
+    fn SetActiveDiscRecorder(&self, precorder: ::core::option::Option<&IDiscRecorder>) -> ::windows::core::Result<()>;
     fn ClearFormatContent(&self) -> ::windows::core::Result<()>;
-    fn ProgressAdvise(&self, pevents: &::core::option::Option<IDiscMasterProgressEvents>) -> ::windows::core::Result<usize>;
+    fn ProgressAdvise(&self, pevents: ::core::option::Option<&IDiscMasterProgressEvents>) -> ::windows::core::Result<usize>;
     fn ProgressUnadvise(&self, vcookie: usize) -> ::windows::core::Result<()>;
     fn RecordDisc(&self, bsimulate: u8, bejectafterburn: u8) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
@@ -1768,7 +1768,7 @@ impl IDiscMaster_Vtbl {
         unsafe extern "system" fn SetActiveDiscRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, precorder: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetActiveDiscRecorder(::core::mem::transmute(&precorder)).into()
+            this.SetActiveDiscRecorder(::windows::core::from_raw_borrowed(&precorder)).into()
         }
         unsafe extern "system" fn ClearFormatContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1778,7 +1778,7 @@ impl IDiscMaster_Vtbl {
         unsafe extern "system" fn ProgressAdvise<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void, pvcookie: *mut usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ProgressAdvise(::core::mem::transmute(&pevents)) {
+            match this.ProgressAdvise(::windows::core::from_raw_borrowed(&pevents)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -1983,7 +1983,7 @@ pub trait IDiscRecorder_Impl: Sized {
     fn GetBasePnPID(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetPath(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn GetRecorderProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetRecorderProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
+    fn SetRecorderProperties(&self, ppropstg: ::core::option::Option<&super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
     fn GetRecorderState(&self) -> ::windows::core::Result<DISC_RECORDER_STATE_FLAGS>;
     fn OpenExclusive(&self) -> ::windows::core::Result<()>;
     fn QueryMediaType(&self, fmediatype: *mut MEDIA_TYPES, fmediaflags: *mut MEDIA_FLAGS) -> ::windows::core::Result<()>;
@@ -2059,7 +2059,7 @@ impl IDiscRecorder_Vtbl {
         unsafe extern "system" fn SetRecorderProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropstg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorderProperties(::core::mem::transmute(&ppropstg)).into()
+            this.SetRecorderProperties(::windows::core::from_raw_borrowed(&ppropstg)).into()
         }
         unsafe extern "system" fn GetRecorderState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDiscRecorder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puldevstateflags: *mut DISC_RECORDER_STATE_FLAGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2740,13 +2740,13 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn SetSessionStartBlock(&self, newval: i32) -> ::windows::core::Result<()>;
     fn FreeMediaBlocks(&self) -> ::windows::core::Result<i32>;
     fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows::core::Result<()>;
-    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn SetMaxMediaBlocksFromDevice(&self, discrecorder: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn UsedBlocks(&self) -> ::windows::core::Result<i32>;
     fn VolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetVolumeName(&self, newval: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn ImportedVolumeName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn BootImageOptions(&self) -> ::windows::core::Result<IBootOptions>;
-    fn SetBootImageOptions(&self, newval: &::core::option::Option<IBootOptions>) -> ::windows::core::Result<()>;
+    fn SetBootImageOptions(&self, newval: ::core::option::Option<&IBootOptions>) -> ::windows::core::Result<()>;
     fn FileCount(&self) -> ::windows::core::Result<i32>;
     fn DirectoryCount(&self) -> ::windows::core::Result<i32>;
     fn WorkingDirectory(&self) -> ::windows::core::Result<::windows::core::BSTR>;
@@ -2762,7 +2762,7 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn SetUDFRevision(&self, newval: i32) -> ::windows::core::Result<()>;
     fn UDFRevision(&self) -> ::windows::core::Result<i32>;
     fn UDFRevisionsSupported(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ChooseImageDefaults(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<()>;
+    fn ChooseImageDefaults(&self, discrecorder: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<()>;
     fn ChooseImageDefaultsForMediaType(&self, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::Result<()>;
     fn SetISO9660InterchangeLevel(&self, newval: i32) -> ::windows::core::Result<()>;
     fn ISO9660InterchangeLevel(&self) -> ::windows::core::Result<i32>;
@@ -2770,7 +2770,7 @@ pub trait IFileSystemImage_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn CreateResultImage(&self) -> ::windows::core::Result<IFileSystemImageResult>;
     fn Exists(&self, fullpath: &::windows::core::BSTR) -> ::windows::core::Result<FsiItemType>;
     fn CalculateDiscIdentifier(&self) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn IdentifyFileSystemsOnDisc(&self, discrecorder: &::core::option::Option<IDiscRecorder2>) -> ::windows::core::Result<FsiFileSystems>;
+    fn IdentifyFileSystemsOnDisc(&self, discrecorder: ::core::option::Option<&IDiscRecorder2>) -> ::windows::core::Result<FsiFileSystems>;
     fn GetDefaultFileSystemForImport(&self, filesystems: FsiFileSystems) -> ::windows::core::Result<FsiFileSystems>;
     fn ImportFileSystem(&self) -> ::windows::core::Result<FsiFileSystems>;
     fn ImportSpecificFileSystem(&self, filesystemtouse: FsiFileSystems) -> ::windows::core::Result<()>;
@@ -2837,7 +2837,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetMaxMediaBlocksFromDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discrecorder: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaxMediaBlocksFromDevice(::core::mem::transmute(&discrecorder)).into()
+            this.SetMaxMediaBlocksFromDevice(::windows::core::from_raw_borrowed(&discrecorder)).into()
         }
         unsafe extern "system" fn UsedBlocks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2891,7 +2891,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn SetBootImageOptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBootImageOptions(::core::mem::transmute(&newval)).into()
+            this.SetBootImageOptions(::windows::core::from_raw_borrowed(&newval)).into()
         }
         unsafe extern "system" fn FileCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3031,7 +3031,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn ChooseImageDefaults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discrecorder: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ChooseImageDefaults(::core::mem::transmute(&discrecorder)).into()
+            this.ChooseImageDefaults(::windows::core::from_raw_borrowed(&discrecorder)).into()
         }
         unsafe extern "system" fn ChooseImageDefaultsForMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: IMAPI_MEDIA_PHYSICAL_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3101,7 +3101,7 @@ impl IFileSystemImage_Vtbl {
         unsafe extern "system" fn IdentifyFileSystemsOnDisc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFileSystemImage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, discrecorder: *mut ::core::ffi::c_void, filesystems: *mut FsiFileSystems) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.IdentifyFileSystemsOnDisc(::core::mem::transmute(&discrecorder)) {
+            match this.IdentifyFileSystemsOnDisc(::windows::core::from_raw_borrowed(&discrecorder)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(filesystems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3495,9 +3495,9 @@ pub trait IFsiDirectoryItem_Impl: Sized + IFsiItem_Impl {
     fn Count(&self) -> ::windows::core::Result<i32>;
     fn EnumFsiItems(&self) -> ::windows::core::Result<IEnumFsiItems>;
     fn AddDirectory(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn AddFile(&self, path: &::windows::core::BSTR, filedata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddFile(&self, path: &::windows::core::BSTR, filedata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn AddTree(&self, sourcedirectory: &::windows::core::BSTR, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn Add(&self, item: &::core::option::Option<IFsiItem>) -> ::windows::core::Result<()>;
+    fn Add(&self, item: ::core::option::Option<&IFsiItem>) -> ::windows::core::Result<()>;
     fn Remove(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn RemoveTree(&self, path: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -3558,7 +3558,7 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn AddFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void, filedata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddFile(::core::mem::transmute(&path), ::core::mem::transmute(&filedata)).into()
+            this.AddFile(::core::mem::transmute(&path), ::windows::core::from_raw_borrowed(&filedata)).into()
         }
         unsafe extern "system" fn AddTree<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcedirectory: *mut ::core::ffi::c_void, includebasedirectory: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3568,7 +3568,7 @@ impl IFsiDirectoryItem_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&item)).into()
+            this.Add(::windows::core::from_raw_borrowed(&item)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiDirectoryItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3626,7 +3626,7 @@ pub trait IFsiFileItem_Impl: Sized + IFsiItem_Impl {
     fn DataSize32BitLow(&self) -> ::windows::core::Result<i32>;
     fn DataSize32BitHigh(&self) -> ::windows::core::Result<i32>;
     fn Data(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn SetData(&self, newval: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetData(&self, newval: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFsiFileItem {}
@@ -3680,7 +3680,7 @@ impl IFsiFileItem_Vtbl {
         unsafe extern "system" fn SetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetData(::core::mem::transmute(&newval)).into()
+            this.SetData(::windows::core::from_raw_borrowed(&newval)).into()
         }
         Self {
             base__: IFsiItem_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3700,7 +3700,7 @@ impl IFsiFileItem_Vtbl {
 pub trait IFsiFileItem2_Impl: Sized + IFsiFileItem_Impl {
     fn FsiNamedStreams(&self) -> ::windows::core::Result<IFsiNamedStreams>;
     fn IsNamedStream(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn AddStream(&self, name: &::windows::core::BSTR, streamdata: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddStream(&self, name: &::windows::core::BSTR, streamdata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn RemoveStream(&self, name: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetIsRealTime(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
@@ -3735,7 +3735,7 @@ impl IFsiFileItem2_Vtbl {
         unsafe extern "system" fn AddStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void, streamdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddStream(::core::mem::transmute(&name), ::core::mem::transmute(&streamdata)).into()
+            this.AddStream(::core::mem::transmute(&name), ::windows::core::from_raw_borrowed(&streamdata)).into()
         }
         unsafe extern "system" fn RemoveStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFsiFileItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3996,7 +3996,7 @@ pub trait IIsoImageManager_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Path(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn Stream(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
     fn SetPath(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SetStream(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn SetStream(&self, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn Validate(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4034,7 +4034,7 @@ impl IIsoImageManager_Vtbl {
         unsafe extern "system" fn SetStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetStream(::core::mem::transmute(&data)).into()
+            this.SetStream(::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn Validate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IIsoImageManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4060,9 +4060,9 @@ pub trait IJolietDiscMaster_Impl: Sized {
     fn GetTotalDataBlocks(&self) -> ::windows::core::Result<i32>;
     fn GetUsedDataBlocks(&self) -> ::windows::core::Result<i32>;
     fn GetDataBlockSize(&self) -> ::windows::core::Result<i32>;
-    fn AddData(&self, pstorage: &::core::option::Option<super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> ::windows::core::Result<()>;
+    fn AddData(&self, pstorage: ::core::option::Option<&super::super::System::Com::StructuredStorage::IStorage>, lfileoverwrite: i32) -> ::windows::core::Result<()>;
     fn GetJolietProperties(&self) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage>;
-    fn SetJolietProperties(&self, ppropstg: &::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
+    fn SetJolietProperties(&self, ppropstg: ::core::option::Option<&super::super::System::Com::StructuredStorage::IPropertyStorage>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for IJolietDiscMaster {}
@@ -4105,7 +4105,7 @@ impl IJolietDiscMaster_Vtbl {
         unsafe extern "system" fn AddData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IJolietDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstorage: *mut ::core::ffi::c_void, lfileoverwrite: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddData(::core::mem::transmute(&pstorage), ::core::mem::transmute_copy(&lfileoverwrite)).into()
+            this.AddData(::windows::core::from_raw_borrowed(&pstorage), ::core::mem::transmute_copy(&lfileoverwrite)).into()
         }
         unsafe extern "system" fn GetJolietProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IJolietDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4121,7 +4121,7 @@ impl IJolietDiscMaster_Vtbl {
         unsafe extern "system" fn SetJolietProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IJolietDiscMaster_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropstg: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetJolietProperties(::core::mem::transmute(&ppropstg)).into()
+            this.SetJolietProperties(::windows::core::from_raw_borrowed(&ppropstg)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -4533,9 +4533,9 @@ impl IProgressItems_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IRawCDImageCreator_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateResultImage(&self) -> ::windows::core::Result<super::super::System::Com::IStream>;
-    fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<i32>;
-    fn AddSpecialPregap(&self, data: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
-    fn AddSubcodeRWGenerator(&self, subcode: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddTrack(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<i32>;
+    fn AddSpecialPregap(&self, data: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn AddSubcodeRWGenerator(&self, subcode: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn SetResultingImageType(&self, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::Result<()>;
     fn ResultingImageType(&self) -> ::windows::core::Result<IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE>;
     fn StartOfLeadout(&self) -> ::windows::core::Result<i32>;
@@ -4571,7 +4571,7 @@ impl IRawCDImageCreator_Vtbl {
         unsafe extern "system" fn AddTrack<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: IMAPI_CD_SECTOR_TYPE, data: *mut ::core::ffi::c_void, trackindex: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddTrack(::core::mem::transmute_copy(&datatype), ::core::mem::transmute(&data)) {
+            match this.AddTrack(::core::mem::transmute_copy(&datatype), ::windows::core::from_raw_borrowed(&data)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(trackindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4582,12 +4582,12 @@ impl IRawCDImageCreator_Vtbl {
         unsafe extern "system" fn AddSpecialPregap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSpecialPregap(::core::mem::transmute(&data)).into()
+            this.AddSpecialPregap(::windows::core::from_raw_borrowed(&data)).into()
         }
         unsafe extern "system" fn AddSubcodeRWGenerator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subcode: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSubcodeRWGenerator(::core::mem::transmute(&subcode)).into()
+            this.AddSubcodeRWGenerator(::windows::core::from_raw_borrowed(&subcode)).into()
         }
         unsafe extern "system" fn SetResultingImageType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRawCDImageCreator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5010,9 +5010,9 @@ impl IRedbookDiscMaster_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IStreamConcatenate_Impl: Sized + super::super::System::Com::IStream_Impl {
-    fn Initialize(&self, stream1: &::core::option::Option<super::super::System::Com::IStream>, stream2: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, stream1: ::core::option::Option<&super::super::System::Com::IStream>, stream2: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn Initialize2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
-    fn Append(&self, stream: &::core::option::Option<super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
+    fn Append(&self, stream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows::core::Result<()>;
     fn Append2(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, streamcount: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5023,7 +5023,7 @@ impl IStreamConcatenate_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream1: *mut ::core::ffi::c_void, stream2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&stream1), ::core::mem::transmute(&stream2)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&stream1), ::windows::core::from_raw_borrowed(&stream2)).into()
         }
         unsafe extern "system" fn Initialize2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streams: *const *mut ::core::ffi::c_void, streamcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5033,7 +5033,7 @@ impl IStreamConcatenate_Vtbl {
         unsafe extern "system" fn Append<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Append(::core::mem::transmute(&stream)).into()
+            this.Append(::windows::core::from_raw_borrowed(&stream)).into()
         }
         unsafe extern "system" fn Append2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStreamConcatenate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streams: *const *mut ::core::ffi::c_void, streamcount: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5127,9 +5127,9 @@ impl IStreamPseudoRandomBased_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWriteEngine2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn WriteSection(&self, data: &::core::option::Option<super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::Result<()>;
+    fn WriteSection(&self, data: ::core::option::Option<&super::super::System::Com::IStream>, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::Result<()>;
     fn CancelWrite(&self) -> ::windows::core::Result<()>;
-    fn SetRecorder(&self, value: &::core::option::Option<IDiscRecorder2Ex>) -> ::windows::core::Result<()>;
+    fn SetRecorder(&self, value: ::core::option::Option<&IDiscRecorder2Ex>) -> ::windows::core::Result<()>;
     fn Recorder(&self) -> ::windows::core::Result<IDiscRecorder2Ex>;
     fn SetUseStreamingWrite12(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
     fn UseStreamingWrite12(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5149,7 +5149,7 @@ impl IWriteEngine2_Vtbl {
         unsafe extern "system" fn WriteSection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWriteEngine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, startingblockaddress: i32, numberofblocks: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteSection(::core::mem::transmute(&data), ::core::mem::transmute_copy(&startingblockaddress), ::core::mem::transmute_copy(&numberofblocks)).into()
+            this.WriteSection(::windows::core::from_raw_borrowed(&data), ::core::mem::transmute_copy(&startingblockaddress), ::core::mem::transmute_copy(&numberofblocks)).into()
         }
         unsafe extern "system" fn CancelWrite<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWriteEngine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5159,7 +5159,7 @@ impl IWriteEngine2_Vtbl {
         unsafe extern "system" fn SetRecorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWriteEngine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRecorder(::core::mem::transmute(&value)).into()
+            this.SetRecorder(::windows::core::from_raw_borrowed(&value)).into()
         }
         unsafe extern "system" fn Recorder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWriteEngine2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -1089,6 +1089,9 @@ impl<'a> Gen<'a> {
                 quote! { &[#default_type] }
             } else if self.reader.type_is_primitive(&param.ty) {
                 quote! { #default_type }
+            } else if self.reader.type_is_nullable(&param.ty) {
+                let type_name = self.type_name(&param.ty);
+                quote! { ::core::option::Option<&#type_name> }
             } else {
                 quote! { &#default_type }
             }
@@ -1112,8 +1115,15 @@ impl<'a> Gen<'a> {
         let name = self.param_name(param.def);
         let kind = self.type_default_name(&param.ty);
 
-        if self.reader.param_flags(param.def).input() && !self.reader.type_is_primitive(&param.ty) {
-            quote! { #name: &#kind, }
+        if self.reader.param_flags(param.def).input() {
+            if self.reader.type_is_primitive(&param.ty) {
+                quote! { #name: #kind, }
+            } else if self.reader.type_is_nullable(&param.ty) {
+                let kind = self.type_name(&param.ty);
+                quote! { #name: ::core::option::Option<&#kind>, }
+            } else {
+                quote! { #name: &#kind, }
+            }
         } else {
             quote! { #name: #kind, }
         }

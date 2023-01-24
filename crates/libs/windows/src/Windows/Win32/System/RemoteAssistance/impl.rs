@@ -14,7 +14,7 @@ impl DRendezvousSessionEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"implement\"`*"]
 pub trait IRendezvousApplication_Impl: Sized {
-    fn SetRendezvousSession(&self, prendezvoussession: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetRendezvousSession(&self, prendezvoussession: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IRendezvousApplication {}
 impl IRendezvousApplication_Vtbl {
@@ -22,7 +22,7 @@ impl IRendezvousApplication_Vtbl {
         unsafe extern "system" fn SetRendezvousSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRendezvousApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetRendezvousSession(::core::mem::transmute(&prendezvoussession)).into()
+            this.SetRendezvousSession(::windows::core::from_raw_borrowed(&prendezvoussession)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetRendezvousSession: SetRendezvousSession::<Identity, Impl, OFFSET> }
     }

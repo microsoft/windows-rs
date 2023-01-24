@@ -184,7 +184,7 @@ impl INetDiagHelper_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows::core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()>;
-    fn SetUtilities(&self, putilities: &::core::option::Option<INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
+    fn SetUtilities(&self, putilities: ::core::option::Option<&INetDiagHelperUtilFactory>) -> ::windows::core::Result<()>;
     fn ReproduceFailure(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -200,7 +200,7 @@ impl INetDiagHelperEx_Vtbl {
         unsafe extern "system" fn SetUtilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, putilities: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetUtilities(::core::mem::transmute(&putilities)).into()
+            this.SetUtilities(::windows::core::from_raw_borrowed(&putilities)).into()
         }
         unsafe extern "system" fn ReproduceFailure<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

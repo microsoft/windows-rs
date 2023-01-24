@@ -3507,7 +3507,7 @@ impl ::core::default::Default for NetworkUsageStates {
 #[repr(transparent)]
 pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
 impl NetworkStatusChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = NetworkStatusChangedEventHandlerBox::<F> { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3520,12 +3520,12 @@ impl NetworkStatusChangedEventHandler {
     }
 }
 #[repr(C)]
-struct NetworkStatusChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct NetworkStatusChangedEventHandlerBox<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const NetworkStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
     const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -3554,7 +3554,7 @@ impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windo
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&sender)).into()
     }
 }
 impl ::core::clone::Clone for NetworkStatusChangedEventHandler {

@@ -252,17 +252,17 @@ impl IFaxAccountIncomingQueue_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxAccountNotify_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxaccount: &::core::option::Option<IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: ::core::option::Option<&IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrjobid: &::windows::core::BSTR, pjobstatus: ::core::option::Option<&IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrmessageid: &::windows::core::BSTR, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrmessageid: &::windows::core::BSTR, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxaccount: ::core::option::Option<&IFaxAccount>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxAccountNotify {}
@@ -272,57 +272,57 @@ impl IFaxAccountNotify_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnIncomingJobAdded(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnIncomingJobRemoved(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            this.OnIncomingJobChanged(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::windows::core::from_raw_borrowed(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnOutgoingJobAdded(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnOutgoingJobRemoved(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobChanged(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            this.OnOutgoingJobChanged(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrjobid), ::windows::core::from_raw_borrowed(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void, faddedtoreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&faddedtoreceivefolder)).into()
+            this.OnIncomingMessageAdded(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&faddedtoreceivefolder)).into()
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void, fremovedfromreceivefolder: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
+            this.OnIncomingMessageRemoved(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrmessageid), ::core::mem::transmute_copy(&fremovedfromreceivefolder)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingMessageAdded(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnOutgoingMessageAdded(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnOutgoingMessageRemoved(::windows::core::from_raw_borrowed(&pfaxaccount), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnServerShutDown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxAccountNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnServerShutDown(::core::mem::transmute(&pfaxserver)).into()
+            this.OnServerShutDown(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1881,9 +1881,9 @@ pub trait IFaxDocument_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM>;
     fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()>;
     fn TapiConnection(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch>;
-    fn putref_TapiConnection(&self, ptapiconnection: &::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn putref_TapiConnection(&self, ptapiconnection: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows::core::Result<()>;
     fn Submit(&self, bstrfaxservername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
-    fn ConnectedSubmit(&self, pfaxserver: &::core::option::Option<IFaxServer>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
+    fn ConnectedSubmit(&self, pfaxserver: ::core::option::Option<&IFaxServer>) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn AttachFaxToReceipt(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetAttachFaxToReceipt(&self, battachfax: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
 }
@@ -2136,7 +2136,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn putref_TapiConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptapiconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.putref_TapiConnection(::core::mem::transmute(&ptapiconnection)).into()
+            this.putref_TapiConnection(::windows::core::from_raw_borrowed(&ptapiconnection)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2152,7 +2152,7 @@ impl IFaxDocument_Vtbl {
         unsafe extern "system" fn ConnectedSubmit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ConnectedSubmit(::core::mem::transmute(&pfaxserver)) {
+            match this.ConnectedSubmit(::windows::core::from_raw_borrowed(&pfaxserver)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pvfaxoutgoingjobids, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -2225,7 +2225,7 @@ pub trait IFaxDocument2_Impl: Sized + IFaxDocument_Impl {
     fn Bodies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn SetBodies(&self, vbodies: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>;
     fn Submit2(&self, bstrfaxservername: &::windows::core::BSTR, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
-    fn ConnectedSubmit2(&self, pfaxserver: &::core::option::Option<IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
+    fn ConnectedSubmit2(&self, pfaxserver: ::core::option::Option<&IFaxServer>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxDocument2 {}
@@ -2267,7 +2267,7 @@ impl IFaxDocument2_Vtbl {
         unsafe extern "system" fn ConnectedSubmit2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxDocument2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ConnectedSubmit2(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
+            this.ConnectedSubmit2(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute_copy(&pvfaxoutgoingjobids), ::core::mem::transmute_copy(&plerrorbodyfile)).into()
         }
         Self {
             base__: IFaxDocument_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -7190,32 +7190,32 @@ impl IFaxServerNotify_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFaxServerNotify2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn OnIncomingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingJobChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: &::core::option::Option<IFaxJobStatus>) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnIncomingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageAdded(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnOutgoingMessageRemoved(&self, pfaxserver: &::core::option::Option<IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnReceiptOptionsChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnActivityLoggingConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnSecurityConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnEventLoggingConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutgoingQueueConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnIncomingArchiveConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnDevicesConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnServerActivityChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()>;
-    fn OnQueuesStatusChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn OnNewCall(&self, pfaxserver: &::core::option::Option<IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn OnServerShutDown(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
-    fn OnDeviceStatusChange(&self, pfaxserver: &::core::option::Option<IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
-    fn OnGeneralServerConfigChanged(&self, pfaxserver: &::core::option::Option<IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingJobAdded(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobRemoved(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingJobChanged(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: ::core::option::Option<&IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobAdded(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobRemoved(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingJobChanged(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrjobid: &::windows::core::BSTR, pjobstatus: ::core::option::Option<&IFaxJobStatus>) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageAdded(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnIncomingMessageRemoved(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageAdded(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnOutgoingMessageRemoved(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, bstrmessageid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnReceiptOptionsChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnActivityLoggingConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnSecurityConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnEventLoggingConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutgoingQueueConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutgoingArchiveConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnIncomingArchiveConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnDevicesConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutboundRoutingGroupsConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnOutboundRoutingRulesConfigChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnServerActivityChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()>;
+    fn OnQueuesStatusChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn OnNewCall(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, lcallid: i32, ldeviceid: i32, bstrcallerid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
+    fn OnServerShutDown(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
+    fn OnDeviceStatusChange(&self, pfaxserver: ::core::option::Option<&IFaxServer2>, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::Result<()>;
+    fn OnGeneralServerConfigChanged(&self, pfaxserver: ::core::option::Option<&IFaxServer2>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IFaxServerNotify2 {}
@@ -7225,132 +7225,132 @@ impl IFaxServerNotify2_Vtbl {
         unsafe extern "system" fn OnIncomingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnIncomingJobAdded(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnIncomingJobRemoved(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnIncomingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            this.OnIncomingJobChanged(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::windows::core::from_raw_borrowed(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnOutgoingJobAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnOutgoingJobAdded(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
+            this.OnOutgoingJobRemoved(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid)).into()
         }
         unsafe extern "system" fn OnOutgoingJobChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrjobid: *mut ::core::ffi::c_void, pjobstatus: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingJobChanged(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::core::mem::transmute(&pjobstatus)).into()
+            this.OnOutgoingJobChanged(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrjobid), ::windows::core::from_raw_borrowed(&pjobstatus)).into()
         }
         unsafe extern "system" fn OnIncomingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnIncomingMessageAdded(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnIncomingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnIncomingMessageRemoved(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingMessageAdded(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnOutgoingMessageAdded(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnOutgoingMessageRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, bstrmessageid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingMessageRemoved(::core::mem::transmute(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
+            this.OnOutgoingMessageRemoved(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute(&bstrmessageid)).into()
         }
         unsafe extern "system" fn OnReceiptOptionsChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnReceiptOptionsChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnReceiptOptionsChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnActivityLoggingConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnActivityLoggingConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnActivityLoggingConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnSecurityConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnSecurityConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnSecurityConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnEventLoggingConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnEventLoggingConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnEventLoggingConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnOutgoingQueueConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingQueueConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnOutgoingQueueConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnOutgoingArchiveConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutgoingArchiveConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnOutgoingArchiveConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnIncomingArchiveConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnIncomingArchiveConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnIncomingArchiveConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnDevicesConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDevicesConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnDevicesConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnOutboundRoutingGroupsConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutboundRoutingGroupsConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnOutboundRoutingGroupsConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnOutboundRoutingRulesConfigChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnOutboundRoutingRulesConfigChange(::core::mem::transmute(&pfaxserver)).into()
+            this.OnOutboundRoutingRulesConfigChange(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnServerActivityChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnServerActivityChange(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&lincomingmessages), ::core::mem::transmute_copy(&lroutingmessages), ::core::mem::transmute_copy(&loutgoingmessages), ::core::mem::transmute_copy(&lqueuedmessages)).into()
+            this.OnServerActivityChange(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute_copy(&lincomingmessages), ::core::mem::transmute_copy(&lroutingmessages), ::core::mem::transmute_copy(&loutgoingmessages), ::core::mem::transmute_copy(&lqueuedmessages)).into()
         }
         unsafe extern "system" fn OnQueuesStatusChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, boutgoingqueueblocked: super::super::Foundation::VARIANT_BOOL, boutgoingqueuepaused: super::super::Foundation::VARIANT_BOOL, bincomingqueueblocked: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnQueuesStatusChange(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&boutgoingqueueblocked), ::core::mem::transmute_copy(&boutgoingqueuepaused), ::core::mem::transmute_copy(&bincomingqueueblocked)).into()
+            this.OnQueuesStatusChange(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute_copy(&boutgoingqueueblocked), ::core::mem::transmute_copy(&boutgoingqueuepaused), ::core::mem::transmute_copy(&bincomingqueueblocked)).into()
         }
         unsafe extern "system" fn OnNewCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, lcallid: i32, ldeviceid: i32, bstrcallerid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnNewCall(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&lcallid), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute(&bstrcallerid)).into()
+            this.OnNewCall(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute_copy(&lcallid), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute(&bstrcallerid)).into()
         }
         unsafe extern "system" fn OnServerShutDown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnServerShutDown(::core::mem::transmute(&pfaxserver)).into()
+            this.OnServerShutDown(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         unsafe extern "system" fn OnDeviceStatusChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void, ldeviceid: i32, bpoweredoff: super::super::Foundation::VARIANT_BOOL, bsending: super::super::Foundation::VARIANT_BOOL, breceiving: super::super::Foundation::VARIANT_BOOL, bringing: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDeviceStatusChange(::core::mem::transmute(&pfaxserver), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute_copy(&bpoweredoff), ::core::mem::transmute_copy(&bsending), ::core::mem::transmute_copy(&breceiving), ::core::mem::transmute_copy(&bringing)).into()
+            this.OnDeviceStatusChange(::windows::core::from_raw_borrowed(&pfaxserver), ::core::mem::transmute_copy(&ldeviceid), ::core::mem::transmute_copy(&bpoweredoff), ::core::mem::transmute_copy(&bsending), ::core::mem::transmute_copy(&breceiving), ::core::mem::transmute_copy(&bringing)).into()
         }
         unsafe extern "system" fn OnGeneralServerConfigChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFaxServerNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnGeneralServerConfigChanged(::core::mem::transmute(&pfaxserver)).into()
+            this.OnGeneralServerConfigChanged(::windows::core::from_raw_borrowed(&pfaxserver)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -7625,7 +7625,7 @@ impl IStiDeviceControl_Vtbl {
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`, `\"Win32_System_Registry\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
 pub trait IStiUSD_Impl: Sized {
-    fn Initialize(&self, pheldcb: &::core::option::Option<IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pheldcb: ::core::option::Option<&IStiDeviceControl>, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
     fn GetCapabilities(&self) -> ::windows::core::Result<STI_USD_CAPS>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()>;
     fn DeviceReset(&self) -> ::windows::core::Result<()>;
@@ -7650,7 +7650,7 @@ impl IStiUSD_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiUSD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheldcb: *mut ::core::ffi::c_void, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&pheldcb), ::core::mem::transmute_copy(&dwstiversion), ::core::mem::transmute_copy(&hparameterskey)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&pheldcb), ::core::mem::transmute_copy(&dwstiversion), ::core::mem::transmute_copy(&hparameterskey)).into()
         }
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStiUSD_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_USD_CAPS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -7769,7 +7769,7 @@ pub trait IStillImageW_Impl: Sized {
     fn Initialize(&self, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &::windows::core::PCWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn CreateDevice(&self, pwszdevicename: &::windows::core::PCWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn CreateDevice(&self, pwszdevicename: &::windows::core::PCWSTR, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetDeviceValue(&self, pwszdevicename: &::windows::core::PCWSTR, pvaluename: &::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()>;
     fn SetDeviceValue(&self, pwszdevicename: &::windows::core::PCWSTR, pvaluename: &::windows::core::PCWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()>;
     fn GetSTILaunchInformation(&self, pwszdevicename: ::windows::core::PWSTR, pdweventcode: *mut u32, pwszeventname: ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -7805,7 +7805,7 @@ impl IStillImageW_Vtbl {
         unsafe extern "system" fn CreateDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, dwmode: u32, pdevice: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateDevice(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&pdevice), ::core::mem::transmute(&punkouter)).into()
+            this.CreateDevice(::core::mem::transmute(&pwszdevicename), ::core::mem::transmute_copy(&dwmode), ::core::mem::transmute_copy(&pdevice), ::windows::core::from_raw_borrowed(&punkouter)).into()
         }
         unsafe extern "system" fn GetDeviceValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStillImageW_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

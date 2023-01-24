@@ -54,7 +54,7 @@ impl IMLOperatorAttributes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernel_Impl: Sized {
-    fn Compute(&self, context: &::core::option::Option<IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
+    fn Compute(&self, context: ::core::option::Option<&IMLOperatorKernelContext>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMLOperatorKernel {}
 impl IMLOperatorKernel_Vtbl {
@@ -62,7 +62,7 @@ impl IMLOperatorKernel_Vtbl {
         unsafe extern "system" fn Compute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Compute(::core::mem::transmute(&context)).into()
+            this.Compute(::windows::core::from_raw_borrowed(&context)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Compute: Compute::<Identity, Impl, OFFSET> }
     }
@@ -240,7 +240,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorKernelFactory_Impl: Sized {
-    fn CreateKernel(&self, context: &::core::option::Option<IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
+    fn CreateKernel(&self, context: ::core::option::Option<&IMLOperatorKernelCreationContext>) -> ::windows::core::Result<IMLOperatorKernel>;
 }
 impl ::windows::core::RuntimeName for IMLOperatorKernelFactory {}
 impl IMLOperatorKernelFactory_Vtbl {
@@ -248,7 +248,7 @@ impl IMLOperatorKernelFactory_Vtbl {
         unsafe extern "system" fn CreateKernel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorKernelFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, kernel: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateKernel(::core::mem::transmute(&context)) {
+            match this.CreateKernel(::windows::core::from_raw_borrowed(&context)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(kernel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -264,8 +264,8 @@ impl IMLOperatorKernelFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorRegistry_Impl: Sized {
-    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: &::core::option::Option<IMLOperatorTypeInferrer>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
-    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: &::core::option::Option<IMLOperatorKernelFactory>, shapeinferrer: &::core::option::Option<IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::core::option::Option<&IMLOperatorTypeInferrer>, shapeinferrer: ::core::option::Option<&IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
+    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: ::core::option::Option<&IMLOperatorKernelFactory>, shapeinferrer: ::core::option::Option<&IMLOperatorShapeInferrer>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMLOperatorRegistry {}
 impl IMLOperatorRegistry_Vtbl {
@@ -273,12 +273,12 @@ impl IMLOperatorRegistry_Vtbl {
         unsafe extern "system" fn RegisterOperatorSetSchema<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: *mut ::core::ffi::c_void, shapeinferrer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterOperatorSetSchema(::core::mem::transmute_copy(&operatorsetid), ::core::mem::transmute_copy(&baselineversion), ::core::mem::transmute_copy(&schema), ::core::mem::transmute_copy(&schemacount), ::core::mem::transmute(&typeinferrer), ::core::mem::transmute(&shapeinferrer)).into()
+            this.RegisterOperatorSetSchema(::core::mem::transmute_copy(&operatorsetid), ::core::mem::transmute_copy(&baselineversion), ::core::mem::transmute_copy(&schema), ::core::mem::transmute_copy(&schemacount), ::windows::core::from_raw_borrowed(&typeinferrer), ::windows::core::from_raw_borrowed(&shapeinferrer)).into()
         }
         unsafe extern "system" fn RegisterOperatorKernel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: *mut ::core::ffi::c_void, shapeinferrer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterOperatorKernel(::core::mem::transmute_copy(&operatorkernel), ::core::mem::transmute(&operatorkernelfactory), ::core::mem::transmute(&shapeinferrer)).into()
+            this.RegisterOperatorKernel(::core::mem::transmute_copy(&operatorkernel), ::windows::core::from_raw_borrowed(&operatorkernelfactory), ::windows::core::from_raw_borrowed(&shapeinferrer)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -374,7 +374,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorShapeInferrer_Impl: Sized {
-    fn InferOutputShapes(&self, context: &::core::option::Option<IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputShapes(&self, context: ::core::option::Option<&IMLOperatorShapeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMLOperatorShapeInferrer {}
 impl IMLOperatorShapeInferrer_Vtbl {
@@ -382,7 +382,7 @@ impl IMLOperatorShapeInferrer_Vtbl {
         unsafe extern "system" fn InferOutputShapes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InferOutputShapes(::core::mem::transmute(&context)).into()
+            this.InferOutputShapes(::windows::core::from_raw_borrowed(&context)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputShapes: InferOutputShapes::<Identity, Impl, OFFSET> }
     }
@@ -578,7 +578,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`, `\"implement\"`*"]
 pub trait IMLOperatorTypeInferrer_Impl: Sized {
-    fn InferOutputTypes(&self, context: &::core::option::Option<IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
+    fn InferOutputTypes(&self, context: ::core::option::Option<&IMLOperatorTypeInferenceContext>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IMLOperatorTypeInferrer {}
 impl IMLOperatorTypeInferrer_Vtbl {
@@ -586,7 +586,7 @@ impl IMLOperatorTypeInferrer_Vtbl {
         unsafe extern "system" fn InferOutputTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InferOutputTypes(::core::mem::transmute(&context)).into()
+            this.InferOutputTypes(::windows::core::from_raw_borrowed(&context)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), InferOutputTypes: InferOutputTypes::<Identity, Impl, OFFSET> }
     }
@@ -705,8 +705,8 @@ impl IWinMLModel_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: Sized {
     fn LoadModel(&self, path: &::windows::core::PCWSTR) -> ::windows::core::Result<IWinMLModel>;
-    fn CreateEvaluationContext(&self, device: &::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
-    fn EvaluateModel(&self, pcontext: &::core::option::Option<IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
+    fn CreateEvaluationContext(&self, device: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Device>) -> ::windows::core::Result<IWinMLEvaluationContext>;
+    fn EvaluateModel(&self, pcontext: ::core::option::Option<&IWinMLEvaluationContext>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::windows::core::RuntimeName for IWinMLRuntime {}
@@ -727,7 +727,7 @@ impl IWinMLRuntime_Vtbl {
         unsafe extern "system" fn CreateEvaluationContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEvaluationContext(::core::mem::transmute(&device)) {
+            match this.CreateEvaluationContext(::windows::core::from_raw_borrowed(&device)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -738,7 +738,7 @@ impl IWinMLRuntime_Vtbl {
         unsafe extern "system" fn EvaluateModel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EvaluateModel(::core::mem::transmute(&pcontext)).into()
+            this.EvaluateModel(::windows::core::from_raw_borrowed(&pcontext)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

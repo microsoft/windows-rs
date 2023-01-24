@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
-    fn GetCapabilities(&self, in_keycollection: &::core::option::Option<ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
+    fn GetCapabilities(&self, in_keycollection: ::core::option::Option<&ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows::core::RuntimeName for ISideShowBulkCapabilities {}
@@ -11,7 +11,7 @@ impl ISideShowBulkCapabilities_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowBulkCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_keycollection: *mut ::core::ffi::c_void, inout_pvalues: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCapabilities(::core::mem::transmute(&in_keycollection), ::core::mem::transmute_copy(&inout_pvalues)).into()
+            this.GetCapabilities(::windows::core::from_raw_borrowed(&in_keycollection), ::core::mem::transmute_copy(&inout_pvalues)).into()
         }
         Self { base__: ISideShowCapabilities_Vtbl::new::<Identity, Impl, OFFSET>(), GetCapabilities: GetCapabilities::<Identity, Impl, OFFSET> }
     }
@@ -83,7 +83,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISideShowContent_Impl: Sized {
-    fn GetContent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
+    fn GetContent(&self, in_picapabilities: ::core::option::Option<&ISideShowCapabilities>, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::Result<()>;
     fn ContentId(&self) -> ::windows::core::Result<u32>;
     fn DifferentiateContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
@@ -95,7 +95,7 @@ impl ISideShowContent_Vtbl {
         unsafe extern "system" fn GetContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picapabilities: *mut ::core::ffi::c_void, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetContent(::core::mem::transmute(&in_picapabilities), ::core::mem::transmute_copy(&out_pdwsize), ::core::mem::transmute_copy(&out_ppbdata)).into()
+            this.GetContent(::windows::core::from_raw_borrowed(&in_picapabilities), ::core::mem::transmute_copy(&out_pdwsize), ::core::mem::transmute_copy(&out_ppbdata)).into()
         }
         unsafe extern "system" fn ContentId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pcontentid: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -132,10 +132,10 @@ impl ISideShowContent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowContentManager_Impl: Sized {
-    fn Add(&self, in_picontent: &::core::option::Option<ISideShowContent>) -> ::windows::core::Result<()>;
+    fn Add(&self, in_picontent: ::core::option::Option<&ISideShowContent>) -> ::windows::core::Result<()>;
     fn Remove(&self, in_contentid: u32) -> ::windows::core::Result<()>;
     fn RemoveAll(&self) -> ::windows::core::Result<()>;
-    fn SetEventSink(&self, in_pievents: &::core::option::Option<ISideShowEvents>) -> ::windows::core::Result<()>;
+    fn SetEventSink(&self, in_pievents: ::core::option::Option<&ISideShowEvents>) -> ::windows::core::Result<()>;
     fn GetDeviceCapabilities(&self) -> ::windows::core::Result<ISideShowCapabilitiesCollection>;
 }
 impl ::windows::core::RuntimeName for ISideShowContentManager {}
@@ -144,7 +144,7 @@ impl ISideShowContentManager_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picontent: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&in_picontent)).into()
+            this.Add(::windows::core::from_raw_borrowed(&in_picontent)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_contentid: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -159,7 +159,7 @@ impl ISideShowContentManager_Vtbl {
         unsafe extern "system" fn SetEventSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pievents: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEventSink(::core::mem::transmute(&in_pievents)).into()
+            this.SetEventSink(::windows::core::from_raw_borrowed(&in_pievents)).into()
         }
         unsafe extern "system" fn GetDeviceCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -188,9 +188,9 @@ impl ISideShowContentManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowEvents_Impl: Sized {
     fn ContentMissing(&self, in_contentid: u32) -> ::windows::core::Result<ISideShowContent>;
-    fn ApplicationEvent(&self, in_picapabilities: &::core::option::Option<ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
-    fn DeviceAdded(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
-    fn DeviceRemoved(&self, in_pidevice: &::core::option::Option<ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn ApplicationEvent(&self, in_picapabilities: ::core::option::Option<&ISideShowCapabilities>, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::Result<()>;
+    fn DeviceAdded(&self, in_pidevice: ::core::option::Option<&ISideShowCapabilities>) -> ::windows::core::Result<()>;
+    fn DeviceRemoved(&self, in_pidevice: ::core::option::Option<&ISideShowCapabilities>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ISideShowEvents {}
 impl ISideShowEvents_Vtbl {
@@ -209,17 +209,17 @@ impl ISideShowEvents_Vtbl {
         unsafe extern "system" fn ApplicationEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picapabilities: *mut ::core::ffi::c_void, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplicationEvent(::core::mem::transmute(&in_picapabilities), ::core::mem::transmute_copy(&in_dweventid), ::core::mem::transmute_copy(&in_dweventsize), ::core::mem::transmute_copy(&in_pbeventdata)).into()
+            this.ApplicationEvent(::windows::core::from_raw_borrowed(&in_picapabilities), ::core::mem::transmute_copy(&in_dweventid), ::core::mem::transmute_copy(&in_dweventsize), ::core::mem::transmute_copy(&in_pbeventdata)).into()
         }
         unsafe extern "system" fn DeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pidevice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeviceAdded(::core::mem::transmute(&in_pidevice)).into()
+            this.DeviceAdded(::windows::core::from_raw_borrowed(&in_pidevice)).into()
         }
         unsafe extern "system" fn DeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pidevice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeviceRemoved(::core::mem::transmute(&in_pidevice)).into()
+            this.DeviceRemoved(::windows::core::from_raw_borrowed(&in_pidevice)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -404,7 +404,7 @@ impl ISideShowNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"implement\"`*"]
 pub trait ISideShowNotificationManager_Impl: Sized {
-    fn Show(&self, in_pinotification: &::core::option::Option<ISideShowNotification>) -> ::windows::core::Result<()>;
+    fn Show(&self, in_pinotification: ::core::option::Option<&ISideShowNotification>) -> ::windows::core::Result<()>;
     fn Revoke(&self, in_notificationid: u32) -> ::windows::core::Result<()>;
     fn RevokeAll(&self) -> ::windows::core::Result<()>;
 }
@@ -414,7 +414,7 @@ impl ISideShowNotificationManager_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pinotification: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Show(::core::mem::transmute(&in_pinotification)).into()
+            this.Show(::windows::core::from_raw_borrowed(&in_pinotification)).into()
         }
         unsafe extern "system" fn Revoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

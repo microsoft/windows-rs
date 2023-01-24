@@ -243,8 +243,8 @@ impl INetCfgBindingInterface_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgBindingPath_Impl: Sized {
-    fn IsSamePathAs(&self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn IsSubPathOf(&self, ppath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn IsSamePathAs(&self, ppath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn IsSubPathOf(&self, ppath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
     fn IsEnabled(&self) -> ::windows::core::Result<()>;
     fn Enable(&self, fenable: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetPathToken(&self, ppszwpathtoken: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
@@ -260,12 +260,12 @@ impl INetCfgBindingPath_Vtbl {
         unsafe extern "system" fn IsSamePathAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsSamePathAs(::core::mem::transmute(&ppath)).into()
+            this.IsSamePathAs(::windows::core::from_raw_borrowed(&ppath)).into()
         }
         unsafe extern "system" fn IsSubPathOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsSubPathOf(::core::mem::transmute(&ppath)).into()
+            this.IsSubPathOf(::windows::core::from_raw_borrowed(&ppath)).into()
         }
         unsafe extern "system" fn IsEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -352,7 +352,7 @@ impl INetCfgClass_Vtbl {
 pub trait INetCfgClassSetup_Impl: Sized {
     fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
     fn Install(&self, pszwinfid: &::windows::core::PCWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: &::windows::core::PCWSTR, pszwanswersections: &::windows::core::PCWSTR, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn DeInstall(&self, pcomponent: &::core::option::Option<INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
+    fn DeInstall(&self, pcomponent: ::core::option::Option<&INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for INetCfgClassSetup {}
@@ -372,7 +372,7 @@ impl INetCfgClassSetup_Vtbl {
         unsafe extern "system" fn DeInstall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgClassSetup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcomponent: *mut ::core::ffi::c_void, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeInstall(::core::mem::transmute(&pcomponent), ::core::mem::transmute_copy(&pobotoken), ::core::mem::transmute_copy(&pmszwrefs)).into()
+            this.DeInstall(::windows::core::from_raw_borrowed(&pcomponent), ::core::mem::transmute_copy(&pobotoken), ::core::mem::transmute_copy(&pmszwrefs)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -388,7 +388,7 @@ impl INetCfgClassSetup_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup2_Impl: Sized + INetCfgClassSetup_Impl {
-    fn UpdateNonEnumeratedComponent(&self, picomp: &::core::option::Option<INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()>;
+    fn UpdateNonEnumeratedComponent(&self, picomp: ::core::option::Option<&INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for INetCfgClassSetup2 {}
@@ -398,7 +398,7 @@ impl INetCfgClassSetup2_Vtbl {
         unsafe extern "system" fn UpdateNonEnumeratedComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgClassSetup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picomp: *mut ::core::ffi::c_void, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UpdateNonEnumeratedComponent(::core::mem::transmute(&picomp), ::core::mem::transmute_copy(&dwsetupflags), ::core::mem::transmute_copy(&dwupgradefrombuildno)).into()
+            this.UpdateNonEnumeratedComponent(::windows::core::from_raw_borrowed(&picomp), ::core::mem::transmute_copy(&dwsetupflags), ::core::mem::transmute_copy(&dwupgradefrombuildno)).into()
         }
         Self {
             base__: INetCfgClassSetup_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -423,7 +423,7 @@ pub trait INetCfgComponent_Impl: Sized {
     fn GetBindName(&self, ppszwbindname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()>;
     fn GetDeviceStatus(&self) -> ::windows::core::Result<u32>;
     fn OpenParamKey(&self, phkey: *mut super::super::System::Registry::HKEY) -> ::windows::core::Result<()>;
-    fn RaisePropertyUi(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn RaisePropertyUi(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::windows::core::RuntimeName for INetCfgComponent {}
@@ -500,7 +500,7 @@ impl INetCfgComponent_Vtbl {
         unsafe extern "system" fn RaisePropertyUi<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RaisePropertyUi(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&punkcontext)).into()
+            this.RaisePropertyUi(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&dwflags), ::windows::core::from_raw_borrowed(&punkcontext)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -524,14 +524,14 @@ impl INetCfgComponent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentBindings_Impl: Sized {
-    fn BindTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn UnbindFrom(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn BindTo(&self, pnccitem: ::core::option::Option<&INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn UnbindFrom(&self, pnccitem: ::core::option::Option<&INetCfgComponent>) -> ::windows::core::Result<()>;
     fn SupportsBindingInterface(&self, dwflags: u32, pszwinterfacename: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn IsBoundTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
-    fn IsBindableTo(&self, pnccitem: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn IsBoundTo(&self, pnccitem: ::core::option::Option<&INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn IsBindableTo(&self, pnccitem: ::core::option::Option<&INetCfgComponent>) -> ::windows::core::Result<()>;
     fn EnumBindingPaths(&self, dwflags: u32, ppienum: *mut ::core::option::Option<IEnumNetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn MoveBefore(&self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn MoveAfter(&self, pncbitemsrc: &::core::option::Option<INetCfgBindingPath>, pncbitemdest: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn MoveBefore(&self, pncbitemsrc: ::core::option::Option<&INetCfgBindingPath>, pncbitemdest: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn MoveAfter(&self, pncbitemsrc: ::core::option::Option<&INetCfgBindingPath>, pncbitemdest: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INetCfgComponentBindings {}
 impl INetCfgComponentBindings_Vtbl {
@@ -539,12 +539,12 @@ impl INetCfgComponentBindings_Vtbl {
         unsafe extern "system" fn BindTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.BindTo(::core::mem::transmute(&pnccitem)).into()
+            this.BindTo(::windows::core::from_raw_borrowed(&pnccitem)).into()
         }
         unsafe extern "system" fn UnbindFrom<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.UnbindFrom(::core::mem::transmute(&pnccitem)).into()
+            this.UnbindFrom(::windows::core::from_raw_borrowed(&pnccitem)).into()
         }
         unsafe extern "system" fn SupportsBindingInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pszwinterfacename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -554,12 +554,12 @@ impl INetCfgComponentBindings_Vtbl {
         unsafe extern "system" fn IsBoundTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsBoundTo(::core::mem::transmute(&pnccitem)).into()
+            this.IsBoundTo(::windows::core::from_raw_borrowed(&pnccitem)).into()
         }
         unsafe extern "system" fn IsBindableTo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnccitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsBindableTo(::core::mem::transmute(&pnccitem)).into()
+            this.IsBindableTo(::windows::core::from_raw_borrowed(&pnccitem)).into()
         }
         unsafe extern "system" fn EnumBindingPaths<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -569,12 +569,12 @@ impl INetCfgComponentBindings_Vtbl {
         unsafe extern "system" fn MoveBefore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncbitemsrc: *mut ::core::ffi::c_void, pncbitemdest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveBefore(::core::mem::transmute(&pncbitemsrc), ::core::mem::transmute(&pncbitemdest)).into()
+            this.MoveBefore(::windows::core::from_raw_borrowed(&pncbitemsrc), ::windows::core::from_raw_borrowed(&pncbitemdest)).into()
         }
         unsafe extern "system" fn MoveAfter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentBindings_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncbitemsrc: *mut ::core::ffi::c_void, pncbitemdest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveAfter(::core::mem::transmute(&pncbitemsrc), ::core::mem::transmute(&pncbitemdest)).into()
+            this.MoveAfter(::windows::core::from_raw_borrowed(&pncbitemsrc), ::windows::core::from_raw_borrowed(&pncbitemdest)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -595,9 +595,9 @@ impl INetCfgComponentBindings_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentControl_Impl: Sized {
-    fn Initialize(&self, picomp: &::core::option::Option<INetCfgComponent>, pinetcfg: &::core::option::Option<INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn Initialize(&self, picomp: ::core::option::Option<&INetCfgComponent>, pinetcfg: ::core::option::Option<&INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn ApplyRegistryChanges(&self) -> ::windows::core::Result<()>;
-    fn ApplyPnpChanges(&self, picallback: &::core::option::Option<INetCfgPnpReconfigCallback>) -> ::windows::core::Result<()>;
+    fn ApplyPnpChanges(&self, picallback: ::core::option::Option<&INetCfgPnpReconfigCallback>) -> ::windows::core::Result<()>;
     fn CancelChanges(&self) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -608,7 +608,7 @@ impl INetCfgComponentControl_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picomp: *mut ::core::ffi::c_void, pinetcfg: *mut ::core::ffi::c_void, finstalling: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&picomp), ::core::mem::transmute(&pinetcfg), ::core::mem::transmute_copy(&finstalling)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&picomp), ::windows::core::from_raw_borrowed(&pinetcfg), ::core::mem::transmute_copy(&finstalling)).into()
         }
         unsafe extern "system" fn ApplyRegistryChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -618,7 +618,7 @@ impl INetCfgComponentControl_Vtbl {
         unsafe extern "system" fn ApplyPnpChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplyPnpChanges(::core::mem::transmute(&picallback)).into()
+            this.ApplyPnpChanges(::windows::core::from_raw_borrowed(&picallback)).into()
         }
         unsafe extern "system" fn CancelChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -639,8 +639,8 @@ impl INetCfgComponentControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentNotifyBinding_Impl: Sized {
-    fn QueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn QueryBindingPath(&self, dwchangeflag: u32, pipath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INetCfgComponentNotifyBinding {}
 impl INetCfgComponentNotifyBinding_Vtbl {
@@ -648,12 +648,12 @@ impl INetCfgComponentNotifyBinding_Vtbl {
         unsafe extern "system" fn QueryBindingPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentNotifyBinding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&pipath)).into()
+            this.QueryBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::windows::core::from_raw_borrowed(&pipath)).into()
         }
         unsafe extern "system" fn NotifyBindingPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentNotifyBinding_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&pipath)).into()
+            this.NotifyBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::windows::core::from_raw_borrowed(&pipath)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -668,9 +668,9 @@ impl INetCfgComponentNotifyBinding_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentNotifyGlobal_Impl: Sized {
     fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32>;
-    fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn SysNotifyBindingPath(&self, dwchangeflag: u32, pipath: &::core::option::Option<INetCfgBindingPath>) -> ::windows::core::Result<()>;
-    fn SysNotifyComponent(&self, dwchangeflag: u32, picomp: &::core::option::Option<INetCfgComponent>) -> ::windows::core::Result<()>;
+    fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn SysNotifyBindingPath(&self, dwchangeflag: u32, pipath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows::core::Result<()>;
+    fn SysNotifyComponent(&self, dwchangeflag: u32, picomp: ::core::option::Option<&INetCfgComponent>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INetCfgComponentNotifyGlobal {}
 impl INetCfgComponentNotifyGlobal_Vtbl {
@@ -689,17 +689,17 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
         unsafe extern "system" fn SysQueryBindingPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentNotifyGlobal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SysQueryBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&pipath)).into()
+            this.SysQueryBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::windows::core::from_raw_borrowed(&pipath)).into()
         }
         unsafe extern "system" fn SysNotifyBindingPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentNotifyGlobal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchangeflag: u32, pipath: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SysNotifyBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&pipath)).into()
+            this.SysNotifyBindingPath(::core::mem::transmute_copy(&dwchangeflag), ::windows::core::from_raw_borrowed(&pipath)).into()
         }
         unsafe extern "system" fn SysNotifyComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentNotifyGlobal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchangeflag: u32, picomp: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SysNotifyComponent(::core::mem::transmute_copy(&dwchangeflag), ::core::mem::transmute(&picomp)).into()
+            this.SysNotifyComponent(::core::mem::transmute_copy(&dwchangeflag), ::windows::core::from_raw_borrowed(&picomp)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -716,8 +716,8 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentPropertyUi_Impl: Sized {
-    fn QueryPropertyUi(&self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetContext(&self, punkreserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn QueryPropertyUi(&self, punkreserved: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetContext(&self, punkreserved: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn MergePropPages(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const ::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn ValidateProperties(&self, hwndsheet: super::super::Foundation::HWND) -> ::windows::core::Result<()>;
     fn ApplyProperties(&self) -> ::windows::core::Result<()>;
@@ -731,12 +731,12 @@ impl INetCfgComponentPropertyUi_Vtbl {
         unsafe extern "system" fn QueryPropertyUi<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentPropertyUi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryPropertyUi(::core::mem::transmute(&punkreserved)).into()
+            this.QueryPropertyUi(::windows::core::from_raw_borrowed(&punkreserved)).into()
         }
         unsafe extern "system" fn SetContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentPropertyUi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetContext(::core::mem::transmute(&punkreserved)).into()
+            this.SetContext(::windows::core::from_raw_borrowed(&punkreserved)).into()
         }
         unsafe extern "system" fn MergePropPages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentPropertyUi_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -816,7 +816,7 @@ impl INetCfgComponentSetup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentSysPrep_Impl: Sized {
-    fn SaveAdapterParameters(&self, pncsp: &::core::option::Option<INetCfgSysPrep>, pszwanswersections: &::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn SaveAdapterParameters(&self, pncsp: ::core::option::Option<&INetCfgSysPrep>, pszwanswersections: &::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RestoreAdapterParameters(&self, pszwanswerfile: &::windows::core::PCWSTR, pszwanswersection: &::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INetCfgComponentSysPrep {}
@@ -825,7 +825,7 @@ impl INetCfgComponentSysPrep_Vtbl {
         unsafe extern "system" fn SaveAdapterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentSysPrep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncsp: *mut ::core::ffi::c_void, pszwanswersections: ::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveAdapterParameters(::core::mem::transmute(&pncsp), ::core::mem::transmute(&pszwanswersections), ::core::mem::transmute_copy(&padapterinstanceguid)).into()
+            this.SaveAdapterParameters(::windows::core::from_raw_borrowed(&pncsp), ::core::mem::transmute(&pszwanswersections), ::core::mem::transmute_copy(&padapterinstanceguid)).into()
         }
         unsafe extern "system" fn RestoreAdapterParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentSysPrep_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszwanswerfile: ::windows::core::PCWSTR, pszwanswersection: ::windows::core::PCWSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -844,9 +844,9 @@ impl INetCfgComponentSysPrep_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfgComponentUpperEdge_Impl: Sized {
-    fn GetInterfaceIdsForAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
-    fn AddInterfacesToAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32) -> ::windows::core::Result<()>;
-    fn RemoveInterfacesFromAdapter(&self, padapter: &::core::option::Option<INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetInterfaceIdsForAdapter(&self, padapter: ::core::option::Option<&INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddInterfacesToAdapter(&self, padapter: ::core::option::Option<&INetCfgComponent>, dwnuminterfaces: u32) -> ::windows::core::Result<()>;
+    fn RemoveInterfacesFromAdapter(&self, padapter: ::core::option::Option<&INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INetCfgComponentUpperEdge {}
 impl INetCfgComponentUpperEdge_Vtbl {
@@ -854,17 +854,17 @@ impl INetCfgComponentUpperEdge_Vtbl {
         unsafe extern "system" fn GetInterfaceIdsForAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentUpperEdge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInterfaceIdsForAdapter(::core::mem::transmute(&padapter), ::core::mem::transmute_copy(&pdwnuminterfaces), ::core::mem::transmute_copy(&ppguidinterfaceids)).into()
+            this.GetInterfaceIdsForAdapter(::windows::core::from_raw_borrowed(&padapter), ::core::mem::transmute_copy(&pdwnuminterfaces), ::core::mem::transmute_copy(&ppguidinterfaceids)).into()
         }
         unsafe extern "system" fn AddInterfacesToAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentUpperEdge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, dwnuminterfaces: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddInterfacesToAdapter(::core::mem::transmute(&padapter), ::core::mem::transmute_copy(&dwnuminterfaces)).into()
+            this.AddInterfacesToAdapter(::windows::core::from_raw_borrowed(&padapter), ::core::mem::transmute_copy(&dwnuminterfaces)).into()
         }
         unsafe extern "system" fn RemoveInterfacesFromAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfgComponentUpperEdge_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padapter: *mut ::core::ffi::c_void, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RemoveInterfacesFromAdapter(::core::mem::transmute(&padapter), ::core::mem::transmute_copy(&dwnuminterfaces), ::core::mem::transmute_copy(&pguidinterfaceids)).into()
+            this.RemoveInterfacesFromAdapter(::windows::core::from_raw_borrowed(&padapter), ::core::mem::transmute_copy(&dwnuminterfaces), ::core::mem::transmute_copy(&pguidinterfaceids)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

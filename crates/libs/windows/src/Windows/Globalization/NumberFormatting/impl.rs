@@ -458,7 +458,7 @@ impl INumberRounder_Vtbl {
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
 pub trait INumberRounderOption_Impl: Sized {
     fn NumberRounder(&self) -> ::windows::core::Result<INumberRounder>;
-    fn SetNumberRounder(&self, value: &::core::option::Option<INumberRounder>) -> ::windows::core::Result<()>;
+    fn SetNumberRounder(&self, value: ::core::option::Option<&INumberRounder>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
@@ -480,7 +480,7 @@ impl INumberRounderOption_Vtbl {
         unsafe extern "system" fn SetNumberRounder<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetNumberRounder(::core::mem::transmute(&value)).into()
+            this.SetNumberRounder(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, INumberRounderOption, OFFSET>(),

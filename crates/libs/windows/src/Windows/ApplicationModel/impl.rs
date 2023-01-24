@@ -66,7 +66,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel\"`, `\"implement\"`*"]
 pub trait IPackageCatalogStatics2_Impl: Sized {
-    fn OpenForPackage(&self, package: &::core::option::Option<Package>) -> ::windows::core::Result<PackageCatalog>;
+    fn OpenForPackage(&self, package: ::core::option::Option<&Package>) -> ::windows::core::Result<PackageCatalog>;
 }
 impl ::windows::core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
@@ -76,7 +76,7 @@ impl IPackageCatalogStatics2_Vtbl {
         unsafe extern "system" fn OpenForPackage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, package: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OpenForPackage(::core::mem::transmute(&package)) {
+            match this.OpenForPackage(::windows::core::from_raw_borrowed(&package)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

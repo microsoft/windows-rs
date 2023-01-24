@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait IAnimationObject_Impl: Sized {
-    fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: &::core::option::Option<AnimationPropertyInfo>) -> ::windows::core::Result<()>;
+    fn PopulatePropertyInfo(&self, propertyname: &::windows::core::HSTRING, propertyinfo: ::core::option::Option<&AnimationPropertyInfo>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
@@ -10,7 +10,7 @@ impl IAnimationObject_Vtbl {
         unsafe extern "system" fn PopulatePropertyInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAnimationObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, propertyinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PopulatePropertyInfo(::core::mem::transmute(&propertyname), ::core::mem::transmute(&propertyinfo)).into()
+            this.PopulatePropertyInfo(::core::mem::transmute(&propertyname), ::windows::core::from_raw_borrowed(&propertyinfo)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IAnimationObject, OFFSET>(),
@@ -37,7 +37,7 @@ impl ICompositionAnimationBase_Vtbl {
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
 pub trait ICompositionSupportsSystemBackdrop_Impl: Sized {
     fn SystemBackdrop(&self) -> ::windows::core::Result<CompositionBrush>;
-    fn SetSystemBackdrop(&self, value: &::core::option::Option<CompositionBrush>) -> ::windows::core::Result<()>;
+    fn SetSystemBackdrop(&self, value: ::core::option::Option<&CompositionBrush>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ICompositionSupportsSystemBackdrop {
     const NAME: &'static str = "Windows.UI.Composition.ICompositionSupportsSystemBackdrop";
@@ -59,7 +59,7 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
         unsafe extern "system" fn SetSystemBackdrop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSystemBackdrop(::core::mem::transmute(&value)).into()
+            this.SetSystemBackdrop(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, ICompositionSupportsSystemBackdrop, OFFSET>(),

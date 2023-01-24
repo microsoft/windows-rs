@@ -3496,7 +3496,7 @@ impl ::core::default::Default for Printing3DBufferDescription {
 #[repr(transparent)]
 pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -3506,12 +3506,12 @@ impl Print3DTaskSourceRequestedHandler {
     }
 }
 #[repr(C)]
-struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const Print3DTaskSourceRequestedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
     const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -3540,7 +3540,7 @@ impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::wind
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&args)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&args)).into()
     }
 }
 impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {

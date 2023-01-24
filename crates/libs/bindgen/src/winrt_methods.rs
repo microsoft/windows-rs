@@ -217,6 +217,8 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
             quote! { #name }
         } else if param.ty.is_winrt_const_ref() {
             quote! { ::core::mem::transmute_copy(&#name) }
+        } else if gen.reader.type_is_nullable(&param.ty) {
+            quote! { ::windows::core::from_raw_borrowed(&#name) }
         } else {
             quote! { ::core::mem::transmute(&#name) }
         }

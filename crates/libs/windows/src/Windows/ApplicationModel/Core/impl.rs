@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Foundation")]
 pub trait ICoreApplicationUnhandledError_Impl: Sized {
-    fn UnhandledErrorDetected(&self, handler: &::core::option::Option<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn UnhandledErrorDetected(&self, handler: ::core::option::Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Foundation")]
@@ -14,7 +14,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
         unsafe extern "system" fn UnhandledErrorDetected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UnhandledErrorDetected(::core::mem::transmute(&handler)) {
+            match this.UnhandledErrorDetected(::windows::core::from_raw_borrowed(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -41,8 +41,8 @@ impl ICoreApplicationUnhandledError_Vtbl {
 #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"UI_Core\"`, `\"implement\"`*"]
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: Sized {
-    fn Initialize(&self, applicationview: &::core::option::Option<CoreApplicationView>) -> ::windows::core::Result<()>;
-    fn SetWindow(&self, window: &::core::option::Option<super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, applicationview: ::core::option::Option<&CoreApplicationView>) -> ::windows::core::Result<()>;
+    fn SetWindow(&self, window: ::core::option::Option<&super::super::UI::Core::CoreWindow>) -> ::windows::core::Result<()>;
     fn Load(&self, entrypoint: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
     fn Run(&self) -> ::windows::core::Result<()>;
     fn Uninitialize(&self) -> ::windows::core::Result<()>;
@@ -57,12 +57,12 @@ impl IFrameworkView_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, applicationview: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&applicationview)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&applicationview)).into()
         }
         unsafe extern "system" fn SetWindow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetWindow(::core::mem::transmute(&window)).into()
+            this.SetWindow(::windows::core::from_raw_borrowed(&window)).into()
         }
         unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkView_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, entrypoint: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

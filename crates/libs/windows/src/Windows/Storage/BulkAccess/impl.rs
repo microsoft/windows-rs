@@ -7,9 +7,9 @@ pub trait IStorageItemInformation_Impl: Sized {
     fn DocumentProperties(&self) -> ::windows::core::Result<super::FileProperties::DocumentProperties>;
     fn BasicProperties(&self) -> ::windows::core::Result<super::FileProperties::BasicProperties>;
     fn Thumbnail(&self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail>;
-    fn ThumbnailUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn ThumbnailUpdated(&self, changedhandler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveThumbnailUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn PropertiesUpdated(&self, changedhandler: &::core::option::Option<super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn PropertiesUpdated(&self, changedhandler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemovePropertiesUpdated(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
@@ -94,7 +94,7 @@ impl IStorageItemInformation_Vtbl {
         unsafe extern "system" fn ThumbnailUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ThumbnailUpdated(::core::mem::transmute(&changedhandler)) {
+            match this.ThumbnailUpdated(::windows::core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -111,7 +111,7 @@ impl IStorageItemInformation_Vtbl {
         unsafe extern "system" fn PropertiesUpdated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStorageItemInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.PropertiesUpdated(::core::mem::transmute(&changedhandler)) {
+            match this.PropertiesUpdated(::windows::core::from_raw_borrowed(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

@@ -72,4 +72,5 @@ macro_rules! link {
     )
 }
 
+#[doc(hidden)]
 pub use crate::link;

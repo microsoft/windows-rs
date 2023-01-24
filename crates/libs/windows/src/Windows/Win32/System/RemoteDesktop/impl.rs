@@ -606,8 +606,8 @@ pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn TouchPointer(&self) -> ::windows::core::Result<IRemoteDesktopClientTouchPointer>;
     fn DeleteSavedCredentials(&self, servername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn UpdateSessionDisplaySettings(&self, width: u32, height: u32) -> ::windows::core::Result<()>;
-    fn attachEvent(&self, eventname: &::windows::core::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
-    fn detachEvent(&self, eventname: &::windows::core::BSTR, callback: &::core::option::Option<super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn attachEvent(&self, eventname: &::windows::core::BSTR, callback: ::core::option::Option<&super::Com::IDispatch>) -> ::windows::core::Result<()>;
+    fn detachEvent(&self, eventname: &::windows::core::BSTR, callback: ::core::option::Option<&super::Com::IDispatch>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IRemoteDesktopClient {}
@@ -675,12 +675,12 @@ impl IRemoteDesktopClient_Vtbl {
         unsafe extern "system" fn attachEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteDesktopClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.attachEvent(::core::mem::transmute(&eventname), ::core::mem::transmute(&callback)).into()
+            this.attachEvent(::core::mem::transmute(&eventname), ::windows::core::from_raw_borrowed(&callback)).into()
         }
         unsafe extern "system" fn detachEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IRemoteDesktopClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventname: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.detachEvent(::core::mem::transmute(&eventname), ::core::mem::transmute(&callback)).into()
+            this.detachEvent(::core::mem::transmute(&eventname), ::windows::core::from_raw_borrowed(&callback)).into()
         }
         Self {
             base__: super::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -968,7 +968,7 @@ impl ITSGAuthenticateUserSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ITSGAuthenticationEngine_Impl: Sized {
-    fn AuthenticateUser(&self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: &::core::option::Option<ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
+    fn AuthenticateUser(&self, mainsessionid: &::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: ::core::option::Option<&ITSGAuthenticateUserSink>) -> ::windows::core::Result<()>;
     fn CancelAuthentication(&self, mainsessionid: &::windows::core::GUID, context: usize) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITSGAuthenticationEngine {}
@@ -977,7 +977,7 @@ impl ITSGAuthenticationEngine_Vtbl {
         unsafe extern "system" fn AuthenticateUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSGAuthenticationEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AuthenticateUser(::core::mem::transmute(&mainsessionid), ::core::mem::transmute_copy(&cookiedata), ::core::mem::transmute_copy(&numcookiebytes), ::core::mem::transmute_copy(&context), ::core::mem::transmute(&psink)).into()
+            this.AuthenticateUser(::core::mem::transmute(&mainsessionid), ::core::mem::transmute_copy(&cookiedata), ::core::mem::transmute_copy(&numcookiebytes), ::core::mem::transmute_copy(&context), ::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn CancelAuthentication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSGAuthenticationEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, context: usize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1033,8 +1033,8 @@ impl ITSGAuthorizeResourceSink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITSGPolicyEngine_Impl: Sized {
-    fn AuthorizeConnection(&self, mainsessionid: &::windows::core::GUID, username: &::windows::core::BSTR, authtype: AAAuthSchemes, clientmachineip: &::windows::core::BSTR, clientmachinename: &::windows::core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: &::core::option::Option<ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
-    fn AuthorizeResource(&self, mainsessionid: &::windows::core::GUID, subsessionid: i32, username: &::windows::core::BSTR, resourcenames: *const ::windows::core::BSTR, numresources: u32, alternateresourcenames: *const ::windows::core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &::windows::core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: &::core::option::Option<ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
+    fn AuthorizeConnection(&self, mainsessionid: &::windows::core::GUID, username: &::windows::core::BSTR, authtype: AAAuthSchemes, clientmachineip: &::windows::core::BSTR, clientmachinename: &::windows::core::BSTR, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: ::core::option::Option<&ITSGAuthorizeConnectionSink>) -> ::windows::core::Result<()>;
+    fn AuthorizeResource(&self, mainsessionid: &::windows::core::GUID, subsessionid: i32, username: &::windows::core::BSTR, resourcenames: *const ::windows::core::BSTR, numresources: u32, alternateresourcenames: *const ::windows::core::BSTR, numalternateresourcename: u32, portnumber: u32, operation: &::windows::core::BSTR, cookie: *const u8, numbytesincookie: u32, psink: ::core::option::Option<&ITSGAuthorizeResourceSink>) -> ::windows::core::Result<()>;
     fn Refresh(&self) -> ::windows::core::Result<()>;
     fn IsQuarantineEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
 }
@@ -1046,7 +1046,8 @@ impl ITSGPolicyEngine_Vtbl {
         unsafe extern "system" fn AuthorizeConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSGPolicyEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, username: *mut ::core::ffi::c_void, authtype: AAAuthSchemes, clientmachineip: *mut ::core::ffi::c_void, clientmachinename: *mut ::core::ffi::c_void, sohdata: *const u8, numsohbytes: u32, cookiedata: *const u8, numcookiebytes: u32, usertoken: super::super::Foundation::HANDLE_PTR, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AuthorizeConnection(::core::mem::transmute(&mainsessionid), ::core::mem::transmute(&username), ::core::mem::transmute_copy(&authtype), ::core::mem::transmute(&clientmachineip), ::core::mem::transmute(&clientmachinename), ::core::mem::transmute_copy(&sohdata), ::core::mem::transmute_copy(&numsohbytes), ::core::mem::transmute_copy(&cookiedata), ::core::mem::transmute_copy(&numcookiebytes), ::core::mem::transmute_copy(&usertoken), ::core::mem::transmute(&psink)).into()
+            this.AuthorizeConnection(::core::mem::transmute(&mainsessionid), ::core::mem::transmute(&username), ::core::mem::transmute_copy(&authtype), ::core::mem::transmute(&clientmachineip), ::core::mem::transmute(&clientmachinename), ::core::mem::transmute_copy(&sohdata), ::core::mem::transmute_copy(&numsohbytes), ::core::mem::transmute_copy(&cookiedata), ::core::mem::transmute_copy(&numcookiebytes), ::core::mem::transmute_copy(&usertoken), ::windows::core::from_raw_borrowed(&psink))
+                .into()
         }
         unsafe extern "system" fn AuthorizeResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSGPolicyEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mainsessionid: ::windows::core::GUID, subsessionid: i32, username: *mut ::core::ffi::c_void, resourcenames: *const *mut ::core::ffi::c_void, numresources: u32, alternateresourcenames: *const *mut ::core::ffi::c_void, numalternateresourcename: u32, portnumber: u32, operation: *mut ::core::ffi::c_void, cookie: *const u8, numbytesincookie: u32, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1063,7 +1064,7 @@ impl ITSGPolicyEngine_Vtbl {
                 ::core::mem::transmute(&operation),
                 ::core::mem::transmute_copy(&cookie),
                 ::core::mem::transmute_copy(&numbytesincookie),
-                ::core::mem::transmute(&psink),
+                ::windows::core::from_raw_borrowed(&psink),
             )
             .into()
         }
@@ -1343,7 +1344,7 @@ pub trait ITsSbEnvironment_Impl: Sized {
     fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn ServerWeight(&self) -> ::windows::core::Result<u32>;
     fn EnvironmentPropertySet(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
-    fn SetEnvironmentPropertySet(&self, pval: &::core::option::Option<ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
+    fn SetEnvironmentPropertySet(&self, pval: ::core::option::Option<&ITsSbEnvironmentPropertySet>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for ITsSbEnvironment {}
@@ -1386,7 +1387,7 @@ impl ITsSbEnvironment_Vtbl {
         unsafe extern "system" fn SetEnvironmentPropertySet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbEnvironment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnvironmentPropertySet(::core::mem::transmute(&pval)).into()
+            this.SetEnvironmentPropertySet(::windows::core::from_raw_borrowed(&pval)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1417,7 +1418,7 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbFilterPluginStore_Impl: Sized {
-    fn SaveProperties(&self, ppropertyset: &::core::option::Option<ITsSbPropertySet>) -> ::windows::core::Result<()>;
+    fn SaveProperties(&self, ppropertyset: ::core::option::Option<&ITsSbPropertySet>) -> ::windows::core::Result<()>;
     fn EnumerateProperties(&self) -> ::windows::core::Result<ITsSbPropertySet>;
     fn DeleteProperties(&self, propertyname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
@@ -1429,7 +1430,7 @@ impl ITsSbFilterPluginStore_Vtbl {
         unsafe extern "system" fn SaveProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbFilterPluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropertyset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveProperties(::core::mem::transmute(&ppropertyset)).into()
+            this.SaveProperties(::windows::core::from_raw_borrowed(&ppropertyset)).into()
         }
         unsafe extern "system" fn EnumerateProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbFilterPluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertyset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1600,7 +1601,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: Sized + ITsSbPlugin_Impl {
-    fn GetMostSuitableTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, plbsink: &::core::option::Option<ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
+    fn GetMostSuitableTarget(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, plbsink: ::core::option::Option<&ITsSbLoadBalancingNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for ITsSbLoadBalancing {}
@@ -1610,7 +1611,7 @@ impl ITsSbLoadBalancing_Vtbl {
         unsafe extern "system" fn GetMostSuitableTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbLoadBalancing_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, plbsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetMostSuitableTarget(::core::mem::transmute(&pconnection), ::core::mem::transmute(&plbsink)).into()
+            this.GetMostSuitableTarget(::windows::core::from_raw_borrowed(&pconnection), ::windows::core::from_raw_borrowed(&plbsink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), GetMostSuitableTarget: GetMostSuitableTarget::<Identity, Impl, OFFSET> }
     }
@@ -1621,7 +1622,7 @@ impl ITsSbLoadBalancing_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITsSbLoadBalancingNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnGetMostSuitableTarget(&self, plbresult: &::core::option::Option<ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn OnGetMostSuitableTarget(&self, plbresult: ::core::option::Option<&ITsSbLoadBalanceResult>, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for ITsSbLoadBalancingNotifySink {}
@@ -1631,7 +1632,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
         unsafe extern "system" fn OnGetMostSuitableTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbLoadBalancingNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plbresult: *mut ::core::ffi::c_void, fisnewconnection: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnGetMostSuitableTarget(::core::mem::transmute(&plbresult), ::core::mem::transmute_copy(&fisnewconnection)).into()
+            this.OnGetMostSuitableTarget(::windows::core::from_raw_borrowed(&plbresult), ::core::mem::transmute_copy(&fisnewconnection)).into()
         }
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(), OnGetMostSuitableTarget: OnGetMostSuitableTarget::<Identity, Impl, OFFSET> }
     }
@@ -1642,7 +1643,7 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: Sized + ITsSbPlugin_Impl {
-    fn PrepareTargetForConnect(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, porchestrationnotifysink: &::core::option::Option<ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
+    fn PrepareTargetForConnect(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, porchestrationnotifysink: ::core::option::Option<&ITsSbOrchestrationNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for ITsSbOrchestration {}
@@ -1652,7 +1653,7 @@ impl ITsSbOrchestration_Vtbl {
         unsafe extern "system" fn PrepareTargetForConnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbOrchestration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, porchestrationnotifysink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PrepareTargetForConnect(::core::mem::transmute(&pconnection), ::core::mem::transmute(&porchestrationnotifysink)).into()
+            this.PrepareTargetForConnect(::windows::core::from_raw_borrowed(&pconnection), ::windows::core::from_raw_borrowed(&porchestrationnotifysink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), PrepareTargetForConnect: PrepareTargetForConnect::<Identity, Impl, OFFSET> }
     }
@@ -1662,7 +1663,7 @@ impl ITsSbOrchestration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ITsSbOrchestrationNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnReadyToConnect(&self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn OnReadyToConnect(&self, ptarget: ::core::option::Option<&ITsSbTarget>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITsSbOrchestrationNotifySink {}
 impl ITsSbOrchestrationNotifySink_Vtbl {
@@ -1670,7 +1671,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
         unsafe extern "system" fn OnReadyToConnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbOrchestrationNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnReadyToConnect(::core::mem::transmute(&ptarget)).into()
+            this.OnReadyToConnect(::windows::core::from_raw_borrowed(&ptarget)).into()
         }
         Self { base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(), OnReadyToConnect: OnReadyToConnect::<Identity, Impl, OFFSET> }
     }
@@ -1681,7 +1682,7 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: Sized + ITsSbPlugin_Impl {
-    fn QueryEnvironmentForTarget(&self, pconnection: &::core::option::Option<ITsSbClientConnection>, pplacementsink: &::core::option::Option<ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
+    fn QueryEnvironmentForTarget(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, pplacementsink: ::core::option::Option<&ITsSbPlacementNotifySink>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows::core::RuntimeName for ITsSbPlacement {}
@@ -1691,7 +1692,7 @@ impl ITsSbPlacement_Vtbl {
         unsafe extern "system" fn QueryEnvironmentForTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbPlacement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, pplacementsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryEnvironmentForTarget(::core::mem::transmute(&pconnection), ::core::mem::transmute(&pplacementsink)).into()
+            this.QueryEnvironmentForTarget(::windows::core::from_raw_borrowed(&pconnection), ::windows::core::from_raw_borrowed(&pplacementsink)).into()
         }
         Self { base__: ITsSbPlugin_Vtbl::new::<Identity, Impl, OFFSET>(), QueryEnvironmentForTarget: QueryEnvironmentForTarget::<Identity, Impl, OFFSET> }
     }
@@ -1701,7 +1702,7 @@ impl ITsSbPlacement_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ITsSbPlacementNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
-    fn OnQueryEnvironmentCompleted(&self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn OnQueryEnvironmentCompleted(&self, penvironment: ::core::option::Option<&ITsSbEnvironment>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITsSbPlacementNotifySink {}
 impl ITsSbPlacementNotifySink_Vtbl {
@@ -1709,7 +1710,7 @@ impl ITsSbPlacementNotifySink_Vtbl {
         unsafe extern "system" fn OnQueryEnvironmentCompleted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbPlacementNotifySink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnQueryEnvironmentCompleted(::core::mem::transmute(&penvironment)).into()
+            this.OnQueryEnvironmentCompleted(::windows::core::from_raw_borrowed(&penvironment)).into()
         }
         Self {
             base__: ITsSbBaseNotifySink_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1723,7 +1724,7 @@ impl ITsSbPlacementNotifySink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: Sized {
-    fn Initialize(&self, pprovider: &::core::option::Option<ITsSbProvider>, pnotifysink: &::core::option::Option<ITsSbPluginNotifySink>, ppropertyset: &::core::option::Option<ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pprovider: ::core::option::Option<&ITsSbProvider>, pnotifysink: ::core::option::Option<&ITsSbPluginNotifySink>, ppropertyset: ::core::option::Option<&ITsSbPluginPropertySet>) -> ::windows::core::Result<()>;
     fn Terminate(&self, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1734,7 +1735,7 @@ impl ITsSbPlugin_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, pnotifysink: *mut ::core::ffi::c_void, ppropertyset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&pprovider), ::core::mem::transmute(&pnotifysink), ::core::mem::transmute(&ppropertyset)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&pprovider), ::windows::core::from_raw_borrowed(&pnotifysink), ::windows::core::from_raw_borrowed(&ppropertyset)).into()
         }
         unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1818,7 +1819,7 @@ pub trait ITsSbProvider_Impl: Sized {
     fn CreateEnvironmentObject(&self, name: &::windows::core::BSTR, serverweight: u32) -> ::windows::core::Result<ITsSbEnvironment>;
     fn GetResourcePluginStore(&self) -> ::windows::core::Result<ITsSbResourcePluginStore>;
     fn GetFilterPluginStore(&self) -> ::windows::core::Result<ITsSbFilterPluginStore>;
-    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &::windows::core::BSTR, ppluginnotification: &::core::option::Option<ITsSbResourceNotification>) -> ::windows::core::Result<()>;
+    fn RegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &::windows::core::BSTR, ppluginnotification: ::core::option::Option<&ITsSbResourceNotification>) -> ::windows::core::Result<()>;
     fn UnRegisterForNotification(&self, notificationtype: u32, resourcetomonitor: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetInstanceOfGlobalStore(&self) -> ::windows::core::Result<ITsSbGlobalStore>;
     fn CreateEnvironmentPropertySetObject(&self) -> ::windows::core::Result<ITsSbEnvironmentPropertySet>;
@@ -1919,7 +1920,7 @@ impl ITsSbProvider_Vtbl {
         unsafe extern "system" fn RegisterForNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationtype: u32, resourcetomonitor: *mut ::core::ffi::c_void, ppluginnotification: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RegisterForNotification(::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute(&resourcetomonitor), ::core::mem::transmute(&ppluginnotification)).into()
+            this.RegisterForNotification(::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute(&resourcetomonitor), ::windows::core::from_raw_borrowed(&ppluginnotification)).into()
         }
         unsafe extern "system" fn UnRegisterForNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationtype: u32, resourcetomonitor: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1971,9 +1972,9 @@ impl ITsSbProvider_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbProvisioning_Impl: Sized + ITsSbPlugin_Impl {
-    fn CreateVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
-    fn PatchVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
-    fn DeleteVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: &::core::option::Option<ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn CreateVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: ::core::option::Option<&ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn PatchVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: ::core::option::Option<&ITsSbProvisioningPluginNotifySink>, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::Result<()>;
+    fn DeleteVirtualMachines(&self, jobxmlstring: &::windows::core::BSTR, jobguid: &::windows::core::BSTR, psink: ::core::option::Option<&ITsSbProvisioningPluginNotifySink>) -> ::windows::core::Result<()>;
     fn CancelJob(&self, jobguid: &::windows::core::BSTR) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1984,17 +1985,17 @@ impl ITsSbProvisioning_Vtbl {
         unsafe extern "system" fn CreateVirtualMachines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobxmlstring: *mut ::core::ffi::c_void, jobguid: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::core::mem::transmute(&psink)).into()
+            this.CreateVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn PatchVirtualMachines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobxmlstring: *mut ::core::ffi::c_void, jobguid: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, pvmpatchinfo: *const VM_PATCH_INFO) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.PatchVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::core::mem::transmute(&psink), ::core::mem::transmute_copy(&pvmpatchinfo)).into()
+            this.PatchVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::windows::core::from_raw_borrowed(&psink), ::core::mem::transmute_copy(&pvmpatchinfo)).into()
         }
         unsafe extern "system" fn DeleteVirtualMachines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobxmlstring: *mut ::core::ffi::c_void, jobguid: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.DeleteVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::core::mem::transmute(&psink)).into()
+            this.DeleteVirtualMachines(::core::mem::transmute(&jobxmlstring), ::core::mem::transmute(&jobguid), ::windows::core::from_raw_borrowed(&psink)).into()
         }
         unsafe extern "system" fn CancelJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbProvisioning_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, jobguid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2071,9 +2072,9 @@ impl ITsSbProvisioningPluginNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait ITsSbResourceNotification_Impl: Sized {
-    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: &::core::option::Option<ITsSbClientConnection>) -> ::windows::core::Result<()>;
+    fn NotifySessionChange(&self, changetype: TSSESSION_STATE, psession: ::core::option::Option<&ITsSbSession>) -> ::windows::core::Result<()>;
+    fn NotifyTargetChange(&self, targetchangetype: u32, ptarget: ::core::option::Option<&ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn NotifyClientConnectionStateChange(&self, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: ::core::option::Option<&ITsSbClientConnection>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for ITsSbResourceNotification {}
 impl ITsSbResourceNotification_Vtbl {
@@ -2081,17 +2082,17 @@ impl ITsSbResourceNotification_Vtbl {
         unsafe extern "system" fn NotifySessionChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: TSSESSION_STATE, psession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifySessionChange(::core::mem::transmute_copy(&changetype), ::core::mem::transmute(&psession)).into()
+            this.NotifySessionChange(::core::mem::transmute_copy(&changetype), ::windows::core::from_raw_borrowed(&psession)).into()
         }
         unsafe extern "system" fn NotifyTargetChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetchangetype: u32, ptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyTargetChange(::core::mem::transmute_copy(&targetchangetype), ::core::mem::transmute(&ptarget)).into()
+            this.NotifyTargetChange(::core::mem::transmute_copy(&targetchangetype), ::windows::core::from_raw_borrowed(&ptarget)).into()
         }
         unsafe extern "system" fn NotifyClientConnectionStateChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourceNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, changetype: CONNECTION_CHANGE_NOTIFICATION, pconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.NotifyClientConnectionStateChange(::core::mem::transmute_copy(&changetype), ::core::mem::transmute(&pconnection)).into()
+            this.NotifyClientConnectionStateChange(::core::mem::transmute_copy(&changetype), ::windows::core::from_raw_borrowed(&pconnection)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -2158,28 +2159,28 @@ impl ITsSbResourcePlugin_Vtbl {
 pub trait ITsSbResourcePluginStore_Impl: Sized {
     fn QueryTarget(&self, targetname: &::windows::core::BSTR, farmname: &::windows::core::BSTR) -> ::windows::core::Result<ITsSbTarget>;
     fn QuerySessionBySessionId(&self, dwsessionid: u32, targetname: &::windows::core::BSTR) -> ::windows::core::Result<ITsSbSession>;
-    fn AddTargetToStore(&self, ptarget: &::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
-    fn AddSessionToStore(&self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
-    fn AddEnvironmentToStore(&self, penvironment: &::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
+    fn AddTargetToStore(&self, ptarget: ::core::option::Option<&ITsSbTarget>) -> ::windows::core::Result<()>;
+    fn AddSessionToStore(&self, psession: ::core::option::Option<&ITsSbSession>) -> ::windows::core::Result<()>;
+    fn AddEnvironmentToStore(&self, penvironment: ::core::option::Option<&ITsSbEnvironment>) -> ::windows::core::Result<()>;
     fn RemoveEnvironmentFromStore(&self, environmentname: &::windows::core::BSTR, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumerateFarms(&self, pdwcount: *mut u32, pval: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>;
     fn QueryEnvironment(&self, environmentname: &::windows::core::BSTR) -> ::windows::core::Result<ITsSbEnvironment>;
     fn EnumerateEnvironments(&self, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbEnvironment>) -> ::windows::core::Result<()>;
-    fn SaveTarget(&self, ptarget: &::core::option::Option<ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveEnvironment(&self, penvironment: &::core::option::Option<ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn SaveSession(&self, psession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn SaveTarget(&self, ptarget: ::core::option::Option<&ITsSbTarget>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveEnvironment(&self, penvironment: ::core::option::Option<&ITsSbEnvironment>, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn SaveSession(&self, psession: ::core::option::Option<&ITsSbSession>) -> ::windows::core::Result<()>;
     fn SetTargetProperty(&self, targetname: &::windows::core::BSTR, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SetEnvironmentProperty(&self, environmentname: &::windows::core::BSTR, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn SetTargetState(&self, targetname: &::windows::core::BSTR, newstate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
-    fn SetSessionState(&self, sbsession: &::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
+    fn SetSessionState(&self, sbsession: ::core::option::Option<&ITsSbSession>) -> ::windows::core::Result<()>;
     fn EnumerateTargets(&self, farmname: &::windows::core::BSTR, envname: &::windows::core::BSTR, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: &::windows::core::BSTR, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::Result<()>;
     fn EnumerateSessions(&self, targetname: &::windows::core::BSTR, username: &::windows::core::BSTR, userdomain: &::windows::core::BSTR, poolname: &::windows::core::BSTR, initialprogram: &::windows::core::BSTR, psessionstate: *const TSSESSION_STATE, pdwcount: *mut u32, ppval: *mut *mut ::core::option::Option<ITsSbSession>) -> ::windows::core::Result<()>;
     fn GetFarmProperty(&self, farmname: &::windows::core::BSTR, propertyname: &::windows::core::BSTR, pvarvalue: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn DeleteTarget(&self, targetname: &::windows::core::BSTR, hostname: &::windows::core::BSTR) -> ::windows::core::Result<()>;
-    fn SetTargetPropertyWithVersionCheck(&self, ptarget: &::core::option::Option<ITsSbTarget>, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
-    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: &::core::option::Option<ITsSbEnvironment>, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetTargetPropertyWithVersionCheck(&self, ptarget: ::core::option::Option<&ITsSbTarget>, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
+    fn SetEnvironmentPropertyWithVersionCheck(&self, penvironment: ::core::option::Option<&ITsSbEnvironment>, propertyname: &::windows::core::BSTR, pproperty: *const super::Com::VARIANT) -> ::windows::core::Result<()>;
     fn AcquireTargetLock(&self, targetname: &::windows::core::BSTR, dwtimeout: u32) -> ::windows::core::Result<::windows::core::IUnknown>;
-    fn ReleaseTargetLock(&self, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn ReleaseTargetLock(&self, pcontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn TestAndSetServerState(&self, poolname: &::windows::core::BSTR, serverfqdn: &::windows::core::BSTR, newstate: TARGET_STATE, teststate: TARGET_STATE) -> ::windows::core::Result<TARGET_STATE>;
     fn SetServerWaitingToStart(&self, poolname: &::windows::core::BSTR, servername: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn GetServerState(&self, poolname: &::windows::core::BSTR, serverfqdn: &::windows::core::BSTR) -> ::windows::core::Result<TARGET_STATE>;
@@ -2215,17 +2216,17 @@ impl ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn AddTargetToStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddTargetToStore(::core::mem::transmute(&ptarget)).into()
+            this.AddTargetToStore(::windows::core::from_raw_borrowed(&ptarget)).into()
         }
         unsafe extern "system" fn AddSessionToStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddSessionToStore(::core::mem::transmute(&psession)).into()
+            this.AddSessionToStore(::windows::core::from_raw_borrowed(&psession)).into()
         }
         unsafe extern "system" fn AddEnvironmentToStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddEnvironmentToStore(::core::mem::transmute(&penvironment)).into()
+            this.AddEnvironmentToStore(::windows::core::from_raw_borrowed(&penvironment)).into()
         }
         unsafe extern "system" fn RemoveEnvironmentFromStore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environmentname: *mut ::core::ffi::c_void, bignoreowner: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2256,17 +2257,17 @@ impl ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn SaveTarget<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveTarget(::core::mem::transmute(&ptarget), ::core::mem::transmute_copy(&bforcewrite)).into()
+            this.SaveTarget(::windows::core::from_raw_borrowed(&ptarget), ::core::mem::transmute_copy(&bforcewrite)).into()
         }
         unsafe extern "system" fn SaveEnvironment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void, bforcewrite: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveEnvironment(::core::mem::transmute(&penvironment), ::core::mem::transmute_copy(&bforcewrite)).into()
+            this.SaveEnvironment(::windows::core::from_raw_borrowed(&penvironment), ::core::mem::transmute_copy(&bforcewrite)).into()
         }
         unsafe extern "system" fn SaveSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SaveSession(::core::mem::transmute(&psession)).into()
+            this.SaveSession(::windows::core::from_raw_borrowed(&psession)).into()
         }
         unsafe extern "system" fn SetTargetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetname: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, pproperty: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2292,7 +2293,7 @@ impl ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn SetSessionState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sbsession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetSessionState(::core::mem::transmute(&sbsession)).into()
+            this.SetSessionState(::windows::core::from_raw_borrowed(&sbsession)).into()
         }
         unsafe extern "system" fn EnumerateTargets<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, farmname: *mut ::core::ffi::c_void, envname: *mut ::core::ffi::c_void, sortbyfieldid: TS_SB_SORT_BY, sortybypropname: *mut ::core::ffi::c_void, pdwcount: *mut u32, pval: *mut *mut ::core::option::Option<ITsSbTarget>) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2317,12 +2318,12 @@ impl ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn SetTargetPropertyWithVersionCheck<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, pproperty: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTargetPropertyWithVersionCheck(::core::mem::transmute(&ptarget), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&pproperty)).into()
+            this.SetTargetPropertyWithVersionCheck(::windows::core::from_raw_borrowed(&ptarget), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn SetEnvironmentPropertyWithVersionCheck<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penvironment: *mut ::core::ffi::c_void, propertyname: *mut ::core::ffi::c_void, pproperty: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetEnvironmentPropertyWithVersionCheck(::core::mem::transmute(&penvironment), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&pproperty)).into()
+            this.SetEnvironmentPropertyWithVersionCheck(::windows::core::from_raw_borrowed(&penvironment), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&pproperty)).into()
         }
         unsafe extern "system" fn AcquireTargetLock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, targetname: *mut ::core::ffi::c_void, dwtimeout: u32, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2338,7 +2339,7 @@ impl ITsSbResourcePluginStore_Vtbl {
         unsafe extern "system" fn ReleaseTargetLock<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReleaseTargetLock(::core::mem::transmute(&pcontext)).into()
+            this.ReleaseTargetLock(::windows::core::from_raw_borrowed(&pcontext)).into()
         }
         unsafe extern "system" fn TestAndSetServerState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbResourcePluginStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poolname: *mut ::core::ffi::c_void, serverfqdn: *mut ::core::ffi::c_void, newstate: TARGET_STATE, teststate: TARGET_STATE, pinitstate: *mut TARGET_STATE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2648,7 +2649,7 @@ pub trait ITsSbTarget_Impl: Sized {
     fn TargetState(&self) -> ::windows::core::Result<TARGET_STATE>;
     fn SetTargetState(&self, state: TARGET_STATE) -> ::windows::core::Result<()>;
     fn TargetPropertySet(&self) -> ::windows::core::Result<ITsSbTargetPropertySet>;
-    fn SetTargetPropertySet(&self, pval: &::core::option::Option<ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
+    fn SetTargetPropertySet(&self, pval: ::core::option::Option<&ITsSbTargetPropertySet>) -> ::windows::core::Result<()>;
     fn EnvironmentName(&self) -> ::windows::core::Result<::windows::core::BSTR>;
     fn SetEnvironmentName(&self, val: &::windows::core::BSTR) -> ::windows::core::Result<()>;
     fn NumSessions(&self) -> ::windows::core::Result<u32>;
@@ -2764,7 +2765,7 @@ impl ITsSbTarget_Vtbl {
         unsafe extern "system" fn SetTargetPropertySet<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetTargetPropertySet(::core::mem::transmute(&pval)).into()
+            this.SetTargetPropertySet(::windows::core::from_raw_borrowed(&pval)).into()
         }
         unsafe extern "system" fn EnvironmentName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2993,7 +2994,7 @@ impl ITsSbTaskInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTaskPlugin_Impl: Sized + ITsSbPlugin_Impl {
-    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: &::core::option::Option<ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
+    fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: ::core::option::Option<&ITsSbTaskPluginNotifySink>) -> ::windows::core::Result<()>;
     fn SetTaskQueue(&self, pszhostname: &::windows::core::BSTR, sbtaskinfosize: u32, pitssbtaskinfo: *const ::core::option::Option<ITsSbTaskInfo>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3004,7 +3005,7 @@ impl ITsSbTaskPlugin_Vtbl {
         unsafe extern "system" fn InitializeTaskPlugin<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbTaskPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitssbtaskpluginnotifysink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InitializeTaskPlugin(::core::mem::transmute(&pitssbtaskpluginnotifysink)).into()
+            this.InitializeTaskPlugin(::windows::core::from_raw_borrowed(&pitssbtaskpluginnotifysink)).into()
         }
         unsafe extern "system" fn SetTaskQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITsSbTaskPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhostname: *mut ::core::ffi::c_void, sbtaskinfosize: u32, pitssbtaskinfo: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3095,9 +3096,9 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWRdsGraphicsChannel_Impl: Sized {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, pcontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
-    fn Open(&self, pchannelevents: &::core::option::Option<IWRdsGraphicsChannelEvents>, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Open(&self, pchannelevents: ::core::option::Option<&IWRdsGraphicsChannelEvents>, popencontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWRdsGraphicsChannel {}
 impl IWRdsGraphicsChannel_Vtbl {
@@ -3105,7 +3106,7 @@ impl IWRdsGraphicsChannel_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute(&pcontext)).into()
+            this.Write(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&pbuffer), ::windows::core::from_raw_borrowed(&pcontext)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3115,7 +3116,7 @@ impl IWRdsGraphicsChannel_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannelevents: *mut ::core::ffi::c_void, popencontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Open(::core::mem::transmute(&pchannelevents), ::core::mem::transmute(&popencontext)).into()
+            this.Open(::windows::core::from_raw_borrowed(&pchannelevents), ::windows::core::from_raw_borrowed(&popencontext)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -3133,8 +3134,8 @@ impl IWRdsGraphicsChannel_Vtbl {
 pub trait IWRdsGraphicsChannelEvents_Impl: Sized {
     fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows::core::Result<()>;
     fn OnClose(&self) -> ::windows::core::Result<()>;
-    fn OnChannelOpened(&self, openresult: ::windows::core::HRESULT, popencontext: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn OnDataSent(&self, pwritecontext: &::core::option::Option<::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
+    fn OnChannelOpened(&self, openresult: ::windows::core::HRESULT, popencontext: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn OnDataSent(&self, pwritecontext: ::core::option::Option<&::windows::core::IUnknown>, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::Result<()>;
     fn OnMetricsUpdate(&self, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3155,12 +3156,12 @@ impl IWRdsGraphicsChannelEvents_Vtbl {
         unsafe extern "system" fn OnChannelOpened<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, openresult: ::windows::core::HRESULT, popencontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnChannelOpened(::core::mem::transmute_copy(&openresult), ::core::mem::transmute(&popencontext)).into()
+            this.OnChannelOpened(::core::mem::transmute_copy(&openresult), ::windows::core::from_raw_borrowed(&popencontext)).into()
         }
         unsafe extern "system" fn OnDataSent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwritecontext: *mut ::core::ffi::c_void, bcancelled: super::super::Foundation::BOOL, pbuffer: *const u8, cbbuffer: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnDataSent(::core::mem::transmute(&pwritecontext), ::core::mem::transmute_copy(&bcancelled), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer)).into()
+            this.OnDataSent(::windows::core::from_raw_borrowed(&pwritecontext), ::core::mem::transmute_copy(&bcancelled), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer)).into()
         }
         unsafe extern "system" fn OnMetricsUpdate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsGraphicsChannelEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bandwidth: u32, rtt: u32, lastsentbyteindex: u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3556,7 +3557,7 @@ impl IWRdsProtocolLicenseConnection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWRdsProtocolListener_Impl: Sized {
     fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows::core::Result<WRDS_LISTENER_SETTINGS>;
-    fn StartListen(&self, pcallback: &::core::option::Option<IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StartListen(&self, pcallback: ::core::option::Option<&IWRdsProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWRdsProtocolListener {}
@@ -3576,7 +3577,7 @@ impl IWRdsProtocolListener_Vtbl {
         unsafe extern "system" fn StartListen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartListen(::core::mem::transmute(&pcallback)).into()
+            this.StartListen(::windows::core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn StopListen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3597,7 +3598,7 @@ impl IWRdsProtocolListener_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&self, pconnection: &::core::option::Option<IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: ::core::option::Option<&IWRdsProtocolConnection>, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS) -> ::windows::core::Result<IWRdsProtocolConnectionCallback>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWRdsProtocolListenerCallback {}
@@ -3607,7 +3608,7 @@ impl IWRdsProtocolListenerCallback_Vtbl {
         unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, pwrdsconnectionsettings: *const WRDS_CONNECTION_SETTINGS, pcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OnConnected(::core::mem::transmute(&pconnection), ::core::mem::transmute_copy(&pwrdsconnectionsettings)) {
+            match this.OnConnected(::windows::core::from_raw_borrowed(&pconnection), ::core::mem::transmute_copy(&pwrdsconnectionsettings)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pcallback, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -3684,7 +3685,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWRdsProtocolManager_Impl: Sized {
-    fn Initialize(&self, piwrdssettings: &::core::option::Option<IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
+    fn Initialize(&self, piwrdssettings: ::core::option::Option<&IWRdsProtocolSettings>, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::Result<()>;
     fn CreateListener(&self, wszlistenername: &::windows::core::PCWSTR) -> ::windows::core::Result<IWRdsProtocolListener>;
     fn NotifyServiceStateChange(&self, ptsservicestatechange: *const WTS_SERVICE_STATE) -> ::windows::core::Result<()>;
     fn NotifySessionOfServiceStart(&self, sessionid: *const WTS_SESSION_ID) -> ::windows::core::Result<()>;
@@ -3701,7 +3702,7 @@ impl IWRdsProtocolManager_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piwrdssettings: *mut ::core::ffi::c_void, pwrdssettings: *const WRDS_SETTINGS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&piwrdssettings), ::core::mem::transmute_copy(&pwrdssettings)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&piwrdssettings), ::core::mem::transmute_copy(&pwrdssettings)).into()
         }
         unsafe extern "system" fn CreateListener<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszlistenername: ::windows::core::PCWSTR, pprotocollistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3822,7 +3823,7 @@ impl IWRdsProtocolShadowCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWRdsProtocolShadowConnection_Impl: Sized {
-    fn Start(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Start(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::core::option::Option<&IWRdsProtocolShadowCallback>) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -3832,7 +3833,7 @@ impl IWRdsProtocolShadowConnection_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(::core::mem::transmute(&ptargetservername), ::core::mem::transmute_copy(&targetsessionid), ::core::mem::transmute_copy(&hotkeyvk), ::core::mem::transmute_copy(&hotkeymodifiers), ::core::mem::transmute(&pshadowcallback)).into()
+            this.Start(::core::mem::transmute(&ptargetservername), ::core::mem::transmute_copy(&targetsessionid), ::core::mem::transmute_copy(&hotkeyvk), ::core::mem::transmute_copy(&hotkeymodifiers), ::windows::core::from_raw_borrowed(&pshadowcallback)).into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWRdsProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3902,7 +3903,7 @@ impl IWRdsWddmIddProps_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSBitmapRenderService_Impl: Sized {
-    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: &::core::option::Option<IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
+    fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: ::core::option::Option<&IWTSBitmapRendererCallback>) -> ::windows::core::Result<IWTSBitmapRenderer>;
 }
 impl ::windows::core::RuntimeName for IWTSBitmapRenderService {}
 impl IWTSBitmapRenderService_Vtbl {
@@ -3910,7 +3911,7 @@ impl IWTSBitmapRenderService_Vtbl {
         unsafe extern "system" fn GetMappedRenderer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSBitmapRenderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mappingid: u64, pmappedrenderercallback: *mut ::core::ffi::c_void, ppmappedrenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMappedRenderer(::core::mem::transmute_copy(&mappingid), ::core::mem::transmute(&pmappedrenderercallback)) {
+            match this.GetMappedRenderer(::core::mem::transmute_copy(&mappingid), ::windows::core::from_raw_borrowed(&pmappedrenderercallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(ppmappedrenderer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4016,7 +4017,7 @@ impl IWTSListener_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWTSListenerCallback_Impl: Sized {
-    fn OnNewChannelConnection(&self, pchannel: &::core::option::Option<IWTSVirtualChannel>, data: &::windows::core::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
+    fn OnNewChannelConnection(&self, pchannel: ::core::option::Option<&IWTSVirtualChannel>, data: &::windows::core::BSTR, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut ::core::option::Option<IWTSVirtualChannelCallback>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IWTSListenerCallback {}
@@ -4026,7 +4027,7 @@ impl IWTSListenerCallback_Vtbl {
         unsafe extern "system" fn OnNewChannelConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, pbaccept: *mut super::super::Foundation::BOOL, ppcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.OnNewChannelConnection(::core::mem::transmute(&pchannel), ::core::mem::transmute(&data), ::core::mem::transmute_copy(&pbaccept), ::core::mem::transmute_copy(&ppcallback)).into()
+            this.OnNewChannelConnection(::windows::core::from_raw_borrowed(&pchannel), ::core::mem::transmute(&data), ::core::mem::transmute_copy(&pbaccept), ::core::mem::transmute_copy(&ppcallback)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnNewChannelConnection: OnNewChannelConnection::<Identity, Impl, OFFSET> }
     }
@@ -4036,7 +4037,7 @@ impl IWTSListenerCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSPlugin_Impl: Sized {
-    fn Initialize(&self, pchannelmgr: &::core::option::Option<IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pchannelmgr: ::core::option::Option<&IWTSVirtualChannelManager>) -> ::windows::core::Result<()>;
     fn Connected(&self) -> ::windows::core::Result<()>;
     fn Disconnected(&self, dwdisconnectcode: u32) -> ::windows::core::Result<()>;
     fn Terminated(&self) -> ::windows::core::Result<()>;
@@ -4047,7 +4048,7 @@ impl IWTSPlugin_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pchannelmgr: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&pchannelmgr)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&pchannelmgr)).into()
         }
         unsafe extern "system" fn Connected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSPlugin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4404,7 +4405,7 @@ impl IWTSProtocolLicenseConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSProtocolListener_Impl: Sized {
-    fn StartListen(&self, pcallback: &::core::option::Option<IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
+    fn StartListen(&self, pcallback: ::core::option::Option<&IWTSProtocolListenerCallback>) -> ::windows::core::Result<()>;
     fn StopListen(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWTSProtocolListener {}
@@ -4413,7 +4414,7 @@ impl IWTSProtocolListener_Vtbl {
         unsafe extern "system" fn StartListen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.StartListen(::core::mem::transmute(&pcallback)).into()
+            this.StartListen(::windows::core::from_raw_borrowed(&pcallback)).into()
         }
         unsafe extern "system" fn StopListen<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolListener_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4432,7 +4433,7 @@ impl IWTSProtocolListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSProtocolListenerCallback_Impl: Sized {
-    fn OnConnected(&self, pconnection: &::core::option::Option<IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
+    fn OnConnected(&self, pconnection: ::core::option::Option<&IWTSProtocolConnection>) -> ::windows::core::Result<IWTSProtocolConnectionCallback>;
 }
 impl ::windows::core::RuntimeName for IWTSProtocolListenerCallback {}
 impl IWTSProtocolListenerCallback_Vtbl {
@@ -4440,7 +4441,7 @@ impl IWTSProtocolListenerCallback_Vtbl {
         unsafe extern "system" fn OnConnected<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolListenerCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnection: *mut ::core::ffi::c_void, pcallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.OnConnected(::core::mem::transmute(&pconnection)) {
+            match this.OnConnected(::windows::core::from_raw_borrowed(&pconnection)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pcallback, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4600,7 +4601,7 @@ impl IWTSProtocolShadowCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSProtocolShadowConnection_Impl: Sized {
-    fn Start(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: &::core::option::Option<IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
+    fn Start(&self, ptargetservername: &::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: ::core::option::Option<&IWTSProtocolShadowCallback>) -> ::windows::core::Result<()>;
     fn Stop(&self) -> ::windows::core::Result<()>;
     fn DoTarget(&self, pparam1: *const u8, param1size: u32, pparam2: *const u8, param2size: u32, pparam3: *const u8, param3size: u32, pparam4: *const u8, param4size: u32, pclientname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
 }
@@ -4610,7 +4611,7 @@ impl IWTSProtocolShadowConnection_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetservername: ::windows::core::PCWSTR, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Start(::core::mem::transmute(&ptargetservername), ::core::mem::transmute_copy(&targetsessionid), ::core::mem::transmute_copy(&hotkeyvk), ::core::mem::transmute_copy(&hotkeymodifiers), ::core::mem::transmute(&pshadowcallback)).into()
+            this.Start(::core::mem::transmute(&ptargetservername), ::core::mem::transmute_copy(&targetsessionid), ::core::mem::transmute_copy(&hotkeyvk), ::core::mem::transmute_copy(&hotkeymodifiers), ::windows::core::from_raw_borrowed(&pshadowcallback)).into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSProtocolShadowConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4700,7 +4701,7 @@ impl IWTSSBPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSVirtualChannel_Impl: Sized {
-    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Write(&self, cbsize: u32, pbuffer: *const u8, preserved: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Close(&self) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWTSVirtualChannel {}
@@ -4709,7 +4710,7 @@ impl IWTSVirtualChannel_Vtbl {
         unsafe extern "system" fn Write<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32, pbuffer: *const u8, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Write(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute(&preserved)).into()
+            this.Write(::core::mem::transmute_copy(&cbsize), ::core::mem::transmute_copy(&pbuffer), ::windows::core::from_raw_borrowed(&preserved)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSVirtualChannel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4756,7 +4757,7 @@ impl IWTSVirtualChannelCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWTSVirtualChannelManager_Impl: Sized {
-    fn CreateListener(&self, pszchannelname: &::windows::core::PCSTR, uflags: u32, plistenercallback: &::core::option::Option<IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
+    fn CreateListener(&self, pszchannelname: &::windows::core::PCSTR, uflags: u32, plistenercallback: ::core::option::Option<&IWTSListenerCallback>) -> ::windows::core::Result<IWTSListener>;
 }
 impl ::windows::core::RuntimeName for IWTSVirtualChannelManager {}
 impl IWTSVirtualChannelManager_Vtbl {
@@ -4764,7 +4765,7 @@ impl IWTSVirtualChannelManager_Vtbl {
         unsafe extern "system" fn CreateListener<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWTSVirtualChannelManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszchannelname: ::windows::core::PCSTR, uflags: u32, plistenercallback: *mut ::core::ffi::c_void, pplistener: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateListener(::core::mem::transmute(&pszchannelname), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute(&plistenercallback)) {
+            match this.CreateListener(::core::mem::transmute(&pszchannelname), ::core::mem::transmute_copy(&uflags), ::windows::core::from_raw_borrowed(&plistenercallback)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pplistener, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4935,7 +4936,7 @@ impl IWorkspaceClientExt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWorkspaceRegistration_Impl: Sized {
-    fn AddResource(&self, punk: &::core::option::Option<IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
+    fn AddResource(&self, punk: ::core::option::Option<&IWorkspaceClientExt>) -> ::windows::core::Result<u32>;
     fn RemoveResource(&self, dwcookieconnection: u32) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWorkspaceRegistration {}
@@ -4944,7 +4945,7 @@ impl IWorkspaceRegistration_Vtbl {
         unsafe extern "system" fn AddResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWorkspaceRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.AddResource(::core::mem::transmute(&punk)) {
+            match this.AddResource(::windows::core::from_raw_borrowed(&punk)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
@@ -4969,7 +4970,7 @@ impl IWorkspaceRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"implement\"`*"]
 pub trait IWorkspaceRegistration2_Impl: Sized + IWorkspaceRegistration_Impl {
-    fn AddResourceEx(&self, punk: &::core::option::Option<IWorkspaceClientExt>, bstreventloguploadaddress: &::windows::core::BSTR, pdwcookie: *mut u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn AddResourceEx(&self, punk: ::core::option::Option<&IWorkspaceClientExt>, bstreventloguploadaddress: &::windows::core::BSTR, pdwcookie: *mut u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
     fn RemoveResourceEx(&self, dwcookieconnection: u32, correlationid: &::windows::core::GUID) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IWorkspaceRegistration2 {}
@@ -4978,7 +4979,7 @@ impl IWorkspaceRegistration2_Vtbl {
         unsafe extern "system" fn AddResourceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWorkspaceRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, bstreventloguploadaddress: *mut ::core::ffi::c_void, pdwcookie: *mut u32, correlationid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.AddResourceEx(::core::mem::transmute(&punk), ::core::mem::transmute(&bstreventloguploadaddress), ::core::mem::transmute_copy(&pdwcookie), ::core::mem::transmute(&correlationid)).into()
+            this.AddResourceEx(::windows::core::from_raw_borrowed(&punk), ::core::mem::transmute(&bstreventloguploadaddress), ::core::mem::transmute_copy(&pdwcookie), ::core::mem::transmute(&correlationid)).into()
         }
         unsafe extern "system" fn RemoveResourceEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWorkspaceRegistration2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcookieconnection: u32, correlationid: ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

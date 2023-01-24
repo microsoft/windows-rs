@@ -364,7 +364,7 @@ pub trait ICertSrvSetupKeyInformationCollection_Impl: Sized + super::super::Syst
     fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>;
     fn Count(&self) -> ::windows::core::Result<i32>;
-    fn Add(&self, pikeyinformation: &::core::option::Option<ICertSrvSetupKeyInformation>) -> ::windows::core::Result<()>;
+    fn Add(&self, pikeyinformation: ::core::option::Option<&ICertSrvSetupKeyInformation>) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for ICertSrvSetupKeyInformationCollection {}
@@ -407,7 +407,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICertSrvSetupKeyInformationCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pikeyinformation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Add(::core::mem::transmute(&pikeyinformation)).into()
+            this.Add(::windows::core::from_raw_borrowed(&pikeyinformation)).into()
         }
         Self {
             base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),

@@ -8,8 +8,8 @@ edition = "2018"
 path = "../../libs/windows"
 features = [
     "implement",
-    "implement",
     "ApplicationModel_Activation",
+    "ApplicationModel_Background",
     "Foundation_Collections",
     "Storage_Streams",
     "Win32_Foundation",

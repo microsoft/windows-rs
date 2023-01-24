@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Web\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 pub trait IUriToStreamResolver_Impl: Sized {
-    fn UriToStreamAsync(&self, uri: &::core::option::Option<super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&self, uri: ::core::option::Option<&super::Foundation::Uri>) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IUriToStreamResolver {
@@ -13,7 +13,7 @@ impl IUriToStreamResolver_Vtbl {
         unsafe extern "system" fn UriToStreamAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.UriToStreamAsync(::core::mem::transmute(&uri)) {
+            match this.UriToStreamAsync(::windows::core::from_raw_borrowed(&uri)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

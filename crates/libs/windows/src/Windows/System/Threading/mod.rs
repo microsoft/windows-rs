@@ -315,7 +315,7 @@ unsafe impl ::windows::core::RuntimeType for WorkItemPriority {
 #[repr(transparent)]
 pub struct TimerDestroyedHandler(pub ::windows::core::IUnknown);
 impl TimerDestroyedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox::<F> { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -325,12 +325,12 @@ impl TimerDestroyedHandler {
     }
 }
 #[repr(C)]
-struct TimerDestroyedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct TimerDestroyedHandlerBox<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const TimerDestroyedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerDestroyedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerDestroyedHandlerBox<F> {
     const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -359,7 +359,7 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, timer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&timer)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&timer)).into()
     }
 }
 impl ::core::clone::Clone for TimerDestroyedHandler {
@@ -401,7 +401,7 @@ pub struct TimerDestroyedHandler_Vtbl {
 #[repr(transparent)]
 pub struct TimerElapsedHandler(pub ::windows::core::IUnknown);
 impl TimerElapsedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox::<F> { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -411,12 +411,12 @@ impl TimerElapsedHandler {
     }
 }
 #[repr(C)]
-struct TimerElapsedHandlerBox<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct TimerElapsedHandlerBox<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const TimerElapsedHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
-impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerElapsedHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&ThreadPoolTimer>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> TimerElapsedHandlerBox<F> {
     const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -445,7 +445,7 @@ impl<F: FnMut(&::core::option::Option<ThreadPoolTimer>) -> ::windows::core::Resu
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, timer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&timer)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&timer)).into()
     }
 }
 impl ::core::clone::Clone for TimerElapsedHandler {
@@ -489,7 +489,7 @@ pub struct TimerElapsedHandler_Vtbl {
 pub struct WorkItemHandler(pub ::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl WorkItemHandler {
-    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox::<F> { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
@@ -506,13 +506,13 @@ impl WorkItemHandler {
 }
 #[cfg(feature = "Foundation")]
 #[repr(C)]
-struct WorkItemHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+struct WorkItemHandlerBox<F: FnMut(::core::option::Option<&super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
     vtable: *const WorkItemHandler_Vtbl,
     invoke: F,
     count: ::windows::core::RefCount,
 }
 #[cfg(feature = "Foundation")]
-impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WorkItemHandlerBox<F> {
+impl<F: FnMut(::core::option::Option<&super::super::Foundation::IAsyncAction>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WorkItemHandlerBox<F> {
     const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl {
         base__: ::windows::core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -541,7 +541,7 @@ impl<F: FnMut(&::core::option::Option<super::super::Foundation::IAsyncAction>) -
     }
     unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, operation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&operation)).into()
+        ((*this).invoke)(::windows::core::from_raw_borrowed(&operation)).into()
     }
 }
 #[cfg(feature = "Foundation")]

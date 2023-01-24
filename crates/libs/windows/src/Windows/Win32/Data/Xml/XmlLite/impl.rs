@@ -1,7 +1,7 @@
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlReader_Impl: Sized {
-    fn SetInput(&self, pinput: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetInput(&self, pinput: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()>;
     fn Read(&self, pnodetype: *mut XmlNodeType) -> ::windows::core::HRESULT;
@@ -33,7 +33,7 @@ impl IXmlReader_Vtbl {
         unsafe extern "system" fn SetInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetInput(::core::mem::transmute(&pinput)).into()
+            this.SetInput(::windows::core::from_raw_borrowed(&pinput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -239,10 +239,10 @@ impl IXmlResolver_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriter_Impl: Sized {
-    fn SetOutput(&self, poutput: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetOutput(&self, poutput: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()>;
-    fn WriteAttributes(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteAttributes(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn WriteAttributeString(&self, pwszprefix: &::windows::core::PCWSTR, pwszlocalname: &::windows::core::PCWSTR, pwsznamespaceuri: &::windows::core::PCWSTR, pwszvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteCData(&self, pwsztext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteCharEntity(&self, wch: u16) -> ::windows::core::Result<()>;
@@ -256,8 +256,8 @@ pub trait IXmlWriter_Impl: Sized {
     fn WriteFullEndElement(&self) -> ::windows::core::Result<()>;
     fn WriteName(&self, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteNmToken(&self, pwsznmtoken: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn WriteNode(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn WriteNodeShallow(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteNode(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteNodeShallow(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn WriteProcessingInstruction(&self, pwszname: &::windows::core::PCWSTR, pwsztext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteQualifiedName(&self, pwszlocalname: &::windows::core::PCWSTR, pwsznamespaceuri: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteRaw(&self, pwszdata: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
@@ -277,7 +277,7 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutput(::core::mem::transmute(&poutput)).into()
+            this.SetOutput(::windows::core::from_raw_borrowed(&poutput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -298,7 +298,7 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteAttributes(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteAttributes(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteAttributeString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszprefix: ::windows::core::PCWSTR, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -368,12 +368,12 @@ impl IXmlWriter_Vtbl {
         unsafe extern "system" fn WriteNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteNode(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteNode(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteNodeShallow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteNodeShallow(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteNodeShallow(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteProcessingInstruction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -465,10 +465,10 @@ impl IXmlWriter_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IXmlWriterLite_Impl: Sized {
-    fn SetOutput(&self, poutput: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn SetOutput(&self, poutput: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize>;
     fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()>;
-    fn WriteAttributes(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteAttributes(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn WriteAttributeString(&self, pwszqname: &::windows::core::PCWSTR, cwszqname: u32, pwszvalue: &::windows::core::PCWSTR, cwszvalue: u32) -> ::windows::core::Result<()>;
     fn WriteCData(&self, pwsztext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteCharEntity(&self, wch: u16) -> ::windows::core::Result<()>;
@@ -482,8 +482,8 @@ pub trait IXmlWriterLite_Impl: Sized {
     fn WriteFullEndElement(&self, pwszqname: &::windows::core::PCWSTR, cwszqname: u32) -> ::windows::core::Result<()>;
     fn WriteName(&self, pwszname: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteNmToken(&self, pwsznmtoken: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
-    fn WriteNode(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
-    fn WriteNodeShallow(&self, preader: &::core::option::Option<IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteNode(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
+    fn WriteNodeShallow(&self, preader: ::core::option::Option<&IXmlReader>, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn WriteProcessingInstruction(&self, pwszname: &::windows::core::PCWSTR, pwsztext: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteRaw(&self, pwszdata: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn WriteRawChars(&self, pwch: &::windows::core::PCWSTR, cwch: u32) -> ::windows::core::Result<()>;
@@ -502,7 +502,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetOutput(::core::mem::transmute(&poutput)).into()
+            this.SetOutput(::windows::core::from_raw_borrowed(&poutput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -523,7 +523,7 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteAttributes(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteAttributes(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteAttributeString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32, pwszvalue: ::windows::core::PCWSTR, cwszvalue: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -593,12 +593,12 @@ impl IXmlWriterLite_Vtbl {
         unsafe extern "system" fn WriteNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteNode(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteNode(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteNodeShallow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: *mut ::core::ffi::c_void, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.WriteNodeShallow(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
+            this.WriteNodeShallow(::windows::core::from_raw_borrowed(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteProcessingInstruction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

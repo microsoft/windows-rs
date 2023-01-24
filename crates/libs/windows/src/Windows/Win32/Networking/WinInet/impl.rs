@@ -37,7 +37,7 @@ impl IDialBranding_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IDialEngine_Impl: Sized {
-    fn Initialize(&self, pwzconnectoid: &::windows::core::PCWSTR, pides: &::core::option::Option<IDialEventSink>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pwzconnectoid: &::windows::core::PCWSTR, pides: ::core::option::Option<&IDialEventSink>) -> ::windows::core::Result<()>;
     fn GetProperty(&self, pwzproperty: &::windows::core::PCWSTR, pwzvalue: &::windows::core::PCWSTR, dwbufsize: u32) -> ::windows::core::Result<()>;
     fn SetProperty(&self, pwzproperty: &::windows::core::PCWSTR, pwzvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Dial(&self) -> ::windows::core::Result<()>;
@@ -51,7 +51,7 @@ impl IDialEngine_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows::core::PCWSTR, pides: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&pwzconnectoid), ::core::mem::transmute(&pides)).into()
+            this.Initialize(::core::mem::transmute(&pwzconnectoid), ::windows::core::from_raw_borrowed(&pides)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDialEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzproperty: ::windows::core::PCWSTR, pwzvalue: ::windows::core::PCWSTR, dwbufsize: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -148,7 +148,7 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
-    fn GetCookieInfoWithUriForAccount(&self, webaccount: &::core::option::Option<::windows::core::IInspectable>, uri: &::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
+    fn GetCookieInfoWithUriForAccount(&self, webaccount: ::core::option::Option<&::windows::core::IInspectable>, uri: &::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
@@ -156,7 +156,7 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: ::windows::core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCookieInfoWithUriForAccount(::core::mem::transmute(&webaccount), ::core::mem::transmute(&uri), ::core::mem::transmute_copy(&cookieinfocount), ::core::mem::transmute_copy(&cookieinfo)).into()
+            this.GetCookieInfoWithUriForAccount(::windows::core::from_raw_borrowed(&webaccount), ::core::mem::transmute(&uri), ::core::mem::transmute_copy(&cookieinfocount), ::core::mem::transmute_copy(&cookieinfo)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

@@ -2032,7 +2032,7 @@ impl IFELanguage_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImePad_Impl: Sized {
-    fn Request(&self, piimepadapplet: &::core::option::Option<IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Request(&self, piimepadapplet: ::core::option::Option<&IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IImePad {}
@@ -2042,7 +2042,7 @@ impl IImePad_Vtbl {
         unsafe extern "system" fn Request<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piimepadapplet: *mut ::core::ffi::c_void, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Request(::core::mem::transmute(&piimepadapplet), ::core::mem::transmute_copy(&reqid), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
+            this.Request(::windows::core::from_raw_borrowed(&piimepadapplet), ::core::mem::transmute_copy(&reqid), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
     }
@@ -2053,11 +2053,11 @@ impl IImePad_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImePadApplet_Impl: Sized {
-    fn Initialize(&self, lpiimepad: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
+    fn Initialize(&self, lpiimepad: ::core::option::Option<&::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn Terminate(&self) -> ::windows::core::Result<()>;
     fn GetAppletConfig(&self, lpappletcfg: *mut IMEAPPLETCFG) -> ::windows::core::Result<()>;
     fn CreateUI(&self, hwndparent: super::super::super::Foundation::HWND, lpimeappletui: *mut IMEAPPLETUI) -> ::windows::core::Result<()>;
-    fn Notify(&self, lpimepad: &::core::option::Option<::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
+    fn Notify(&self, lpimepad: ::core::option::Option<&::windows::core::IUnknown>, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for IImePadApplet {}
@@ -2067,7 +2067,7 @@ impl IImePadApplet_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePadApplet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpiimepad: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&lpiimepad)).into()
+            this.Initialize(::windows::core::from_raw_borrowed(&lpiimepad)).into()
         }
         unsafe extern "system" fn Terminate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePadApplet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2087,7 +2087,7 @@ impl IImePadApplet_Vtbl {
         unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImePadApplet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpimepad: *mut ::core::ffi::c_void, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Notify(::core::mem::transmute(&lpimepad), ::core::mem::transmute_copy(&notify), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
+            this.Notify(::windows::core::from_raw_borrowed(&lpimepad), ::core::mem::transmute_copy(&notify), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

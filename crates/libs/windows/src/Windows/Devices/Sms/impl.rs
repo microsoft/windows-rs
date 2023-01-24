@@ -63,15 +63,15 @@ impl ISmsBinaryMessage_Vtbl {
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 pub trait ISmsDevice_Impl: Sized {
-    fn SendMessageAsync(&self, message: &::core::option::Option<ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
-    fn CalculateLength(&self, message: &::core::option::Option<SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
+    fn SendMessageAsync(&self, message: ::core::option::Option<&ISmsMessage>) -> ::windows::core::Result<SendSmsMessageOperation>;
+    fn CalculateLength(&self, message: ::core::option::Option<&SmsTextMessage>) -> ::windows::core::Result<SmsEncodedLength>;
     fn AccountPhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn CellularClass(&self) -> ::windows::core::Result<CellularClass>;
     fn MessageStore(&self) -> ::windows::core::Result<SmsDeviceMessageStore>;
     fn DeviceStatus(&self) -> ::windows::core::Result<SmsDeviceStatus>;
-    fn SmsMessageReceived(&self, eventhandler: &::core::option::Option<SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn SmsMessageReceived(&self, eventhandler: ::core::option::Option<&SmsMessageReceivedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSmsMessageReceived(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-    fn SmsDeviceStatusChanged(&self, eventhandler: &::core::option::Option<SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn SmsDeviceStatusChanged(&self, eventhandler: ::core::option::Option<&SmsDeviceStatusChangedEventHandler>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveSmsDeviceStatusChanged(&self, eventcookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -84,7 +84,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SendMessageAsync<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SendMessageAsync(::core::mem::transmute(&message)) {
+            match this.SendMessageAsync(::windows::core::from_raw_borrowed(&message)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -96,7 +96,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn CalculateLength<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut SmsEncodedLength) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CalculateLength(::core::mem::transmute(&message)) {
+            match this.CalculateLength(::windows::core::from_raw_borrowed(&message)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -156,7 +156,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SmsMessageReceived<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SmsMessageReceived(::core::mem::transmute(&eventhandler)) {
+            match this.SmsMessageReceived(::windows::core::from_raw_borrowed(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
@@ -173,7 +173,7 @@ impl ISmsDevice_Vtbl {
         unsafe extern "system" fn SmsDeviceStatusChanged<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISmsDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.SmsDeviceStatusChanged(::core::mem::transmute(&eventhandler)) {
+            match this.SmsDeviceStatusChanged(::windows::core::from_raw_borrowed(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);

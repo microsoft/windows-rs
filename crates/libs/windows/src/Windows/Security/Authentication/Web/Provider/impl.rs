@@ -2,7 +2,7 @@
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperation_Impl: Sized {
     fn ReportCompleted(&self) -> ::windows::core::Result<()>;
-    fn ReportError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportError(&self, value: ::core::option::Option<&super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderBaseReportOperation {
@@ -19,7 +19,7 @@ impl IWebAccountProviderBaseReportOperation_Vtbl {
         unsafe extern "system" fn ReportError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReportError(::core::mem::transmute(&value)).into()
+            this.ReportError(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebAccountProviderBaseReportOperation, OFFSET>(),
@@ -62,7 +62,7 @@ impl IWebAccountProviderOperation_Vtbl {
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserInteractionRequired(&self) -> ::windows::core::Result<()>;
-    fn ReportUserInteractionRequiredWithError(&self, value: &::core::option::Option<super::Core::WebProviderError>) -> ::windows::core::Result<()>;
+    fn ReportUserInteractionRequiredWithError(&self, value: ::core::option::Option<&super::Core::WebProviderError>) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl ::windows::core::RuntimeName for IWebAccountProviderSilentReportOperation {
@@ -79,7 +79,7 @@ impl IWebAccountProviderSilentReportOperation_Vtbl {
         unsafe extern "system" fn ReportUserInteractionRequiredWithError<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReportUserInteractionRequiredWithError(::core::mem::transmute(&value)).into()
+            this.ReportUserInteractionRequiredWithError(::windows::core::from_raw_borrowed(&value)).into()
         }
         Self {
             base__: ::windows::core::IInspectable_Vtbl::new::<Identity, IWebAccountProviderSilentReportOperation, OFFSET>(),

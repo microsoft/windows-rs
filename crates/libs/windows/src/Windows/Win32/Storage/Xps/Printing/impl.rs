@@ -60,7 +60,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {
-    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &::windows::core::PCWSTR, jobname: &::windows::core::PCWSTR, joboutputstream: &::core::option::Option<super::super::super::System::Com::IStream>, jobprintticketstream: &::core::option::Option<super::super::super::System::Com::IStream>) -> ::windows::core::Result<IPrintDocumentPackageTarget>;
+    fn CreateDocumentPackageTargetForPrintJob(&self, printername: &::windows::core::PCWSTR, jobname: &::windows::core::PCWSTR, joboutputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, jobprintticketstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows::core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for IPrintDocumentPackageTargetFactory {}
@@ -70,7 +70,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
         unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, printername: ::windows::core::PCWSTR, jobname: ::windows::core::PCWSTR, joboutputstream: *mut ::core::ffi::c_void, jobprintticketstream: *mut ::core::ffi::c_void, docpackagetarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateDocumentPackageTargetForPrintJob(::core::mem::transmute(&printername), ::core::mem::transmute(&jobname), ::core::mem::transmute(&joboutputstream), ::core::mem::transmute(&jobprintticketstream)) {
+            match this.CreateDocumentPackageTargetForPrintJob(::core::mem::transmute(&printername), ::core::mem::transmute(&jobname), ::windows::core::from_raw_borrowed(&joboutputstream), ::windows::core::from_raw_borrowed(&jobprintticketstream)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(docpackagetarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
