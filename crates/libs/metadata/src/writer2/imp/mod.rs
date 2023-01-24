@@ -88,7 +88,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         tables.TypeDef.push(tables::TypeDef { TypeName: strings.index("<Module>"), ..Default::default() });
         let mscorlib = tables.AssemblyRef.push2(tables::AssemblyRef { MajorVersion: 4, Name: strings.index("mscorlib"), ..Default::default() });
         let value_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("ValueType"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
-        let _enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
+        let enum_type = tables.TypeRef.push2(tables::TypeRef { TypeName: strings.index("Enum"), TypeNamespace: strings.index("System"), ResolutionScope: ResolutionScope::AssemblyRef(mscorlib).encode() });
 
         for (_index, item) in definitions.iter() {
             match item {
@@ -112,7 +112,26 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(field, definitions, references)) })
                     }
                 }
-                Item::Enum(_ty) => {}
+                Item::Enum(ty) => {
+                    let mut flags = TypeAttributes(0);
+                    flags.set_public();
+                    if winrt {
+                        flags.set_winrt();
+                    }
+                    tables.TypeDef.push(tables::TypeDef {
+                        Flags: flags.0,
+                        TypeName: strings.index(&ty.name),
+                        TypeNamespace: strings.index(&ty.namespace),
+                        Extends: TypeDefOrRef::TypeRef(enum_type).encode(),
+                        FieldList: tables.Field.len() as _,
+                        MethodList: 0,
+                    });
+                    // for field in &ty.fields {
+                    //     let mut flags = FieldAttributes(0);
+                    //     flags.set_public();
+                    //     tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(field, definitions, references)) })
+                    // }
+                }
                 Item::Interface(_ty) => {}
             }
         }

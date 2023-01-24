@@ -18,10 +18,22 @@ pub struct Struct {
     pub fields: Vec<Field>,
 }
 
+impl Struct {
+    pub fn new(namespace: &str, name: &str, fields: Vec<Field>) -> Item {
+        Item::Struct(Self { namespace: namespace.to_string(), name: name.to_string(), fields })
+    }
+}
+
 pub struct Enum {
     pub namespace: String,
     pub name: String,
     pub constants: Vec<Constant>,
+}
+
+impl Enum {
+    pub fn new(namespace: &str, name: &str, constants: Vec<Constant>) -> Item {
+        Item::Enum(Self { namespace: namespace.to_string(), name: name.to_string(), constants })
+    }
 }
 
 pub struct Interface {
