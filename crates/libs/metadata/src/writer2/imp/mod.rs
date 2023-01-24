@@ -62,9 +62,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 Item::Struct(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
-                    ty.fields.iter().for_each(|field| { 
+                    ty.fields.iter().for_each(|field| {
                         strings.insert(&field.name);
-                        blobs.insert(field_blob(field, definitions, references)); 
+                        blobs.insert(field_blob(field, definitions, references));
                     });
                 }
                 Item::Enum(ty) => {
@@ -156,7 +156,7 @@ fn field_blob(field: &Field, definitions: &StagedDefinitions, references: &Stage
     blob
 }
 
-fn type_blob(ty: &Type, blob: &mut Vec<u8>, _definitions: &StagedDefinitions, _references: &StagedReferences) {
+fn type_blob(ty: &Type, blob: &mut Vec<u8>, definitions: &StagedDefinitions, references: &StagedReferences) {
     match ty {
         Type::Void => blob.push(0x01),
         Type::Bool => blob.push(0x02),
@@ -175,19 +175,44 @@ fn type_blob(ty: &Type, blob: &mut Vec<u8>, _definitions: &StagedDefinitions, _r
         Type::USize => blob.push(0x19),
         Type::String => blob.push(0x0e),
         //Type::IInspectable => blob.push(0x1c),
-        //Type::Names((namespace, name)) => 
-        _ => {}
+        Type::Named((namespace, name)) => {
+            let (value_type, code) = type_name_encode(namespace, name, definitions, references);
+            value_type_blob(value_type, blob);
+            u32_blob(code, blob);
+        }
+    }
+}
+
+fn value_type_blob(value_type: bool, blob: &mut Vec<u8>) {
+    if value_type {
+        blob.push(0x11);
+    } else {
+        blob.push(0x12);
+    }
+}
+
+fn u32_blob(value: u32, blob: &mut Vec<u8>) {
+    if value < 0x80 {
+        blob.push(value as _);
+    } else if value < 0x4000 {
+        blob.push((0x40 | (value & 0xFF00)) as _);
+        blob.push((value | 0xFF) as _);
+    } else {
+        blob.push((0x60 | (value & 0xFF000000)) as _);
+        blob.push((value | 0xFF0000) as _);
+        blob.push((value | 0xFF00) as _);
+        blob.push((value | 0xFF) as _);
     }
 }
 
 /// Returns the TypeDefOrRef-encoded value for the type name as well as whether the type is a value type, needed
 /// in some cases like when a TypeDefOrRef appears in a signature.
-fn type_name_encode(namespace: &str, name:&str, definitions: &StagedDefinitions, references: &StagedReferences) -> (bool, u32) {
+fn type_name_encode(namespace: &str, name: &str, definitions: &StagedDefinitions, references: &StagedReferences) -> (bool, u32) {
     if let Some(definition) = definitions.get(namespace, name) {
-        return (definition.value_type, TypeDefOrRef::TypeDef(definition.index).encode());
+        return (definition.value_type, TypeDefOrRef::TypeDef(definition.index + 1).encode());
     }
     let reference = references.get(namespace, name).expect("Type not found");
-    return (reference.value_type, TypeDefOrRef::TypeRef(reference.index).encode());
+    (reference.value_type, TypeDefOrRef::TypeRef(reference.index + 1).encode())
 }
 
 pub trait Write {

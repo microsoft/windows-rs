@@ -14,13 +14,10 @@ pub struct StagedReferences<'a>(References<'a>);
 
 impl<'a> References<'a> {
     pub fn insert(&mut self, namespace: &'a str, name: &'a str, assemblies: &reader::Reader) {
-        self.map.entry((namespace, name)).or_insert_with(||{
+        self.map.entry((namespace, name)).or_insert_with(|| {
             let type_def = assemblies.get(reader::TypeName::new(namespace, name)).next().expect("Type not found");
-            let value_type = match assemblies.type_def_kind(type_def) {
-                reader::TypeKind::Struct | reader::TypeKind::Enum => true,
-                _ => false,
-            };
-            Reference{ value_type, index: 0}
+            let value_type = matches!(assemblies.type_def_kind(type_def), reader::TypeKind::Struct | reader::TypeKind::Enum);
+            Reference { value_type, index: 0 }
         });
     }
 

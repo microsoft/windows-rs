@@ -33,7 +33,6 @@ impl<'a> StagedDefinitions<'a> {
         self.0.map.get(&(namespace, name))
     }
 
-
     pub fn items(&self) -> impl Iterator<Item = &Item> {
         self.0.map.values().map(|value| value.item)
     }
