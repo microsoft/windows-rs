@@ -5,7 +5,7 @@ the `.winmd` files in this folder are licensed via MIT or Apache-2.0.
 
 ## Windows.Win32.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
-- Version: 40.0.14
+- Version: 41.0.25
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts
