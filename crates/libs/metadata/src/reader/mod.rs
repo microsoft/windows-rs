@@ -1392,7 +1392,7 @@ impl<'a> Reader<'a> {
         signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
             && signature.params[..signature.params.len() - 1].iter().all(|param| {
                 let flags = self.param_flags(param.def);
-                flags.input() && !flags.output()
+                !flags.output()
             })
     }
     fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
