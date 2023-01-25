@@ -1,7 +1,4 @@
-use windows::{
-    Win32::Foundation::*,
-    Win32::UI::WindowsAndMessaging::*,
-};
+use windows::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
 fn main() -> windows::core::Result<()> {
     unsafe { EnumWindows(Some(enum_window), LPARAM(0)).ok() }
