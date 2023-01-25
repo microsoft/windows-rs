@@ -7522,6 +7522,14 @@ pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = super::super::Foundation::HANDLE(0i32 as _);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = super::super::Foundation::HANDLE(0i32 as _);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CURRENT_SERVER_NAME: ::windows::core::PCWSTR = ::windows::w!("");
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7630,28 +7638,6 @@ pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::core::GUID = ::windows::core::GUID
 pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_CONNECT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGOFF: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_MESSAGE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_RESET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -9341,6 +9327,87 @@ unsafe impl ::windows::core::Abi for WTS_RCM_SERVICE_STATE {
 impl ::core::fmt::Debug for WTS_RCM_SERVICE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WTS_RCM_SERVICE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_SECURITY_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(72u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(329u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CURRENT_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(590u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(983999u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_QUERY_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_REMOTE_CONTROL: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGON: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGOFF: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_MESSAGE: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_DISCONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
+impl ::core::marker::Copy for WTS_SECURITY_FLAGS {}
+impl ::core::clone::Clone for WTS_SECURITY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_SECURITY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_SECURITY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_SECURITY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_SECURITY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WTS_SECURITY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WTS_SECURITY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WTS_SECURITY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WTS_SECURITY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WTS_SECURITY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]

@@ -407,14 +407,20 @@ pub struct IDxcCompiler2_Vtbl {
 #[repr(transparent)]
 pub struct IDxcCompiler3(::windows::core::IUnknown);
 impl IDxcCompiler3 {
-    pub unsafe fn Compile<P0>(&self, psource: *const DxcBuffer, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pincludehandler: P0, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+    pub unsafe fn Compile<P0, T>(&self, psource: *const DxcBuffer, parguments: ::core::option::Option<&[::windows::core::PCWSTR]>, pincludehandler: P0) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDxcIncludeHandler>>,
+        T: ::windows::core::Interface,
     {
-        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into().abi(), riid, ppresult).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).Compile)(::windows::core::Vtable::as_raw(self), psource, ::core::mem::transmute(parguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), parguments.as_deref().map_or(0, |slice| slice.len() as _), pincludehandler.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), pobject, riid, ppresult).ok()
+    pub unsafe fn Disassemble<T>(&self, pobject: *const DxcBuffer) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).Disassemble)(::windows::core::Vtable::as_raw(self), pobject, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDxcCompiler3, ::windows::core::IUnknown);

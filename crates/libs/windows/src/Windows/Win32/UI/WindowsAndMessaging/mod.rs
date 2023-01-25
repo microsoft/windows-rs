@@ -2009,9 +2009,9 @@ pub unsafe fn InSendMessage() -> super::super::Foundation::BOOL {
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
-pub unsafe fn InSendMessageEx(lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32 {
-    ::windows::core::link ! ( "user32.dll""system" fn InSendMessageEx ( lpreserved : *mut ::core::ffi::c_void ) -> u32 );
-    InSendMessageEx(::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())))
+pub unsafe fn InSendMessageEx(lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
+    ::windows::core::link ! ( "user32.dll""system" fn InSendMessageEx ( lpreserved : *const ::core::ffi::c_void ) -> u32 );
+    InSendMessageEx(::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -4413,10 +4413,6 @@ pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const EDS_RAWMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const EDS_ROTATEDMODE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -13512,8 +13508,8 @@ pub struct WINDOWINFO {
     pub cbSize: u32,
     pub rcWindow: super::super::Foundation::RECT,
     pub rcClient: super::super::Foundation::RECT,
-    pub dwStyle: u32,
-    pub dwExStyle: u32,
+    pub dwStyle: WINDOW_STYLE,
+    pub dwExStyle: WINDOW_EX_STYLE,
     pub dwWindowStatus: u32,
     pub cxWindowBorders: u32,
     pub cyWindowBorders: u32,

@@ -11,9 +11,9 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: ::core::option::Option<*mut ::core::ffi::c_void>, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
-    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontMemResourceEx ( pfileview : *const ::core::ffi::c_void , cjsize : u32 , pvresrved : *mut ::core::ffi::c_void , pnumfonts : *const u32 ) -> super::super::Foundation:: HANDLE );
-    AddFontMemResourceEx(pfileview, cjsize, ::core::mem::transmute(pvresrved.unwrap_or(::std::ptr::null_mut())), pnumfonts)
+pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: ::core::option::Option<*const ::core::ffi::c_void>, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
+    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontMemResourceEx ( pfileview : *const ::core::ffi::c_void , cjsize : u32 , pvresrved : *const ::core::ffi::c_void , pnumfonts : *const u32 ) -> super::super::Foundation:: HANDLE );
+    AddFontMemResourceEx(pfileview, cjsize, ::core::mem::transmute(pvresrved.unwrap_or(::std::ptr::null())), pnumfonts)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -26,21 +26,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
+pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExA ( name : :: windows::core::PCSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *mut ::core::ffi::c_void ) -> i32 );
-    AddFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExA ( name : :: windows::core::PCSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
+    AddFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
+pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExW ( name : :: windows::core::PCWSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *mut ::core::ffi::c_void ) -> i32 );
-    AddFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "gdi32.dll""system" fn AddFontResourceExW ( name : :: windows::core::PCWSTR , fl : FONT_RESOURCE_CHARACTERISTICS , res : *const ::core::ffi::c_void ) -> i32 );
+    AddFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -892,21 +892,21 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsExA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsExA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExA ( lpszdevicename : :: windows::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExA ( lpszdevicename : :: windows::core::PCSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEA , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
     EnumDisplaySettingsExA(lpszdevicename.into().abi(), imodenum, lpdevmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumDisplaySettingsExW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL
+pub unsafe fn EnumDisplaySettingsExW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExW ( lpszdevicename : :: windows::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW , dwflags : u32 ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "user32.dll""system" fn EnumDisplaySettingsExW ( lpszdevicename : :: windows::core::PCWSTR , imodenum : ENUM_DISPLAY_SETTINGS_MODE , lpdevmode : *mut DEVMODEW , dwflags : ENUM_DISPLAY_SETTINGS_FLAGS ) -> super::super::Foundation:: BOOL );
     EnumDisplaySettingsExW(lpszdevicename.into().abi(), imodenum, lpdevmode, dwflags)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -2933,22 +2933,22 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExA ( name : :: windows::core::PCSTR , fl : u32 , pdv : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExA ( name : :: windows::core::PCSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    RemoveFontResourceExA(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*mut ::core::ffi::c_void>) -> super::super::Foundation::BOOL
+pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExW ( name : :: windows::core::PCWSTR , fl : u32 , pdv : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
-    RemoveFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "gdi32.dll""system" fn RemoveFontResourceExW ( name : :: windows::core::PCWSTR , fl : u32 , pdv : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+    RemoveFontResourceExW(name.into().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5169,18 +5169,6 @@ pub const PT_LINETO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_MOVETO: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_ALL_PATHS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_DATABASE_CURRENT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_INCLUDE_HMD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_ONLY_ACTIVE_PATHS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_VIRTUAL_MODE_AWARE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_DIBTOSCREEN: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_GETDIBITS: u32 = 2u32;
@@ -5250,38 +5238,6 @@ pub const SB_PIXEL_ALPHA: u32 = 2u32;
 pub const SB_PREMULT_ALPHA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SC_SCREENSAVE: u32 = 61760u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_ALLOW_CHANGES: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_ALLOW_PATH_ORDER_CHANGES: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_APPLY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_FORCE_MODE_ENUMERATION: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_NO_OPTIMIZATION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_PATH_PERSIST_IF_REQUIRED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_SAVE_TO_DATABASE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_TOPOLOGY_CLONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_TOPOLOGY_EXTEND: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_TOPOLOGY_EXTERNAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_TOPOLOGY_INTERNAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_TOPOLOGY_SUPPLIED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_VALIDATE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_VIRTUAL_MODE_AWARE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SELECTDIB: u32 = 41u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -7137,6 +7093,61 @@ unsafe impl ::windows::core::Abi for ENHANCED_METAFILE_RECORD_TYPE {
 impl ::core::fmt::Debug for ENHANCED_METAFILE_RECORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ENHANCED_METAFILE_RECORD_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENUM_DISPLAY_SETTINGS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
+impl ::core::marker::Copy for ENUM_DISPLAY_SETTINGS_FLAGS {}
+impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENUM_DISPLAY_SETTINGS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]

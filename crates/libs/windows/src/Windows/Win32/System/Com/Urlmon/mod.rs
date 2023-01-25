@@ -1,13 +1,13 @@
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
-pub unsafe fn CoGetClassObjectFromURL<P0, P1, P2>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+pub unsafe fn CoGetClassObjectFromURL<P0, P1, P2>(rclassid: *const ::windows::core::GUID, szcode: P0, dwfileversionms: u32, dwfileversionls: u32, sztype: P1, pbindctx: P2, dwclscontext: super::CLSCTX, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<super::IBindCtx>>,
 {
-    ::windows::core::link ! ( "urlmon.dll""system" fn CoGetClassObjectFromURL ( rclassid : *const :: windows::core::GUID , szcode : :: windows::core::PCWSTR , dwfileversionms : u32 , dwfileversionls : u32 , sztype : :: windows::core::PCWSTR , pbindctx : * mut::core::ffi::c_void , dwclscontext : super:: CLSCTX , pvreserved : *mut ::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    CoGetClassObjectFromURL(rclassid, szcode.into().abi(), dwfileversionms, dwfileversionls, sztype.into().abi(), pbindctx.into().abi(), dwclscontext, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())), riid, ppv).ok()
+    ::windows::core::link ! ( "urlmon.dll""system" fn CoGetClassObjectFromURL ( rclassid : *const :: windows::core::GUID , szcode : :: windows::core::PCWSTR , dwfileversionms : u32 , dwfileversionls : u32 , sztype : :: windows::core::PCWSTR , pbindctx : * mut::core::ffi::c_void , dwclscontext : super:: CLSCTX , pvreserved : *const ::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    CoGetClassObjectFromURL(rclassid, szcode.into().abi(), dwfileversionms, dwfileversionls, sztype.into().abi(), pbindctx.into().abi(), dwclscontext, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), riid, ppv).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[inline]
