@@ -30,6 +30,7 @@ impl FieldAttributes {
     pub fn set_public(&mut self) {
         self.0 |= 0x6;
     }
+
     pub fn literal(&self) -> bool {
         self.0 & 0x40 != 0
     }
@@ -56,6 +57,13 @@ impl FieldAttributes {
     }
     pub fn set_runtime_special(&mut self) {
         self.0 |= 0x400
+    }
+
+    pub fn has_default(&self) -> bool {
+        self.0 & 0x8000 != 0
+    }
+    pub fn set_has_default(&mut self) {
+        self.0 |= 0x8000
     }
 }
 
@@ -126,6 +134,13 @@ impl TypeAttributes {
     }
     pub fn set_abstract(&mut self) {
         self.0 |= 0x80;
+    }
+
+    pub fn get_sealed(&self) -> bool {
+        self.0 & 0x100 != 0
+    }
+    pub fn set_sealed(&mut self) {
+        self.0 |= 0x100;
     }
 
     pub fn winrt(&self) -> bool {

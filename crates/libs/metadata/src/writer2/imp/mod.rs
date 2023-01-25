@@ -123,6 +123,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 Item::Enum(ty) => {
                     let mut flags = TypeAttributes(0);
                     flags.set_public();
+                    flags.set_sealed();
                     if winrt {
                         flags.set_winrt();
                     }
@@ -139,10 +140,17 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     flags.set_private();
                     flags.set_special();
                     flags.set_runtime_special();
-                    tables.Field.push2(tables::Field { Flags: flags.0, Name: strings.index("value__"), Signature: blobs.index(&field_blob(&value_to_type(&ty.constants[0].value), definitions, references)) });
+                    tables.Field.push2(tables::Field {
+                        Flags: flags.0,
+                        Name: strings.index("value__"),
+                        Signature: blobs.index(&field_blob(&value_to_type(&ty.constants[0].value), definitions, references)),
+                    });
                     for constant in &ty.constants {
                         let mut flags = FieldAttributes(0);
                         flags.set_public();
+                        flags.set_static();
+                        flags.set_literal();
+                        flags.set_has_default();
                         let field = tables.Field.push2(tables::Field { Flags: flags.0, Name: strings.index(&constant.name), Signature: blobs.index(&field_blob(&enum_type, definitions, references)) });
                         tables.Constant.push(tables::Constant { Type: value_type_code(&constant.value), Parent: HasConstant::Field(field).encode(), Value: blobs.index(&value_blob(&constant.value)) });
                     }
@@ -190,10 +198,10 @@ fn field_blob(ty: &Type, definitions: &StagedDefinitions, references: &StagedRef
     blob
 }
 
-fn value_blob(value:&Value) -> Vec<u8> {
+fn value_blob(value: &Value) -> Vec<u8> {
     match value {
-        Value::I8 (value) => value.to_le_bytes().to_vec(),
-        Value::U8 (value) => value.to_le_bytes().to_vec(),
+        Value::I8(value) => value.to_le_bytes().to_vec(),
+        Value::U8(value) => value.to_le_bytes().to_vec(),
         Value::I16(value) => value.to_le_bytes().to_vec(),
         Value::U16(value) => value.to_le_bytes().to_vec(),
         Value::I32(value) => value.to_le_bytes().to_vec(),
@@ -201,13 +209,13 @@ fn value_blob(value:&Value) -> Vec<u8> {
         Value::I64(value) => value.to_le_bytes().to_vec(),
         Value::U64(value) => value.to_le_bytes().to_vec(),
         _ => panic!("Unsupported value type"),
-        }
+    }
 }
 
-fn value_to_type(value:&Value) -> Type {
+fn value_to_type(value: &Value) -> Type {
     match value {
-        Value::I8(_)  => Type::I8,
-        Value::U8(_)  => Type::U8,
+        Value::I8(_) => Type::I8,
+        Value::U8(_) => Type::U8,
         Value::I16(_) => Type::I16,
         Value::U16(_) => Type::U16,
         Value::I32(_) => Type::I32,
@@ -215,20 +223,20 @@ fn value_to_type(value:&Value) -> Type {
         Value::I64(_) => Type::I64,
         Value::U64(_) => Type::U64,
         _ => panic!("Unsupported value type"),
-        }
+    }
 }
 
 fn value_type_code(value: &Value) -> u16 {
     match value {
-    Value::I8(_)  => 0x04,
-    Value::U8(_)  => 0x05,
-    Value::I16(_) => 0x06,
-    Value::U16(_) => 0x07,
-    Value::I32(_) => 0x08,
-    Value::U32(_) => 0x09,
-    Value::I64(_) => 0x0a,
-    Value::U64(_) => 0x0b,
-    _ => panic!("Unsupported value type"),
+        Value::I8(_) => 0x04,
+        Value::U8(_) => 0x05,
+        Value::I16(_) => 0x06,
+        Value::U16(_) => 0x07,
+        Value::I32(_) => 0x08,
+        Value::U32(_) => 0x09,
+        Value::I64(_) => 0x0a,
+        Value::U64(_) => 0x0b,
+        _ => panic!("Unsupported value type"),
     }
 }
 
