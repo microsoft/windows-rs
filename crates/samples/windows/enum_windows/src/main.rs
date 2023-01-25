@@ -1,8 +1,6 @@
 use windows::{
-    Win32::Foundation::{BOOL, HWND, LPARAM},
-    Win32::UI::WindowsAndMessaging::{
-        EnumWindows, GetWindowInfo, GetWindowTextW, WINDOWINFO, WS_VISIBLE,
-    },
+    Win32::Foundation::*,
+    Win32::UI::WindowsAndMessaging::*,
 };
 
 fn main() -> windows::core::Result<()> {
@@ -21,7 +19,7 @@ extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         };
         GetWindowInfo(window, &mut info).unwrap();
 
-        if !text.is_empty() && info.dwStyle & WS_VISIBLE.0 != 0 {
+        if !text.is_empty() && info.dwStyle & WS_VISIBLE != WINDOW_STYLE(0) {
             println!("{} ({}, {})", text, info.rcWindow.left, info.rcWindow.top);
         }
 
