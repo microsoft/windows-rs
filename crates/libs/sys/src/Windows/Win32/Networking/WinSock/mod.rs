@@ -108,11 +108,11 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"] fn WSAConnect ( s : SOCKET , name : *const SOCKADDR , namelen : i32 , lpcallerdata : *const WSABUF , lpcalleedata : *mut WSABUF , lpsqos : *const QOS , lpgqos : *const QOS ) -> i32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows_sys::core::PCSTR , servicename : :: windows_sys::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows_sys::core::PCSTR , servicename : :: windows_sys::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows_sys::core::PCWSTR , servicename : :: windows_sys::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"] fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows_sys::core::PCWSTR , servicename : :: windows_sys::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "ws2_32.dll""system" #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"] fn WSACreateEvent ( ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1592,6 +1592,8 @@ pub const NLA_ALLUSERS_NETWORK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const NLA_SERVICE_CLASS_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x0037e515_b5c9_4a43_bada_8b48a87ad239);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSPROTO_IPX: u32 = 1000u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSPROTO_SPX: u32 = 1256u32;
@@ -2465,6 +2467,22 @@ pub const WINDOWS_AF_IRDA: u32 = 26u32;
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_ACCEPTEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5367df1_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_CONNECTEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x25a207b9_ddf3_4660_8ee9_76e58c74063e);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_DISCONNECTEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7fda2e11_8630_436f_a031_f536a6eec157);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_GETACCEPTEXSOCKADDRS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5367df2_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_TRANSMITFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb5367df0_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_TRANSMITPACKETS: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd9689da0_1f90_11d3_9971_00c04f68c876);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_WSAPOLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x18c76f85_dc66_4964_972e_23c27238312b);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_WSARECVMSG: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf689d7c8_6f1f_436b_8a53_e54fe351c322);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSAPROTOCOL_LEN: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

@@ -105,7 +105,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateSemaphoreW ( lpsemaphoreattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , linitialcount : i32 , lmaximumcount : i32 , lpname : :: windows_sys::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateThread ( lpthreadattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwstacksize : usize , lpstartaddress : LPTHREAD_START_ROUTINE , lpparameter : *const ::core::ffi::c_void , dwcreationflags : THREAD_CREATION_FLAGS , lpthreadid : *mut u32 ) -> super::super::Foundation:: HANDLE );
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpool ( reserved : *mut ::core::ffi::c_void ) -> PTP_POOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpool ( reserved : *const ::core::ffi::c_void ) -> PTP_POOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`*"] fn CreateThreadpoolCleanupGroup ( ) -> isize );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn CreateThreadpoolIo ( fl : super::super::Foundation:: HANDLE , pfnio : PTP_WIN32_IO_CALLBACK , pv : *mut ::core::ffi::c_void , pcbe : *const TP_CALLBACK_ENVIRON_V3 ) -> *mut TP_IO );
@@ -456,7 +456,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWait ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME ) -> ( ) );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWaitEx ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetThreadpoolWaitEx ( pwa : *mut TP_WAIT , h : super::super::Foundation:: HANDLE , pfttimeout : *const super::super::Foundation:: FILETIME , reserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"] fn SetTimerQueueTimer ( timerqueue : super::super::Foundation:: HANDLE , callback : WAITORTIMERCALLBACK , parameter : *const ::core::ffi::c_void , duetime : u32 , period : u32 , preferio : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
