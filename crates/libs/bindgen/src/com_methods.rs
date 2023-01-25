@@ -196,9 +196,9 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
 fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     let name = gen.param_name(param.def);
 
-    if gen.reader.param_flags(param.def).input() && gen.reader.type_is_nullable(&param.ty) {
+    if gen.reader.param_flags(param.def).contains(ParamAttributes::INPUT) && gen.reader.type_is_nullable(&param.ty) {
         quote! { ::windows::core::from_raw_borrowed(&#name) }
-    } else if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).input() && !gen.reader.type_is_primitive(&param.ty)) {
+    } else if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).contains(ParamAttributes::INPUT) && !gen.reader.type_is_primitive(&param.ty)) {
         quote! { ::core::mem::transmute(&#name) }
     } else {
         quote! { ::core::mem::transmute_copy(&#name) }

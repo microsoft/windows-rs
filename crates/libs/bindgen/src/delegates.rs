@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_flags(def).winrt() {
+    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
         gen_delegate(gen, def)
     } else {
         gen_callback(gen, def)

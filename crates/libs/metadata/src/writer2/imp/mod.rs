@@ -101,10 +101,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         for (_index, item) in definitions.iter() {
             match item {
                 Item::Struct(ty) => {
-                    let mut flags = TypeAttributes(0);
-                    flags.set_public();
+                    let mut flags = TypeAttributes::PUBLIC;
                     if winrt {
-                        flags.set_winrt();
+                        flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
@@ -115,17 +114,14 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         MethodList: 0,
                     });
                     for field in &ty.fields {
-                        let mut flags = FieldAttributes(0);
-                        flags.set_public();
+                        let flags = FieldAttributes::PUBLIC;
                         tables.Field.push(tables::Field { Flags: flags.0, Name: strings.index(&field.name), Signature: blobs.index(&field_blob(&field.ty, definitions, references)) });
                     }
                 }
                 Item::Enum(ty) => {
-                    let mut flags = TypeAttributes(0);
-                    flags.set_public();
-                    flags.set_sealed();
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEALED;
                     if winrt {
-                        flags.set_winrt();
+                        flags |= TypeAttributes::WINRT;
                     }
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
@@ -136,21 +132,14 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         MethodList: 0,
                     });
                     let enum_type = Type::named(&ty.namespace, &ty.name);
-                    let mut flags = FieldAttributes(0);
-                    flags.set_private();
-                    flags.set_special();
-                    flags.set_runtime_special();
+                    let flags = FieldAttributes::PRIVATE | FieldAttributes::SPECIAL | FieldAttributes::RUNTIME_SPECIAL;
                     tables.Field.push2(tables::Field {
                         Flags: flags.0,
                         Name: strings.index("value__"),
                         Signature: blobs.index(&field_blob(&value_to_type(&ty.constants[0].value), definitions, references)),
                     });
                     for constant in &ty.constants {
-                        let mut flags = FieldAttributes(0);
-                        flags.set_public();
-                        flags.set_static();
-                        flags.set_literal();
-                        flags.set_has_default();
+                        let flags = FieldAttributes::PUBLIC | FieldAttributes::STATIC | FieldAttributes::LITERAL | FieldAttributes::HAS_DEFAULT;
                         let field = tables.Field.push2(tables::Field { Flags: flags.0, Name: strings.index(&constant.name), Signature: blobs.index(&field_blob(&enum_type, definitions, references)) });
                         tables.Constant.push(tables::Constant { Type: value_type_code(&constant.value), Parent: HasConstant::Field(field).encode(), Value: blobs.index(&value_blob(&constant.value)) });
                     }

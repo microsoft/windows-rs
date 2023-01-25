@@ -61,7 +61,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
-        if gen.reader.type_def_flags(def).winrt() {
+        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             for method in gen.reader.type_def_methods(def) {
                 methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
             }
@@ -141,7 +141,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         }
 
-        if gen.reader.type_def_flags(def).winrt() {
+        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             for interface in &interfaces {
                 let into = gen.type_name(&interface.ty);
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));

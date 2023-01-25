@@ -1,159 +1,87 @@
-#[derive(Default)]
-pub struct FieldAttributes(pub u16);
+macro_rules! flags {
+    ($name:ident, $size:ty) => {
+        #[derive(Default, Copy, Clone, PartialEq, Eq)]
+        pub struct $name(pub $size);
+        impl $name {
+            pub fn contains(&self, contains: Self) -> bool {
+                *self & contains == contains
+            }
+        }
+        impl std::ops::BitOr for $name {
+            type Output = Self;
+            fn bitor(self, other: Self) -> Self {
+                Self(self.0 | other.0)
+            }
+        }
+        impl std::ops::BitAnd for $name {
+            type Output = Self;
+            fn bitand(self, other: Self) -> Self {
+                Self(self.0 & other.0)
+            }
+        }
+        impl std::ops::BitOrAssign for $name {
+            fn bitor_assign(&mut self, other: Self) {
+                self.0.bitor_assign(other.0)
+            }
+        }
+        impl std::ops::BitAndAssign for $name {
+            fn bitand_assign(&mut self, other: Self) {
+                self.0.bitand_assign(other.0)
+            }
+        }
+        impl std::ops::Not for $name {
+            type Output = Self;
+            fn not(self) -> Self {
+                Self(self.0.not())
+            }
+        }
+    };
+}
 
-#[derive(Default)]
-pub struct MethodAttributes(pub usize);
-
-#[derive(Default)]
-pub struct MethodImplAttributes(pub usize);
-
-#[derive(Default)]
-pub struct ParamAttributes(pub usize);
-
-#[derive(Default)]
-pub struct PInvokeAttributes(pub usize);
-
-#[derive(Default)]
-pub struct TypeAttributes(pub u32);
-
+flags!(FieldAttributes, u16);
 impl FieldAttributes {
-    pub fn private(&self) -> bool {
-        self.0 & 0x1 != 0
-    }
-    pub fn set_private(&mut self) {
-        self.0 |= 0x1;
-    }
-
-    pub fn public(&self) -> bool {
-        self.0 & 0x6 != 0
-    }
-    pub fn set_public(&mut self) {
-        self.0 |= 0x6;
-    }
-
-    pub fn literal(&self) -> bool {
-        self.0 & 0x40 != 0
-    }
-    pub fn set_literal(&mut self) {
-        self.0 |= 0x40;
-    }
-
-    pub fn r#static(&self) -> bool {
-        self.0 & 0x10 != 0
-    }
-    pub fn set_static(&mut self) {
-        self.0 |= 0x10;
-    }
-
-    pub fn special(&self) -> bool {
-        self.0 & 0x200 != 0
-    }
-    pub fn set_special(&mut self) {
-        self.0 |= 0x200
-    }
-
-    pub fn runtime_special(&self) -> bool {
-        self.0 & 0x400 != 0
-    }
-    pub fn set_runtime_special(&mut self) {
-        self.0 |= 0x400
-    }
-
-    pub fn has_default(&self) -> bool {
-        self.0 & 0x8000 != 0
-    }
-    pub fn set_has_default(&mut self) {
-        self.0 |= 0x8000
-    }
+    pub const PRIVATE: Self = Self(0x1);
+    pub const PUBLIC: Self = Self(0x6);
+    pub const LITERAL: Self = Self(0x40);
+    pub const STATIC: Self = Self(0x10);
+    pub const SPECIAL: Self = Self(0x200);
+    pub const RUNTIME_SPECIAL: Self = Self(0x400);
+    pub const HAS_DEFAULT: Self = Self(0x8000);
 }
 
+flags!(MethodAttributes, usize);
 impl MethodAttributes {
-    pub fn special(&self) -> bool {
-        self.0 & 0x800 != 0
-    }
+    pub const SPECIAL: Self = Self(0x800);
 }
 
+flags!(MethodImplAttributes, usize);
 impl MethodImplAttributes {
-    pub fn preserve_sig(&self) -> bool {
-        self.0 & 0x80 != 0
-    }
+    pub const PRESERVE_SIG: Self = Self(0x80);
 }
 
+flags!(ParamAttributes, usize);
 impl ParamAttributes {
-    pub fn input(&self) -> bool {
-        self.0 & 0x1 != 0
-    }
-
-    pub fn output(&self) -> bool {
-        self.0 & 0x2 != 0
-    }
-
-    pub fn optional(&self) -> bool {
-        self.0 & 0x10 != 0
-    }
+    pub const INPUT: Self = Self(0x1);
+    pub const OUTPUT: Self = Self(0x2);
+    pub const OPTIONAL: Self = Self(0x10);
 }
 
+flags!(PInvokeAttributes, usize);
 impl PInvokeAttributes {
-    pub fn last_error(&self) -> bool {
-        self.0 & 0x40 != 0
-    }
-    pub fn conv_platform(&self) -> bool {
-        self.0 & 0x100 != 0
-    }
-    pub fn conv_cdecl(&self) -> bool {
-        self.0 & 0x200 != 0
-    }
-    pub fn conv_stdcall(&self) -> bool {
-        self.0 & 0x300 != 0
-    }
-    pub fn conv_thiscall(&self) -> bool {
-        self.0 & 0x400 != 0
-    }
-    pub fn conv_fastcall(&self) -> bool {
-        self.0 & 0x500 != 0
-    }
+    pub const LAST_ERROR: Self = Self(0x40);
+    pub const CONV_PLATFORM: Self = Self(0x100);
+    pub const CONV_CDECL: Self = Self(0x200);
+    pub const CONV_STDCALL: Self = Self(0x300);
+    pub const CONV_THISCALL: Self = Self(0x400);
+    pub const CONV_FASTCALL: Self = Self(0x500);
 }
 
+flags!(TypeAttributes, u32);
 impl TypeAttributes {
-    pub fn public(&self) -> bool {
-        self.0 & 0x1 != 0
-    }
-    pub fn set_public(&mut self) {
-        self.0 |= 0x1;
-    }
-
-    pub fn explicit_layout(&self) -> bool {
-        self.0 & 0x10 != 0
-    }
-    pub fn set_explicit_layout(&mut self) {
-        self.0 |= 0x10;
-    }
-
-    pub fn get_abstract(&self) -> bool {
-        self.0 & 0x80 != 0
-    }
-    pub fn set_abstract(&mut self) {
-        self.0 |= 0x80;
-    }
-
-    pub fn get_sealed(&self) -> bool {
-        self.0 & 0x100 != 0
-    }
-    pub fn set_sealed(&mut self) {
-        self.0 |= 0x100;
-    }
-
-    pub fn winrt(&self) -> bool {
-        self.0 & 0x4000 != 0
-    }
-    pub fn set_winrt(&mut self) {
-        self.0 |= 0x4000;
-    }
-
-    pub fn interface(&self) -> bool {
-        self.0 & 0x20 != 0
-    }
-    pub fn set_interface(&mut self) {
-        self.0 |= 0x20
-    }
+    pub const PUBLIC: Self = Self(0x1);
+    pub const EXPLICIT_LAYOUT: Self = Self(0x10);
+    pub const ABSTRACT: Self = Self(0x80);
+    pub const SEALED: Self = Self(0x100);
+    pub const WINRT: Self = Self(0x4000);
+    pub const INTERFACE: Self = Self(0x20);
 }
