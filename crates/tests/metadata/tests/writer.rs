@@ -7,11 +7,13 @@ fn writer() {
 
         let mut items = vec![];
 
-        items.push(Struct::item("test_metadata", "Inner", vec![Field::new("Value32", Type::F32), Field::new("Value64", Type::F64)]));
+        items.push(Struct::item("test_metadata", "A", vec![Field::new("A1", Type::F32), Field::new("A2", Type::F64)]));
+        items.push(Struct::item("test_metadata", "B", vec![Field::new("B1", Type::F32), Field::new("B2", Type::named("test_metadata", "A"))]));
 
-        items.push(Struct::item("test_metadata", "Outer", vec![Field::new("Value", Type::named("test_metadata", "Inner"))]));
+        items.push(Enum::item("test_metadata", "C", vec![Constant::new("C1", Value::I32(1)), Constant::new("C2", Value::I32(2))]));
+        items.push(Enum::item("test_metadata", "D", vec![Constant::new("D1", Value::I32(3)), Constant::new("D2", Value::I32(4))]));
 
-        items.push(Enum::item("test_metadata", "Flags", vec![Constant::new("One", Value::I32(1)), Constant::new("Two", Value::I32(2))]));
+        //items.push(Interface::item("test_metadata", "IThing"));
 
         let buffer = write("test_metadata", true, &items, &[]);
         std::fs::write(temp_file, buffer).unwrap();

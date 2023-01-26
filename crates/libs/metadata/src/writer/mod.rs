@@ -41,6 +41,12 @@ pub struct Interface {
     pub name: String,
 }
 
+impl Interface {
+    pub fn item(namespace: &str, name: &str) -> Item {
+        Item::Interface(Self { namespace: namespace.to_string(), name: name.to_string() })
+    }
+}
+
 pub struct Field {
     pub name: String,
     pub ty: Type,

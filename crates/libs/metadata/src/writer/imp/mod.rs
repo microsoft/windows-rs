@@ -105,12 +105,13 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
+                    let field_list = if ty.fields.is_empty() { 0 } else { tables.Field.len() } as _;
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
                         TypeName: strings.index(&ty.name),
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(value_type).encode(),
-                        FieldList: tables.Field.len() as _,
+                        FieldList: field_list,
                         MethodList: 0,
                     });
                     for field in &ty.fields {
@@ -123,12 +124,13 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
+                    let field_list = if ty.constants.is_empty() { 0 } else { tables.Field.len() } as _;
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
                         TypeName: strings.index(&ty.name),
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(enum_type).encode(),
-                        FieldList: tables.Field.len() as _,
+                        FieldList: field_list,
                         MethodList: 0,
                     });
                     let enum_type = Type::named(&ty.namespace, &ty.name);
@@ -145,11 +147,18 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     }
                 }
                 Item::Interface(ty) => {
-                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE;
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE | TypeAttributes::ABSTRACT;
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
-                    tables.TypeDef.push(tables::TypeDef { Flags: flags.0, TypeName: strings.index(&ty.name), TypeNamespace: strings.index(&ty.namespace), Extends: 0, FieldList: 0, MethodList: 0 });
+                    tables.TypeDef.push(tables::TypeDef { 
+                        Flags: flags.0, 
+                        TypeName: strings.index(&ty.name), 
+                        TypeNamespace: strings.index(&ty.namespace), 
+                        Extends: 0, 
+                        FieldList: 0, 
+                        MethodList: 0,
+                    });
                 }
             }
         }
