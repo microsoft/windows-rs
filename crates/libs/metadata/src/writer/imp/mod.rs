@@ -105,7 +105,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         for (_index, item) in definitions.iter() {
             match item {
                 Item::Struct(ty) => {
-                    let mut flags = TypeAttributes::PUBLIC;
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEQUENTIAL_LAYOUT  |TypeAttributes::SEALED;
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
@@ -115,7 +115,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(value_type).encode(),
                         FieldList: tables.Field.len() as _,
-                        MethodList: 0,
+                        MethodList: tables.MethodDef.len() as _,
                     });
                     for field in &ty.fields {
                         let flags = FieldAttributes::PUBLIC;
@@ -133,7 +133,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(enum_type).encode(),
                         FieldList: tables.Field.len() as _,
-                        MethodList: 0,
+                        MethodList: tables.MethodDef.len() as _,
                     });
                     let enum_type = Type::named(&ty.namespace, &ty.name);
                     let flags = FieldAttributes::PRIVATE | FieldAttributes::SPECIAL | FieldAttributes::RUNTIME_SPECIAL;
@@ -158,7 +158,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeName: strings.index(&ty.name), 
                         TypeNamespace: strings.index(&ty.namespace), 
                         Extends: 0, 
-                        FieldList: 0, 
+                        FieldList: tables.Field.len() as _,
                         MethodList: tables.MethodDef.len() as _,
                     });
                     for method in &ty.methods {

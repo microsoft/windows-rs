@@ -13,7 +13,8 @@ fn writer() {
         items.push(Enum::item("test_metadata", "C", vec![Constant::new("C1", Value::I32(1)), Constant::new("C2", Value::I32(2))]));
         items.push(Enum::item("test_metadata", "D", vec![Constant::new("D1", Value::I32(3)), Constant::new("D2", Value::I32(4))]));
 
-        items.push(Interface::item("test_metadata", "E", vec![Method::new("E1", Type::Void, vec![])]));
+        items.push(Interface::item("test_metadata", "E", vec![Method::new("E1", Type::Void, vec![]), Method::new("E2", Type::Void, vec![])]));
+        items.push(Interface::item("test_metadata", "F", vec![Method::new("F1", Type::Void, vec![]), Method::new("F2", Type::Void, vec![])]));
 
         let buffer = write("test_metadata", true, &items, &[]);
         std::fs::write(temp_file, buffer).unwrap();

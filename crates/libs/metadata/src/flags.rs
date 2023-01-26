@@ -89,4 +89,5 @@ impl TypeAttributes {
     pub const SEALED: Self = Self(0x100);
     pub const WINRT: Self = Self(0x4000);
     pub const INTERFACE: Self = Self(0x20);
+    pub const SEQUENTIAL_LAYOUT: Self = Self(0x8);
 }
