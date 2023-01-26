@@ -84,6 +84,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     strings.insert(&ty.name);
                     ty.methods.iter().for_each(|method| {
                         strings.insert(&method.name);
+                        blobs.insert(method_blob(method, definitions, references));
                     });
                 }
             }
@@ -167,7 +168,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                             ImplFlags: 0,
                             Flags: flags.0,
                             Name: strings.index(&method.name), 
-                            Signature: 0,
+                            Signature: blobs.index(&method_blob(method, definitions, references)),
                             ParamList: 0,
                         });
                     }
@@ -208,6 +209,16 @@ fn item_value_type(item: &Item) -> bool {
         Item::Struct(_) | Item::Enum(_) => true,
         Item::Interface(_) => false,
     }
+}
+
+fn method_blob(method: &Method, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
+    let mut blob = vec![0x20]; // HASTHIS
+    u32_blob(method.params.len() as _, &mut blob);
+    for param in &method.params {
+        type_blob(&param.ty, &mut blob, definitions, references);    
+    }
+    type_blob(&method.return_type, &mut blob, definitions, references);
+    blob
 }
 
 fn field_blob(ty: &Type, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {

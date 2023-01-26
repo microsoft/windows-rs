@@ -72,12 +72,19 @@ impl Constant {
 
 pub struct Method {
     pub name: String,
+    pub return_type: Type,
+    pub params: Vec<Param>,
 }
 
 impl Method {
-    pub fn new(name: &str) -> Self {
-        Self { name: name.to_string() }
+    pub fn new(name: &str, return_type: Type, params: Vec<Param>) -> Self {
+        Self { name: name.to_string(), return_type, params }
     }
+}
+
+pub struct Param {
+    pub name: String,
+    pub ty: Type,
 }
 
 pub enum Type {
