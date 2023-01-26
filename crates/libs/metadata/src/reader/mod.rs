@@ -490,7 +490,7 @@ impl<'a> Reader<'a> {
         MethodImplAttributes(self.row_usize(row.0, 1))
     }
     pub fn method_def_flags(&self, row: MethodDef) -> MethodAttributes {
-        MethodAttributes(self.row_usize(row.0, 2))
+        MethodAttributes(self.row_usize(row.0, 2) as _)
     }
     pub fn method_def_name(&self, row: MethodDef) -> &str {
         self.row_str(row.0, 3)

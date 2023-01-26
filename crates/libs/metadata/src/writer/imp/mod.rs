@@ -82,6 +82,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 Item::Interface(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
+                    ty.methods.iter().for_each(|method| {
+                        strings.insert(&method.name);
+                    });
                 }
             }
         }
@@ -105,13 +108,12 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
-                    let field_list = if ty.fields.is_empty() { 0 } else { tables.Field.len() } as _;
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
                         TypeName: strings.index(&ty.name),
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(value_type).encode(),
-                        FieldList: field_list,
+                        FieldList: tables.Field.len() as _,
                         MethodList: 0,
                     });
                     for field in &ty.fields {
@@ -124,13 +126,12 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
-                    let field_list = if ty.constants.is_empty() { 0 } else { tables.Field.len() } as _;
                     tables.TypeDef.push(tables::TypeDef {
                         Flags: flags.0,
                         TypeName: strings.index(&ty.name),
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(enum_type).encode(),
-                        FieldList: field_list,
+                        FieldList: tables.Field.len() as _,
                         MethodList: 0,
                     });
                     let enum_type = Type::named(&ty.namespace, &ty.name);
@@ -157,8 +158,19 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeNamespace: strings.index(&ty.namespace), 
                         Extends: 0, 
                         FieldList: 0, 
-                        MethodList: 0,
+                        MethodList: tables.MethodDef.len() as _,
                     });
+                    for method in &ty.methods {
+                        let flags = MethodAttributes::ABSTRACT | MethodAttributes::HIDE_BY_SIG | MethodAttributes::NEW_SLOT | MethodAttributes::PUBLIC | MethodAttributes::VIRTUAL;
+                        tables.MethodDef.push(tables::MethodDef { 
+                            RVA: 0,
+                            ImplFlags: 0,
+                            Flags: flags.0,
+                            Name: strings.index(&method.name), 
+                            Signature: 0,
+                            ParamList: 0,
+                        });
+                    }
                 }
             }
         }

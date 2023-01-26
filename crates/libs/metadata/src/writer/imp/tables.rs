@@ -248,9 +248,14 @@ impl Tables {
             buffer.write_u32(x.Signature);
         }
 
-        // for x in self.MethodDef {
-
-        // }
+        for x in self.MethodDef {
+            buffer.write_u32(x.RVA);
+            buffer.write_u16(x.ImplFlags);
+            buffer.write_u16(x.Flags);
+            buffer.write_u32(x.Name);
+            buffer.write_u32(x.Signature);
+            buffer.write_index(x.ParamList, self.Param.len());
+        }
 
         // for x in self.Param {}
 

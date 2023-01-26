@@ -49,9 +49,14 @@ impl FieldAttributes {
     pub const HAS_DEFAULT: Self = Self(0x8000);
 }
 
-flags!(MethodAttributes, usize);
+flags!(MethodAttributes, u16);
 impl MethodAttributes {
+    pub const ABSTRACT: Self = Self(0x400);
+    pub const HIDE_BY_SIG: Self = Self(0x80);
+    pub const NEW_SLOT: Self = Self(0x100);
+    pub const PUBLIC: Self = Self(0x6);
     pub const SPECIAL: Self = Self(0x800);
+    pub const VIRTUAL: Self = Self(0x40);
 }
 
 flags!(MethodImplAttributes, usize);

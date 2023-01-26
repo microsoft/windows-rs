@@ -39,11 +39,12 @@ impl Enum {
 pub struct Interface {
     pub namespace: String,
     pub name: String,
+    pub methods: Vec<Method>,
 }
 
 impl Interface {
-    pub fn item(namespace: &str, name: &str) -> Item {
-        Item::Interface(Self { namespace: namespace.to_string(), name: name.to_string() })
+    pub fn item(namespace: &str, name: &str, methods: Vec<Method>) -> Item {
+        Item::Interface(Self { namespace: namespace.to_string(), name: name.to_string(), methods })
     }
 }
 
@@ -66,6 +67,16 @@ pub struct Constant {
 impl Constant {
     pub fn new(name: &str, value: Value) -> Self {
         Self { name: name.to_string(), value }
+    }
+}
+
+pub struct Method {
+    pub name: String,
+}
+
+impl Method {
+    pub fn new(name: &str) -> Self {
+        Self { name: name.to_string() }
     }
 }
 
