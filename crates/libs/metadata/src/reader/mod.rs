@@ -7,7 +7,7 @@ mod tree;
 mod r#type;
 mod type_name;
 
-use super::*;
+pub use super::*;
 pub use blob::*;
 pub use codes::*;
 pub use file::*;
@@ -366,7 +366,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn field_flags(&self, row: Field) -> FieldAttributes {
-        FieldAttributes(self.row_usize(row.0, 0))
+        FieldAttributes(self.row_usize(row.0, 0) as _)
     }
     pub fn field_name(&self, row: Field) -> &str {
         self.row_str(row.0, 1)
@@ -512,7 +512,7 @@ impl<'a> Reader<'a> {
     }
     pub fn method_def_special_name(&self, row: MethodDef) -> String {
         let name = self.method_def_name(row);
-        if self.method_def_flags(row).special() {
+        if self.method_def_flags(row).contains(MethodAttributes::SPECIAL) {
             if name.starts_with("get") {
                 name[4..].to_string()
             } else if name.starts_with("put") {
@@ -564,7 +564,7 @@ impl<'a> Reader<'a> {
                     None
                 } else {
                     let ty = self.type_from_blob(&mut blob, None, generics).expect("Parameter type not found");
-                    let ty = if !self.param_flags(param).output() { ty.to_const() } else { ty };
+                    let ty = if !self.param_flags(param).contains(ParamAttributes::OUTPUT) { ty.to_const() } else { ty };
                     let kind = self.param_kind(param);
                     Some(SignatureParam { def: param, ty, kind })
                 }
@@ -576,7 +576,7 @@ impl<'a> Reader<'a> {
             match params[position].kind {
                 SignatureParamKind::ArrayRelativeLen(relative) | SignatureParamKind::ArrayRelativeByteLen(relative) => {
                     // The len params must be input only.
-                    if !self.param_flags(params[relative].def).output() && position != relative && !params[relative].ty.is_pointer() {
+                    if !self.param_flags(params[relative].def).contains(ParamAttributes::OUTPUT) && position != relative && !params[relative].ty.is_pointer() {
                         params[relative].kind = SignatureParamKind::ArrayRelativePtr(position);
                     } else {
                         params[position].kind = SignatureParamKind::Other;
@@ -635,7 +635,7 @@ impl<'a> Reader<'a> {
                     }
                 } else {
                     let flags = self.param_flags(param.def);
-                    if param.ty.is_pointer() && (flags.optional() || self.param_is_reserved(param.def)) {
+                    if param.ty.is_pointer() && (flags.contains(ParamAttributes::OPTIONAL) || self.param_is_reserved(param.def)) {
                         param.kind = SignatureParamKind::OptionalPointer;
                     } else if self.type_is_primitive(&param.ty) && (!param.ty.is_pointer() || self.type_is_blittable(&param.ty.deref())) {
                         param.kind = SignatureParamKind::ValueType;
@@ -652,9 +652,9 @@ impl<'a> Reader<'a> {
         let impl_map = self.method_def_impl_map(def).expect("ImplMap not found");
         let flags = self.impl_map_flags(impl_map);
 
-        if flags.conv_platform() {
+        if flags.contains(PInvokeAttributes::CONV_PLATFORM) {
             "system"
-        } else if flags.conv_cdecl() {
+        } else if flags.contains(PInvokeAttributes::CONV_CDECL) {
             "cdecl"
         } else {
             unimplemented!()
@@ -667,7 +667,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_size(&self, def: TypeDef) -> usize {
         match self.type_def_kind(def) {
             TypeKind::Struct => {
-                if self.type_def_flags(def).explicit_layout() {
+                if self.type_def_flags(def).contains(TypeAttributes::EXPLICIT_LAYOUT) {
                     self.type_def_fields(def).map(|field| self.type_size(&self.field_type(field, Some(def)))).max().unwrap_or(1)
                 } else {
                     let mut sum = 0;
@@ -789,7 +789,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
-        TypeAttributes(self.row_usize(row.0, 0))
+        TypeAttributes(self.row_usize(row.0, 0) as _)
     }
     pub fn type_def_name(&self, row: TypeDef) -> &str {
         self.row_str(row.0, 1)
@@ -833,7 +833,7 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
-        if self.type_def_flags(row).interface() {
+        if self.type_def_flags(row).contains(TypeAttributes::INTERFACE) {
             TypeKind::Interface
         } else {
             match self.type_def_extends(row) {
@@ -846,7 +846,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
         if self.type_def_kind(row) == TypeKind::Struct {
-            if self.type_def_flags(row).explicit_layout() {
+            if self.type_def_flags(row).contains(TypeAttributes::EXPLICIT_LAYOUT) {
                 self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
             } else {
                 self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
@@ -858,14 +858,14 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => {
-                if self.type_def_flags(row).winrt() {
+                if self.type_def_flags(row).contains(TypeAttributes::WINRT) {
                     self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
                 } else {
                     true
                 }
             }
             TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
             _ => false,
         }
     }
@@ -873,12 +873,12 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_copyable(field, row)),
             TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
             _ => false,
         }
     }
     pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
-        !self.type_def_flags(row).winrt() && self.type_def_kind(row) == TypeKind::Delegate
+        !self.type_def_flags(row).contains(TypeAttributes::WINRT) && self.type_def_kind(row) == TypeKind::Delegate
     }
     pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
@@ -916,7 +916,7 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")
     }
     pub fn type_def_is_scoped(&self, row: TypeDef) -> bool {
-        self.type_def_flags(row).winrt() || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
+        self.type_def_flags(row).contains(TypeAttributes::WINRT) || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
     }
     pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
@@ -947,7 +947,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
             TypeKind::Struct => self.type_def_is_handle(row),
-            TypeKind::Delegate => !self.type_def_flags(row).winrt(),
+            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WINRT),
             _ => false,
         }
     }
@@ -956,7 +956,7 @@ impl<'a> Reader<'a> {
             return false;
         }
         fn check(reader: &Reader, row: TypeDef) -> bool {
-            if reader.type_def_flags(row).explicit_layout() {
+            if reader.type_def_flags(row).contains(TypeAttributes::EXPLICIT_LAYOUT) {
                 return true;
             }
             if reader.type_def_fields(row).any(|field| reader.type_has_explicit_layout(&reader.field_type(field, Some(row)))) {
@@ -1051,7 +1051,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_is_flags(&self, row: TypeDef) -> bool {
         // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
         // on whether they are signed.
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).winrt() && self.type_def_underlying_type(row) == Type::U32)
+        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).contains(TypeAttributes::WINRT) && self.type_def_underlying_type(row) == Type::U32)
     }
     pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
@@ -1092,7 +1092,7 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Interface | TypeKind::Class => true,
             // TODO: win32 callbacks should be nullable...
-            TypeKind::Delegate => self.type_def_flags(row).winrt(),
+            TypeKind::Delegate => self.type_def_flags(row).contains(TypeAttributes::WINRT),
             _ => false,
         }
     }
@@ -1194,7 +1194,7 @@ impl<'a> Reader<'a> {
             }
         }
 
-        if self.type_def_flags(def).winrt() {
+        if self.type_def_flags(def).contains(TypeAttributes::WINRT) {
             for interface in self.type_def_interfaces(def, generics) {
                 if let Type::TypeDef((def, generics)) = interface.ty {
                     combine(self, def, &generics, &mut cfg);
@@ -1218,7 +1218,7 @@ impl<'a> Reader<'a> {
                     }
                 }
                 TypeKind::Interface => {
-                    if !self.type_def_flags(row).winrt() {
+                    if !self.type_def_flags(row).contains(TypeAttributes::WINRT) {
                         for def in self.type_def_vtables(row) {
                             if let Type::TypeDef((def, _)) = def {
                                 cfg.add_feature(self.type_def_namespace(def));
@@ -1244,7 +1244,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
         let mut result = Vec::new();
-        if self.type_def_flags(row).winrt() {
+        if self.type_def_flags(row).contains(TypeAttributes::WINRT) {
             result.push(Type::IUnknown);
             if self.type_def_kind(row) != TypeKind::Delegate {
                 result.push(Type::IInspectable);
@@ -1319,7 +1319,7 @@ impl<'a> Reader<'a> {
         self.type_is_trivially_convertible(&param.ty)
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        !self.param_flags(param.def).output() && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
+        !self.param_flags(param.def).contains(ParamAttributes::OUTPUT) && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -1334,7 +1334,7 @@ impl<'a> Reader<'a> {
             return false;
         }
         let flags = self.param_flags(param.def);
-        if flags.input() || !flags.output() || flags.optional() || param.kind.is_array() {
+        if flags.contains(ParamAttributes::INPUT) || !flags.contains(ParamAttributes::OUTPUT) || flags.contains(ParamAttributes::OPTIONAL) || param.kind.is_array() {
             return false;
         }
         if self.param_kind(param.def).is_array() {
@@ -1357,7 +1357,7 @@ impl<'a> Reader<'a> {
                     if signature.params.len() >= 2 {
                         if let Some(guid) = self.signature_param_is_query_guid(&signature.params) {
                             if let Some(object) = self.signature_param_is_query_object(&signature.params) {
-                                if self.param_flags(signature.params[object].def).optional() {
+                                if self.param_flags(signature.params[object].def).contains(ParamAttributes::OPTIONAL) {
                                     return SignatureKind::QueryOptional(QueryPosition { object, guid });
                                 } else {
                                     return SignatureKind::Query(QueryPosition { object, guid });
@@ -1392,11 +1392,11 @@ impl<'a> Reader<'a> {
         signature.params.last().map_or(false, |param| self.signature_param_is_retval(param))
             && signature.params[..signature.params.len() - 1].iter().all(|param| {
                 let flags = self.param_flags(param.def);
-                flags.input() && !flags.output()
+                !flags.contains(ParamAttributes::OUTPUT)
             })
     }
     fn signature_param_is_query_guid(&self, params: &[SignatureParam]) -> Option<usize> {
-        params.iter().rposition(|param| param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).output())
+        params.iter().rposition(|param| param.ty == Type::ConstPtr((Box::new(Type::GUID), 1)) && !self.param_flags(param.def).contains(ParamAttributes::OUTPUT))
     }
     fn signature_param_is_query_object(&self, params: &[SignatureParam]) -> Option<usize> {
         params.iter().rposition(|param| param.ty == Type::MutPtr((Box::new(Type::Void), 2)) && self.param_is_com_out_ptr(param.def))
@@ -1703,7 +1703,7 @@ impl<'a> Reader<'a> {
         match ty {
             Type::TypeDef((row, _)) => {
                 let flags = self.type_def_flags(*row);
-                flags.winrt() && flags.interface() && !self.type_def_is_exclusive(*row)
+                flags.contains(TypeAttributes::WINRT) && flags.contains(TypeAttributes::INTERFACE) && !self.type_def_is_exclusive(*row)
             }
             _ => false,
         }

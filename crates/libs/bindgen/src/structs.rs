@@ -36,13 +36,13 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         let name = to_ident(gen.reader.field_name(f));
         let ty = gen.reader.field_type(f, Some(def));
 
-        if gen.reader.field_flags(f).literal() {
+        if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
             quote! {}
-        } else if !gen.sys && flags.explicit_layout() && !gen.reader.field_is_copyable(f, def) {
+        } else if !gen.sys && flags.contains(TypeAttributes::EXPLICIT_LAYOUT) && !gen.reader.field_is_copyable(f, def) {
             // Rust can't tell that the type is copyable and won't accept windows::core::ManuallyDrop
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
-        } else if !gen.sys && !flags.winrt() && !gen.reader.field_is_blittable(f, def) {
+        } else if !gen.sys && !flags.contains(TypeAttributes::WINRT) && !gen.reader.field_is_blittable(f, def) {
             if let Type::Win32Array((ty, len)) = ty {
                 let ty = gen.type_name(&ty);
                 quote! { pub #name: [::windows::core::ManuallyDrop<#ty>; #len], }
@@ -56,7 +56,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         }
     });
 
-    let struct_or_union = if flags.explicit_layout() {
+    let struct_or_union = if flags.contains(TypeAttributes::EXPLICIT_LAYOUT) {
         quote! { union }
     } else {
         quote! { struct }
@@ -118,7 +118,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
             }
         };
 
-        if gen.reader.type_def_flags(def).winrt() {
+        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
             let clone = if gen.reader.type_def_is_blittable(def) {
@@ -151,7 +151,7 @@ fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     } else {
         let fields = gen.reader.type_def_fields(def).filter_map(|f| {
             let name = to_ident(gen.reader.field_name(f));
-            if gen.reader.field_flags(f).literal() {
+            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
                 None
             } else {
                 Some(quote! { self.#name == other.#name })
@@ -179,7 +179,7 @@ fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenSt
         let features = gen.cfg_features(cfg);
 
         let fields = gen.reader.type_def_fields(def).filter_map(|f| {
-            if gen.reader.field_flags(f).literal() {
+            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
                 None
             } else {
                 let name = gen.reader.field_name(f);
@@ -221,7 +221,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else if gen.reader.type_def_class_layout(def).is_some() {
         // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
         quote! {}
-    } else if !gen.reader.type_def_flags(def).winrt() {
+    } else if !gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
@@ -233,7 +233,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else {
         let fields = gen.reader.type_def_fields(def).map(|f| {
             let name = to_ident(gen.reader.field_name(f));
-            if gen.reader.field_flags(f).literal() {
+            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
                 quote! {}
             } else if gen.reader.field_is_blittable(f, def) {
                 quote! { #name: self.#name }
@@ -257,7 +257,7 @@ fn gen_struct_constants(gen: &Gen, def: TypeDef, struct_name: &TokenStream, cfg:
     let features = gen.cfg_features(cfg);
 
     let constants = gen.reader.type_def_fields(def).filter_map(|f| {
-        if gen.reader.field_flags(f).literal() {
+        if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
             if let Some(constant) = gen.reader.field_constant(f) {
                 let name = to_ident(gen.reader.field_name(f));
                 let value = gen.typed_value(&gen.reader.constant_value(constant));

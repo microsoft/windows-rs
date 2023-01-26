@@ -53,7 +53,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
         let kind = gen.reader.type_def_kind(def);
         match kind {
             TypeKind::Class => {
-                if gen.reader.type_def_flags(def).winrt() {
+                if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
                     types.entry(kind).or_default().insert(name, classes::gen(gen, def));
                 } else {
                     for method in gen.reader.type_def_methods(def) {

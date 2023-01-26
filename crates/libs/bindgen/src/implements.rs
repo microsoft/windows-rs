@@ -44,7 +44,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    if gen.reader.type_def_flags(def).winrt() {
+    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
         // TODO: this awkward wrapping of TypeDefs needs fixing
         for interface in gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))) {
             if let Type::TypeDef((def, generics)) = interface.ty {
@@ -73,7 +73,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         let signature = gen.reader.method_def_signature(method, generics);
         let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
 
-        let invoke_upcall = if gen.reader.type_def_flags(def).winrt() { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
+        let invoke_upcall = if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
 
         if has_unknown_base {
             quote! {

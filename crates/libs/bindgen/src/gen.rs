@@ -181,7 +181,7 @@ impl<'a> Gen<'a> {
                     }
                 }
                 TypeKind::Delegate => {
-                    if self.reader.type_def_flags(*def).winrt() {
+                    if self.reader.type_def_flags(*def).contains(TypeAttributes::WINRT) {
                         quote! { *mut ::core::ffi::c_void }
                     } else {
                         self.type_def_name(*def, &[])
@@ -619,7 +619,7 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_flags(def).winrt() {
+        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
                 let type_signature = Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
                 quote! { ::windows::core::ConstBuffer::from_slice(#type_signature) }
@@ -673,7 +673,7 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn runtime_name_trait(&self, def: TypeDef, _generics: &[Type], name: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_flags(def).winrt() {
+        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             // TODO: this needs to use a ConstBuffer-like facility to accomodate generics
             let runtime_name = format!("{}", self.reader.type_def_type_name(def));
 
@@ -793,7 +793,7 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn vtbl_signature(&self, def: TypeDef, _generics: &[Type], signature: &Signature) -> TokenStream {
-        let is_winrt = self.reader.type_def_flags(def).winrt();
+        let is_winrt = self.reader.type_def_flags(def).contains(TypeAttributes::WINRT);
         let hresult = self.type_name(&Type::HRESULT);
 
         let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
@@ -826,7 +826,7 @@ impl<'a> Gen<'a> {
                 let abi = self.type_abi_name(&p.ty);
                 let abi_size_name: TokenStream = format!("{}_array_size", self.reader.param_name(p.def)).into();
 
-                if self.reader.param_flags(p.def).input() {
+                if self.reader.param_flags(p.def).contains(ParamAttributes::INPUT) {
                     if p.ty.is_winrt_array() {
                         quote! { #abi_size_name: u32, #name: *const #abi, }
                     } else if p.ty.is_winrt_const_ref() {
@@ -894,7 +894,7 @@ impl<'a> Gen<'a> {
                     let flags = self.reader.param_flags(param.def);
                     match param.kind {
                         SignatureParamKind::ArrayFixed(_) | SignatureParamKind::ArrayRelativeLen(_) | SignatureParamKind::ArrayRelativeByteLen(_) => {
-                            let map = if flags.optional() {
+                            let map = if flags.contains(ParamAttributes::OPTIONAL) {
                                 quote! { #name.as_deref().map_or(::core::ptr::null(), |slice|slice.as_ptr()) }
                             } else {
                                 quote! { #name.as_ptr() }
@@ -904,7 +904,7 @@ impl<'a> Gen<'a> {
                         SignatureParamKind::ArrayRelativePtr(relative) => {
                             let name = self.param_name(params[relative].def);
                             let flags = self.reader.param_flags(params[relative].def);
-                            if flags.optional() {
+                            if flags.contains(ParamAttributes::OPTIONAL) {
                                 quote! { #name.as_deref().map_or(0, |slice|slice.len() as _), }
                             } else {
                                 quote! { #name.len() as _, }
@@ -920,7 +920,7 @@ impl<'a> Gen<'a> {
                             quote! { #name.into(), }
                         }
                         SignatureParamKind::OptionalPointer => {
-                            if flags.output() {
+                            if flags.contains(ParamAttributes::OUTPUT) {
                                 quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null_mut())), }
                             } else {
                                 quote! { ::core::mem::transmute(#name.unwrap_or(::std::ptr::null())), }
@@ -967,12 +967,12 @@ impl<'a> Gen<'a> {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
                     let len = Literal::u32_unsuffixed(fixed as _);
-                    let ty = if self.reader.param_flags(param.def).output() {
+                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
                         quote! { &mut [#ty; #len] }
                     } else {
                         quote! { &[#ty; #len] }
                     };
-                    if self.reader.param_flags(param.def).optional() {
+                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -981,24 +981,24 @@ impl<'a> Gen<'a> {
                 SignatureParamKind::ArrayRelativeLen(_) => {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
-                    let ty = if self.reader.param_flags(param.def).output() {
+                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
                         quote! { &mut [#ty] }
                     } else {
                         quote! { &[#ty] }
                     };
-                    if self.reader.param_flags(param.def).optional() {
+                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
                     }
                 }
                 SignatureParamKind::ArrayRelativeByteLen(_) => {
-                    let ty = if self.reader.param_flags(param.def).output() {
+                    let ty = if self.reader.param_flags(param.def).contains(ParamAttributes::OUTPUT) {
                         quote! { &mut [u8] }
                     } else {
                         quote! { &[u8] }
                     };
-                    if self.reader.param_flags(param.def).optional() {
+                    if self.reader.param_flags(param.def).contains(ParamAttributes::OPTIONAL) {
                         tokens.combine(&quote! { #name: ::core::option::Option<#ty>, });
                     } else {
                         tokens.combine(&quote! { #name: #ty, });
@@ -1029,7 +1029,7 @@ impl<'a> Gen<'a> {
     }
 
     pub fn impl_signature(&self, def: TypeDef, signature: &Signature) -> TokenStream {
-        if self.reader.type_def_flags(def).winrt() {
+        if self.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             let is_delegate = self.reader.type_def_kind(def) == TypeKind::Delegate;
             let params = signature.params.iter().map(|p| self.winrt_produce_type(p, !is_delegate));
 
@@ -1084,7 +1084,7 @@ impl<'a> Gen<'a> {
     fn winrt_produce_type(&self, param: &SignatureParam, include_param_names: bool) -> TokenStream {
         let default_type = self.type_default_name(&param.ty);
 
-        let sig = if self.reader.param_flags(param.def).input() {
+        let sig = if self.reader.param_flags(param.def).contains(ParamAttributes::INPUT) {
             if param.ty.is_winrt_array() {
                 quote! { &[#default_type] }
             } else if self.reader.type_is_primitive(&param.ty) {
@@ -1115,7 +1115,7 @@ impl<'a> Gen<'a> {
         let name = self.param_name(param.def);
         let kind = self.type_default_name(&param.ty);
 
-        if self.reader.param_flags(param.def).input() {
+        if self.reader.param_flags(param.def).contains(ParamAttributes::INPUT) {
             if self.reader.type_is_primitive(&param.ty) {
                 quote! { #name: #kind, }
             } else if self.reader.type_is_nullable(&param.ty) {

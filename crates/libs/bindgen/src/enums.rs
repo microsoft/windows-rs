@@ -14,7 +14,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         .reader
         .type_def_fields(def)
         .filter_map(|field| {
-            if gen.reader.field_flags(field).literal() {
+            if gen.reader.field_flags(field).contains(FieldAttributes::LITERAL) {
                 let field_name = to_ident(gen.reader.field_name(field));
                 let constant = gen.reader.field_constant(field).unwrap();
                 let value = gen.value(&gen.reader.constant_value(constant));
@@ -170,7 +170,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             });
         }
 
-        if gen.reader.type_def_flags(def).winrt() {
+        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
             let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {

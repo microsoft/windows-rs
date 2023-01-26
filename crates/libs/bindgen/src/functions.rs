@@ -244,7 +244,7 @@ fn does_not_return(gen: &Gen, def: MethodDef) -> TokenStream {
 
 fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
     if let Some(map) = gen.reader.method_def_impl_map(def) {
-        if gen.reader.impl_map_flags(map).last_error() {
+        if gen.reader.impl_map_flags(map).contains(PInvokeAttributes::LAST_ERROR) {
             if let Some(Type::TypeDef((return_type, _))) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {
                     if gen.reader.type_def_underlying_type(*return_type).is_pointer() {

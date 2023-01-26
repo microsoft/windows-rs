@@ -40,10 +40,10 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
                 let scope = reader.impl_map_scope(impl_map);
                 let library = reader.module_ref_name(scope).to_lowercase();
                 let flags = reader.impl_map_flags(impl_map);
-                if flags.conv_platform() {
+                if flags.contains(metadata::PInvokeAttributes::CONV_PLATFORM) {
                     let params = reader.method_def_size(method);
                     libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Stdcall(params));
-                } else if flags.conv_cdecl() {
+                } else if flags.contains(metadata::PInvokeAttributes::CONV_CDECL) {
                     libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Cdecl);
                 } else {
                     unimplemented!();
