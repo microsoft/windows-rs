@@ -144,7 +144,13 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         tables.Constant.push(tables::Constant { Type: value_type_code(&constant.value), Parent: HasConstant::Field(field).encode(), Value: blobs.index(&value_blob(&constant.value)) });
                     }
                 }
-                Item::Interface(_ty) => {}
+                Item::Interface(ty) => {
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE;
+                    if winrt {
+                        flags |= TypeAttributes::WINRT;
+                    }
+                    tables.TypeDef.push(tables::TypeDef { Flags: flags.0, TypeName: strings.index(&ty.name), TypeNamespace: strings.index(&ty.namespace), Extends: 0, FieldList: 0, MethodList: 0 });
+                }
             }
         }
 
@@ -156,6 +162,8 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
 }
 
 fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, assemblies: &reader::Reader, references: &mut References<'a>) {
+    // TODO: More matches to come...
+    #[allow(clippy::single_match)]
     match ty {
         Type::Named((namespace, name)) => {
             if definitions.get(namespace, name).is_none() {
