@@ -85,6 +85,9 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     ty.methods.iter().for_each(|method| {
                         strings.insert(&method.name);
                         blobs.insert(method_blob(method, definitions, references));
+                        method.params.iter().for_each(|param| {
+                            strings.insert(&param.name);
+                    });
                     });
                 }
             }
@@ -169,8 +172,15 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                             Flags: flags.0,
                             Name: strings.index(&method.name), 
                             Signature: blobs.index(&method_blob(method, definitions, references)),
-                            ParamList: 0,
+                            ParamList: tables.Param.len() as _,
                         });
+                        for (sequence, param) in method.params.iter().enumerate() {
+                            tables.Param.push(tables::Param {
+                                 Flags: param_flags_to_attributes(param.flags).0,
+                                 Sequence: (sequence + 1) as _,
+                                 Name: strings.index(&param.name), 
+                            });
+                        }
                     }
                 }
             }
@@ -194,6 +204,14 @@ fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, assemblies:
         }
         _ => {}
     }
+}
+
+fn param_flags_to_attributes(flags: ParamFlags) -> ParamAttributes {
+    let mut attributes = ParamAttributes(0);
+    if flags.contains(ParamFlags::INPUT) { attributes |= ParamAttributes::INPUT; }
+    if flags.contains(ParamFlags::OUTPUT) { attributes |= ParamAttributes::OUTPUT; }
+    if flags.contains(ParamFlags::OPTIONAL) { attributes |= ParamAttributes::OPTIONAL; }
+    attributes
 }
 
 fn item_type_name(item: &Item) -> (&str, &str) {

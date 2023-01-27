@@ -85,6 +85,20 @@ impl Method {
 pub struct Param {
     pub name: String,
     pub ty: Type,
+    pub flags: ParamFlags,
+}
+
+impl Param {
+    pub fn new(name: &str, ty: Type, flags: ParamFlags) -> Self {
+        Self { name: name.to_string(), ty, flags }
+    }
+}
+
+flags!(ParamFlags, u32);
+impl ParamFlags {
+    pub const INPUT: Self = Self(0x1);
+    pub const OUTPUT: Self = Self(0x2);
+    pub const OPTIONAL: Self = Self(0x10);
 }
 
 pub enum Type {

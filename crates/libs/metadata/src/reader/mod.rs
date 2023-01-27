@@ -727,7 +727,7 @@ impl<'a> Reader<'a> {
     //
 
     pub fn param_flags(&self, row: Param) -> ParamAttributes {
-        ParamAttributes(self.row_usize(row.0, 0))
+        ParamAttributes(self.row_usize(row.0, 0) as _)
     }
     pub fn param_sequence(&self, row: Param) -> usize {
         self.row_usize(row.0, 1)
