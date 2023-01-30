@@ -2406,7 +2406,7 @@ where
 {
     ::windows::core::link ! ( "opengl32.dll""system" fn wglCreateContext ( param0 : super::Gdi:: HDC ) -> HGLRC );
     let result__ = wglCreateContext(param0.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2417,7 +2417,7 @@ where
 {
     ::windows::core::link ! ( "opengl32.dll""system" fn wglCreateLayerContext ( param0 : super::Gdi:: HDC , param1 : i32 ) -> HGLRC );
     let result__ = wglCreateLayerContext(param0.into(), param1);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -30,7 +30,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
     let return_arg = if let Some(return_type) = &signature.return_type {
         if return_type.is_winrt_array() {
             let return_type = gen.type_name(return_type);
-            quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
         } else {
             quote! { result__.as_mut_ptr() }
         }

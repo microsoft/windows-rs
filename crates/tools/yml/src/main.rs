@@ -149,7 +149,7 @@ jobs:
         .to_string();
 
     for name in crates(false) {
-        write!(&mut yml, "\n          cargo clippy -p {name} &&").unwrap();
+        write!(&mut yml, "\n          cargo clippy -p {name} -- -A clippy::uninlined_format_args &&").unwrap();
     }
 
     yml.truncate(yml.len() - 3);

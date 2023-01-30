@@ -72,7 +72,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDesktopA ( lpszdesktop : :: windows::core::PCSTR , lpszdevice : :: windows::core::PCSTR , pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
     let result__ = CreateDesktopA(lpszdesktop.into().abi(), lpszdevice.into().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null_mut())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -84,7 +84,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDesktopExA ( lpszdesktop : :: windows::core::PCSTR , lpszdevice : :: windows::core::PCSTR , pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEA , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *mut ::core::ffi::c_void ) -> HDESK );
     let result__ = CreateDesktopExA(lpszdesktop.into().abi(), lpszdevice.into().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null_mut())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null_mut())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -96,7 +96,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDesktopExW ( lpszdesktop : :: windows::core::PCWSTR , lpszdevice : :: windows::core::PCWSTR , pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES , ulheapsize : u32 , pvoid : *mut ::core::ffi::c_void ) -> HDESK );
     let result__ = CreateDesktopExW(lpszdesktop.into().abi(), lpszdevice.into().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null_mut())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null_mut())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -108,7 +108,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateDesktopW ( lpszdesktop : :: windows::core::PCWSTR , lpszdevice : :: windows::core::PCWSTR , pdevmode : *mut super::super::Graphics::Gdi:: DEVMODEW , dwflags : DESKTOP_CONTROL_FLAGS , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HDESK );
     let result__ = CreateDesktopW(lpszdesktop.into().abi(), lpszdevice.into().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null_mut())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -119,7 +119,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateWindowStationA ( lpwinsta : :: windows::core::PCSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
     let result__ = CreateWindowStationA(lpwinsta.into().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -130,7 +130,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn CreateWindowStationW ( lpwinsta : :: windows::core::PCWSTR , dwflags : u32 , dwdesiredaccess : u32 , lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> HWINSTA );
     let result__ = CreateWindowStationW(lpwinsta.into().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -190,14 +190,14 @@ where
 pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
     ::windows::core::link ! ( "user32.dll""system" fn GetProcessWindowStation ( ) -> HWINSTA );
     let result__ = GetProcessWindowStation();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK> {
     ::windows::core::link ! ( "user32.dll""system" fn GetThreadDesktop ( dwthreadid : u32 ) -> HDESK );
     let result__ = GetThreadDesktop(dwthreadid);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -229,7 +229,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn OpenDesktopA ( lpszdesktop : :: windows::core::PCSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
     let result__ = OpenDesktopA(lpszdesktop.into().abi(), dwflags, finherit.into(), dwdesiredaccess);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -241,7 +241,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn OpenDesktopW ( lpszdesktop : :: windows::core::PCWSTR , dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HDESK );
     let result__ = OpenDesktopW(lpszdesktop.into().abi(), dwflags, finherit.into(), dwdesiredaccess);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -252,7 +252,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn OpenInputDesktop ( dwflags : DESKTOP_CONTROL_FLAGS , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : DESKTOP_ACCESS_FLAGS ) -> HDESK );
     let result__ = OpenInputDesktop(dwflags, finherit.into(), dwdesiredaccess);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -264,7 +264,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn OpenWindowStationA ( lpszwinsta : :: windows::core::PCSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
     let result__ = OpenWindowStationA(lpszwinsta.into().abi(), finherit.into(), dwdesiredaccess);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -276,7 +276,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn OpenWindowStationW ( lpszwinsta : :: windows::core::PCWSTR , finherit : super::super::Foundation:: BOOL , dwdesiredaccess : u32 ) -> HWINSTA );
     let result__ = OpenWindowStationW(lpszwinsta.into().abi(), finherit.into(), dwdesiredaccess);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

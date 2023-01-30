@@ -47,7 +47,7 @@ where
 {
     ::windows::core::link ! ( "api-ms-win-core-memory-l1-1-7.dll""system" fn CreateFileMapping2 ( file : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , desiredaccess : u32 , pageprotection : PAGE_PROTECTION_FLAGS , allocationattributes : u32 , maximumsize : u64 , name : :: windows::core::PCWSTR , extendedparameters : *mut MEM_EXTENDED_PARAMETER , parametercount : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMapping2(file.into(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), desiredaccess, pageprotection, allocationattributes, maximumsize, name.into().abi(), ::core::mem::transmute(extendedparameters.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len() as _));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -59,7 +59,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileMappingA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingA(hfile.into(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -71,7 +71,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileMappingFromApp ( hfile : super::super::Foundation:: HANDLE , securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , pageprotection : PAGE_PROTECTION_FLAGS , maximumsize : u64 , name : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingFromApp(hfile.into(), ::core::mem::transmute(securityattributes.unwrap_or(::std::ptr::null())), pageprotection, maximumsize, name.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -83,7 +83,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaA ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingNumaA(hfile.into(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into().abi(), nndpreferred);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -95,7 +95,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileMappingNumaW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCWSTR , nndpreferred : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingNumaW(hfile.into(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into().abi(), nndpreferred);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -107,7 +107,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateFileMappingW ( hfile : super::super::Foundation:: HANDLE , lpfilemappingattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , flprotect : PAGE_PROTECTION_FLAGS , dwmaximumsizehigh : u32 , dwmaximumsizelow : u32 , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateFileMappingW(hfile.into(), ::core::mem::transmute(lpfilemappingattributes.unwrap_or(::std::ptr::null())), flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -115,7 +115,7 @@ where
 pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE_NOTIFICATION_TYPE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateMemoryResourceNotification ( notificationtype : MEMORY_RESOURCE_NOTIFICATION_TYPE ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateMemoryResourceNotification(notificationtype);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -158,7 +158,7 @@ pub unsafe fn GetMemoryErrorHandlingCapabilities(capabilities: *mut u32) -> supe
 pub unsafe fn GetProcessHeap() -> ::windows::core::Result<HeapHandle> {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetProcessHeap ( ) -> HeapHandle );
     let result__ = GetProcessHeap();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`*"]
 #[inline]
@@ -261,7 +261,7 @@ where
 pub unsafe fn HeapCreate(floptions: HEAP_FLAGS, dwinitialsize: usize, dwmaximumsize: usize) -> ::windows::core::Result<HeapHandle> {
     ::windows::core::link ! ( "kernel32.dll""system" fn HeapCreate ( floptions : HEAP_FLAGS , dwinitialsize : usize , dwmaximumsize : usize ) -> HeapHandle );
     let result__ = HeapCreate(floptions, dwinitialsize, dwmaximumsize);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -575,7 +575,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenFileMappingA ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingA(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -587,7 +587,7 @@ where
 {
     ::windows::core::link ! ( "api-ms-win-core-memory-l1-1-3.dll""system" fn OpenFileMappingFromApp ( desiredaccess : u32 , inherithandle : super::super::Foundation:: BOOL , name : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingFromApp(desiredaccess, inherithandle.into(), name.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -599,7 +599,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn OpenFileMappingW ( dwdesiredaccess : u32 , binherithandle : super::super::Foundation:: BOOL , lpname : :: windows::core::PCWSTR ) -> super::super::Foundation:: HANDLE );
     let result__ = OpenFileMappingW(dwdesiredaccess, binherithandle.into(), lpname.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

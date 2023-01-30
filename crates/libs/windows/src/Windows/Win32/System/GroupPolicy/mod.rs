@@ -54,7 +54,7 @@ where
 {
     ::windows::core::link ! ( "userenv.dll""system" fn EnterCriticalPolicySection ( bmachine : super::super::Foundation:: BOOL ) -> super::super::Foundation:: HANDLE );
     let result__ = EnterCriticalPolicySection(bmachine.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]

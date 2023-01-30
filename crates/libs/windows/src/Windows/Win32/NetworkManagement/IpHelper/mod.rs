@@ -896,7 +896,7 @@ pub unsafe fn GetUnicastIpAddressTable(family: super::super::Networking::WinSock
 pub unsafe fn Icmp6CreateFile() -> ::windows::core::Result<IcmpHandle> {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn Icmp6CreateFile ( ) -> IcmpHandle );
     let result__ = Icmp6CreateFile();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -930,7 +930,7 @@ where
 pub unsafe fn IcmpCreateFile() -> ::windows::core::Result<IcmpHandle> {
     ::windows::core::link ! ( "iphlpapi.dll""system" fn IcmpCreateFile ( ) -> IcmpHandle );
     let result__ = IcmpCreateFile();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
