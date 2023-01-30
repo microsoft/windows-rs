@@ -51,7 +51,7 @@ where
 pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwflags: u32, lpscreenbufferdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateConsoleScreenBuffer ( dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflags : u32 , lpscreenbufferdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwflags, ::core::mem::transmute(lpscreenbufferdata.unwrap_or(::std::ptr::null_mut())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -429,7 +429,7 @@ pub unsafe fn GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: *mut u32) -
 pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn GetStdHandle ( nstdhandle : STD_HANDLE ) -> super::super::Foundation:: HANDLE );
     let result__ = GetStdHandle(nstdhandle);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

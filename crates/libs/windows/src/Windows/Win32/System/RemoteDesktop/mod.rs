@@ -574,7 +574,7 @@ where
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpen ( hserver : super::super::Foundation:: HANDLE , sessionid : u32 , pvirtualname : :: windows::core::PCSTR ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[inline]
@@ -584,7 +584,7 @@ where
 {
     ::windows::core::link ! ( "wtsapi32.dll""system" fn WTSVirtualChannelOpenEx ( sessionid : u32 , pvirtualname : :: windows::core::PCSTR , flags : u32 ) -> HwtsVirtualChannelHandle );
     let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into().abi(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

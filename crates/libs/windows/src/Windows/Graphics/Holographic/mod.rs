@@ -1316,7 +1316,7 @@ impl HolographicCameraViewportParameters {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HiddenAreaMesh)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).HiddenAreaMesh)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1325,7 +1325,7 @@ impl HolographicCameraViewportParameters {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VisibleAreaMesh)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).VisibleAreaMesh)(::windows::core::Vtable::as_raw(this), ::windows::core::Array::<super::super::Foundation::Numerics::Vector2>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
 }

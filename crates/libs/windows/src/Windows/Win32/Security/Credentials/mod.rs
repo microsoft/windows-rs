@@ -491,7 +491,7 @@ where
 pub unsafe fn SCardAccessStartedEvent() -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "winscard.dll""system" fn SCardAccessStartedEvent ( ) -> super::super::Foundation:: HANDLE );
     let result__ = SCardAccessStartedEvent();
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]

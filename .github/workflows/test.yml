@@ -132,8 +132,8 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_enums &&
           cargo test --target ${{ matrix.target }} -p test_error &&
           cargo test --target ${{ matrix.target }} -p test_event &&
-          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_extensions &&
+          cargo clean &&
           cargo test --target ${{ matrix.target }} -p test_handles &&
           cargo test --target ${{ matrix.target }} -p test_helpers &&
           cargo test --target ${{ matrix.target }} -p test_implement &&
@@ -144,6 +144,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_match &&
           cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
           cargo test --target ${{ matrix.target }} -p test_metadata &&
+          cargo test --target ${{ matrix.target }} -p test_msrv &&
           cargo test --target ${{ matrix.target }} -p test_no_use &&
           cargo test --target ${{ matrix.target }} -p test_not_dll &&
           cargo test --target ${{ matrix.target }} -p test_query_signature &&

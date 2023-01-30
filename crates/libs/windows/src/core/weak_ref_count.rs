@@ -13,11 +13,11 @@ impl WeakRefCount {
     }
 
     pub fn add_ref(&self) -> u32 {
-        self.0.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| (!is_weak_ref(count_or_pointer)).then_some(count_or_pointer + 1)).map(|u| u as u32 + 1).unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
+        self.0.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| then_some(!is_weak_ref(count_or_pointer), count_or_pointer + 1)).map(|u| u as u32 + 1).unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
     }
 
     pub fn release(&self) -> u32 {
-        self.0.fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| (!is_weak_ref(count_or_pointer)).then_some(count_or_pointer - 1)).map(|u| u as u32 - 1).unwrap_or_else(|pointer| unsafe {
+        self.0.fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| then_some(!is_weak_ref(count_or_pointer), count_or_pointer - 1)).map(|u| u as u32 - 1).unwrap_or_else(|pointer| unsafe {
             let tear_off = TearOff::decode(pointer);
             let remaining = tear_off.strong_count.release();
 
@@ -214,7 +214,7 @@ impl TearOff {
             .fetch_update(Ordering::Acquire, Ordering::Relaxed, |count| {
                 // Attempt to acquire a strong reference count to stabilize the object for the duration
                 // of the `QueryInterface` call.
-                (count != 0).then_some(count + 1)
+                then_some(count != 0, count + 1)
             })
             .map(|_| {
                 // Let the object respond to the upgrade query.

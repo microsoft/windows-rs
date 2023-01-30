@@ -50,14 +50,14 @@ impl Class {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Int32Array)(::windows::core::Vtable::as_raw(this), a.len() as u32, a.as_ptr(), b.len() as u32, b.as_mut_ptr(), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).Int32Array)(::windows::core::Vtable::as_raw(this), a.len() as u32, a.as_ptr(), b.len() as u32, b.as_mut_ptr(), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     pub fn StringArray(&self, a: &[::windows::core::HSTRING], b: &mut [::windows::core::HSTRING], c: &mut ::windows::core::Array<::windows::core::HSTRING>) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StringArray)(::windows::core::Vtable::as_raw(this), a.len() as u32, ::core::mem::transmute(a.as_ptr()), b.len() as u32, ::core::mem::transmute_copy(&b), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).StringArray)(::windows::core::Vtable::as_raw(this), a.len() as u32, ::core::mem::transmute(a.as_ptr()), b.len() as u32, ::core::mem::transmute_copy(&b), c.set_abi_len(), c as *mut _ as _, ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
 }

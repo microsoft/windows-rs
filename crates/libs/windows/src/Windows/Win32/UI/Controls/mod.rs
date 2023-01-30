@@ -118,7 +118,7 @@ where
 {
     ::windows::core::link ! ( "comctl32.dll""system" fn CreateMappedBitmap ( hinstance : super::super::Foundation:: HINSTANCE , idbitmap : isize , wflags : u32 , lpcolormap : *const COLORMAP , inummaps : i32 ) -> super::super::Graphics::Gdi:: HBITMAP );
     let result__ = CreateMappedBitmap(hinstance.into(), idbitmap, wflags, ::core::mem::transmute(lpcolormap.unwrap_or(::std::ptr::null())), inummaps);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -162,7 +162,7 @@ where
 pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> ::windows::core::Result<HSYNTHETICPOINTERDEVICE> {
     ::windows::core::link ! ( "user32.dll""system" fn CreateSyntheticPointerDevice ( pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE , maxcount : u32 , mode : POINTER_FEEDBACK_MODE ) -> HSYNTHETICPOINTERDEVICE );
     let result__ = CreateSyntheticPointerDevice(pointertype, maxcount, mode);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

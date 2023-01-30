@@ -37,7 +37,7 @@ where
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn CreateNamedPipeA ( lpname : :: windows::core::PCSTR , dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES , dwpipemode : NAMED_PIPE_MODE , nmaxinstances : u32 , noutbuffersize : u32 , ninbuffersize : u32 , ndefaulttimeout : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES ) -> super::super::Foundation:: HANDLE );
     let result__ = CreateNamedPipeA(lpname.into().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]

@@ -415,7 +415,7 @@ pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
 pub unsafe fn GetClipboardData(uformat: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "user32.dll""system" fn GetClipboardData ( uformat : u32 ) -> super::super::Foundation:: HANDLE );
     let result__ = GetClipboardData(uformat);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
@@ -630,7 +630,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn SetClipboardData ( uformat : u32 , hmem : super::super::Foundation:: HANDLE ) -> super::super::Foundation:: HANDLE );
     let result__ = SetClipboardData(uformat, hmem.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

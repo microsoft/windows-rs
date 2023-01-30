@@ -2125,7 +2125,7 @@ impl SpatialStageFrameOfReference {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetMovementBounds)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), ::windows::core::Array::<super::super::Foundation::Numerics::Vector3>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Vtable::vtable(this).TryGetMovementBounds)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), ::windows::core::Array::<super::super::Foundation::Numerics::Vector3>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     pub fn Current() -> ::windows::core::Result<SpatialStageFrameOfReference> {

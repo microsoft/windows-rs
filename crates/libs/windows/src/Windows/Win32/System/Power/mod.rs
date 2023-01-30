@@ -172,7 +172,7 @@ where
 pub unsafe fn PowerCreateRequest(context: *const super::Threading::REASON_CONTEXT) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "kernel32.dll""system" fn PowerCreateRequest ( context : *const super::Threading:: REASON_CONTEXT ) -> super::super::Foundation:: HANDLE );
     let result__ = PowerCreateRequest(context);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -737,7 +737,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn RegisterPowerSettingNotification ( hrecipient : super::super::Foundation:: HANDLE , powersettingguid : *const :: windows::core::GUID , flags : u32 ) -> HPOWERNOTIFY );
     let result__ = RegisterPowerSettingNotification(hrecipient.into(), powersettingguid, flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -748,7 +748,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn RegisterSuspendResumeNotification ( hrecipient : super::super::Foundation:: HANDLE , flags : u32 ) -> HPOWERNOTIFY );
     let result__ = RegisterSuspendResumeNotification(hrecipient.into(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
