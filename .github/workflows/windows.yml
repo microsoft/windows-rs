@@ -17,13 +17,12 @@ jobs:
         rust: [1.48.0, stable, nightly]
         runs-on:
           - windows-2019
+          - ubuntu-latest
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
-      - name: Change directory
-        run: cd crates/libs/windows
       - name: Run cargo check
-        run: cargo check --features Foundation,Globalization,Win32_Foundation,Win32_Graphics_Direct2D
+        run: cargo check -p test_msrv

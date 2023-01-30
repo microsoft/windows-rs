@@ -94,6 +94,7 @@ jobs:
           cargo clippy -p test_match -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_matrix3x2 -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_metadata -- -A clippy::uninlined_format_args &&
+          cargo clippy -p test_msrv -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_no_use -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_not_dll -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_query_signature -- -A clippy::uninlined_format_args &&
