@@ -14,7 +14,7 @@ jobs:
     name: Check
     strategy:
       matrix:
-        rust: [1.64.0, stable, nightly]
+        rust: [1.48.0, stable, nightly]
         runs-on:
           - windows-2019
           - ubuntu-latest
@@ -25,4 +25,4 @@ jobs:
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.rust }} && rustup default ${{ matrix.rust }}
       - name: Run cargo check
-        run: cargo check -p windows --features Foundation,Win32_Foundation,Win32_Graphics_Direct2D
+        run: cargo check -p windows --features Foundation,Globalization,Win32_Foundation,Win32_Graphics_Direct2D

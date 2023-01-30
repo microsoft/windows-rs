@@ -169,3 +169,10 @@ macro_rules! link {
 
 #[doc(hidden)]
 pub use crate::link;
+
+// This is a workaround since 1.48 does not include `bool::then_some`.
+// https://doc.rust-lang.org/stable/std/primitive.bool.html#method.then_some
+fn then_some<T>(value: bool, t: T) -> Option<T>
+{
+    if value { Some(t) } else { None }
+}

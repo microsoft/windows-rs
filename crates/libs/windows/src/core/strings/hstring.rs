@@ -20,7 +20,7 @@ impl HSTRING {
     }
 
     /// Returns the length of the string.
-    pub const fn len(&self) -> usize {
+    pub fn len(&self) -> usize {
         if let Some(header) = self.get_header() {
             header.len as usize
         } else {
@@ -29,12 +29,12 @@ impl HSTRING {
     }
 
     /// Get the string as 16-bit wide characters (wchars).
-    pub const fn as_wide(&self) -> &[u16] {
+    pub fn as_wide(&self) -> &[u16] {
         unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
     }
 
     /// Returns a raw pointer to the `HSTRING` buffer.
-    pub const fn as_ptr(&self) -> *const u16 {
+    pub fn as_ptr(&self) -> *const u16 {
         if let Some(header) = self.get_header() {
             header.data
         } else {
@@ -82,7 +82,7 @@ impl HSTRING {
         Ok(Self(std::ptr::NonNull::new(ptr)))
     }
 
-    const fn get_header(&self) -> Option<&Header> {
+    fn get_header(&self) -> Option<&Header> {
         if let Some(header) = &self.0 {
             // TODO: this can be replaced with `as_ref` in future: https://github.com/rust-lang/rust/issues/91822
             unsafe { Some(&*(header.as_ptr() as *const Header)) }
@@ -150,7 +150,7 @@ impl std::fmt::Display for HSTRING {
 
 impl std::fmt::Debug for HSTRING {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "\"{self}\"")
+        write!(f, "\"{}\"", self)
     }
 }
 
