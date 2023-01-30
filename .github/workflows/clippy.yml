@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Update toolchain
-        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
+        run: rustup update --no-self-update 1.48 && rustup default 1.48-x86_64-pc-windows-msvc
       - name: Install clippy
         run: rustup component add clippy
       - name: Configure environment
