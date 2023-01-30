@@ -171,8 +171,14 @@ macro_rules! link {
 pub use crate::link;
 
 // This is a workaround since 1.48 does not include `bool::then_some`.
-// https://doc.rust-lang.org/stable/std/primitive.bool.html#method.then_some
 fn then_some<T>(value: bool, t: T) -> Option<T>
 {
     if value { Some(t) } else { None }
+}
+
+// This is a workaround since 1.48 does not include `bool::then`.
+#[doc(hidden)]
+pub fn then<T, F: FnOnce() -> T>(value: bool, f: F) -> Option<T>
+{
+    if value { Some(f()) } else { None }
 }
