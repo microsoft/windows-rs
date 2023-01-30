@@ -7,7 +7,7 @@ where
 {
     ::windows::core::link ! ( "aclui.dll""system" fn CreateSecurityPage ( psi : * mut::core::ffi::c_void ) -> super::super::super::UI::Controls:: HPROPSHEETPAGE );
     let result__ = CreateSecurityPage(psi.into().abi());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

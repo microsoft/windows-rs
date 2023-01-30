@@ -7,7 +7,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn ActivateKeyboardLayout ( hkl : super::super::TextServices:: HKL , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
     let result__ = ActivateKeyboardLayout(hkl.into(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -170,7 +170,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadKeyboardLayoutA ( pwszklid : :: windows::core::PCSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
     let result__ = LoadKeyboardLayoutA(pwszklid.into().abi(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`, `\"Win32_UI_TextServices\"`*"]
 #[cfg(feature = "Win32_UI_TextServices")]
@@ -181,7 +181,7 @@ where
 {
     ::windows::core::link ! ( "user32.dll""system" fn LoadKeyboardLayoutW ( pwszklid : :: windows::core::PCWSTR , flags : ACTIVATE_KEYBOARD_LAYOUT_FLAGS ) -> super::super::TextServices:: HKL );
     let result__ = LoadKeyboardLayoutW(pwszklid.into().abi(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+    ::windows::core::then(!result__.is_invalid(), || result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`*"]
 #[inline]
