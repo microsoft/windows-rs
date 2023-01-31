@@ -3,8 +3,8 @@ mod Things {
         fn Method(&self, p1: u8) -> f32;
     }
     mod More {
-        interface2 IOtherThing {
-            fn Method(&self, p1: u8) -> f32;
+        interface IOtherThing {
+            fn OtherMethod(&self, p1: u8) -> f32;
         }
     }
 }
