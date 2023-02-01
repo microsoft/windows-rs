@@ -65,12 +65,6 @@ impl Parse for Interface {
     }
 }
 
-fn syn_to_writer(module: Module) -> Result<Vec<writer::Item>> {
-    let mut items = Vec::new();
-    module_to_writer(&module.name.to_string(), &module, &mut items)?;
-    Ok(items)
-}
-
 fn module_to_writer(namespace: &str, module: &Module, items: &mut Vec<writer::Item>) -> Result<()> {
     for member in &module.members {
         match member {
@@ -99,25 +93,91 @@ fn main() {
     }
 }
 
-type ToolResult<T> = std::result::Result<T, String>;
+type ToolResult = std::result::Result<(), String>;
 
-fn run() -> ToolResult<()> {
-    let filename = r#"crates\tools\riddle\src\test.rs"#;
-    let output = "crates/tools/riddle/src/test.winmd";
+fn run() -> ToolResult {
+    let mut kind = ArgKind::None;
+    let mut merge = Vec::<String>::new();
+    let mut input = Vec::<String>::new();
+    let mut reference = Vec::<String>::new();
+    let mut output = String::new();
+    let mut winrt = true;
 
-    let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
-    let mut input = String::new();
-    file.read_to_string(&mut input).map_err(|_| format!("failed to read `{filename}`"))?;
-
-    let result = parse_str::<Module>(&input).and_then(syn_to_writer);
-    match result {
-        Ok(items) => {
-            let buffer = writer::write("test", true, &items, &[]);
-            std::fs::write(output, buffer).map_err(|_| format!("failed to write `{output}`"))
+    for arg in std::env::args().skip(1) {
+        if arg.starts_with('-') {
+            kind = ArgKind::None;
         }
-        Err(error) => {
-            let start = error.span().start();
-            Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column))
+        match kind {
+            ArgKind::None => match arg.as_str() {
+                "-merge" => kind = ArgKind::Merge,
+                "-input" => kind = ArgKind::Input,
+                "-ref" => kind = ArgKind::Reference,
+                "-output" => kind = ArgKind::Output,
+                "-win32" => {
+                    winrt = false;
+                    kind = ArgKind::None;
+                }
+                _ => print_help()?,
+            },
+            ArgKind::Merge => merge.push(arg),
+            ArgKind::Input => input.push(arg),
+            ArgKind::Reference => reference.push(arg),
+            ArgKind::Output => {
+                if output.is_empty() {
+                    output = arg;
+                } else {
+                    print_help()?;
+                }
+            }
         }
     }
+
+    if merge.len() + input.len() == 0 || output.is_empty() {
+        print_help()?;
+    }
+
+    let mut items = Vec::new();
+
+    // for merge in merge {
+    //     // TODO: write the types in the winmd into `items`
+    // }
+
+    for filename in &input {
+        let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
+        let mut source = String::new();
+        file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
+
+        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module_to_writer(&module.name.to_string(), &module, &mut items)) {
+            let start = error.span().start();
+            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column));
+        }
+    }
+
+    let buffer = writer::write("test", winrt, &items, &[]);
+    std::fs::write(&output, buffer).map_err(|_| format!("failed to write `{output}`"))
+}
+
+fn print_help() -> ToolResult {
+    Err(r#"riddle.exe [options...]
+
+options:
+  -input  <path>  Path to source file with type definitions to parse
+  -merge  <path>  Path to file or directory containing .winmd files to merge
+  -ref    <path>  Path to file or directory containing .winmd files to reference
+  -output <path>  Path to .winmd file to generate
+  -win32          Kind of .winmd to generate; default is WinRT
+
+examples:
+  riddle -input first.rs second.rs -output out.winmd -ref local
+  riddle -merge first.winmd second.winmd -output out.winmd
+"#
+    .to_string())
+}
+
+enum ArgKind {
+    None,
+    Merge,
+    Input,
+    Reference,
+    Output,
 }
