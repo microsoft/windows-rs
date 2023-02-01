@@ -1,14 +1,14 @@
 #![allow(dead_code)]
 
 use std::collections::*;
-mod bindings;
 mod attributes;
+mod bindings;
 mod imp;
 pub mod reader;
 pub mod writer;
 
-use bindings::*;
 pub use attributes::*;
+use bindings::*;
 use imp::*;
 use std::io::*;
 use std::mem::*;
