@@ -23,7 +23,7 @@ pub fn round(size: usize, round: usize) -> usize {
 
 pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str]) -> Vec<u8> {
     // Index assemblies used to resolve references to existing winmd files.
-    let assemblies = reader::File::with_default(assemblies).expect("Assemblies could not be loaded");
+    let assemblies: Vec<reader::File> = assemblies.iter().map(|file| reader::File::new(file).expect("Assemblies could not be loaded")).collect();
     let assemblies = &reader::Reader::new(&assemblies);
 
     // Build sorted list of definitions.
