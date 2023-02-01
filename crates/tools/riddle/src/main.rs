@@ -66,7 +66,6 @@ impl Parse for Interface {
 }
 
 fn syn_to_writer(module: Module) -> Result<Vec<writer::Item>> {
-    //println!("{:#?}", &module);
     let mut items = Vec::new();
     module_to_writer(&module.name.to_string(), &module, &mut items)?;
     Ok(items)
@@ -75,8 +74,8 @@ fn syn_to_writer(module: Module) -> Result<Vec<writer::Item>> {
 fn module_to_writer(namespace: &str, module: &Module, items: &mut Vec<writer::Item>) -> Result<()> {
     for member in &module.members {
         match member {
-            ModuleMember::Module(module) => module_to_writer(&format!("{namespace}.{}", module.name.to_string()), module, items)?,
-            ModuleMember::Interface(interface) => interface_to_writer(&namespace, interface, items)?,
+            ModuleMember::Module(module) => module_to_writer(&format!("{namespace}.{}", module.name), module, items)?,
+            ModuleMember::Interface(interface) => interface_to_writer(namespace, interface, items)?,
         }
     }
     Ok(())
@@ -86,30 +85,39 @@ fn interface_to_writer(namespace: &str, interface: &Interface, items: &mut Vec<w
     let mut methods = Vec::new();
 
     for method in &interface.methods {
-        methods.push(writer::Method::new(&method.sig.ident.to_string(), writer::Type::Void, vec![]));
+        methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
     }
 
-    items.push(writer::Interface::item(&namespace, &interface.name.to_string(), methods));
+    items.push(writer::Interface::item(namespace, &interface.name.to_string(), methods));
     Ok(())
 }
 
 fn main() {
-    let filename = "crates/tools/riddle/src/test.rs";
+    if let Err(message) = run() {
+        eprintln!("error: {message}");
+        std::process::exit(1);
+    }
+}
+
+type ToolResult<T> = std::result::Result<T, String>;
+
+fn run() -> ToolResult<()> {
+    let filename = r#"crates\tools\riddle\src\test.rs"#;
     let output = "crates/tools/riddle/src/test.winmd";
 
-    let mut file = std::fs::File::open(filename).expect("failed to open file");
+    let mut file = std::fs::File::open(filename).map_err(|_| format!("failed to open `{filename}`"))?;
     let mut input = String::new();
-    file.read_to_string(&mut input).expect("failed to read file");
+    file.read_to_string(&mut input).map_err(|_| format!("failed to read `{filename}`"))?;
 
     let result = parse_str::<Module>(&input).and_then(syn_to_writer);
     match result {
         Ok(items) => {
             let buffer = writer::write("test", true, &items, &[]);
-            std::fs::write(output, buffer).expect("failed to write file");
+            std::fs::write(output, buffer).map_err(|_| format!("failed to write `{output}`"))
         }
         Err(error) => {
             let start = error.span().start();
-            println!("error: {error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column);
+            Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column))
         }
     }
 }
