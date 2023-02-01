@@ -82,6 +82,7 @@ jobs:
           }
       - name: Test
         run: >
+          cargo test --target ${{ matrix.target }} -p riddle &&
           cargo test --target ${{ matrix.target }} -p sample_bits &&
           cargo test --target ${{ matrix.target }} -p sample_com_uri &&
           cargo test --target ${{ matrix.target }} -p sample_consent &&
@@ -152,6 +153,7 @@ jobs:
           cargo test --target ${{ matrix.target }} -p test_reserved &&
           cargo test --target ${{ matrix.target }} -p test_resources &&
           cargo test --target ${{ matrix.target }} -p test_return_struct &&
+          cargo test --target ${{ matrix.target }} -p test_riddle &&
           cargo test --target ${{ matrix.target }} -p test_simple_component &&
           cargo test --target ${{ matrix.target }} -p test_string_param &&
           cargo test --target ${{ matrix.target }} -p test_structs &&
