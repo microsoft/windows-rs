@@ -71,7 +71,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 Item::Enum(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
-                    let enum_type = Type::named(&ty.namespace, &ty.name);
+                    let enum_type = Type::Named((ty.namespace.clone(), ty.name.clone()));
                     blobs.insert(field_blob(&enum_type, definitions, references));
                     blobs.insert(field_blob(&value_to_type(&ty.constants[0].value), definitions, references));
                     ty.constants.iter().for_each(|constant| {
@@ -138,7 +138,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         FieldList: tables.Field.len() as _,
                         MethodList: tables.MethodDef.len() as _,
                     });
-                    let enum_type = Type::named(&ty.namespace, &ty.name);
+                    let enum_type = Type::Named((ty.namespace.clone(), ty.name.clone()));
                     let flags = FieldAttributes::PRIVATE | FieldAttributes::SPECIAL | FieldAttributes::RUNTIME_SPECIAL;
                     tables.Field.push2(tables::Field {
                         Flags: flags.0,

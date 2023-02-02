@@ -6,7 +6,7 @@ mod keywords {
 }
 
 pub trait ToWriter {
-    fn to_writer(&self, namespace: &str, items: &mut Vec<writer::Item>) -> Result<()>;
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()>;
 }
 
 pub struct Module {
@@ -29,12 +29,13 @@ impl Parse for Module {
 }
 
 impl ToWriter for Module {
-    fn to_writer(&self, namespace: &str, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, namespace:String, items: &mut Vec<writer::Item>) -> Result<()> {
         for member in &self.members {
             match member {
-                ModuleMember::Module(member) => member.to_writer(&format!("{namespace}.{}", member.name), items)?,
-                ModuleMember::Interface(member) => member.to_writer(namespace, items)?,
-                ModuleMember::Struct(member) => member.to_writer(namespace, items)?,
+                ModuleMember::Module(member) => member.to_writer(format!("{namespace}.{}", member.name), items)?,
+                ModuleMember::Interface(member) => member.to_writer(namespace.clone(), items)?,
+                ModuleMember::Struct(member) => member.to_writer(namespace.clone(), items)?,
+                ModuleMember::Enum(member) => member.to_writer(namespace.clone(), items)?,
             }
         }
         Ok(())
@@ -45,6 +46,7 @@ pub enum ModuleMember {
     Module(Module),
     Interface(Interface),
     Struct(ItemStruct),
+    Enum(ItemEnum),
 }
 
 impl Parse for ModuleMember {
@@ -56,6 +58,8 @@ impl Parse for ModuleMember {
             Ok(ModuleMember::Interface(input.parse()?))
         } else if lookahead.peek(Token![struct]) {
             Ok(ModuleMember::Struct(input.parse()?))
+        } else if lookahead.peek(Token![enum]) {
+            Ok(ModuleMember::Enum(input.parse()?))
         } else {
             Err(lookahead.error())
         }
@@ -82,21 +86,28 @@ impl Parse for Interface {
 }
 
 impl ToWriter for Interface {
-    fn to_writer(&self, namespace: &str, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         let mut methods = Vec::new();
 
         for method in &self.methods {
             methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
         }
 
-        items.push(writer::Interface::item(namespace, &self.name.to_string(), methods));
+        items.push(writer::Item::Interface(writer::Interface {namespace, name: self.name.to_string(), methods}));
         Ok(())
     }
 }
 
 impl ToWriter for ItemStruct {
-    fn to_writer(&self, namespace: &str, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Struct::item(namespace, &self.ident.to_string(), vec![]));
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+        items.push(writer::Item::Struct(writer::Struct{ namespace, name: self.ident.to_string(), fields: vec![] }));
+        Ok(())
+    }
+}
+
+impl ToWriter for ItemEnum {
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+        items.push(writer::Item::Enum(writer::Enum{ namespace, name: self.ident.to_string(), constants: vec![writer::Constant{ name: "name".to_string(), value: writer::Value::I32(1)}] }));
         Ok(())
     }
 }

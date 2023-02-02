@@ -18,22 +18,10 @@ pub struct Struct {
     pub fields: Vec<Field>,
 }
 
-impl Struct {
-    pub fn item(namespace: &str, name: &str, fields: Vec<Field>) -> Item {
-        Item::Struct(Self { namespace: namespace.to_string(), name: name.to_string(), fields })
-    }
-}
-
 pub struct Enum {
     pub namespace: String,
     pub name: String,
     pub constants: Vec<Constant>,
-}
-
-impl Enum {
-    pub fn item(namespace: &str, name: &str, constants: Vec<Constant>) -> Item {
-        Item::Enum(Self { namespace: namespace.to_string(), name: name.to_string(), constants })
-    }
 }
 
 pub struct Interface {
@@ -42,32 +30,14 @@ pub struct Interface {
     pub methods: Vec<Method>,
 }
 
-impl Interface {
-    pub fn item(namespace: &str, name: &str, methods: Vec<Method>) -> Item {
-        Item::Interface(Self { namespace: namespace.to_string(), name: name.to_string(), methods })
-    }
-}
-
 pub struct Field {
     pub name: String,
     pub ty: Type,
 }
 
-impl Field {
-    pub fn new(name: &str, ty: Type) -> Self {
-        Self { name: name.to_string(), ty }
-    }
-}
-
 pub struct Constant {
     pub name: String,
     pub value: Value,
-}
-
-impl Constant {
-    pub fn new(name: &str, value: Value) -> Self {
-        Self { name: name.to_string(), value }
-    }
 }
 
 pub struct Method {
@@ -76,22 +46,10 @@ pub struct Method {
     pub params: Vec<Param>,
 }
 
-impl Method {
-    pub fn new(name: &str, return_type: Type, params: Vec<Param>) -> Self {
-        Self { name: name.to_string(), return_type, params }
-    }
-}
-
 pub struct Param {
     pub name: String,
     pub ty: Type,
     pub flags: ParamFlags,
-}
-
-impl Param {
-    pub fn new(name: &str, ty: Type, flags: ParamFlags) -> Self {
-        Self { name: name.to_string(), ty, flags }
-    }
 }
 
 flags!(ParamFlags, u32);
@@ -119,12 +77,6 @@ pub enum Type {
     USize,
     String,
     Named((String, String)),
-}
-
-impl Type {
-    pub fn named(namespace: &str, name: &str) -> Self {
-        Self::Named((namespace.to_string(), name.to_string()))
-    }
 }
 
 pub enum Value {

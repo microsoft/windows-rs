@@ -65,7 +65,7 @@ fn run() -> ToolResult {
         let mut source = String::new();
         file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
 
-        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module.to_writer(&module.name.to_string(), &mut items)) {
+        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module.to_writer(module.name.to_string(), &mut items)) {
             let start = error.span().start();
             let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
             return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));

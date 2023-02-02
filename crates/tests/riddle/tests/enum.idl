@@ -1,0 +1,6 @@
+mod TypeNamespace {
+    enum TypeName {
+        C1,
+        C2,
+    }
+}
