@@ -32,108 +32,108 @@ jobs:
             >> $env:GITHUB_ENV
       - name: Run cargo clippy
         run: |
-          cargo clippy -p riddle -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_bits -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_com_uri -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_consent -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_core_app -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_counter -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_counter_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_create_window -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_create_window_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_data_protection -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_dcomp -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_device_watcher -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_direct2d -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_direct3d12 -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_enum_windows -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_enum_windows_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_kernel_event -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_memory_buffer -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_message_box -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_message_box_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_ocr -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_overlapped -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_rss -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_simple -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_spellchecker -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_thread_pool_work -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_thread_pool_work_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_uiautomation -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_wmi -- -A clippy::uninlined_format_args &&
-          cargo clippy -p sample_xml -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_agile -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_agile_reference -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_alternate_success_code -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_arch -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_arch_feature -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_bcrypt -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_bstr -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_calling_convention -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_cfg_generic -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_component -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_component_client -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_const_fields -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_const_ptrs -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_core -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_debug -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_debugger_visualizer_x -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_deprecated -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_dispatch -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_does_not_return -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_enums -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_error -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_event -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_extensions -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_handles -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_helpers -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_implement -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_interface -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_interop -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_lib -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_literals -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_match -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_matrix3x2 -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_metadata -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_msrv -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_no_use -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_not_dll -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_query_signature -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_readme -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_reserved -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_resources -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_return_struct -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_riddle -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_simple_component -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_string_param -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_structs -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_unions -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_weak -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_weak_ref -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_win32 -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_win32_arrays -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_window_long -- -A clippy::uninlined_format_args &&
-          cargo clippy -p test_winrt -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_gnu -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_lib -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_license -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_msvc -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_windows -- -A clippy::uninlined_format_args &&
-          cargo clippy -p tool_yml -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-bindgen -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-implement -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-interface -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-metadata -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-sys -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-targets -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows-tokens -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_aarch64_gnullvm -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_aarch64_msvc -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_i686_gnu -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_i686_msvc -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_x86_64_gnu -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_x86_64_gnullvm -- -A clippy::uninlined_format_args &&
-          cargo clippy -p windows_x86_64_msvc -- -A clippy::uninlined_format_args
+          cargo clippy -p riddle &&
+          cargo clippy -p sample_bits &&
+          cargo clippy -p sample_com_uri &&
+          cargo clippy -p sample_consent &&
+          cargo clippy -p sample_core_app &&
+          cargo clippy -p sample_counter &&
+          cargo clippy -p sample_counter_sys &&
+          cargo clippy -p sample_create_window &&
+          cargo clippy -p sample_create_window_sys &&
+          cargo clippy -p sample_data_protection &&
+          cargo clippy -p sample_dcomp &&
+          cargo clippy -p sample_device_watcher &&
+          cargo clippy -p sample_direct2d &&
+          cargo clippy -p sample_direct3d12 &&
+          cargo clippy -p sample_enum_windows &&
+          cargo clippy -p sample_enum_windows_sys &&
+          cargo clippy -p sample_kernel_event &&
+          cargo clippy -p sample_memory_buffer &&
+          cargo clippy -p sample_message_box &&
+          cargo clippy -p sample_message_box_sys &&
+          cargo clippy -p sample_ocr &&
+          cargo clippy -p sample_overlapped &&
+          cargo clippy -p sample_rss &&
+          cargo clippy -p sample_simple &&
+          cargo clippy -p sample_spellchecker &&
+          cargo clippy -p sample_thread_pool_work &&
+          cargo clippy -p sample_thread_pool_work_sys &&
+          cargo clippy -p sample_uiautomation &&
+          cargo clippy -p sample_wmi &&
+          cargo clippy -p sample_xml &&
+          cargo clippy -p test_agile &&
+          cargo clippy -p test_agile_reference &&
+          cargo clippy -p test_alternate_success_code &&
+          cargo clippy -p test_arch &&
+          cargo clippy -p test_arch_feature &&
+          cargo clippy -p test_bcrypt &&
+          cargo clippy -p test_bstr &&
+          cargo clippy -p test_calling_convention &&
+          cargo clippy -p test_cfg_generic &&
+          cargo clippy -p test_component &&
+          cargo clippy -p test_component_client &&
+          cargo clippy -p test_const_fields &&
+          cargo clippy -p test_const_ptrs &&
+          cargo clippy -p test_core &&
+          cargo clippy -p test_debug &&
+          cargo clippy -p test_debugger_visualizer_x &&
+          cargo clippy -p test_deprecated &&
+          cargo clippy -p test_dispatch &&
+          cargo clippy -p test_does_not_return &&
+          cargo clippy -p test_enums &&
+          cargo clippy -p test_error &&
+          cargo clippy -p test_event &&
+          cargo clippy -p test_extensions &&
+          cargo clippy -p test_handles &&
+          cargo clippy -p test_helpers &&
+          cargo clippy -p test_implement &&
+          cargo clippy -p test_interface &&
+          cargo clippy -p test_interop &&
+          cargo clippy -p test_lib &&
+          cargo clippy -p test_literals &&
+          cargo clippy -p test_match &&
+          cargo clippy -p test_matrix3x2 &&
+          cargo clippy -p test_metadata &&
+          cargo clippy -p test_msrv &&
+          cargo clippy -p test_no_use &&
+          cargo clippy -p test_not_dll &&
+          cargo clippy -p test_query_signature &&
+          cargo clippy -p test_readme &&
+          cargo clippy -p test_reserved &&
+          cargo clippy -p test_resources &&
+          cargo clippy -p test_return_struct &&
+          cargo clippy -p test_riddle &&
+          cargo clippy -p test_simple_component &&
+          cargo clippy -p test_string_param &&
+          cargo clippy -p test_structs &&
+          cargo clippy -p test_sys &&
+          cargo clippy -p test_unions &&
+          cargo clippy -p test_weak &&
+          cargo clippy -p test_weak_ref &&
+          cargo clippy -p test_win32 &&
+          cargo clippy -p test_win32_arrays &&
+          cargo clippy -p test_window_long &&
+          cargo clippy -p test_winrt &&
+          cargo clippy -p tool_gnu &&
+          cargo clippy -p tool_lib &&
+          cargo clippy -p tool_license &&
+          cargo clippy -p tool_msvc &&
+          cargo clippy -p tool_sys &&
+          cargo clippy -p tool_windows &&
+          cargo clippy -p tool_yml &&
+          cargo clippy -p windows &&
+          cargo clippy -p windows-bindgen &&
+          cargo clippy -p windows-implement &&
+          cargo clippy -p windows-interface &&
+          cargo clippy -p windows-metadata &&
+          cargo clippy -p windows-sys &&
+          cargo clippy -p windows-targets &&
+          cargo clippy -p windows-tokens &&
+          cargo clippy -p windows_aarch64_gnullvm &&
+          cargo clippy -p windows_aarch64_msvc &&
+          cargo clippy -p windows_i686_gnu &&
+          cargo clippy -p windows_i686_msvc &&
+          cargo clippy -p windows_x86_64_gnu &&
+          cargo clippy -p windows_x86_64_gnullvm &&
+          cargo clippy -p windows_x86_64_msvc
