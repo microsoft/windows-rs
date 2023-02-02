@@ -149,7 +149,8 @@ fn run() -> ToolResult {
 
         if let Err(error) = parse_str::<Module>(&source).and_then(|module| module_to_writer(&module.name.to_string(), &module, &mut items)) {
             let start = error.span().start();
-            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column));
+            let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
+            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));
         }
     }
 
