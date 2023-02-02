@@ -1,6 +1,8 @@
 mod TypeNamespace {
     enum TypeName {
-        C1,
-        C2,
+        A,
+        B,
+        C = 42,
+        D,
     }
 }

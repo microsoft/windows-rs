@@ -107,6 +107,8 @@ impl ToWriter for ItemStruct {
 
 impl ToWriter for ItemEnum {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
+        //let mut constants = Vec::new();
+
         items.push(writer::Item::Enum(writer::Enum{ namespace, name: self.ident.to_string(), constants: vec![writer::Constant{ name: "name".to_string(), value: writer::Value::I32(1)}] }));
         Ok(())
     }
