@@ -32,6 +32,7 @@ jobs:
             >> $env:GITHUB_ENV
       - name: Run cargo clippy
         run: |
+          cargo clippy -p riddle -- -A clippy::uninlined_format_args &&
           cargo clippy -p sample_bits -- -A clippy::uninlined_format_args &&
           cargo clippy -p sample_com_uri -- -A clippy::uninlined_format_args &&
           cargo clippy -p sample_consent -- -A clippy::uninlined_format_args &&
@@ -102,6 +103,7 @@ jobs:
           cargo clippy -p test_reserved -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_resources -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_return_struct -- -A clippy::uninlined_format_args &&
+          cargo clippy -p test_riddle -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_simple_component -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_string_param -- -A clippy::uninlined_format_args &&
           cargo clippy -p test_structs -- -A clippy::uninlined_format_args &&

@@ -39,6 +39,13 @@ impl Enum {
 pub struct Interface {
     pub namespace: String,
     pub name: String,
+    pub methods: Vec<Method>,
+}
+
+impl Interface {
+    pub fn item(namespace: &str, name: &str, methods: Vec<Method>) -> Item {
+        Item::Interface(Self { namespace: namespace.to_string(), name: name.to_string(), methods })
+    }
 }
 
 pub struct Field {
@@ -61,6 +68,37 @@ impl Constant {
     pub fn new(name: &str, value: Value) -> Self {
         Self { name: name.to_string(), value }
     }
+}
+
+pub struct Method {
+    pub name: String,
+    pub return_type: Type,
+    pub params: Vec<Param>,
+}
+
+impl Method {
+    pub fn new(name: &str, return_type: Type, params: Vec<Param>) -> Self {
+        Self { name: name.to_string(), return_type, params }
+    }
+}
+
+pub struct Param {
+    pub name: String,
+    pub ty: Type,
+    pub flags: ParamFlags,
+}
+
+impl Param {
+    pub fn new(name: &str, ty: Type, flags: ParamFlags) -> Self {
+        Self { name: name.to_string(), ty, flags }
+    }
+}
+
+flags!(ParamFlags, u32);
+impl ParamFlags {
+    pub const INPUT: Self = Self(0x1);
+    pub const OUTPUT: Self = Self(0x2);
+    pub const OPTIONAL: Self = Self(0x10);
 }
 
 pub enum Type {

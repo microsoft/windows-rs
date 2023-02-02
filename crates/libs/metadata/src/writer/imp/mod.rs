@@ -23,7 +23,7 @@ pub fn round(size: usize, round: usize) -> usize {
 
 pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str]) -> Vec<u8> {
     // Index assemblies used to resolve references to existing winmd files.
-    let assemblies = reader::File::with_default(assemblies).expect("Assemblies could not be loaded");
+    let assemblies: Vec<reader::File> = assemblies.iter().map(|file| reader::File::new(file).expect("Assemblies could not be loaded")).collect();
     let assemblies = &reader::Reader::new(&assemblies);
 
     // Build sorted list of definitions.
@@ -82,6 +82,13 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                 Item::Interface(ty) => {
                     strings.insert(&ty.namespace);
                     strings.insert(&ty.name);
+                    ty.methods.iter().for_each(|method| {
+                        strings.insert(&method.name);
+                        blobs.insert(method_blob(method, definitions, references));
+                        method.params.iter().for_each(|param| {
+                            strings.insert(&param.name);
+                        });
+                    });
                 }
             }
         }
@@ -101,7 +108,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
         for (_index, item) in definitions.iter() {
             match item {
                 Item::Struct(ty) => {
-                    let mut flags = TypeAttributes::PUBLIC;
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::SEQUENTIAL_LAYOUT | TypeAttributes::SEALED;
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
@@ -111,7 +118,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(value_type).encode(),
                         FieldList: tables.Field.len() as _,
-                        MethodList: 0,
+                        MethodList: tables.MethodDef.len() as _,
                     });
                     for field in &ty.fields {
                         let flags = FieldAttributes::PUBLIC;
@@ -129,7 +136,7 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                         TypeNamespace: strings.index(&ty.namespace),
                         Extends: TypeDefOrRef::TypeRef(enum_type).encode(),
                         FieldList: tables.Field.len() as _,
-                        MethodList: 0,
+                        MethodList: tables.MethodDef.len() as _,
                     });
                     let enum_type = Type::named(&ty.namespace, &ty.name);
                     let flags = FieldAttributes::PRIVATE | FieldAttributes::SPECIAL | FieldAttributes::RUNTIME_SPECIAL;
@@ -145,11 +152,32 @@ pub fn write(name: &str, winrt: bool, definitions: &[Item], assemblies: &[&str])
                     }
                 }
                 Item::Interface(ty) => {
-                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE;
+                    let mut flags = TypeAttributes::PUBLIC | TypeAttributes::INTERFACE | TypeAttributes::ABSTRACT;
                     if winrt {
                         flags |= TypeAttributes::WINRT;
                     }
-                    tables.TypeDef.push(tables::TypeDef { Flags: flags.0, TypeName: strings.index(&ty.name), TypeNamespace: strings.index(&ty.namespace), Extends: 0, FieldList: 0, MethodList: 0 });
+                    tables.TypeDef.push(tables::TypeDef {
+                        Flags: flags.0,
+                        TypeName: strings.index(&ty.name),
+                        TypeNamespace: strings.index(&ty.namespace),
+                        Extends: 0,
+                        FieldList: tables.Field.len() as _,
+                        MethodList: tables.MethodDef.len() as _,
+                    });
+                    for method in &ty.methods {
+                        let flags = MethodAttributes::ABSTRACT | MethodAttributes::HIDE_BY_SIG | MethodAttributes::NEW_SLOT | MethodAttributes::PUBLIC | MethodAttributes::VIRTUAL;
+                        tables.MethodDef.push(tables::MethodDef {
+                            RVA: 0,
+                            ImplFlags: 0,
+                            Flags: flags.0,
+                            Name: strings.index(&method.name),
+                            Signature: blobs.index(&method_blob(method, definitions, references)),
+                            ParamList: tables.Param.len() as _,
+                        });
+                        for (sequence, param) in method.params.iter().enumerate() {
+                            tables.Param.push(tables::Param { Flags: param_flags_to_attributes(param.flags).0, Sequence: (sequence + 1) as _, Name: strings.index(&param.name) });
+                        }
+                    }
                 }
             }
         }
@@ -174,6 +202,20 @@ fn type_reference<'a>(ty: &'a Type, definitions: &StagedDefinitions, assemblies:
     }
 }
 
+fn param_flags_to_attributes(flags: ParamFlags) -> ParamAttributes {
+    let mut attributes = ParamAttributes(0);
+    if flags.contains(ParamFlags::INPUT) {
+        attributes |= ParamAttributes::INPUT;
+    }
+    if flags.contains(ParamFlags::OUTPUT) {
+        attributes |= ParamAttributes::OUTPUT;
+    }
+    if flags.contains(ParamFlags::OPTIONAL) {
+        attributes |= ParamAttributes::OPTIONAL;
+    }
+    attributes
+}
+
 fn item_type_name(item: &Item) -> (&str, &str) {
     match item {
         Item::Struct(ty) => (ty.namespace.as_str(), ty.name.as_str()),
@@ -187,6 +229,16 @@ fn item_value_type(item: &Item) -> bool {
         Item::Struct(_) | Item::Enum(_) => true,
         Item::Interface(_) => false,
     }
+}
+
+fn method_blob(method: &Method, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {
+    let mut blob = vec![0x20]; // HASTHIS
+    u32_blob(method.params.len() as _, &mut blob);
+    for param in &method.params {
+        type_blob(&param.ty, &mut blob, definitions, references);
+    }
+    type_blob(&method.return_type, &mut blob, definitions, references);
+    blob
 }
 
 fn field_blob(ty: &Type, definitions: &StagedDefinitions, references: &StagedReferences) -> Vec<u8> {

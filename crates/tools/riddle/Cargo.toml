@@ -1,0 +1,13 @@
+[package]
+name = "riddle"
+version = "0.0.1"
+authors = ["Microsoft"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Code gen support for the windows crate"
+repository = "https://github.com/microsoft/windows-rs"
+
+[dependencies]
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.44.0" }
+syn = { version = "1.0", features = ["full", "extra-traits"] }
+proc-macro2 = {version = "1.0", features = ["span-locations"] } 

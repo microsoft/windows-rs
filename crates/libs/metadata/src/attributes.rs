@@ -1,42 +1,4 @@
-macro_rules! flags {
-    ($name:ident, $size:ty) => {
-        #[derive(Default, Copy, Clone, PartialEq, Eq)]
-        pub struct $name(pub $size);
-        impl $name {
-            pub fn contains(&self, contains: Self) -> bool {
-                *self & contains == contains
-            }
-        }
-        impl std::ops::BitOr for $name {
-            type Output = Self;
-            fn bitor(self, other: Self) -> Self {
-                Self(self.0 | other.0)
-            }
-        }
-        impl std::ops::BitAnd for $name {
-            type Output = Self;
-            fn bitand(self, other: Self) -> Self {
-                Self(self.0 & other.0)
-            }
-        }
-        impl std::ops::BitOrAssign for $name {
-            fn bitor_assign(&mut self, other: Self) {
-                self.0.bitor_assign(other.0)
-            }
-        }
-        impl std::ops::BitAndAssign for $name {
-            fn bitand_assign(&mut self, other: Self) {
-                self.0.bitand_assign(other.0)
-            }
-        }
-        impl std::ops::Not for $name {
-            type Output = Self;
-            fn not(self) -> Self {
-                Self(self.0.not())
-            }
-        }
-    };
-}
+use super::*;
 
 flags!(FieldAttributes, u16);
 impl FieldAttributes {
@@ -49,9 +11,14 @@ impl FieldAttributes {
     pub const HAS_DEFAULT: Self = Self(0x8000);
 }
 
-flags!(MethodAttributes, usize);
+flags!(MethodAttributes, u16);
 impl MethodAttributes {
+    pub const ABSTRACT: Self = Self(0x400);
+    pub const HIDE_BY_SIG: Self = Self(0x80);
+    pub const NEW_SLOT: Self = Self(0x100);
+    pub const PUBLIC: Self = Self(0x6);
     pub const SPECIAL: Self = Self(0x800);
+    pub const VIRTUAL: Self = Self(0x40);
 }
 
 flags!(MethodImplAttributes, usize);
@@ -59,7 +26,7 @@ impl MethodImplAttributes {
     pub const PRESERVE_SIG: Self = Self(0x80);
 }
 
-flags!(ParamAttributes, usize);
+flags!(ParamAttributes, u16);
 impl ParamAttributes {
     pub const INPUT: Self = Self(0x1);
     pub const OUTPUT: Self = Self(0x2);
@@ -84,4 +51,5 @@ impl TypeAttributes {
     pub const SEALED: Self = Self(0x100);
     pub const WINRT: Self = Self(0x4000);
     pub const INTERFACE: Self = Self(0x20);
+    pub const SEQUENTIAL_LAYOUT: Self = Self(0x8);
 }
