@@ -29,7 +29,7 @@ impl Parse for Module {
 }
 
 impl ToWriter for Module {
-    fn to_writer(&self, namespace:String, items: &mut Vec<writer::Item>) -> Result<()> {
+    fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
         for member in &self.members {
             match member {
                 ModuleMember::Module(member) => member.to_writer(format!("{namespace}.{}", member.name), items)?,
@@ -93,23 +93,44 @@ impl ToWriter for Interface {
             methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
         }
 
-        items.push(writer::Item::Interface(writer::Interface {namespace, name: self.name.to_string(), methods}));
+        items.push(writer::Item::Interface(writer::Interface { namespace, name: self.name.to_string(), methods }));
         Ok(())
     }
 }
 
 impl ToWriter for ItemStruct {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Item::Struct(writer::Struct{ namespace, name: self.ident.to_string(), fields: vec![] }));
+        items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields: vec![] }));
         Ok(())
     }
 }
 
 impl ToWriter for ItemEnum {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        //let mut constants = Vec::new();
+        let mut constants = Vec::new();
+        let mut value = 0;
 
-        items.push(writer::Item::Enum(writer::Enum{ namespace, name: self.ident.to_string(), constants: vec![writer::Constant{ name: "name".to_string(), value: writer::Value::I32(1)}] }));
+        // TODO: need to read the `#[repr(u8)]` attribute infer the underlying type
+
+        for variant in &self.variants {
+            if let Some((_, discriminant)) = &variant.discriminant {
+                let mut valid = false;
+                if let Expr::Lit(discriminant) = discriminant {
+                    if let Lit::Int(discriminant) = &discriminant.lit {
+                        value = discriminant.base10_parse()?;
+                        valid = true;
+                    }
+                }
+                if !valid {
+                    return Err(Error::new(variant.ident.span(), "expected integer literal discriminant"));
+                }
+            }
+
+            constants.push(writer::Constant { name: variant.ident.to_string(), value: writer::Value::I32(value) });
+            value += 1;
+        }
+
+        items.push(writer::Item::Enum(writer::Enum { namespace, name: self.ident.to_string(), constants }));
         Ok(())
     }
 }

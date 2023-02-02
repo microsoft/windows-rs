@@ -8,8 +8,7 @@ pub fn run_riddle(input: &str) -> String {
         panic!("Failed to install riddle");
     }
 
-    // ildasm.exe %temp%\test_riddle.winmd
-    let output = std::env::temp_dir().join("test_riddle.winmd").to_string_lossy().into_owned();
+    let output = std::env::temp_dir().join(std::path::Path::new(input).with_extension("winmd").file_name().expect("file_name failed")).to_string_lossy().into_owned();
 
     let mut command = Command::new("riddle.exe");
     command.arg("-input").arg(input).arg("-output").arg(&output);
