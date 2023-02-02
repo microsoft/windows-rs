@@ -4,7 +4,7 @@ version = "0.42.1"
 authors = ["Microsoft"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
-description = "Code gen support for the windows crate"
+description = "Import lib for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 
 [package.metadata.docs.rs]

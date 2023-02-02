@@ -51,6 +51,7 @@ repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://microsoft.github.io/windows-docs-rs/"
 readme = "../../../docs/readme.md"
 rust-version = "1.48"
+categories = ["os::windows-apis"]
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
