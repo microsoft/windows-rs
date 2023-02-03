@@ -376,7 +376,7 @@
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn HiliteMenuItem ( hwnd : super::super::Foundation:: HWND , hmenu : HMENU , uidhiliteitem : u32 , uhilite : u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn InSendMessage ( ) -> super::super::Foundation:: BOOL );
-::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn InSendMessageEx ( lpreserved : *mut ::core::ffi::c_void ) -> u32 );
+::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn InSendMessageEx ( lpreserved : *const ::core::ffi::c_void ) -> u32 );
 ::windows_sys::core::link ! ( "mrmsupport.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"] fn IndexFilePath ( resourceindexer : *const ::core::ffi::c_void , filepath : :: windows_sys::core::PCWSTR , ppresourceuri : *mut :: windows_sys::core::PWSTR , pqualifiercount : *mut u32 , ppqualifiers : *mut *mut IndexedResourceQualifier ) -> :: windows_sys::core::HRESULT );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "user32.dll""system" #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"] fn InheritWindowMonitor ( hwnd : super::super::Foundation:: HWND , hwndinherit : super::super::Foundation:: HWND ) -> super::super::Foundation:: BOOL );
@@ -1152,10 +1152,6 @@ pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const EDS_RAWMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const EDS_ROTATEDMODE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -6357,8 +6353,8 @@ pub struct WINDOWINFO {
     pub cbSize: u32,
     pub rcWindow: super::super::Foundation::RECT,
     pub rcClient: super::super::Foundation::RECT,
-    pub dwStyle: u32,
-    pub dwExStyle: u32,
+    pub dwStyle: WINDOW_STYLE,
+    pub dwExStyle: WINDOW_EX_STYLE,
     pub dwWindowStatus: u32,
     pub cxWindowBorders: u32,
     pub cyWindowBorders: u32,

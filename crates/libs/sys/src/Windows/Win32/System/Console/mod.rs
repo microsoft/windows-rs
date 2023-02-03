@@ -8,7 +8,7 @@
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn AttachConsole ( dwprocessid : u32 ) -> super::super::Foundation:: BOOL );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`*"] fn ClosePseudoConsole ( hpc : HPCON ) -> ( ) );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateConsoleScreenBuffer ( dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflags : u32 , lpscreenbufferdata : *mut ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"] fn CreateConsoleScreenBuffer ( dwdesiredaccess : u32 , dwsharemode : u32 , lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES , dwflags : u32 , lpscreenbufferdata : *const ::core::ffi::c_void ) -> super::super::Foundation:: HANDLE );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn CreatePseudoConsole ( size : COORD , hinput : super::super::Foundation:: HANDLE , houtput : super::super::Foundation:: HANDLE , dwflags : u32 , phpc : *mut HPCON ) -> :: windows_sys::core::HRESULT );
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`*"] fn ExpungeConsoleCommandHistoryA ( exename : :: windows_sys::core::PCSTR ) -> ( ) );
@@ -144,7 +144,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn SetStdHandleEx ( nstdhandle : STD_HANDLE , hhandle : super::super::Foundation:: HANDLE , phprevvalue : *mut super::super::Foundation:: HANDLE ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleA ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleInputA ( hconsoleinput : super::super::Foundation:: HANDLE , lpbuffer : *const INPUT_RECORD , nlength : u32 , lpnumberofeventswritten : *mut u32 ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
@@ -160,7 +160,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleOutputW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const CHAR_INFO , dwbuffersize : COORD , dwbuffercoord : COORD , lpwriteregion : *mut SMALL_RECT ) -> super::super::Foundation:: BOOL );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *mut ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
+::windows_sys::core::link ! ( "kernel32.dll""system" #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"] fn WriteConsoleW ( hconsoleoutput : super::super::Foundation:: HANDLE , lpbuffer : *const ::core::ffi::c_void , nnumberofcharstowrite : u32 , lpnumberofcharswritten : *mut u32 , lpreserved : *const ::core::ffi::c_void ) -> super::super::Foundation:: BOOL );
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
