@@ -3441,8 +3441,8 @@ pub struct IAMRebuild_Vtbl {
 #[repr(transparent)]
 pub struct IAMResourceControl(::windows::core::IUnknown);
 impl IAMResourceControl {
-    pub unsafe fn Reserve(&self, dwflags: u32, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Reserve)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Reserve(&self, dwflags: u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Reserve)(::windows::core::Vtable::as_raw(self), dwflags, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IAMResourceControl, ::windows::core::IUnknown);
@@ -3472,7 +3472,7 @@ unsafe impl ::windows::core::Interface for IAMResourceControl {
 #[doc(hidden)]
 pub struct IAMResourceControl_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Reserve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Reserve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -22712,11 +22712,11 @@ impl IFilterGraph2 {
     {
         (::windows::core::Vtable::vtable(self).ReconnectEx)(::windows::core::Vtable::as_raw(self), ppin.into().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: ::core::option::Option<*const u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPin>>,
     {
-        (::windows::core::Vtable::vtable(self).RenderEx)(::windows::core::Vtable::as_raw(self), ppinout.into().abi(), dwflags, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).RenderEx)(::windows::core::Vtable::as_raw(self), ppinout.into().abi(), dwflags, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IFilterGraph2, ::windows::core::IUnknown, IFilterGraph, IGraphBuilder);
@@ -22754,7 +22754,7 @@ pub struct IFilterGraph2_Vtbl {
     pub ReconnectEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppin: *mut ::core::ffi::c_void, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     ReconnectEx: usize,
-    pub RenderEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::HRESULT,
+    pub RenderEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, dwflags: u32, pvcontext: *const u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 #[repr(transparent)]
@@ -22872,11 +22872,11 @@ impl IFilterGraph3 {
     {
         (::windows::core::Vtable::vtable(self).base__.ReconnectEx)(::windows::core::Vtable::as_raw(self), ppin.into().abi(), ::core::mem::transmute(pmt.unwrap_or(::std::ptr::null()))).ok()
     }
-    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()>
+    pub unsafe fn RenderEx<P0>(&self, ppinout: P0, dwflags: u32, pvcontext: ::core::option::Option<*const u32>) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPin>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.RenderEx)(::windows::core::Vtable::as_raw(self), ppinout.into().abi(), dwflags, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows::core::Vtable::vtable(self).base__.RenderEx)(::windows::core::Vtable::as_raw(self), ppinout.into().abi(), dwflags, ::core::mem::transmute(pvcontext.unwrap_or(::std::ptr::null()))).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]

@@ -427,6 +427,27 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
         iid == &<ID3D12VideoDecodeCommandList2 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12VideoDecodeCommandList3_Impl: Sized + ID3D12VideoDecodeCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoDecodeCommandList3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12VideoDecodeCommandList3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList3_Impl, const OFFSET: isize>() -> ID3D12VideoDecodeCommandList3_Vtbl {
+        unsafe extern "system" fn Barrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoDecodeCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Barrier(::core::mem::transmute_copy(&numbarriergroups), ::core::mem::transmute_copy(&pbarriergroups))
+        }
+        Self { base__: ID3D12VideoDecodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList3 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows::core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList2 as ::windows::core::Interface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoDecoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
@@ -867,6 +888,27 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
         iid == &<ID3D12VideoEncodeCommandList2 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows::core::Interface>::IID
     }
 }
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12VideoEncodeCommandList3_Impl: Sized + ID3D12VideoEncodeCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows::core::RuntimeName for ID3D12VideoEncodeCommandList3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12VideoEncodeCommandList3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList3_Impl, const OFFSET: isize>() -> ID3D12VideoEncodeCommandList3_Vtbl {
+        unsafe extern "system" fn Barrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoEncodeCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Barrier(::core::mem::transmute_copy(&numbarriergroups), ::core::mem::transmute_copy(&pbarriergroups))
+        }
+        Self { base__: ID3D12VideoEncodeCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList3 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows::core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as ::windows::core::Interface>::IID
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
@@ -1264,6 +1306,27 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ID3D12VideoProcessCommandList2 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows::core::Interface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub trait ID3D12VideoProcessCommandList3_Impl: Sized + ID3D12VideoProcessCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::windows::core::RuntimeName for ID3D12VideoProcessCommandList3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ID3D12VideoProcessCommandList3_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList3_Impl, const OFFSET: isize>() -> ID3D12VideoProcessCommandList3_Vtbl {
+        unsafe extern "system" fn Barrier<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ID3D12VideoProcessCommandList3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Barrier(::core::mem::transmute_copy(&numbarriergroups), ::core::mem::transmute_copy(&pbarriergroups))
+        }
+        Self { base__: ID3D12VideoProcessCommandList2_Vtbl::new::<Identity, Impl, OFFSET>(), Barrier: Barrier::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList3 as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows::core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows::core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows::core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList2 as ::windows::core::Interface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -1833,7 +1896,7 @@ impl IDirectXVideoDecoder_Vtbl {
 pub trait IDirectXVideoDecoderService_Impl: Sized + IDirectXVideoAccelerationService_Impl {
     fn GetDecoderDeviceGuids(&self, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetDecoderRenderTargets(&self, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::Result<()>;
-    fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()>;
+    fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()>;
     fn CreateVideoDecoder(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, numrendertargets: u32) -> ::windows::core::Result<IDirectXVideoDecoder>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
@@ -1851,7 +1914,7 @@ impl IDirectXVideoDecoderService_Vtbl {
             let this = (*this).get_impl();
             this.GetDecoderRenderTargets(::core::mem::transmute_copy(&guid), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&pformats)).into()
         }
-        unsafe extern "system" fn GetDecoderConfigurations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDecoderConfigurations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectXVideoDecoderService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetDecoderConfigurations(::core::mem::transmute_copy(&guid), ::core::mem::transmute_copy(&pvideodesc), ::core::mem::transmute_copy(&preserved), ::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppconfigs)).into()
@@ -14463,7 +14526,7 @@ pub trait IMFSourceReader_Impl: Sized {
     fn SetStreamSelection(&self, dwstreamindex: u32, fselected: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn GetNativeMediaType(&self, dwstreamindex: u32, dwmediatypeindex: u32) -> ::windows::core::Result<IMFMediaType>;
     fn GetCurrentMediaType(&self, dwstreamindex: u32) -> ::windows::core::Result<IMFMediaType>;
-    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: ::core::option::Option<&IMFMediaType>) -> ::windows::core::Result<()>;
+    fn SetCurrentMediaType(&self, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: ::core::option::Option<&IMFMediaType>) -> ::windows::core::Result<()>;
     fn SetCurrentPosition(&self, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>;
     fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: *mut ::core::option::Option<IMFSample>) -> ::windows::core::Result<()>;
     fn Flush(&self, dwstreamindex: u32) -> ::windows::core::Result<()>;
@@ -14513,7 +14576,7 @@ impl IMFSourceReader_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetCurrentMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetCurrentMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFSourceReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetCurrentMediaType(::core::mem::transmute_copy(&dwstreamindex), ::core::mem::transmute_copy(&pdwreserved), ::windows::core::from_raw_borrowed(&pmediatype)).into()

@@ -3064,6 +3064,215 @@ pub struct ID3D12VideoDecodeCommandList2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
+pub struct ID3D12VideoDecodeCommandList3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoDecodeCommandList3 {
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    where
+        T: ::windows::core::Interface,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Vtable::as_raw(self))
+    }
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Reset)(::windows::core::Vtable::as_raw(self), pallocator.into().abi()).ok()
+    }
+    pub unsafe fn ClearState(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ClearState)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResourceBarrier)(::windows::core::Vtable::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DiscardResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResolveQueryData)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, startindex, numqueries, pdestinationbuffer.into().abi(), aligneddestinationbufferoffset)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPredication)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetMarker)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginEvent)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndEvent)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoDecoder>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DecodeFrame)(::windows::core::Vtable::as_raw(self), pdecoder.into().abi(), poutputarguments, pinputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn DecodeFrame1<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoDecoder>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.DecodeFrame1)(::windows::core::Vtable::as_raw(self), pdecoder.into().abi(), poutputarguments, pinputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), pprotectedresourcesession.into().abi())
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
+        (::windows::core::Vtable::vtable(self).Barrier)(::windows::core::Vtable::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+::windows::core::interface_hierarchy!(ID3D12VideoDecodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList2);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for ID3D12VideoDecodeCommandList3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::PartialEq for ID3D12VideoDecodeCommandList3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::Eq for ID3D12VideoDecodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12VideoDecodeCommandList3").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Vtable for ID3D12VideoDecodeCommandList3 {
+    type Vtable = ID3D12VideoDecodeCommandList3_Vtbl;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2aee8c37_9562_42da_8abf_61efeb2e4513);
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecodeCommandList3_Vtbl {
+    pub base__: ID3D12VideoDecodeCommandList2_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub Barrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    Barrier: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(transparent)]
 pub struct ID3D12VideoDecoder(::windows::core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder {
@@ -4552,6 +4761,226 @@ pub struct ID3D12VideoEncodeCommandList2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
+pub struct ID3D12VideoEncodeCommandList3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoEncodeCommandList3 {
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    where
+        T: ::windows::core::Interface,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Vtable::as_raw(self))
+    }
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Reset)(::windows::core::Vtable::as_raw(self), pallocator.into().abi()).ok()
+    }
+    pub unsafe fn ClearState(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ClearState)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResourceBarrier)(::windows::core::Vtable::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DiscardResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResolveQueryData)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, startindex, numqueries, pdestinationbuffer.into().abi(), aligneddestinationbufferoffset)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPredication)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetMarker)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginEvent)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndEvent)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoMotionEstimator>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EstimateMotion)(::windows::core::Vtable::as_raw(self), pmotionestimator.into().abi(), poutputarguments, pinputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResolveMotionVectorHeap)(::windows::core::Vtable::as_raw(self), poutputarguments, pinputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), pprotectedresourcesession.into().abi())
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn EncodeFrame<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoEncoder>>,
+        P1: ::std::convert::Into<::windows::core::InParam<ID3D12VideoEncoderHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.EncodeFrame)(::windows::core::Vtable::as_raw(self), pencoder.into().abi(), pheap.into().abi(), pinputarguments, poutputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
+        (::windows::core::Vtable::vtable(self).base__.ResolveEncoderOutputMetadata)(::windows::core::Vtable::as_raw(self), pinputarguments, poutputarguments)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
+        (::windows::core::Vtable::vtable(self).Barrier)(::windows::core::Vtable::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+::windows::core::interface_hierarchy!(ID3D12VideoEncodeCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for ID3D12VideoEncodeCommandList3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::PartialEq for ID3D12VideoEncodeCommandList3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::Eq for ID3D12VideoEncodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12VideoEncodeCommandList3").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Vtable for ID3D12VideoEncodeCommandList3 {
+    type Vtable = ID3D12VideoEncodeCommandList3_Vtbl;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f027b22_1515_4e85_aa0d_026486580576);
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList3_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList2_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub Barrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    Barrier: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(transparent)]
 pub struct ID3D12VideoEncoder(::windows::core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoder {
@@ -5668,6 +6097,215 @@ pub struct ID3D12VideoProcessCommandList2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
+pub struct ID3D12VideoProcessCommandList3(::windows::core::IUnknown);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ID3D12VideoProcessCommandList3 {
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows::core::Vtable::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows::core::Vtable::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows::core::GUID, pdata: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows::core::Vtable::as_raw(self), guid, pdata.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows::core::Vtable::as_raw(self), name.into().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
+    where
+        T: ::windows::core::Interface,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.base__.GetType)(::windows::core::Vtable::as_raw(self))
+    }
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Close)(::windows::core::Vtable::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12CommandAllocator>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Reset)(::windows::core::Vtable::as_raw(self), pallocator.into().abi()).ok()
+    }
+    pub unsafe fn ClearState(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ClearState)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResourceBarrier)(::windows::core::Vtable::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.DiscardResource)(::windows::core::Vtable::as_raw(self), presource.into().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndQuery)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, index)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12QueryHeap>>,
+        P1: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ResolveQueryData)(::windows::core::Vtable::as_raw(self), pqueryheap.into().abi(), r#type, startindex, numqueries, pdestinationbuffer.into().abi(), aligneddestinationbufferoffset)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12Resource>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetPredication)(::windows::core::Vtable::as_raw(self), pbuffer.into().abi(), alignedbufferoffset, operation)
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.SetMarker)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>, size: u32) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.BeginEvent)(::windows::core::Vtable::as_raw(self), metadata, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null())), size)
+    }
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.EndEvent)(::windows::core::Vtable::as_raw(self))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoProcessor>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.ProcessFrames)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows::core::Vtable::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+    pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoProcessor>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.base__.ProcessFrames1)(::windows::core::Vtable::as_raw(self), pvideoprocessor.into().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.SetProtectedResourceSession)(::windows::core::Vtable::as_raw(self), pprotectedresourcesession.into().abi())
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.InitializeExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pinitializationparameters, initializationparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<ID3D12VideoExtensionCommand>>,
+    {
+        (::windows::core::Vtable::vtable(self).base__.ExecuteExtensionCommand)(::windows::core::Vtable::as_raw(self), pextensioncommand.into().abi(), pexecutionparameters, executionparameterssizeinbytes)
+    }
+    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
+        (::windows::core::Vtable::vtable(self).Barrier)(::windows::core::Vtable::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+::windows::core::interface_hierarchy!(ID3D12VideoProcessCommandList3, ::windows::core::IUnknown, super::super::Graphics::Direct3D12::ID3D12Object, super::super::Graphics::Direct3D12::ID3D12DeviceChild, super::super::Graphics::Direct3D12::ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList2);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for ID3D12VideoProcessCommandList3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::PartialEq for ID3D12VideoProcessCommandList3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::cmp::Eq for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::fmt::Debug for ID3D12VideoProcessCommandList3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12VideoProcessCommandList3").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Vtable for ID3D12VideoProcessCommandList3 {
+    type Vtable = ID3D12VideoProcessCommandList3_Vtbl;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList3 {
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff);
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessCommandList3_Vtbl {
+    pub base__: ID3D12VideoProcessCommandList2_Vtbl,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")]
+    pub Barrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
+    #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
+    Barrier: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D12\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+#[repr(transparent)]
 pub struct ID3D12VideoProcessor(::windows::core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessor {
@@ -6541,8 +7179,8 @@ impl IDirectXVideoDecoderService {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: ::core::option::Option<*mut ::core::ffi::c_void>, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetDecoderConfigurations)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())), pcount, ppconfigs).ok()
+    pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetDecoderConfigurations)(::windows::core::Vtable::as_raw(self), guid, pvideodesc, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pcount, ppconfigs).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6584,7 +7222,7 @@ pub struct IDirectXVideoDecoderService_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))]
     GetDecoderRenderTargets: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub GetDecoderConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *mut ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT,
+    pub GetDecoderConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: *const ::core::ffi::c_void, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))]
     GetDecoderConfigurations: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -22758,11 +23396,11 @@ impl IMFSourceReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).GetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCurrentMediaType<P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*mut u32>, pmediatype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCurrentMediaType<P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*const u32>, pmediatype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     {
-        (::windows::core::Vtable::vtable(self).SetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), pmediatype.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).SetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), pmediatype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -22822,7 +23460,7 @@ pub struct IMFSourceReader_Vtbl {
     SetStreamSelection: usize,
     pub GetNativeMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwmediatypeindex: u32, ppmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppmediatype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetCurrentMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetCurrentMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *const u32, pmediatype: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub SetCurrentPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
@@ -22968,11 +23606,11 @@ impl IMFSourceReaderEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).base__.GetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn SetCurrentMediaType<P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*mut u32>, pmediatype: P0) -> ::windows::core::Result<()>
+    pub unsafe fn SetCurrentMediaType<P0>(&self, dwstreamindex: u32, pdwreserved: ::core::option::Option<*const u32>, pmediatype: P0) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMFMediaType>>,
     {
-        (::windows::core::Vtable::vtable(self).base__.SetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null_mut())), pmediatype.into().abi()).ok()
+        (::windows::core::Vtable::vtable(self).base__.SetCurrentMediaType)(::windows::core::Vtable::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), pmediatype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
@@ -33960,6 +34598,8 @@ pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows::core::GUID = ::windows::core::
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_USER_MODE_COMPONENT_LOAD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const MF_VERSION: u32 = 131184u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_VIDEODSP_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d720f0_768c_11de_8a39_0800200c9a66);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3f2e203_d445_4b8c_9211_ae390d3ba017);
@@ -34371,6 +35011,32 @@ pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES: D3D12_FEATUR
 pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(31i32);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(32i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(33i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_PROFILE_LEVEL: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(34i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(35i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(36i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_INPUT_FORMAT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(37i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(38i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_INTRA_REFRESH_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(39i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(40i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(41i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(42i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(43i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(44i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(45i32);
 impl ::core::marker::Copy for D3D12_FEATURE_VIDEO {}
 impl ::core::clone::Clone for D3D12_FEATURE_VIDEO {
     fn clone(&self) -> Self {

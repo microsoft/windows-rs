@@ -7,13 +7,13 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lps
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CompareStringEx<P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: ::core::option::Option<*mut NLSVERSIONINFO>, lpreserved: ::core::option::Option<*mut ::core::ffi::c_void>, lparam: P1) -> i32
+pub unsafe fn CompareStringEx<P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, lparam: P1) -> i32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P1: ::std::convert::Into<super::Foundation::LPARAM>,
 {
-    ::windows::core::link ! ( "kernel32.dll""system" fn CompareStringEx ( lplocalename : :: windows::core::PCWSTR , dwcmpflags : COMPARE_STRING_FLAGS , lpstring1 : :: windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : :: windows::core::PCWSTR , cchcount2 : i32 , lpversioninformation : *mut NLSVERSIONINFO , lpreserved : *mut ::core::ffi::c_void , lparam : super::Foundation:: LPARAM ) -> i32 );
-    CompareStringEx(lplocalename.into().abi(), dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null_mut())), lparam.into())
+    ::windows::core::link ! ( "kernel32.dll""system" fn CompareStringEx ( lplocalename : :: windows::core::PCWSTR , dwcmpflags : COMPARE_STRING_FLAGS , lpstring1 : :: windows::core::PCWSTR , cchcount1 : i32 , lpstring2 : :: windows::core::PCWSTR , cchcount2 : i32 , lpversioninformation : *const NLSVERSIONINFO , lpreserved : *const ::core::ffi::c_void , lparam : super::Foundation:: LPARAM ) -> i32 );
+    CompareStringEx(lplocalename.into().abi(), dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lparam.into())
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8353,9 +8353,8 @@ pub struct IComprehensiveSpellCheckProvider_Vtbl {
 #[repr(transparent)]
 pub struct IEnumCodePage(::windows::core::IUnknown);
 impl IEnumCodePage {
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumCodePage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumCodePage>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgelt, ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8394,7 +8393,7 @@ unsafe impl ::windows::core::Interface for IEnumCodePage {
 #[doc(hidden)]
 pub struct IEnumCodePage_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -8403,9 +8402,8 @@ pub struct IEnumCodePage_Vtbl {
 #[repr(transparent)]
 pub struct IEnumRfc1766(::windows::core::IUnknown);
 impl IEnumRfc1766 {
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRfc1766> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumRfc1766>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgelt, ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8444,7 +8442,7 @@ unsafe impl ::windows::core::Interface for IEnumRfc1766 {
 #[doc(hidden)]
 pub struct IEnumRfc1766_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -8453,9 +8451,8 @@ pub struct IEnumRfc1766_Vtbl {
 #[repr(transparent)]
 pub struct IEnumScript(::windows::core::IUnknown);
 impl IEnumScript {
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumScript> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumScript>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: ::core::option::Option<*mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), celt, rgelt, ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8494,7 +8491,7 @@ unsafe impl ::windows::core::Interface for IEnumScript {
 #[doc(hidden)]
 pub struct IEnumScript_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
@@ -9006,8 +9003,8 @@ impl IMLangStringAStr {
     {
         (::windows::core::Vtable::vtable(self).SetStrBufA)(::windows::core::Vtable::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.into().abi(), ::core::mem::transmute(pcchactual.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plactuallen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: ::core::option::Option<*mut u32>, pszdest: ::core::option::Option<&mut [u8]>, pcchactual: ::core::option::Option<*mut i32>, plactuallen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).GetAStr)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrclen, ucodepagein, ::core::mem::transmute(pucodepageout.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszdest.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchactual.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plactuallen.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: ::core::option::Option<*const u32>, pszdest: ::core::option::Option<&mut [u8]>, pcchactual: ::core::option::Option<*mut i32>, plactuallen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).GetAStr)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrclen, ucodepagein, ::core::mem::transmute(pucodepageout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pszdest.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcchactual.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(plactuallen.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: ::core::option::Option<*mut u32>, ppdestbuf: *mut ::core::option::Option<IMLangStringBufA>, pldestlen: ::core::option::Option<*mut i32>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStrBufA)(::windows::core::Vtable::as_raw(self), lsrcpos, lsrcmaxlen, ::core::mem::transmute(pudestcodepage.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdestbuf), ::core::mem::transmute(pldestlen.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9054,7 +9051,7 @@ pub struct IMLangStringAStr_Vtbl {
     pub base__: IMLangString_Vtbl,
     pub SetAStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: ::windows::core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT,
     pub SetStrBufA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: *mut ::core::ffi::c_void, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT,
-    pub GetAStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *mut u32, pszdest: ::windows::core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT,
+    pub GetAStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: *const u32, pszdest: ::windows::core::PSTR, cchdest: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT,
     pub GetStrBufA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: *mut u32, ppdestbuf: *mut *mut ::core::ffi::c_void, pldestlen: *mut i32) -> ::windows::core::HRESULT,
     pub LockAStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: *mut u32, ppszdest: *mut ::windows::core::PSTR, pcchdest: *mut i32, pldestlen: *mut i32) -> ::windows::core::HRESULT,
     pub UnlockAStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsrc: ::windows::core::PCSTR, cchsrc: i32, pcchactual: *mut i32, plactuallen: *mut i32) -> ::windows::core::HRESULT,

@@ -364,6 +364,138 @@ impl ::core::fmt::Debug for D3D_FEATURE_LEVEL {
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct D3D_FORMAT_COMPONENT_INTERPRETATION(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_TYPELESS: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_FLOAT: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(-4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_SNORM: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(-3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_UNORM: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(-2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_SINT: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(-1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_UINT: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_UNORM_SRGB: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCI_BIASED_FIXED_2_8: D3D_FORMAT_COMPONENT_INTERPRETATION = D3D_FORMAT_COMPONENT_INTERPRETATION(3i32);
+impl ::core::marker::Copy for D3D_FORMAT_COMPONENT_INTERPRETATION {}
+impl ::core::clone::Clone for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D3D_FORMAT_COMPONENT_INTERPRETATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct D3D_FORMAT_COMPONENT_NAME(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_R: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(-4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_G: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(-3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_B: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(-2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_A: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(-1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_D: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_S: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFCN_X: D3D_FORMAT_COMPONENT_NAME = D3D_FORMAT_COMPONENT_NAME(2i32);
+impl ::core::marker::Copy for D3D_FORMAT_COMPONENT_NAME {}
+impl ::core::clone::Clone for D3D_FORMAT_COMPONENT_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for D3D_FORMAT_COMPONENT_NAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for D3D_FORMAT_COMPONENT_NAME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_NAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D3D_FORMAT_COMPONENT_NAME").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct D3D_FORMAT_LAYOUT(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFL_STANDARD: D3D_FORMAT_LAYOUT = D3D_FORMAT_LAYOUT(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFL_CUSTOM: D3D_FORMAT_LAYOUT = D3D_FORMAT_LAYOUT(-1i32);
+impl ::core::marker::Copy for D3D_FORMAT_LAYOUT {}
+impl ::core::clone::Clone for D3D_FORMAT_LAYOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for D3D_FORMAT_LAYOUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for D3D_FORMAT_LAYOUT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D3D_FORMAT_LAYOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D3D_FORMAT_LAYOUT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct D3D_FORMAT_TYPE_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFTL_NO_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFTL_PARTIAL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3DFTL_FULL_TYPE: D3D_FORMAT_TYPE_LEVEL = D3D_FORMAT_TYPE_LEVEL(-1i32);
+impl ::core::marker::Copy for D3D_FORMAT_TYPE_LEVEL {}
+impl ::core::clone::Clone for D3D_FORMAT_TYPE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for D3D_FORMAT_TYPE_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for D3D_FORMAT_TYPE_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D3D_FORMAT_TYPE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D3D_FORMAT_TYPE_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3D_INCLUDE_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_INCLUDE_LOCAL: D3D_INCLUDE_TYPE = D3D_INCLUDE_TYPE(0i32);
@@ -837,6 +969,8 @@ pub const D3D_PRIMITIVE_TOPOLOGY_LINESTRIP: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITI
 pub const D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+pub const D3D_PRIMITIVE_TOPOLOGY_TRIANGLEFAN: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 pub const D3D_PRIMITIVE_TOPOLOGY_LINELIST_ADJ: D3D_PRIMITIVE_TOPOLOGY = D3D_PRIMITIVE_TOPOLOGY(10i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]

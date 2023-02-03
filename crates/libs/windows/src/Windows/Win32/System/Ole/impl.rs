@@ -45,7 +45,7 @@ impl ICanHandleException_Vtbl {
 pub trait IClassFactory2_Impl: Sized + super::Com::IClassFactory_Impl {
     fn GetLicInfo(&self, plicinfo: *mut LICINFO) -> ::windows::core::Result<()>;
     fn RequestLicKey(&self, dwreserved: u32) -> ::windows::core::Result<::windows::core::BSTR>;
-    fn CreateInstanceLic(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, punkreserved: ::core::option::Option<&::windows::core::IUnknown>, riid: *const ::windows::core::GUID, bstrkey: &::windows::core::BSTR, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn CreateInstanceLic(&self, punkouter: ::core::option::Option<&::windows::core::IUnknown>, punkreserved: ::core::option::Option<::windows::core::IUnknown>, riid: *const ::windows::core::GUID, bstrkey: &::windows::core::BSTR, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IClassFactory2 {}
@@ -71,7 +71,7 @@ impl IClassFactory2_Vtbl {
         unsafe extern "system" fn CreateInstanceLic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IClassFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, punkreserved: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, bstrkey: *mut ::core::ffi::c_void, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateInstanceLic(::windows::core::from_raw_borrowed(&punkouter), ::windows::core::from_raw_borrowed(&punkreserved), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&bstrkey), ::core::mem::transmute_copy(&ppvobj)).into()
+            this.CreateInstanceLic(::windows::core::from_raw_borrowed(&punkouter), ::core::mem::transmute(&punkreserved), ::core::mem::transmute_copy(&riid), ::core::mem::transmute(&bstrkey), ::core::mem::transmute_copy(&ppvobj)).into()
         }
         Self {
             base__: super::Com::IClassFactory_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -1641,7 +1641,7 @@ impl IOleCache_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IOleCache2_Impl: Sized + IOleCache_Impl {
-    fn UpdateCache(&self, pdataobject: ::core::option::Option<&super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn UpdateCache(&self, pdataobject: ::core::option::Option<&super::Com::IDataObject>, grfupdf: UPDFCACHE_FLAGS, preserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn DiscardCache(&self, dwdiscardoptions: u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
@@ -1649,7 +1649,7 @@ impl ::windows::core::RuntimeName for IOleCache2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IOleCache2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOleCache2_Impl, const OFFSET: isize>() -> IOleCache2_Vtbl {
-        unsafe extern "system" fn UpdateCache<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOleCache2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, grfupdf: UPDFCACHE_FLAGS, preserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateCache<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IOleCache2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataobject: *mut ::core::ffi::c_void, grfupdf: UPDFCACHE_FLAGS, preserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateCache(::windows::core::from_raw_borrowed(&pdataobject), ::core::mem::transmute_copy(&grfupdf), ::core::mem::transmute_copy(&preserved)).into()

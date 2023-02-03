@@ -1015,12 +1015,12 @@ pub unsafe fn SLClose(hslc: *const ::core::ffi::c_void) -> ::windows::core::Resu
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]
-pub unsafe fn SLConsumeRight<P0>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pwszrightname: P0, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()>
+pub unsafe fn SLConsumeRight<P0>(hslc: *const ::core::ffi::c_void, pappid: *const ::windows::core::GUID, pproductskuid: ::core::option::Option<*const ::windows::core::GUID>, pwszrightname: P0, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    SLConsumeRight(hslc, pappid, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+    ::windows::core::link ! ( "slc.dll""system" fn SLConsumeRight ( hslc : *const ::core::ffi::c_void , pappid : *const :: windows::core::GUID , pproductskuid : *const :: windows::core::GUID , pwszrightname : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> :: windows::core::HRESULT );
+    SLConsumeRight(hslc, pappid, ::core::mem::transmute(pproductskuid.unwrap_or(::std::ptr::null())), pwszrightname.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 #[inline]

@@ -607,23 +607,23 @@ where
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByList<P0>(s: P0, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WSAConnectByList<P0>(s: P0, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<SOCKET>,
 {
-    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
-    WSAConnectByList(s.into(), socketaddress, ::core::mem::transmute(localaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(localaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByList ( s : SOCKET , socketaddress : *const SOCKET_ADDRESS_LIST , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    WSAConnectByList(s.into(), socketaddress, ::core::mem::transmute(localaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(localaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameA<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WSAConnectByNameA<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<SOCKET>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
-    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows::core::PCSTR , servicename : :: windows::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByNameA ( s : SOCKET , nodename : :: windows::core::PCSTR , servicename : :: windows::core::PCSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WSAConnectByNameA(
         s.into(),
         nodename.into().abi(),
@@ -633,19 +633,19 @@ where
         ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())),
     )
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WSAConnectByNameW<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
+pub unsafe fn WSAConnectByNameW<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<SOCKET>,
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows::core::PCWSTR , servicename : :: windows::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *mut super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
+    ::windows::core::link ! ( "ws2_32.dll""system" fn WSAConnectByNameW ( s : SOCKET , nodename : :: windows::core::PCWSTR , servicename : :: windows::core::PCWSTR , localaddresslength : *mut u32 , localaddress : *mut SOCKADDR , remoteaddresslength : *mut u32 , remoteaddress : *mut SOCKADDR , timeout : *const TIMEVAL , reserved : *const super::super::System::IO:: OVERLAPPED ) -> super::super::Foundation:: BOOL );
     WSAConnectByNameW(
         s.into(),
         nodename.into().abi(),
@@ -655,7 +655,7 @@ where
         ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())),
         ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())),
-        ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())),
     )
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
@@ -3016,6 +3016,8 @@ pub const NLA_ALLUSERS_NETWORK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const NLA_SERVICE_CLASS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0037e515_b5c9_4a43_bada_8b48a87ad239);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSPROTO_IPX: u32 = 1000u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NSPROTO_SPX: u32 = 1256u32;
@@ -3889,6 +3891,22 @@ pub const WINDOWS_AF_IRDA: u32 = 26u32;
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_ACCEPTEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5367df1_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_CONNECTEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25a207b9_ddf3_4660_8ee9_76e58c74063e);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_DISCONNECTEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda2e11_8630_436f_a031_f536a6eec157);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_GETACCEPTEXSOCKADDRS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5367df2_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_TRANSMITFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5367df0_cbac_11cf_95ca_00805f48a192);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_TRANSMITPACKETS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9689da0_1f90_11d3_9971_00c04f68c876);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_WSAPOLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c76f85_dc66_4964_972e_23c27238312b);
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub const WSAID_WSARECVMSG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf689d7c8_6f1f_436b_8a53_e54fe351c322);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSAPROTOCOL_LEN: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
