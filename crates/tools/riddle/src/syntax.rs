@@ -1,5 +1,5 @@
 use metadata::writer;
-use syn::{parse::*, *, spanned::*};
+use syn::{parse::*, spanned::*, *};
 
 mod keywords {
     syn::custom_keyword!(interface);
