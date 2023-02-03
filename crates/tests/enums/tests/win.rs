@@ -10,10 +10,15 @@ fn nested() {
 
     let options = (InputStreamOptions::Partial | InputStreamOptions::ReadAhead) & InputStreamOptions::ReadAhead;
     assert!(options.0 == 2);
+    assert!(!options.contains(InputStreamOptions::Partial));
+    assert!(options.contains(InputStreamOptions::ReadAhead));
 
     let mut options = InputStreamOptions::Partial;
     options |= InputStreamOptions::ReadAhead;
     assert!(options.0 == 3);
+    assert!(options.contains(InputStreamOptions::Partial));
+    assert!(options.contains(InputStreamOptions::ReadAhead));
+
 
     options &= InputStreamOptions::ReadAhead;
     assert!(options.0 == 2);
@@ -45,4 +50,7 @@ fn win32_error() {
 fn messagebox_style() {
     let s: MESSAGEBOX_STYLE = MB_YESNOCANCEL | MB_HELP;
     assert!(s.0 == 0x4003);
+    assert!(s.contains(MB_YESNOCANCEL));
+    assert!(s.contains(MB_HELP));
+    assert!(!s.contains(MB_SYSTEMMODAL));
 }
