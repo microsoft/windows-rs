@@ -1228,11 +1228,12 @@ impl IStorage {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, reserved1, reserved2, result__.as_mut_ptr()).from_abi(result__)
     }
-    pub unsafe fn OpenStream<P0>(&self, pwcsname: P0, reserved1: ::core::option::Option<*mut ::core::ffi::c_void>, grfmode: super::STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()>
+    pub unsafe fn OpenStream<P0>(&self, pwcsname: P0, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, grfmode: super::STGM, reserved2: u32) -> ::windows::core::Result<super::IStream>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null_mut())), grfmode, reserved2, ::core::mem::transmute(ppstm)).ok()
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), grfmode, reserved2, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn CreateStorage<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage>
     where
@@ -1269,8 +1270,9 @@ impl IStorage {
     pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Revert)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn EnumElements(&self, reserved1: u32, reserved2: ::core::option::Option<*mut ::core::ffi::c_void>, reserved3: u32, ppenum: *mut ::core::option::Option<IEnumSTATSTG>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).EnumElements)(::windows::core::Vtable::as_raw(self), reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null_mut())), reserved3, ::core::mem::transmute(ppenum)).ok()
+    pub unsafe fn EnumElements(&self, reserved1: u32, reserved2: ::core::option::Option<*const ::core::ffi::c_void>, reserved3: u32) -> ::windows::core::Result<IEnumSTATSTG> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Vtable::vtable(self).EnumElements)(::windows::core::Vtable::as_raw(self), reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, result__.as_mut_ptr()).from_abi(result__)
     }
     pub unsafe fn DestroyElement<P0>(&self, pwcsname: P0) -> ::windows::core::Result<()>
     where
@@ -1333,14 +1335,14 @@ unsafe impl ::windows::core::Interface for IStorage {
 pub struct IStorage_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub OpenStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, reserved1: *mut ::core::ffi::c_void, grfmode: super::STGM, reserved2: u32, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub OpenStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, reserved1: *const ::core::ffi::c_void, grfmode: super::STGM, reserved2: u32, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32, ppstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OpenStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, pstgpriority: *mut ::core::ffi::c_void, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32, ppstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CopyTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ciidexclude: u32, rgiidexclude: *const ::windows::core::GUID, snbexclude: *const *const u16, pstgdest: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MoveElementTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR, pstgdest: *mut ::core::ffi::c_void, pwcsnewname: ::windows::core::PCWSTR, grfflags: STGMOVE) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfcommitflags: super::STGC) -> ::windows::core::HRESULT,
     pub Revert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnumElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved1: u32, reserved2: *mut ::core::ffi::c_void, reserved3: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EnumElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved1: u32, reserved2: *const ::core::ffi::c_void, reserved3: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DestroyElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RenameElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsoldname: ::windows::core::PCWSTR, pwcsnewname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]

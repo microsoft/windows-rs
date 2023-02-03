@@ -254,8 +254,8 @@ impl IXAudio2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: ::core::option::Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: ::core::option::Option<*mut ::core::ffi::c_void>) {
-        (::windows::core::Vtable::vtable(self).SetDebugConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn SetDebugConfiguration(&self, pdebugconfiguration: ::core::option::Option<*const XAUDIO2_DEBUG_CONFIGURATION>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) {
+        (::windows::core::Vtable::vtable(self).SetDebugConfiguration)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdebugconfiguration.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
     }
 }
 ::windows::core::interface_hierarchy!(IXAudio2, ::windows::core::IUnknown);
@@ -304,7 +304,7 @@ pub struct IXAudio2_Vtbl {
     pub CommitChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operationset: u32) -> ::windows::core::HRESULT,
     pub GetPerformanceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA),
     #[cfg(feature = "Win32_Foundation")]
-    pub SetDebugConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut ::core::ffi::c_void),
+    pub SetDebugConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDebugConfiguration: usize,
 }

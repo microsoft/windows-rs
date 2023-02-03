@@ -245,7 +245,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSystemPortsGet0 ( enginehandle : super::super::Foundation:: HANDLE , sysports : *mut *mut FWPM_SYSTEM_PORTS0 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
-::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *mut ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "fwpuclnt.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"] fn FwpmSystemPortsUnsubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , sysportshandle : super::super::Foundation:: HANDLE ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]

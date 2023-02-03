@@ -3179,12 +3179,12 @@ impl IAMRebuild_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"implement\"`*"]
 pub trait IAMResourceControl_Impl: Sized {
-    fn Reserve(&self, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Reserve(&self, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IAMResourceControl {}
 impl IAMResourceControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMResourceControl_Impl, const OFFSET: isize>() -> IAMResourceControl_Vtbl {
-        unsafe extern "system" fn Reserve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMResourceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Reserve<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMResourceControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Reserve(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvreserved)).into()
@@ -20514,7 +20514,7 @@ impl IFilterGraph_Vtbl {
 pub trait IFilterGraph2_Impl: Sized + IGraphBuilder_Impl {
     fn AddSourceFilterForMoniker(&self, pmoniker: ::core::option::Option<&super::super::System::Com::IMoniker>, pctx: ::core::option::Option<&super::super::System::Com::IBindCtx>, lpcwstrfiltername: &::windows::core::PCWSTR) -> ::windows::core::Result<IBaseFilter>;
     fn ReconnectEx(&self, ppin: ::core::option::Option<&IPin>, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn RenderEx(&self, ppinout: ::core::option::Option<&IPin>, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::Result<()>;
+    fn RenderEx(&self, ppinout: ::core::option::Option<&IPin>, dwflags: u32, pvcontext: *const u32) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 impl ::windows::core::RuntimeName for IFilterGraph2 {}
@@ -20537,7 +20537,7 @@ impl IFilterGraph2_Vtbl {
             let this = (*this).get_impl();
             this.ReconnectEx(::windows::core::from_raw_borrowed(&ppin), ::core::mem::transmute_copy(&pmt)).into()
         }
-        unsafe extern "system" fn RenderEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFilterGraph2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, dwflags: u32, pvcontext: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn RenderEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFilterGraph2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppinout: *mut ::core::ffi::c_void, dwflags: u32, pvcontext: *const u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RenderEx(::windows::core::from_raw_borrowed(&ppinout), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&pvcontext)).into()

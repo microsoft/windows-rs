@@ -880,12 +880,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
-pub unsafe fn NetRequestProvisioningPackageInstall<P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
+pub unsafe fn NetRequestProvisioningPackageInstall<P0>(ppackagebindata: &[u8], dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: P0, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
 where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
-    ::windows::core::link ! ( "netapi32.dll""system" fn NetRequestProvisioningPackageInstall ( ppackagebindata : *const u8 , dwpackagebindatasize : u32 , dwprovisionoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : :: windows::core::PCWSTR , pvreserved : *mut ::core::ffi::c_void ) -> u32 );
-    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut())))
+    ::windows::core::link ! ( "netapi32.dll""system" fn NetRequestProvisioningPackageInstall ( ppackagebindata : *const u8 , dwpackagebindatasize : u32 , dwprovisionoptions : NET_REQUEST_PROVISION_OPTIONS , lpwindowspath : :: windows::core::PCWSTR , pvreserved : *const ::core::ffi::c_void ) -> u32 );
+    NetRequestProvisioningPackageInstall(::core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len() as _, dwprovisionoptions, lpwindowspath.into().abi(), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1657,9 +1657,8 @@ impl IEnumNetCfgBindingInterface {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumNetCfgBindingInterface>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgBindingInterface, ::windows::core::IUnknown);
@@ -1692,7 +1691,7 @@ pub struct IEnumNetCfgBindingInterface_Vtbl {
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
@@ -1707,9 +1706,8 @@ impl IEnumNetCfgBindingPath {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumNetCfgBindingPath>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgBindingPath, ::windows::core::IUnknown);
@@ -1742,7 +1740,7 @@ pub struct IEnumNetCfgBindingPath_Vtbl {
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
@@ -1757,9 +1755,8 @@ impl IEnumNetCfgComponent {
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+    pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumNetCfgComponent>>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenum.unwrap_or(::std::ptr::null()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgComponent, ::windows::core::IUnknown);
@@ -1792,14 +1789,14 @@ pub struct IEnumNetCfgComponent_Vtbl {
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 pub struct INetCfg(::windows::core::IUnknown);
 impl INetCfg {
-    pub unsafe fn Initialize(&self, pvreserved: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows::core::Result<()> {
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Initialize(&self, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows::core::Result<()> {
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
     }
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Uninitialize)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1850,7 +1847,7 @@ unsafe impl ::windows::core::Interface for INetCfg {
 #[doc(hidden)]
 pub struct INetCfg_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,

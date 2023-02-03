@@ -2254,12 +2254,12 @@ impl IFastRundown_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait IForegroundTransfer_Impl: Sized {
-    fn AllowForegroundTransfer(&self, lpvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn AllowForegroundTransfer(&self, lpvreserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IForegroundTransfer {}
 impl IForegroundTransfer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForegroundTransfer_Impl, const OFFSET: isize>() -> IForegroundTransfer_Vtbl {
-        unsafe extern "system" fn AllowForegroundTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForegroundTransfer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AllowForegroundTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IForegroundTransfer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AllowForegroundTransfer(::core::mem::transmute_copy(&lpvreserved)).into()
@@ -3848,15 +3848,21 @@ impl IServiceProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait IStdMarshalInfo_Impl: Sized {
-    fn GetClassForHandler(&self, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetClassForHandler(&self, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::GUID>;
 }
 impl ::windows::core::RuntimeName for IStdMarshalInfo {}
 impl IStdMarshalInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStdMarshalInfo_Impl, const OFFSET: isize>() -> IStdMarshalInfo_Vtbl {
-        unsafe extern "system" fn GetClassForHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStdMarshalInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetClassForHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStdMarshalInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetClassForHandler(::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext), ::core::mem::transmute_copy(&pclsid)).into()
+            match this.GetClassForHandler(::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pclsid, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self { base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetClassForHandler: GetClassForHandler::<Identity, Impl, OFFSET> }
     }

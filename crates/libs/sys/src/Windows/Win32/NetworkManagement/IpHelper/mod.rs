@@ -79,7 +79,7 @@
 ::windows_sys::core::link ! ( "iphlpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"] fn GetAdapterIndex ( adaptername : :: windows_sys::core::PCWSTR , ifindex : *mut u32 ) -> u32 );
 ::windows_sys::core::link ! ( "iphlpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"] fn GetAdapterOrderMap ( ) -> *mut IP_ADAPTER_ORDER_MAP );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
-::windows_sys::core::link ! ( "iphlpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"] fn GetAdaptersAddresses ( family : u32 , flags : GET_ADAPTERS_ADDRESSES_FLAGS , reserved : *mut ::core::ffi::c_void , adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH , sizepointer : *mut u32 ) -> u32 );
+::windows_sys::core::link ! ( "iphlpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"] fn GetAdaptersAddresses ( family : u32 , flags : GET_ADAPTERS_ADDRESSES_FLAGS , reserved : *const ::core::ffi::c_void , adapteraddresses : *mut IP_ADAPTER_ADDRESSES_LH , sizepointer : *mut u32 ) -> u32 );
 #[cfg(feature = "Win32_Foundation")]
 ::windows_sys::core::link ! ( "iphlpapi.dll""system" #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"] fn GetAdaptersInfo ( adapterinfo : *mut IP_ADAPTER_INFO , sizepointer : *mut u32 ) -> u32 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
