@@ -1,5 +1,5 @@
 use metadata::writer;
-use syn::{parse::*, *};
+use syn::{parse::*, *, spanned::*};
 
 mod keywords {
     syn::custom_keyword!(interface);
@@ -20,7 +20,7 @@ impl Parse for Module {
         let name = input.parse::<Ident>()?;
         let content;
         braced!(content in input);
-        let mut members = Vec::new();
+        let mut members = vec![];
         while !content.is_empty() {
             members.push(content.parse::<ModuleMember>()?);
         }
@@ -77,7 +77,7 @@ impl Parse for Interface {
         let name = input.parse::<Ident>()?;
         let content;
         braced!(content in input);
-        let mut methods = Vec::new();
+        let mut methods = vec![];
         while !content.is_empty() {
             methods.push(content.parse::<TraitItemMethod>()?);
         }
@@ -87,7 +87,7 @@ impl Parse for Interface {
 
 impl ToWriter for Interface {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        let mut methods = Vec::new();
+        let mut methods = vec![];
 
         for method in &self.methods {
             methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
@@ -100,30 +100,39 @@ impl ToWriter for Interface {
 
 impl ToWriter for ItemStruct {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields: vec![] }));
+        let mut fields = vec![];
+
+        let Fields::Named(named) = &self.fields else {
+            return Err(Error::new(self.fields.span(), "expected named fields"));
+        };
+
+        for field in &named.named {
+            fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: writer::Type::I32 });
+        }
+
+        items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields }));
         Ok(())
     }
 }
 
 impl ToWriter for ItemEnum {
     fn to_writer(&self, namespace: String, items: &mut Vec<writer::Item>) -> Result<()> {
-        let mut constants = Vec::new();
+        let mut constants = vec![];
         let mut value = 0;
 
         // TODO: need to read the `#[repr(u8)]` attribute infer the underlying type
 
         for variant in &self.variants {
             if let Some((_, discriminant)) = &variant.discriminant {
-                let mut valid = false;
-                if let Expr::Lit(discriminant) = discriminant {
-                    if let Lit::Int(discriminant) = &discriminant.lit {
-                        value = discriminant.base10_parse()?;
-                        valid = true;
-                    }
-                }
-                if !valid {
-                    return Err(Error::new(variant.ident.span(), "expected integer literal discriminant"));
-                }
+                let Expr::Lit(discriminant) = discriminant else {
+                    return Err(Error::new(discriminant.span(), "expected literal discriminant"));
+                };
+
+                let Lit::Int(discriminant) = &discriminant.lit else {
+                    return Err(Error::new(discriminant.lit.span(), "expected integer discriminant"));
+                };
+
+                value = discriminant.base10_parse()?;
             }
 
             constants.push(writer::Constant { name: variant.ident.to_string(), value: writer::Value::I32(value) });

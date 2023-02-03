@@ -1,5 +1,6 @@
 mod TypeNamespace {
-    struct TypeName {
-        F1: u32,
+    struct TypeName{
+        a: i32,
+        b: f32,
     }
 }
