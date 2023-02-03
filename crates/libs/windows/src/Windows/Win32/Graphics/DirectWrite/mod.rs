@@ -11615,6 +11615,11 @@ impl ::core::fmt::Debug for DWRITE_AUTOMATIC_FONT_AXES {
         f.debug_tuple("DWRITE_AUTOMATIC_FONT_AXES").field(&self.0).finish()
     }
 }
+impl DWRITE_AUTOMATIC_FONT_AXES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DWRITE_AUTOMATIC_FONT_AXES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11829,6 +11834,11 @@ unsafe impl ::windows::core::Abi for DWRITE_FONT_AXIS_ATTRIBUTES {
 impl ::core::fmt::Debug for DWRITE_FONT_AXIS_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWRITE_FONT_AXIS_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl DWRITE_FONT_AXIS_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DWRITE_FONT_AXIS_ATTRIBUTES {
@@ -12305,6 +12315,11 @@ impl ::core::fmt::Debug for DWRITE_FONT_SIMULATIONS {
         f.debug_tuple("DWRITE_FONT_SIMULATIONS").field(&self.0).finish()
     }
 }
+impl DWRITE_FONT_SIMULATIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DWRITE_FONT_SIMULATIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12536,6 +12551,11 @@ unsafe impl ::windows::core::Abi for DWRITE_GLYPH_IMAGE_FORMATS {
 impl ::core::fmt::Debug for DWRITE_GLYPH_IMAGE_FORMATS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWRITE_GLYPH_IMAGE_FORMATS").field(&self.0).finish()
+    }
+}
+impl DWRITE_GLYPH_IMAGE_FORMATS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DWRITE_GLYPH_IMAGE_FORMATS {
@@ -14216,6 +14236,11 @@ unsafe impl ::windows::core::Abi for DWRITE_SCRIPT_SHAPES {
 impl ::core::fmt::Debug for DWRITE_SCRIPT_SHAPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWRITE_SCRIPT_SHAPES").field(&self.0).finish()
+    }
+}
+impl DWRITE_SCRIPT_SHAPES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DWRITE_SCRIPT_SHAPES {

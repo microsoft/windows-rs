@@ -1899,6 +1899,11 @@ impl ::core::fmt::Debug for PropertyPrefetchOptions {
         f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
     }
 }
+impl PropertyPrefetchOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PropertyPrefetchOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1999,6 +2004,11 @@ unsafe impl ::windows::core::Abi for ThumbnailOptions {
 impl ::core::fmt::Debug for ThumbnailOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
+    }
+}
+impl ThumbnailOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ThumbnailOptions {

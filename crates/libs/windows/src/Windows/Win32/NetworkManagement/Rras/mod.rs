@@ -4339,6 +4339,11 @@ impl ::core::fmt::Debug for RASIKEV_PROJECTION_INFO_FLAGS {
         f.debug_tuple("RASIKEV_PROJECTION_INFO_FLAGS").field(&self.0).finish()
     }
 }
+impl RASIKEV_PROJECTION_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RASIKEV_PROJECTION_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

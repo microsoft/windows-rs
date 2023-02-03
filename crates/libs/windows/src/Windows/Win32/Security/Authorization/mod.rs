@@ -8269,6 +8269,11 @@ impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_FLAGS {
         f.debug_tuple("AUTHZ_RESOURCE_MANAGER_FLAGS").field(&self.0).finish()
     }
 }
+impl AUTHZ_RESOURCE_MANAGER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AUTHZ_RESOURCE_MANAGER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8322,6 +8327,11 @@ unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
 impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AUTHZ_SECURITY_ATTRIBUTE_FLAGS").field(&self.0).finish()
+    }
+}
+impl AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {

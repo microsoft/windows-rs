@@ -178,6 +178,11 @@ impl ::core::fmt::Debug for XINPUT_CAPABILITIES_FLAGS {
         f.debug_tuple("XINPUT_CAPABILITIES_FLAGS").field(&self.0).finish()
     }
 }
+impl XINPUT_CAPABILITIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for XINPUT_CAPABILITIES_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -303,6 +308,11 @@ impl ::core::fmt::Debug for XINPUT_FLAG {
         f.debug_tuple("XINPUT_FLAG").field(&self.0).finish()
     }
 }
+impl XINPUT_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for XINPUT_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -388,6 +398,11 @@ impl ::core::fmt::Debug for XINPUT_GAMEPAD_BUTTON_FLAGS {
         f.debug_tuple("XINPUT_GAMEPAD_BUTTON_FLAGS").field(&self.0).finish()
     }
 }
+impl XINPUT_GAMEPAD_BUTTON_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for XINPUT_GAMEPAD_BUTTON_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -443,6 +458,11 @@ unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE_FLAGS {
 impl ::core::fmt::Debug for XINPUT_KEYSTROKE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XINPUT_KEYSTROKE_FLAGS").field(&self.0).finish()
+    }
+}
+impl XINPUT_KEYSTROKE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for XINPUT_KEYSTROKE_FLAGS {

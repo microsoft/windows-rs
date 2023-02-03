@@ -1075,6 +1075,11 @@ impl ::core::fmt::Debug for MLOperatorKernelOptions {
         f.debug_tuple("MLOperatorKernelOptions").field(&self.0).finish()
     }
 }
+impl MLOperatorKernelOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MLOperatorKernelOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1129,6 +1134,11 @@ unsafe impl ::windows::core::Abi for MLOperatorParameterOptions {
 impl ::core::fmt::Debug for MLOperatorParameterOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorParameterOptions").field(&self.0).finish()
+    }
+}
+impl MLOperatorParameterOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MLOperatorParameterOptions {

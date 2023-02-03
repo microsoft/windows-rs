@@ -14993,6 +14993,11 @@ impl ::core::fmt::Debug for D3D12_BARRIER_ACCESS {
         f.debug_tuple("D3D12_BARRIER_ACCESS").field(&self.0).finish()
     }
 }
+impl D3D12_BARRIER_ACCESS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_BARRIER_ACCESS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15181,6 +15186,11 @@ impl ::core::fmt::Debug for D3D12_BARRIER_SYNC {
         f.debug_tuple("D3D12_BARRIER_SYNC").field(&self.0).finish()
     }
 }
+impl D3D12_BARRIER_SYNC {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_BARRIER_SYNC {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15359,6 +15369,11 @@ impl ::core::fmt::Debug for D3D12_BUFFER_SRV_FLAGS {
         f.debug_tuple("D3D12_BUFFER_SRV_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_BUFFER_SRV_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_BUFFER_SRV_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15414,6 +15429,11 @@ impl ::core::fmt::Debug for D3D12_BUFFER_UAV_FLAGS {
         f.debug_tuple("D3D12_BUFFER_UAV_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_BUFFER_UAV_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_BUFFER_UAV_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15467,6 +15487,11 @@ unsafe impl ::windows::core::Abi for D3D12_CLEAR_FLAGS {
 impl ::core::fmt::Debug for D3D12_CLEAR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_CLEAR_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_CLEAR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_CLEAR_FLAGS {
@@ -15555,6 +15580,11 @@ impl ::core::fmt::Debug for D3D12_COMMAND_LIST_FLAGS {
         f.debug_tuple("D3D12_COMMAND_LIST_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_COMMAND_LIST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_COMMAND_LIST_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15620,6 +15650,11 @@ unsafe impl ::windows::core::Abi for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
 impl ::core::fmt::Debug for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_COMMAND_LIST_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_COMMAND_LIST_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_COMMAND_LIST_SUPPORT_FLAGS {
@@ -15714,6 +15749,11 @@ impl ::core::fmt::Debug for D3D12_COMMAND_POOL_FLAGS {
         f.debug_tuple("D3D12_COMMAND_POOL_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_COMMAND_POOL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_COMMAND_POOL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15767,6 +15807,11 @@ unsafe impl ::windows::core::Abi for D3D12_COMMAND_QUEUE_FLAGS {
 impl ::core::fmt::Debug for D3D12_COMMAND_QUEUE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_COMMAND_QUEUE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_COMMAND_QUEUE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_COMMAND_QUEUE_FLAGS {
@@ -15849,6 +15894,11 @@ unsafe impl ::windows::core::Abi for D3D12_COMMAND_RECORDER_FLAGS {
 impl ::core::fmt::Debug for D3D12_COMMAND_RECORDER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_COMMAND_RECORDER_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_COMMAND_RECORDER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_COMMAND_RECORDER_FLAGS {
@@ -16212,6 +16262,11 @@ impl ::core::fmt::Debug for D3D12_DESCRIPTOR_HEAP_FLAGS {
         f.debug_tuple("D3D12_DESCRIPTOR_HEAP_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_DESCRIPTOR_HEAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_DESCRIPTOR_HEAP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16308,6 +16363,11 @@ impl ::core::fmt::Debug for D3D12_DESCRIPTOR_RANGE_FLAGS {
         f.debug_tuple("D3D12_DESCRIPTOR_RANGE_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_DESCRIPTOR_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_DESCRIPTOR_RANGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16398,6 +16458,11 @@ impl ::core::fmt::Debug for D3D12_DEVICE_FACTORY_FLAGS {
         f.debug_tuple("D3D12_DEVICE_FACTORY_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_DEVICE_FACTORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_DEVICE_FACTORY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16471,6 +16536,11 @@ unsafe impl ::windows::core::Abi for D3D12_DEVICE_FLAGS {
 impl ::core::fmt::Debug for D3D12_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_DEVICE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_DEVICE_FLAGS {
@@ -16671,6 +16741,11 @@ impl ::core::fmt::Debug for D3D12_DRED_FLAGS {
         f.debug_tuple("D3D12_DRED_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_DRED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_DRED_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16722,6 +16797,11 @@ unsafe impl ::windows::core::Abi for D3D12_DRED_PAGE_FAULT_FLAGS {
 impl ::core::fmt::Debug for D3D12_DRED_PAGE_FAULT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_DRED_PAGE_FAULT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_DRED_PAGE_FAULT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_DRED_PAGE_FAULT_FLAGS {
@@ -16882,6 +16962,11 @@ impl ::core::fmt::Debug for D3D12_DSV_FLAGS {
         f.debug_tuple("D3D12_DSV_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_DSV_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_DSV_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16960,6 +17045,11 @@ unsafe impl ::windows::core::Abi for D3D12_EXPORT_FLAGS {
 impl ::core::fmt::Debug for D3D12_EXPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_EXPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_EXPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_EXPORT_FLAGS {
@@ -17114,6 +17204,11 @@ unsafe impl ::windows::core::Abi for D3D12_FENCE_FLAGS {
 impl ::core::fmt::Debug for D3D12_FENCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_FENCE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_FENCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_FENCE_FLAGS {
@@ -17407,6 +17502,11 @@ impl ::core::fmt::Debug for D3D12_FORMAT_SUPPORT1 {
         f.debug_tuple("D3D12_FORMAT_SUPPORT1").field(&self.0).finish()
     }
 }
+impl D3D12_FORMAT_SUPPORT1 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_FORMAT_SUPPORT1 {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -17482,6 +17582,11 @@ unsafe impl ::windows::core::Abi for D3D12_FORMAT_SUPPORT2 {
 impl ::core::fmt::Debug for D3D12_FORMAT_SUPPORT2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_FORMAT_SUPPORT2").field(&self.0).finish()
+    }
+}
+impl D3D12_FORMAT_SUPPORT2 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_FORMAT_SUPPORT2 {
@@ -17664,6 +17769,11 @@ impl ::core::fmt::Debug for D3D12_GRAPHICS_STATES {
         f.debug_tuple("D3D12_GRAPHICS_STATES").field(&self.0).finish()
     }
 }
+impl D3D12_GRAPHICS_STATES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_GRAPHICS_STATES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -17745,6 +17855,11 @@ unsafe impl ::windows::core::Abi for D3D12_HEAP_FLAGS {
 impl ::core::fmt::Debug for D3D12_HEAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_HEAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_HEAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_HEAP_FLAGS {
@@ -20178,6 +20293,11 @@ impl ::core::fmt::Debug for D3D12_META_COMMAND_PARAMETER_FLAGS {
         f.debug_tuple("D3D12_META_COMMAND_PARAMETER_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_META_COMMAND_PARAMETER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_META_COMMAND_PARAMETER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20297,6 +20417,11 @@ impl ::core::fmt::Debug for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
         f.debug_tuple("D3D12_MULTIPLE_FENCE_WAIT_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_MULTIPLE_FENCE_WAIT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20350,6 +20475,11 @@ unsafe impl ::windows::core::Abi for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
 impl ::core::fmt::Debug for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS {
@@ -20409,6 +20539,11 @@ unsafe impl ::windows::core::Abi for D3D12_PIPELINE_STATE_FLAGS {
 impl ::core::fmt::Debug for D3D12_PIPELINE_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_PIPELINE_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_PIPELINE_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_PIPELINE_STATE_FLAGS {
@@ -20632,6 +20767,11 @@ impl ::core::fmt::Debug for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
         f.debug_tuple("D3D12_PROTECTED_RESOURCE_SESSION_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_PROTECTED_RESOURCE_SESSION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20685,6 +20825,11 @@ unsafe impl ::windows::core::Abi for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FL
 impl ::core::fmt::Debug for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS {
@@ -20859,6 +21004,11 @@ impl ::core::fmt::Debug for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS 
         f.debug_tuple("D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_BUILD_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21007,6 +21157,11 @@ impl ::core::fmt::Debug for D3D12_RAYTRACING_GEOMETRY_FLAGS {
         f.debug_tuple("D3D12_RAYTRACING_GEOMETRY_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_RAYTRACING_GEOMETRY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RAYTRACING_GEOMETRY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21095,6 +21250,11 @@ impl ::core::fmt::Debug for D3D12_RAYTRACING_INSTANCE_FLAGS {
         f.debug_tuple("D3D12_RAYTRACING_INSTANCE_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_RAYTRACING_INSTANCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RAYTRACING_INSTANCE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21150,6 +21310,11 @@ unsafe impl ::windows::core::Abi for D3D12_RAYTRACING_PIPELINE_FLAGS {
 impl ::core::fmt::Debug for D3D12_RAYTRACING_PIPELINE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_RAYTRACING_PIPELINE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_RAYTRACING_PIPELINE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_RAYTRACING_PIPELINE_FLAGS {
@@ -21252,6 +21417,11 @@ unsafe impl ::windows::core::Abi for D3D12_RAY_FLAGS {
 impl ::core::fmt::Debug for D3D12_RAY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_RAY_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_RAY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_RAY_FLAGS {
@@ -21375,6 +21545,11 @@ impl ::core::fmt::Debug for D3D12_RENDER_PASS_FLAGS {
         f.debug_tuple("D3D12_RENDER_PASS_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_RENDER_PASS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RENDER_PASS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21457,6 +21632,11 @@ unsafe impl ::windows::core::Abi for D3D12_RESIDENCY_FLAGS {
 impl ::core::fmt::Debug for D3D12_RESIDENCY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_RESIDENCY_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_RESIDENCY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_RESIDENCY_FLAGS {
@@ -21582,6 +21762,11 @@ unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER_FLAGS {
 impl ::core::fmt::Debug for D3D12_RESOURCE_BARRIER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_RESOURCE_BARRIER_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_RESOURCE_BARRIER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_RESOURCE_BARRIER_FLAGS {
@@ -21746,6 +21931,11 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_FLAGS {
         f.debug_tuple("D3D12_RESOURCE_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RESOURCE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21878,6 +22068,11 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_STATES {
         f.debug_tuple("D3D12_RESOURCE_STATES").field(&self.0).finish()
     }
 }
+impl D3D12_RESOURCE_STATES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_RESOURCE_STATES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21966,6 +22161,11 @@ unsafe impl ::windows::core::Abi for D3D12_ROOT_DESCRIPTOR_FLAGS {
 impl ::core::fmt::Debug for D3D12_ROOT_DESCRIPTOR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_ROOT_DESCRIPTOR_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_ROOT_DESCRIPTOR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_ROOT_DESCRIPTOR_FLAGS {
@@ -22076,6 +22276,11 @@ unsafe impl ::windows::core::Abi for D3D12_ROOT_SIGNATURE_FLAGS {
 impl ::core::fmt::Debug for D3D12_ROOT_SIGNATURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_ROOT_SIGNATURE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_ROOT_SIGNATURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_ROOT_SIGNATURE_FLAGS {
@@ -22203,6 +22408,11 @@ impl ::core::fmt::Debug for D3D12_SAMPLER_FLAGS {
         f.debug_tuple("D3D12_SAMPLER_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_SAMPLER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_SAMPLER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -22285,6 +22495,11 @@ impl ::core::fmt::Debug for D3D12_SHADER_CACHE_CONTROL_FLAGS {
         f.debug_tuple("D3D12_SHADER_CACHE_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_SHADER_CACHE_CONTROL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_SHADER_CACHE_CONTROL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -22340,6 +22555,11 @@ unsafe impl ::windows::core::Abi for D3D12_SHADER_CACHE_FLAGS {
 impl ::core::fmt::Debug for D3D12_SHADER_CACHE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_SHADER_CACHE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_SHADER_CACHE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_SHADER_CACHE_FLAGS {
@@ -22399,6 +22619,11 @@ unsafe impl ::windows::core::Abi for D3D12_SHADER_CACHE_KIND_FLAGS {
 impl ::core::fmt::Debug for D3D12_SHADER_CACHE_KIND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_SHADER_CACHE_KIND_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_SHADER_CACHE_KIND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_SHADER_CACHE_KIND_FLAGS {
@@ -22495,6 +22720,11 @@ impl ::core::fmt::Debug for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
         f.debug_tuple("D3D12_SHADER_CACHE_SUPPORT_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_SHADER_CACHE_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_SHADER_CACHE_SUPPORT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -22585,6 +22815,11 @@ unsafe impl ::windows::core::Abi for D3D12_SHADER_MIN_PRECISION_SUPPORT {
 impl ::core::fmt::Debug for D3D12_SHADER_MIN_PRECISION_SUPPORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_SHADER_MIN_PRECISION_SUPPORT").field(&self.0).finish()
+    }
+}
+impl D3D12_SHADER_MIN_PRECISION_SUPPORT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_SHADER_MIN_PRECISION_SUPPORT {
@@ -22886,6 +23121,11 @@ impl ::core::fmt::Debug for D3D12_STATE_OBJECT_FLAGS {
         f.debug_tuple("D3D12_STATE_OBJECT_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_STATE_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_STATE_OBJECT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -23122,6 +23362,11 @@ impl ::core::fmt::Debug for D3D12_TEXTURE_BARRIER_FLAGS {
         f.debug_tuple("D3D12_TEXTURE_BARRIER_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_TEXTURE_BARRIER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_TEXTURE_BARRIER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -23272,6 +23517,11 @@ impl ::core::fmt::Debug for D3D12_TILE_COPY_FLAGS {
         f.debug_tuple("D3D12_TILE_COPY_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_TILE_COPY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_TILE_COPY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -23325,6 +23575,11 @@ unsafe impl ::windows::core::Abi for D3D12_TILE_MAPPING_FLAGS {
 impl ::core::fmt::Debug for D3D12_TILE_MAPPING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_TILE_MAPPING_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_TILE_MAPPING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_TILE_MAPPING_FLAGS {
@@ -23510,6 +23765,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIEW_INSTANCING_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIEW_INSTANCING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIEW_INSTANCING_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIEW_INSTANCING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIEW_INSTANCING_FLAGS {

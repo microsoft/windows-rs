@@ -7681,6 +7681,11 @@ impl ::core::fmt::Debug for ContactAnnotationOperations {
         f.debug_tuple("ContactAnnotationOperations").field(&self.0).finish()
     }
 }
+impl ContactAnnotationOperations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ContactAnnotationOperations {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8298,6 +8303,11 @@ impl ::core::fmt::Debug for ContactQueryDesiredFields {
         f.debug_tuple("ContactQueryDesiredFields").field(&self.0).finish()
     }
 }
+impl ContactQueryDesiredFields {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ContactQueryDesiredFields {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8361,6 +8371,11 @@ unsafe impl ::windows::core::Abi for ContactQuerySearchFields {
 impl ::core::fmt::Debug for ContactQuerySearchFields {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactQuerySearchFields").field(&self.0).finish()
+    }
+}
+impl ContactQuerySearchFields {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ContactQuerySearchFields {

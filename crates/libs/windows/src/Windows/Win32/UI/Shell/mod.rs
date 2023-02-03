@@ -47012,6 +47012,11 @@ impl ::core::fmt::Debug for ASSOCF {
         f.debug_tuple("ASSOCF").field(&self.0).finish()
     }
 }
+impl ASSOCF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ASSOCF {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -48963,6 +48968,11 @@ impl ::core::fmt::Debug for FILEOPENDIALOGOPTIONS {
         f.debug_tuple("FILEOPENDIALOGOPTIONS").field(&self.0).finish()
     }
 }
+impl FILEOPENDIALOGOPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILEOPENDIALOGOPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -49498,6 +49508,11 @@ impl ::core::fmt::Debug for HLBWIF_FLAGS {
         f.debug_tuple("HLBWIF_FLAGS").field(&self.0).finish()
     }
 }
+impl HLBWIF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HLBWIF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -49557,6 +49572,11 @@ unsafe impl ::windows::core::Abi for HLFNAMEF {
 impl ::core::fmt::Debug for HLFNAMEF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HLFNAMEF").field(&self.0).finish()
+    }
+}
+impl HLFNAMEF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for HLFNAMEF {
@@ -49763,6 +49783,11 @@ unsafe impl ::windows::core::Abi for HLNF {
 impl ::core::fmt::Debug for HLNF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HLNF").field(&self.0).finish()
+    }
+}
+impl HLNF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for HLNF {
@@ -50514,6 +50539,11 @@ impl ::core::fmt::Debug for MM_FLAGS {
         f.debug_tuple("MM_FLAGS").field(&self.0).finish()
     }
 }
+impl MM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -50692,6 +50722,11 @@ unsafe impl ::windows::core::Abi for NOTIFY_ICON_DATA_FLAGS {
 impl ::core::fmt::Debug for NOTIFY_ICON_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NOTIFY_ICON_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl NOTIFY_ICON_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NOTIFY_ICON_DATA_FLAGS {
@@ -51041,6 +51076,11 @@ impl ::core::fmt::Debug for OPEN_AS_INFO_FLAGS {
         f.debug_tuple("OPEN_AS_INFO_FLAGS").field(&self.0).finish()
     }
 }
+impl OPEN_AS_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OPEN_AS_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -51269,6 +51309,11 @@ impl ::core::fmt::Debug for PATHCCH_OPTIONS {
         f.debug_tuple("PATHCCH_OPTIONS").field(&self.0).finish()
     }
 }
+impl PATHCCH_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PATHCCH_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -51330,6 +51375,11 @@ impl ::core::fmt::Debug for PCS_RET {
         f.debug_tuple("PCS_RET").field(&self.0).finish()
     }
 }
+impl PCS_RET {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PCS_RET {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -51387,6 +51437,11 @@ unsafe impl ::windows::core::Abi for PIDISF_FLAGS {
 impl ::core::fmt::Debug for PIDISF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PIDISF_FLAGS").field(&self.0).finish()
+    }
+}
+impl PIDISF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PIDISF_FLAGS {
@@ -51620,6 +51675,11 @@ impl ::core::fmt::Debug for PRF_FLAGS {
         f.debug_tuple("PRF_FLAGS").field(&self.0).finish()
     }
 }
+impl PRF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PRF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -51718,6 +51778,11 @@ unsafe impl ::windows::core::Abi for QITIPF_FLAGS {
 impl ::core::fmt::Debug for QITIPF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("QITIPF_FLAGS").field(&self.0).finish()
+    }
+}
+impl QITIPF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for QITIPF_FLAGS {
@@ -52194,6 +52259,11 @@ impl ::core::fmt::Debug for SCALE_CHANGE_FLAGS {
         f.debug_tuple("SCALE_CHANGE_FLAGS").field(&self.0).finish()
     }
 }
+impl SCALE_CHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SCALE_CHANGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -52590,6 +52660,11 @@ impl ::core::fmt::Debug for SHCNE_ID {
         f.debug_tuple("SHCNE_ID").field(&self.0).finish()
     }
 }
+impl SHCNE_ID {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SHCNE_ID {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -52665,6 +52740,11 @@ impl ::core::fmt::Debug for SHCNF_FLAGS {
         f.debug_tuple("SHCNF_FLAGS").field(&self.0).finish()
     }
 }
+impl SHCNF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SHCNF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -52722,6 +52802,11 @@ unsafe impl ::windows::core::Abi for SHCNRF_SOURCE {
 impl ::core::fmt::Debug for SHCNRF_SOURCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHCNRF_SOURCE").field(&self.0).finish()
+    }
+}
+impl SHCNRF_SOURCE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SHCNRF_SOURCE {
@@ -52897,6 +52982,11 @@ unsafe impl ::windows::core::Abi for SHELL_AUTOCOMPLETE_FLAGS {
 impl ::core::fmt::Debug for SHELL_AUTOCOMPLETE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHELL_AUTOCOMPLETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl SHELL_AUTOCOMPLETE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SHELL_AUTOCOMPLETE_FLAGS {
@@ -53093,6 +53183,11 @@ impl ::core::fmt::Debug for SHFMT_OPT {
         f.debug_tuple("SHFMT_OPT").field(&self.0).finish()
     }
 }
+impl SHFMT_OPT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SHFMT_OPT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -53269,6 +53364,11 @@ unsafe impl ::windows::core::Abi for SHGFI_FLAGS {
 impl ::core::fmt::Debug for SHGFI_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHGFI_FLAGS").field(&self.0).finish()
+    }
+}
+impl SHGFI_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SHGFI_FLAGS {
@@ -53508,6 +53608,11 @@ impl ::core::fmt::Debug for SHGSI_FLAGS {
         f.debug_tuple("SHGSI_FLAGS").field(&self.0).finish()
     }
 }
+impl SHGSI_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SHGSI_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -53563,6 +53668,11 @@ unsafe impl ::windows::core::Abi for SHOP_TYPE {
 impl ::core::fmt::Debug for SHOP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHOP_TYPE").field(&self.0).finish()
+    }
+}
+impl SHOP_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SHOP_TYPE {
@@ -53983,6 +54093,11 @@ unsafe impl ::windows::core::Abi for SIIGBF {
 impl ::core::fmt::Debug for SIIGBF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SIIGBF").field(&self.0).finish()
+    }
+}
+impl SIIGBF {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SIIGBF {
@@ -54409,6 +54524,11 @@ unsafe impl ::windows::core::Abi for SSF_MASK {
 impl ::core::fmt::Debug for SSF_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SSF_MASK").field(&self.0).finish()
+    }
+}
+impl SSF_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SSF_MASK {
@@ -56161,6 +56281,11 @@ unsafe impl ::windows::core::Abi for VALIDATEUNC_OPTION {
 impl ::core::fmt::Debug for VALIDATEUNC_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VALIDATEUNC_OPTION").field(&self.0).finish()
+    }
+}
+impl VALIDATEUNC_OPTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VALIDATEUNC_OPTION {

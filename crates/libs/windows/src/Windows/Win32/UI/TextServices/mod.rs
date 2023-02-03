@@ -11016,6 +11016,11 @@ impl ::core::fmt::Debug for ANCHOR_CHANGE_HISTORY_FLAGS {
         f.debug_tuple("ANCHOR_CHANGE_HISTORY_FLAGS").field(&self.0).finish()
     }
 }
+impl ANCHOR_CHANGE_HISTORY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11069,6 +11074,11 @@ unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
 impl ::core::fmt::Debug for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_TEXT_AND_PROPERTY_UPDATES_FLAGS").field(&self.0).finish()
+    }
+}
+impl GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
@@ -11353,6 +11363,11 @@ impl ::core::fmt::Debug for TEXT_STORE_CHANGE_FLAGS {
         f.debug_tuple("TEXT_STORE_CHANGE_FLAGS").field(&self.0).finish()
     }
 }
+impl TEXT_STORE_CHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TEXT_STORE_CHANGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11435,6 +11450,11 @@ impl ::core::fmt::Debug for TEXT_STORE_TEXT_CHANGE_FLAGS {
         f.debug_tuple("TEXT_STORE_TEXT_CHANGE_FLAGS").field(&self.0).finish()
     }
 }
+impl TEXT_STORE_TEXT_CHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TEXT_STORE_TEXT_CHANGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11494,6 +11514,11 @@ unsafe impl ::windows::core::Abi for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
 impl ::core::fmt::Debug for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TF_CONTEXT_EDIT_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TF_CONTEXT_EDIT_CONTEXT_FLAGS {

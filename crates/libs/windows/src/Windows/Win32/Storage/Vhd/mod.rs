@@ -340,6 +340,11 @@ impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_FLAG {
         f.debug_tuple("APPLY_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
     }
 }
+impl APPLY_SNAPSHOT_VHDSET_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for APPLY_SNAPSHOT_VHDSET_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -440,6 +445,11 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_FLAG {
         f.debug_tuple("ATTACH_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl ATTACH_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ATTACH_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -524,6 +534,11 @@ unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_FLAG {
 impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COMPACT_VIRTUAL_DISK_FLAG").field(&self.0).finish()
+    }
+}
+impl COMPACT_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for COMPACT_VIRTUAL_DISK_FLAG {
@@ -628,6 +643,11 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_FLAG {
         f.debug_tuple("CREATE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl CREATE_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CREATE_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -714,6 +734,11 @@ unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
 impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DELETE_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
+    }
+}
+impl DELETE_SNAPSHOT_VHDSET_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DELETE_SNAPSHOT_VHDSET_FLAG {
@@ -824,6 +849,11 @@ impl ::core::fmt::Debug for DEPENDENT_DISK_FLAG {
         f.debug_tuple("DEPENDENT_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl DEPENDENT_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DEPENDENT_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -875,6 +905,11 @@ unsafe impl ::windows::core::Abi for DETACH_VIRTUAL_DISK_FLAG {
 impl ::core::fmt::Debug for DETACH_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DETACH_VIRTUAL_DISK_FLAG").field(&self.0).finish()
+    }
+}
+impl DETACH_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DETACH_VIRTUAL_DISK_FLAG {
@@ -930,6 +965,11 @@ unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_FLAG {
 impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EXPAND_VIRTUAL_DISK_FLAG").field(&self.0).finish()
+    }
+}
+impl EXPAND_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for EXPAND_VIRTUAL_DISK_FLAG {
@@ -1014,6 +1054,11 @@ impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_FLAG {
         f.debug_tuple("FORK_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl FORK_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FORK_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1096,6 +1141,11 @@ unsafe impl ::windows::core::Abi for GET_STORAGE_DEPENDENCY_FLAG {
 impl ::core::fmt::Debug for GET_STORAGE_DEPENDENCY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_STORAGE_DEPENDENCY_FLAG").field(&self.0).finish()
+    }
+}
+impl GET_STORAGE_DEPENDENCY_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GET_STORAGE_DEPENDENCY_FLAG {
@@ -1206,6 +1256,11 @@ impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_FLAG {
         f.debug_tuple("MERGE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl MERGE_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MERGE_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1296,6 +1351,11 @@ impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_FLAG {
         f.debug_tuple("MIRROR_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl MIRROR_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MIRROR_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1376,6 +1436,11 @@ unsafe impl ::windows::core::Abi for MODIFY_VHDSET_FLAG {
 impl ::core::fmt::Debug for MODIFY_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MODIFY_VHDSET_FLAG").field(&self.0).finish()
+    }
+}
+impl MODIFY_VHDSET_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MODIFY_VHDSET_FLAG {
@@ -1486,6 +1551,11 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_FLAG {
         f.debug_tuple("OPEN_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl OPEN_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OPEN_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1570,6 +1640,11 @@ impl ::core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
         f.debug_tuple("QUERY_CHANGES_VIRTUAL_DISK_FLAG").field(&self.0).finish()
     }
 }
+impl QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1621,6 +1696,11 @@ unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
 impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RAW_SCSI_VIRTUAL_DISK_FLAG").field(&self.0).finish()
+    }
+}
+impl RAW_SCSI_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RAW_SCSI_VIRTUAL_DISK_FLAG {
@@ -1705,6 +1785,11 @@ unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_FLAG {
 impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RESIZE_VIRTUAL_DISK_FLAG").field(&self.0).finish()
+    }
+}
+impl RESIZE_VIRTUAL_DISK_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RESIZE_VIRTUAL_DISK_FLAG {
@@ -1857,6 +1942,11 @@ impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_FLAG {
         f.debug_tuple("TAKE_SNAPSHOT_VHDSET_FLAG").field(&self.0).finish()
     }
 }
+impl TAKE_SNAPSHOT_VHDSET_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TAKE_SNAPSHOT_VHDSET_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1953,6 +2043,11 @@ unsafe impl ::windows::core::Abi for VIRTUAL_DISK_ACCESS_MASK {
 impl ::core::fmt::Debug for VIRTUAL_DISK_ACCESS_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VIRTUAL_DISK_ACCESS_MASK").field(&self.0).finish()
+    }
+}
+impl VIRTUAL_DISK_ACCESS_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VIRTUAL_DISK_ACCESS_MASK {

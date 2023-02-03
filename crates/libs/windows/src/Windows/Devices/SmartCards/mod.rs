@@ -4509,6 +4509,11 @@ impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
         f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
     }
 }
+impl SmartCardCryptogramPlacementOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SmartCardCryptogramPlacementOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4604,6 +4609,11 @@ unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
 impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
+    }
+}
+impl SmartCardCryptogramStorageKeyCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SmartCardCryptogramStorageKeyCapabilities {

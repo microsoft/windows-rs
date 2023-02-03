@@ -37,6 +37,11 @@ impl ::core::fmt::Debug for OPERATION_END_PARAMETERS_FLAGS {
         f.debug_tuple("OPERATION_END_PARAMETERS_FLAGS").field(&self.0).finish()
     }
 }
+impl OPERATION_END_PARAMETERS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OPERATION_END_PARAMETERS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -88,6 +93,11 @@ unsafe impl ::windows::core::Abi for OPERATION_START_FLAGS {
 impl ::core::fmt::Debug for OPERATION_START_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPERATION_START_FLAGS").field(&self.0).finish()
+    }
+}
+impl OPERATION_START_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OPERATION_START_FLAGS {

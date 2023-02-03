@@ -2370,6 +2370,11 @@ impl ::core::fmt::Debug for GET_ADAPTERS_ADDRESSES_FLAGS {
         f.debug_tuple("GET_ADAPTERS_ADDRESSES_FLAGS").field(&self.0).finish()
     }
 }
+impl GET_ADAPTERS_ADDRESSES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GET_ADAPTERS_ADDRESSES_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

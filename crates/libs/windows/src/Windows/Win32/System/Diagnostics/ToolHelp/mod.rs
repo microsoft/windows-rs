@@ -190,6 +190,11 @@ impl ::core::fmt::Debug for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         f.debug_tuple("CREATE_TOOLHELP_SNAPSHOT_FLAGS").field(&self.0).finish()
     }
 }
+impl CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

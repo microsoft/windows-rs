@@ -6048,6 +6048,11 @@ impl ::core::fmt::Debug for DXGI_ADAPTER_FLAG {
         f.debug_tuple("DXGI_ADAPTER_FLAG").field(&self.0).finish()
     }
 }
+impl DXGI_ADAPTER_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DXGI_ADAPTER_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6113,6 +6118,11 @@ unsafe impl ::windows::core::Abi for DXGI_ADAPTER_FLAG3 {
 impl ::core::fmt::Debug for DXGI_ADAPTER_FLAG3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_ADAPTER_FLAG3").field(&self.0).finish()
+    }
+}
+impl DXGI_ADAPTER_FLAG3 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DXGI_ADAPTER_FLAG3 {
@@ -6205,6 +6215,11 @@ unsafe impl ::windows::core::Abi for DXGI_DEBUG_RLO_FLAGS {
 impl ::core::fmt::Debug for DXGI_DEBUG_RLO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_DEBUG_RLO_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_DEBUG_RLO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DXGI_DEBUG_RLO_FLAGS {
@@ -6380,6 +6395,11 @@ unsafe impl ::windows::core::Abi for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
 impl ::core::fmt::Debug for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
@@ -7680,6 +7700,11 @@ unsafe impl ::windows::core::Abi for DXGI_USAGE {
 impl ::core::fmt::Debug for DXGI_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_USAGE").field(&self.0).finish()
+    }
+}
+impl DXGI_USAGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DXGI_USAGE {

@@ -105,6 +105,11 @@ impl ::core::fmt::Debug for WSL_DISTRIBUTION_FLAGS {
         f.debug_tuple("WSL_DISTRIBUTION_FLAGS").field(&self.0).finish()
     }
 }
+impl WSL_DISTRIBUTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WSL_DISTRIBUTION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

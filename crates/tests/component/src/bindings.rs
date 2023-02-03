@@ -121,6 +121,11 @@ impl ::core::fmt::Debug for Flags {
         f.debug_tuple("Flags").field(&self.0).finish()
     }
 }
+impl Flags {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for Flags {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

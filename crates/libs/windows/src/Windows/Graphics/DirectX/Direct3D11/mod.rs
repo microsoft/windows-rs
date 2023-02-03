@@ -182,6 +182,11 @@ impl ::core::fmt::Debug for Direct3DBindings {
         f.debug_tuple("Direct3DBindings").field(&self.0).finish()
     }
 }
+impl Direct3DBindings {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for Direct3DBindings {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

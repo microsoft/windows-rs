@@ -284,6 +284,11 @@ impl ::core::fmt::Debug for CERT_SELECT_STRUCT_FLAGS {
         f.debug_tuple("CERT_SELECT_STRUCT_FLAGS").field(&self.0).finish()
     }
 }
+impl CERT_SELECT_STRUCT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CERT_SELECT_STRUCT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -353,6 +358,11 @@ unsafe impl ::windows::core::Abi for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
 impl ::core::fmt::Debug for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_VIEWPROPERTIES_STRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
@@ -444,6 +454,11 @@ unsafe impl ::windows::core::Abi for CRYPTUI_VIEWCERTIFICATE_FLAGS {
 impl ::core::fmt::Debug for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_VIEWCERTIFICATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRYPTUI_VIEWCERTIFICATE_FLAGS {
@@ -730,6 +745,11 @@ unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_FLAGS {
 impl ::core::fmt::Debug for CRYPTUI_WIZ_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPTUI_WIZ_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPTUI_WIZ_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRYPTUI_WIZ_FLAGS {

@@ -7256,6 +7256,11 @@ impl ::core::fmt::Debug for AF_OP {
         f.debug_tuple("AF_OP").field(&self.0).finish()
     }
 }
+impl AF_OP {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AF_OP {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7705,6 +7710,11 @@ impl ::core::fmt::Debug for NETSETUP_PROVISION {
         f.debug_tuple("NETSETUP_PROVISION").field(&self.0).finish()
     }
 }
+impl NETSETUP_PROVISION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NETSETUP_PROVISION {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7883,6 +7893,11 @@ impl ::core::fmt::Debug for NET_JOIN_DOMAIN_JOIN_OPTIONS {
         f.debug_tuple("NET_JOIN_DOMAIN_JOIN_OPTIONS").field(&self.0).finish()
     }
 }
+impl NET_JOIN_DOMAIN_JOIN_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7967,6 +7982,11 @@ unsafe impl ::windows::core::Abi for NET_REQUEST_PROVISION_OPTIONS {
 impl ::core::fmt::Debug for NET_REQUEST_PROVISION_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NET_REQUEST_PROVISION_OPTIONS").field(&self.0).finish()
+    }
+}
+impl NET_REQUEST_PROVISION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NET_REQUEST_PROVISION_OPTIONS {
@@ -8086,6 +8106,11 @@ impl ::core::fmt::Debug for NET_SERVER_TYPE {
         f.debug_tuple("NET_SERVER_TYPE").field(&self.0).finish()
     }
 }
+impl NET_SERVER_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NET_SERVER_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8145,6 +8170,11 @@ unsafe impl ::windows::core::Abi for NET_USER_ENUM_FILTER_FLAGS {
 impl ::core::fmt::Debug for NET_USER_ENUM_FILTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NET_USER_ENUM_FILTER_FLAGS").field(&self.0).finish()
+    }
+}
+impl NET_USER_ENUM_FILTER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NET_USER_ENUM_FILTER_FLAGS {
@@ -8449,6 +8479,11 @@ unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
 impl ::core::fmt::Debug for USER_ACCOUNT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USER_ACCOUNT_FLAGS").field(&self.0).finish()
+    }
+}
+impl USER_ACCOUNT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for USER_ACCOUNT_FLAGS {

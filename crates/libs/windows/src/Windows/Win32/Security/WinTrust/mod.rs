@@ -519,6 +519,11 @@ impl ::core::fmt::Debug for WINTRUST_DATA_PROVIDER_FLAGS {
         f.debug_tuple("WINTRUST_DATA_PROVIDER_FLAGS").field(&self.0).finish()
     }
 }
+impl WINTRUST_DATA_PROVIDER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WINTRUST_DATA_PROVIDER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -768,6 +773,11 @@ unsafe impl ::windows::core::Abi for WINTRUST_POLICY_FLAGS {
 impl ::core::fmt::Debug for WINTRUST_POLICY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINTRUST_POLICY_FLAGS").field(&self.0).finish()
+    }
+}
+impl WINTRUST_POLICY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WINTRUST_POLICY_FLAGS {

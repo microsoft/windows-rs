@@ -511,6 +511,11 @@ impl ::core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
         f.debug_tuple("CLEAR_COMM_ERROR_FLAGS").field(&self.0).finish()
     }
 }
+impl CLEAR_COMM_ERROR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -576,6 +581,11 @@ unsafe impl ::windows::core::Abi for COMMPROP_STOP_PARITY {
 impl ::core::fmt::Debug for COMMPROP_STOP_PARITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COMMPROP_STOP_PARITY").field(&self.0).finish()
+    }
+}
+impl COMMPROP_STOP_PARITY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for COMMPROP_STOP_PARITY {
@@ -653,6 +663,11 @@ unsafe impl ::windows::core::Abi for COMM_EVENT_MASK {
 impl ::core::fmt::Debug for COMM_EVENT_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COMM_EVENT_MASK").field(&self.0).finish()
+    }
+}
+impl COMM_EVENT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for COMM_EVENT_MASK {
@@ -813,6 +828,11 @@ impl ::core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
         f.debug_tuple("MODEMDEVCAPS_DIAL_OPTIONS").field(&self.0).finish()
     }
 }
+impl MODEMDEVCAPS_DIAL_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -872,6 +892,11 @@ impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
         f.debug_tuple("MODEMDEVCAPS_SPEAKER_MODE").field(&self.0).finish()
     }
 }
+impl MODEMDEVCAPS_SPEAKER_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -927,6 +952,11 @@ unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
 impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MODEMDEVCAPS_SPEAKER_VOLUME").field(&self.0).finish()
+    }
+}
+impl MODEMDEVCAPS_SPEAKER_VOLUME {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
@@ -1048,6 +1078,11 @@ impl ::core::fmt::Debug for MODEM_STATUS_FLAGS {
         f.debug_tuple("MODEM_STATUS_FLAGS").field(&self.0).finish()
     }
 }
+impl MODEM_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MODEM_STATUS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1105,6 +1140,11 @@ unsafe impl ::windows::core::Abi for PURGE_COMM_FLAGS {
 impl ::core::fmt::Debug for PURGE_COMM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PURGE_COMM_FLAGS").field(&self.0).finish()
+    }
+}
+impl PURGE_COMM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PURGE_COMM_FLAGS {

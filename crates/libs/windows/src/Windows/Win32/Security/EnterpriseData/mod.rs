@@ -438,6 +438,11 @@ impl ::core::fmt::Debug for ENTERPRISE_DATA_POLICIES {
         f.debug_tuple("ENTERPRISE_DATA_POLICIES").field(&self.0).finish()
     }
 }
+impl ENTERPRISE_DATA_POLICIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ENTERPRISE_DATA_POLICIES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

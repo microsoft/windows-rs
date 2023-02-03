@@ -2221,6 +2221,11 @@ impl ::core::fmt::Debug for ArcadeStickButtons {
         f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
     }
 }
+impl ArcadeStickButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ArcadeStickButtons {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2282,6 +2287,11 @@ unsafe impl ::windows::core::Abi for FlightStickButtons {
 impl ::core::fmt::Debug for FlightStickButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FlightStickButtons").field(&self.0).finish()
+    }
+}
+impl FlightStickButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FlightStickButtons {
@@ -2540,6 +2550,11 @@ impl ::core::fmt::Debug for GamepadButtons {
         f.debug_tuple("GamepadButtons").field(&self.0).finish()
     }
 }
+impl GamepadButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GamepadButtons {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2611,6 +2626,11 @@ unsafe impl ::windows::core::Abi for OptionalUINavigationButtons {
 impl ::core::fmt::Debug for OptionalUINavigationButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
+    }
+}
+impl OptionalUINavigationButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OptionalUINavigationButtons {
@@ -2696,6 +2716,11 @@ impl ::core::fmt::Debug for RacingWheelButtons {
         f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
     }
 }
+impl RacingWheelButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RacingWheelButtons {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2763,6 +2788,11 @@ unsafe impl ::windows::core::Abi for RequiredUINavigationButtons {
 impl ::core::fmt::Debug for RequiredUINavigationButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
+    }
+}
+impl RequiredUINavigationButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RequiredUINavigationButtons {

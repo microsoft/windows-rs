@@ -634,6 +634,11 @@ impl ::core::fmt::Debug for WER_FAULT_REPORTING {
         f.debug_tuple("WER_FAULT_REPORTING").field(&self.0).finish()
     }
 }
+impl WER_FAULT_REPORTING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WER_FAULT_REPORTING {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -687,6 +692,11 @@ unsafe impl ::windows::core::Abi for WER_FILE {
 impl ::core::fmt::Debug for WER_FILE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WER_FILE").field(&self.0).finish()
+    }
+}
+impl WER_FILE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WER_FILE {
@@ -918,6 +928,11 @@ unsafe impl ::windows::core::Abi for WER_SUBMIT_FLAGS {
 impl ::core::fmt::Debug for WER_SUBMIT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WER_SUBMIT_FLAGS").field(&self.0).finish()
+    }
+}
+impl WER_SUBMIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WER_SUBMIT_FLAGS {

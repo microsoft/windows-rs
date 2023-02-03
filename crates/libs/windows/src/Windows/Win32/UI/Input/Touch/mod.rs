@@ -575,6 +575,11 @@ impl ::core::fmt::Debug for GESTURECONFIG_ID {
         f.debug_tuple("GESTURECONFIG_ID").field(&self.0).finish()
     }
 }
+impl GESTURECONFIG_ID {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GESTURECONFIG_ID {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -704,6 +709,11 @@ impl ::core::fmt::Debug for TOUCHEVENTF_FLAGS {
         f.debug_tuple("TOUCHEVENTF_FLAGS").field(&self.0).finish()
     }
 }
+impl TOUCHEVENTF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TOUCHEVENTF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -759,6 +769,11 @@ unsafe impl ::windows::core::Abi for TOUCHINPUTMASKF_MASK {
 impl ::core::fmt::Debug for TOUCHINPUTMASKF_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TOUCHINPUTMASKF_MASK").field(&self.0).finish()
+    }
+}
+impl TOUCHINPUTMASKF_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TOUCHINPUTMASKF_MASK {

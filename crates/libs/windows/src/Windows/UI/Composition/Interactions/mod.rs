@@ -4508,6 +4508,11 @@ impl ::core::fmt::Debug for InteractionBindingAxisModes {
         f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
     }
 }
+impl InteractionBindingAxisModes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for InteractionBindingAxisModes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

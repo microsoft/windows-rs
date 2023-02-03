@@ -3608,6 +3608,11 @@ impl ::core::fmt::Debug for QUERY_DISPLAY_CONFIG_FLAGS {
         f.debug_tuple("QUERY_DISPLAY_CONFIG_FLAGS").field(&self.0).finish()
     }
 }
+impl QUERY_DISPLAY_CONFIG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for QUERY_DISPLAY_CONFIG_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3691,6 +3696,11 @@ unsafe impl ::windows::core::Abi for SET_DISPLAY_CONFIG_FLAGS {
 impl ::core::fmt::Debug for SET_DISPLAY_CONFIG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_DISPLAY_CONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl SET_DISPLAY_CONFIG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SET_DISPLAY_CONFIG_FLAGS {

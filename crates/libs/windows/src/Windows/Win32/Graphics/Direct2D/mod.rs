@@ -17780,6 +17780,11 @@ impl ::core::fmt::Debug for D2D1_BITMAP_OPTIONS {
         f.debug_tuple("D2D1_BITMAP_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_BITMAP_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_BITMAP_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -18111,6 +18116,11 @@ unsafe impl ::windows::core::Abi for D2D1_CHANGE_TYPE {
 impl ::core::fmt::Debug for D2D1_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
+impl D2D1_CHANGE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_CHANGE_TYPE {
@@ -18581,6 +18591,11 @@ impl ::core::fmt::Debug for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
         f.debug_tuple("D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -18931,6 +18946,11 @@ unsafe impl ::windows::core::Abi for D2D1_DEVICE_CONTEXT_OPTIONS {
 impl ::core::fmt::Debug for D2D1_DEVICE_CONTEXT_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DEVICE_CONTEXT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_DEVICE_CONTEXT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_DEVICE_CONTEXT_OPTIONS {
@@ -19354,6 +19374,11 @@ unsafe impl ::windows::core::Abi for D2D1_DRAW_TEXT_OPTIONS {
 impl ::core::fmt::Debug for D2D1_DRAW_TEXT_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_DRAW_TEXT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_DRAW_TEXT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_DRAW_TEXT_OPTIONS {
@@ -20206,6 +20231,11 @@ impl ::core::fmt::Debug for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
         f.debug_tuple("D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20263,6 +20293,11 @@ unsafe impl ::windows::core::Abi for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
 impl ::core::fmt::Debug for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_IMAGE_SOURCE_LOADING_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
@@ -20427,6 +20462,11 @@ impl ::core::fmt::Debug for D2D1_LAYER_OPTIONS {
         f.debug_tuple("D2D1_LAYER_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_LAYER_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_LAYER_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20484,6 +20524,11 @@ unsafe impl ::windows::core::Abi for D2D1_LAYER_OPTIONS1 {
 impl ::core::fmt::Debug for D2D1_LAYER_OPTIONS1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_LAYER_OPTIONS1").field(&self.0).finish()
+    }
+}
+impl D2D1_LAYER_OPTIONS1 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_LAYER_OPTIONS1 {
@@ -20658,6 +20703,11 @@ unsafe impl ::windows::core::Abi for D2D1_MAP_OPTIONS {
 impl ::core::fmt::Debug for D2D1_MAP_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_MAP_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_MAP_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_MAP_OPTIONS {
@@ -20934,6 +20984,11 @@ impl ::core::fmt::Debug for D2D1_PIXEL_OPTIONS {
         f.debug_tuple("D2D1_PIXEL_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_PIXEL_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_PIXEL_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -21172,6 +21227,11 @@ unsafe impl ::windows::core::Abi for D2D1_PRESENT_OPTIONS {
 impl ::core::fmt::Debug for D2D1_PRESENT_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_PRESENT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_PRESENT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_PRESENT_OPTIONS {
@@ -21465,6 +21525,11 @@ unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_USAGE {
 impl ::core::fmt::Debug for D2D1_RENDER_TARGET_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_RENDER_TARGET_USAGE").field(&self.0).finish()
+    }
+}
+impl D2D1_RENDER_TARGET_USAGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_RENDER_TARGET_USAGE {
@@ -21959,6 +22024,11 @@ unsafe impl ::windows::core::Abi for D2D1_SPRITE_OPTIONS {
 impl ::core::fmt::Debug for D2D1_SPRITE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_SPRITE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_SPRITE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_SPRITE_OPTIONS {
@@ -22838,6 +22908,11 @@ impl ::core::fmt::Debug for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
         f.debug_tuple("D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS").field(&self.0).finish()
     }
 }
+impl D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -22965,6 +23040,11 @@ unsafe impl ::windows::core::Abi for D2D1_VERTEX_OPTIONS {
 impl ::core::fmt::Debug for D2D1_VERTEX_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_VERTEX_OPTIONS").field(&self.0).finish()
+    }
+}
+impl D2D1_VERTEX_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_VERTEX_OPTIONS {
@@ -23111,6 +23191,11 @@ unsafe impl ::windows::core::Abi for D2D1_WINDOW_STATE {
 impl ::core::fmt::Debug for D2D1_WINDOW_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_WINDOW_STATE").field(&self.0).finish()
+    }
+}
+impl D2D1_WINDOW_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D2D1_WINDOW_STATE {

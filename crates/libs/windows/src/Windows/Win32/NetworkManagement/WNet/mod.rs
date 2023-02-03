@@ -779,6 +779,11 @@ impl ::core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
         f.debug_tuple("CONNECTDLGSTRUCT_FLAGS").field(&self.0).finish()
     }
 }
+impl CONNECTDLGSTRUCT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CONNECTDLGSTRUCT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -832,6 +837,11 @@ unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
 impl ::core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DISCDLGSTRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl DISCDLGSTRUCT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DISCDLGSTRUCT_FLAGS {
@@ -889,6 +899,11 @@ unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
 impl ::core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NETINFOSTRUCT_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl NETINFOSTRUCT_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NETINFOSTRUCT_CHARACTERISTICS {
@@ -1006,6 +1021,11 @@ impl ::core::fmt::Debug for NET_RESOURCE_TYPE {
         f.debug_tuple("NET_RESOURCE_TYPE").field(&self.0).finish()
     }
 }
+impl NET_RESOURCE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NET_RESOURCE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1073,6 +1093,11 @@ unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
 impl ::core::fmt::Debug for NET_USE_CONNECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NET_USE_CONNECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl NET_USE_CONNECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NET_USE_CONNECT_FLAGS {
@@ -1219,6 +1244,11 @@ unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
 impl ::core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WNET_OPEN_ENUM_USAGE").field(&self.0).finish()
+    }
+}
+impl WNET_OPEN_ENUM_USAGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WNET_OPEN_ENUM_USAGE {

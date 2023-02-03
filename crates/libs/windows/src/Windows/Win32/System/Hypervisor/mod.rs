@@ -1269,6 +1269,11 @@ impl ::core::fmt::Debug for HDV_MMIO_MAPPING_FLAGS {
         f.debug_tuple("HDV_MMIO_MAPPING_FLAGS").field(&self.0).finish()
     }
 }
+impl HDV_MMIO_MAPPING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HDV_MMIO_MAPPING_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1855,6 +1860,11 @@ impl ::core::fmt::Debug for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
         f.debug_tuple("WHV_ALLOCATE_VPCI_RESOURCE_FLAGS").field(&self.0).finish()
     }
 }
+impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1998,6 +2008,11 @@ unsafe impl ::windows::core::Abi for WHV_CREATE_VPCI_DEVICE_FLAGS {
 impl ::core::fmt::Debug for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WHV_CREATE_VPCI_DEVICE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_CREATE_VPCI_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WHV_CREATE_VPCI_DEVICE_FLAGS {
@@ -2205,6 +2220,11 @@ unsafe impl ::windows::core::Abi for WHV_MAP_GPA_RANGE_FLAGS {
 impl ::core::fmt::Debug for WHV_MAP_GPA_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WHV_MAP_GPA_RANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_MAP_GPA_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WHV_MAP_GPA_RANGE_FLAGS {
@@ -3117,6 +3137,11 @@ impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_FLAGS {
         f.debug_tuple("WHV_TRANSLATE_GVA_FLAGS").field(&self.0).finish()
     }
 }
+impl WHV_TRANSLATE_GVA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WHV_TRANSLATE_GVA_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3395,6 +3420,11 @@ impl ::core::fmt::Debug for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
         f.debug_tuple("WHV_VPCI_INTERRUPT_TARGET_FLAGS").field(&self.0).finish()
     }
 }
+impl WHV_VPCI_INTERRUPT_TARGET_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3448,6 +3478,11 @@ unsafe impl ::windows::core::Abi for WHV_VPCI_MMIO_RANGE_FLAGS {
 impl ::core::fmt::Debug for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WHV_VPCI_MMIO_RANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_VPCI_MMIO_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WHV_VPCI_MMIO_RANGE_FLAGS {
@@ -3536,6 +3571,11 @@ unsafe impl ::windows::core::Abi for WHV_X64_CPUID_RESULT2_FLAGS {
 impl ::core::fmt::Debug for WHV_X64_CPUID_RESULT2_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WHV_X64_CPUID_RESULT2_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_X64_CPUID_RESULT2_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WHV_X64_CPUID_RESULT2_FLAGS {

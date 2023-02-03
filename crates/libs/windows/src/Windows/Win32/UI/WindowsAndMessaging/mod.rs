@@ -6685,6 +6685,11 @@ impl ::core::fmt::Debug for ACCEL_VIRT_FLAGS {
         f.debug_tuple("ACCEL_VIRT_FLAGS").field(&self.0).finish()
     }
 }
+impl ACCEL_VIRT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ACCEL_VIRT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6754,6 +6759,11 @@ impl ::core::fmt::Debug for ANIMATE_WINDOW_FLAGS {
         f.debug_tuple("ANIMATE_WINDOW_FLAGS").field(&self.0).finish()
     }
 }
+impl ANIMATE_WINDOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ANIMATE_WINDOW_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6807,6 +6817,11 @@ unsafe impl ::windows::core::Abi for CASCADE_WINDOWS_HOW {
 impl ::core::fmt::Debug for CASCADE_WINDOWS_HOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CASCADE_WINDOWS_HOW").field(&self.0).finish()
+    }
+}
+impl CASCADE_WINDOWS_HOW {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CASCADE_WINDOWS_HOW {
@@ -6922,6 +6937,11 @@ impl ::core::fmt::Debug for CWP_FLAGS {
         f.debug_tuple("CWP_FLAGS").field(&self.0).finish()
     }
 }
+impl CWP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CWP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6983,6 +7003,11 @@ unsafe impl ::windows::core::Abi for DI_FLAGS {
 impl ::core::fmt::Debug for DI_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DI_FLAGS").field(&self.0).finish()
+    }
+}
+impl DI_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DI_FLAGS {
@@ -7073,6 +7098,11 @@ unsafe impl ::windows::core::Abi for FLASHWINFO_FLAGS {
 impl ::core::fmt::Debug for FLASHWINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FLASHWINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl FLASHWINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FLASHWINFO_FLAGS {
@@ -7274,6 +7304,11 @@ impl ::core::fmt::Debug for GET_MENU_DEFAULT_ITEM_FLAGS {
         f.debug_tuple("GET_MENU_DEFAULT_ITEM_FLAGS").field(&self.0).finish()
     }
 }
+impl GET_MENU_DEFAULT_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7370,6 +7405,11 @@ unsafe impl ::windows::core::Abi for GUITHREADINFO_FLAGS {
 impl ::core::fmt::Debug for GUITHREADINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GUITHREADINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl GUITHREADINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GUITHREADINFO_FLAGS {
@@ -7474,6 +7514,11 @@ impl ::core::fmt::Debug for IMAGE_FLAGS {
         f.debug_tuple("IMAGE_FLAGS").field(&self.0).finish()
     }
 }
+impl IMAGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IMAGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7535,6 +7580,11 @@ impl ::core::fmt::Debug for KBDLLHOOKSTRUCT_FLAGS {
         f.debug_tuple("KBDLLHOOKSTRUCT_FLAGS").field(&self.0).finish()
     }
 }
+impl KBDLLHOOKSTRUCT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7588,6 +7638,11 @@ unsafe impl ::windows::core::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
 impl ::core::fmt::Debug for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LAYERED_WINDOW_ATTRIBUTES_FLAGS").field(&self.0).finish()
+    }
+}
+impl LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
@@ -7680,6 +7735,11 @@ impl ::core::fmt::Debug for MENUINFO_MASK {
         f.debug_tuple("MENUINFO_MASK").field(&self.0).finish()
     }
 }
+impl MENUINFO_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MENUINFO_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7741,6 +7801,11 @@ unsafe impl ::windows::core::Abi for MENUINFO_STYLE {
 impl ::core::fmt::Debug for MENUINFO_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MENUINFO_STYLE").field(&self.0).finish()
+    }
+}
+impl MENUINFO_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MENUINFO_STYLE {
@@ -7850,6 +7915,11 @@ impl ::core::fmt::Debug for MENU_ITEM_FLAGS {
         f.debug_tuple("MENU_ITEM_FLAGS").field(&self.0).finish()
     }
 }
+impl MENU_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MENU_ITEM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7919,6 +7989,11 @@ impl ::core::fmt::Debug for MENU_ITEM_MASK {
         f.debug_tuple("MENU_ITEM_MASK").field(&self.0).finish()
     }
 }
+impl MENU_ITEM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MENU_ITEM_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7984,6 +8059,11 @@ unsafe impl ::windows::core::Abi for MENU_ITEM_STATE {
 impl ::core::fmt::Debug for MENU_ITEM_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MENU_ITEM_STATE").field(&self.0).finish()
+    }
+}
+impl MENU_ITEM_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MENU_ITEM_STATE {
@@ -8053,6 +8133,11 @@ unsafe impl ::windows::core::Abi for MENU_ITEM_TYPE {
 impl ::core::fmt::Debug for MENU_ITEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MENU_ITEM_TYPE").field(&self.0).finish()
+    }
+}
+impl MENU_ITEM_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MENU_ITEM_TYPE {
@@ -8229,6 +8314,11 @@ impl ::core::fmt::Debug for MESSAGEBOX_STYLE {
         f.debug_tuple("MESSAGEBOX_STYLE").field(&self.0).finish()
     }
 }
+impl MESSAGEBOX_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MESSAGEBOX_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8348,6 +8438,11 @@ unsafe impl ::windows::core::Abi for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
 impl ::core::fmt::Debug for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS").field(&self.0).finish()
+    }
+}
+impl MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
@@ -8642,6 +8737,11 @@ impl ::core::fmt::Debug for PEEK_MESSAGE_REMOVE_TYPE {
         f.debug_tuple("PEEK_MESSAGE_REMOVE_TYPE").field(&self.0).finish()
     }
 }
+impl PEEK_MESSAGE_REMOVE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8752,6 +8852,11 @@ unsafe impl ::windows::core::Abi for QUEUE_STATUS_FLAGS {
 impl ::core::fmt::Debug for QUEUE_STATUS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("QUEUE_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
+impl QUEUE_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for QUEUE_STATUS_FLAGS {
@@ -8866,6 +8971,11 @@ impl ::core::fmt::Debug for SCROLLBAR_CONSTANTS {
         f.debug_tuple("SCROLLBAR_CONSTANTS").field(&self.0).finish()
     }
 }
+impl SCROLLBAR_CONSTANTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SCROLLBAR_CONSTANTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8929,6 +9039,11 @@ impl ::core::fmt::Debug for SCROLLINFO_MASK {
         f.debug_tuple("SCROLLINFO_MASK").field(&self.0).finish()
     }
 }
+impl SCROLLINFO_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SCROLLINFO_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8988,6 +9103,11 @@ unsafe impl ::windows::core::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
 impl ::core::fmt::Debug for SEND_MESSAGE_TIMEOUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SEND_MESSAGE_TIMEOUT_FLAGS").field(&self.0).finish()
+    }
+}
+impl SEND_MESSAGE_TIMEOUT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
@@ -9069,6 +9189,11 @@ unsafe impl ::windows::core::Abi for SET_WINDOW_POS_FLAGS {
 impl ::core::fmt::Debug for SET_WINDOW_POS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_WINDOW_POS_FLAGS").field(&self.0).finish()
+    }
+}
+impl SET_WINDOW_POS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SET_WINDOW_POS_FLAGS {
@@ -9166,6 +9291,11 @@ unsafe impl ::windows::core::Abi for SHOW_WINDOW_CMD {
 impl ::core::fmt::Debug for SHOW_WINDOW_CMD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHOW_WINDOW_CMD").field(&self.0).finish()
+    }
+}
+impl SHOW_WINDOW_CMD {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SHOW_WINDOW_CMD {
@@ -9965,6 +10095,11 @@ impl ::core::fmt::Debug for SYSTEM_PARAMETERS_INFO_ACTION {
         f.debug_tuple("SYSTEM_PARAMETERS_INFO_ACTION").field(&self.0).finish()
     }
 }
+impl SYSTEM_PARAMETERS_INFO_ACTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10020,6 +10155,11 @@ unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
 impl ::core::fmt::Debug for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
@@ -10140,6 +10280,11 @@ impl ::core::fmt::Debug for TRACK_POPUP_MENU_FLAGS {
         f.debug_tuple("TRACK_POPUP_MENU_FLAGS").field(&self.0).finish()
     }
 }
+impl TRACK_POPUP_MENU_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10226,6 +10371,11 @@ unsafe impl ::windows::core::Abi for WINDOWPLACEMENT_FLAGS {
 impl ::core::fmt::Debug for WINDOWPLACEMENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WINDOWPLACEMENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl WINDOWPLACEMENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
@@ -10415,6 +10565,11 @@ impl ::core::fmt::Debug for WINDOW_EX_STYLE {
         f.debug_tuple("WINDOW_EX_STYLE").field(&self.0).finish()
     }
 }
+impl WINDOW_EX_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WINDOW_EX_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10598,6 +10753,11 @@ impl ::core::fmt::Debug for WINDOW_STYLE {
         f.debug_tuple("WINDOW_STYLE").field(&self.0).finish()
     }
 }
+impl WINDOW_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WINDOW_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10673,6 +10833,11 @@ unsafe impl ::windows::core::Abi for WNDCLASS_STYLES {
 impl ::core::fmt::Debug for WNDCLASS_STYLES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WNDCLASS_STYLES").field(&self.0).finish()
+    }
+}
+impl WNDCLASS_STYLES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WNDCLASS_STYLES {

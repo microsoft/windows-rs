@@ -7668,6 +7668,11 @@ impl ::core::fmt::Debug for FileAttributes {
         f.debug_tuple("FileAttributes").field(&self.0).finish()
     }
 }
+impl FileAttributes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FileAttributes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7923,6 +7928,11 @@ impl ::core::fmt::Debug for StorageItemTypes {
         f.debug_tuple("StorageItemTypes").field(&self.0).finish()
     }
 }
+impl StorageItemTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for StorageItemTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8026,6 +8036,11 @@ unsafe impl ::windows::core::Abi for StorageOpenOptions {
 impl ::core::fmt::Debug for StorageOpenOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageOpenOptions").field(&self.0).finish()
+    }
+}
+impl StorageOpenOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for StorageOpenOptions {

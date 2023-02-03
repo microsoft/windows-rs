@@ -2225,6 +2225,11 @@ impl ::core::fmt::Debug for EVENT_TRACE_FLAG {
         f.debug_tuple("EVENT_TRACE_FLAG").field(&self.0).finish()
     }
 }
+impl EVENT_TRACE_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for EVENT_TRACE_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2502,6 +2507,11 @@ unsafe impl ::windows::core::Abi for TRACE_MESSAGE_FLAGS {
 impl ::core::fmt::Debug for TRACE_MESSAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRACE_MESSAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl TRACE_MESSAGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TRACE_MESSAGE_FLAGS {

@@ -281,6 +281,11 @@ impl ::core::fmt::Debug for HANDLE_ACCESS_OPTIONS {
         f.debug_tuple("HANDLE_ACCESS_OPTIONS").field(&self.0).finish()
     }
 }
+impl HANDLE_ACCESS_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HANDLE_ACCESS_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -381,6 +386,11 @@ impl ::core::fmt::Debug for HANDLE_OPTIONS {
         f.debug_tuple("HANDLE_OPTIONS").field(&self.0).finish()
     }
 }
+impl HANDLE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HANDLE_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -438,6 +448,11 @@ unsafe impl ::windows::core::Abi for HANDLE_SHARING_OPTIONS {
 impl ::core::fmt::Debug for HANDLE_SHARING_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE_SHARING_OPTIONS").field(&self.0).finish()
+    }
+}
+impl HANDLE_SHARING_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for HANDLE_SHARING_OPTIONS {

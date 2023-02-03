@@ -2825,6 +2825,11 @@ impl ::core::fmt::Debug for OPC_READ_FLAGS {
         f.debug_tuple("OPC_READ_FLAGS").field(&self.0).finish()
     }
 }
+impl OPC_READ_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OPC_READ_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3048,6 +3053,11 @@ unsafe impl ::windows::core::Abi for OPC_WRITE_FLAGS {
 impl ::core::fmt::Debug for OPC_WRITE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPC_WRITE_FLAGS").field(&self.0).finish()
+    }
+}
+impl OPC_WRITE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OPC_WRITE_FLAGS {

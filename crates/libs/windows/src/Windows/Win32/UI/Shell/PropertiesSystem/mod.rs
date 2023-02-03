@@ -3920,6 +3920,11 @@ impl ::core::fmt::Debug for DRAWPROGRESSFLAGS {
         f.debug_tuple("DRAWPROGRESSFLAGS").field(&self.0).finish()
     }
 }
+impl DRAWPROGRESSFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DRAWPROGRESSFLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3999,6 +4004,11 @@ unsafe impl ::windows::core::Abi for GETPROPERTYSTOREFLAGS {
 impl ::core::fmt::Debug for GETPROPERTYSTOREFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GETPROPERTYSTOREFLAGS").field(&self.0).finish()
+    }
+}
+impl GETPROPERTYSTOREFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GETPROPERTYSTOREFLAGS {
@@ -4091,6 +4101,11 @@ impl ::core::fmt::Debug for PKA_FLAGS {
         f.debug_tuple("PKA_FLAGS").field(&self.0).finish()
     }
 }
+impl PKA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PKA_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4154,6 +4169,11 @@ unsafe impl ::windows::core::Abi for PLACEHOLDER_STATES {
 impl ::core::fmt::Debug for PLACEHOLDER_STATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PLACEHOLDER_STATES").field(&self.0).finish()
+    }
+}
+impl PLACEHOLDER_STATES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PLACEHOLDER_STATES {
@@ -4416,6 +4436,11 @@ impl ::core::fmt::Debug for PROPDESC_FORMAT_FLAGS {
         f.debug_tuple("PROPDESC_FORMAT_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPDESC_FORMAT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPDESC_FORMAT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4561,6 +4586,11 @@ impl ::core::fmt::Debug for PROPDESC_SEARCHINFO_FLAGS {
         f.debug_tuple("PROPDESC_SEARCHINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPDESC_SEARCHINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPDESC_SEARCHINFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4677,6 +4707,11 @@ impl ::core::fmt::Debug for PROPDESC_TYPE_FLAGS {
         f.debug_tuple("PROPDESC_TYPE_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPDESC_TYPE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPDESC_TYPE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4754,6 +4789,11 @@ unsafe impl ::windows::core::Abi for PROPDESC_VIEW_FLAGS {
 impl ::core::fmt::Debug for PROPDESC_VIEW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROPDESC_VIEW_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROPDESC_VIEW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROPDESC_VIEW_FLAGS {
@@ -4844,6 +4884,11 @@ impl ::core::fmt::Debug for PROPERTYUI_FLAGS {
         f.debug_tuple("PROPERTYUI_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPERTYUI_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPERTYUI_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4905,6 +4950,11 @@ impl ::core::fmt::Debug for PROPERTYUI_FORMAT_FLAGS {
         f.debug_tuple("PROPERTYUI_FORMAT_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPERTYUI_FORMAT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPERTYUI_FORMAT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4958,6 +5008,11 @@ unsafe impl ::windows::core::Abi for PROPERTYUI_NAME_FLAGS {
 impl ::core::fmt::Debug for PROPERTYUI_NAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROPERTYUI_NAME_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROPERTYUI_NAME_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROPERTYUI_NAME_FLAGS {
@@ -5023,6 +5078,11 @@ impl ::core::fmt::Debug for PROPVAR_CHANGE_FLAGS {
         f.debug_tuple("PROPVAR_CHANGE_FLAGS").field(&self.0).finish()
     }
 }
+impl PROPVAR_CHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROPVAR_CHANGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5086,6 +5146,11 @@ unsafe impl ::windows::core::Abi for PROPVAR_COMPARE_FLAGS {
 impl ::core::fmt::Debug for PROPVAR_COMPARE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROPVAR_COMPARE_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROPVAR_COMPARE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROPVAR_COMPARE_FLAGS {
@@ -5211,6 +5276,11 @@ impl ::core::fmt::Debug for PSTIME_FLAGS {
         f.debug_tuple("PSTIME_FLAGS").field(&self.0).finish()
     }
 }
+impl PSTIME_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PSTIME_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5282,6 +5352,11 @@ unsafe impl ::windows::core::Abi for SYNC_ENGINE_STATE_FLAGS {
 impl ::core::fmt::Debug for SYNC_ENGINE_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYNC_ENGINE_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYNC_ENGINE_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYNC_ENGINE_STATE_FLAGS {
@@ -5357,6 +5432,11 @@ unsafe impl ::windows::core::Abi for SYNC_TRANSFER_STATUS {
 impl ::core::fmt::Debug for SYNC_TRANSFER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYNC_TRANSFER_STATUS").field(&self.0).finish()
+    }
+}
+impl SYNC_TRANSFER_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYNC_TRANSFER_STATUS {

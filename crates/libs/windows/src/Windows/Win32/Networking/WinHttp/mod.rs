@@ -1451,6 +1451,11 @@ impl ::core::fmt::Debug for WINHTTP_OPEN_REQUEST_FLAGS {
         f.debug_tuple("WINHTTP_OPEN_REQUEST_FLAGS").field(&self.0).finish()
     }
 }
+impl WINHTTP_OPEN_REQUEST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WINHTTP_OPEN_REQUEST_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

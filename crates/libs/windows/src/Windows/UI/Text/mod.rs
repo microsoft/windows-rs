@@ -3055,6 +3055,11 @@ impl ::core::fmt::Debug for FindOptions {
         f.debug_tuple("FindOptions").field(&self.0).finish()
     }
 }
+impl FindOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FindOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3599,6 +3604,11 @@ impl ::core::fmt::Debug for PointOptions {
         f.debug_tuple("PointOptions").field(&self.0).finish()
     }
 }
+impl PointOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PointOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3733,6 +3743,11 @@ unsafe impl ::windows::core::Abi for SelectionOptions {
 impl ::core::fmt::Debug for SelectionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SelectionOptions").field(&self.0).finish()
+    }
+}
+impl SelectionOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SelectionOptions {
@@ -3910,6 +3925,11 @@ impl ::core::fmt::Debug for TextDecorations {
         f.debug_tuple("TextDecorations").field(&self.0).finish()
     }
 }
+impl TextDecorations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TextDecorations {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3977,6 +3997,11 @@ unsafe impl ::windows::core::Abi for TextGetOptions {
 impl ::core::fmt::Debug for TextGetOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextGetOptions").field(&self.0).finish()
+    }
+}
+impl TextGetOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TextGetOptions {
@@ -4205,6 +4230,11 @@ unsafe impl ::windows::core::Abi for TextSetOptions {
 impl ::core::fmt::Debug for TextSetOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextSetOptions").field(&self.0).finish()
+    }
+}
+impl TextSetOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TextSetOptions {

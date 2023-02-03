@@ -2054,6 +2054,11 @@ impl ::core::fmt::Debug for WindowsUpdateAdministratorOptions {
         f.debug_tuple("WindowsUpdateAdministratorOptions").field(&self.0).finish()
     }
 }
+impl WindowsUpdateAdministratorOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WindowsUpdateAdministratorOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

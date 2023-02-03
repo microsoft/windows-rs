@@ -2813,6 +2813,11 @@ impl ::core::fmt::Debug for REG_NOTIFY_FILTER {
         f.debug_tuple("REG_NOTIFY_FILTER").field(&self.0).finish()
     }
 }
+impl REG_NOTIFY_FILTER {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REG_NOTIFY_FILTER {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2876,6 +2881,11 @@ unsafe impl ::windows::core::Abi for REG_OPEN_CREATE_OPTIONS {
 impl ::core::fmt::Debug for REG_OPEN_CREATE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REG_OPEN_CREATE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl REG_OPEN_CREATE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
@@ -2986,6 +2996,11 @@ impl ::core::fmt::Debug for REG_ROUTINE_FLAGS {
         f.debug_tuple("REG_ROUTINE_FLAGS").field(&self.0).finish()
     }
 }
+impl REG_ROUTINE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REG_ROUTINE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3061,6 +3076,11 @@ unsafe impl ::windows::core::Abi for REG_SAM_FLAGS {
 impl ::core::fmt::Debug for REG_SAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REG_SAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl REG_SAM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for REG_SAM_FLAGS {

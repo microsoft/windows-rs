@@ -5649,6 +5649,11 @@ impl ::core::fmt::Debug for CDS_TYPE {
         f.debug_tuple("CDS_TYPE").field(&self.0).finish()
     }
 }
+impl CDS_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CDS_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5785,6 +5790,11 @@ unsafe impl ::windows::core::Abi for DC_LAYOUT {
 impl ::core::fmt::Debug for DC_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DC_LAYOUT").field(&self.0).finish()
+    }
+}
+impl DC_LAYOUT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DC_LAYOUT {
@@ -6061,6 +6071,11 @@ impl ::core::fmt::Debug for DEVMODE_FIELD_FLAGS {
         f.debug_tuple("DEVMODE_FIELD_FLAGS").field(&self.0).finish()
     }
 }
+impl DEVMODE_FIELD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DEVMODE_FIELD_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6201,6 +6216,11 @@ unsafe impl ::windows::core::Abi for DFCS_STATE {
 impl ::core::fmt::Debug for DFCS_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DFCS_STATE").field(&self.0).finish()
+    }
+}
+impl DFCS_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DFCS_STATE {
@@ -6412,6 +6432,11 @@ impl ::core::fmt::Debug for DRAWEDGE_FLAGS {
         f.debug_tuple("DRAWEDGE_FLAGS").field(&self.0).finish()
     }
 }
+impl DRAWEDGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DRAWEDGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6487,6 +6512,11 @@ impl ::core::fmt::Debug for DRAWSTATE_FLAGS {
         f.debug_tuple("DRAWSTATE_FLAGS").field(&self.0).finish()
     }
 }
+impl DRAWSTATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DRAWSTATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6550,6 +6580,11 @@ unsafe impl ::windows::core::Abi for DRAW_CAPTION_FLAGS {
 impl ::core::fmt::Debug for DRAW_CAPTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DRAW_CAPTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl DRAW_CAPTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DRAW_CAPTION_FLAGS {
@@ -6639,6 +6674,11 @@ unsafe impl ::windows::core::Abi for DRAW_EDGE_FLAGS {
 impl ::core::fmt::Debug for DRAW_EDGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DRAW_EDGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl DRAW_EDGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DRAW_EDGE_FLAGS {
@@ -6738,6 +6778,11 @@ unsafe impl ::windows::core::Abi for DRAW_TEXT_FORMAT {
 impl ::core::fmt::Debug for DRAW_TEXT_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DRAW_TEXT_FORMAT").field(&self.0).finish()
+    }
+}
+impl DRAW_TEXT_FORMAT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DRAW_TEXT_FORMAT {
@@ -7122,6 +7167,11 @@ impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_FLAGS {
         f.debug_tuple("ENUM_DISPLAY_SETTINGS_FLAGS").field(&self.0).finish()
     }
 }
+impl ENUM_DISPLAY_SETTINGS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ENUM_DISPLAY_SETTINGS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7216,6 +7266,11 @@ unsafe impl ::windows::core::Abi for ETO_OPTIONS {
 impl ::core::fmt::Debug for ETO_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ETO_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ETO_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ETO_OPTIONS {
@@ -7375,6 +7430,11 @@ unsafe impl ::windows::core::Abi for FONT_CLIP_PRECISION {
 impl ::core::fmt::Debug for FONT_CLIP_PRECISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FONT_CLIP_PRECISION").field(&self.0).finish()
+    }
+}
+impl FONT_CLIP_PRECISION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FONT_CLIP_PRECISION {
@@ -7746,6 +7806,11 @@ impl ::core::fmt::Debug for GET_CHARACTER_PLACEMENT_FLAGS {
         f.debug_tuple("GET_CHARACTER_PLACEMENT_FLAGS").field(&self.0).finish()
     }
 }
+impl GET_CHARACTER_PLACEMENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GET_CHARACTER_PLACEMENT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7817,6 +7882,11 @@ unsafe impl ::windows::core::Abi for GET_DCX_FLAGS {
 impl ::core::fmt::Debug for GET_DCX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_DCX_FLAGS").field(&self.0).finish()
+    }
+}
+impl GET_DCX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GET_DCX_FLAGS {
@@ -8822,6 +8892,11 @@ impl ::core::fmt::Debug for PEN_STYLE {
         f.debug_tuple("PEN_STYLE").field(&self.0).finish()
     }
 }
+impl PEN_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PEN_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8954,6 +9029,11 @@ impl ::core::fmt::Debug for REDRAW_WINDOW_FLAGS {
         f.debug_tuple("REDRAW_WINDOW_FLAGS").field(&self.0).finish()
     }
 }
+impl REDRAW_WINDOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REDRAW_WINDOW_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9074,6 +9154,11 @@ unsafe impl ::windows::core::Abi for ROP_CODE {
 impl ::core::fmt::Debug for ROP_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ROP_CODE").field(&self.0).finish()
+    }
+}
+impl ROP_CODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ROP_CODE {
@@ -9353,6 +9438,11 @@ impl ::core::fmt::Debug for TEXT_ALIGN_OPTIONS {
         f.debug_tuple("TEXT_ALIGN_OPTIONS").field(&self.0).finish()
     }
 }
+impl TEXT_ALIGN_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TEXT_ALIGN_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9410,6 +9500,11 @@ unsafe impl ::windows::core::Abi for TMPF_FLAGS {
 impl ::core::fmt::Debug for TMPF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TMPF_FLAGS").field(&self.0).finish()
+    }
+}
+impl TMPF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TMPF_FLAGS {
@@ -9471,6 +9566,11 @@ impl ::core::fmt::Debug for TTEMBED_FLAGS {
         f.debug_tuple("TTEMBED_FLAGS").field(&self.0).finish()
     }
 }
+impl TTEMBED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TTEMBED_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9524,6 +9624,11 @@ unsafe impl ::windows::core::Abi for TTLOAD_EMBEDDED_FONT_STATUS {
 impl ::core::fmt::Debug for TTLOAD_EMBEDDED_FONT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TTLOAD_EMBEDDED_FONT_STATUS").field(&self.0).finish()
+    }
+}
+impl TTLOAD_EMBEDDED_FONT_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TTLOAD_EMBEDDED_FONT_STATUS {

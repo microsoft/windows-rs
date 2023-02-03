@@ -5466,6 +5466,11 @@ impl ::core::fmt::Debug for IME_COMPOSITION_STRING {
         f.debug_tuple("IME_COMPOSITION_STRING").field(&self.0).finish()
     }
 }
+impl IME_COMPOSITION_STRING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IME_COMPOSITION_STRING {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5553,6 +5558,11 @@ unsafe impl ::windows::core::Abi for IME_CONVERSION_MODE {
 impl ::core::fmt::Debug for IME_CONVERSION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IME_CONVERSION_MODE").field(&self.0).finish()
+    }
+}
+impl IME_CONVERSION_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IME_CONVERSION_MODE {
@@ -5783,6 +5793,11 @@ unsafe impl ::windows::core::Abi for IME_SENTENCE_MODE {
 impl ::core::fmt::Debug for IME_SENTENCE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IME_SENTENCE_MODE").field(&self.0).finish()
+    }
+}
+impl IME_SENTENCE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IME_SENTENCE_MODE {

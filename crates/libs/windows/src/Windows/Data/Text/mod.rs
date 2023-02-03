@@ -1308,6 +1308,11 @@ impl ::core::fmt::Debug for TextPredictionOptions {
         f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
     }
 }
+impl TextPredictionOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TextPredictionOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

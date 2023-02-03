@@ -963,6 +963,11 @@ impl ::core::fmt::Debug for InjectedInputKeyOptions {
         f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
     }
 }
+impl InjectedInputKeyOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for InjectedInputKeyOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1038,6 +1043,11 @@ impl ::core::fmt::Debug for InjectedInputMouseOptions {
         f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
     }
 }
+impl InjectedInputMouseOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for InjectedInputMouseOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1100,6 +1110,11 @@ unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
 impl ::core::fmt::Debug for InjectedInputPenButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
+    }
+}
+impl InjectedInputPenButtons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for InjectedInputPenButtons {
@@ -1165,6 +1180,11 @@ unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
 impl ::core::fmt::Debug for InjectedInputPenParameters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
+    }
+}
+impl InjectedInputPenParameters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for InjectedInputPenParameters {
@@ -1238,6 +1258,11 @@ unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
 impl ::core::fmt::Debug for InjectedInputPointerOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
+    }
+}
+impl InjectedInputPointerOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for InjectedInputPointerOptions {
@@ -1337,6 +1362,11 @@ unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
 impl ::core::fmt::Debug for InjectedInputTouchParameters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
+    }
+}
+impl InjectedInputTouchParameters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for InjectedInputTouchParameters {

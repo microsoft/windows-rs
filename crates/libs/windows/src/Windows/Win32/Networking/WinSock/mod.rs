@@ -5628,6 +5628,11 @@ impl ::core::fmt::Debug for SEND_RECV_FLAGS {
         f.debug_tuple("SEND_RECV_FLAGS").field(&self.0).finish()
     }
 }
+impl SEND_RECV_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SEND_RECV_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

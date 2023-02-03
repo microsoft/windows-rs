@@ -465,6 +465,11 @@ impl ::core::fmt::Debug for TIMECODE_SAMPLE_FLAGS {
         f.debug_tuple("TIMECODE_SAMPLE_FLAGS").field(&self.0).finish()
     }
 }
+impl TIMECODE_SAMPLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

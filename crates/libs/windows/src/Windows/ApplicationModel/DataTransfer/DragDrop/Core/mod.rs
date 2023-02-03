@@ -679,6 +679,11 @@ impl ::core::fmt::Debug for CoreDragUIContentMode {
         f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
     }
 }
+impl CoreDragUIContentMode {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CoreDragUIContentMode {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

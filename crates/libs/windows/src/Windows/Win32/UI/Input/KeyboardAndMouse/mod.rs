@@ -812,6 +812,11 @@ impl ::core::fmt::Debug for HOT_KEY_MODIFIERS {
         f.debug_tuple("HOT_KEY_MODIFIERS").field(&self.0).finish()
     }
 }
+impl HOT_KEY_MODIFIERS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HOT_KEY_MODIFIERS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -898,6 +903,11 @@ unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
 impl ::core::fmt::Debug for KEYBD_EVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KEYBD_EVENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl KEYBD_EVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for KEYBD_EVENT_FLAGS {
@@ -1012,6 +1022,11 @@ impl ::core::fmt::Debug for MOUSE_EVENT_FLAGS {
         f.debug_tuple("MOUSE_EVENT_FLAGS").field(&self.0).finish()
     }
 }
+impl MOUSE_EVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MOUSE_EVENT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1071,6 +1086,11 @@ unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT_FLAGS {
 impl ::core::fmt::Debug for TRACKMOUSEEVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRACKMOUSEEVENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl TRACKMOUSEEVENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TRACKMOUSEEVENT_FLAGS {
