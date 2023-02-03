@@ -19,7 +19,6 @@ fn nested() {
     assert!(options.contains(InputStreamOptions::Partial));
     assert!(options.contains(InputStreamOptions::ReadAhead));
 
-
     options &= InputStreamOptions::ReadAhead;
     assert!(options.0 == 2);
 }
