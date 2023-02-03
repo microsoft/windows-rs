@@ -107,7 +107,7 @@ impl ToWriter for ItemStruct {
         };
 
         for field in &named.named {
-            fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: writer::Type::I32 });
+            fields.push(writer::Field { name: field.ident.as_ref().unwrap().to_string(), ty: type_to_type(&field.ty)? });
         }
 
         items.push(writer::Item::Struct(writer::Struct { namespace, name: self.ident.to_string(), fields }));
@@ -142,4 +142,43 @@ impl ToWriter for ItemEnum {
         items.push(writer::Item::Enum(writer::Enum { namespace, name: self.ident.to_string(), constants }));
         Ok(())
     }
+}
+
+fn type_to_type(ty: &Type) -> Result<writer::Type> {
+    let Type::Path(path) = ty else {
+        return Err(Error::new(ty.span(), "expected type path"));
+    };
+
+    let mut name = String::new();
+
+    for segment in &path.path.segments {
+        if !name.is_empty() {
+            name.push('.');
+        }
+        name.push_str(&segment.ident.to_string());
+    }
+
+    let ty = match name.as_str() {
+        "bool" => writer::Type::Bool,
+        "i8" => writer::Type::I8,
+        "u8" => writer::Type::U8,
+        "i16" => writer::Type::I16,
+        "u16" => writer::Type::U16,
+        "i32" => writer::Type::I32,
+        "u32" => writer::Type::U32,
+        "i64" => writer::Type::I64,
+        "u64" => writer::Type::U64,
+        "f32" => writer::Type::F32,
+        "f64" => writer::Type::F64,
+        "isize" => writer::Type::ISize,
+        "usize" => writer::Type::USize,
+        _ => {
+            let Some((namespace, name)) = name.rsplit_once('.') else {
+                return Err(Error::new(path.span(), "expected type"));
+            };
+            writer::Type::Named((namespace.to_string(), name.to_string()))
+        }
+    };
+
+    Ok(ty)
 }

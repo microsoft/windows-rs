@@ -93,15 +93,6 @@ examples:
     .to_string())
 }
 
-// TODO:
-// * combine -input and -merge and let the tool sort it out based on the format
-// * add output-format and let you produce different options:
-//      - winmd
-//      - idl
-//      - rs - same as bindgen and use it to generate windows/sys crates
-// * this can then be used as a complete tool for generating bindings for consumption
-//   and for component authoring
-// * retire the bindgen crate?
 enum ArgKind {
     None,
     Merge,
