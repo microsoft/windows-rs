@@ -1,90 +1,8 @@
+mod syntax;
 use metadata::writer;
 use std::io::Read;
-use syn::{parse::*, *};
-
-mod keywords {
-    syn::custom_keyword!(interface);
-}
-
-#[derive(Debug)]
-struct Module {
-    pub name: Ident,
-    pub members: Vec<ModuleMember>,
-}
-
-impl Parse for Module {
-    fn parse(input: ParseStream) -> Result<Self> {
-        input.parse::<Token![mod]>()?;
-        let name = input.parse::<Ident>()?;
-        let content;
-        braced!(content in input);
-        let mut members = Vec::new();
-        while !content.is_empty() {
-            members.push(content.parse::<ModuleMember>()?);
-        }
-        Ok(Self { name, members })
-    }
-}
-
-#[derive(Debug)]
-enum ModuleMember {
-    Module(Module),
-    Interface(Interface),
-}
-
-impl Parse for ModuleMember {
-    fn parse(input: ParseStream) -> Result<Self> {
-        let lookahead = input.lookahead1();
-        if lookahead.peek(Token![mod]) {
-            Ok(ModuleMember::Module(input.parse::<Module>()?))
-        } else if lookahead.peek(keywords::interface) {
-            Ok(ModuleMember::Interface(input.parse::<Interface>()?))
-        } else {
-            Err(lookahead.error())
-        }
-    }
-}
-
-#[derive(Debug)]
-struct Interface {
-    pub name: Ident,
-    pub methods: Vec<TraitItemMethod>,
-}
-
-impl Parse for Interface {
-    fn parse(input: ParseStream) -> Result<Self> {
-        input.parse::<keywords::interface>()?;
-        let name = input.parse::<Ident>()?;
-        let content;
-        braced!(content in input);
-        let mut methods = Vec::new();
-        while !content.is_empty() {
-            methods.push(content.parse::<TraitItemMethod>()?);
-        }
-        Ok(Self { name, methods })
-    }
-}
-
-fn module_to_writer(namespace: &str, module: &Module, items: &mut Vec<writer::Item>) -> Result<()> {
-    for member in &module.members {
-        match member {
-            ModuleMember::Module(module) => module_to_writer(&format!("{namespace}.{}", module.name), module, items)?,
-            ModuleMember::Interface(interface) => interface_to_writer(namespace, interface, items)?,
-        }
-    }
-    Ok(())
-}
-
-fn interface_to_writer(namespace: &str, interface: &Interface, items: &mut Vec<writer::Item>) -> Result<()> {
-    let mut methods = Vec::new();
-
-    for method in &interface.methods {
-        methods.push(writer::Method { name: method.sig.ident.to_string(), return_type: writer::Type::Void, params: vec![] });
-    }
-
-    items.push(writer::Interface::item(namespace, &interface.name.to_string(), methods));
-    Ok(())
-}
+use syn::*;
+use syntax::*;
 
 fn main() {
     if let Err(message) = run() {
@@ -147,9 +65,10 @@ fn run() -> ToolResult {
         let mut source = String::new();
         file.read_to_string(&mut source).map_err(|_| format!("failed to read `{filename}`"))?;
 
-        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module_to_writer(&module.name.to_string(), &module, &mut items)) {
+        if let Err(error) = parse_str::<Module>(&source).and_then(|module| module.to_writer(module.name.to_string(), &mut items)) {
             let start = error.span().start();
-            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename, start.line, start.column));
+            let filename = std::fs::canonicalize(filename).map_err(|_| format!("failed to canonicalize `{filename}`"))?;
+            return Err(format!("{error}\n  --> {}:{:?}:{:?} ", filename.to_string_lossy().trim_start_matches(r#"\\?\"#), start.line, start.column));
         }
     }
 

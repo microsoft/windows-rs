@@ -1,25 +1,9 @@
-use std::process::Command;
+use test_riddle::run_riddle;
 use windows_metadata::reader::*;
 
 #[test]
-fn basic() {
-    // For visual inspection: ildasm.exe %temp%\test_riddle.winmd
-    let output = std::env::temp_dir().join("test_riddle.winmd").to_string_lossy().into_owned();
-
-    let mut command = Command::new("cargo.exe");
-    command.arg("install").arg("--path").arg("../../tools/riddle");
-
-    if !command.status().unwrap().success() {
-        panic!("Failed to install riddle");
-    }
-
-    let mut command = Command::new("riddle.exe");
-    command.arg("-input").arg("src/basic.rs").arg("-output").arg(&output);
-
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
-    }
-
+fn riddle_basic() {
+    let output = run_riddle("tests/basic.idl");
     let files = File::with_default(&[&output]).expect("Failed to open winmd files");
     let reader = &Reader::new(&files);
 
