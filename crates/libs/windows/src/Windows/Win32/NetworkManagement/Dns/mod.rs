@@ -1294,6 +1294,11 @@ impl ::core::fmt::Debug for DNS_QUERY_OPTIONS {
         f.debug_tuple("DNS_QUERY_OPTIONS").field(&self.0).finish()
     }
 }
+impl DNS_QUERY_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DNS_QUERY_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

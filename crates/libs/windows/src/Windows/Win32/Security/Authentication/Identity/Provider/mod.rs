@@ -1213,6 +1213,11 @@ impl ::core::fmt::Debug for IdentityUpdateEvent {
         f.debug_tuple("IdentityUpdateEvent").field(&self.0).finish()
     }
 }
+impl IdentityUpdateEvent {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IdentityUpdateEvent {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

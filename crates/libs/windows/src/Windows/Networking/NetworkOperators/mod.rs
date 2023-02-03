@@ -8996,6 +8996,11 @@ impl ::core::fmt::Debug for DataClasses {
         f.debug_tuple("DataClasses").field(&self.0).finish()
     }
 }
+impl DataClasses {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DataClasses {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

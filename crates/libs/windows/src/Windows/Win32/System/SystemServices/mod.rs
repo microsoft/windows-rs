@@ -6709,6 +6709,11 @@ impl ::core::fmt::Debug for ATF_FLAGS {
         f.debug_tuple("ATF_FLAGS").field(&self.0).finish()
     }
 }
+impl ATF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ATF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6800,6 +6805,11 @@ unsafe impl ::windows::core::Abi for CFE_UNDERLINE {
 impl ::core::fmt::Debug for CFE_UNDERLINE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CFE_UNDERLINE").field(&self.0).finish()
+    }
+}
+impl CFE_UNDERLINE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CFE_UNDERLINE {
@@ -6962,6 +6972,11 @@ unsafe impl ::windows::core::Abi for GESTURECONFIG_FLAGS {
 impl ::core::fmt::Debug for GESTURECONFIG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GESTURECONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl GESTURECONFIG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GESTURECONFIG_FLAGS {
@@ -7391,6 +7406,11 @@ impl ::core::fmt::Debug for MODIFIERKEYS_FLAGS {
         f.debug_tuple("MODIFIERKEYS_FLAGS").field(&self.0).finish()
     }
 }
+impl MODIFIERKEYS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MODIFIERKEYS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7711,6 +7731,11 @@ impl ::core::fmt::Debug for RECO_FLAGS {
         f.debug_tuple("RECO_FLAGS").field(&self.0).finish()
     }
 }
+impl RECO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RECO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7903,6 +7928,11 @@ unsafe impl ::windows::core::Abi for SECTION_FLAGS {
 impl ::core::fmt::Debug for SECTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl SECTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SECTION_FLAGS {
@@ -8228,6 +8258,11 @@ impl ::core::fmt::Debug for SFGAO_FLAGS {
         f.debug_tuple("SFGAO_FLAGS").field(&self.0).finish()
     }
 }
+impl SFGAO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SFGAO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8533,6 +8568,11 @@ unsafe impl ::windows::core::Abi for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
 impl ::core::fmt::Debug for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH").field(&self.0).finish()
+    }
+}
+impl TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {

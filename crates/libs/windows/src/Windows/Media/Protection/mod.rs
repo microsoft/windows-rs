@@ -1162,6 +1162,11 @@ impl ::core::fmt::Debug for RevocationAndRenewalReasons {
         f.debug_tuple("RevocationAndRenewalReasons").field(&self.0).finish()
     }
 }
+impl RevocationAndRenewalReasons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RevocationAndRenewalReasons {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

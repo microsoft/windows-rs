@@ -35120,6 +35120,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
         f.debug_tuple("D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35173,6 +35178,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS
 impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
@@ -35279,6 +35289,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
         f.debug_tuple("D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35365,6 +35380,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_DECODE_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
@@ -35515,6 +35535,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
         f.debug_tuple("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35619,6 +35644,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_
         f.debug_tuple("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35715,6 +35745,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEV
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
@@ -35815,6 +35850,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264
         f.debug_tuple("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35886,6 +35926,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC
         f.debug_tuple("D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -35949,6 +35994,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
         f.debug_tuple("D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36000,6 +36050,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_ENCODER_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_ENCODER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_FLAGS {
@@ -36148,6 +36203,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_ENCODER_HEAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
@@ -36375,6 +36435,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_
         f.debug_tuple("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36430,6 +36495,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_
         f.debug_tuple("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36483,6 +36553,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
@@ -36606,6 +36681,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
         f.debug_tuple("D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36702,6 +36782,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
         f.debug_tuple("D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36779,6 +36864,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_ENCODER_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
@@ -36879,6 +36969,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
         f.debug_tuple("D3D12_VIDEO_ENCODER_VALIDATION_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36934,6 +37029,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLA
 impl ::core::fmt::Debug for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
@@ -37191,6 +37291,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS
         f.debug_tuple("D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37269,6 +37374,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISI
 impl ::core::fmt::Debug for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
@@ -37373,6 +37483,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
         f.debug_tuple("D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37428,6 +37543,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
@@ -37495,6 +37615,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_PROCESS_FEATURE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
@@ -37605,6 +37730,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
         f.debug_tuple("D3D12_VIDEO_PROCESS_FILTER_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_PROCESS_FILTER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37660,6 +37790,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
@@ -37756,6 +37891,11 @@ impl ::core::fmt::Debug for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
         f.debug_tuple("D3D12_VIDEO_PROCESS_SUPPORT_FLAGS").field(&self.0).finish()
     }
 }
+impl D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37809,6 +37949,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG
 impl ::core::fmt::Debug for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
@@ -37866,6 +38011,11 @@ unsafe impl ::windows::core::Abi for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
 impl ::core::fmt::Debug for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D12_VIDEO_SCALE_SUPPORT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
@@ -41422,6 +41572,11 @@ impl ::core::fmt::Debug for MFT_ENUM_FLAG {
         f.debug_tuple("MFT_ENUM_FLAG").field(&self.0).finish()
     }
 }
+impl MFT_ENUM_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MFT_ENUM_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -44446,6 +44601,11 @@ impl ::core::fmt::Debug for MF_RESOLUTION_FLAGS {
         f.debug_tuple("MF_RESOLUTION_FLAGS").field(&self.0).finish()
     }
 }
+impl MF_RESOLUTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MF_RESOLUTION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -45617,6 +45777,11 @@ impl ::core::fmt::Debug for MPEG2VIDEOINFO_FLAGS {
         f.debug_tuple("MPEG2VIDEOINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl MPEG2VIDEOINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MPEG2VIDEOINFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -45902,6 +46067,11 @@ unsafe impl ::windows::core::Abi for OPM_HDCP_FLAGS {
 impl ::core::fmt::Debug for OPM_HDCP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPM_HDCP_FLAGS").field(&self.0).finish()
+    }
+}
+impl OPM_HDCP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OPM_HDCP_FLAGS {

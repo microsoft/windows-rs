@@ -3274,6 +3274,11 @@ impl ::core::fmt::Debug for FWPM_FILTER_FLAGS {
         f.debug_tuple("FWPM_FILTER_FLAGS").field(&self.0).finish()
     }
 }
+impl FWPM_FILTER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FWPM_FILTER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3984,6 +3989,11 @@ impl ::core::fmt::Debug for IKEEXT_CERT_AUTH {
         f.debug_tuple("IKEEXT_CERT_AUTH").field(&self.0).finish()
     }
 }
+impl IKEEXT_CERT_AUTH {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IKEEXT_CERT_AUTH {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4125,6 +4135,11 @@ impl ::core::fmt::Debug for IKEEXT_CERT_FLAGS {
         f.debug_tuple("IKEEXT_CERT_FLAGS").field(&self.0).finish()
     }
 }
+impl IKEEXT_CERT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IKEEXT_CERT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4260,6 +4275,11 @@ impl ::core::fmt::Debug for IKEEXT_EAP_AUTHENTICATION_FLAGS {
         f.debug_tuple("IKEEXT_EAP_AUTHENTICATION_FLAGS").field(&self.0).finish()
     }
 }
+impl IKEEXT_EAP_AUTHENTICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4383,6 +4403,11 @@ unsafe impl ::windows::core::Abi for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
 impl ::core::fmt::Debug for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IKEEXT_KERBEROS_AUTHENTICATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
@@ -4512,6 +4537,11 @@ impl ::core::fmt::Debug for IKEEXT_POLICY_FLAG {
         f.debug_tuple("IKEEXT_POLICY_FLAG").field(&self.0).finish()
     }
 }
+impl IKEEXT_POLICY_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IKEEXT_POLICY_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4565,6 +4595,11 @@ unsafe impl ::windows::core::Abi for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
 impl ::core::fmt::Debug for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
@@ -4651,6 +4686,11 @@ unsafe impl ::windows::core::Abi for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
 impl ::core::fmt::Debug for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IKEEXT_RESERVED_AUTHENTICATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
@@ -4817,6 +4857,11 @@ impl ::core::fmt::Debug for IPSEC_DOSP_FLAGS {
         f.debug_tuple("IPSEC_DOSP_FLAGS").field(&self.0).finish()
     }
 }
+impl IPSEC_DOSP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IPSEC_DOSP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4968,6 +5013,11 @@ impl ::core::fmt::Debug for IPSEC_POLICY_FLAG {
         f.debug_tuple("IPSEC_POLICY_FLAG").field(&self.0).finish()
     }
 }
+impl IPSEC_POLICY_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IPSEC_POLICY_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5037,6 +5087,11 @@ unsafe impl ::windows::core::Abi for IPSEC_SA_BUNDLE_FLAGS {
 impl ::core::fmt::Debug for IPSEC_SA_BUNDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IPSEC_SA_BUNDLE_FLAGS").field(&self.0).finish()
+    }
+}
+impl IPSEC_SA_BUNDLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IPSEC_SA_BUNDLE_FLAGS {

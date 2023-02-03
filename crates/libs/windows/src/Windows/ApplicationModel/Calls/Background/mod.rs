@@ -697,6 +697,11 @@ impl ::core::fmt::Debug for PhoneLineProperties {
         f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
     }
 }
+impl PhoneLineProperties {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PhoneLineProperties {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

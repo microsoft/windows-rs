@@ -1701,6 +1701,11 @@ impl ::core::fmt::Debug for BluetoothLEAdvertisementFlags {
         f.debug_tuple("BluetoothLEAdvertisementFlags").field(&self.0).finish()
     }
 }
+impl BluetoothLEAdvertisementFlags {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for BluetoothLEAdvertisementFlags {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

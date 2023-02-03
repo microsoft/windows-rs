@@ -1029,6 +1029,11 @@ impl ::core::fmt::Debug for StoreLogOptions {
         f.debug_tuple("StoreLogOptions").field(&self.0).finish()
     }
 }
+impl StoreLogOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for StoreLogOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

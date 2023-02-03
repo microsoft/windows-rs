@@ -4694,6 +4694,11 @@ impl ::core::fmt::Debug for ASC_REQ_FLAGS {
         f.debug_tuple("ASC_REQ_FLAGS").field(&self.0).finish()
     }
 }
+impl ASC_REQ_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ASC_REQ_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4745,6 +4750,11 @@ unsafe impl ::windows::core::Abi for ASC_REQ_HIGH_FLAGS {
 impl ::core::fmt::Debug for ASC_REQ_HIGH_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ASC_REQ_HIGH_FLAGS").field(&self.0).finish()
+    }
+}
+impl ASC_REQ_HIGH_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ASC_REQ_HIGH_FLAGS {
@@ -4839,6 +4849,11 @@ impl ::core::fmt::Debug for DOMAIN_PASSWORD_PROPERTIES {
         f.debug_tuple("DOMAIN_PASSWORD_PROPERTIES").field(&self.0).finish()
     }
 }
+impl DOMAIN_PASSWORD_PROPERTIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DOMAIN_PASSWORD_PROPERTIES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4894,6 +4909,11 @@ unsafe impl ::windows::core::Abi for EXPORT_SECURITY_CONTEXT_FLAGS {
 impl ::core::fmt::Debug for EXPORT_SECURITY_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EXPORT_SECURITY_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl EXPORT_SECURITY_CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for EXPORT_SECURITY_CONTEXT_FLAGS {
@@ -5048,6 +5068,11 @@ impl ::core::fmt::Debug for ISC_REQ_FLAGS {
         f.debug_tuple("ISC_REQ_FLAGS").field(&self.0).finish()
     }
 }
+impl ISC_REQ_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ISC_REQ_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5101,6 +5126,11 @@ unsafe impl ::windows::core::Abi for ISC_REQ_HIGH_FLAGS {
 impl ::core::fmt::Debug for ISC_REQ_HIGH_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ISC_REQ_HIGH_FLAGS").field(&self.0).finish()
+    }
+}
+impl ISC_REQ_HIGH_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for ISC_REQ_HIGH_FLAGS {
@@ -5471,6 +5501,11 @@ unsafe impl ::windows::core::Abi for KERB_TICKET_FLAGS {
 impl ::core::fmt::Debug for KERB_TICKET_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KERB_TICKET_FLAGS").field(&self.0).finish()
+    }
+}
+impl KERB_TICKET_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for KERB_TICKET_FLAGS {
@@ -5968,6 +6003,11 @@ impl ::core::fmt::Debug for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
         f.debug_tuple("MSV_SUBAUTH_LOGON_PARAMETER_CONTROL").field(&self.0).finish()
     }
 }
+impl MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6064,6 +6104,11 @@ unsafe impl ::windows::core::Abi for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
 impl ::core::fmt::Debug for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS").field(&self.0).finish()
+    }
+}
+impl MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
@@ -6489,6 +6534,11 @@ unsafe impl ::windows::core::Abi for SCHANNEL_CRED_FLAGS {
 impl ::core::fmt::Debug for SCHANNEL_CRED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SCHANNEL_CRED_FLAGS").field(&self.0).finish()
+    }
+}
+impl SCHANNEL_CRED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SCHANNEL_CRED_FLAGS {
@@ -7373,6 +7423,11 @@ unsafe impl ::windows::core::Abi for SchGetExtensionsOptions {
 impl ::core::fmt::Debug for SchGetExtensionsOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SchGetExtensionsOptions").field(&self.0).finish()
+    }
+}
+impl SchGetExtensionsOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SchGetExtensionsOptions {

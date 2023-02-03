@@ -18281,6 +18281,11 @@ impl ::core::fmt::Debug for ACC_UTILITY_STATE_FLAGS {
         f.debug_tuple("ACC_UTILITY_STATE_FLAGS").field(&self.0).finish()
     }
 }
+impl ACC_UTILITY_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ACC_UTILITY_STATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -18934,6 +18939,11 @@ impl ::core::fmt::Debug for HIGHCONTRASTW_FLAGS {
         f.debug_tuple("HIGHCONTRASTW_FLAGS").field(&self.0).finish()
     }
 }
+impl HIGHCONTRASTW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HIGHCONTRASTW_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -19369,6 +19379,11 @@ impl ::core::fmt::Debug for SERIALKEYS_FLAGS {
         f.debug_tuple("SERIALKEYS_FLAGS").field(&self.0).finish()
     }
 }
+impl SERIALKEYS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SERIALKEYS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -19424,6 +19439,11 @@ unsafe impl ::windows::core::Abi for SOUNDSENTRY_FLAGS {
 impl ::core::fmt::Debug for SOUNDSENTRY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SOUNDSENTRY_FLAGS").field(&self.0).finish()
+    }
+}
+impl SOUNDSENTRY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SOUNDSENTRY_FLAGS {
@@ -19616,6 +19636,11 @@ unsafe impl ::windows::core::Abi for STICKYKEYS_FLAGS {
 impl ::core::fmt::Debug for STICKYKEYS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("STICKYKEYS_FLAGS").field(&self.0).finish()
+    }
+}
+impl STICKYKEYS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for STICKYKEYS_FLAGS {

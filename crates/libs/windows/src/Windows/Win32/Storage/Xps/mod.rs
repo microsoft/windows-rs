@@ -7968,6 +7968,11 @@ impl ::core::fmt::Debug for PSINJECT_POINT {
         f.debug_tuple("PSINJECT_POINT").field(&self.0).finish()
     }
 }
+impl PSINJECT_POINT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PSINJECT_POINT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

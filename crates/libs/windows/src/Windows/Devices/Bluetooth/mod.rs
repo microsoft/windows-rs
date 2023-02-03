@@ -3096,6 +3096,11 @@ impl ::core::fmt::Debug for BluetoothServiceCapabilities {
         f.debug_tuple("BluetoothServiceCapabilities").field(&self.0).finish()
     }
 }
+impl BluetoothServiceCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for BluetoothServiceCapabilities {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

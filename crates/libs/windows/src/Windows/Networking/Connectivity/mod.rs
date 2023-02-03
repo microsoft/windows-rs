@@ -3181,6 +3181,11 @@ impl ::core::fmt::Debug for NetworkTypes {
         f.debug_tuple("NetworkTypes").field(&self.0).finish()
     }
 }
+impl NetworkTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NetworkTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3242,6 +3247,11 @@ unsafe impl ::windows::core::Abi for RoamingStates {
 impl ::core::fmt::Debug for RoamingStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RoamingStates").field(&self.0).finish()
+    }
+}
+impl RoamingStates {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RoamingStates {
@@ -3352,6 +3362,11 @@ unsafe impl ::windows::core::Abi for WwanDataClass {
 impl ::core::fmt::Debug for WwanDataClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WwanDataClass").field(&self.0).finish()
+    }
+}
+impl WwanDataClass {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WwanDataClass {

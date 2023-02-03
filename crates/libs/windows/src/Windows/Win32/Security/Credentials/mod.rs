@@ -1490,6 +1490,11 @@ impl ::core::fmt::Debug for CREDUIWIN_FLAGS {
         f.debug_tuple("CREDUIWIN_FLAGS").field(&self.0).finish()
     }
 }
+impl CREDUIWIN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CREDUIWIN_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1575,6 +1580,11 @@ impl ::core::fmt::Debug for CREDUI_FLAGS {
         f.debug_tuple("CREDUI_FLAGS").field(&self.0).finish()
     }
 }
+impl CREDUI_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CREDUI_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1626,6 +1636,11 @@ unsafe impl ::windows::core::Abi for CRED_ENUMERATE_FLAGS {
 impl ::core::fmt::Debug for CRED_ENUMERATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRED_ENUMERATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRED_ENUMERATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRED_ENUMERATE_FLAGS {
@@ -1697,6 +1712,11 @@ unsafe impl ::windows::core::Abi for CRED_FLAGS {
 impl ::core::fmt::Debug for CRED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRED_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRED_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRED_FLAGS {
@@ -1789,6 +1809,11 @@ unsafe impl ::windows::core::Abi for CRED_PACK_FLAGS {
 impl ::core::fmt::Debug for CRED_PACK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRED_PACK_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRED_PACK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRED_PACK_FLAGS {
@@ -1957,6 +1982,11 @@ unsafe impl ::windows::core::Abi for KeyCredentialManagerOperationErrorStates {
 impl ::core::fmt::Debug for KeyCredentialManagerOperationErrorStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyCredentialManagerOperationErrorStates").field(&self.0).finish()
+    }
+}
+impl KeyCredentialManagerOperationErrorStates {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for KeyCredentialManagerOperationErrorStates {

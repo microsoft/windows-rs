@@ -2669,6 +2669,11 @@ impl ::core::fmt::Debug for UsbReadOptions {
         f.debug_tuple("UsbReadOptions").field(&self.0).finish()
     }
 }
+impl UsbReadOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for UsbReadOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2764,6 +2769,11 @@ unsafe impl ::windows::core::Abi for UsbWriteOptions {
 impl ::core::fmt::Debug for UsbWriteOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
+    }
+}
+impl UsbWriteOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for UsbWriteOptions {

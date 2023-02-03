@@ -1006,6 +1006,11 @@ impl ::core::fmt::Debug for CONSOLE_CHARACTER_ATTRIBUTES {
         f.debug_tuple("CONSOLE_CHARACTER_ATTRIBUTES").field(&self.0).finish()
     }
 }
+impl CONSOLE_CHARACTER_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CONSOLE_CHARACTER_ATTRIBUTES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1085,6 +1090,11 @@ unsafe impl ::windows::core::Abi for CONSOLE_MODE {
 impl ::core::fmt::Debug for CONSOLE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CONSOLE_MODE").field(&self.0).finish()
+    }
+}
+impl CONSOLE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CONSOLE_MODE {

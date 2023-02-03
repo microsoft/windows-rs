@@ -413,6 +413,11 @@ impl ::core::fmt::Debug for CRYPTCAT_OPEN_FLAGS {
         f.debug_tuple("CRYPTCAT_OPEN_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPTCAT_OPEN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

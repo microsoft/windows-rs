@@ -22676,6 +22676,11 @@ impl ::core::fmt::Debug for CERTADMIN_GET_ROLES_FLAGS {
         f.debug_tuple("CERTADMIN_GET_ROLES_FLAGS").field(&self.0).finish()
     }
 }
+impl CERTADMIN_GET_ROLES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CERTADMIN_GET_ROLES_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -23956,6 +23961,11 @@ unsafe impl ::windows::core::Abi for CERT_EXIT_EVENT_MASK {
 impl ::core::fmt::Debug for CERT_EXIT_EVENT_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_EXIT_EVENT_MASK").field(&self.0).finish()
+    }
+}
+impl CERT_EXIT_EVENT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_EXIT_EVENT_MASK {

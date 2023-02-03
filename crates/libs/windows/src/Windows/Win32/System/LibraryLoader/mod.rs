@@ -588,6 +588,11 @@ impl ::core::fmt::Debug for LOAD_LIBRARY_FLAGS {
         f.debug_tuple("LOAD_LIBRARY_FLAGS").field(&self.0).finish()
     }
 }
+impl LOAD_LIBRARY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LOAD_LIBRARY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

@@ -132,6 +132,12 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         if gen.reader.type_def_is_flags(def) {
             tokens.combine(&quote! {
                 #features
+                impl #ident {
+                    pub const fn contains(&self, other: Self) -> bool {
+                        self.0 & other.0 == other.0
+                    }
+                }
+                #features
                 impl ::core::ops::BitOr for #ident {
                     type Output = Self;
 

@@ -206,6 +206,11 @@ impl ::core::fmt::Debug for CompositionDebugOverdrawContentKinds {
         f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()
     }
 }
+impl CompositionDebugOverdrawContentKinds {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CompositionDebugOverdrawContentKinds {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

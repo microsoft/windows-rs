@@ -6994,6 +6994,11 @@ impl ::core::fmt::Debug for BP_PAINTPARAMS_FLAGS {
         f.debug_tuple("BP_PAINTPARAMS_FLAGS").field(&self.0).finish()
     }
 }
+impl BP_PAINTPARAMS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for BP_PAINTPARAMS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7533,6 +7538,11 @@ unsafe impl ::windows::core::Abi for COMBOBOX_EX_ITEM_FLAGS {
 impl ::core::fmt::Debug for COMBOBOX_EX_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("COMBOBOX_EX_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl COMBOBOX_EX_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for COMBOBOX_EX_ITEM_FLAGS {
@@ -8098,6 +8108,11 @@ impl ::core::fmt::Debug for DLG_DIR_LIST_FILE_TYPE {
         f.debug_tuple("DLG_DIR_LIST_FILE_TYPE").field(&self.0).finish()
     }
 }
+impl DLG_DIR_LIST_FILE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DLG_DIR_LIST_FILE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8353,6 +8368,11 @@ impl ::core::fmt::Debug for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
         f.debug_tuple("DRAW_THEME_PARENT_BACKGROUND_FLAGS").field(&self.0).finish()
     }
 }
+impl DRAW_THEME_PARENT_BACKGROUND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8521,6 +8541,11 @@ unsafe impl ::windows::core::Abi for DTTOPTS_FLAGS {
 impl ::core::fmt::Debug for DTTOPTS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DTTOPTS_FLAGS").field(&self.0).finish()
+    }
+}
+impl DTTOPTS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DTTOPTS_FLAGS {
@@ -9775,6 +9800,11 @@ impl ::core::fmt::Debug for HDI_MASK {
         f.debug_tuple("HDI_MASK").field(&self.0).finish()
     }
 }
+impl HDI_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HDI_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10362,6 +10392,11 @@ impl ::core::fmt::Debug for HEADER_HITTEST_INFO_FLAGS {
         f.debug_tuple("HEADER_HITTEST_INFO_FLAGS").field(&self.0).finish()
     }
 }
+impl HEADER_HITTEST_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HEADER_HITTEST_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10809,6 +10844,11 @@ impl ::core::fmt::Debug for IMAGELIST_CREATION_FLAGS {
         f.debug_tuple("IMAGELIST_CREATION_FLAGS").field(&self.0).finish()
     }
 }
+impl IMAGELIST_CREATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IMAGELIST_CREATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10946,6 +10986,11 @@ impl ::core::fmt::Debug for IMAGE_LIST_DRAW_STYLE {
         f.debug_tuple("IMAGE_LIST_DRAW_STYLE").field(&self.0).finish()
     }
 }
+impl IMAGE_LIST_DRAW_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IMAGE_LIST_DRAW_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11026,6 +11071,11 @@ unsafe impl ::windows::core::Abi for IMAGE_LIST_WRITE_STREAM_FLAGS {
 impl ::core::fmt::Debug for IMAGE_LIST_WRITE_STREAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IMAGE_LIST_WRITE_STREAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl IMAGE_LIST_WRITE_STREAM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IMAGE_LIST_WRITE_STREAM_FLAGS {
@@ -11111,6 +11161,11 @@ unsafe impl ::windows::core::Abi for INITCOMMONCONTROLSEX_ICC {
 impl ::core::fmt::Debug for INITCOMMONCONTROLSEX_ICC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("INITCOMMONCONTROLSEX_ICC").field(&self.0).finish()
+    }
+}
+impl INITCOMMONCONTROLSEX_ICC {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for INITCOMMONCONTROLSEX_ICC {
@@ -11424,6 +11479,11 @@ impl ::core::fmt::Debug for LIST_ITEM_FLAGS {
         f.debug_tuple("LIST_ITEM_FLAGS").field(&self.0).finish()
     }
 }
+impl LIST_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LIST_ITEM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11483,6 +11543,11 @@ unsafe impl ::windows::core::Abi for LIST_ITEM_STATE_FLAGS {
 impl ::core::fmt::Debug for LIST_ITEM_STATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIST_ITEM_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl LIST_ITEM_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LIST_ITEM_STATE_FLAGS {
@@ -11556,6 +11621,11 @@ impl ::core::fmt::Debug for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
         f.debug_tuple("LIST_VIEW_BACKGROUND_IMAGE_FLAGS").field(&self.0).finish()
     }
 }
+impl LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11617,6 +11687,11 @@ unsafe impl ::windows::core::Abi for LIST_VIEW_GROUP_ALIGN_FLAGS {
 impl ::core::fmt::Debug for LIST_VIEW_GROUP_ALIGN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIST_VIEW_GROUP_ALIGN_FLAGS").field(&self.0).finish()
+    }
+}
+impl LIST_VIEW_GROUP_ALIGN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LIST_VIEW_GROUP_ALIGN_FLAGS {
@@ -11688,6 +11763,11 @@ impl ::core::fmt::Debug for LIST_VIEW_GROUP_STATE_FLAGS {
         f.debug_tuple("LIST_VIEW_GROUP_STATE_FLAGS").field(&self.0).finish()
     }
 }
+impl LIST_VIEW_GROUP_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LIST_VIEW_GROUP_STATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11739,6 +11819,11 @@ unsafe impl ::windows::core::Abi for LIST_VIEW_INSERT_MARK_FLAGS {
 impl ::core::fmt::Debug for LIST_VIEW_INSERT_MARK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIST_VIEW_INSERT_MARK_FLAGS").field(&self.0).finish()
+    }
+}
+impl LIST_VIEW_INSERT_MARK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LIST_VIEW_INSERT_MARK_FLAGS {
@@ -11800,6 +11885,11 @@ unsafe impl ::windows::core::Abi for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
 impl ::core::fmt::Debug for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS").field(&self.0).finish()
+    }
+}
+impl LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
@@ -11871,6 +11961,11 @@ unsafe impl ::windows::core::Abi for LIST_VIEW_ITEM_FLAGS {
 impl ::core::fmt::Debug for LIST_VIEW_ITEM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LIST_VIEW_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl LIST_VIEW_ITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LIST_VIEW_ITEM_FLAGS {
@@ -12014,6 +12109,11 @@ impl ::core::fmt::Debug for LVCOLUMNW_FORMAT {
         f.debug_tuple("LVCOLUMNW_FORMAT").field(&self.0).finish()
     }
 }
+impl LVCOLUMNW_FORMAT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LVCOLUMNW_FORMAT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12083,6 +12183,11 @@ impl ::core::fmt::Debug for LVCOLUMNW_MASK {
         f.debug_tuple("LVCOLUMNW_MASK").field(&self.0).finish()
     }
 }
+impl LVCOLUMNW_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LVCOLUMNW_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12144,6 +12249,11 @@ unsafe impl ::windows::core::Abi for LVFINDINFOW_FLAGS {
 impl ::core::fmt::Debug for LVFINDINFOW_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LVFINDINFOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl LVFINDINFOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LVFINDINFOW_FLAGS {
@@ -12232,6 +12342,11 @@ impl ::core::fmt::Debug for LVGROUP_MASK {
         f.debug_tuple("LVGROUP_MASK").field(&self.0).finish()
     }
 }
+impl LVGROUP_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LVGROUP_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12315,6 +12430,11 @@ unsafe impl ::windows::core::Abi for LVHITTESTINFO_FLAGS {
 impl ::core::fmt::Debug for LVHITTESTINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LVHITTESTINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl LVHITTESTINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LVHITTESTINFO_FLAGS {
@@ -12403,6 +12523,11 @@ impl ::core::fmt::Debug for LVTILEVIEWINFO_FLAGS {
         f.debug_tuple("LVTILEVIEWINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl LVTILEVIEWINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LVTILEVIEWINFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12458,6 +12583,11 @@ unsafe impl ::windows::core::Abi for LVTILEVIEWINFO_MASK {
 impl ::core::fmt::Debug for LVTILEVIEWINFO_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LVTILEVIEWINFO_MASK").field(&self.0).finish()
+    }
+}
+impl LVTILEVIEWINFO_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LVTILEVIEWINFO_MASK {
@@ -12604,6 +12734,11 @@ impl ::core::fmt::Debug for MCGRIDINFO_FLAGS {
         f.debug_tuple("MCGRIDINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl MCGRIDINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MCGRIDINFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12734,6 +12869,11 @@ unsafe impl ::windows::core::Abi for MCHITTESTINFO_HIT_FLAGS {
 impl ::core::fmt::Debug for MCHITTESTINFO_HIT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MCHITTESTINFO_HIT_FLAGS").field(&self.0).finish()
+    }
+}
+impl MCHITTESTINFO_HIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MCHITTESTINFO_HIT_FLAGS {
@@ -13510,6 +13650,11 @@ impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
         f.debug_tuple("NMCUSTOMDRAW_DRAW_STATE_FLAGS").field(&self.0).finish()
     }
 }
+impl NMCUSTOMDRAW_DRAW_STATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13735,6 +13880,11 @@ impl ::core::fmt::Debug for NMPGSCROLL_KEYS {
         f.debug_tuple("NMPGSCROLL_KEYS").field(&self.0).finish()
     }
 }
+impl NMPGSCROLL_KEYS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NMPGSCROLL_KEYS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13792,6 +13942,11 @@ impl ::core::fmt::Debug for NMREBAR_MASK_FLAGS {
         f.debug_tuple("NMREBAR_MASK_FLAGS").field(&self.0).finish()
     }
 }
+impl NMREBAR_MASK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NMREBAR_MASK_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13847,6 +14002,11 @@ unsafe impl ::windows::core::Abi for NMTBDISPINFOW_MASK {
 impl ::core::fmt::Debug for NMTBDISPINFOW_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NMTBDISPINFOW_MASK").field(&self.0).finish()
+    }
+}
+impl NMTBDISPINFOW_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NMTBDISPINFOW_MASK {
@@ -13920,6 +14080,11 @@ impl ::core::fmt::Debug for NMTBHOTITEM_FLAGS {
         f.debug_tuple("NMTBHOTITEM_FLAGS").field(&self.0).finish()
     }
 }
+impl NMTBHOTITEM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NMTBHOTITEM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13985,6 +14150,11 @@ unsafe impl ::windows::core::Abi for NM_TREEVIEW_ACTION {
 impl ::core::fmt::Debug for NM_TREEVIEW_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NM_TREEVIEW_ACTION").field(&self.0).finish()
+    }
+}
+impl NM_TREEVIEW_ACTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NM_TREEVIEW_ACTION {
@@ -14283,6 +14453,11 @@ unsafe impl ::windows::core::Abi for OPEN_THEME_DATA_FLAGS {
 impl ::core::fmt::Debug for OPEN_THEME_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPEN_THEME_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl OPEN_THEME_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OPEN_THEME_DATA_FLAGS {
@@ -15002,6 +15177,11 @@ unsafe impl ::windows::core::Abi for SET_THEME_APP_PROPERTIES_FLAGS {
 impl ::core::fmt::Debug for SET_THEME_APP_PROPERTIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SET_THEME_APP_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
+}
+impl SET_THEME_APP_PROPERTIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SET_THEME_APP_PROPERTIES_FLAGS {
@@ -16452,6 +16632,11 @@ impl ::core::fmt::Debug for TA_PROPERTY_FLAG {
         f.debug_tuple("TA_PROPERTY_FLAG").field(&self.0).finish()
     }
 }
+impl TA_PROPERTY_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TA_PROPERTY_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16608,6 +16793,11 @@ impl ::core::fmt::Debug for TBBUTTONINFOW_MASK {
         f.debug_tuple("TBBUTTONINFOW_MASK").field(&self.0).finish()
     }
 }
+impl TBBUTTONINFOW_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TBBUTTONINFOW_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -16727,6 +16917,11 @@ unsafe impl ::windows::core::Abi for TCITEMHEADERA_MASK {
 impl ::core::fmt::Debug for TCITEMHEADERA_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TCITEMHEADERA_MASK").field(&self.0).finish()
+    }
+}
+impl TCITEMHEADERA_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TCITEMHEADERA_MASK {
@@ -17847,6 +18042,11 @@ impl ::core::fmt::Debug for TOOLTIP_FLAGS {
         f.debug_tuple("TOOLTIP_FLAGS").field(&self.0).finish()
     }
 }
+impl TOOLTIP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TOOLTIP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -18498,6 +18698,11 @@ impl ::core::fmt::Debug for TVHITTESTINFO_FLAGS {
         f.debug_tuple("TVHITTESTINFO_FLAGS").field(&self.0).finish()
     }
 }
+impl TVHITTESTINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TVHITTESTINFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -18625,6 +18830,11 @@ unsafe impl ::windows::core::Abi for TVITEM_MASK {
 impl ::core::fmt::Debug for TVITEM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TVITEM_MASK").field(&self.0).finish()
+    }
+}
+impl TVITEM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TVITEM_MASK {

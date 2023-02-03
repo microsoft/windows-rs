@@ -297,6 +297,11 @@ impl ::core::fmt::Debug for PRJ_FILE_STATE {
         f.debug_tuple("PRJ_FILE_STATE").field(&self.0).finish()
     }
 }
+impl PRJ_FILE_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PRJ_FILE_STATE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -425,6 +430,11 @@ impl ::core::fmt::Debug for PRJ_NOTIFY_TYPES {
         f.debug_tuple("PRJ_NOTIFY_TYPES").field(&self.0).finish()
     }
 }
+impl PRJ_NOTIFY_TYPES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PRJ_NOTIFY_TYPES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -505,6 +515,11 @@ impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
         f.debug_tuple("PRJ_STARTVIRTUALIZING_FLAGS").field(&self.0).finish()
     }
 }
+impl PRJ_STARTVIRTUALIZING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -564,6 +579,11 @@ unsafe impl ::windows::core::Abi for PRJ_UPDATE_FAILURE_CAUSES {
 impl ::core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PRJ_UPDATE_FAILURE_CAUSES").field(&self.0).finish()
+    }
+}
+impl PRJ_UPDATE_FAILURE_CAUSES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
@@ -631,6 +651,11 @@ unsafe impl ::windows::core::Abi for PRJ_UPDATE_TYPES {
 impl ::core::fmt::Debug for PRJ_UPDATE_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PRJ_UPDATE_TYPES").field(&self.0).finish()
+    }
+}
+impl PRJ_UPDATE_TYPES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PRJ_UPDATE_TYPES {

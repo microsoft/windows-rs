@@ -3364,6 +3364,11 @@ impl ::core::fmt::Debug for EnrollKeyUsages {
         f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
     }
 }
+impl EnrollKeyUsages {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for EnrollKeyUsages {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3458,6 +3463,11 @@ unsafe impl ::windows::core::Abi for InstallOptions {
 impl ::core::fmt::Debug for InstallOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InstallOptions").field(&self.0).finish()
+    }
+}
+impl InstallOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for InstallOptions {

@@ -5508,6 +5508,11 @@ impl ::core::fmt::Debug for GattCharacteristicProperties {
         f.debug_tuple("GattCharacteristicProperties").field(&self.0).finish()
     }
 }
+impl GattCharacteristicProperties {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GattCharacteristicProperties {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

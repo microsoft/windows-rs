@@ -848,6 +848,11 @@ impl ::core::fmt::Debug for LampPurposes {
         f.debug_tuple("LampPurposes").field(&self.0).finish()
     }
 }
+impl LampPurposes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LampPurposes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

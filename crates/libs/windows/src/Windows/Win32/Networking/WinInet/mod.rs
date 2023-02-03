@@ -5039,6 +5039,11 @@ impl ::core::fmt::Debug for HTTP_ADDREQ_FLAG {
         f.debug_tuple("HTTP_ADDREQ_FLAG").field(&self.0).finish()
     }
 }
+impl HTTP_ADDREQ_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HTTP_ADDREQ_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5360,6 +5365,11 @@ impl ::core::fmt::Debug for INTERNET_CONNECTION {
         f.debug_tuple("INTERNET_CONNECTION").field(&self.0).finish()
     }
 }
+impl INTERNET_CONNECTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for INTERNET_CONNECTION {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5608,6 +5618,11 @@ unsafe impl ::windows::core::Abi for PROXY_AUTO_DETECT_TYPE {
 impl ::core::fmt::Debug for PROXY_AUTO_DETECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROXY_AUTO_DETECT_TYPE").field(&self.0).finish()
+    }
+}
+impl PROXY_AUTO_DETECT_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROXY_AUTO_DETECT_TYPE {

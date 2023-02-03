@@ -2807,6 +2807,11 @@ impl ::core::fmt::Debug for PdlConversionHostBasedProcessingOperations {
         f.debug_tuple("PdlConversionHostBasedProcessingOperations").field(&self.0).finish()
     }
 }
+impl PdlConversionHostBasedProcessingOperations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PdlConversionHostBasedProcessingOperations {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

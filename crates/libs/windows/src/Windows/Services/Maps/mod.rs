@@ -2344,6 +2344,11 @@ impl ::core::fmt::Debug for MapManeuverNotices {
         f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
     }
 }
+impl MapManeuverNotices {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MapManeuverNotices {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2544,6 +2549,11 @@ unsafe impl ::windows::core::Abi for MapRouteRestrictions {
 impl ::core::fmt::Debug for MapRouteRestrictions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
+    }
+}
+impl MapRouteRestrictions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MapRouteRestrictions {

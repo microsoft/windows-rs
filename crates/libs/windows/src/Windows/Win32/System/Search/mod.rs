@@ -20069,6 +20069,11 @@ impl ::core::fmt::Debug for CONDITION_CREATION_OPTIONS {
         f.debug_tuple("CONDITION_CREATION_OPTIONS").field(&self.0).finish()
     }
 }
+impl CONDITION_CREATION_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CONDITION_CREATION_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -24481,6 +24486,11 @@ unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_RESOLVE_OPTION {
 impl ::core::fmt::Debug for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("STRUCTURED_QUERY_RESOLVE_OPTION").field(&self.0).finish()
+    }
+}
+impl STRUCTURED_QUERY_RESOLVE_OPTION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for STRUCTURED_QUERY_RESOLVE_OPTION {

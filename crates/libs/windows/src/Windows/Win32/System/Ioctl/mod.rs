@@ -2187,6 +2187,11 @@ impl ::core::fmt::Debug for CHANGER_ELEMENT_STATUS_FLAGS {
         f.debug_tuple("CHANGER_ELEMENT_STATUS_FLAGS").field(&self.0).finish()
     }
 }
+impl CHANGER_ELEMENT_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CHANGER_ELEMENT_STATUS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2294,6 +2299,11 @@ unsafe impl ::windows::core::Abi for CHANGER_FEATURES {
 impl ::core::fmt::Debug for CHANGER_FEATURES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CHANGER_FEATURES").field(&self.0).finish()
+    }
+}
+impl CHANGER_FEATURES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CHANGER_FEATURES {
@@ -2722,6 +2732,11 @@ impl ::core::fmt::Debug for FILE_STORAGE_TIER_FLAGS {
         f.debug_tuple("FILE_STORAGE_TIER_FLAGS").field(&self.0).finish()
     }
 }
+impl FILE_STORAGE_TIER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILE_STORAGE_TIER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2929,6 +2944,11 @@ impl ::core::fmt::Debug for GET_CHANGER_PARAMETERS_FEATURES1 {
         f.debug_tuple("GET_CHANGER_PARAMETERS_FEATURES1").field(&self.0).finish()
     }
 }
+impl GET_CHANGER_PARAMETERS_FEATURES1 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GET_CHANGER_PARAMETERS_FEATURES1 {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2988,6 +3008,11 @@ unsafe impl ::windows::core::Abi for GPT_ATTRIBUTES {
 impl ::core::fmt::Debug for GPT_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GPT_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl GPT_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GPT_ATTRIBUTES {
@@ -5256,6 +5281,11 @@ impl ::core::fmt::Debug for TXFS_RMF_LAGS {
         f.debug_tuple("TXFS_RMF_LAGS").field(&self.0).finish()
     }
 }
+impl TXFS_RMF_LAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TXFS_RMF_LAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5309,6 +5339,11 @@ unsafe impl ::windows::core::Abi for USN_DELETE_FLAGS {
 impl ::core::fmt::Debug for USN_DELETE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("USN_DELETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl USN_DELETE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for USN_DELETE_FLAGS {

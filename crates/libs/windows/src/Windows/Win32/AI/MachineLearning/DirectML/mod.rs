@@ -1025,6 +1025,11 @@ impl ::core::fmt::Debug for DML_CREATE_DEVICE_FLAGS {
         f.debug_tuple("DML_CREATE_DEVICE_FLAGS").field(&self.0).finish()
     }
 }
+impl DML_CREATE_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DML_CREATE_DEVICE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1109,6 +1114,11 @@ unsafe impl ::windows::core::Abi for DML_EXECUTION_FLAGS {
 impl ::core::fmt::Debug for DML_EXECUTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DML_EXECUTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl DML_EXECUTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DML_EXECUTION_FLAGS {
@@ -1900,6 +1910,11 @@ unsafe impl ::windows::core::Abi for DML_TENSOR_FLAGS {
 impl ::core::fmt::Debug for DML_TENSOR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DML_TENSOR_FLAGS").field(&self.0).finish()
+    }
+}
+impl DML_TENSOR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DML_TENSOR_FLAGS {

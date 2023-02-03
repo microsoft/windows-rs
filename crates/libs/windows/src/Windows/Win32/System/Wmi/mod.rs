@@ -8159,6 +8159,11 @@ impl ::core::fmt::Debug for WBEM_GENERIC_FLAG_TYPE {
         f.debug_tuple("WBEM_GENERIC_FLAG_TYPE").field(&self.0).finish()
     }
 }
+impl WBEM_GENERIC_FLAG_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WBEM_GENERIC_FLAG_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

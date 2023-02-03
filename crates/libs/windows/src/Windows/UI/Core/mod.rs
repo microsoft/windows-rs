@@ -5895,6 +5895,11 @@ impl ::core::fmt::Debug for CoreIndependentInputFilters {
         f.debug_tuple("CoreIndependentInputFilters").field(&self.0).finish()
     }
 }
+impl CoreIndependentInputFilters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CoreIndependentInputFilters {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5957,6 +5962,11 @@ unsafe impl ::windows::core::Abi for CoreInputDeviceTypes {
 impl ::core::fmt::Debug for CoreInputDeviceTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreInputDeviceTypes").field(&self.0).finish()
+    }
+}
+impl CoreInputDeviceTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CoreInputDeviceTypes {
@@ -6090,6 +6100,11 @@ unsafe impl ::windows::core::Abi for CoreVirtualKeyStates {
 impl ::core::fmt::Debug for CoreVirtualKeyStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreVirtualKeyStates").field(&self.0).finish()
+    }
+}
+impl CoreVirtualKeyStates {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CoreVirtualKeyStates {

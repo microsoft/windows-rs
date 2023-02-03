@@ -486,6 +486,11 @@ impl ::core::fmt::Debug for CHOOSECOLOR_FLAGS {
         f.debug_tuple("CHOOSECOLOR_FLAGS").field(&self.0).finish()
     }
 }
+impl CHOOSECOLOR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CHOOSECOLOR_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -595,6 +600,11 @@ impl ::core::fmt::Debug for CHOOSEFONT_FLAGS {
         f.debug_tuple("CHOOSEFONT_FLAGS").field(&self.0).finish()
     }
 }
+impl CHOOSEFONT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CHOOSEFONT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -656,6 +666,11 @@ unsafe impl ::windows::core::Abi for CHOOSEFONT_FONT_TYPE {
 impl ::core::fmt::Debug for CHOOSEFONT_FONT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CHOOSEFONT_FONT_TYPE").field(&self.0).finish()
+    }
+}
+impl CHOOSEFONT_FONT_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CHOOSEFONT_FONT_TYPE {
@@ -883,6 +898,11 @@ impl ::core::fmt::Debug for FINDREPLACE_FLAGS {
         f.debug_tuple("FINDREPLACE_FLAGS").field(&self.0).finish()
     }
 }
+impl FINDREPLACE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FINDREPLACE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -986,6 +1006,11 @@ impl ::core::fmt::Debug for OPEN_FILENAME_FLAGS {
         f.debug_tuple("OPEN_FILENAME_FLAGS").field(&self.0).finish()
     }
 }
+impl OPEN_FILENAME_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1039,6 +1064,11 @@ unsafe impl ::windows::core::Abi for OPEN_FILENAME_FLAGS_EX {
 impl ::core::fmt::Debug for OPEN_FILENAME_FLAGS_EX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OPEN_FILENAME_FLAGS_EX").field(&self.0).finish()
+    }
+}
+impl OPEN_FILENAME_FLAGS_EX {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OPEN_FILENAME_FLAGS_EX {
@@ -1128,6 +1158,11 @@ unsafe impl ::windows::core::Abi for PAGESETUPDLG_FLAGS {
 impl ::core::fmt::Debug for PAGESETUPDLG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PAGESETUPDLG_FLAGS").field(&self.0).finish()
+    }
+}
+impl PAGESETUPDLG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PAGESETUPDLG_FLAGS {
@@ -1235,6 +1270,11 @@ unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {
 impl ::core::fmt::Debug for PRINTDLGEX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PRINTDLGEX_FLAGS").field(&self.0).finish()
+    }
+}
+impl PRINTDLGEX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PRINTDLGEX_FLAGS {

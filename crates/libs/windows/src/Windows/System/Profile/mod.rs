@@ -1224,6 +1224,11 @@ impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
         f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()
     }
 }
+impl UnsupportedAppRequirementReasons {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for UnsupportedAppRequirementReasons {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

@@ -301,6 +301,11 @@ impl ::core::fmt::Debug for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
         f.debug_tuple("DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
     }
 }
+impl DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -358,6 +363,11 @@ unsafe impl ::windows::core::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
 impl ::core::fmt::Debug for DIALOG_DPI_CHANGE_BEHAVIORS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DIALOG_DPI_CHANGE_BEHAVIORS").field(&self.0).finish()
+    }
+}
+impl DIALOG_DPI_CHANGE_BEHAVIORS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DIALOG_DPI_CHANGE_BEHAVIORS {

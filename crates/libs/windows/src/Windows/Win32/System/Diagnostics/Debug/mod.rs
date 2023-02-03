@@ -36388,6 +36388,11 @@ impl ::core::fmt::Debug for DBGPROP_ATTRIB_FLAGS {
         f.debug_tuple("DBGPROP_ATTRIB_FLAGS").field(&self.0).finish()
     }
 }
+impl DBGPROP_ATTRIB_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DBGPROP_ATTRIB_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -36455,6 +36460,11 @@ unsafe impl ::windows::core::Abi for DBGPROP_INFO {
 impl ::core::fmt::Debug for DBGPROP_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DBGPROP_INFO").field(&self.0).finish()
+    }
+}
+impl DBGPROP_INFO {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DBGPROP_INFO {
@@ -37178,6 +37188,11 @@ impl ::core::fmt::Debug for FORMAT_MESSAGE_OPTIONS {
         f.debug_tuple("FORMAT_MESSAGE_OPTIONS").field(&self.0).finish()
     }
 }
+impl FORMAT_MESSAGE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37668,6 +37683,11 @@ impl ::core::fmt::Debug for IMAGE_DLL_CHARACTERISTICS {
         f.debug_tuple("IMAGE_DLL_CHARACTERISTICS").field(&self.0).finish()
     }
 }
+impl IMAGE_DLL_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IMAGE_DLL_CHARACTERISTICS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37749,6 +37769,11 @@ impl ::core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS {
         f.debug_tuple("IMAGE_FILE_CHARACTERISTICS").field(&self.0).finish()
     }
 }
+impl IMAGE_FILE_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IMAGE_FILE_CHARACTERISTICS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -37828,6 +37853,11 @@ unsafe impl ::windows::core::Abi for IMAGE_FILE_CHARACTERISTICS2 {
 impl ::core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IMAGE_FILE_CHARACTERISTICS2").field(&self.0).finish()
+    }
+}
+impl IMAGE_FILE_CHARACTERISTICS2 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IMAGE_FILE_CHARACTERISTICS2 {
@@ -37988,6 +38018,11 @@ unsafe impl ::windows::core::Abi for IMAGE_SECTION_CHARACTERISTICS {
 impl ::core::fmt::Debug for IMAGE_SECTION_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IMAGE_SECTION_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl IMAGE_SECTION_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IMAGE_SECTION_CHARACTERISTICS {
@@ -38455,6 +38490,11 @@ impl ::core::fmt::Debug for MINIDUMP_MISC_INFO_FLAGS {
         f.debug_tuple("MINIDUMP_MISC_INFO_FLAGS").field(&self.0).finish()
     }
 }
+impl MINIDUMP_MISC_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MINIDUMP_MISC_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -38721,6 +38761,11 @@ unsafe impl ::windows::core::Abi for MINIDUMP_TYPE {
 impl ::core::fmt::Debug for MINIDUMP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MINIDUMP_TYPE").field(&self.0).finish()
+    }
+}
+impl MINIDUMP_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MINIDUMP_TYPE {
@@ -39042,6 +39087,11 @@ impl ::core::fmt::Debug for PROFILER_EVENT_MASK {
         f.debug_tuple("PROFILER_EVENT_MASK").field(&self.0).finish()
     }
 }
+impl PROFILER_EVENT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROFILER_EVENT_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -39099,6 +39149,11 @@ unsafe impl ::windows::core::Abi for PROFILER_HEAP_ENUM_FLAGS {
 impl ::core::fmt::Debug for PROFILER_HEAP_ENUM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROFILER_HEAP_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROFILER_HEAP_ENUM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROFILER_HEAP_ENUM_FLAGS {
@@ -39176,6 +39231,11 @@ unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_FLAGS {
 impl ::core::fmt::Debug for PROFILER_HEAP_OBJECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROFILER_HEAP_OBJECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROFILER_HEAP_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROFILER_HEAP_OBJECT_FLAGS {
@@ -39288,6 +39348,11 @@ unsafe impl ::windows::core::Abi for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
 impl ::core::fmt::Debug for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
@@ -39996,6 +40061,11 @@ impl ::core::fmt::Debug for SYMBOL_INFO_FLAGS {
         f.debug_tuple("SYMBOL_INFO_FLAGS").field(&self.0).finish()
     }
 }
+impl SYMBOL_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SYMBOL_INFO_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -40082,6 +40152,11 @@ unsafe impl ::windows::core::Abi for SYM_LOAD_FLAGS {
 impl ::core::fmt::Debug for SYM_LOAD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYM_LOAD_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYM_LOAD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYM_LOAD_FLAGS {
@@ -40471,6 +40546,11 @@ unsafe impl ::windows::core::Abi for THREAD_ERROR_MODE {
 impl ::core::fmt::Debug for THREAD_ERROR_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("THREAD_ERROR_MODE").field(&self.0).finish()
+    }
+}
+impl THREAD_ERROR_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for THREAD_ERROR_MODE {

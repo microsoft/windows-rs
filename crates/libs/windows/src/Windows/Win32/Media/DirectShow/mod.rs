@@ -50888,6 +50888,11 @@ impl ::core::fmt::Debug for ADVISE_TYPE {
         f.debug_tuple("ADVISE_TYPE").field(&self.0).finish()
     }
 }
+impl ADVISE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ADVISE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -50978,6 +50983,11 @@ impl ::core::fmt::Debug for AMMSF_MMS_INIT_FLAGS {
         f.debug_tuple("AMMSF_MMS_INIT_FLAGS").field(&self.0).finish()
     }
 }
+impl AMMSF_MMS_INIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AMMSF_MMS_INIT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -51035,6 +51045,11 @@ unsafe impl ::windows::core::Abi for AMMSF_MS_FLAGS {
 impl ::core::fmt::Debug for AMMSF_MS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AMMSF_MS_FLAGS").field(&self.0).finish()
+    }
+}
+impl AMMSF_MS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for AMMSF_MS_FLAGS {
@@ -51098,6 +51113,11 @@ unsafe impl ::windows::core::Abi for AMMSF_RENDER_FLAGS {
 impl ::core::fmt::Debug for AMMSF_RENDER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AMMSF_RENDER_FLAGS").field(&self.0).finish()
+    }
+}
+impl AMMSF_RENDER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for AMMSF_RENDER_FLAGS {
@@ -54355,6 +54375,11 @@ unsafe impl ::windows::core::Abi for DDSFF_FLAGS {
 impl ::core::fmt::Debug for DDSFF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DDSFF_FLAGS").field(&self.0).finish()
+    }
+}
+impl DDSFF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DDSFF_FLAGS {
@@ -57967,6 +57992,11 @@ impl ::core::fmt::Debug for KSPROPERTY_IPSINK {
         f.debug_tuple("KSPROPERTY_IPSINK").field(&self.0).finish()
     }
 }
+impl KSPROPERTY_IPSINK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for KSPROPERTY_IPSINK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -58148,6 +58178,11 @@ unsafe impl ::windows::core::Abi for MMSSF_GET_INFORMATION_FLAGS {
 impl ::core::fmt::Debug for MMSSF_GET_INFORMATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MMSSF_GET_INFORMATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl MMSSF_GET_INFORMATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MMSSF_GET_INFORMATION_FLAGS {
@@ -58887,6 +58922,11 @@ impl ::core::fmt::Debug for OUTPUT_STATE {
         f.debug_tuple("OUTPUT_STATE").field(&self.0).finish()
     }
 }
+impl OUTPUT_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OUTPUT_STATE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -59238,6 +59278,11 @@ unsafe impl ::windows::core::Abi for REG_PINFLAG {
 impl ::core::fmt::Debug for REG_PINFLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("REG_PINFLAG").field(&self.0).finish()
+    }
+}
+impl REG_PINFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for REG_PINFLAG {

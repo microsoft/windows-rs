@@ -191,6 +191,11 @@ impl ::core::fmt::Debug for AvailableAudioRoutingEndpoints {
         f.debug_tuple("AvailableAudioRoutingEndpoints").field(&self.0).finish()
     }
 }
+impl AvailableAudioRoutingEndpoints {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AvailableAudioRoutingEndpoints {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

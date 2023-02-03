@@ -698,6 +698,11 @@ impl ::core::fmt::Debug for HCS_EVENT_OPTIONS {
         f.debug_tuple("HCS_EVENT_OPTIONS").field(&self.0).finish()
     }
 }
+impl HCS_EVENT_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HCS_EVENT_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

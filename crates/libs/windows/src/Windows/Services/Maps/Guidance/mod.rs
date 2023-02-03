@@ -1715,6 +1715,11 @@ impl ::core::fmt::Debug for GuidanceAudioNotifications {
         f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
     }
 }
+impl GuidanceAudioNotifications {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GuidanceAudioNotifications {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1784,6 +1789,11 @@ unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
 impl ::core::fmt::Debug for GuidanceLaneMarkers {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
+    }
+}
+impl GuidanceLaneMarkers {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GuidanceLaneMarkers {

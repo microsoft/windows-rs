@@ -58,6 +58,11 @@ impl ::core::fmt::Debug for ApplicationProfileModes {
         f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()
     }
 }
+impl ApplicationProfileModes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ApplicationProfileModes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

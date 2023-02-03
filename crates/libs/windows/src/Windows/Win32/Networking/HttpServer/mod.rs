@@ -1003,6 +1003,11 @@ impl ::core::fmt::Debug for HTTP_INITIALIZE {
         f.debug_tuple("HTTP_INITIALIZE").field(&self.0).finish()
     }
 }
+impl HTTP_INITIALIZE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for HTTP_INITIALIZE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

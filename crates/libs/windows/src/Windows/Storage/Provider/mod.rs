@@ -2182,6 +2182,11 @@ impl ::core::fmt::Debug for CachedFileOptions {
         f.debug_tuple("CachedFileOptions").field(&self.0).finish()
     }
 }
+impl CachedFileOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CachedFileOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2350,6 +2355,11 @@ impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
         f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
     }
 }
+impl StorageProviderHardlinkPolicy {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for StorageProviderHardlinkPolicy {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2451,6 +2461,11 @@ impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
         f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
     }
 }
+impl StorageProviderHydrationPolicyModifier {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for StorageProviderHydrationPolicyModifier {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2521,6 +2536,11 @@ unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
 impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
+    }
+}
+impl StorageProviderInSyncPolicy {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for StorageProviderInSyncPolicy {

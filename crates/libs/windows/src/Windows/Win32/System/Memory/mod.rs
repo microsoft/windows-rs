@@ -942,6 +942,11 @@ impl ::core::fmt::Debug for FILE_MAP {
         f.debug_tuple("FILE_MAP").field(&self.0).finish()
     }
 }
+impl FILE_MAP {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILE_MAP {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1001,6 +1006,11 @@ unsafe impl ::windows::core::Abi for GLOBAL_ALLOC_FLAGS {
 impl ::core::fmt::Debug for GLOBAL_ALLOC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GLOBAL_ALLOC_FLAGS").field(&self.0).finish()
+    }
+}
+impl GLOBAL_ALLOC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GLOBAL_ALLOC_FLAGS {
@@ -1086,6 +1096,11 @@ unsafe impl ::windows::core::Abi for HEAP_FLAGS {
 impl ::core::fmt::Debug for HEAP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HEAP_FLAGS").field(&self.0).finish()
+    }
+}
+impl HEAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for HEAP_FLAGS {
@@ -1182,6 +1197,11 @@ unsafe impl ::windows::core::Abi for LOCAL_ALLOC_FLAGS {
 impl ::core::fmt::Debug for LOCAL_ALLOC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LOCAL_ALLOC_FLAGS").field(&self.0).finish()
+    }
+}
+impl LOCAL_ALLOC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LOCAL_ALLOC_FLAGS {
@@ -1410,6 +1430,11 @@ impl ::core::fmt::Debug for PAGE_PROTECTION_FLAGS {
         f.debug_tuple("PAGE_PROTECTION_FLAGS").field(&self.0).finish()
     }
 }
+impl PAGE_PROTECTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PAGE_PROTECTION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1465,6 +1490,11 @@ unsafe impl ::windows::core::Abi for PAGE_TYPE {
 impl ::core::fmt::Debug for PAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PAGE_TYPE").field(&self.0).finish()
+    }
+}
+impl PAGE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PAGE_TYPE {
@@ -1561,6 +1591,11 @@ unsafe impl ::windows::core::Abi for VIRTUAL_ALLOCATION_TYPE {
 impl ::core::fmt::Debug for VIRTUAL_ALLOCATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VIRTUAL_ALLOCATION_TYPE").field(&self.0).finish()
+    }
+}
+impl VIRTUAL_ALLOCATION_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VIRTUAL_ALLOCATION_TYPE {

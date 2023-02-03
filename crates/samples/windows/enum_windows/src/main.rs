@@ -16,7 +16,7 @@ extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         };
         GetWindowInfo(window, &mut info).unwrap();
 
-        if !text.is_empty() && info.dwStyle & WS_VISIBLE != WINDOW_STYLE(0) {
+        if !text.is_empty() && info.dwStyle.contains(WS_VISIBLE) {
             println!("{} ({}, {})", text, info.rcWindow.left, info.rcWindow.top);
         }
 
