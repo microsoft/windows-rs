@@ -2758,6 +2758,11 @@ impl ::core::fmt::Debug for CREATE_EVENT {
         f.debug_tuple("CREATE_EVENT").field(&self.0).finish()
     }
 }
+impl CREATE_EVENT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CREATE_EVENT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2871,6 +2876,11 @@ unsafe impl ::windows::core::Abi for MACHINE_ATTRIBUTES {
 impl ::core::fmt::Debug for MACHINE_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MACHINE_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl MACHINE_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MACHINE_ATTRIBUTES {
@@ -3138,6 +3148,11 @@ impl ::core::fmt::Debug for PROCESS_ACCESS_RIGHTS {
         f.debug_tuple("PROCESS_ACCESS_RIGHTS").field(&self.0).finish()
     }
 }
+impl PROCESS_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROCESS_ACCESS_RIGHTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3278,6 +3293,11 @@ impl ::core::fmt::Debug for PROCESS_CREATION_FLAGS {
         f.debug_tuple("PROCESS_CREATION_FLAGS").field(&self.0).finish()
     }
 }
+impl PROCESS_CREATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PROCESS_CREATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3333,6 +3353,11 @@ unsafe impl ::windows::core::Abi for PROCESS_DEP_FLAGS {
 impl ::core::fmt::Debug for PROCESS_DEP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PROCESS_DEP_FLAGS").field(&self.0).finish()
+    }
+}
+impl PROCESS_DEP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PROCESS_DEP_FLAGS {
@@ -3744,6 +3769,11 @@ impl ::core::fmt::Debug for STARTUPINFOW_FLAGS {
         f.debug_tuple("STARTUPINFOW_FLAGS").field(&self.0).finish()
     }
 }
+impl STARTUPINFOW_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for STARTUPINFOW_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3821,6 +3851,11 @@ unsafe impl ::windows::core::Abi for SYNCHRONIZATION_ACCESS_RIGHTS {
 impl ::core::fmt::Debug for SYNCHRONIZATION_ACCESS_RIGHTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYNCHRONIZATION_ACCESS_RIGHTS").field(&self.0).finish()
+    }
+}
+impl SYNCHRONIZATION_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYNCHRONIZATION_ACCESS_RIGHTS {
@@ -3939,6 +3974,11 @@ impl ::core::fmt::Debug for THREAD_ACCESS_RIGHTS {
         f.debug_tuple("THREAD_ACCESS_RIGHTS").field(&self.0).finish()
     }
 }
+impl THREAD_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for THREAD_ACCESS_RIGHTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3994,6 +4034,11 @@ unsafe impl ::windows::core::Abi for THREAD_CREATION_FLAGS {
 impl ::core::fmt::Debug for THREAD_CREATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("THREAD_CREATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl THREAD_CREATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for THREAD_CREATION_FLAGS {
@@ -4170,6 +4215,11 @@ unsafe impl ::windows::core::Abi for WORKER_THREAD_FLAGS {
 impl ::core::fmt::Debug for WORKER_THREAD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WORKER_THREAD_FLAGS").field(&self.0).finish()
+    }
+}
+impl WORKER_THREAD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for WORKER_THREAD_FLAGS {

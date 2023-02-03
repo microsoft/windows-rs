@@ -13214,6 +13214,11 @@ impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
         f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
     }
 }
+impl DUPLICATE_HANDLE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13267,6 +13272,11 @@ unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
 impl ::core::fmt::Debug for HANDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
+    }
+}
+impl HANDLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for HANDLE_FLAGS {

@@ -38126,6 +38126,11 @@ impl ::core::fmt::Debug for CompositionBatchTypes {
         f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
     }
 }
+impl CompositionBatchTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CompositionBatchTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

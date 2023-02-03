@@ -7778,6 +7778,11 @@ impl ::core::fmt::Debug for ASM_BIND_FLAGS {
         f.debug_tuple("ASM_BIND_FLAGS").field(&self.0).finish()
     }
 }
+impl ASM_BIND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ASM_BIND_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9814,6 +9819,11 @@ unsafe impl ::windows::core::Abi for QUERYASMINFO_FLAGS {
 impl ::core::fmt::Debug for QUERYASMINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("QUERYASMINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl QUERYASMINFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for QUERYASMINFO_FLAGS {

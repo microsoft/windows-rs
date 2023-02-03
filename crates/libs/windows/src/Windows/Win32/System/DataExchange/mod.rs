@@ -908,6 +908,11 @@ impl ::core::fmt::Debug for CONVINFO_STATUS {
         f.debug_tuple("CONVINFO_STATUS").field(&self.0).finish()
     }
 }
+impl CONVINFO_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CONVINFO_STATUS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1087,6 +1092,11 @@ unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
 impl ::core::fmt::Debug for DDE_INITIALIZE_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DDE_INITIALIZE_COMMAND").field(&self.0).finish()
+    }
+}
+impl DDE_INITIALIZE_COMMAND {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DDE_INITIALIZE_COMMAND {

@@ -514,6 +514,11 @@ impl ::core::fmt::Debug for DWM_SHOWCONTACT {
         f.debug_tuple("DWM_SHOWCONTACT").field(&self.0).finish()
     }
 }
+impl DWM_SHOWCONTACT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DWM_SHOWCONTACT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -614,6 +619,11 @@ unsafe impl ::windows::core::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
 impl ::core::fmt::Debug for DWM_TAB_WINDOW_REQUIREMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DWM_TAB_WINDOW_REQUIREMENTS").field(&self.0).finish()
+    }
+}
+impl DWM_TAB_WINDOW_REQUIREMENTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DWM_TAB_WINDOW_REQUIREMENTS {

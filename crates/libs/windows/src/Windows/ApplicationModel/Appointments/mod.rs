@@ -3775,6 +3775,11 @@ impl ::core::fmt::Debug for AppointmentDaysOfWeek {
         f.debug_tuple("AppointmentDaysOfWeek").field(&self.0).finish()
     }
 }
+impl AppointmentDaysOfWeek {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AppointmentDaysOfWeek {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4158,6 +4163,11 @@ unsafe impl ::windows::core::Abi for FindAppointmentCalendarsOptions {
 impl ::core::fmt::Debug for FindAppointmentCalendarsOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FindAppointmentCalendarsOptions").field(&self.0).finish()
+    }
+}
+impl FindAppointmentCalendarsOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FindAppointmentCalendarsOptions {

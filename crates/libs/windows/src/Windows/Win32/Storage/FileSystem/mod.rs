@@ -5036,6 +5036,11 @@ impl ::core::fmt::Debug for CLFS_FLAG {
         f.debug_tuple("CLFS_FLAG").field(&self.0).finish()
     }
 }
+impl CLFS_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CLFS_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5495,6 +5500,11 @@ impl ::core::fmt::Debug for DEFINE_DOS_DEVICE_FLAGS {
         f.debug_tuple("DEFINE_DOS_DEVICE_FLAGS").field(&self.0).finish()
     }
 }
+impl DEFINE_DOS_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DEFINE_DOS_DEVICE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5658,6 +5668,11 @@ unsafe impl ::windows::core::Abi for FILE_ACCESS_FLAGS {
 impl ::core::fmt::Debug for FILE_ACCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_ACCESS_FLAGS").field(&self.0).finish()
+    }
+}
+impl FILE_ACCESS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FILE_ACCESS_FLAGS {
@@ -5898,6 +5913,11 @@ impl ::core::fmt::Debug for FILE_FLAGS_AND_ATTRIBUTES {
         f.debug_tuple("FILE_FLAGS_AND_ATTRIBUTES").field(&self.0).finish()
     }
 }
+impl FILE_FLAGS_AND_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILE_FLAGS_AND_ATTRIBUTES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6061,6 +6081,11 @@ impl ::core::fmt::Debug for FILE_INFO_FLAGS_PERMISSIONS {
         f.debug_tuple("FILE_INFO_FLAGS_PERMISSIONS").field(&self.0).finish()
     }
 }
+impl FILE_INFO_FLAGS_PERMISSIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILE_INFO_FLAGS_PERMISSIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6155,6 +6180,11 @@ impl ::core::fmt::Debug for FILE_NOTIFY_CHANGE {
         f.debug_tuple("FILE_NOTIFY_CHANGE").field(&self.0).finish()
     }
 }
+impl FILE_NOTIFY_CHANGE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FILE_NOTIFY_CHANGE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6212,6 +6242,11 @@ unsafe impl ::windows::core::Abi for FILE_SHARE_MODE {
 impl ::core::fmt::Debug for FILE_SHARE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_SHARE_MODE").field(&self.0).finish()
+    }
+}
+impl FILE_SHARE_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FILE_SHARE_MODE {
@@ -6364,6 +6399,11 @@ impl ::core::fmt::Debug for FIND_FIRST_EX_FLAGS {
         f.debug_tuple("FIND_FIRST_EX_FLAGS").field(&self.0).finish()
     }
 }
+impl FIND_FIRST_EX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FIND_FIRST_EX_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6446,6 +6486,11 @@ unsafe impl ::windows::core::Abi for GET_FILE_VERSION_INFO_FLAGS {
 impl ::core::fmt::Debug for GET_FILE_VERSION_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GET_FILE_VERSION_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl GET_FILE_VERSION_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GET_FILE_VERSION_INFO_FLAGS {
@@ -6721,6 +6766,11 @@ impl ::core::fmt::Debug for LOCK_FILE_FLAGS {
         f.debug_tuple("LOCK_FILE_FLAGS").field(&self.0).finish()
     }
 }
+impl LOCK_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LOCK_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6831,6 +6881,11 @@ impl ::core::fmt::Debug for LZOPENFILE_STYLE {
         f.debug_tuple("LZOPENFILE_STYLE").field(&self.0).finish()
     }
 }
+impl LZOPENFILE_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for LZOPENFILE_STYLE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6892,6 +6947,11 @@ unsafe impl ::windows::core::Abi for MOVE_FILE_FLAGS {
 impl ::core::fmt::Debug for MOVE_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MOVE_FILE_FLAGS").field(&self.0).finish()
+    }
+}
+impl MOVE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MOVE_FILE_FLAGS {
@@ -8459,6 +8519,11 @@ impl ::core::fmt::Debug for REPLACE_FILE_FLAGS {
         f.debug_tuple("REPLACE_FILE_FLAGS").field(&self.0).finish()
     }
 }
+impl REPLACE_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REPLACE_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8644,6 +8709,11 @@ impl ::core::fmt::Debug for SHARE_TYPE {
         f.debug_tuple("SHARE_TYPE").field(&self.0).finish()
     }
 }
+impl SHARE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SHARE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8791,6 +8861,11 @@ unsafe impl ::windows::core::Abi for SYMBOLIC_LINK_FLAGS {
 impl ::core::fmt::Debug for SYMBOLIC_LINK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYMBOLIC_LINK_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYMBOLIC_LINK_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SYMBOLIC_LINK_FLAGS {
@@ -9088,6 +9163,11 @@ impl ::core::fmt::Debug for VER_FIND_FILE_STATUS {
         f.debug_tuple("VER_FIND_FILE_STATUS").field(&self.0).finish()
     }
 }
+impl VER_FIND_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for VER_FIND_FILE_STATUS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9208,6 +9288,11 @@ impl ::core::fmt::Debug for VER_INSTALL_FILE_STATUS {
         f.debug_tuple("VER_INSTALL_FILE_STATUS").field(&self.0).finish()
     }
 }
+impl VER_INSTALL_FILE_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for VER_INSTALL_FILE_STATUS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -9269,6 +9354,11 @@ unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
 impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VS_FIXEDFILEINFO_FILE_FLAGS").field(&self.0).finish()
+    }
+}
+impl VS_FIXEDFILEINFO_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VS_FIXEDFILEINFO_FILE_FLAGS {

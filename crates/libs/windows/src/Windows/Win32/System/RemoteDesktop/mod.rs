@@ -9382,6 +9382,11 @@ impl ::core::fmt::Debug for WTS_SECURITY_FLAGS {
         f.debug_tuple("WTS_SECURITY_FLAGS").field(&self.0).finish()
     }
 }
+impl WTS_SECURITY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WTS_SECURITY_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

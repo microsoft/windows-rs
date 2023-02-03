@@ -2016,6 +2016,11 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
         f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
     }
 }
+impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2081,6 +2086,11 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
         f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
     }
 }
+impl IsolatedWindowsEnvironmentAvailablePrinters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2142,6 +2152,11 @@ unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPast
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
+    }
+}
+impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {

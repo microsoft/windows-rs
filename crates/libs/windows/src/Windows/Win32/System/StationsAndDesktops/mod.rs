@@ -373,6 +373,11 @@ impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
         f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_FLAGS").field(&self.0).finish()
     }
 }
+impl BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -428,6 +433,11 @@ unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
 impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_INFO").field(&self.0).finish()
+    }
+}
+impl BROADCAST_SYSTEM_MESSAGE_INFO {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {

@@ -1705,6 +1705,11 @@ impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
         f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
     }
 }
+impl DisplayBrightnessOverrideOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DisplayBrightnessOverrideOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1872,6 +1877,11 @@ unsafe impl ::windows::core::Abi for DisplayOrientations {
 impl ::core::fmt::Debug for DisplayOrientations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayOrientations").field(&self.0).finish()
+    }
+}
+impl DisplayOrientations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DisplayOrientations {

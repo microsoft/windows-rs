@@ -4562,6 +4562,11 @@ impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
         f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
     }
 }
+impl PhoneCallHistoryEntryQueryDesiredMedia {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PhoneCallHistoryEntryQueryDesiredMedia {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -5130,6 +5135,11 @@ unsafe impl ::windows::core::Abi for VoipPhoneCallMedia {
 impl ::core::fmt::Debug for VoipPhoneCallMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
+    }
+}
+impl VoipPhoneCallMedia {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VoipPhoneCallMedia {

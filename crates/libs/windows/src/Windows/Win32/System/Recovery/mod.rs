@@ -95,6 +95,11 @@ impl ::core::fmt::Debug for REGISTER_APPLICATION_RESTART_FLAGS {
         f.debug_tuple("REGISTER_APPLICATION_RESTART_FLAGS").field(&self.0).finish()
     }
 }
+impl REGISTER_APPLICATION_RESTART_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REGISTER_APPLICATION_RESTART_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

@@ -37,6 +37,11 @@ impl ::core::fmt::Debug for VERIFIER_ENUM_RESOURCE_FLAGS {
         f.debug_tuple("VERIFIER_ENUM_RESOURCE_FLAGS").field(&self.0).finish()
     }
 }
+impl VERIFIER_ENUM_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for VERIFIER_ENUM_RESOURCE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

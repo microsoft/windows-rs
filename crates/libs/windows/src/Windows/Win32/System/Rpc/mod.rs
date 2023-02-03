@@ -4050,6 +4050,11 @@ impl ::core::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
         f.debug_tuple("RPC_BINDING_HANDLE_OPTIONS_FLAGS").field(&self.0).finish()
     }
 }
+impl RPC_BINDING_HANDLE_OPTIONS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4132,6 +4137,11 @@ impl ::core::fmt::Debug for RPC_C_HTTP_AUTHN_TARGET {
         f.debug_tuple("RPC_C_HTTP_AUTHN_TARGET").field(&self.0).finish()
     }
 }
+impl RPC_C_HTTP_AUTHN_TARGET {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RPC_C_HTTP_AUTHN_TARGET {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4189,6 +4199,11 @@ unsafe impl ::windows::core::Abi for RPC_C_HTTP_FLAGS {
 impl ::core::fmt::Debug for RPC_C_HTTP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RPC_C_HTTP_FLAGS").field(&self.0).finish()
+    }
+}
+impl RPC_C_HTTP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RPC_C_HTTP_FLAGS {
@@ -4254,6 +4269,11 @@ unsafe impl ::windows::core::Abi for RPC_C_QOS_CAPABILITIES {
 impl ::core::fmt::Debug for RPC_C_QOS_CAPABILITIES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RPC_C_QOS_CAPABILITIES").field(&self.0).finish()
+    }
+}
+impl RPC_C_QOS_CAPABILITIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RPC_C_QOS_CAPABILITIES {

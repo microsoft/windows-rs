@@ -7038,6 +7038,11 @@ impl ::core::fmt::Debug for CFE_EFFECTS {
         f.debug_tuple("CFE_EFFECTS").field(&self.0).finish()
     }
 }
+impl CFE_EFFECTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CFE_EFFECTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7173,6 +7178,11 @@ unsafe impl ::windows::core::Abi for CFM_MASK {
 impl ::core::fmt::Debug for CFM_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CFM_MASK").field(&self.0).finish()
+    }
+}
+impl CFM_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CFM_MASK {
@@ -7327,6 +7337,11 @@ unsafe impl ::windows::core::Abi for GETTEXTLENGTHEX_FLAGS {
 impl ::core::fmt::Debug for GETTEXTLENGTHEX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GETTEXTLENGTHEX_FLAGS").field(&self.0).finish()
+    }
+}
+impl GETTEXTLENGTHEX_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for GETTEXTLENGTHEX_FLAGS {
@@ -7625,6 +7640,11 @@ impl ::core::fmt::Debug for PARAFORMAT_BORDERS {
         f.debug_tuple("PARAFORMAT_BORDERS").field(&self.0).finish()
     }
 }
+impl PARAFORMAT_BORDERS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PARAFORMAT_BORDERS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7692,6 +7712,11 @@ impl ::core::fmt::Debug for PARAFORMAT_MASK {
         f.debug_tuple("PARAFORMAT_MASK").field(&self.0).finish()
     }
 }
+impl PARAFORMAT_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PARAFORMAT_MASK {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7753,6 +7778,11 @@ unsafe impl ::windows::core::Abi for PARAFORMAT_NUMBERING {
 impl ::core::fmt::Debug for PARAFORMAT_NUMBERING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PARAFORMAT_NUMBERING").field(&self.0).finish()
+    }
+}
+impl PARAFORMAT_NUMBERING {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PARAFORMAT_NUMBERING {
@@ -7928,6 +7958,11 @@ impl ::core::fmt::Debug for REOBJECT_FLAGS {
         f.debug_tuple("REOBJECT_FLAGS").field(&self.0).finish()
     }
 }
+impl REOBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for REOBJECT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7991,6 +8026,11 @@ impl ::core::fmt::Debug for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
         f.debug_tuple("RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE").field(&self.0).finish()
     }
 }
+impl RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -8050,6 +8090,11 @@ unsafe impl ::windows::core::Abi for RICH_EDIT_GET_OBJECT_FLAGS {
 impl ::core::fmt::Debug for RICH_EDIT_GET_OBJECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RICH_EDIT_GET_OBJECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl RICH_EDIT_GET_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RICH_EDIT_GET_OBJECT_FLAGS {

@@ -1958,6 +1958,11 @@ impl ::core::fmt::Debug for TileOptions {
         f.debug_tuple("TileOptions").field(&self.0).finish()
     }
 }
+impl TileOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for TileOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

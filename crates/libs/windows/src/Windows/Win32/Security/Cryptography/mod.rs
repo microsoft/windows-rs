@@ -10078,6 +10078,11 @@ impl ::core::fmt::Debug for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
         f.debug_tuple("BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS").field(&self.0).finish()
     }
 }
+impl BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10139,6 +10144,11 @@ unsafe impl ::windows::core::Abi for BCRYPT_OPERATION {
 impl ::core::fmt::Debug for BCRYPT_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_OPERATION").field(&self.0).finish()
+    }
+}
+impl BCRYPT_OPERATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for BCRYPT_OPERATION {
@@ -10225,6 +10235,11 @@ unsafe impl ::windows::core::Abi for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
 impl ::core::fmt::Debug for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BCRYPT_RESOLVE_PROVIDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
@@ -10543,6 +10558,11 @@ impl ::core::fmt::Debug for CERT_CREATE_SELFSIGN_FLAGS {
         f.debug_tuple("CERT_CREATE_SELFSIGN_FLAGS").field(&self.0).finish()
     }
 }
+impl CERT_CREATE_SELFSIGN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CERT_CREATE_SELFSIGN_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -10604,6 +10624,11 @@ unsafe impl ::windows::core::Abi for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 impl ::core::fmt::Debug for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_FIND_CHAIN_IN_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_FIND_CHAIN_IN_STORE_FLAGS {
@@ -10739,6 +10764,11 @@ unsafe impl ::windows::core::Abi for CERT_FIND_FLAGS {
 impl ::core::fmt::Debug for CERT_FIND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_FIND_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_FIND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_FIND_FLAGS {
@@ -11127,6 +11157,11 @@ impl ::core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
         f.debug_tuple("CERT_QUERY_ENCODING_TYPE").field(&self.0).finish()
     }
 }
+impl CERT_QUERY_ENCODING_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CERT_QUERY_ENCODING_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11369,6 +11404,11 @@ impl ::core::fmt::Debug for CERT_ROOT_PROGRAM_FLAGS {
         f.debug_tuple("CERT_ROOT_PROGRAM_FLAGS").field(&self.0).finish()
     }
 }
+impl CERT_ROOT_PROGRAM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CERT_ROOT_PROGRAM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11473,6 +11513,11 @@ unsafe impl ::windows::core::Abi for CERT_STORE_PROV_FLAGS {
 impl ::core::fmt::Debug for CERT_STORE_PROV_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_STORE_PROV_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_STORE_PROV_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_STORE_PROV_FLAGS {
@@ -11617,6 +11662,11 @@ unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_FLAGS {
 impl ::core::fmt::Debug for CERT_STRONG_SIGN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_STRONG_SIGN_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_STRONG_SIGN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CERT_STRONG_SIGN_FLAGS {
@@ -11798,6 +11848,11 @@ impl ::core::fmt::Debug for CRYPT_ACQUIRE_FLAGS {
         f.debug_tuple("CRYPT_ACQUIRE_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_ACQUIRE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_ACQUIRE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11853,6 +11908,11 @@ impl ::core::fmt::Debug for CRYPT_CONTEXT_CONFIG_FLAGS {
         f.debug_tuple("CRYPT_CONTEXT_CONFIG_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_CONTEXT_CONFIG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_CONTEXT_CONFIG_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -11906,6 +11966,11 @@ unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_FLAGS {
 impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_DEFAULT_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPT_DEFAULT_CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRYPT_DEFAULT_CONTEXT_FLAGS {
@@ -11996,6 +12061,11 @@ impl ::core::fmt::Debug for CRYPT_ENCODE_OBJECT_FLAGS {
         f.debug_tuple("CRYPT_ENCODE_OBJECT_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_ENCODE_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_ENCODE_OBJECT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12084,6 +12154,11 @@ impl ::core::fmt::Debug for CRYPT_GET_URL_FLAGS {
         f.debug_tuple("CRYPT_GET_URL_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_GET_URL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_GET_URL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12139,6 +12214,11 @@ impl ::core::fmt::Debug for CRYPT_IMAGE_REF_FLAGS {
         f.debug_tuple("CRYPT_IMAGE_REF_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_IMAGE_REF_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_IMAGE_REF_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12192,6 +12272,11 @@ unsafe impl ::windows::core::Abi for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
 impl ::core::fmt::Debug for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_IMPORT_PUBLIC_KEY_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
@@ -12305,6 +12390,11 @@ unsafe impl ::windows::core::Abi for CRYPT_KEY_FLAGS {
 impl ::core::fmt::Debug for CRYPT_KEY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CRYPT_KEY_FLAGS").field(&self.0).finish()
+    }
+}
+impl CRYPT_KEY_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CRYPT_KEY_FLAGS {
@@ -12974,6 +13064,11 @@ impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_FLAGS {
         f.debug_tuple("CRYPT_XML_TRANSFORM_FLAGS").field(&self.0).finish()
     }
 }
+impl CRYPT_XML_TRANSFORM_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CRYPT_XML_TRANSFORM_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13410,6 +13505,11 @@ impl ::core::fmt::Debug for NCRYPT_FLAGS {
         f.debug_tuple("NCRYPT_FLAGS").field(&self.0).finish()
     }
 }
+impl NCRYPT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NCRYPT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13469,6 +13569,11 @@ unsafe impl ::windows::core::Abi for NCRYPT_OPERATION {
 impl ::core::fmt::Debug for NCRYPT_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NCRYPT_OPERATION").field(&self.0).finish()
+    }
+}
+impl NCRYPT_OPERATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for NCRYPT_OPERATION {

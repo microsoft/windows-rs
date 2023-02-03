@@ -275,6 +275,11 @@ impl ::core::fmt::Debug for WebAuthenticationOptions {
         f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
     }
 }
+impl WebAuthenticationOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for WebAuthenticationOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

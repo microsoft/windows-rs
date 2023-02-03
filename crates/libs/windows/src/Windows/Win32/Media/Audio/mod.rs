@@ -6698,6 +6698,11 @@ impl ::core::fmt::Debug for AUDCLNT_STREAMOPTIONS {
         f.debug_tuple("AUDCLNT_STREAMOPTIONS").field(&self.0).finish()
     }
 }
+impl AUDCLNT_STREAMOPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AUDCLNT_STREAMOPTIONS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -6778,6 +6783,11 @@ unsafe impl ::windows::core::Abi for AUDIO_DUCKING_OPTIONS {
 impl ::core::fmt::Debug for AUDIO_DUCKING_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AUDIO_DUCKING_OPTIONS").field(&self.0).finish()
+    }
+}
+impl AUDIO_DUCKING_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for AUDIO_DUCKING_OPTIONS {
@@ -6976,6 +6986,11 @@ unsafe impl ::windows::core::Abi for AudioObjectType {
 impl ::core::fmt::Debug for AudioObjectType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioObjectType").field(&self.0).finish()
+    }
+}
+impl AudioObjectType {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for AudioObjectType {
@@ -7317,6 +7332,11 @@ impl ::core::fmt::Debug for MIDI_WAVE_OPEN_TYPE {
         f.debug_tuple("MIDI_WAVE_OPEN_TYPE").field(&self.0).finish()
     }
 }
+impl MIDI_WAVE_OPEN_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7515,6 +7535,11 @@ impl ::core::fmt::Debug for SND_FLAGS {
         f.debug_tuple("SND_FLAGS").field(&self.0).finish()
     }
 }
+impl SND_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SND_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -7568,6 +7593,11 @@ unsafe impl ::windows::core::Abi for SPATIAL_AUDIO_STREAM_OPTIONS {
 impl ::core::fmt::Debug for SPATIAL_AUDIO_STREAM_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SPATIAL_AUDIO_STREAM_OPTIONS").field(&self.0).finish()
+    }
+}
+impl SPATIAL_AUDIO_STREAM_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SPATIAL_AUDIO_STREAM_OPTIONS {

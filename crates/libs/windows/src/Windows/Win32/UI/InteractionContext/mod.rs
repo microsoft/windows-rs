@@ -312,6 +312,11 @@ impl ::core::fmt::Debug for CROSS_SLIDE_FLAGS {
         f.debug_tuple("CROSS_SLIDE_FLAGS").field(&self.0).finish()
     }
 }
+impl CROSS_SLIDE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CROSS_SLIDE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -524,6 +529,11 @@ impl ::core::fmt::Debug for INTERACTION_CONFIGURATION_FLAGS {
         f.debug_tuple("INTERACTION_CONFIGURATION_FLAGS").field(&self.0).finish()
     }
 }
+impl INTERACTION_CONFIGURATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for INTERACTION_CONFIGURATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -616,6 +626,11 @@ unsafe impl ::windows::core::Abi for INTERACTION_FLAGS {
 impl ::core::fmt::Debug for INTERACTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("INTERACTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl INTERACTION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for INTERACTION_FLAGS {

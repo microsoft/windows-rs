@@ -1063,6 +1063,11 @@ impl ::core::fmt::Debug for PeerDiscoveryTypes {
         f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
     }
 }
+impl PeerDiscoveryTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PeerDiscoveryTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

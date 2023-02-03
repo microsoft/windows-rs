@@ -435,6 +435,11 @@ impl ::core::fmt::Debug for D2D1_PATH_SEGMENT {
         f.debug_tuple("D2D1_PATH_SEGMENT").field(&self.0).finish()
     }
 }
+impl D2D1_PATH_SEGMENT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D2D1_PATH_SEGMENT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

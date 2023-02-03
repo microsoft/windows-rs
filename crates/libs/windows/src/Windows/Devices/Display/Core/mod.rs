@@ -2999,6 +2999,11 @@ impl ::core::fmt::Debug for DisplayBitsPerChannel {
         f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
     }
 }
+impl DisplayBitsPerChannel {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DisplayBitsPerChannel {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3093,6 +3098,11 @@ unsafe impl ::windows::core::Abi for DisplayManagerOptions {
 impl ::core::fmt::Debug for DisplayManagerOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
+    }
+}
+impl DisplayManagerOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DisplayManagerOptions {
@@ -3192,6 +3202,11 @@ unsafe impl ::windows::core::Abi for DisplayModeQueryOptions {
 impl ::core::fmt::Debug for DisplayModeQueryOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
+    }
+}
+impl DisplayModeQueryOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DisplayModeQueryOptions {
@@ -3406,6 +3421,11 @@ impl ::core::fmt::Debug for DisplayScanoutOptions {
         f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
     }
 }
+impl DisplayScanoutOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DisplayScanoutOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3507,6 +3527,11 @@ impl ::core::fmt::Debug for DisplayStateApplyOptions {
         f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
     }
 }
+impl DisplayStateApplyOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DisplayStateApplyOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3568,6 +3593,11 @@ unsafe impl ::windows::core::Abi for DisplayStateFunctionalizeOptions {
 impl ::core::fmt::Debug for DisplayStateFunctionalizeOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
+    }
+}
+impl DisplayStateFunctionalizeOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DisplayStateFunctionalizeOptions {

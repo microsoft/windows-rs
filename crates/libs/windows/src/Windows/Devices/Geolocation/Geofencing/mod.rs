@@ -551,6 +551,11 @@ impl ::core::fmt::Debug for GeofenceState {
         f.debug_tuple("GeofenceState").field(&self.0).finish()
     }
 }
+impl GeofenceState {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for GeofenceState {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -613,6 +618,11 @@ unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {
 impl ::core::fmt::Debug for MonitoredGeofenceStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()
+    }
+}
+impl MonitoredGeofenceStates {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MonitoredGeofenceStates {

@@ -383,6 +383,11 @@ impl ::core::fmt::Debug for JOB_OBJECT_CPU_RATE_CONTROL {
         f.debug_tuple("JOB_OBJECT_CPU_RATE_CONTROL").field(&self.0).finish()
     }
 }
+impl JOB_OBJECT_CPU_RATE_CONTROL {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for JOB_OBJECT_CPU_RATE_CONTROL {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -521,6 +526,11 @@ impl ::core::fmt::Debug for JOB_OBJECT_LIMIT {
         f.debug_tuple("JOB_OBJECT_LIMIT").field(&self.0).finish()
     }
 }
+impl JOB_OBJECT_LIMIT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for JOB_OBJECT_LIMIT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -578,6 +588,11 @@ unsafe impl ::windows::core::Abi for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
 impl ::core::fmt::Debug for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_NET_RATE_CONTROL_FLAGS").field(&self.0).finish()
+    }
+}
+impl JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
@@ -639,6 +654,11 @@ unsafe impl ::windows::core::Abi for JOB_OBJECT_SECURITY {
 impl ::core::fmt::Debug for JOB_OBJECT_SECURITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_SECURITY").field(&self.0).finish()
+    }
+}
+impl JOB_OBJECT_SECURITY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for JOB_OBJECT_SECURITY {
@@ -735,6 +755,11 @@ unsafe impl ::windows::core::Abi for JOB_OBJECT_UILIMIT {
 impl ::core::fmt::Debug for JOB_OBJECT_UILIMIT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JOB_OBJECT_UILIMIT").field(&self.0).finish()
+    }
+}
+impl JOB_OBJECT_UILIMIT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for JOB_OBJECT_UILIMIT {

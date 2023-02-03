@@ -6670,6 +6670,11 @@ impl ::core::fmt::Debug for VirtualKeyModifiers {
         f.debug_tuple("VirtualKeyModifiers").field(&self.0).finish()
     }
 }
+impl VirtualKeyModifiers {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for VirtualKeyModifiers {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

@@ -14941,6 +14941,11 @@ impl ::core::fmt::Debug for D3D11_BIND_FLAG {
         f.debug_tuple("D3D11_BIND_FLAG").field(&self.0).finish()
     }
 }
+impl D3D11_BIND_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D11_BIND_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15208,6 +15213,11 @@ unsafe impl ::windows::core::Abi for D3D11_CLEAR_FLAG {
 impl ::core::fmt::Debug for D3D11_CLEAR_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D11_CLEAR_FLAG").field(&self.0).finish()
+    }
+}
+impl D3D11_CLEAR_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D11_CLEAR_FLAG {
@@ -15566,6 +15576,11 @@ impl ::core::fmt::Debug for D3D11_CPU_ACCESS_FLAG {
         f.debug_tuple("D3D11_CPU_ACCESS_FLAG").field(&self.0).finish()
     }
 }
+impl D3D11_CPU_ACCESS_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D11_CPU_ACCESS_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15635,6 +15650,11 @@ impl ::core::fmt::Debug for D3D11_CREATE_DEVICE_FLAG {
         f.debug_tuple("D3D11_CREATE_DEVICE_FLAG").field(&self.0).finish()
     }
 }
+impl D3D11_CREATE_DEVICE_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D11_CREATE_DEVICE_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15686,6 +15706,11 @@ unsafe impl ::windows::core::Abi for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
 impl ::core::fmt::Debug for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
@@ -16011,6 +16036,11 @@ unsafe impl ::windows::core::Abi for D3D11_FENCE_FLAG {
 impl ::core::fmt::Debug for D3D11_FENCE_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D11_FENCE_FLAG").field(&self.0).finish()
+    }
+}
+impl D3D11_FENCE_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D11_FENCE_FLAG {
@@ -19465,6 +19495,11 @@ impl ::core::fmt::Debug for D3D11_RESOURCE_MISC_FLAG {
         f.debug_tuple("D3D11_RESOURCE_MISC_FLAG").field(&self.0).finish()
     }
 }
+impl D3D11_RESOURCE_MISC_FLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for D3D11_RESOURCE_MISC_FLAG {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -20464,6 +20499,11 @@ unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLA
 impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {

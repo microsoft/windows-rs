@@ -5568,6 +5568,11 @@ impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
         f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
     }
 }
+impl VpnChannelRequestCredentialsOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for VpnChannelRequestCredentialsOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

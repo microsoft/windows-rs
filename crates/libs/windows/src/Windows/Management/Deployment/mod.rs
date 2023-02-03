@@ -3878,6 +3878,11 @@ impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
         f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
     }
 }
+impl AddPackageByAppInstallerOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AddPackageByAppInstallerOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3945,6 +3950,11 @@ unsafe impl ::windows::core::Abi for DeploymentOptions {
 impl ::core::fmt::Debug for DeploymentOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeploymentOptions").field(&self.0).finish()
+    }
+}
+impl DeploymentOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for DeploymentOptions {
@@ -4118,6 +4128,11 @@ impl ::core::fmt::Debug for PackageStatus {
         f.debug_tuple("PackageStatus").field(&self.0).finish()
     }
 }
+impl PackageStatus {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PackageStatus {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4220,6 +4235,11 @@ impl ::core::fmt::Debug for PackageTypes {
         f.debug_tuple("PackageTypes").field(&self.0).finish()
     }
 }
+impl PackageTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PackageTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -4282,6 +4302,11 @@ unsafe impl ::windows::core::Abi for RemovalOptions {
 impl ::core::fmt::Debug for RemovalOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemovalOptions").field(&self.0).finish()
+    }
+}
+impl RemovalOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for RemovalOptions {

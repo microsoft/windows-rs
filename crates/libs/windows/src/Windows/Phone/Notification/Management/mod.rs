@@ -2940,6 +2940,11 @@ impl ::core::fmt::Debug for AccessoryNotificationType {
         f.debug_tuple("AccessoryNotificationType").field(&self.0).finish()
     }
 }
+impl AccessoryNotificationType {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for AccessoryNotificationType {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -3294,6 +3299,11 @@ unsafe impl ::windows::core::Abi for PlaybackCapability {
 impl ::core::fmt::Debug for PlaybackCapability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlaybackCapability").field(&self.0).finish()
+    }
+}
+impl PlaybackCapability {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PlaybackCapability {

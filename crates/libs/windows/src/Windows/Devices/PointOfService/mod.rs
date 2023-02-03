@@ -12669,6 +12669,11 @@ impl ::core::fmt::Debug for PosConnectionTypes {
         f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
     }
 }
+impl PosConnectionTypes {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PosConnectionTypes {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12804,6 +12809,11 @@ impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
         f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
     }
 }
+impl PosPrinterCartridgeSensors {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PosPrinterCartridgeSensors {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12874,6 +12884,11 @@ unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
 impl ::core::fmt::Debug for PosPrinterColorCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
+    }
+}
+impl PosPrinterColorCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PosPrinterColorCapabilities {
@@ -13090,6 +13105,11 @@ impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
         f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
     }
 }
+impl PosPrinterMarkFeedCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PosPrinterMarkFeedCapabilities {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13258,6 +13278,11 @@ unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
 impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
+    }
+}
+impl PosPrinterRuledLineCapabilities {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PosPrinterRuledLineCapabilities {

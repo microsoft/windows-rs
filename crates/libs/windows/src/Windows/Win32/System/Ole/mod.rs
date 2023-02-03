@@ -12005,6 +12005,11 @@ impl ::core::fmt::Debug for ACTIVEOBJECT_FLAGS {
         f.debug_tuple("ACTIVEOBJECT_FLAGS").field(&self.0).finish()
     }
 }
+impl ACTIVEOBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ACTIVEOBJECT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12091,6 +12096,11 @@ unsafe impl ::windows::core::Abi for BUSY_DIALOG_FLAGS {
 impl ::core::fmt::Debug for BUSY_DIALOG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BUSY_DIALOG_FLAGS").field(&self.0).finish()
+    }
+}
+impl BUSY_DIALOG_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for BUSY_DIALOG_FLAGS {
@@ -12193,6 +12203,11 @@ impl ::core::fmt::Debug for CHANGE_ICON_FLAGS {
         f.debug_tuple("CHANGE_ICON_FLAGS").field(&self.0).finish()
     }
 }
+impl CHANGE_ICON_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CHANGE_ICON_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12250,6 +12265,11 @@ unsafe impl ::windows::core::Abi for CHANGE_SOURCE_FLAGS {
 impl ::core::fmt::Debug for CHANGE_SOURCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CHANGE_SOURCE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CHANGE_SOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CHANGE_SOURCE_FLAGS {
@@ -12475,6 +12495,11 @@ impl ::core::fmt::Debug for DROPEFFECT {
         f.debug_tuple("DROPEFFECT").field(&self.0).finish()
     }
 }
+impl DROPEFFECT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for DROPEFFECT {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12588,6 +12613,11 @@ impl ::core::fmt::Debug for EDIT_LINKS_FLAGS {
         f.debug_tuple("EDIT_LINKS_FLAGS").field(&self.0).finish()
     }
 }
+impl EDIT_LINKS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for EDIT_LINKS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12645,6 +12675,11 @@ unsafe impl ::windows::core::Abi for EMBDHLP_FLAGS {
 impl ::core::fmt::Debug for EMBDHLP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EMBDHLP_FLAGS").field(&self.0).finish()
+    }
+}
+impl EMBDHLP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for EMBDHLP_FLAGS {
@@ -12763,6 +12798,11 @@ unsafe impl ::windows::core::Abi for FDEX_PROP_FLAGS {
 impl ::core::fmt::Debug for FDEX_PROP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FDEX_PROP_FLAGS").field(&self.0).finish()
+    }
+}
+impl FDEX_PROP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for FDEX_PROP_FLAGS {
@@ -12927,6 +12967,11 @@ impl ::core::fmt::Debug for INSERT_OBJECT_FLAGS {
         f.debug_tuple("INSERT_OBJECT_FLAGS").field(&self.0).finish()
     }
 }
+impl INSERT_OBJECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for INSERT_OBJECT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12982,6 +13027,11 @@ unsafe impl ::windows::core::Abi for KEYMODIFIERS {
 impl ::core::fmt::Debug for KEYMODIFIERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KEYMODIFIERS").field(&self.0).finish()
+    }
+}
+impl KEYMODIFIERS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for KEYMODIFIERS {
@@ -13072,6 +13122,11 @@ unsafe impl ::windows::core::Abi for LOAD_PICTURE_FLAGS {
 impl ::core::fmt::Debug for LOAD_PICTURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LOAD_PICTURE_FLAGS").field(&self.0).finish()
+    }
+}
+impl LOAD_PICTURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for LOAD_PICTURE_FLAGS {
@@ -13219,6 +13274,11 @@ impl ::core::fmt::Debug for NUMPARSE_FLAGS {
         f.debug_tuple("NUMPARSE_FLAGS").field(&self.0).finish()
     }
 }
+impl NUMPARSE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for NUMPARSE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -13276,6 +13336,11 @@ unsafe impl ::windows::core::Abi for OBJECT_PROPERTIES_FLAGS {
 impl ::core::fmt::Debug for OBJECT_PROPERTIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OBJECT_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
+}
+impl OBJECT_PROPERTIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for OBJECT_PROPERTIES_FLAGS {
@@ -14416,6 +14481,11 @@ impl ::core::fmt::Debug for PARAMFLAGS {
         f.debug_tuple("PARAMFLAGS").field(&self.0).finish()
     }
 }
+impl PARAMFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PARAMFLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -14481,6 +14551,11 @@ unsafe impl ::windows::core::Abi for PASTE_SPECIAL_FLAGS {
 impl ::core::fmt::Debug for PASTE_SPECIAL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PASTE_SPECIAL_FLAGS").field(&self.0).finish()
+    }
+}
+impl PASTE_SPECIAL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PASTE_SPECIAL_FLAGS {
@@ -14637,6 +14712,11 @@ unsafe impl ::windows::core::Abi for PRINTFLAG {
 impl ::core::fmt::Debug for PRINTFLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PRINTFLAG").field(&self.0).finish()
+    }
+}
+impl PRINTFLAG {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PRINTFLAG {
@@ -15004,6 +15084,11 @@ impl ::core::fmt::Debug for UI_CONVERT_FLAGS {
         f.debug_tuple("UI_CONVERT_FLAGS").field(&self.0).finish()
     }
 }
+impl UI_CONVERT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for UI_CONVERT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -15071,6 +15156,11 @@ unsafe impl ::windows::core::Abi for UPDFCACHE_FLAGS {
 impl ::core::fmt::Debug for UPDFCACHE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UPDFCACHE_FLAGS").field(&self.0).finish()
+    }
+}
+impl UPDFCACHE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for UPDFCACHE_FLAGS {
@@ -15413,6 +15503,11 @@ unsafe impl ::windows::core::Abi for VIEW_OBJECT_PROPERTIES_FLAGS {
 impl ::core::fmt::Debug for VIEW_OBJECT_PROPERTIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VIEW_OBJECT_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
+}
+impl VIEW_OBJECT_PROPERTIES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for VIEW_OBJECT_PROPERTIES_FLAGS {

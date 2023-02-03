@@ -1351,6 +1351,11 @@ impl ::core::fmt::Debug for EXECUTION_STATE {
         f.debug_tuple("EXECUTION_STATE").field(&self.0).finish()
     }
 }
+impl EXECUTION_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for EXECUTION_STATE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1480,6 +1485,11 @@ unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY_EVENT_CODE {
 impl ::core::fmt::Debug for POWER_ACTION_POLICY_EVENT_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("POWER_ACTION_POLICY_EVENT_CODE").field(&self.0).finish()
+    }
+}
+impl POWER_ACTION_POLICY_EVENT_CODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for POWER_ACTION_POLICY_EVENT_CODE {

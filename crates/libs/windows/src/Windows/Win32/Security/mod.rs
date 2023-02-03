@@ -1598,6 +1598,11 @@ impl ::core::fmt::Debug for ACE_FLAGS {
         f.debug_tuple("ACE_FLAGS").field(&self.0).finish()
     }
 }
+impl ACE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ACE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1742,6 +1747,11 @@ impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
         f.debug_tuple("CLAIM_SECURITY_ATTRIBUTE_FLAGS").field(&self.0).finish()
     }
 }
+impl CLAIM_SECURITY_ATTRIBUTE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1836,6 +1846,11 @@ unsafe impl ::windows::core::Abi for CREATE_RESTRICTED_TOKEN_FLAGS {
 impl ::core::fmt::Debug for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CREATE_RESTRICTED_TOKEN_FLAGS").field(&self.0).finish()
+    }
+}
+impl CREATE_RESTRICTED_TOKEN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CREATE_RESTRICTED_TOKEN_FLAGS {
@@ -2055,6 +2070,11 @@ impl ::core::fmt::Debug for OBJECT_SECURITY_INFORMATION {
         f.debug_tuple("OBJECT_SECURITY_INFORMATION").field(&self.0).finish()
     }
 }
+impl OBJECT_SECURITY_INFORMATION {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for OBJECT_SECURITY_INFORMATION {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2126,6 +2146,11 @@ unsafe impl ::windows::core::Abi for SECURITY_AUTO_INHERIT_FLAGS {
 impl ::core::fmt::Debug for SECURITY_AUTO_INHERIT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECURITY_AUTO_INHERIT_FLAGS").field(&self.0).finish()
+    }
+}
+impl SECURITY_AUTO_INHERIT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SECURITY_AUTO_INHERIT_FLAGS {
@@ -2205,6 +2230,11 @@ unsafe impl ::windows::core::Abi for SECURITY_DESCRIPTOR_CONTROL {
 impl ::core::fmt::Debug for SECURITY_DESCRIPTOR_CONTROL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SECURITY_DESCRIPTOR_CONTROL").field(&self.0).finish()
+    }
+}
+impl SECURITY_DESCRIPTOR_CONTROL {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SECURITY_DESCRIPTOR_CONTROL {
@@ -2338,6 +2368,11 @@ impl ::core::fmt::Debug for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
         f.debug_tuple("SYSTEM_AUDIT_OBJECT_ACE_FLAGS").field(&self.0).finish()
     }
 }
+impl SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2429,6 +2464,11 @@ unsafe impl ::windows::core::Abi for TOKEN_ACCESS_MASK {
 impl ::core::fmt::Debug for TOKEN_ACCESS_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TOKEN_ACCESS_MASK").field(&self.0).finish()
+    }
+}
+impl TOKEN_ACCESS_MASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TOKEN_ACCESS_MASK {
@@ -2667,6 +2707,11 @@ unsafe impl ::windows::core::Abi for TOKEN_PRIVILEGES_ATTRIBUTES {
 impl ::core::fmt::Debug for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TOKEN_PRIVILEGES_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl TOKEN_PRIVILEGES_ATTRIBUTES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TOKEN_PRIVILEGES_ATTRIBUTES {

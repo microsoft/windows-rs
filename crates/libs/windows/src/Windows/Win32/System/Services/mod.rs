@@ -928,6 +928,11 @@ impl ::core::fmt::Debug for ENUM_SERVICE_TYPE {
         f.debug_tuple("ENUM_SERVICE_TYPE").field(&self.0).finish()
     }
 }
+impl ENUM_SERVICE_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for ENUM_SERVICE_TYPE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1210,6 +1215,11 @@ unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
 impl ::core::fmt::Debug for SERVICE_NOTIFY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SERVICE_NOTIFY").field(&self.0).finish()
+    }
+}
+impl SERVICE_NOTIFY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SERVICE_NOTIFY {

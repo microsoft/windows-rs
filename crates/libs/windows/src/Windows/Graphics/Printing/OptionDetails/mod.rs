@@ -3960,6 +3960,11 @@ impl ::core::fmt::Debug for PrintOptionStates {
         f.debug_tuple("PrintOptionStates").field(&self.0).finish()
     }
 }
+impl PrintOptionStates {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PrintOptionStates {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

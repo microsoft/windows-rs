@@ -199,6 +199,11 @@ impl ::core::fmt::Debug for RAWINPUTDEVICE_FLAGS {
         f.debug_tuple("RAWINPUTDEVICE_FLAGS").field(&self.0).finish()
     }
 }
+impl RAWINPUTDEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for RAWINPUTDEVICE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

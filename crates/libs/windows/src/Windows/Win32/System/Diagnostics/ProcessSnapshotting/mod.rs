@@ -161,6 +161,11 @@ impl ::core::fmt::Debug for PSS_CAPTURE_FLAGS {
         f.debug_tuple("PSS_CAPTURE_FLAGS").field(&self.0).finish()
     }
 }
+impl PSS_CAPTURE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PSS_CAPTURE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -214,6 +219,11 @@ unsafe impl ::windows::core::Abi for PSS_DUPLICATE_FLAGS {
 impl ::core::fmt::Debug for PSS_DUPLICATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PSS_DUPLICATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl PSS_DUPLICATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PSS_DUPLICATE_FLAGS {
@@ -275,6 +285,11 @@ unsafe impl ::windows::core::Abi for PSS_HANDLE_FLAGS {
 impl ::core::fmt::Debug for PSS_HANDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PSS_HANDLE_FLAGS").field(&self.0).finish()
+    }
+}
+impl PSS_HANDLE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PSS_HANDLE_FLAGS {
@@ -377,6 +392,11 @@ impl ::core::fmt::Debug for PSS_PROCESS_FLAGS {
         f.debug_tuple("PSS_PROCESS_FLAGS").field(&self.0).finish()
     }
 }
+impl PSS_PROCESS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PSS_PROCESS_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -469,6 +489,11 @@ unsafe impl ::windows::core::Abi for PSS_THREAD_FLAGS {
 impl ::core::fmt::Debug for PSS_THREAD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PSS_THREAD_FLAGS").field(&self.0).finish()
+    }
+}
+impl PSS_THREAD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for PSS_THREAD_FLAGS {

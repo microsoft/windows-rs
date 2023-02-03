@@ -525,6 +525,11 @@ impl ::core::fmt::Debug for SECURITY_INFO_PAGE_FLAGS {
         f.debug_tuple("SECURITY_INFO_PAGE_FLAGS").field(&self.0).finish()
     }
 }
+impl SECURITY_INFO_PAGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for SECURITY_INFO_PAGE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -602,6 +607,11 @@ unsafe impl ::windows::core::Abi for SI_OBJECT_INFO_FLAGS {
 impl ::core::fmt::Debug for SI_OBJECT_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SI_OBJECT_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl SI_OBJECT_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for SI_OBJECT_INFO_FLAGS {

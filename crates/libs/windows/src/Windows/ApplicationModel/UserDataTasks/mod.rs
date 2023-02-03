@@ -1647,6 +1647,11 @@ impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
         f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
     }
 }
+impl UserDataTaskDaysOfWeek {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for UserDataTaskDaysOfWeek {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

@@ -2615,6 +2615,11 @@ impl ::core::fmt::Debug for MediaMirroringOptions {
         f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
     }
 }
+impl MediaMirroringOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for MediaMirroringOptions {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

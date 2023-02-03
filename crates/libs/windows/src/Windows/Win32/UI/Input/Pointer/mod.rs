@@ -317,6 +317,11 @@ impl ::core::fmt::Debug for POINTER_FLAGS {
         f.debug_tuple("POINTER_FLAGS").field(&self.0).finish()
     }
 }
+impl POINTER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for POINTER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

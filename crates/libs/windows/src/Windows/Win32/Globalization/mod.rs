@@ -12264,6 +12264,11 @@ impl ::core::fmt::Debug for COMPARE_STRING_FLAGS {
         f.debug_tuple("COMPARE_STRING_FLAGS").field(&self.0).finish()
     }
 }
+impl COMPARE_STRING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for COMPARE_STRING_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12449,6 +12454,11 @@ impl ::core::fmt::Debug for FOLD_STRING_MAP_FLAGS {
         f.debug_tuple("FOLD_STRING_MAP_FLAGS").field(&self.0).finish()
     }
 }
+impl FOLD_STRING_MAP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for FOLD_STRING_MAP_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -12528,6 +12538,11 @@ unsafe impl ::windows::core::Abi for IS_TEXT_UNICODE_RESULT {
 impl ::core::fmt::Debug for IS_TEXT_UNICODE_RESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IS_TEXT_UNICODE_RESULT").field(&self.0).finish()
+    }
+}
+impl IS_TEXT_UNICODE_RESULT {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for IS_TEXT_UNICODE_RESULT {
@@ -12801,6 +12816,11 @@ unsafe impl ::windows::core::Abi for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
 impl ::core::fmt::Debug for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MULTI_BYTE_TO_WIDE_CHAR_FLAGS").field(&self.0).finish()
+    }
+}
+impl MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
@@ -13234,6 +13254,11 @@ unsafe impl ::windows::core::Abi for TIME_FORMAT_FLAGS {
 impl ::core::fmt::Debug for TIME_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TIME_FORMAT_FLAGS").field(&self.0).finish()
+    }
+}
+impl TIME_FORMAT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for TIME_FORMAT_FLAGS {

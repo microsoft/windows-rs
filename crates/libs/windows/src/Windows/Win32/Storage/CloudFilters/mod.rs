@@ -379,6 +379,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_CANCEL_FLAGS {
         f.debug_tuple("CF_CALLBACK_CANCEL_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_CANCEL_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_CANCEL_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -432,6 +437,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_CLOSE_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
@@ -491,6 +501,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         f.debug_tuple("CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -544,6 +559,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_DEHYDRATE_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_DEHYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_DEHYDRATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DEHYDRATE_FLAGS {
@@ -632,6 +652,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         f.debug_tuple("CF_CALLBACK_DELETE_COMPLETION_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_DELETE_COMPLETION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -687,6 +712,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_DELETE_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_DELETE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_DELETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_DELETE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_DELETE_FLAGS {
@@ -746,6 +776,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_FETCH_DATA_FLAGS {
         f.debug_tuple("CF_CALLBACK_FETCH_DATA_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_FETCH_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_FETCH_DATA_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -797,6 +832,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
@@ -856,6 +896,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
         f.debug_tuple("CF_CALLBACK_OPEN_COMPLETION_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_OPEN_COMPLETION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -907,6 +952,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_RENAME_COMPLETION_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_RENAME_COMPLETION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
@@ -966,6 +1016,11 @@ unsafe impl ::windows::core::Abi for CF_CALLBACK_RENAME_FLAGS {
 impl ::core::fmt::Debug for CF_CALLBACK_RENAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CALLBACK_RENAME_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CALLBACK_RENAME_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CALLBACK_RENAME_FLAGS {
@@ -1074,6 +1129,11 @@ impl ::core::fmt::Debug for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         f.debug_tuple("CF_CALLBACK_VALIDATE_DATA_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CALLBACK_VALIDATE_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1131,6 +1191,11 @@ unsafe impl ::windows::core::Abi for CF_CONNECT_FLAGS {
 impl ::core::fmt::Debug for CF_CONNECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CONNECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CONNECT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CONNECT_FLAGS {
@@ -1196,6 +1261,11 @@ impl ::core::fmt::Debug for CF_CONVERT_FLAGS {
         f.debug_tuple("CF_CONVERT_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_CONVERT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_CONVERT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1249,6 +1319,11 @@ unsafe impl ::windows::core::Abi for CF_CREATE_FLAGS {
 impl ::core::fmt::Debug for CF_CREATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_CREATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_CREATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_CREATE_FLAGS {
@@ -1306,6 +1381,11 @@ impl ::core::fmt::Debug for CF_DEHYDRATE_FLAGS {
         f.debug_tuple("CF_DEHYDRATE_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_DEHYDRATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_DEHYDRATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1361,6 +1441,11 @@ impl ::core::fmt::Debug for CF_HARDLINK_POLICY {
         f.debug_tuple("CF_HARDLINK_POLICY").field(&self.0).finish()
     }
 }
+impl CF_HARDLINK_POLICY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_HARDLINK_POLICY {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1412,6 +1497,11 @@ unsafe impl ::windows::core::Abi for CF_HYDRATE_FLAGS {
 impl ::core::fmt::Debug for CF_HYDRATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_HYDRATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_HYDRATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_HYDRATE_FLAGS {
@@ -1473,6 +1563,11 @@ unsafe impl ::windows::core::Abi for CF_HYDRATION_POLICY_MODIFIER {
 impl ::core::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_HYDRATION_POLICY_MODIFIER").field(&self.0).finish()
+    }
+}
+impl CF_HYDRATION_POLICY_MODIFIER {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_HYDRATION_POLICY_MODIFIER {
@@ -1587,6 +1682,11 @@ impl ::core::fmt::Debug for CF_INSYNC_POLICY {
         f.debug_tuple("CF_INSYNC_POLICY").field(&self.0).finish()
     }
 }
+impl CF_INSYNC_POLICY {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_INSYNC_POLICY {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1675,6 +1775,11 @@ impl ::core::fmt::Debug for CF_OPEN_FILE_FLAGS {
         f.debug_tuple("CF_OPEN_FILE_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_OPEN_FILE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_OPEN_FILE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1726,6 +1831,11 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_DATA_FLAGS {
 impl ::core::fmt::Debug for CF_OPERATION_ACK_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_OPERATION_ACK_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_OPERATION_ACK_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DATA_FLAGS {
@@ -1781,6 +1891,11 @@ impl ::core::fmt::Debug for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         f.debug_tuple("CF_OPERATION_ACK_DEHYDRATE_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_OPERATION_ACK_DEHYDRATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1834,6 +1949,11 @@ impl ::core::fmt::Debug for CF_OPERATION_ACK_DELETE_FLAGS {
         f.debug_tuple("CF_OPERATION_ACK_DELETE_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_OPERATION_ACK_DELETE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_OPERATION_ACK_DELETE_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1885,6 +2005,11 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_ACK_RENAME_FLAGS {
 impl ::core::fmt::Debug for CF_OPERATION_ACK_RENAME_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_OPERATION_ACK_RENAME_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_OPERATION_ACK_RENAME_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_OPERATION_ACK_RENAME_FLAGS {
@@ -1942,6 +2067,11 @@ impl ::core::fmt::Debug for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         f.debug_tuple("CF_OPERATION_RESTART_HYDRATION_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_OPERATION_RESTART_HYDRATION_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -1995,6 +2125,11 @@ impl ::core::fmt::Debug for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         f.debug_tuple("CF_OPERATION_RETRIEVE_DATA_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_OPERATION_RETRIEVE_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2046,6 +2181,11 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_DATA_FLAGS {
 impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_OPERATION_TRANSFER_DATA_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_OPERATION_TRANSFER_DATA_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_DATA_FLAGS {
@@ -2103,6 +2243,11 @@ unsafe impl ::windows::core::Abi for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
 impl ::core::fmt::Debug for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
@@ -2236,6 +2381,11 @@ unsafe impl ::windows::core::Abi for CF_PLACEHOLDER_CREATE_FLAGS {
 impl ::core::fmt::Debug for CF_PLACEHOLDER_CREATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_PLACEHOLDER_CREATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_PLACEHOLDER_CREATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_PLACEHOLDER_CREATE_FLAGS {
@@ -2392,6 +2542,11 @@ impl ::core::fmt::Debug for CF_PLACEHOLDER_STATE {
         f.debug_tuple("CF_PLACEHOLDER_STATE").field(&self.0).finish()
     }
 }
+impl CF_PLACEHOLDER_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_PLACEHOLDER_STATE {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2443,6 +2598,11 @@ unsafe impl ::windows::core::Abi for CF_POPULATION_POLICY_MODIFIER {
 impl ::core::fmt::Debug for CF_POPULATION_POLICY_MODIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_POPULATION_POLICY_MODIFIER").field(&self.0).finish()
+    }
+}
+impl CF_POPULATION_POLICY_MODIFIER {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_POPULATION_POLICY_MODIFIER {
@@ -2533,6 +2693,11 @@ impl ::core::fmt::Debug for CF_REGISTER_FLAGS {
         f.debug_tuple("CF_REGISTER_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_REGISTER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_REGISTER_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2586,6 +2751,11 @@ impl ::core::fmt::Debug for CF_REVERT_FLAGS {
         f.debug_tuple("CF_REVERT_FLAGS").field(&self.0).finish()
     }
 }
+impl CF_REVERT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for CF_REVERT_FLAGS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
@@ -2637,6 +2807,11 @@ unsafe impl ::windows::core::Abi for CF_SET_IN_SYNC_FLAGS {
 impl ::core::fmt::Debug for CF_SET_IN_SYNC_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_SET_IN_SYNC_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_SET_IN_SYNC_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_SET_IN_SYNC_FLAGS {
@@ -2696,6 +2871,11 @@ unsafe impl ::windows::core::Abi for CF_SET_PIN_FLAGS {
 impl ::core::fmt::Debug for CF_SET_PIN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_SET_PIN_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_SET_PIN_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_SET_PIN_FLAGS {
@@ -2769,6 +2949,11 @@ unsafe impl ::windows::core::Abi for CF_SYNC_PROVIDER_STATUS {
 impl ::core::fmt::Debug for CF_SYNC_PROVIDER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_SYNC_PROVIDER_STATUS").field(&self.0).finish()
+    }
+}
+impl CF_SYNC_PROVIDER_STATUS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_SYNC_PROVIDER_STATUS {
@@ -2873,6 +3058,11 @@ unsafe impl ::windows::core::Abi for CF_UPDATE_FLAGS {
 impl ::core::fmt::Debug for CF_UPDATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CF_UPDATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CF_UPDATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
     }
 }
 impl ::core::ops::BitOr for CF_UPDATE_FLAGS {

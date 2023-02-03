@@ -12455,6 +12455,11 @@ impl ::core::fmt::Debug for PRINTER_ACCESS_RIGHTS {
         f.debug_tuple("PRINTER_ACCESS_RIGHTS").field(&self.0).finish()
     }
 }
+impl PRINTER_ACCESS_RIGHTS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for PRINTER_ACCESS_RIGHTS {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {

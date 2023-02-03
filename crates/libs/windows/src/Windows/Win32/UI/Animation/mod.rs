@@ -2221,6 +2221,11 @@ impl ::core::fmt::Debug for UI_ANIMATION_DEPENDENCIES {
         f.debug_tuple("UI_ANIMATION_DEPENDENCIES").field(&self.0).finish()
     }
 }
+impl UI_ANIMATION_DEPENDENCIES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
 impl ::core::ops::BitOr for UI_ANIMATION_DEPENDENCIES {
     type Output = Self;
     fn bitor(self, other: Self) -> Self {
