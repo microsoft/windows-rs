@@ -543,10 +543,11 @@ pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_P
     ::windows::core::link ! ( "user32.dll""system" fn GetDisplayAutoRotationPreferences ( porientation : *mut ORIENTATION_PREFERENCE ) -> super::super::Foundation:: BOOL );
     GetDisplayAutoRotationPreferences(porientation)
 }
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+#[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn GetDisplayConfigBufferSizes ( flags : u32 , numpatharrayelements : *mut u32 , nummodeinfoarrayelements : *mut u32 ) -> i32 );
+pub unsafe fn GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> super::super::Foundation::WIN32_ERROR {
+    ::windows::core::link ! ( "user32.dll""system" fn GetDisplayConfigBufferSizes ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , nummodeinfoarrayelements : *mut u32 ) -> super::super::Foundation:: WIN32_ERROR );
     GetDisplayConfigBufferSizes(flags, numpatharrayelements, nummodeinfoarrayelements)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -753,9 +754,9 @@ pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut RECTFX) {
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn QueryDisplayConfig ( flags : u32 , numpatharrayelements : *mut u32 , patharray : *mut DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : *mut u32 , modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO , currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID ) -> i32 );
-    QueryDisplayConfig(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, currenttopologyid)
+pub unsafe fn QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: ::core::option::Option<*mut DISPLAYCONFIG_TOPOLOGY_ID>) -> super::super::Foundation::WIN32_ERROR {
+    ::windows::core::link ! ( "user32.dll""system" fn QueryDisplayConfig ( flags : QUERY_DISPLAY_CONFIG_FLAGS , numpatharrayelements : *mut u32 , patharray : *mut DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : *mut u32 , modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO , currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID ) -> super::super::Foundation:: WIN32_ERROR );
+    QueryDisplayConfig(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, ::core::mem::transmute(currenttopologyid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -842,8 +843,8 @@ pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERE
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: ::core::option::Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: u32) -> i32 {
-    ::windows::core::link ! ( "user32.dll""system" fn SetDisplayConfig ( numpatharrayelements : u32 , patharray : *const DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : u32 , modeinfoarray : *const DISPLAYCONFIG_MODE_INFO , flags : u32 ) -> i32 );
+pub unsafe fn SetDisplayConfig(patharray: ::core::option::Option<&[DISPLAYCONFIG_PATH_INFO]>, modeinfoarray: ::core::option::Option<&[DISPLAYCONFIG_MODE_INFO]>, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32 {
+    ::windows::core::link ! ( "user32.dll""system" fn SetDisplayConfig ( numpatharrayelements : u32 , patharray : *const DISPLAYCONFIG_PATH_INFO , nummodeinfoarrayelements : u32 , modeinfoarray : *const DISPLAYCONFIG_MODE_INFO , flags : SET_DISPLAY_CONFIG_FLAGS ) -> i32 );
     SetDisplayConfig(patharray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(patharray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), modeinfoarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(modeinfoarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`*"]
@@ -3570,6 +3571,154 @@ unsafe impl ::windows::core::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
 impl ::core::fmt::Debug for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OUTPUT_WIRE_COLOR_SPACE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct QUERY_DISPLAY_CONFIG_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(64u32);
+impl ::core::marker::Copy for QUERY_DISPLAY_CONFIG_FLAGS {}
+impl ::core::clone::Clone for QUERY_DISPLAY_CONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for QUERY_DISPLAY_CONFIG_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for QUERY_DISPLAY_CONFIG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUERY_DISPLAY_CONFIG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUERY_DISPLAY_CONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for QUERY_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for QUERY_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for QUERY_DISPLAY_CONFIG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for QUERY_DISPLAY_CONFIG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SET_DISPLAY_CONFIG_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(15u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(131072u32);
+impl ::core::marker::Copy for SET_DISPLAY_CONFIG_FLAGS {}
+impl ::core::clone::Clone for SET_DISPLAY_CONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SET_DISPLAY_CONFIG_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SET_DISPLAY_CONFIG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_DISPLAY_CONFIG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_DISPLAY_CONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_DISPLAY_CONFIG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_DISPLAY_CONFIG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]

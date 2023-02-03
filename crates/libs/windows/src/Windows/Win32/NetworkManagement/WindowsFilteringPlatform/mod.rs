@@ -1278,12 +1278,12 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FwpmSystemPortsSubscribe0<P0>(enginehandle: P0, reserved: ::core::option::Option<*mut ::core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn FwpmSystemPortsSubscribe0<P0>(enginehandle: P0, reserved: ::core::option::Option<*const ::core::ffi::c_void>, callback: FWPM_SYSTEM_PORTS_CALLBACK0, context: ::core::option::Option<*const ::core::ffi::c_void>, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
-    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *mut ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
-    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null_mut())), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
+    ::windows::core::link ! ( "fwpuclnt.dll""system" fn FwpmSystemPortsSubscribe0 ( enginehandle : super::super::Foundation:: HANDLE , reserved : *const ::core::ffi::c_void , callback : FWPM_SYSTEM_PORTS_CALLBACK0 , context : *const ::core::ffi::c_void , sysportshandle : *mut super::super::Foundation:: HANDLE ) -> u32 );
+    FwpmSystemPortsSubscribe0(enginehandle.into(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), sysportshandle)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

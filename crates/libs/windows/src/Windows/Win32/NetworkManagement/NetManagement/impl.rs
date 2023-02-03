@@ -3,7 +3,7 @@ pub trait IEnumNetCfgBindingInterface_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface>;
+    fn Clone(&self, ppenum: *const ::core::option::Option<IEnumNetCfgBindingInterface>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IEnumNetCfgBindingInterface {}
 impl IEnumNetCfgBindingInterface_Vtbl {
@@ -23,16 +23,10 @@ impl IEnumNetCfgBindingInterface_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgBindingInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgBindingInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Clone(::core::mem::transmute_copy(&ppenum)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -51,7 +45,7 @@ pub trait IEnumNetCfgBindingPath_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingPath>;
+    fn Clone(&self, ppenum: *const ::core::option::Option<IEnumNetCfgBindingPath>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IEnumNetCfgBindingPath {}
 impl IEnumNetCfgBindingPath_Vtbl {
@@ -71,16 +65,10 @@ impl IEnumNetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgBindingPath_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Clone(::core::mem::transmute_copy(&ppenum)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -99,7 +87,7 @@ pub trait IEnumNetCfgComponent_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
     fn Reset(&self) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgComponent>;
+    fn Clone(&self, ppenum: *const ::core::option::Option<IEnumNetCfgComponent>) -> ::windows::core::Result<()>;
 }
 impl ::windows::core::RuntimeName for IEnumNetCfgComponent {}
 impl IEnumNetCfgComponent_Vtbl {
@@ -119,16 +107,10 @@ impl IEnumNetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             this.Reset().into()
         }
-        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumNetCfgComponent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *const *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Clone(::core::mem::transmute_copy(&ppenum)).into()
         }
         Self {
             base__: ::windows::core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -144,7 +126,7 @@ impl IEnumNetCfgComponent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"implement\"`*"]
 pub trait INetCfg_Impl: Sized {
-    fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
+    fn Initialize(&self, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn Uninitialize(&self) -> ::windows::core::Result<()>;
     fn Apply(&self) -> ::windows::core::Result<()>;
     fn Cancel(&self) -> ::windows::core::Result<()>;
@@ -155,7 +137,7 @@ pub trait INetCfg_Impl: Sized {
 impl ::windows::core::RuntimeName for INetCfg {}
 impl INetCfg_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfg_Impl, const OFFSET: isize>() -> INetCfg_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfg_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INetCfg_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvreserved: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&pvreserved)).into()

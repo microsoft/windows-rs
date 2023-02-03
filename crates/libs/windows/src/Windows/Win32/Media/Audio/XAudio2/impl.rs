@@ -173,7 +173,7 @@ pub trait IXAudio2_Impl: Sized {
     fn StopEngine(&self);
     fn CommitChanges(&self, operationset: u32) -> ::windows::core::Result<()>;
     fn GetPerformanceData(&self, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA);
-    fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut ::core::ffi::c_void);
+    fn SetDebugConfiguration(&self, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void);
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IXAudio2 {}
@@ -225,7 +225,7 @@ impl IXAudio2_Vtbl {
             let this = (*this).get_impl();
             this.GetPerformanceData(::core::mem::transmute_copy(&pperfdata))
         }
-        unsafe extern "system" fn SetDebugConfiguration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *mut ::core::ffi::c_void) {
+        unsafe extern "system" fn SetDebugConfiguration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXAudio2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDebugConfiguration(::core::mem::transmute_copy(&pdebugconfiguration), ::core::mem::transmute_copy(&preserved))
