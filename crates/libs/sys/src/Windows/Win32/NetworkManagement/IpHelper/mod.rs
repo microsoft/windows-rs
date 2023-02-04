@@ -3868,6 +3868,7 @@ impl ::core::clone::Clone for MIB_ROUTESTATE {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6ROW {
@@ -3888,6 +3889,7 @@ impl ::core::clone::Clone for MIB_TCP6ROW {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6ROW2 {
@@ -3910,6 +3912,7 @@ impl ::core::clone::Clone for MIB_TCP6ROW2 {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
@@ -3930,6 +3933,7 @@ impl ::core::clone::Clone for MIB_TCP6ROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
@@ -3948,6 +3952,7 @@ impl ::core::clone::Clone for MIB_TCP6ROW_OWNER_PID {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6TABLE {
@@ -3963,6 +3968,7 @@ impl ::core::clone::Clone for MIB_TCP6TABLE {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_TCP6TABLE2 {
@@ -3978,6 +3984,7 @@ impl ::core::clone::Clone for MIB_TCP6TABLE2 {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
@@ -3990,6 +3997,7 @@ impl ::core::clone::Clone for MIB_TCP6TABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
@@ -4002,6 +4010,7 @@ impl ::core::clone::Clone for MIB_TCP6TABLE_OWNER_PID {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCPROW2 {
     pub dwState: u32,
@@ -4019,6 +4028,7 @@ impl ::core::clone::Clone for MIB_TCPROW2 {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCPROW_LH {
     pub Anonymous: MIB_TCPROW_LH_0,
@@ -4034,6 +4044,7 @@ impl ::core::clone::Clone for MIB_TCPROW_LH {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub union MIB_TCPROW_LH_0 {
     pub dwState: u32,
@@ -4046,6 +4057,7 @@ impl ::core::clone::Clone for MIB_TCPROW_LH_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
@@ -4064,6 +4076,7 @@ impl ::core::clone::Clone for MIB_TCPROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCPROW_OWNER_PID {
     pub dwState: u32,
@@ -4080,6 +4093,7 @@ impl ::core::clone::Clone for MIB_TCPROW_OWNER_PID {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_TCPROW_W2K {
     pub dwState: u32,
@@ -4230,6 +4244,7 @@ impl ::core::clone::Clone for MIB_TCPTABLE_OWNER_PID {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MIB_UDP6ROW {
@@ -4246,6 +4261,7 @@ impl ::core::clone::Clone for MIB_UDP6ROW {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDP6ROW2 {
     pub ucLocalAddr: [u8; 16],
@@ -4289,6 +4305,7 @@ impl ::core::clone::Clone for MIB_UDP6ROW2_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
@@ -4329,6 +4346,7 @@ impl ::core::clone::Clone for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
@@ -4394,6 +4412,7 @@ impl ::core::clone::Clone for MIB_UDP6TABLE_OWNER_PID {
     }
 }
 #[repr(C)]
+#[derive(Debug)] 
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDPROW {
     pub dwLocalAddr: u32,
@@ -4406,6 +4425,7 @@ impl ::core::clone::Clone for MIB_UDPROW {
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDPROW2 {
     pub dwLocalAddr: u32,
@@ -4447,6 +4467,7 @@ impl ::core::clone::Clone for MIB_UDPROW2_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDPROW_OWNER_MODULE {
     pub dwLocalAddr: u32,
@@ -4486,6 +4507,7 @@ impl ::core::clone::Clone for MIB_UDPROW_OWNER_MODULE_0_0 {
     }
 }
 #[repr(C)]
+#[derive(Debug)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIB_UDPROW_OWNER_PID {
     pub dwLocalAddr: u32,
