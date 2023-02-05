@@ -55,14 +55,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let extern_abi = gen.reader.method_def_extern_abi(def);
     let abi_return_type = gen.return_sig(&signature);
 
-    let link = if let Some(link) = gen.reader.method_def_static_lib(def) {
-        quote! {
-            #[link(name = #link, kind = "static")]
-            extern #extern_abi {
-                fn #name(#(#abi_params),*) #abi_return_type;
-            }
-        }
-    } else {
+    let link = {
         let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
         let scope = gen.reader.impl_map_scope(impl_map);
         let link = gen.reader.module_ref_name(scope).to_lowercase();
@@ -73,10 +66,20 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         } else {
             let link = link.trim_end_matches(".dll");
-            quote! {
-                #[link(name = #link)]
-                extern #extern_abi {
-                    fn #name(#(#abi_params),*) #abi_return_type;
+            if let Some(static_link) = gen.reader.method_def_static_lib(def) {
+                quote! {
+                    #[cfg_attr(target_env = "msvc", link(name = #static_link, kind = "static"))]
+                    #[cfg_attr(not(target_env = "msvc"), link(name = #link))]
+                    extern #extern_abi {
+                        fn #name(#(#abi_params),*) #abi_return_type;
+                    }
+                }
+            } else {
+                quote! {
+                    #[link(name = #link)]
+                    extern #extern_abi {
+                        fn #name(#(#abi_params),*) #abi_return_type;
+                    }
                 }
             }
         }
