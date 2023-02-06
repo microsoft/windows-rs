@@ -1591,7 +1591,11 @@ impl<'a> Reader<'a> {
             }
         }
 
-        Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
+        if let Some(ty) = self.get(full_name).next() {
+            Type::TypeDef((ty, Vec::new()))
+        } else {
+            panic!("Type not found: {}", full_name);
+        }
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
         let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);
