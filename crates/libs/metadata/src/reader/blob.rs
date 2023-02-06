@@ -70,6 +70,14 @@ impl<'a> Blob<'a> {
             String::from_utf16_lossy(slice)
         }
     }
+    pub fn read_bool(&mut self) -> bool {
+        // A bool is specified as "a single byte with value 0 (false) or 1 (true)".
+        match self.read_u8() {
+            0 => false,
+            1 => true,
+            _ => panic!("Illegal bool value"),
+        }
+    }
     pub fn read_i8(&mut self) -> i8 {
         let value = i8::from_le_bytes(self[..1].try_into().unwrap());
         self.offset(1);

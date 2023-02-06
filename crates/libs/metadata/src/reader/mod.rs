@@ -278,6 +278,7 @@ impl<'a> Reader<'a> {
 
         for _ in 0..fixed_arg_count {
             let arg = match self.type_from_blob(&mut sig, None, &[]).expect("Type not found") {
+                Type::Bool => Value::Bool(values.read_bool()),
                 Type::I8 => Value::I8(values.read_i8()),
                 Type::U8 => Value::U8(values.read_u8()),
                 Type::I16 => Value::I16(values.read_i16()),
@@ -313,7 +314,7 @@ impl<'a> Reader<'a> {
             let arg_type = values.read_u8();
             let name = values.read_str().to_string();
             let arg = match arg_type {
-                0x02 => Value::Bool(values.read_u8() != 0),
+                0x02 => Value::Bool(values.read_bool()),
                 0x06 => Value::I16(values.read_i16()),
                 0x08 => Value::I32(values.read_i32()),
                 0x09 => Value::U32(values.read_u32()),
@@ -1590,7 +1591,11 @@ impl<'a> Reader<'a> {
             }
         }
 
-        Type::TypeDef((self.get(full_name).next().expect("Type not found"), Vec::new()))
+        if let Some(ty) = self.get(full_name).next() {
+            Type::TypeDef((ty, Vec::new()))
+        } else {
+            panic!("Type not found: {}", full_name);
+        }
     }
     fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Option<Type> {
         let is_winrt_const_ref = blob.read_modifiers().iter().any(|def| self.type_def_or_ref(*def) == TypeName::IsConst);
