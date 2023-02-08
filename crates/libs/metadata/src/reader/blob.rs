@@ -128,6 +128,19 @@ impl<'a> Blob<'a> {
         self.offset(8);
         value
     }
+    pub fn read_integer(&mut self, ty: Type) -> Integer {
+        match ty {
+            Type::I8 => Integer::I8(self.read_i8()),
+            Type::U8 => Integer::U8(self.read_u8()),
+            Type::I16 => Integer::I16(self.read_i16()),
+            Type::U16 => Integer::U16(self.read_u16()),
+            Type::I32 => Integer::I32(self.read_i32()),
+            Type::U32 => Integer::U32(self.read_u32()),
+            Type::I64 => Integer::I64(self.read_i64()),
+            Type::U64 => Integer::U64(self.read_u64()),
+            _ => panic!("Type is not an integer"),
+        }
+    }
     fn offset(&mut self, offset: usize) {
         self.slice = &self.slice[offset..];
     }

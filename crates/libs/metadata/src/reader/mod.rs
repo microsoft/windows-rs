@@ -127,6 +127,18 @@ pub enum Value {
     F64(f64),
     String(String),
     TypeDef(TypeDef),
+    Enum(TypeDef, Integer),
+}
+
+pub enum Integer {
+    U8(u8),
+    I8(i8),
+    U16(u16),
+    I16(i16),
+    U32(u32),
+    I32(i32),
+    U64(u64),
+    I64(i64),
 }
 
 pub struct Signature {
@@ -289,17 +301,7 @@ impl<'a> Reader<'a> {
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
-                Type::TypeDef((def, _)) => match self.type_def_underlying_type(def) {
-                    Type::I8 => Value::I8(values.read_i8()),
-                    Type::U8 => Value::U8(values.read_u8()),
-                    Type::I16 => Value::I16(values.read_i16()),
-                    Type::U16 => Value::U16(values.read_u16()),
-                    Type::I32 => Value::I32(values.read_i32()),
-                    Type::U32 => Value::U32(values.read_u32()),
-                    Type::I64 => Value::I64(values.read_i64()),
-                    Type::U64 => Value::U64(values.read_u64()),
-                    _ => unimplemented!(),
-                },
+                Type::TypeDef((def, _)) => Value::Enum(def, values.read_integer(self.type_def_underlying_type(def))),
                 _ => unimplemented!(),
             };
 
@@ -312,7 +314,7 @@ impl<'a> Reader<'a> {
         for _ in 0..named_arg_count {
             let _id = values.read_u8();
             let arg_type = values.read_u8();
-            let name = values.read_str().to_string();
+            let mut name = values.read_str().to_string();
             let arg = match arg_type {
                 0x02 => Value::Bool(values.read_bool()),
                 0x06 => Value::I16(values.read_i16()),
@@ -320,6 +322,11 @@ impl<'a> Reader<'a> {
                 0x09 => Value::U32(values.read_u32()),
                 0x0E => Value::String(values.read_str().to_string()),
                 0x50 => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
+                0x55 => {
+                    let def = self.get(TypeName::parse(&name)).next().expect("Type not found");
+                    name = values.read_str().into();
+                    Value::Enum(def, values.read_integer(self.type_def_underlying_type(def)))
+                }
                 _ => unimplemented!(),
             };
             args.push((name, arg));
@@ -1059,7 +1066,7 @@ impl<'a> Reader<'a> {
             match self.attribute_name(attribute) {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::I32(2))) = self.attribute_args(attribute).get(0) {
+                    if let Some((_, Value::Enum(_, Integer::I32(2)))) = self.attribute_args(attribute).get(0) {
                         return true;
                     }
                 }
@@ -1411,7 +1418,7 @@ impl<'a> Reader<'a> {
         for attribute in attributes {
             match self.attribute_name(attribute) {
                 "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::I32(value))) = self.attribute_args(attribute).get(0) {
+                    if let Some((_, Value::Enum(_, Integer::I32(value)))) = self.attribute_args(attribute).get(0) {
                         if value & 1 == 1 {
                             cfg.arches.insert("x86");
                         }
