@@ -1,7 +1,11 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    if gen
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WINRT)
+    {
         gen_delegate(gen, def)
     } else {
         gen_callback(gen, def)
@@ -64,7 +68,15 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
 
     let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
-    let invoke = winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
+    let invoke = winrt_methods::gen(
+        gen,
+        def,
+        generics,
+        InterfaceKind::Default,
+        method,
+        &mut MethodNames::new(),
+        &mut MethodNames::new(),
+    );
     let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
 
     let mut tokens = quote! {
@@ -141,9 +153,23 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_core_traits(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
     tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, true));
-    tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_winrt_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &phantoms,
+        &features,
+    ));
     tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }

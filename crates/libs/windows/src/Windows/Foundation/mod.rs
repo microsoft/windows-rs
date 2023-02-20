@@ -3541,16 +3541,6 @@ impl ::core::default::Default for TimeSpan {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::convert::From<::core::time::Duration> for TimeSpan {
-    fn from(value: ::core::time::Duration) -> Self {
-        Self { Duration: (value.as_nanos() / 100) as i64 }
-    }
-}
-impl ::core::convert::From<TimeSpan> for ::core::time::Duration {
-    fn from(value: TimeSpan) -> Self {
-        ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
-    }
-}
 #[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncActionCompletedHandler(pub ::windows::core::IUnknown);
@@ -4443,6 +4433,16 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: <TSender as ::windows::core::Abi>::Abi, args: <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TSender: ::core::marker::PhantomData<TSender>,
     pub TResult: ::core::marker::PhantomData<TResult>,
+}
+impl ::core::convert::From<::core::time::Duration> for TimeSpan {
+    fn from(value: ::core::time::Duration) -> Self {
+        Self { Duration: (value.as_nanos() / 100) as i64 }
+    }
+}
+impl ::core::convert::From<TimeSpan> for ::core::time::Duration {
+    fn from(value: TimeSpan) -> Self {
+        ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

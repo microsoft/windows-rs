@@ -30,7 +30,9 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
-    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec())));
+    let interfaces = gen
+        .reader
+        .type_interfaces(&Type::TypeDef((def, generics.to_vec())));
     let vtables = gen.reader.type_def_vtables(def);
     let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
 
@@ -61,14 +63,34 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         let method_names = &mut MethodNames::new();
         let virtual_names = &mut MethodNames::new();
 
-        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+        if gen
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
             for method in gen.reader.type_def_methods(def) {
-                methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
+                methods.combine(&winrt_methods::gen(
+                    gen,
+                    def,
+                    generics,
+                    InterfaceKind::Default,
+                    method,
+                    method_names,
+                    virtual_names,
+                ));
             }
             for interface in &interfaces {
                 if let Type::TypeDef((def, generics)) = &interface.ty {
                     for method in gen.reader.type_def_methods(*def) {
-                        methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
+                        methods.combine(&winrt_methods::gen(
+                            gen,
+                            *def,
+                            generics,
+                            InterfaceKind::None,
+                            method,
+                            method_names,
+                            virtual_names,
+                        ));
                     }
                 }
             }
@@ -78,9 +100,21 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 match ty {
                     Type::IUnknown | Type::IInspectable => {}
                     Type::TypeDef((def, _)) => {
-                        let kind = if gen.reader.type_def_type_name(*def) == TypeName::IDispatch { InterfaceKind::None } else { InterfaceKind::Default };
+                        let kind = if gen.reader.type_def_type_name(*def) == TypeName::IDispatch {
+                            InterfaceKind::None
+                        } else {
+                            InterfaceKind::Default
+                        };
                         for method in gen.reader.type_def_methods(*def) {
-                            methods.combine(&com_methods::gen(gen, *def, kind, method, method_names, virtual_names, bases));
+                            methods.combine(&com_methods::gen(
+                                gen,
+                                *def,
+                                kind,
+                                method,
+                                method_names,
+                                virtual_names,
+                                bases,
+                            ));
                         }
                     }
                     _ => unimplemented!(),
@@ -89,7 +123,15 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                 bases -= 1;
             }
             for method in gen.reader.type_def_methods(def) {
-                methods.combine(&com_methods::gen(gen, def, InterfaceKind::Default, method, method_names, virtual_names, 0));
+                methods.combine(&com_methods::gen(
+                    gen,
+                    def,
+                    InterfaceKind::Default,
+                    method,
+                    method_names,
+                    virtual_names,
+                    0,
+                ));
             }
         }
 
@@ -141,7 +183,11 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         }
 
-        if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+        if gen
+            .reader
+            .type_def_flags(def)
+            .contains(TypeAttributes::WINRT)
+        {
             for interface in &interfaces {
                 let into = gen.type_name(&interface.ty);
                 let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
@@ -172,14 +218,43 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         }
 
-        tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
-        tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&gen.interface_core_traits(
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &features,
+        ));
+        tokens.combine(&gen.interface_winrt_trait(
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &features,
+        ));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
-        tokens.combine(&iterators::gen(gen, def, generics, &ident, &constraints, &phantoms, &cfg));
+        tokens.combine(&iterators::gen(
+            gen,
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &cfg,
+        ));
         tokens.combine(&gen.agile(def, &ident, &constraints, &features));
     }
 
-    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, has_unknown_base));
+    tokens.combine(&gen.interface_trait(
+        def,
+        generics,
+        &ident,
+        &constraints,
+        &features,
+        has_unknown_base,
+    ));
     tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }

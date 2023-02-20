@@ -19863,47 +19863,6 @@ impl ::core::fmt::Debug for WIN32_ERROR {
         f.debug_tuple("WIN32_ERROR").field(&self.0).finish()
     }
 }
-impl WIN32_ERROR {
-    #[inline]
-    pub const fn is_ok(self) -> bool {
-        self.0 == 0
-    }
-    #[inline]
-    pub const fn is_err(self) -> bool {
-        !self.is_ok()
-    }
-    #[inline]
-    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
-        ::windows::core::HRESULT(if self.0 == 0 { self.0 } else { (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
-    }
-    #[inline]
-    pub fn from_error(error: &::windows::core::Error) -> ::core::option::Option<Self> {
-        let hresult = error.code().0 as u32;
-        if ((hresult >> 16) & 0x7FF) == 7 {
-            Some(Self(hresult & 0xFFFF))
-        } else {
-            None
-        }
-    }
-    #[inline]
-    pub const fn ok(self) -> ::windows::core::Result<()> {
-        if self.is_ok() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error { code: self.to_hresult(), info: None })
-        }
-    }
-}
-impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
-    fn from(value: WIN32_ERROR) -> Self {
-        value.to_hresult()
-    }
-}
-impl ::core::convert::From<WIN32_ERROR> for ::windows::core::Error {
-    fn from(value: WIN32_ERROR) -> Self {
-        Self { code: value.to_hresult(), info: None }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct APP_LOCAL_DEVICE_ID {
@@ -19961,74 +19920,6 @@ impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
 unsafe impl ::windows::core::Abi for BOOL {
     type Abi = Self;
 }
-impl BOOL {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
-    }
-}
-impl ::core::convert::From<BOOL> for bool {
-    fn from(value: BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&BOOL> for bool {
-    fn from(value: &BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for BOOL {
-    fn from(value: bool) -> Self {
-        if value {
-            Self(1)
-        } else {
-            Self(0)
-        }
-    }
-}
-impl ::core::convert::From<&bool> for BOOL {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for BOOL {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<BOOL> for bool {
-    fn eq(&self, other: &BOOL) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for BOOL {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            Self(0)
-        } else {
-            Self(1)
-        }
-    }
-}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOLEAN(pub u8);
@@ -20055,74 +19946,6 @@ impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
 }
 unsafe impl ::windows::core::Abi for BOOLEAN {
     type Abi = Self;
-}
-impl BOOLEAN {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
-    }
-}
-impl ::core::convert::From<BOOLEAN> for bool {
-    fn from(value: BOOLEAN) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&BOOLEAN> for bool {
-    fn from(value: &BOOLEAN) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for BOOLEAN {
-    fn from(value: bool) -> Self {
-        if value {
-            Self(1)
-        } else {
-            Self(0)
-        }
-    }
-}
-impl ::core::convert::From<&bool> for BOOLEAN {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for BOOLEAN {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<BOOLEAN> for bool {
-    fn eq(&self, other: &BOOLEAN) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for BOOLEAN {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            Self(0)
-        } else {
-            Self(1)
-        }
-    }
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20746,38 +20569,6 @@ impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
 unsafe impl ::windows::core::Abi for NTSTATUS {
     type Abi = Self;
 }
-impl NTSTATUS {
-    #[inline]
-    pub const fn is_ok(self) -> bool {
-        self.0 >= 0
-    }
-    #[inline]
-    pub const fn is_err(self) -> bool {
-        !self.is_ok()
-    }
-    #[inline]
-    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
-        ::windows::core::HRESULT(self.0 | 0x1000_0000)
-    }
-    #[inline]
-    pub const fn ok(self) -> ::windows::core::Result<()> {
-        if self.is_ok() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error { code: self.to_hresult(), info: None })
-        }
-    }
-}
-impl ::core::convert::From<NTSTATUS> for ::windows::core::HRESULT {
-    fn from(value: NTSTATUS) -> Self {
-        value.to_hresult()
-    }
-}
-impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
-    fn from(value: NTSTATUS) -> Self {
-        Self { code: value.to_hresult(), info: None }
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct POINT {
@@ -21123,6 +20914,209 @@ impl ::core::convert::From<::core::option::Option<VARIANT_BOOL>> for VARIANT_BOO
 unsafe impl ::windows::core::Abi for VARIANT_BOOL {
     type Abi = Self;
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WPARAM(pub usize);
+impl ::core::default::Default for WPARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for WPARAM {}
+impl ::core::fmt::Debug for WPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WPARAM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<WPARAM>> for WPARAM {
+    fn from(optional: ::core::option::Option<WPARAM>) -> WPARAM {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for WPARAM {
+    type Abi = Self;
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize) -> ()>;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
+impl BOOL {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<BOOL> for bool {
+    fn from(value: BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOL> for bool {
+    fn from(value: &BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOL {
+    fn from(value: bool) -> Self {
+        if value {
+            Self(1)
+        } else {
+            Self(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOL {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOL {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOL> for bool {
+    fn eq(&self, other: &BOOL) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOL {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            Self(0)
+        } else {
+            Self(1)
+        }
+    }
+}
+impl BOOLEAN {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<BOOLEAN> for bool {
+    fn from(value: BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOLEAN> for bool {
+    fn from(value: &BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOLEAN {
+    fn from(value: bool) -> Self {
+        if value {
+            Self(1)
+        } else {
+            Self(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOLEAN {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOLEAN {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+    fn eq(&self, other: &BOOLEAN) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOLEAN {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            Self(0)
+        } else {
+            Self(1)
+        }
+    }
+}
+impl NTSTATUS {
+    #[inline]
+    pub const fn is_ok(self) -> bool {
+        self.0 >= 0
+    }
+    #[inline]
+    pub const fn is_err(self) -> bool {
+        !self.is_ok()
+    }
+    #[inline]
+    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
+        ::windows::core::HRESULT(self.0 | 0x1000_0000)
+    }
+    #[inline]
+    pub const fn ok(self) -> ::windows::core::Result<()> {
+        if self.is_ok() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error { code: self.to_hresult(), info: None })
+        }
+    }
+}
+impl ::core::convert::From<NTSTATUS> for ::windows::core::HRESULT {
+    fn from(value: NTSTATUS) -> Self {
+        value.to_hresult()
+    }
+}
+impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
+    fn from(value: NTSTATUS) -> Self {
+        Self { code: value.to_hresult(), info: None }
+    }
+}
 impl VARIANT_BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
@@ -21191,40 +21185,46 @@ impl ::core::ops::Not for VARIANT_BOOL {
         }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WPARAM(pub usize);
-impl ::core::default::Default for WPARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl WIN32_ERROR {
+    #[inline]
+    pub const fn is_ok(self) -> bool {
+        self.0 == 0
+    }
+    #[inline]
+    pub const fn is_err(self) -> bool {
+        !self.is_ok()
+    }
+    #[inline]
+    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
+        ::windows::core::HRESULT(if self.0 == 0 { self.0 } else { (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
+    }
+    #[inline]
+    pub fn from_error(error: &::windows::core::Error) -> ::core::option::Option<Self> {
+        let hresult = error.code().0 as u32;
+        if ((hresult >> 16) & 0x7FF) == 7 {
+            Some(Self(hresult & 0xFFFF))
+        } else {
+            None
+        }
+    }
+    #[inline]
+    pub const fn ok(self) -> ::windows::core::Result<()> {
+        if self.is_ok() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error { code: self.to_hresult(), info: None })
+        }
     }
 }
-impl ::core::clone::Clone for WPARAM {
-    fn clone(&self) -> Self {
-        *self
+impl ::core::convert::From<WIN32_ERROR> for ::windows::core::HRESULT {
+    fn from(value: WIN32_ERROR) -> Self {
+        value.to_hresult()
     }
 }
-impl ::core::marker::Copy for WPARAM {}
-impl ::core::fmt::Debug for WPARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WPARAM").field(&self.0).finish()
+impl ::core::convert::From<WIN32_ERROR> for ::windows::core::Error {
+    fn from(value: WIN32_ERROR) -> Self {
+        Self { code: value.to_hresult(), info: None }
     }
 }
-impl ::core::convert::From<::core::option::Option<WPARAM>> for WPARAM {
-    fn from(optional: ::core::option::Option<WPARAM>) -> WPARAM {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for WPARAM {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize) -> ()>;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");
