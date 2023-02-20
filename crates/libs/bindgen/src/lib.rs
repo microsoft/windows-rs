@@ -138,7 +138,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
         tokens.combine(ty);
     }
 
-    tokens.combine(&extensions::gen_mod(tree.namespace));
+    tokens.combine(&extensions::gen_mod(gen, tree.namespace));
     tokens.into_string()
 }
 

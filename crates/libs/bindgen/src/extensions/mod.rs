@@ -1,6 +1,14 @@
 use super::*;
 
-pub fn gen_mod(namespace: &str) -> TokenStream {
+pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
+    if namespace == "Windows.Win32.UI.WindowsAndMessaging" {
+        return include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs").into();
+    }
+
+    if gen.sys {
+        return "".into();
+    }
+
     match namespace {
         "Windows.Foundation.Numerics" => concat!(
             include_str!("mod/Foundation/Numerics/Matrix3x2.rs"),
