@@ -101,6 +101,5 @@ pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
         });
     }
 
-    tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     tokens
 }

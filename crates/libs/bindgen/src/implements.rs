@@ -1,7 +1,9 @@
 use super::*;
 
 pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_kind(def) != TypeKind::Interface || (!gen.component && !gen.reader.type_def_can_implement(def)) {
+    if gen.reader.type_def_kind(def) != TypeKind::Interface
+        || (!gen.component && !gen.reader.type_def_can_implement(def))
+    {
         return quote! {};
     }
 
@@ -44,9 +46,16 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
+    if gen
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WINRT)
+    {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))) {
+        for interface in gen
+            .reader
+            .type_interfaces(&Type::TypeDef((def, generics.to_vec())))
+        {
             if let Type::TypeDef((def, generics)) = interface.ty {
                 requires.combine(&gen_required_trait(gen, def, &generics));
             }

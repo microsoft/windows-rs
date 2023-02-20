@@ -53,21 +53,46 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
         let kind = gen.reader.type_def_kind(def);
         match kind {
             TypeKind::Class => {
-                if gen.reader.type_def_flags(def).contains(TypeAttributes::WINRT) {
-                    types.entry(kind).or_default().insert(name, classes::gen(gen, def));
+                if gen
+                    .reader
+                    .type_def_flags(def)
+                    .contains(TypeAttributes::WINRT)
+                {
+                    types
+                        .entry(kind)
+                        .or_default()
+                        .insert(name, classes::gen(gen, def));
                 } else {
                     for method in gen.reader.type_def_methods(def) {
                         let name = gen.reader.method_def_name(method);
-                        functions.entry(name).or_default().combine(&functions::gen(gen, method));
+                        functions
+                            .entry(name)
+                            .or_default()
+                            .combine(&functions::gen(gen, method));
                     }
                     for field in gen.reader.type_def_fields(def) {
                         let name = gen.reader.field_name(field);
-                        types.entry(kind).or_default().entry(name).or_default().combine(&constants::gen(gen, field));
+                        types
+                            .entry(kind)
+                            .or_default()
+                            .entry(name)
+                            .or_default()
+                            .combine(&constants::gen(gen, field));
                     }
                 }
             }
-            TypeKind::Interface => types.entry(kind).or_default().entry(name).or_default().combine(&interfaces::gen(gen, def)),
-            TypeKind::Enum => types.entry(kind).or_default().entry(name).or_default().combine(&enums::gen(gen, def)),
+            TypeKind::Interface => types
+                .entry(kind)
+                .or_default()
+                .entry(name)
+                .or_default()
+                .combine(&interfaces::gen(gen, def)),
+            TypeKind::Enum => types
+                .entry(kind)
+                .or_default()
+                .entry(name)
+                .or_default()
+                .combine(&enums::gen(gen, def)),
             TypeKind::Struct => {
                 if gen.reader.type_def_fields(def).next().is_none() {
                     if let Some(guid) = gen.reader.type_def_guid(def) {
@@ -80,13 +105,28 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
                             #doc
                             pub const #ident: #guid = #value;
                         };
-                        types.entry(TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
+                        types
+                            .entry(TypeKind::Class)
+                            .or_default()
+                            .entry(name)
+                            .or_default()
+                            .combine(&constant);
                         continue;
                     }
                 }
-                types.entry(kind).or_default().entry(name).or_default().combine(&structs::gen(gen, def));
+                types
+                    .entry(kind)
+                    .or_default()
+                    .entry(name)
+                    .or_default()
+                    .combine(&structs::gen(gen, def));
             }
-            TypeKind::Delegate => types.entry(kind).or_default().entry(name).or_default().combine(&delegates::gen(gen, def)),
+            TypeKind::Delegate => types
+                .entry(kind)
+                .or_default()
+                .entry(name)
+                .or_default()
+                .combine(&delegates::gen(gen, def)),
         }
     }
 
@@ -98,23 +138,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
         tokens.combine(ty);
     }
 
-    if tree.namespace == "Windows.Win32.UI.WindowsAndMessaging" {
-        tokens.combine(&quote! {
-            #[cfg(target_pointer_width = "32")]
-            #[cfg(feature = "Win32_Foundation")]
-            pub use SetWindowLongA as SetWindowLongPtrA;
-            #[cfg(target_pointer_width = "32")]
-            #[cfg(feature = "Win32_Foundation")]
-            pub use GetWindowLongA as GetWindowLongPtrA;
-            #[cfg(target_pointer_width = "32")]
-            #[cfg(feature = "Win32_Foundation")]
-            pub use SetWindowLongW as SetWindowLongPtrW;
-            #[cfg(target_pointer_width = "32")]
-            #[cfg(feature = "Win32_Foundation")]
-            pub use GetWindowLongW as GetWindowLongPtrW;
-        });
-    }
-
+    tokens.combine(&extensions::gen_mod(gen, tree.namespace));
     tokens.into_string()
 }
 
@@ -138,10 +162,11 @@ pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
 
     let types = types.values();
 
-    let tokens = quote! {
+    let mut tokens = quote! {
         #(#types)*
     };
 
+    tokens.combine(&extensions::gen_impl(tree.namespace));
     tokens.into_string()
 }
 

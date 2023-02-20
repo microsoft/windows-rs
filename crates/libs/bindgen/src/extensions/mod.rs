@@ -1,39 +1,45 @@
 use super::*;
-mod bool32;
-mod boolean;
-mod in6_addr;
-mod in_addr;
-mod matrix3x2;
-mod matrix4x4;
-mod ntstatus;
-mod sockaddr_in;
-mod sockaddr_in6;
-mod sockaddr_inet;
-mod timespan;
-mod variant_bool;
-mod vector2;
-mod vector3;
-mod vector4;
-mod win32_error;
 
-pub fn gen(type_name: TypeName) -> TokenStream {
-    match type_name {
-        TypeName::BOOL => bool32::gen(),
-        TypeName::BOOLEAN => boolean::gen(),
-        TypeName::IN_ADDR => in_addr::gen(),
-        TypeName::IN6_ADDR => in6_addr::gen(),
-        TypeName::Matrix3x2 => matrix3x2::gen(),
-        TypeName::Matrix4x4 => matrix4x4::gen(),
-        TypeName::NTSTATUS => ntstatus::gen(),
-        TypeName::SOCKADDR_IN => sockaddr_in::gen(),
-        TypeName::SOCKADDR_IN6 => sockaddr_in6::gen(),
-        TypeName::SOCKADDR_INET => sockaddr_inet::gen(),
-        TypeName::TimeSpan => timespan::gen(),
-        TypeName::VARIANT_BOOL => variant_bool::gen(),
-        TypeName::Vector2 => vector2::gen(),
-        TypeName::Vector3 => vector3::gen(),
-        TypeName::Vector4 => vector4::gen(),
-        TypeName::WIN32_ERROR => win32_error::gen(),
-        _ => quote! {},
+pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
+    if namespace == "Windows.Win32.UI.WindowsAndMessaging" {
+        return include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs").into();
     }
+
+    if gen.sys {
+        return "".into();
+    }
+
+    match namespace {
+        "Windows.Foundation.Numerics" => concat!(
+            include_str!("mod/Foundation/Numerics/Matrix3x2.rs"),
+            include_str!("mod/Foundation/Numerics/Matrix4x4.rs"),
+            include_str!("mod/Foundation/Numerics/Vector2.rs"),
+            include_str!("mod/Foundation/Numerics/Vector3.rs"),
+            include_str!("mod/Foundation/Numerics/Vector4.rs"),
+        ),
+        "Windows.Foundation" => concat!(include_str!("mod/Foundation/TimeSpan.rs"),),
+        "Windows.Win32.Foundation" => concat!(
+            include_str!("mod/Win32/Foundation/BOOL.rs"),
+            include_str!("mod/Win32/Foundation/BOOLEAN.rs"),
+            include_str!("mod/Win32/Foundation/NTSTATUS.rs"),
+            include_str!("mod/Win32/Foundation/VARIANT_BOOL.rs"),
+            include_str!("mod/Win32/Foundation/WIN32_ERROR.rs"),
+        ),
+        "Windows.Win32.Networking.WinSock" => concat!(
+            include_str!("mod/Win32/Networking/WinSock/IN_ADDR.rs"),
+            include_str!("mod/Win32/Networking/WinSock/IN6_ADDR.rs"),
+            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN.rs"),
+            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_IN6.rs"),
+            include_str!("mod/Win32/Networking/WinSock/SOCKADDR_INET.rs"),
+        ),
+        "Windows.Win32.UI.WindowsAndMessaging" => concat!(include_str!(
+            "mod/Win32/UI/WindowsAndMessaging/WindowLong.rs"
+        ),),
+        _ => "",
+    }
+    .into()
+}
+
+pub fn gen_impl(_namespace: &str) -> TokenStream {
+    TokenStream::new()
 }

@@ -16,7 +16,10 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let features = gen.cfg_features(&cfg);
     let return_type = gen.return_sig(&signature);
     let abi = gen.reader.method_def_extern_abi(def);
-    let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+    let impl_map = gen
+        .reader
+        .method_def_impl_map(def)
+        .expect("ImplMap not found");
     let scope = gen.reader.impl_map_scope(impl_map);
     let link = gen.reader.module_ref_name(scope).to_lowercase();
 
@@ -63,7 +66,10 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
     } else {
-        let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+        let impl_map = gen
+            .reader
+            .method_def_impl_map(def)
+            .expect("ImplMap not found");
         let scope = gen.reader.impl_map_scope(impl_map);
         let link = gen.reader.module_ref_name(scope).to_lowercase();
 
@@ -92,7 +98,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
                 #doc
@@ -109,7 +116,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let args = gen.win32_args(&signature.params, kind);
             let params = gen.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
-            let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
+            let where_clause =
+                expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
                 #doc
@@ -244,10 +252,18 @@ fn does_not_return(gen: &Gen, def: MethodDef) -> TokenStream {
 
 fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
     if let Some(map) = gen.reader.method_def_impl_map(def) {
-        if gen.reader.impl_map_flags(map).contains(PInvokeAttributes::LAST_ERROR) {
+        if gen
+            .reader
+            .impl_map_flags(map)
+            .contains(PInvokeAttributes::LAST_ERROR)
+        {
             if let Some(Type::TypeDef((return_type, _))) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {
-                    if gen.reader.type_def_underlying_type(*return_type).is_pointer() {
+                    if gen
+                        .reader
+                        .type_def_underlying_type(*return_type)
+                        .is_pointer()
+                    {
                         return true;
                     }
                     if !gen.reader.type_def_invalid_values(*return_type).is_empty() {

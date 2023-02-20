@@ -87,12 +87,15 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
 }
 
 fn get_property_key(gen: &Gen, def: Field) -> Option<(GUID, u32)> {
-    gen.reader.field_attributes(def).find(|attribute| gen.reader.attribute_name(*attribute) == "PropertyKeyAttribute").map(|attribute| {
-        let args = gen.reader.attribute_args(attribute);
-        let id = match args[11].1 {
-            Value::U32(value) => value,
-            _ => unimplemented!(),
-        };
-        (GUID::from_args(&args), id)
-    })
+    gen.reader
+        .field_attributes(def)
+        .find(|attribute| gen.reader.attribute_name(*attribute) == "PropertyKeyAttribute")
+        .map(|attribute| {
+            let args = gen.reader.attribute_args(attribute);
+            let id = match args[11].1 {
+                Value::U32(value) => value,
+                _ => unimplemented!(),
+            };
+            (GUID::from_args(&args), id)
+        })
 }

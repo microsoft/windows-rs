@@ -21,7 +21,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     let name = to_ident(gen.reader.type_def_name(def));
-    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, Vec::new())));
+    let interfaces = gen
+        .reader
+        .type_interfaces(&Type::TypeDef((def, Vec::new())));
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
@@ -34,7 +36,15 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             let mut virtual_names = MethodNames::new();
 
             for method in gen.reader.type_def_methods(*def) {
-                methods.combine(&winrt_methods::gen(gen, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
+                methods.combine(&winrt_methods::gen(
+                    gen,
+                    *def,
+                    generics,
+                    interface.kind,
+                    method,
+                    &mut method_names,
+                    &mut virtual_names,
+                ));
             }
         }
     }
@@ -101,12 +111,41 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         };
 
-        tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_core_traits(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&gen.interface_winrt_trait(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features, true));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &cfg));
+        tokens.combine(&gen.async_get(
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &features,
+        ));
+        tokens.combine(&iterators::gen(
+            gen,
+            def,
+            &[],
+            &name,
+            &TokenStream::new(),
+            &TokenStream::new(),
+            &cfg,
+        ));
         tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
         tokens.combine(&gen.agile(def, &name, &TokenStream::new(), &features));
         tokens
@@ -127,7 +166,13 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
+fn gen_conversions(
+    gen: &Gen,
+    def: TypeDef,
+    name: &TokenStream,
+    interfaces: &[Interface],
+    cfg: &Cfg,
+) -> TokenStream {
     let features = gen.cfg_features(cfg);
     let mut tokens = quote! {
         #features
@@ -139,7 +184,10 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
             continue;
         }
 
-        if interface.kind != InterfaceKind::Default && interface.kind != InterfaceKind::None && interface.kind != InterfaceKind::Base {
+        if interface.kind != InterfaceKind::Default
+            && interface.kind != InterfaceKind::None
+            && interface.kind != InterfaceKind::Base
+        {
             continue;
         }
 

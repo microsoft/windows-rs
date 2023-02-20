@@ -16,16 +16,12 @@ impl<'a> TypeName<'a> {
     pub const Attribute: Self = Self::from_const("System", "Attribute");
     pub const IsConst: Self = Self::from_const("System.Runtime.CompilerServices", "IsConst");
 
-    pub const TimeSpan: Self = Self::from_const("Windows.Foundation", "TimeSpan");
     pub const HResult: Self = Self::from_const("Windows.Foundation", "HResult");
     pub const IAsyncAction: Self = Self::from_const("Windows.Foundation", "IAsyncAction");
     pub const IAsyncActionWithProgress: Self = Self::from_const("Windows.Foundation", "IAsyncActionWithProgress");
     pub const IAsyncOperation: Self = Self::from_const("Windows.Foundation", "IAsyncOperation");
     pub const IAsyncOperationWithProgress: Self = Self::from_const("Windows.Foundation", "IAsyncOperationWithProgress");
 
-    pub const Vector2: Self = Self::from_const("Windows.Foundation.Numerics", "Vector2");
-    pub const Vector3: Self = Self::from_const("Windows.Foundation.Numerics", "Vector3");
-    pub const Vector4: Self = Self::from_const("Windows.Foundation.Numerics", "Vector4");
     pub const Matrix3x2: Self = Self::from_const("Windows.Foundation.Numerics", "Matrix3x2");
     pub const Matrix4x4: Self = Self::from_const("Windows.Foundation.Numerics", "Matrix4x4");
 
@@ -34,11 +30,7 @@ impl<'a> TypeName<'a> {
     pub const IVectorView: Self = Self::from_const("Windows.Foundation.Collections", "IVectorView");
     pub const IVector: Self = Self::from_const("Windows.Foundation.Collections", "IVector");
 
-    pub const WIN32_ERROR: Self = Self::from_const("Windows.Win32.Foundation", "WIN32_ERROR");
     pub const NTSTATUS: Self = Self::from_const("Windows.Win32.Foundation", "NTSTATUS");
-    pub const BOOL: Self = Self::from_const("Windows.Win32.Foundation", "BOOL");
-    pub const BOOLEAN: Self = Self::from_const("Windows.Win32.Foundation", "BOOLEAN");
-    pub const VARIANT_BOOL: Self = Self::from_const("Windows.Win32.Foundation", "VARIANT_BOOL");
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self::from_const("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self::from_const("Windows.Win32.Foundation", "BSTR");
@@ -54,12 +46,6 @@ impl<'a> TypeName<'a> {
     pub const ULARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
     pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
-
-    pub const IN_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN_ADDR");
-    pub const IN6_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN6_ADDR");
-    pub const SOCKADDR_IN: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_IN");
-    pub const SOCKADDR_IN6: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_IN6");
-    pub const SOCKADDR_INET: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_INET");
 
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
