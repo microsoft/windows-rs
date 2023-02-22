@@ -4,6 +4,11 @@ pub struct IHolographicApplicationPreviewStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IHolographicApplicationPreviewStatics {
     type Vtable = IHolographicApplicationPreviewStatics_Vtbl;
 }
+impl ::core::clone::Clone for IHolographicApplicationPreviewStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicApplicationPreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe038691_2a3a_45a9_a208_7bed691919f3);
 }
@@ -24,6 +29,12 @@ pub struct IHolographicKeyboardPlacementOverridePreview(::windows::core::IUnknow
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Vtable for IHolographicKeyboardPlacementOverridePreview {
     type Vtable = IHolographicKeyboardPlacementOverridePreview_Vtbl;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for IHolographicKeyboardPlacementOverridePreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreview {
@@ -56,6 +67,12 @@ unsafe impl ::windows::core::Vtable for IHolographicKeyboardPlacementOverridePre
     type Vtable = IHolographicKeyboardPlacementOverridePreviewStatics_Vtbl;
 }
 #[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for IHolographicKeyboardPlacementOverridePreviewStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicKeyboardPlacementOverridePreviewStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202e6039_1ff6_5a06_aac4_a5e24fa3ec4b);
 }
@@ -74,8 +91,8 @@ pub struct HolographicApplicationPreview;
 impl HolographicApplicationPreview {
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows::core::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -86,8 +103,8 @@ impl HolographicApplicationPreview {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsHolographicActivation)(::windows::core::Vtable::as_raw(this), activatedeventargs.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsHolographicActivation)(::windows::core::Vtable::as_raw(this), activatedeventargs.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -127,8 +144,8 @@ impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows::core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<HolographicKeyboardPlacementOverridePreview>();
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -136,12 +153,6 @@ impl HolographicKeyboardPlacementOverridePreview {
     pub fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for HolographicKeyboardPlacementOverridePreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 #[cfg(feature = "deprecated")]
@@ -159,11 +170,13 @@ impl ::core::fmt::Debug for HolographicKeyboardPlacementOverridePreview {
     }
 }
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
+impl ::windows::core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview;{c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for HolographicKeyboardPlacementOverridePreview {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 #[cfg(feature = "deprecated")]

@@ -10,11 +10,6 @@ impl IWCNConnectNotify {
     }
 }
 ::windows::core::interface_hierarchy!(IWCNConnectNotify, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWCNConnectNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWCNConnectNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -28,6 +23,11 @@ impl ::core::fmt::Debug for IWCNConnectNotify {
 }
 unsafe impl ::windows::core::Vtable for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_Vtbl;
+}
+impl ::core::clone::Clone for IWCNConnectNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWCNConnectNotify {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
@@ -56,8 +56,8 @@ impl IWCNDevice {
         (::windows::core::Vtable::vtable(self).GetAttribute)(::windows::core::Vtable::as_raw(self), attributetype, dwmaxbuffersize, pbbuffer, pdwbufferused).ok()
     }
     pub unsafe fn GetIntegerAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIntegerAttribute)(::windows::core::Vtable::as_raw(self), attributetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetIntegerAttribute)(::windows::core::Vtable::as_raw(self), attributetype, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringAttribute(&self, attributetype: WCN_ATTRIBUTE_TYPE, wszstring: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetStringAttribute)(::windows::core::Vtable::as_raw(self), attributetype, wszstring.len() as _, ::core::mem::transmute(wszstring.as_ptr())).ok()
@@ -96,11 +96,6 @@ impl IWCNDevice {
     }
 }
 ::windows::core::interface_hierarchy!(IWCNDevice, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWCNDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWCNDevice {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -114,6 +109,11 @@ impl ::core::fmt::Debug for IWCNDevice {
 }
 unsafe impl ::windows::core::Vtable for IWCNDevice {
     type Vtable = IWCNDevice_Vtbl;
+}
+impl ::core::clone::Clone for IWCNDevice {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWCNDevice {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
@@ -535,8 +535,8 @@ impl ::core::default::Default for WCN_ATTRIBUTE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_ATTRIBUTE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_ATTRIBUTE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_ATTRIBUTE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -568,8 +568,8 @@ impl ::core::default::Default for WCN_PASSWORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_PASSWORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_PASSWORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_PASSWORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -597,8 +597,8 @@ impl ::core::default::Default for WCN_SESSION_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_SESSION_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_SESSION_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_SESSION_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -630,8 +630,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_ASSOCIATION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ASSOCIATION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_ASSOCIATION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_ASSOCIATION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -667,8 +667,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_AUTHENTICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -694,8 +694,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_BOOLEAN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_BOOLEAN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_BOOLEAN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_BOOLEAN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -755,8 +755,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIGURATION_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -804,8 +804,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_CONFIG_METHODS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONFIG_METHODS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_CONFIG_METHODS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONFIG_METHODS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -831,8 +831,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_CONNECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_CONNECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_CONNECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -874,8 +874,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_DEVICE_PASSWORD_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -907,8 +907,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_ENCRYPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -960,8 +960,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_MESSAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_MESSAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_MESSAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_MESSAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -991,8 +991,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_REQUEST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_REQUEST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_REQUEST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1022,8 +1022,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_RESPONSE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RESPONSE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_RESPONSE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_RESPONSE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1049,8 +1049,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_RF_BANDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_RF_BANDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_RF_BANDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_RF_BANDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1076,8 +1076,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1105,8 +1105,8 @@ impl ::core::default::Default for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1126,8 +1126,8 @@ impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
     fn default() -> Self {
@@ -1153,8 +1153,8 @@ impl ::core::fmt::Debug for WCN_VENDOR_EXTENSION_SPEC {
         f.debug_struct("WCN_VENDOR_EXTENSION_SPEC").field("VendorId", &self.VendorId).field("SubType", &self.SubType).field("Index", &self.Index).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WCN_VENDOR_EXTENSION_SPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCN_VENDOR_EXTENSION_SPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WCN_VENDOR_EXTENSION_SPEC {
     fn eq(&self, other: &Self) -> bool {

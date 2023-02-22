@@ -1137,8 +1137,8 @@ impl ::core::default::Default for BATTERY_CHARGING_SOURCE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_CHARGING_SOURCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1178,8 +1178,8 @@ impl ::core::default::Default for BATTERY_QUERY_INFORMATION_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_QUERY_INFORMATION_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1213,8 +1213,8 @@ impl ::core::default::Default for BATTERY_SET_INFORMATION_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_SET_INFORMATION_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1248,8 +1248,8 @@ impl ::core::default::Default for DEVICE_POWER_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEVICE_POWER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICE_POWER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEVICE_POWER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1285,8 +1285,8 @@ impl ::core::default::Default for EFFECTIVE_POWER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EFFECTIVE_POWER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFFECTIVE_POWER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EFFECTIVE_POWER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1310,8 +1310,8 @@ impl ::core::default::Default for EMI_MEASUREMENT_UNIT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_UNIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_MEASUREMENT_UNIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EMI_MEASUREMENT_UNIT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1343,8 +1343,8 @@ impl ::core::default::Default for EXECUTION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXECUTION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXECUTION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXECUTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1403,8 +1403,8 @@ impl ::core::default::Default for LATENCY_TIME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LATENCY_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LATENCY_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LATENCY_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1444,8 +1444,8 @@ impl ::core::default::Default for POWER_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1479,8 +1479,8 @@ impl ::core::default::Default for POWER_ACTION_POLICY_EVENT_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY_EVENT_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_ACTION_POLICY_EVENT_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_ACTION_POLICY_EVENT_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1541,8 +1541,8 @@ impl ::core::default::Default for POWER_COOLING_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_COOLING_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_COOLING_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_COOLING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1620,8 +1620,8 @@ impl ::core::default::Default for POWER_DATA_ACCESSOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_DATA_ACCESSOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_DATA_ACCESSOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_DATA_ACCESSOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1839,8 +1839,8 @@ impl ::core::default::Default for POWER_INFORMATION_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_INFORMATION_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_INFORMATION_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1882,8 +1882,8 @@ impl ::core::default::Default for POWER_PLATFORM_ROLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_PLATFORM_ROLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1909,8 +1909,8 @@ impl ::core::default::Default for POWER_PLATFORM_ROLE_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_PLATFORM_ROLE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_PLATFORM_ROLE_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1940,8 +1940,8 @@ impl ::core::default::Default for POWER_REQUEST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_REQUEST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_REQUEST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1969,8 +1969,8 @@ impl ::core::default::Default for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2000,8 +2000,8 @@ impl ::core::default::Default for SYSTEM_POWER_CONDITION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_CONDITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_CONDITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2039,8 +2039,8 @@ impl ::core::default::Default for SYSTEM_POWER_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEM_POWER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2068,8 +2068,8 @@ impl ::core::default::Default for USB_CHARGER_PORT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USB_CHARGER_PORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USB_CHARGER_PORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USB_CHARGER_PORT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2102,8 +2102,8 @@ impl ::core::fmt::Debug for ACPI_REAL_TIME {
         f.debug_struct("ACPI_REAL_TIME").field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Valid", &self.Valid).field("Milliseconds", &self.Milliseconds).field("TimeZone", &self.TimeZone).field("DayLight", &self.DayLight).field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACPI_REAL_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACPI_REAL_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACPI_REAL_TIME {
     fn eq(&self, other: &Self) -> bool {
@@ -2137,8 +2137,8 @@ impl ::core::fmt::Debug for ADMINISTRATOR_POWER_POLICY {
         f.debug_struct("ADMINISTRATOR_POWER_POLICY").field("MinSleep", &self.MinSleep).field("MaxSleep", &self.MaxSleep).field("MinVideoTimeout", &self.MinVideoTimeout).field("MaxVideoTimeout", &self.MaxVideoTimeout).field("MinSpindownTimeout", &self.MinSpindownTimeout).field("MaxSpindownTimeout", &self.MaxSpindownTimeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADMINISTRATOR_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADMINISTRATOR_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -2168,8 +2168,8 @@ impl ::core::fmt::Debug for BATTERY_CHARGER_STATUS {
         f.debug_struct("BATTERY_CHARGER_STATUS").field("Type", &self.Type).field("VaData", &self.VaData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_CHARGER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_CHARGER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_CHARGER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -2199,8 +2199,8 @@ impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE {
         f.debug_struct("BATTERY_CHARGING_SOURCE").field("Type", &self.Type).field("MaxCurrent", &self.MaxCurrent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_CHARGING_SOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE {
     fn eq(&self, other: &Self) -> bool {
@@ -2235,8 +2235,8 @@ impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_CHARGING_SOURCE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE_INFORMATION {
@@ -2277,8 +2277,8 @@ impl ::core::fmt::Debug for BATTERY_INFORMATION {
         f.debug_struct("BATTERY_INFORMATION").field("Capabilities", &self.Capabilities).field("Technology", &self.Technology).field("Reserved", &self.Reserved).field("Chemistry", &self.Chemistry).field("DesignedCapacity", &self.DesignedCapacity).field("FullChargedCapacity", &self.FullChargedCapacity).field("DefaultAlert1", &self.DefaultAlert1).field("DefaultAlert2", &self.DefaultAlert2).field("CriticalBias", &self.CriticalBias).field("CycleCount", &self.CycleCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2309,8 +2309,8 @@ impl ::core::fmt::Debug for BATTERY_MANUFACTURE_DATE {
         f.debug_struct("BATTERY_MANUFACTURE_DATE").field("Day", &self.Day).field("Month", &self.Month).field("Year", &self.Year).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_MANUFACTURE_DATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_MANUFACTURE_DATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_MANUFACTURE_DATE {
     fn eq(&self, other: &Self) -> bool {
@@ -2341,8 +2341,8 @@ impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION {
         f.debug_struct("BATTERY_QUERY_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("AtRate", &self.AtRate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_QUERY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_QUERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2372,8 +2372,8 @@ impl ::core::fmt::Debug for BATTERY_REPORTING_SCALE {
         f.debug_struct("BATTERY_REPORTING_SCALE").field("Granularity", &self.Granularity).field("Capacity", &self.Capacity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_REPORTING_SCALE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_REPORTING_SCALE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_REPORTING_SCALE {
     fn eq(&self, other: &Self) -> bool {
@@ -2404,8 +2404,8 @@ impl ::core::fmt::Debug for BATTERY_SET_INFORMATION {
         f.debug_struct("BATTERY_SET_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_SET_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_SET_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -2437,8 +2437,8 @@ impl ::core::fmt::Debug for BATTERY_STATUS {
         f.debug_struct("BATTERY_STATUS").field("PowerState", &self.PowerState).field("Capacity", &self.Capacity).field("Voltage", &self.Voltage).field("Rate", &self.Rate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -2475,8 +2475,8 @@ impl ::core::fmt::Debug for BATTERY_USB_CHARGER_STATUS {
         f.debug_struct("BATTERY_USB_CHARGER_STATUS").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("MaxCurrent", &self.MaxCurrent).field("Voltage", &self.Voltage).field("PortType", &self.PortType).field("PortId", &self.PortId).field("PowerSourceInformation", &self.PowerSourceInformation).field("OemCharger", &self.OemCharger).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_USB_CHARGER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_USB_CHARGER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -2509,8 +2509,8 @@ impl ::core::fmt::Debug for BATTERY_WAIT_STATUS {
         f.debug_struct("BATTERY_WAIT_STATUS").field("BatteryTag", &self.BatteryTag).field("Timeout", &self.Timeout).field("PowerState", &self.PowerState).field("LowCapacity", &self.LowCapacity).field("HighCapacity", &self.HighCapacity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_WAIT_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_WAIT_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BATTERY_WAIT_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -2546,8 +2546,8 @@ impl ::core::fmt::Debug for CM_POWER_DATA {
         f.debug_struct("CM_POWER_DATA").field("PD_Size", &self.PD_Size).field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState).field("PD_Capabilities", &self.PD_Capabilities).field("PD_D1Latency", &self.PD_D1Latency).field("PD_D2Latency", &self.PD_D2Latency).field("PD_D3Latency", &self.PD_D3Latency).field("PD_PowerStateMapping", &self.PD_PowerStateMapping).field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CM_POWER_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_POWER_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CM_POWER_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2577,8 +2577,8 @@ impl ::core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
         f.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Context", &self.Context).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn default() -> Self {
@@ -2602,8 +2602,8 @@ impl ::core::fmt::Debug for EMI_CHANNEL_MEASUREMENT_DATA {
         f.debug_struct("EMI_CHANNEL_MEASUREMENT_DATA").field("AbsoluteEnergy", &self.AbsoluteEnergy).field("AbsoluteTime", &self.AbsoluteTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_CHANNEL_MEASUREMENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2634,8 +2634,8 @@ impl ::core::fmt::Debug for EMI_CHANNEL_V2 {
         f.debug_struct("EMI_CHANNEL_V2").field("MeasurementUnit", &self.MeasurementUnit).field("ChannelNameSize", &self.ChannelNameSize).field("ChannelName", &self.ChannelName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_CHANNEL_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_CHANNEL_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_CHANNEL_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2664,8 +2664,8 @@ impl ::core::fmt::Debug for EMI_MEASUREMENT_DATA_V2 {
         f.debug_struct("EMI_MEASUREMENT_DATA_V2").field("ChannelData", &self.ChannelData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_DATA_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_MEASUREMENT_DATA_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_MEASUREMENT_DATA_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2694,8 +2694,8 @@ impl ::core::fmt::Debug for EMI_METADATA_SIZE {
         f.debug_struct("EMI_METADATA_SIZE").field("MetadataSize", &self.MetadataSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_METADATA_SIZE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_METADATA_SIZE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_SIZE {
     fn eq(&self, other: &Self) -> bool {
@@ -2729,8 +2729,8 @@ impl ::core::fmt::Debug for EMI_METADATA_V1 {
         f.debug_struct("EMI_METADATA_V1").field("MeasurementUnit", &self.MeasurementUnit).field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize).field("MeteredHardwareName", &self.MeteredHardwareName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_METADATA_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_METADATA_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2763,8 +2763,8 @@ impl ::core::fmt::Debug for EMI_METADATA_V2 {
         f.debug_struct("EMI_METADATA_V2").field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("ChannelCount", &self.ChannelCount).field("Channels", &self.Channels).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_METADATA_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_METADATA_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_METADATA_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2793,8 +2793,8 @@ impl ::core::fmt::Debug for EMI_VERSION {
         f.debug_struct("EMI_VERSION").field("EmiVersion", &self.EmiVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EMI_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMI_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EMI_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -2826,8 +2826,8 @@ impl ::core::fmt::Debug for GLOBAL_MACHINE_POWER_POLICY {
         f.debug_struct("GLOBAL_MACHINE_POWER_POLICY").field("Revision", &self.Revision).field("LidOpenWakeAc", &self.LidOpenWakeAc).field("LidOpenWakeDc", &self.LidOpenWakeDc).field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GLOBAL_MACHINE_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLOBAL_MACHINE_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GLOBAL_MACHINE_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -2862,8 +2862,8 @@ impl ::core::fmt::Debug for GLOBAL_POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBAL_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLOBAL_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBAL_POWER_POLICY {
@@ -2908,8 +2908,8 @@ impl ::core::fmt::Debug for GLOBAL_USER_POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBAL_USER_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLOBAL_USER_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBAL_USER_POWER_POLICY {
@@ -2954,8 +2954,8 @@ impl ::core::convert::From<::core::option::Option<HPOWERNOTIFY>> for HPOWERNOTIF
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPOWERNOTIFY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPOWERNOTIFY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -3001,8 +3001,8 @@ impl ::core::fmt::Debug for MACHINE_POWER_POLICY {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MACHINE_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MACHINE_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MACHINE_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -3033,8 +3033,8 @@ impl ::core::fmt::Debug for MACHINE_PROCESSOR_POWER_POLICY {
         f.debug_struct("MACHINE_PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("ProcessorPolicyAc", &self.ProcessorPolicyAc).field("ProcessorPolicyDc", &self.ProcessorPolicyDc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MACHINE_PROCESSOR_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MACHINE_PROCESSOR_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -3065,8 +3065,8 @@ impl ::core::fmt::Debug for POWERBROADCAST_SETTING {
         f.debug_struct("POWERBROADCAST_SETTING").field("PowerSetting", &self.PowerSetting).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POWERBROADCAST_SETTING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWERBROADCAST_SETTING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POWERBROADCAST_SETTING {
     fn eq(&self, other: &Self) -> bool {
@@ -3097,8 +3097,8 @@ impl ::core::fmt::Debug for POWER_ACTION_POLICY {
         f.debug_struct("POWER_ACTION_POLICY").field("Action", &self.Action).field("Flags", &self.Flags).field("EventCode", &self.EventCode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_ACTION_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for POWER_ACTION_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -3133,8 +3133,8 @@ impl ::core::fmt::Debug for POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POWER_POLICY {
@@ -3168,8 +3168,8 @@ impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO {
         f.debug_struct("PROCESSOR_OBJECT_INFO").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSOR_OBJECT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3201,8 +3201,8 @@ impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO_EX {
         f.debug_struct("PROCESSOR_OBJECT_INFO_EX").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).field("InitialApicId", &self.InitialApicId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSOR_OBJECT_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -3236,8 +3236,8 @@ impl ::core::fmt::Debug for PROCESSOR_POWER_INFORMATION {
         f.debug_struct("PROCESSOR_POWER_INFORMATION").field("Number", &self.Number).field("MaxMhz", &self.MaxMhz).field("CurrentMhz", &self.CurrentMhz).field("MhzLimit", &self.MhzLimit).field("MaxIdleState", &self.MaxIdleState).field("CurrentIdleState", &self.CurrentIdleState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSOR_POWER_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSOR_POWER_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3271,8 +3271,8 @@ impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY {
         f.debug_struct("PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("DynamicThrottle", &self.DynamicThrottle).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).field("PolicyCount", &self.PolicyCount).field("Policy", &self.Policy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSOR_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -3307,8 +3307,8 @@ impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY_INFO {
         f.debug_struct("PROCESSOR_POWER_POLICY_INFO").field("TimeCheck", &self.TimeCheck).field("DemoteLimit", &self.DemoteLimit).field("PromoteLimit", &self.PromoteLimit).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSOR_POWER_POLICY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3341,8 +3341,8 @@ impl ::core::fmt::Debug for SET_POWER_SETTING_VALUE {
         f.debug_struct("SET_POWER_SETTING_VALUE").field("Version", &self.Version).field("Guid", &self.Guid).field("PowerCondition", &self.PowerCondition).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SET_POWER_SETTING_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_POWER_SETTING_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SET_POWER_SETTING_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -3400,8 +3400,8 @@ impl ::core::fmt::Debug for SYSTEM_BATTERY_STATE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_BATTERY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_BATTERY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_BATTERY_STATE {
@@ -3504,8 +3504,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_CAPABILITIES {
@@ -3572,8 +3572,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_INFORMATION {
         f.debug_struct("SYSTEM_POWER_INFORMATION").field("MaxIdlenessAllowed", &self.MaxIdlenessAllowed).field("Idleness", &self.Idleness).field("TimeRemaining", &self.TimeRemaining).field("CoolingMode", &self.CoolingMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_POWER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3611,8 +3611,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_LEVEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_LEVEL {
@@ -3705,8 +3705,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_POWER_POLICY {
@@ -3770,8 +3770,8 @@ impl ::core::fmt::Debug for SYSTEM_POWER_STATUS {
         f.debug_struct("SYSTEM_POWER_STATUS").field("ACLineStatus", &self.ACLineStatus).field("BatteryFlag", &self.BatteryFlag).field("BatteryLifePercent", &self.BatteryLifePercent).field("SystemStatusFlag", &self.SystemStatusFlag).field("BatteryLifeTime", &self.BatteryLifeTime).field("BatteryFullLifeTime", &self.BatteryFullLifeTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POWER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_POWER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -3805,8 +3805,8 @@ impl ::core::fmt::Debug for THERMAL_EVENT {
         f.debug_struct("THERMAL_EVENT").field("Version", &self.Version).field("Size", &self.Size).field("Type", &self.Type).field("Temperature", &self.Temperature).field("TripPointTemperature", &self.TripPointTemperature).field("Initiator", &self.Initiator).finish()
     }
 }
-unsafe impl ::windows::core::Abi for THERMAL_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THERMAL_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for THERMAL_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -3855,8 +3855,8 @@ impl ::core::fmt::Debug for THERMAL_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for THERMAL_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THERMAL_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for THERMAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -3898,8 +3898,8 @@ impl ::core::fmt::Debug for THERMAL_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for THERMAL_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THERMAL_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for THERMAL_POLICY {
@@ -3933,8 +3933,8 @@ impl ::core::fmt::Debug for THERMAL_WAIT_READ {
         f.debug_struct("THERMAL_WAIT_READ").field("Timeout", &self.Timeout).field("LowTemperature", &self.LowTemperature).field("HighTemperature", &self.HighTemperature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for THERMAL_WAIT_READ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THERMAL_WAIT_READ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for THERMAL_WAIT_READ {
     fn eq(&self, other: &Self) -> bool {
@@ -4012,8 +4012,8 @@ impl ::core::fmt::Debug for USER_POWER_POLICY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_POWER_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_POWER_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_POWER_POLICY {
@@ -4067,8 +4067,8 @@ impl ::core::fmt::Debug for WAKE_ALARM_INFORMATION {
         f.debug_struct("WAKE_ALARM_INFORMATION").field("TimerIdentifier", &self.TimerIdentifier).field("Timeout", &self.Timeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WAKE_ALARM_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WAKE_ALARM_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WAKE_ALARM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {

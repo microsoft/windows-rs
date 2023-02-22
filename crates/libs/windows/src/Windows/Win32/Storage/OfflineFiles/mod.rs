@@ -42,16 +42,11 @@ impl IEnumOfflineFilesItems {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOfflineFilesItems> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesItems>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumOfflineFilesItems, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumOfflineFilesItems {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumOfflineFilesItems {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -65,6 +60,11 @@ impl ::core::fmt::Debug for IEnumOfflineFilesItems {
 }
 unsafe impl ::windows::core::Vtable for IEnumOfflineFilesItems {
     type Vtable = IEnumOfflineFilesItems_Vtbl;
+}
+impl ::core::clone::Clone for IEnumOfflineFilesItems {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumOfflineFilesItems {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda70e815_c361_4407_bc0b_0d7046e5f2cd);
@@ -92,16 +92,11 @@ impl IEnumOfflineFilesSettings {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesSettings>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumOfflineFilesSettings, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumOfflineFilesSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumOfflineFilesSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -115,6 +110,11 @@ impl ::core::fmt::Debug for IEnumOfflineFilesSettings {
 }
 unsafe impl ::windows::core::Vtable for IEnumOfflineFilesSettings {
     type Vtable = IEnumOfflineFilesSettings_Vtbl;
+}
+impl ::core::clone::Clone for IEnumOfflineFilesSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumOfflineFilesSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x729680c4_1a38_47bc_9e5c_02c51562ac30);
@@ -204,8 +204,8 @@ impl IOfflineFilesCache {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
@@ -215,8 +215,8 @@ impl IOfflineFilesCache {
         P3: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P4: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -229,8 +229,8 @@ impl IOfflineFilesCache {
         (::windows::core::Vtable::vtable(self).RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetLocation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetDiskSpaceInformation)(::windows::core::Vtable::as_raw(self), pcbvolumetotal, pcblimit, pcbused, pcbunpinnedlimit, pcbunpinnedused).ok()
@@ -249,12 +249,12 @@ impl IOfflineFilesCache {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesSetting>();
+        (::windows::core::Vtable::vtable(self).GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumSettingObjects)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesSettings>();
+        (::windows::core::Vtable::vtable(self).EnumSettingObjects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -266,11 +266,6 @@ impl IOfflineFilesCache {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesCache, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesCache {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesCache {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -284,6 +279,11 @@ impl ::core::fmt::Debug for IOfflineFilesCache {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesCache {
     type Vtable = IOfflineFilesCache_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesCache {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesCache {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855d6203_7914_48b9_8d40_4c56f5acffc5);
@@ -413,8 +413,8 @@ impl IOfflineFilesCache2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.FindItem)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), dwqueryflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindItemEx<P0, P1, P2, P3, P4>(&self, pszpath: P0, pincludefilefilter: P1, pincludedirfilter: P2, pexcludefilefilter: P3, pexcludedirfilter: P4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem>
     where
@@ -424,8 +424,8 @@ impl IOfflineFilesCache2 {
         P3: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P4: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.FindItemEx)(::windows::core::Vtable::as_raw(self), pszpath.into().abi(), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwqueryflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -438,8 +438,8 @@ impl IOfflineFilesCache2 {
         (::windows::core::Vtable::vtable(self).base__.RenameItem)(::windows::core::Vtable::as_raw(self), pszpathoriginal.into().abi(), pszpathnew.into().abi(), breplaceifexists.into()).ok()
     }
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLocation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetLocation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDiskSpaceInformation(&self, pcbvolumetotal: *mut u64, pcblimit: *mut u64, pcbused: *mut u64, pcbunpinnedlimit: *mut u64, pcbunpinnedused: *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.GetDiskSpaceInformation)(::windows::core::Vtable::as_raw(self), pcbvolumetotal, pcblimit, pcbused, pcbunpinnedlimit, pcbunpinnedused).ok()
@@ -458,12 +458,12 @@ impl IOfflineFilesCache2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesSetting>();
+        (::windows::core::Vtable::vtable(self).base__.GetSettingObject)(::windows::core::Vtable::as_raw(self), pszsettingname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumSettingObjects)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesSettings>();
+        (::windows::core::Vtable::vtable(self).base__.EnumSettingObjects)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -485,11 +485,6 @@ impl IOfflineFilesCache2 {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesCache2, ::windows::core::IUnknown, IOfflineFilesCache);
-impl ::core::clone::Clone for IOfflineFilesCache2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesCache2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -503,6 +498,11 @@ impl ::core::fmt::Debug for IOfflineFilesCache2 {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesCache2 {
     type Vtable = IOfflineFilesCache2_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesCache2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesCache2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c075039_1551_4ed9_8781_56705c04d3c0);
@@ -528,40 +528,35 @@ impl IOfflineFilesChangeInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDeletedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsDeletedOffline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsDeletedOffline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCreatedOffline(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsCreatedOffline)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsCreatedOffline)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLocallyModifiedData(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsLocallyModifiedData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsLocallyModifiedData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLocallyModifiedAttributes(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsLocallyModifiedAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsLocallyModifiedAttributes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLocallyModifiedTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsLocallyModifiedTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsLocallyModifiedTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesChangeInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesChangeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesChangeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -575,6 +570,11 @@ impl ::core::fmt::Debug for IOfflineFilesChangeInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesChangeInfo {
     type Vtable = IOfflineFilesChangeInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesChangeInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesChangeInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa96e6fa4_e0d1_4c29_960b_ee508fe68c72);
@@ -638,16 +638,11 @@ impl IOfflineFilesConnectionInfo {
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TransitionOffline)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags, bforceopenfilesclosed.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).TransitionOffline)(::windows::core::Vtable::as_raw(self), hwndparent.into(), dwflags, bforceopenfilesclosed.into(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesConnectionInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesConnectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesConnectionInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -661,6 +656,11 @@ impl ::core::fmt::Debug for IOfflineFilesConnectionInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesConnectionInfo {
     type Vtable = IOfflineFilesConnectionInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesConnectionInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesConnectionInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefb23a09_a867_4be8_83a6_86969a7d0856);
@@ -688,16 +688,16 @@ pub struct IOfflineFilesConnectionInfo_Vtbl {
 pub struct IOfflineFilesDirectoryItem(::windows::core::IUnknown);
 impl IOfflineFilesDirectoryItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_ITEM_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Refresh)(::windows::core::Vtable::as_raw(self), dwqueryflags).ok()
@@ -705,16 +705,11 @@ impl IOfflineFilesDirectoryItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesDirectoryItem, ::windows::core::IUnknown, IOfflineFilesItem);
-impl ::core::clone::Clone for IOfflineFilesDirectoryItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesDirectoryItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -729,6 +724,11 @@ impl ::core::fmt::Debug for IOfflineFilesDirectoryItem {
 unsafe impl ::windows::core::Vtable for IOfflineFilesDirectoryItem {
     type Vtable = IOfflineFilesDirectoryItem_Vtbl;
 }
+impl ::core::clone::Clone for IOfflineFilesDirectoryItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesDirectoryItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2273597a_a08c_4a00_a37a_c1ae4e9a1cfd);
 }
@@ -742,20 +742,15 @@ pub struct IOfflineFilesDirectoryItem_Vtbl {
 pub struct IOfflineFilesDirtyInfo(::windows::core::IUnknown);
 impl IOfflineFilesDirtyInfo {
     pub unsafe fn LocalDirtyByteCount(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LocalDirtyByteCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Vtable::vtable(self).LocalDirtyByteCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoteDirtyByteCount(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RemoteDirtyByteCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Vtable::vtable(self).RemoteDirtyByteCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesDirtyInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesDirtyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesDirtyInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -769,6 +764,11 @@ impl ::core::fmt::Debug for IOfflineFilesDirtyInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesDirtyInfo {
     type Vtable = IOfflineFilesDirtyInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesDirtyInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesDirtyInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f50ce33_bac9_4eaa_a11d_da0e527d047d);
@@ -787,20 +787,15 @@ impl IOfflineFilesErrorInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRawData(&self) -> ::windows::core::Result<*mut super::super::System::Com::BYTE_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRawData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut super::super::System::Com::BYTE_BLOB>();
+        (::windows::core::Vtable::vtable(self).GetRawData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesErrorInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -814,6 +809,11 @@ impl ::core::fmt::Debug for IOfflineFilesErrorInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesErrorInfo {
     type Vtable = IOfflineFilesErrorInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7112fa5f_7571_435a_8eb7_195c7c1429bc);
@@ -979,11 +979,6 @@ impl IOfflineFilesEvents {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -997,6 +992,11 @@ impl ::core::fmt::Debug for IOfflineFilesEvents {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesEvents {
     type Vtable = IOfflineFilesEvents_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25585c1_0caa_4eb1_873b_1cae5b77c314);
@@ -1227,11 +1227,6 @@ impl IOfflineFilesEvents2 {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEvents2, ::windows::core::IUnknown, IOfflineFilesEvents);
-impl ::core::clone::Clone for IOfflineFilesEvents2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesEvents2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1245,6 +1240,11 @@ impl ::core::fmt::Debug for IOfflineFilesEvents2 {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesEvents2 {
     type Vtable = IOfflineFilesEvents2_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesEvents2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ead8f56_ff76_4faa_a795_6f6ef792498b);
@@ -1464,11 +1464,6 @@ impl IOfflineFilesEvents3 {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEvents3, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2);
-impl ::core::clone::Clone for IOfflineFilesEvents3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesEvents3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1482,6 +1477,11 @@ impl ::core::fmt::Debug for IOfflineFilesEvents3 {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesEvents3 {
     type Vtable = IOfflineFilesEvents3_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesEvents3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ba04a45_ee69_42f0_9ab1_7db5c8805808);
@@ -1704,11 +1704,6 @@ impl IOfflineFilesEvents4 {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEvents4, ::windows::core::IUnknown, IOfflineFilesEvents, IOfflineFilesEvents2, IOfflineFilesEvents3);
-impl ::core::clone::Clone for IOfflineFilesEvents4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesEvents4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1722,6 +1717,11 @@ impl ::core::fmt::Debug for IOfflineFilesEvents4 {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesEvents4 {
     type Vtable = IOfflineFilesEvents4_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesEvents4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesEvents4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd69b1e_c7d2_473e_b35f_9d8c24c0c484);
@@ -1748,11 +1748,6 @@ impl IOfflineFilesEventsFilter {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesEventsFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesEventsFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesEventsFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1766,6 +1761,11 @@ impl ::core::fmt::Debug for IOfflineFilesEventsFilter {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesEventsFilter {
     type Vtable = IOfflineFilesEventsFilter_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesEventsFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesEventsFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33fc4e1b_0716_40fa_ba65_6e62a84a846f);
@@ -1783,16 +1783,16 @@ pub struct IOfflineFilesEventsFilter_Vtbl {
 pub struct IOfflineFilesFileItem(::windows::core::IUnknown);
 impl IOfflineFilesFileItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_ITEM_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Refresh)(::windows::core::Vtable::as_raw(self), dwqueryflags).ok()
@@ -1800,28 +1800,23 @@ impl IOfflineFilesFileItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSparse(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsSparse)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsSparse)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEncrypted(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsEncrypted)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsEncrypted)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesFileItem, ::windows::core::IUnknown, IOfflineFilesItem);
-impl ::core::clone::Clone for IOfflineFilesFileItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesFileItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1835,6 +1830,11 @@ impl ::core::fmt::Debug for IOfflineFilesFileItem {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesFileItem {
     type Vtable = IOfflineFilesFileItem_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesFileItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesFileItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dfadead_26c2_4eff_8a72_6b50723d9a00);
@@ -1857,8 +1857,8 @@ pub struct IOfflineFilesFileItem_Vtbl {
 pub struct IOfflineFilesFileSysInfo(::windows::core::IUnknown);
 impl IOfflineFilesFileSysInfo {
     pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), copy, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetAttributes)(::windows::core::Vtable::as_raw(self), copy, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1866,16 +1866,11 @@ impl IOfflineFilesFileSysInfo {
         (::windows::core::Vtable::vtable(self).GetTimes)(::windows::core::Vtable::as_raw(self), copy, pftcreationtime, pftlastwritetime, pftchangetime, pftlastaccesstime).ok()
     }
     pub unsafe fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), copy, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), copy, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesFileSysInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesFileSysInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesFileSysInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1889,6 +1884,11 @@ impl ::core::fmt::Debug for IOfflineFilesFileSysInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesFileSysInfo {
     type Vtable = IOfflineFilesFileSysInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesFileSysInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesFileSysInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1a163f_7bfd_4d88_9c66_96ea9a6a3d6b);
@@ -1911,16 +1911,11 @@ impl IOfflineFilesGhostInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsGhosted(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsGhosted)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsGhosted)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesGhostInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesGhostInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesGhostInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1934,6 +1929,11 @@ impl ::core::fmt::Debug for IOfflineFilesGhostInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesGhostInfo {
     type Vtable = IOfflineFilesGhostInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesGhostInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesGhostInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b09d48c_8ab5_464f_a755_a59d92f99429);
@@ -1952,16 +1952,16 @@ pub struct IOfflineFilesGhostInfo_Vtbl {
 pub struct IOfflineFilesItem(::windows::core::IUnknown);
 impl IOfflineFilesItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_ITEM_TYPE>();
+        (::windows::core::Vtable::vtable(self).GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Refresh)(::windows::core::Vtable::as_raw(self), dwqueryflags).ok()
@@ -1969,16 +1969,11 @@ impl IOfflineFilesItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1992,6 +1987,11 @@ impl ::core::fmt::Debug for IOfflineFilesItem {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesItem {
     type Vtable = IOfflineFilesItem_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a753da6_e044_4f12_a718_5d14d079a906);
@@ -2014,8 +2014,8 @@ pub struct IOfflineFilesItem_Vtbl {
 pub struct IOfflineFilesItemContainer(::windows::core::IUnknown);
 impl IOfflineFilesItemContainer {
     pub unsafe fn EnumItems(&self, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumItems)(::windows::core::Vtable::as_raw(self), dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesItems>();
+        (::windows::core::Vtable::vtable(self).EnumItems)(::windows::core::Vtable::as_raw(self), dwqueryflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumItemsEx<P0, P1, P2, P3>(&self, pincludefilefilter: P0, pincludedirfilter: P1, pexcludefilefilter: P2, pexcludedirfilter: P3, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems>
     where
@@ -2024,16 +2024,11 @@ impl IOfflineFilesItemContainer {
         P2: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
         P3: ::std::convert::Into<::windows::core::InParam<IOfflineFilesItemFilter>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumItemsEx)(::windows::core::Vtable::as_raw(self), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwenumflags, dwqueryflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumOfflineFilesItems>();
+        (::windows::core::Vtable::vtable(self).EnumItemsEx)(::windows::core::Vtable::as_raw(self), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), dwenumflags, dwqueryflags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesItemContainer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesItemContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesItemContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2047,6 +2042,11 @@ impl ::core::fmt::Debug for IOfflineFilesItemContainer {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesItemContainer {
     type Vtable = IOfflineFilesItemContainer_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesItemContainer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesItemContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3836f049_9413_45dd_bf46_b5aaa82dc310);
@@ -2075,11 +2075,6 @@ impl IOfflineFilesItemFilter {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesItemFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesItemFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesItemFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2093,6 +2088,11 @@ impl ::core::fmt::Debug for IOfflineFilesItemFilter {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesItemFilter {
     type Vtable = IOfflineFilesItemFilter_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesItemFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesItemFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b5a26c_dc05_4f20_ada4_551f1077be5c);
@@ -2115,8 +2115,8 @@ impl IOfflineFilesPinInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsPinned)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsPinned)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2140,11 +2140,6 @@ impl IOfflineFilesPinInfo {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesPinInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesPinInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesPinInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2158,6 +2153,11 @@ impl ::core::fmt::Debug for IOfflineFilesPinInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesPinInfo {
     type Vtable = IOfflineFilesPinInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesPinInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b2b0655_b3fd_497d_adeb_bd156bc8355b);
@@ -2194,8 +2194,8 @@ impl IOfflineFilesPinInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsPinned)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsPinned)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2220,16 +2220,11 @@ impl IOfflineFilesPinInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPartlyPinned(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsPartlyPinned)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsPartlyPinned)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesPinInfo2, ::windows::core::IUnknown, IOfflineFilesPinInfo);
-impl ::core::clone::Clone for IOfflineFilesPinInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesPinInfo2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2243,6 +2238,11 @@ impl ::core::fmt::Debug for IOfflineFilesPinInfo2 {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesPinInfo2 {
     type Vtable = IOfflineFilesPinInfo2_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesPinInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesPinInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x623c58a2_42ed_4ad7_b69a_0f1b30a72d0d);
@@ -2263,25 +2263,20 @@ impl IOfflineFilesProgress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Begin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).Begin)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryAbort(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueryAbort)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).QueryAbort)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn End(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).End)(::windows::core::Vtable::as_raw(self), hrresult).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesProgress, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2295,6 +2290,11 @@ impl ::core::fmt::Debug for IOfflineFilesProgress {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesProgress {
     type Vtable = IOfflineFilesProgress_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesProgress {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfad63237_c55b_4911_9850_bcf96d4c979e);
@@ -2318,16 +2318,16 @@ pub struct IOfflineFilesProgress_Vtbl {
 pub struct IOfflineFilesServerItem(::windows::core::IUnknown);
 impl IOfflineFilesServerItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_ITEM_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Refresh)(::windows::core::Vtable::as_raw(self), dwqueryflags).ok()
@@ -2335,16 +2335,11 @@ impl IOfflineFilesServerItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesServerItem, ::windows::core::IUnknown, IOfflineFilesItem);
-impl ::core::clone::Clone for IOfflineFilesServerItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesServerItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2359,6 +2354,11 @@ impl ::core::fmt::Debug for IOfflineFilesServerItem {
 unsafe impl ::windows::core::Vtable for IOfflineFilesServerItem {
     type Vtable = IOfflineFilesServerItem_Vtbl;
 }
+impl ::core::clone::Clone for IOfflineFilesServerItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IOfflineFilesServerItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b1c9576_a92b_4151_8e9e_7c7b3ec2e016);
 }
@@ -2372,12 +2372,12 @@ pub struct IOfflineFilesServerItem_Vtbl {
 pub struct IOfflineFilesSetting(::windows::core::IUnknown);
 impl IOfflineFilesSetting {
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetValueType(&self) -> ::windows::core::Result<OFFLINEFILES_SETTING_VALUE_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValueType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_SETTING_VALUE_TYPE>();
+        (::windows::core::Vtable::vtable(self).GetValueType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2385,8 +2385,8 @@ impl IOfflineFilesSetting {
         (::windows::core::Vtable::vtable(self).GetPreference)(::windows::core::Vtable::as_raw(self), pvarvalue, dwscope).ok()
     }
     pub unsafe fn GetPreferenceScope(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPreferenceScope)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetPreferenceScope)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2402,8 +2402,8 @@ impl IOfflineFilesSetting {
         (::windows::core::Vtable::vtable(self).GetPolicy)(::windows::core::Vtable::as_raw(self), pvarvalue, dwscope).ok()
     }
     pub unsafe fn GetPolicyScope(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPolicyScope)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetPolicyScope)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2412,11 +2412,6 @@ impl IOfflineFilesSetting {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSetting, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesSetting {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSetting {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2430,6 +2425,11 @@ impl ::core::fmt::Debug for IOfflineFilesSetting {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSetting {
     type Vtable = IOfflineFilesSetting_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSetting {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSetting {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd871d3f7_f613_48a1_827e_7a34e560fff6);
@@ -2465,26 +2465,21 @@ pub struct IOfflineFilesSetting_Vtbl {
 pub struct IOfflineFilesShareInfo(::windows::core::IUnknown);
 impl IOfflineFilesShareInfo {
     pub unsafe fn GetShareItem(&self) -> ::windows::core::Result<IOfflineFilesShareItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetShareItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesShareItem>();
+        (::windows::core::Vtable::vtable(self).GetShareItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetShareCachingMode(&self) -> ::windows::core::Result<OFFLINEFILES_CACHING_MODE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetShareCachingMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_CACHING_MODE>();
+        (::windows::core::Vtable::vtable(self).GetShareCachingMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShareDfsJunction(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsShareDfsJunction)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsShareDfsJunction)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesShareInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesShareInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesShareInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2498,6 +2493,11 @@ impl ::core::fmt::Debug for IOfflineFilesShareInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesShareInfo {
     type Vtable = IOfflineFilesShareInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesShareInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesShareInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
@@ -2518,16 +2518,16 @@ pub struct IOfflineFilesShareInfo_Vtbl {
 pub struct IOfflineFilesShareItem(::windows::core::IUnknown);
 impl IOfflineFilesShareItem {
     pub unsafe fn GetItemType(&self) -> ::windows::core::Result<OFFLINEFILES_ITEM_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_ITEM_TYPE>();
+        (::windows::core::Vtable::vtable(self).base__.GetItemType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetPath)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentItem(&self) -> ::windows::core::Result<IOfflineFilesItem> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesItem>();
+        (::windows::core::Vtable::vtable(self).base__.GetParentItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self, dwqueryflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.Refresh)(::windows::core::Vtable::as_raw(self), dwqueryflags).ok()
@@ -2535,16 +2535,11 @@ impl IOfflineFilesShareItem {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMarkedForDeletion(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.IsMarkedForDeletion)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesShareItem, ::windows::core::IUnknown, IOfflineFilesItem);
-impl ::core::clone::Clone for IOfflineFilesShareItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesShareItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2558,6 +2553,11 @@ impl ::core::fmt::Debug for IOfflineFilesShareItem {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesShareItem {
     type Vtable = IOfflineFilesShareItem_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesShareItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesShareItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab7e48d_4804_41b5_a44d_0f199b06b145);
@@ -2574,14 +2574,14 @@ impl IOfflineFilesSimpleProgress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Begin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.Begin)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryAbort(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.QueryAbort)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.QueryAbort)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn End(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.End)(::windows::core::Vtable::as_raw(self), hrresult).ok()
@@ -2590,23 +2590,18 @@ impl IOfflineFilesSimpleProgress {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_OP_RESPONSE>();
+        (::windows::core::Vtable::vtable(self).ItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn ItemResult<P0>(&self, pszfile: P0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_OP_RESPONSE>();
+        (::windows::core::Vtable::vtable(self).ItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSimpleProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
-impl ::core::clone::Clone for IOfflineFilesSimpleProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSimpleProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2620,6 +2615,11 @@ impl ::core::fmt::Debug for IOfflineFilesSimpleProgress {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSimpleProgress {
     type Vtable = IOfflineFilesSimpleProgress_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSimpleProgress {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSimpleProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc34f7f9b_c43d_4f9d_a776_c0eb6de5d401);
@@ -2645,11 +2645,6 @@ impl IOfflineFilesSuspend {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSuspend, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesSuspend {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSuspend {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2663,6 +2658,11 @@ impl ::core::fmt::Debug for IOfflineFilesSuspend {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSuspend {
     type Vtable = IOfflineFilesSuspend_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSuspend {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSuspend {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c4560f_bc0b_48ca_ad9d_34cb528d99a9);
@@ -2687,11 +2687,6 @@ impl IOfflineFilesSuspendInfo {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSuspendInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesSuspendInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSuspendInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2705,6 +2700,11 @@ impl ::core::fmt::Debug for IOfflineFilesSuspendInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSuspendInfo {
     type Vtable = IOfflineFilesSuspendInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSuspendInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSuspendInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa457c25b_4e9c_4b04_85af_8932ccd97889);
@@ -2730,11 +2730,6 @@ impl IOfflineFilesSyncConflictHandler {
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncConflictHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesSyncConflictHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSyncConflictHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2748,6 +2743,11 @@ impl ::core::fmt::Debug for IOfflineFilesSyncConflictHandler {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSyncConflictHandler {
     type Vtable = IOfflineFilesSyncConflictHandler_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSyncConflictHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncConflictHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6dd5092_c65c_46b6_97b8_fadd08e7e1be);
@@ -2765,20 +2765,20 @@ impl IOfflineFilesSyncErrorInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRawData(&self) -> ::windows::core::Result<*mut super::super::System::Com::BYTE_BLOB> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetRawData)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut super::super::System::Com::BYTE_BLOB>();
+        (::windows::core::Vtable::vtable(self).base__.GetRawData)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSyncOperation(&self) -> ::windows::core::Result<OFFLINEFILES_SYNC_OPERATION> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSyncOperation)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_SYNC_OPERATION>();
+        (::windows::core::Vtable::vtable(self).GetSyncOperation)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetItemChangeFlags(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItemChangeFlags)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetItemChangeFlags)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2791,24 +2791,19 @@ impl IOfflineFilesSyncErrorInfo {
         (::windows::core::Vtable::vtable(self).InfoAvailable)(::windows::core::Vtable::as_raw(self), pblocalinfo, pbremoteinfo, pboriginalinfo).ok()
     }
     pub unsafe fn GetLocalInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocalInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesSyncErrorItemInfo>();
+        (::windows::core::Vtable::vtable(self).GetLocalInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRemoteInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRemoteInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesSyncErrorItemInfo>();
+        (::windows::core::Vtable::vtable(self).GetRemoteInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOriginalInfo(&self) -> ::windows::core::Result<IOfflineFilesSyncErrorItemInfo> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOriginalInfo)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IOfflineFilesSyncErrorItemInfo>();
+        (::windows::core::Vtable::vtable(self).GetOriginalInfo)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorInfo, ::windows::core::IUnknown, IOfflineFilesErrorInfo);
-impl ::core::clone::Clone for IOfflineFilesSyncErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2822,6 +2817,11 @@ impl ::core::fmt::Debug for IOfflineFilesSyncErrorInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSyncErrorInfo {
     type Vtable = IOfflineFilesSyncErrorInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSyncErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59f95e46_eb54_49d1_be76_de95458d01b0);
@@ -2849,8 +2849,8 @@ pub struct IOfflineFilesSyncErrorInfo_Vtbl {
 pub struct IOfflineFilesSyncErrorItemInfo(::windows::core::IUnknown);
 impl IOfflineFilesSyncErrorItemInfo {
     pub unsafe fn GetFileAttributes(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFileAttributes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetFileAttributes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2858,16 +2858,11 @@ impl IOfflineFilesSyncErrorItemInfo {
         (::windows::core::Vtable::vtable(self).GetFileTimes)(::windows::core::Vtable::as_raw(self), pftlastwrite, pftchange).ok()
     }
     pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Vtable::vtable(self).GetFileSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncErrorItemInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesSyncErrorItemInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSyncErrorItemInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2881,6 +2876,11 @@ impl ::core::fmt::Debug for IOfflineFilesSyncErrorItemInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSyncErrorItemInfo {
     type Vtable = IOfflineFilesSyncErrorItemInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSyncErrorItemInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncErrorItemInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdbaf0d_6a18_4d55_8017_108f7660ba44);
@@ -2903,14 +2903,14 @@ impl IOfflineFilesSyncProgress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Begin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.Begin)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryAbort(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.QueryAbort)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.QueryAbort)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn End(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.End)(::windows::core::Vtable::as_raw(self), hrresult).ok()
@@ -2919,24 +2919,19 @@ impl IOfflineFilesSyncProgress {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_OP_RESPONSE>();
+        (::windows::core::Vtable::vtable(self).SyncItemBegin)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SyncItemResult<P0, P1>(&self, pszfile: P0, hrresult: ::windows::core::HRESULT, perrorinfo: P1) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IOfflineFilesSyncErrorInfo>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, perrorinfo.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<OFFLINEFILES_OP_RESPONSE>();
+        (::windows::core::Vtable::vtable(self).SyncItemResult)(::windows::core::Vtable::as_raw(self), pszfile.into().abi(), hrresult, perrorinfo.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesSyncProgress, ::windows::core::IUnknown, IOfflineFilesProgress);
-impl ::core::clone::Clone for IOfflineFilesSyncProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesSyncProgress {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2950,6 +2945,11 @@ impl ::core::fmt::Debug for IOfflineFilesSyncProgress {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesSyncProgress {
     type Vtable = IOfflineFilesSyncProgress_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesSyncProgress {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesSyncProgress {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6931f49a_6fc7_4c1b_b265_56793fc451b7);
@@ -2968,16 +2968,11 @@ impl IOfflineFilesTransparentCacheInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTransparentlyCached(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsTransparentlyCached)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsTransparentlyCached)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IOfflineFilesTransparentCacheInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IOfflineFilesTransparentCacheInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IOfflineFilesTransparentCacheInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2991,6 +2986,11 @@ impl ::core::fmt::Debug for IOfflineFilesTransparentCacheInfo {
 }
 unsafe impl ::windows::core::Vtable for IOfflineFilesTransparentCacheInfo {
     type Vtable = IOfflineFilesTransparentCacheInfo_Vtbl;
+}
+impl ::core::clone::Clone for IOfflineFilesTransparentCacheInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IOfflineFilesTransparentCacheInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcaf4a01_5b68_4b56_a6a1_8d2786ede8e3);
@@ -3229,8 +3229,8 @@ impl ::core::default::Default for OFFLINEFILES_CACHING_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_CACHING_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_CACHING_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_CACHING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3264,8 +3264,8 @@ impl ::core::default::Default for OFFLINEFILES_COMPARE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_COMPARE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_COMPARE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_COMPARE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3297,8 +3297,8 @@ impl ::core::default::Default for OFFLINEFILES_CONNECT_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_CONNECT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_CONNECT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_CONNECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3400,8 +3400,8 @@ impl ::core::default::Default for OFFLINEFILES_EVENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_EVENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_EVENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_EVENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3429,8 +3429,8 @@ impl ::core::default::Default for OFFLINEFILES_ITEM_COPY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_COPY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_ITEM_COPY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_ITEM_COPY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3458,8 +3458,8 @@ impl ::core::default::Default for OFFLINEFILES_ITEM_TIME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_ITEM_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3489,8 +3489,8 @@ impl ::core::default::Default for OFFLINEFILES_ITEM_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_ITEM_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3526,8 +3526,8 @@ impl ::core::default::Default for OFFLINEFILES_OFFLINE_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_OFFLINE_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_OFFLINE_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_OFFLINE_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3555,8 +3555,8 @@ impl ::core::default::Default for OFFLINEFILES_OP_RESPONSE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_OP_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_OP_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_OP_RESPONSE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3588,8 +3588,8 @@ impl ::core::default::Default for OFFLINEFILES_PATHFILTER_MATCH {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_PATHFILTER_MATCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_PATHFILTER_MATCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_PATHFILTER_MATCH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3621,8 +3621,8 @@ impl ::core::default::Default for OFFLINEFILES_SETTING_VALUE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_SETTING_VALUE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_SETTING_VALUE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_SETTING_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3662,8 +3662,8 @@ impl ::core::default::Default for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3701,8 +3701,8 @@ impl ::core::default::Default for OFFLINEFILES_SYNC_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_SYNC_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_SYNC_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3834,8 +3834,8 @@ impl ::core::default::Default for OFFLINEFILES_SYNC_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLINEFILES_SYNC_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLINEFILES_SYNC_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

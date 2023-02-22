@@ -2795,8 +2795,8 @@ where
 #[inline]
 pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> ::windows::core::Result<*mut CRYPT_XML_OBJECT> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlAddObject ( hsignatureorobject : *const ::core::ffi::c_void , dwflags : u32 , rgproperty : *const CRYPT_XML_PROPERTY , cproperty : u32 , pencoded : *const CRYPT_XML_BLOB , ppobject : *mut *mut CRYPT_XML_OBJECT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len() as _), pencoded, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_OBJECT>();
+    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len() as _), pencoded, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -2844,50 +2844,50 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const ::co
 #[inline]
 pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: CRYPT_XML_FLAGS) -> ::windows::core::Result<*mut CRYPT_XML_ALGORITHM_INFO> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetAlgorithmInfo ( pxmlalgorithm : *const CRYPT_XML_ALGORITHM , dwflags : CRYPT_XML_FLAGS , ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_ALGORITHM_INFO>();
+    CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut CRYPT_XML_DOC_CTXT> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetDocContext ( hcryptxml : *const ::core::ffi::c_void , ppstruct : *mut *mut CRYPT_XML_DOC_CTXT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetDocContext(hcryptxml, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_DOC_CTXT>();
+    CryptXmlGetDocContext(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetReference(hcryptxml: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut CRYPT_XML_REFERENCE> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetReference ( hcryptxml : *const ::core::ffi::c_void , ppstruct : *mut *mut CRYPT_XML_REFERENCE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetReference(hcryptxml, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_REFERENCE>();
+    CryptXmlGetReference(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetSignature(hcryptxml: *const ::core::ffi::c_void) -> ::windows::core::Result<*mut CRYPT_XML_SIGNATURE> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetSignature ( hcryptxml : *const ::core::ffi::c_void , ppstruct : *mut *mut CRYPT_XML_SIGNATURE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetSignature(hcryptxml, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_SIGNATURE>();
+    CryptXmlGetSignature(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetStatus(hcryptxml: *const ::core::ffi::c_void) -> ::windows::core::Result<CRYPT_XML_STATUS> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetStatus ( hcryptxml : *const ::core::ffi::c_void , pstatus : *mut CRYPT_XML_STATUS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetStatus(hcryptxml, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<CRYPT_XML_STATUS>();
+    CryptXmlGetStatus(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetTransforms() -> ::windows::core::Result<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlGetTransforms ( ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlGetTransforms(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG>();
+    CryptXmlGetTransforms(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *const CRYPT_XML_KEY_VALUE) -> ::windows::core::Result<BCRYPT_KEY_HANDLE> {
     ::windows::core::link ! ( "cryptxml.dll""system" fn CryptXmlImportPublicKey ( dwflags : CRYPT_XML_FLAGS , pkeyvalue : *const CRYPT_XML_KEY_VALUE , phkey : *mut BCRYPT_KEY_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CryptXmlImportPublicKey(dwflags, pkeyvalue, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<BCRYPT_KEY_HANDLE>();
+    CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -2983,15 +2983,15 @@ pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const ::core::ffi::c_vo
 #[inline]
 pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, mode: u32, padding: PaddingMode, feedbacksize: u32, direction: Direction, piv: &[u8]) -> ::windows::core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows::core::link ! ( "infocardapi.dll""system" fn GetCryptoTransform ( hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE , mode : u32 , padding : PaddingMode , feedbacksize : u32 , direction : Direction , cbiv : u32 , piv : *const u8 , pphtransform : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len() as _, ::core::mem::transmute(piv.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut INFORMATIONCARD_CRYPTO_HANDLE>();
+    GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len() as _, ::core::mem::transmute(piv.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows::core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows::core::link ! ( "infocardapi.dll""system" fn GetKeyedHash ( hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE , pphhash : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetKeyedHash(hsymmetriccrypto, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut INFORMATIONCARD_CRYPTO_HANDLE>();
+    GetKeyedHash(hsymmetriccrypto, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3064,8 +3064,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ncrypt.dll""system" fn NCryptCreateProtectionDescriptor ( pwszdescriptorstring : :: windows::core::PCWSTR , dwflags : u32 , phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NCryptCreateProtectionDescriptor(pwszdescriptorstring.into().abi(), dwflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::NCRYPT_DESCRIPTOR_HANDLE>();
+    NCryptCreateProtectionDescriptor(pwszdescriptorstring.into().abi(), dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -3329,8 +3329,8 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "ncrypt.dll""system" fn NCryptStreamOpenToProtect ( hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE , dwflags : u32 , hwnd : super::super::Foundation:: HWND , pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO , phstream : *mut super:: NCRYPT_STREAM_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NCryptStreamOpenToProtect(hdescriptor.into(), dwflags, hwnd.into(), pstreaminfo, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    NCryptStreamOpenToProtect(hdescriptor.into(), dwflags, hwnd.into(), pstreaminfo, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3340,8 +3340,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "ncrypt.dll""system" fn NCryptStreamOpenToUnprotect ( pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO , dwflags : u32 , hwnd : super::super::Foundation:: HWND , phstream : *mut super:: NCRYPT_STREAM_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3351,8 +3351,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "ncrypt.dll""system" fn NCryptStreamOpenToUnprotectEx ( pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX , dwflags : u32 , hwnd : super::super::Foundation:: HWND , phstream : *mut super:: NCRYPT_STREAM_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3478,8 +3478,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "infocardapi.dll""system" fn VerifyHash ( hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE , cbhash : u32 , phash : *const u8 , hashalgoid : :: windows::core::PCWSTR , cbsig : u32 , psig : *const u8 , pfverified : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    VerifyHash(hcrypto, phash.len() as _, ::core::mem::transmute(phash.as_ptr()), hashalgoid.into().abi(), psig.len() as _, ::core::mem::transmute(psig.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    VerifyHash(hcrypto, phash.len() as _, ::core::mem::transmute(phash.as_ptr()), hashalgoid.into().abi(), psig.len() as _, ::core::mem::transmute(psig.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -3488,12 +3488,12 @@ pub struct ICertSrvSetup(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetup {
     pub unsafe fn CAErrorId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CAErrorId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).CAErrorId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CAErrorString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CAErrorString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).CAErrorString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3507,8 +3507,8 @@ impl ICertSrvSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCASetupProperty)(::windows::core::Vtable::as_raw(self), propertyid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetCASetupProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3518,44 +3518,44 @@ impl ICertSrvSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPropertyEditable(&self, propertyid: CASetupProperty) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsPropertyEditable)(::windows::core::Vtable::as_raw(self), propertyid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Vtable::vtable(self).IsPropertyEditable)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetSupportedCATypes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSupportedCATypes)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetSupportedCATypes)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProviderNameList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetKeyLengthList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetHashAlgorithmList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetHashAlgorithmList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetHashAlgorithmList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPrivateKeyContainerList(&self, bstrprovidername: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrivateKeyContainerList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetPrivateKeyContainerList)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExistingCACertificates(&self) -> ::windows::core::Result<ICertSrvSetupKeyInformationCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExistingCACertificates)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ICertSrvSetupKeyInformationCollection>();
+        (::windows::core::Vtable::vtable(self).GetExistingCACertificates)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3563,8 +3563,8 @@ impl ICertSrvSetup {
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CAImportPFX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ICertSrvSetupKeyInformation>();
+        (::windows::core::Vtable::vtable(self).CAImportPFX)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrfilename), ::core::mem::transmute_copy(bstrpasswd), boverwriteexistingkey.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3608,12 +3608,6 @@ impl ICertSrvSetup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ICertSrvSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertSrvSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertSrvSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3632,6 +3626,12 @@ unsafe impl ::windows::core::Vtable for ICertSrvSetup {
     type Vtable = ICertSrvSetup_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ICertSrvSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 }
@@ -3641,7 +3641,7 @@ unsafe impl ::windows::core::Interface for ICertSrvSetup {
 pub struct ICertSrvSetup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub CAErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
-    pub CAErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CAErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub InitializeDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bserver: super::super::Foundation::VARIANT_BOOL, bclient: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3667,15 +3667,15 @@ pub struct ICertSrvSetup_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProviderNameList: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetKeyLengthList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetKeyLengthList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: ::std::mem::MaybeUninit<::windows::core::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetKeyLengthList: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetHashAlgorithmList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetHashAlgorithmList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: ::std::mem::MaybeUninit<::windows::core::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetHashAlgorithmList: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetPrivateKeyContainerList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetPrivateKeyContainerList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: ::std::mem::MaybeUninit<::windows::core::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPrivateKeyContainerList: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -3683,19 +3683,19 @@ pub struct ICertSrvSetup_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetExistingCACertificates: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub CAImportPFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfilename: *mut ::core::ffi::c_void, bstrpasswd: *mut ::core::ffi::c_void, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CAImportPFX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfilename: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpasswd: ::std::mem::MaybeUninit<::windows::core::BSTR>, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     CAImportPFX: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetCADistinguishedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcadn: *mut ::core::ffi::c_void, bignoreunicode: super::super::Foundation::VARIANT_BOOL, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, boverwriteexistingcainds: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub SetCADistinguishedName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcadn: ::std::mem::MaybeUninit<::windows::core::BSTR>, bignoreunicode: super::super::Foundation::VARIANT_BOOL, boverwriteexistingkey: super::super::Foundation::VARIANT_BOOL, boverwriteexistingcainds: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetCADistinguishedName: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetDatabaseInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdbdirectory: *mut ::core::ffi::c_void, bstrlogdirectory: *mut ::core::ffi::c_void, bstrsharedfolder: *mut ::core::ffi::c_void, bforceoverwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
+    pub SetDatabaseInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdbdirectory: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrlogdirectory: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrsharedfolder: ::std::mem::MaybeUninit<::windows::core::BSTR>, bforceoverwrite: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDatabaseInformation: usize,
-    pub SetParentCAInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetWebCAInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaconfiguration: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetParentCAInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaconfiguration: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetWebCAInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaconfiguration: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub PreUnInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bclientonly: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
@@ -3710,15 +3710,15 @@ pub struct ICertSrvSetupKeyInformation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformation {
     pub unsafe fn ProviderName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ProviderName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).ProviderName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetProviderName(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProviderName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
     }
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Length)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Length)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLength(&self, lval: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLength)(::windows::core::Vtable::as_raw(self), lval).ok()
@@ -3726,8 +3726,8 @@ impl ICertSrvSetupKeyInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Existing(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Existing)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Vtable::vtable(self).Existing)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3738,15 +3738,15 @@ impl ICertSrvSetupKeyInformation {
         (::windows::core::Vtable::vtable(self).SetExisting)(::windows::core::Vtable::as_raw(self), bval.into()).ok()
     }
     pub unsafe fn ContainerName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ContainerName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).ContainerName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetContainerName(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetContainerName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
     }
     pub unsafe fn HashAlgorithm(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HashAlgorithm)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).HashAlgorithm)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetHashAlgorithm(&self, bstrval: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetHashAlgorithm)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrval)).ok()
@@ -3754,8 +3754,8 @@ impl ICertSrvSetupKeyInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExistingCACertificate(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ExistingCACertificate)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).ExistingCACertificate)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3765,12 +3765,6 @@ impl ICertSrvSetupKeyInformation {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ICertSrvSetupKeyInformation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertSrvSetupKeyInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertSrvSetupKeyInformation {
     fn eq(&self, other: &Self) -> bool {
@@ -3790,6 +3784,12 @@ unsafe impl ::windows::core::Vtable for ICertSrvSetupKeyInformation {
     type Vtable = ICertSrvSetupKeyInformation_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ICertSrvSetupKeyInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 }
@@ -3798,8 +3798,8 @@ unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformation {
 #[doc(hidden)]
 pub struct ICertSrvSetupKeyInformation_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetProviderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -3810,10 +3810,10 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
     pub SetExisting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bval: super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetExisting: usize,
-    pub ContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetContainerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub HashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetHashAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrval: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub ExistingCACertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
@@ -3830,18 +3830,18 @@ pub struct ICertSrvSetupKeyInformationCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformationCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).get_Item)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3854,12 +3854,6 @@ impl ICertSrvSetupKeyInformationCollection {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertSrvSetupKeyInformationCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertSrvSetupKeyInformationCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -3877,6 +3871,12 @@ impl ::core::fmt::Debug for ICertSrvSetupKeyInformationCollection {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for ICertSrvSetupKeyInformationCollection {
     type Vtable = ICertSrvSetupKeyInformationCollection_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ICertSrvSetupKeyInformationCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformationCollection {
@@ -3905,8 +3905,8 @@ pub struct ICertificateEnrollmentPolicyServerSetup(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentPolicyServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ErrorString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).ErrorString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeInstallDefaults)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3914,8 +3914,8 @@ impl ICertificateEnrollmentPolicyServerSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, propertyid: CEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3933,12 +3933,6 @@ impl ICertificateEnrollmentPolicyServerSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificateEnrollmentPolicyServerSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificateEnrollmentPolicyServerSetup {
     fn eq(&self, other: &Self) -> bool {
@@ -3958,6 +3952,12 @@ unsafe impl ::windows::core::Vtable for ICertificateEnrollmentPolicyServerSetup 
     type Vtable = ICertificateEnrollmentPolicyServerSetup_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ICertificateEnrollmentPolicyServerSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentPolicyServerSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 }
@@ -3966,7 +3966,7 @@ unsafe impl ::windows::core::Interface for ICertificateEnrollmentPolicyServerSet
 #[doc(hidden)]
 pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub InitializeInstallDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: CEPSetupProperty, ppropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -3989,8 +3989,8 @@ pub struct ICertificateEnrollmentServerSetup(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ErrorString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).ErrorString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeInstallDefaults)(::windows::core::Vtable::as_raw(self)).ok()
@@ -3998,8 +3998,8 @@ impl ICertificateEnrollmentServerSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, propertyid: CESSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4021,12 +4021,6 @@ impl ICertificateEnrollmentServerSetup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ICertificateEnrollmentServerSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificateEnrollmentServerSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ICertificateEnrollmentServerSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4045,6 +4039,12 @@ unsafe impl ::windows::core::Vtable for ICertificateEnrollmentServerSetup {
     type Vtable = ICertificateEnrollmentServerSetup_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ICertificateEnrollmentServerSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentServerSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 }
@@ -4053,7 +4053,7 @@ unsafe impl ::windows::core::Interface for ICertificateEnrollmentServerSetup {
 #[doc(hidden)]
 pub struct ICertificateEnrollmentServerSetup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub InitializeInstallDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -4063,7 +4063,7 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: CESSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetProperty: usize,
-    pub SetApplicationPoolCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetApplicationPoolCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub UnInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaconfig: *const super::super::System::Com::VARIANT, pauthentication: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -4077,12 +4077,12 @@ pub struct IMSCEPSetup(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSCEPSetup {
     pub unsafe fn MSCEPErrorId(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MSCEPErrorId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).MSCEPErrorId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MSCEPErrorString(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).MSCEPErrorString)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).MSCEPErrorString)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeDefaults(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InitializeDefaults)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4090,8 +4090,8 @@ impl IMSCEPSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMSCEPSetupProperty)(::windows::core::Vtable::as_raw(self), propertyid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetMSCEPSetupProperty)(::windows::core::Vtable::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4104,8 +4104,8 @@ impl IMSCEPSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMSCEPStoreEmpty(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsMSCEPStoreEmpty)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Vtable::vtable(self).IsMSCEPStoreEmpty)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4113,8 +4113,8 @@ impl IMSCEPSetup {
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), bexchange.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetProviderNameList)(::windows::core::Vtable::as_raw(self), bexchange.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4122,8 +4122,8 @@ impl IMSCEPSetup {
     where
         P0: ::std::convert::Into<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), bexchange.into(), ::core::mem::transmute_copy(bstrprovidername), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetKeyLengthList)(::windows::core::Vtable::as_raw(self), bexchange.into(), ::core::mem::transmute_copy(bstrprovidername), &mut result__).from_abi(result__)
     }
     pub unsafe fn Install(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Install)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4137,12 +4137,6 @@ impl IMSCEPSetup {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IMSCEPSetup, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMSCEPSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IMSCEPSetup {
     fn eq(&self, other: &Self) -> bool {
@@ -4162,6 +4156,12 @@ unsafe impl ::windows::core::Vtable for IMSCEPSetup {
     type Vtable = IMSCEPSetup_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IMSCEPSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IMSCEPSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 }
@@ -4171,7 +4171,7 @@ unsafe impl ::windows::core::Interface for IMSCEPSetup {
 pub struct IMSCEPSetup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub MSCEPErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
-    pub MSCEPErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub MSCEPErrorString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub InitializeDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub GetMSCEPSetupProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: MSCEPSetupProperty, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -4181,7 +4181,7 @@ pub struct IMSCEPSetup_Vtbl {
     pub SetMSCEPSetupProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: MSCEPSetupProperty, ppropertyvalue: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetMSCEPSetupProperty: usize,
-    pub SetAccountInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, bstrpassword: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetAccountInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsMSCEPStoreEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbempty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -4191,7 +4191,7 @@ pub struct IMSCEPSetup_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetProviderNameList: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetKeyLengthList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: *mut ::core::ffi::c_void, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetKeyLengthList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bexchange: super::super::Foundation::VARIANT_BOOL, bstrprovidername: ::std::mem::MaybeUninit<::windows::core::BSTR>, pval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetKeyLengthList: usize,
     pub Install: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9921,8 +9921,8 @@ impl ::core::default::Default for BCRYPT_DH_KEY_BLOB_MAGIC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DH_KEY_BLOB_MAGIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DH_KEY_BLOB_MAGIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9948,8 +9948,8 @@ impl ::core::default::Default for BCRYPT_DSA_MAGIC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DSA_MAGIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DSA_MAGIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9975,8 +9975,8 @@ impl ::core::default::Default for BCRYPT_HASH_OPERATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_HASH_OPERATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_HASH_OPERATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_HASH_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10016,8 +10016,8 @@ impl ::core::default::Default for BCRYPT_INTERFACE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_INTERFACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_INTERFACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_INTERFACE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10041,8 +10041,8 @@ impl ::core::default::Default for BCRYPT_MULTI_OPERATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_MULTI_OPERATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_MULTI_OPERATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_MULTI_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10070,8 +10070,8 @@ impl ::core::default::Default for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10138,8 +10138,8 @@ impl ::core::default::Default for BCRYPT_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10202,8 +10202,8 @@ impl ::core::default::Default for BCRYPT_QUERY_PROVIDER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_QUERY_PROVIDER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_QUERY_PROVIDER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10229,8 +10229,8 @@ impl ::core::default::Default for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10291,8 +10291,8 @@ impl ::core::default::Default for BCRYPT_RSAKEY_BLOB_MAGIC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_RSAKEY_BLOB_MAGIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_RSAKEY_BLOB_MAGIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10318,8 +10318,8 @@ impl ::core::default::Default for BCRYPT_TABLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BCRYPT_TABLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10377,8 +10377,8 @@ impl ::core::default::Default for CASetupProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CASetupProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CASetupProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CASetupProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10408,8 +10408,8 @@ impl ::core::default::Default for CEPSetupProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CEPSetupProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CEPSetupProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CEPSetupProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10435,8 +10435,8 @@ impl ::core::default::Default for CERT_BIOMETRIC_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BIOMETRIC_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10494,8 +10494,8 @@ impl ::core::default::Default for CERT_CHAIN_POLICY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN_POLICY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_POLICY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10523,8 +10523,8 @@ impl ::core::default::Default for CERT_CONTROL_STORE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CONTROL_STORE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CONTROL_STORE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10550,8 +10550,8 @@ impl ::core::default::Default for CERT_CREATE_SELFSIGN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CREATE_SELFSIGN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CREATE_SELFSIGN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_CREATE_SELFSIGN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10618,8 +10618,8 @@ impl ::core::default::Default for CERT_FIND_CHAIN_IN_STORE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_FIND_CHAIN_IN_STORE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10758,8 +10758,8 @@ impl ::core::default::Default for CERT_FIND_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_FIND_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_FIND_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_FIND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10828,8 +10828,8 @@ impl ::core::default::Default for CERT_FIND_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_FIND_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_FIND_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_FIND_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10857,8 +10857,8 @@ impl ::core::default::Default for CERT_ID_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ID_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ID_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_ID_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10886,8 +10886,8 @@ impl ::core::default::Default for CERT_KEY_SPEC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_KEY_SPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEY_SPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_KEY_SPEC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10915,8 +10915,8 @@ impl ::core::default::Default for CERT_LOGOTYPE_CHOICE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_CHOICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_CHOICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10942,8 +10942,8 @@ impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -10969,8 +10969,8 @@ impl ::core::default::Default for CERT_LOGOTYPE_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_LOGOTYPE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11016,8 +11016,8 @@ impl ::core::default::Default for CERT_OPEN_STORE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_OPEN_STORE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_OPEN_STORE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11067,8 +11067,8 @@ impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_CONTENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11122,8 +11122,8 @@ impl ::core::default::Default for CERT_QUERY_CONTENT_TYPE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11149,8 +11149,8 @@ impl ::core::default::Default for CERT_QUERY_ENCODING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_ENCODING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_ENCODING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11211,8 +11211,8 @@ impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_FORMAT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11242,8 +11242,8 @@ impl ::core::default::Default for CERT_QUERY_FORMAT_TYPE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11269,8 +11269,8 @@ impl ::core::default::Default for CERT_QUERY_OBJECT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QUERY_OBJECT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QUERY_OBJECT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11328,8 +11328,8 @@ impl ::core::default::Default for CERT_RDN_ATTR_VALUE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_RDN_ATTR_VALUE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_RDN_ATTR_VALUE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11367,8 +11367,8 @@ impl ::core::default::Default for CERT_REVOCATION_STATUS_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_STATUS_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_STATUS_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11396,8 +11396,8 @@ impl ::core::default::Default for CERT_ROOT_PROGRAM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ROOT_PROGRAM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ROOT_PROGRAM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_ROOT_PROGRAM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11474,8 +11474,8 @@ impl ::core::default::Default for CERT_SELECT_CRITERIA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SELECT_CRITERIA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SELECT_CRITERIA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11507,8 +11507,8 @@ impl ::core::default::Default for CERT_STORE_PROV_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STORE_PROV_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STORE_PROV_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_STORE_PROV_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11567,8 +11567,8 @@ impl ::core::default::Default for CERT_STORE_SAVE_AS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_AS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STORE_SAVE_AS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11600,8 +11600,8 @@ impl ::core::default::Default for CERT_STORE_SAVE_TO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_TO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STORE_SAVE_TO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_STORE_SAVE_TO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11629,8 +11629,8 @@ impl ::core::default::Default for CERT_STRING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STRING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STRING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_STRING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11656,8 +11656,8 @@ impl ::core::default::Default for CERT_STRONG_SIGN_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STRONG_SIGN_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_STRONG_SIGN_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11716,8 +11716,8 @@ impl ::core::default::Default for CERT_SYSTEM_STORE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SYSTEM_STORE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11753,8 +11753,8 @@ impl ::core::default::Default for CESSetupProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CESSetupProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CESSetupProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CESSetupProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11780,8 +11780,8 @@ impl ::core::default::Default for CMSG_KEY_AGREE_OPTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11807,8 +11807,8 @@ impl ::core::default::Default for CMSG_KEY_AGREE_ORIGINATOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ORIGINATOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_ORIGINATOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11840,8 +11840,8 @@ impl ::core::default::Default for CRYPT_ACQUIRE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ACQUIRE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ACQUIRE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_ACQUIRE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11900,8 +11900,8 @@ impl ::core::default::Default for CRYPT_CONTEXT_CONFIG_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_CONFIG_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXT_CONFIG_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_CONTEXT_CONFIG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11960,8 +11960,8 @@ impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12020,8 +12020,8 @@ impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DEFAULT_CONTEXT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12053,8 +12053,8 @@ impl ::core::default::Default for CRYPT_ENCODE_OBJECT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ENCODE_OBJECT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ENCODE_OBJECT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_ENCODE_OBJECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12115,8 +12115,8 @@ impl ::core::default::Default for CRYPT_FIND_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_FIND_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_FIND_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_FIND_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12146,8 +12146,8 @@ impl ::core::default::Default for CRYPT_GET_URL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_GET_URL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_GET_URL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_GET_URL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12206,8 +12206,8 @@ impl ::core::default::Default for CRYPT_IMAGE_REF_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_IMAGE_REF_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_IMAGE_REF_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_IMAGE_REF_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12266,8 +12266,8 @@ impl ::core::default::Default for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12384,8 +12384,8 @@ impl ::core::default::Default for CRYPT_KEY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_KEY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12456,8 +12456,8 @@ impl ::core::default::Default for CRYPT_KEY_PARAM_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_PARAM_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_PARAM_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_KEY_PARAM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12489,8 +12489,8 @@ impl ::core::default::Default for CRYPT_MSG_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_MSG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_MSG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_MSG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12520,8 +12520,8 @@ impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12547,8 +12547,8 @@ impl ::core::default::Default for CRYPT_SET_HASH_PARAM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SET_HASH_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SET_HASH_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12604,8 +12604,8 @@ impl ::core::default::Default for CRYPT_SET_PROV_PARAM_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SET_PROV_PARAM_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SET_PROV_PARAM_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12655,8 +12655,8 @@ impl ::core::default::Default for CRYPT_STRING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12690,8 +12690,8 @@ impl ::core::default::Default for CRYPT_TIMESTAMP_RESPONSE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_RESPONSE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12715,8 +12715,8 @@ impl ::core::default::Default for CRYPT_TIMESTAMP_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12744,8 +12744,8 @@ impl ::core::default::Default for CRYPT_VERIFY_CERT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_VERIFY_CERT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12775,8 +12775,8 @@ impl ::core::default::Default for CRYPT_XML_CHARSET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_CHARSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_CHARSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_CHARSET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12804,8 +12804,8 @@ impl ::core::default::Default for CRYPT_XML_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12831,8 +12831,8 @@ impl ::core::default::Default for CRYPT_XML_GROUP_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_GROUP_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_GROUP_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12860,8 +12860,8 @@ impl ::core::default::Default for CRYPT_XML_KEYINFO_SPEC {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_SPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEYINFO_SPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12893,8 +12893,8 @@ impl ::core::default::Default for CRYPT_XML_KEYINFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEYINFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12924,8 +12924,8 @@ impl ::core::default::Default for CRYPT_XML_KEY_VALUE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_VALUE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12957,8 +12957,8 @@ impl ::core::default::Default for CRYPT_XML_PROPERTY_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_PROPERTY_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_PROPERTY_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_PROPERTY_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12992,8 +12992,8 @@ impl ::core::default::Default for CRYPT_XML_STATUS_ERROR_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_ERROR_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_STATUS_ERROR_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13027,8 +13027,8 @@ impl ::core::default::Default for CRYPT_XML_STATUS_INFO_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_INFO_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_STATUS_INFO_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13056,8 +13056,8 @@ impl ::core::default::Default for CRYPT_XML_TRANSFORM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_TRANSFORM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_TRANSFORM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13124,8 +13124,8 @@ impl ::core::default::Default for CRYPT_XML_X509DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_X509DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13165,8 +13165,8 @@ impl ::core::default::Default for CertKeyType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CertKeyType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CertKeyType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CertKeyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13192,8 +13192,8 @@ impl ::core::default::Default for DSAFIPSVERSION_ENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DSAFIPSVERSION_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSAFIPSVERSION_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DSAFIPSVERSION_ENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13219,8 +13219,8 @@ impl ::core::default::Default for Direction {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Direction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Direction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Direction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13244,8 +13244,8 @@ impl ::core::default::Default for ECC_CURVE_ALG_ID_ENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ECC_CURVE_ALG_ID_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ECC_CURVE_ALG_ID_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13273,8 +13273,8 @@ impl ::core::default::Default for ECC_CURVE_TYPE_ENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ECC_CURVE_TYPE_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ECC_CURVE_TYPE_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ECC_CURVE_TYPE_ENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13302,8 +13302,8 @@ impl ::core::default::Default for HASHALGORITHM_ENUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HASHALGORITHM_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HASHALGORITHM_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13329,8 +13329,8 @@ impl ::core::default::Default for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13358,8 +13358,8 @@ impl ::core::default::Default for HandleType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HandleType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HandleType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HandleType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13409,8 +13409,8 @@ impl ::core::default::Default for MSCEPSetupProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSCEPSetupProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSCEPSetupProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSCEPSetupProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13438,8 +13438,8 @@ impl ::core::default::Default for NCRYPT_ALGORITHM_NAME_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_ALGORITHM_NAME_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_ALGORITHM_NAME_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13497,8 +13497,8 @@ impl ::core::default::Default for NCRYPT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NCRYPT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13563,8 +13563,8 @@ impl ::core::default::Default for NCRYPT_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NCRYPT_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13626,8 +13626,8 @@ impl ::core::default::Default for PaddingMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PaddingMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PaddingMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PaddingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -13652,8 +13652,8 @@ impl ::core::fmt::Debug for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
         f.debug_struct("AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwRegPolicySettings", &self.dwRegPolicySettings).field("pSignerInfo", &self.pSignerInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -13688,8 +13688,8 @@ impl ::core::fmt::Debug for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
@@ -13728,8 +13728,8 @@ impl ::core::fmt::Debug for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
@@ -13763,8 +13763,8 @@ impl ::core::fmt::Debug for BCRYPT_ALGORITHM_IDENTIFIER {
         f.debug_struct("BCRYPT_ALGORITHM_IDENTIFIER").field("pszName", &self.pszName).field("dwClass", &self.dwClass).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_ALGORITHM_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_ALGORITHM_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_ALGORITHM_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -13806,8 +13806,8 @@ impl ::core::convert::From<::core::option::Option<BCRYPT_ALG_HANDLE>> for BCRYPT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_ALG_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_ALG_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<BCRYPT_ALG_HANDLE> for BCRYPT_HANDLE {
     fn from(item: BCRYPT_ALG_HANDLE) -> BCRYPT_HANDLE {
@@ -13856,8 +13856,8 @@ impl ::core::fmt::Debug for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13887,8 +13887,8 @@ impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB {
         f.debug_struct("BCRYPT_DH_KEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DH_KEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DH_KEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DH_KEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -13919,8 +13919,8 @@ impl ::core::fmt::Debug for BCRYPT_DH_PARAMETER_HEADER {
         f.debug_struct("BCRYPT_DH_PARAMETER_HEADER").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DH_PARAMETER_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DH_PARAMETER_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DH_PARAMETER_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -13953,8 +13953,8 @@ impl ::core::fmt::Debug for BCRYPT_DSA_KEY_BLOB {
         f.debug_struct("BCRYPT_DSA_KEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).field("Count", &self.Count).field("Seed", &self.Seed).field("q", &self.q).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DSA_KEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DSA_KEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DSA_KEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -13989,8 +13989,8 @@ impl ::core::fmt::Debug for BCRYPT_DSA_KEY_BLOB_V2 {
         f.debug_struct("BCRYPT_DSA_KEY_BLOB_V2").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).field("hashAlgorithm", &self.hashAlgorithm).field("standardVersion", &self.standardVersion).field("cbSeedLength", &self.cbSeedLength).field("cbGroupSize", &self.cbGroupSize).field("Count", &self.Count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DSA_KEY_BLOB_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DSA_KEY_BLOB_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DSA_KEY_BLOB_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -14024,8 +14024,8 @@ impl ::core::fmt::Debug for BCRYPT_DSA_PARAMETER_HEADER {
         f.debug_struct("BCRYPT_DSA_PARAMETER_HEADER").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).field("Count", &self.Count).field("Seed", &self.Seed).field("q", &self.q).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DSA_PARAMETER_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DSA_PARAMETER_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -14061,8 +14061,8 @@ impl ::core::fmt::Debug for BCRYPT_DSA_PARAMETER_HEADER_V2 {
         f.debug_struct("BCRYPT_DSA_PARAMETER_HEADER_V2").field("cbLength", &self.cbLength).field("dwMagic", &self.dwMagic).field("cbKeyLength", &self.cbKeyLength).field("hashAlgorithm", &self.hashAlgorithm).field("standardVersion", &self.standardVersion).field("cbSeedLength", &self.cbSeedLength).field("cbGroupSize", &self.cbGroupSize).field("Count", &self.Count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_DSA_PARAMETER_HEADER_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_DSA_PARAMETER_HEADER_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_DSA_PARAMETER_HEADER_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -14098,8 +14098,8 @@ impl ::core::fmt::Debug for BCRYPT_ECCFULLKEY_BLOB {
         f.debug_struct("BCRYPT_ECCFULLKEY_BLOB").field("dwMagic", &self.dwMagic).field("dwVersion", &self.dwVersion).field("dwCurveType", &self.dwCurveType).field("dwCurveGenerationAlgId", &self.dwCurveGenerationAlgId).field("cbFieldLength", &self.cbFieldLength).field("cbSubgroupOrder", &self.cbSubgroupOrder).field("cbCofactor", &self.cbCofactor).field("cbSeed", &self.cbSeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_ECCFULLKEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_ECCFULLKEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_ECCFULLKEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -14129,8 +14129,8 @@ impl ::core::fmt::Debug for BCRYPT_ECCKEY_BLOB {
         f.debug_struct("BCRYPT_ECCKEY_BLOB").field("dwMagic", &self.dwMagic).field("cbKey", &self.cbKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_ECCKEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_ECCKEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_ECCKEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -14160,8 +14160,8 @@ impl ::core::fmt::Debug for BCRYPT_ECC_CURVE_NAMES {
         f.debug_struct("BCRYPT_ECC_CURVE_NAMES").field("dwEccCurveNames", &self.dwEccCurveNames).field("pEccCurveNames", &self.pEccCurveNames).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_ECC_CURVE_NAMES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_ECC_CURVE_NAMES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_ECC_CURVE_NAMES {
     fn eq(&self, other: &Self) -> bool {
@@ -14203,8 +14203,8 @@ impl ::core::convert::From<::core::option::Option<BCRYPT_HANDLE>> for BCRYPT_HAN
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14235,8 +14235,8 @@ impl ::core::convert::From<::core::option::Option<BCRYPT_HASH_HANDLE>> for BCRYP
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_HASH_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_HASH_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<BCRYPT_HASH_HANDLE> for BCRYPT_HANDLE {
     fn from(item: BCRYPT_HASH_HANDLE) -> BCRYPT_HANDLE {
@@ -14260,8 +14260,8 @@ impl ::core::fmt::Debug for BCRYPT_INTERFACE_VERSION {
         f.debug_struct("BCRYPT_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_INTERFACE_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_INTERFACE_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_INTERFACE_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -14290,8 +14290,8 @@ impl ::core::fmt::Debug for BCRYPT_KEY_BLOB {
         f.debug_struct("BCRYPT_KEY_BLOB").field("Magic", &self.Magic).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_KEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_KEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_KEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -14322,8 +14322,8 @@ impl ::core::fmt::Debug for BCRYPT_KEY_DATA_BLOB_HEADER {
         f.debug_struct("BCRYPT_KEY_DATA_BLOB_HEADER").field("dwMagic", &self.dwMagic).field("dwVersion", &self.dwVersion).field("cbKeyData", &self.cbKeyData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_KEY_DATA_BLOB_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_KEY_DATA_BLOB_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_KEY_DATA_BLOB_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -14365,8 +14365,8 @@ impl ::core::convert::From<::core::option::Option<BCRYPT_KEY_HANDLE>> for BCRYPT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_KEY_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_KEY_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<BCRYPT_KEY_HANDLE> for BCRYPT_HANDLE {
     fn from(item: BCRYPT_KEY_HANDLE) -> BCRYPT_HANDLE {
@@ -14391,8 +14391,8 @@ impl ::core::fmt::Debug for BCRYPT_KEY_LENGTHS_STRUCT {
         f.debug_struct("BCRYPT_KEY_LENGTHS_STRUCT").field("dwMinLength", &self.dwMinLength).field("dwMaxLength", &self.dwMaxLength).field("dwIncrement", &self.dwIncrement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_KEY_LENGTHS_STRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_KEY_LENGTHS_STRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_KEY_LENGTHS_STRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -14424,8 +14424,8 @@ impl ::core::fmt::Debug for BCRYPT_MULTI_HASH_OPERATION {
         f.debug_struct("BCRYPT_MULTI_HASH_OPERATION").field("iHash", &self.iHash).field("hashOperation", &self.hashOperation).field("pbBuffer", &self.pbBuffer).field("cbBuffer", &self.cbBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_MULTI_HASH_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_MULTI_HASH_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_MULTI_HASH_OPERATION {
     fn eq(&self, other: &Self) -> bool {
@@ -14455,8 +14455,8 @@ impl ::core::fmt::Debug for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
         f.debug_struct("BCRYPT_MULTI_OBJECT_LENGTH_STRUCT").field("cbPerObject", &self.cbPerObject).field("cbPerElement", &self.cbPerElement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -14487,8 +14487,8 @@ impl ::core::fmt::Debug for BCRYPT_OAEP_PADDING_INFO {
         f.debug_struct("BCRYPT_OAEP_PADDING_INFO").field("pszAlgId", &self.pszAlgId).field("pbLabel", &self.pbLabel).field("cbLabel", &self.cbLabel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_OAEP_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_OAEP_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_OAEP_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14518,8 +14518,8 @@ impl ::core::fmt::Debug for BCRYPT_OID {
         f.debug_struct("BCRYPT_OID").field("cbOID", &self.cbOID).field("pbOID", &self.pbOID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_OID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_OID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_OID {
     fn eq(&self, other: &Self) -> bool {
@@ -14549,8 +14549,8 @@ impl ::core::fmt::Debug for BCRYPT_OID_LIST {
         f.debug_struct("BCRYPT_OID_LIST").field("dwOIDCount", &self.dwOIDCount).field("pOIDs", &self.pOIDs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_OID_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_OID_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_OID_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -14579,8 +14579,8 @@ impl ::core::fmt::Debug for BCRYPT_PKCS1_PADDING_INFO {
         f.debug_struct("BCRYPT_PKCS1_PADDING_INFO").field("pszAlgId", &self.pszAlgId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_PKCS1_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_PKCS1_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_PKCS1_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14609,8 +14609,8 @@ impl ::core::fmt::Debug for BCRYPT_PROVIDER_NAME {
         f.debug_struct("BCRYPT_PROVIDER_NAME").field("pszProviderName", &self.pszProviderName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_PROVIDER_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_PROVIDER_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_PROVIDER_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -14640,8 +14640,8 @@ impl ::core::fmt::Debug for BCRYPT_PSS_PADDING_INFO {
         f.debug_struct("BCRYPT_PSS_PADDING_INFO").field("pszAlgId", &self.pszAlgId).field("cbSalt", &self.cbSalt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_PSS_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_PSS_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_PSS_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14675,8 +14675,8 @@ impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB {
         f.debug_struct("BCRYPT_RSAKEY_BLOB").field("Magic", &self.Magic).field("BitLength", &self.BitLength).field("cbPublicExp", &self.cbPublicExp).field("cbModulus", &self.cbModulus).field("cbPrime1", &self.cbPrime1).field("cbPrime2", &self.cbPrime2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_RSAKEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_RSAKEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCRYPT_RSAKEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -14718,8 +14718,8 @@ impl ::core::convert::From<::core::option::Option<BCRYPT_SECRET_HANDLE>> for BCR
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for BCRYPT_SECRET_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCRYPT_SECRET_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<BCRYPT_SECRET_HANDLE> for BCRYPT_HANDLE {
     fn from(item: BCRYPT_SECRET_HANDLE) -> BCRYPT_HANDLE {
@@ -14744,8 +14744,8 @@ impl ::core::fmt::Debug for BCryptBuffer {
         f.debug_struct("BCryptBuffer").field("cbBuffer", &self.cbBuffer).field("BufferType", &self.BufferType).field("pvBuffer", &self.pvBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCryptBuffer {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCryptBuffer {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCryptBuffer {
     fn eq(&self, other: &Self) -> bool {
@@ -14776,8 +14776,8 @@ impl ::core::fmt::Debug for BCryptBufferDesc {
         f.debug_struct("BCryptBufferDesc").field("ulVersion", &self.ulVersion).field("cBuffers", &self.cBuffers).field("pBuffers", &self.pBuffers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BCryptBufferDesc {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BCryptBufferDesc {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BCryptBufferDesc {
     fn eq(&self, other: &Self) -> bool {
@@ -14807,8 +14807,8 @@ impl ::core::fmt::Debug for CERTIFICATE_CHAIN_BLOB {
         f.debug_struct("CERTIFICATE_CHAIN_BLOB").field("certCount", &self.certCount).field("rawCertificates", &self.rawCertificates).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERTIFICATE_CHAIN_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERTIFICATE_CHAIN_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERTIFICATE_CHAIN_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -14833,8 +14833,8 @@ impl ::core::clone::Clone for CERT_ACCESS_DESCRIPTION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ACCESS_DESCRIPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ACCESS_DESCRIPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_ACCESS_DESCRIPTION {
     fn default() -> Self {
@@ -14853,8 +14853,8 @@ impl ::core::clone::Clone for CERT_ALT_NAME_ENTRY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ALT_NAME_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ALT_NAME_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_ALT_NAME_ENTRY {
     fn default() -> Self {
@@ -14878,8 +14878,8 @@ impl ::core::clone::Clone for CERT_ALT_NAME_ENTRY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ALT_NAME_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ALT_NAME_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_ALT_NAME_ENTRY_0 {
     fn default() -> Self {
@@ -14903,8 +14903,8 @@ impl ::core::fmt::Debug for CERT_ALT_NAME_INFO {
         f.debug_struct("CERT_ALT_NAME_INFO").field("cAltEntry", &self.cAltEntry).field("rgAltEntry", &self.rgAltEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ALT_NAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ALT_NAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_ALT_NAME_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14934,8 +14934,8 @@ impl ::core::fmt::Debug for CERT_AUTHORITY_INFO_ACCESS {
         f.debug_struct("CERT_AUTHORITY_INFO_ACCESS").field("cAccDescr", &self.cAccDescr).field("rgAccDescr", &self.rgAccDescr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_AUTHORITY_INFO_ACCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_AUTHORITY_INFO_ACCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_AUTHORITY_INFO_ACCESS {
     fn eq(&self, other: &Self) -> bool {
@@ -14966,8 +14966,8 @@ impl ::core::fmt::Debug for CERT_AUTHORITY_KEY_ID2_INFO {
         f.debug_struct("CERT_AUTHORITY_KEY_ID2_INFO").field("KeyId", &self.KeyId).field("AuthorityCertIssuer", &self.AuthorityCertIssuer).field("AuthorityCertSerialNumber", &self.AuthorityCertSerialNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_AUTHORITY_KEY_ID2_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_AUTHORITY_KEY_ID2_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_AUTHORITY_KEY_ID2_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14998,8 +14998,8 @@ impl ::core::fmt::Debug for CERT_AUTHORITY_KEY_ID_INFO {
         f.debug_struct("CERT_AUTHORITY_KEY_ID_INFO").field("KeyId", &self.KeyId).field("CertIssuer", &self.CertIssuer).field("CertSerialNumber", &self.CertSerialNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_AUTHORITY_KEY_ID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_AUTHORITY_KEY_ID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_AUTHORITY_KEY_ID_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15035,8 +15035,8 @@ impl ::core::fmt::Debug for CERT_BASIC_CONSTRAINTS2_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_BASIC_CONSTRAINTS2_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BASIC_CONSTRAINTS2_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_BASIC_CONSTRAINTS2_INFO {
@@ -15077,8 +15077,8 @@ impl ::core::fmt::Debug for CERT_BASIC_CONSTRAINTS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_BASIC_CONSTRAINTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BASIC_CONSTRAINTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_BASIC_CONSTRAINTS_INFO {
@@ -15107,8 +15107,8 @@ impl ::core::clone::Clone for CERT_BIOMETRIC_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BIOMETRIC_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_BIOMETRIC_DATA {
     fn default() -> Self {
@@ -15127,8 +15127,8 @@ impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BIOMETRIC_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_BIOMETRIC_DATA_0 {
     fn default() -> Self {
@@ -15152,8 +15152,8 @@ impl ::core::fmt::Debug for CERT_BIOMETRIC_EXT_INFO {
         f.debug_struct("CERT_BIOMETRIC_EXT_INFO").field("cBiometricData", &self.cBiometricData).field("rgBiometricData", &self.rgBiometricData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_EXT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_BIOMETRIC_EXT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_BIOMETRIC_EXT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15184,8 +15184,8 @@ impl ::core::fmt::Debug for CERT_CHAIN {
         f.debug_struct("CERT_CHAIN").field("cCerts", &self.cCerts).field("certs", &self.certs).field("keyLocatorInfo", &self.keyLocatorInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CHAIN {
     fn eq(&self, other: &Self) -> bool {
@@ -15239,8 +15239,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CHAIN_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_CHAIN_CONTEXT {
@@ -15283,8 +15283,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CHAIN_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_CHAIN_ELEMENT {
@@ -15342,8 +15342,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_ENGINE_CONFIG {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN_ENGINE_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_ENGINE_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CHAIN_ENGINE_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -15384,8 +15384,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_FIND_BY_ISSUER_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CHAIN_FIND_BY_ISSUER_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_FIND_BY_ISSUER_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CERT_CHAIN_FIND_BY_ISSUER_PARA {
@@ -15410,8 +15410,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_PARA {
         f.debug_struct("CERT_CHAIN_PARA").field("cbSize", &self.cbSize).field("RequestedUsage", &self.RequestedUsage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CHAIN_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -15442,8 +15442,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_PARA {
         f.debug_struct("CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pvExtraPolicyPara", &self.pvExtraPolicyPara).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CHAIN_POLICY_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -15476,8 +15476,8 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_STATUS {
         f.debug_struct("CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwError", &self.dwError).field("lChainIndex", &self.lChainIndex).field("lElementIndex", &self.lElementIndex).field("pvExtraPolicyStatus", &self.pvExtraPolicyStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_CHAIN_POLICY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_CHAIN_POLICY_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -15515,8 +15515,8 @@ impl ::core::fmt::Debug for CERT_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_CONTEXT {
@@ -15557,8 +15557,8 @@ impl ::core::fmt::Debug for CERT_CREATE_CONTEXT_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CREATE_CONTEXT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CREATE_CONTEXT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CERT_CREATE_CONTEXT_PARA {
@@ -15588,8 +15588,8 @@ impl ::core::fmt::Debug for CERT_CRL_CONTEXT_PAIR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_CRL_CONTEXT_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_CRL_CONTEXT_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_CRL_CONTEXT_PAIR {
@@ -15622,8 +15622,8 @@ impl ::core::fmt::Debug for CERT_DH_PARAMETERS {
         f.debug_struct("CERT_DH_PARAMETERS").field("p", &self.p).field("g", &self.g).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_DH_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_DH_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_DH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -15654,8 +15654,8 @@ impl ::core::fmt::Debug for CERT_DSS_PARAMETERS {
         f.debug_struct("CERT_DSS_PARAMETERS").field("p", &self.p).field("q", &self.q).field("g", &self.g).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_DSS_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_DSS_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_DSS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -15685,8 +15685,8 @@ impl ::core::fmt::Debug for CERT_ECC_SIGNATURE {
         f.debug_struct("CERT_ECC_SIGNATURE").field("r", &self.r).field("s", &self.s).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ECC_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ECC_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_ECC_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -15722,8 +15722,8 @@ impl ::core::fmt::Debug for CERT_EXTENSION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_EXTENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_EXTENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_EXTENSION {
@@ -15761,8 +15761,8 @@ impl ::core::fmt::Debug for CERT_EXTENSIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_EXTENSIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_EXTENSIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_EXTENSIONS {
@@ -15796,8 +15796,8 @@ impl ::core::fmt::Debug for CERT_FORTEZZA_DATA_PROP {
         f.debug_struct("CERT_FORTEZZA_DATA_PROP").field("SerialNumber", &self.SerialNumber).field("CertIndex", &self.CertIndex).field("CertLabel", &self.CertLabel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_FORTEZZA_DATA_PROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_FORTEZZA_DATA_PROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_FORTEZZA_DATA_PROP {
     fn eq(&self, other: &Self) -> bool {
@@ -15828,8 +15828,8 @@ impl ::core::clone::Clone for CERT_GENERAL_SUBTREE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_GENERAL_SUBTREE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_GENERAL_SUBTREE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CERT_GENERAL_SUBTREE {
@@ -15855,8 +15855,8 @@ impl ::core::fmt::Debug for CERT_HASHED_URL {
         f.debug_struct("CERT_HASHED_URL").field("HashAlgorithm", &self.HashAlgorithm).field("Hash", &self.Hash).field("pwszUrl", &self.pwszUrl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_HASHED_URL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_HASHED_URL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_HASHED_URL {
     fn eq(&self, other: &Self) -> bool {
@@ -15881,8 +15881,8 @@ impl ::core::clone::Clone for CERT_ID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_ID {
     fn default() -> Self {
@@ -15902,8 +15902,8 @@ impl ::core::clone::Clone for CERT_ID_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_ID_0 {
     fn default() -> Self {
@@ -15955,8 +15955,8 @@ impl ::core::fmt::Debug for CERT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_INFO {
@@ -15989,8 +15989,8 @@ impl ::core::fmt::Debug for CERT_ISSUER_SERIAL_NUMBER {
         f.debug_struct("CERT_ISSUER_SERIAL_NUMBER").field("Issuer", &self.Issuer).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_ISSUER_SERIAL_NUMBER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_ISSUER_SERIAL_NUMBER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_ISSUER_SERIAL_NUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -16021,8 +16021,8 @@ impl ::core::fmt::Debug for CERT_KEYGEN_REQUEST_INFO {
         f.debug_struct("CERT_KEYGEN_REQUEST_INFO").field("dwVersion", &self.dwVersion).field("SubjectPublicKeyInfo", &self.SubjectPublicKeyInfo).field("pwszChallengeString", &self.pwszChallengeString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_KEYGEN_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEYGEN_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_KEYGEN_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16058,8 +16058,8 @@ impl ::core::fmt::Debug for CERT_KEY_ATTRIBUTES_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_KEY_ATTRIBUTES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEY_ATTRIBUTES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_KEY_ATTRIBUTES_INFO {
@@ -16088,8 +16088,8 @@ impl ::core::clone::Clone for CERT_KEY_CONTEXT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_KEY_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEY_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_KEY_CONTEXT {
     fn default() -> Self {
@@ -16108,8 +16108,8 @@ impl ::core::clone::Clone for CERT_KEY_CONTEXT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_KEY_CONTEXT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEY_CONTEXT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_KEY_CONTEXT_0 {
     fn default() -> Self {
@@ -16134,8 +16134,8 @@ impl ::core::fmt::Debug for CERT_KEY_USAGE_RESTRICTION_INFO {
         f.debug_struct("CERT_KEY_USAGE_RESTRICTION_INFO").field("cCertPolicyId", &self.cCertPolicyId).field("rgCertPolicyId", &self.rgCertPolicyId).field("RestrictedKeyUsage", &self.RestrictedKeyUsage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_KEY_USAGE_RESTRICTION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_KEY_USAGE_RESTRICTION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_KEY_USAGE_RESTRICTION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16165,8 +16165,8 @@ impl ::core::fmt::Debug for CERT_LDAP_STORE_OPENED_PARA {
         f.debug_struct("CERT_LDAP_STORE_OPENED_PARA").field("pvLdapSessionHandle", &self.pvLdapSessionHandle).field("pwszLdapUrl", &self.pwszLdapUrl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LDAP_STORE_OPENED_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LDAP_STORE_OPENED_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LDAP_STORE_OPENED_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -16196,8 +16196,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_AUDIO {
         f.debug_struct("CERT_LOGOTYPE_AUDIO").field("LogotypeDetails", &self.LogotypeDetails).field("pLogotypeAudioInfo", &self.pLogotypeAudioInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_AUDIO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_AUDIO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_AUDIO {
     fn eq(&self, other: &Self) -> bool {
@@ -16230,8 +16230,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_AUDIO_INFO {
         f.debug_struct("CERT_LOGOTYPE_AUDIO_INFO").field("dwFileSize", &self.dwFileSize).field("dwPlayTime", &self.dwPlayTime).field("dwChannels", &self.dwChannels).field("dwSampleRate", &self.dwSampleRate).field("pwszLanguage", &self.pwszLanguage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_AUDIO_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_AUDIO_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_AUDIO_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16263,8 +16263,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_DATA {
         f.debug_struct("CERT_LOGOTYPE_DATA").field("cLogotypeImage", &self.cLogotypeImage).field("rgLogotypeImage", &self.rgLogotypeImage).field("cLogotypeAudio", &self.cLogotypeAudio).field("rgLogotypeAudio", &self.rgLogotypeAudio).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -16295,8 +16295,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_DETAILS {
         f.debug_struct("CERT_LOGOTYPE_DETAILS").field("pwszMimeType", &self.pwszMimeType).field("cHashedUrl", &self.cHashedUrl).field("rgHashedUrl", &self.rgHashedUrl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_DETAILS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_DETAILS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_DETAILS {
     fn eq(&self, other: &Self) -> bool {
@@ -16330,8 +16330,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_EXT_INFO {
         f.debug_struct("CERT_LOGOTYPE_EXT_INFO").field("cCommunityLogo", &self.cCommunityLogo).field("rgCommunityLogo", &self.rgCommunityLogo).field("pIssuerLogo", &self.pIssuerLogo).field("pSubjectLogo", &self.pSubjectLogo).field("cOtherLogo", &self.cOtherLogo).field("rgOtherLogo", &self.rgOtherLogo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_EXT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_EXT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_EXT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16361,8 +16361,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE {
         f.debug_struct("CERT_LOGOTYPE_IMAGE").field("LogotypeDetails", &self.LogotypeDetails).field("pLogotypeImageInfo", &self.pLogotypeImageInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_IMAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_IMAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -16392,8 +16392,8 @@ impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO {
     fn default() -> Self {
@@ -16412,8 +16412,8 @@ impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_IMAGE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
     fn default() -> Self {
@@ -16432,8 +16432,8 @@ impl ::core::clone::Clone for CERT_LOGOTYPE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_LOGOTYPE_INFO {
     fn default() -> Self {
@@ -16452,8 +16452,8 @@ impl ::core::clone::Clone for CERT_LOGOTYPE_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_LOGOTYPE_INFO_0 {
     fn default() -> Self {
@@ -16477,8 +16477,8 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_REFERENCE {
         f.debug_struct("CERT_LOGOTYPE_REFERENCE").field("cHashedUrl", &self.cHashedUrl).field("rgHashedUrl", &self.rgHashedUrl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_REFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_LOGOTYPE_REFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_LOGOTYPE_REFERENCE {
     fn eq(&self, other: &Self) -> bool {
@@ -16515,8 +16515,8 @@ impl ::core::fmt::Debug for CERT_NAME_CONSTRAINTS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_NAME_CONSTRAINTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_NAME_CONSTRAINTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_NAME_CONSTRAINTS_INFO {
@@ -16549,8 +16549,8 @@ impl ::core::fmt::Debug for CERT_NAME_INFO {
         f.debug_struct("CERT_NAME_INFO").field("cRDN", &self.cRDN).field("rgRDN", &self.rgRDN).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_NAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_NAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_NAME_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16580,8 +16580,8 @@ impl ::core::fmt::Debug for CERT_NAME_VALUE {
         f.debug_struct("CERT_NAME_VALUE").field("dwValueType", &self.dwValueType).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_NAME_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_NAME_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_NAME_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -16612,8 +16612,8 @@ impl ::core::fmt::Debug for CERT_OR_CRL_BLOB {
         f.debug_struct("CERT_OR_CRL_BLOB").field("dwChoice", &self.dwChoice).field("cbEncoded", &self.cbEncoded).field("pbEncoded", &self.pbEncoded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_OR_CRL_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_OR_CRL_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_OR_CRL_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -16643,8 +16643,8 @@ impl ::core::fmt::Debug for CERT_OR_CRL_BUNDLE {
         f.debug_struct("CERT_OR_CRL_BUNDLE").field("cItem", &self.cItem).field("rgItem", &self.rgItem).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_OR_CRL_BUNDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_OR_CRL_BUNDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_OR_CRL_BUNDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -16669,8 +16669,8 @@ impl ::core::clone::Clone for CERT_OTHER_LOGOTYPE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_OTHER_LOGOTYPE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_OTHER_LOGOTYPE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_OTHER_LOGOTYPE_INFO {
     fn default() -> Self {
@@ -16694,8 +16694,8 @@ impl ::core::fmt::Debug for CERT_OTHER_NAME {
         f.debug_struct("CERT_OTHER_NAME").field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_OTHER_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_OTHER_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_OTHER_NAME {
     fn eq(&self, other: &Self) -> bool {
@@ -16725,8 +16725,8 @@ impl ::core::fmt::Debug for CERT_PAIR {
         f.debug_struct("CERT_PAIR").field("Forward", &self.Forward).field("Reverse", &self.Reverse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_PAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -16761,8 +16761,8 @@ impl ::core::fmt::Debug for CERT_PHYSICAL_STORE_INFO {
         f.debug_struct("CERT_PHYSICAL_STORE_INFO").field("cbSize", &self.cbSize).field("pszOpenStoreProvider", &self.pszOpenStoreProvider).field("dwOpenEncodingType", &self.dwOpenEncodingType).field("dwOpenFlags", &self.dwOpenFlags).field("OpenParameters", &self.OpenParameters).field("dwFlags", &self.dwFlags).field("dwPriority", &self.dwPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_PHYSICAL_STORE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_PHYSICAL_STORE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_PHYSICAL_STORE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16792,8 +16792,8 @@ impl ::core::fmt::Debug for CERT_POLICIES_INFO {
         f.debug_struct("CERT_POLICIES_INFO").field("cPolicyInfo", &self.cPolicyInfo).field("rgPolicyInfo", &self.rgPolicyInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICIES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICIES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICIES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16826,8 +16826,8 @@ impl ::core::fmt::Debug for CERT_POLICY95_QUALIFIER1 {
         f.debug_struct("CERT_POLICY95_QUALIFIER1").field("pszPracticesReference", &self.pszPracticesReference).field("pszNoticeIdentifier", &self.pszNoticeIdentifier).field("pszNSINoticeIdentifier", &self.pszNSINoticeIdentifier).field("cCPSURLs", &self.cCPSURLs).field("rgCPSURLs", &self.rgCPSURLs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY95_QUALIFIER1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY95_QUALIFIER1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY95_QUALIFIER1 {
     fn eq(&self, other: &Self) -> bool {
@@ -16864,8 +16864,8 @@ impl ::core::fmt::Debug for CERT_POLICY_CONSTRAINTS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_POLICY_CONSTRAINTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_CONSTRAINTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_POLICY_CONSTRAINTS_INFO {
@@ -16898,8 +16898,8 @@ impl ::core::fmt::Debug for CERT_POLICY_ID {
         f.debug_struct("CERT_POLICY_ID").field("cCertPolicyElementId", &self.cCertPolicyElementId).field("rgpszCertPolicyElementId", &self.rgpszCertPolicyElementId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -16930,8 +16930,8 @@ impl ::core::fmt::Debug for CERT_POLICY_INFO {
         f.debug_struct("CERT_POLICY_INFO").field("pszPolicyIdentifier", &self.pszPolicyIdentifier).field("cPolicyQualifier", &self.cPolicyQualifier).field("rgPolicyQualifier", &self.rgPolicyQualifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16961,8 +16961,8 @@ impl ::core::fmt::Debug for CERT_POLICY_MAPPING {
         f.debug_struct("CERT_POLICY_MAPPING").field("pszIssuerDomainPolicy", &self.pszIssuerDomainPolicy).field("pszSubjectDomainPolicy", &self.pszSubjectDomainPolicy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_MAPPING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_MAPPING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_MAPPING {
     fn eq(&self, other: &Self) -> bool {
@@ -16992,8 +16992,8 @@ impl ::core::fmt::Debug for CERT_POLICY_MAPPINGS_INFO {
         f.debug_struct("CERT_POLICY_MAPPINGS_INFO").field("cPolicyMapping", &self.cPolicyMapping).field("rgPolicyMapping", &self.rgPolicyMapping).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_MAPPINGS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_MAPPINGS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_MAPPINGS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17023,8 +17023,8 @@ impl ::core::fmt::Debug for CERT_POLICY_QUALIFIER_INFO {
         f.debug_struct("CERT_POLICY_QUALIFIER_INFO").field("pszPolicyQualifierId", &self.pszPolicyQualifierId).field("Qualifier", &self.Qualifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_QUALIFIER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_QUALIFIER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_QUALIFIER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17055,8 +17055,8 @@ impl ::core::fmt::Debug for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
         f.debug_struct("CERT_POLICY_QUALIFIER_NOTICE_REFERENCE").field("pszOrganization", &self.pszOrganization).field("cNoticeNumbers", &self.cNoticeNumbers).field("rgNoticeNumbers", &self.rgNoticeNumbers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     fn eq(&self, other: &Self) -> bool {
@@ -17086,8 +17086,8 @@ impl ::core::fmt::Debug for CERT_POLICY_QUALIFIER_USER_NOTICE {
         f.debug_struct("CERT_POLICY_QUALIFIER_USER_NOTICE").field("pNoticeReference", &self.pNoticeReference).field("pszDisplayText", &self.pszDisplayText).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_POLICY_QUALIFIER_USER_NOTICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_POLICY_QUALIFIER_USER_NOTICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_POLICY_QUALIFIER_USER_NOTICE {
     fn eq(&self, other: &Self) -> bool {
@@ -17122,8 +17122,8 @@ impl ::core::fmt::Debug for CERT_PRIVATE_KEY_VALIDITY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_PRIVATE_KEY_VALIDITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_PRIVATE_KEY_VALIDITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_PRIVATE_KEY_VALIDITY {
@@ -17156,8 +17156,8 @@ impl ::core::fmt::Debug for CERT_PUBLIC_KEY_INFO {
         f.debug_struct("CERT_PUBLIC_KEY_INFO").field("Algorithm", &self.Algorithm).field("PublicKey", &self.PublicKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_PUBLIC_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_PUBLIC_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_PUBLIC_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17187,8 +17187,8 @@ impl ::core::fmt::Debug for CERT_QC_STATEMENT {
         f.debug_struct("CERT_QC_STATEMENT").field("pszStatementId", &self.pszStatementId).field("StatementInfo", &self.StatementInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QC_STATEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QC_STATEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_QC_STATEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17218,8 +17218,8 @@ impl ::core::fmt::Debug for CERT_QC_STATEMENTS_EXT_INFO {
         f.debug_struct("CERT_QC_STATEMENTS_EXT_INFO").field("cStatement", &self.cStatement).field("rgStatement", &self.rgStatement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_QC_STATEMENTS_EXT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_QC_STATEMENTS_EXT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_QC_STATEMENTS_EXT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17249,8 +17249,8 @@ impl ::core::fmt::Debug for CERT_RDN {
         f.debug_struct("CERT_RDN").field("cRDNAttr", &self.cRDNAttr).field("rgRDNAttr", &self.rgRDNAttr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_RDN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_RDN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_RDN {
     fn eq(&self, other: &Self) -> bool {
@@ -17281,8 +17281,8 @@ impl ::core::fmt::Debug for CERT_RDN_ATTR {
         f.debug_struct("CERT_RDN_ATTR").field("pszObjId", &self.pszObjId).field("dwValueType", &self.dwValueType).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_RDN_ATTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_RDN_ATTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_RDN_ATTR {
     fn eq(&self, other: &Self) -> bool {
@@ -17317,8 +17317,8 @@ impl ::core::fmt::Debug for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-unsafe impl ::windows::core::Abi for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::cmp::PartialEq for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
@@ -17356,8 +17356,8 @@ impl ::core::fmt::Debug for CERT_REGISTRY_STORE_ROAMING_PARA {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-unsafe impl ::windows::core::Abi for CERT_REGISTRY_STORE_ROAMING_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REGISTRY_STORE_ROAMING_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::cmp::PartialEq for CERT_REGISTRY_STORE_ROAMING_PARA {
@@ -17393,8 +17393,8 @@ impl ::core::fmt::Debug for CERT_REQUEST_INFO {
         f.debug_struct("CERT_REQUEST_INFO").field("dwVersion", &self.dwVersion).field("Subject", &self.Subject).field("SubjectPublicKeyInfo", &self.SubjectPublicKeyInfo).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17435,8 +17435,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_CHAIN_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_CHAIN_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_CHAIN_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_REVOCATION_CHAIN_PARA {
@@ -17477,8 +17477,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_CRL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_CRL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_CRL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_REVOCATION_CRL_INFO {
@@ -17521,8 +17521,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_REVOCATION_INFO {
@@ -17564,8 +17564,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_REVOCATION_PARA {
@@ -17607,8 +17607,8 @@ impl ::core::fmt::Debug for CERT_REVOCATION_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_REVOCATION_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_REVOCATION_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_REVOCATION_STATUS {
@@ -17649,8 +17649,8 @@ impl ::core::fmt::Debug for CERT_SELECT_CHAIN_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_SELECT_CHAIN_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SELECT_CHAIN_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_SELECT_CHAIN_PARA {
@@ -17684,8 +17684,8 @@ impl ::core::fmt::Debug for CERT_SELECT_CRITERIA {
         f.debug_struct("CERT_SELECT_CRITERIA").field("dwType", &self.dwType).field("cPara", &self.cPara).field("ppPara", &self.ppPara).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SELECT_CRITERIA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SELECT_CRITERIA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_SELECT_CRITERIA {
     fn eq(&self, other: &Self) -> bool {
@@ -17716,8 +17716,8 @@ impl ::core::fmt::Debug for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
         f.debug_struct("CERT_SERVER_OCSP_RESPONSE_CONTEXT").field("cbSize", &self.cbSize).field("pbEncodedOcspResponse", &self.pbEncodedOcspResponse).field("cbEncodedOcspResponse", &self.cbEncodedOcspResponse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -17756,8 +17756,8 @@ impl ::core::fmt::Debug for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
@@ -17783,8 +17783,8 @@ impl ::core::fmt::Debug for CERT_SIGNED_CONTENT_INFO {
         f.debug_struct("CERT_SIGNED_CONTENT_INFO").field("ToBeSigned", &self.ToBeSigned).field("SignatureAlgorithm", &self.SignatureAlgorithm).field("Signature", &self.Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SIGNED_CONTENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SIGNED_CONTENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_SIGNED_CONTENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17824,8 +17824,8 @@ impl ::core::fmt::Debug for CERT_SIMPLE_CHAIN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_SIMPLE_CHAIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SIMPLE_CHAIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_SIMPLE_CHAIN {
@@ -17861,8 +17861,8 @@ impl ::core::fmt::Debug for CERT_STORE_PROV_FIND_INFO {
         f.debug_struct("CERT_STORE_PROV_FIND_INFO").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("dwFindFlags", &self.dwFindFlags).field("dwFindType", &self.dwFindType).field("pvFindPara", &self.pvFindPara).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STORE_PROV_FIND_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STORE_PROV_FIND_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_STORE_PROV_FIND_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17896,8 +17896,8 @@ impl ::core::fmt::Debug for CERT_STORE_PROV_INFO {
         f.debug_struct("CERT_STORE_PROV_INFO").field("cbSize", &self.cbSize).field("cStoreProvFunc", &self.cStoreProvFunc).field("rgpvStoreProvFunc", &self.rgpvStoreProvFunc).field("hStoreProv", &self.hStoreProv).field("dwStoreProvFlags", &self.dwStoreProvFlags).field("hStoreProvFuncAddr2", &self.hStoreProvFuncAddr2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STORE_PROV_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STORE_PROV_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_STORE_PROV_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17923,8 +17923,8 @@ impl ::core::clone::Clone for CERT_STRONG_SIGN_PARA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STRONG_SIGN_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_STRONG_SIGN_PARA {
     fn default() -> Self {
@@ -17944,8 +17944,8 @@ impl ::core::clone::Clone for CERT_STRONG_SIGN_PARA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STRONG_SIGN_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CERT_STRONG_SIGN_PARA_0 {
     fn default() -> Self {
@@ -17970,8 +17970,8 @@ impl ::core::fmt::Debug for CERT_STRONG_SIGN_SERIALIZED_INFO {
         f.debug_struct("CERT_STRONG_SIGN_SERIALIZED_INFO").field("dwFlags", &self.dwFlags).field("pwszCNGSignHashAlgids", &self.pwszCNGSignHashAlgids).field("pwszCNGPubKeyMinBitLengths", &self.pwszCNGPubKeyMinBitLengths).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_SERIALIZED_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_STRONG_SIGN_SERIALIZED_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_STRONG_SIGN_SERIALIZED_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18002,8 +18002,8 @@ impl ::core::fmt::Debug for CERT_SUPPORTED_ALGORITHM_INFO {
         f.debug_struct("CERT_SUPPORTED_ALGORITHM_INFO").field("Algorithm", &self.Algorithm).field("IntendedKeyUsage", &self.IntendedKeyUsage).field("IntendedCertPolicies", &self.IntendedCertPolicies).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SUPPORTED_ALGORITHM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SUPPORTED_ALGORITHM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_SUPPORTED_ALGORITHM_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18032,8 +18032,8 @@ impl ::core::fmt::Debug for CERT_SYSTEM_STORE_INFO {
         f.debug_struct("CERT_SYSTEM_STORE_INFO").field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SYSTEM_STORE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_SYSTEM_STORE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18062,8 +18062,8 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
@@ -18087,8 +18087,8 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
@@ -18113,8 +18113,8 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     }
 }
 #[cfg(feature = "Win32_System_Registry")]
-unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl ::core::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
@@ -18146,8 +18146,8 @@ impl ::core::fmt::Debug for CERT_TEMPLATE_EXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_TEMPLATE_EXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_TEMPLATE_EXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_TEMPLATE_EXT {
@@ -18181,8 +18181,8 @@ impl ::core::fmt::Debug for CERT_TPM_SPECIFICATION_INFO {
         f.debug_struct("CERT_TPM_SPECIFICATION_INFO").field("pwszFamily", &self.pwszFamily).field("dwLevel", &self.dwLevel).field("dwRevision", &self.dwRevision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_TPM_SPECIFICATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_TPM_SPECIFICATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_TPM_SPECIFICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18218,8 +18218,8 @@ impl ::core::fmt::Debug for CERT_TRUST_LIST_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CERT_TRUST_LIST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_TRUST_LIST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CERT_TRUST_LIST_INFO {
@@ -18252,8 +18252,8 @@ impl ::core::fmt::Debug for CERT_TRUST_STATUS {
         f.debug_struct("CERT_TRUST_STATUS").field("dwErrorStatus", &self.dwErrorStatus).field("dwInfoStatus", &self.dwInfoStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_TRUST_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_TRUST_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_TRUST_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -18283,8 +18283,8 @@ impl ::core::fmt::Debug for CERT_USAGE_MATCH {
         f.debug_struct("CERT_USAGE_MATCH").field("dwType", &self.dwType).field("Usage", &self.Usage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_USAGE_MATCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_USAGE_MATCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_USAGE_MATCH {
     fn eq(&self, other: &Self) -> bool {
@@ -18317,8 +18317,8 @@ impl ::core::fmt::Debug for CERT_X942_DH_PARAMETERS {
         f.debug_struct("CERT_X942_DH_PARAMETERS").field("p", &self.p).field("g", &self.g).field("q", &self.q).field("j", &self.j).field("pValidationParams", &self.pValidationParams).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_X942_DH_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_X942_DH_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_X942_DH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -18348,8 +18348,8 @@ impl ::core::fmt::Debug for CERT_X942_DH_VALIDATION_PARAMS {
         f.debug_struct("CERT_X942_DH_VALIDATION_PARAMS").field("seed", &self.seed).field("pgenCounter", &self.pgenCounter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CERT_X942_DH_VALIDATION_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CERT_X942_DH_VALIDATION_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CERT_X942_DH_VALIDATION_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -18379,8 +18379,8 @@ impl ::core::fmt::Debug for CLAIMLIST {
         f.debug_struct("CLAIMLIST").field("count", &self.count).field("claims", &self.claims).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLAIMLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLAIMLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLAIMLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -18413,8 +18413,8 @@ impl ::core::fmt::Debug for CMC_ADD_ATTRIBUTES_INFO {
         f.debug_struct("CMC_ADD_ATTRIBUTES_INFO").field("dwCmcDataReference", &self.dwCmcDataReference).field("cCertReference", &self.cCertReference).field("rgdwCertReference", &self.rgdwCertReference).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_ADD_ATTRIBUTES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_ADD_ATTRIBUTES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_ADD_ATTRIBUTES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18452,8 +18452,8 @@ impl ::core::fmt::Debug for CMC_ADD_EXTENSIONS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMC_ADD_EXTENSIONS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_ADD_EXTENSIONS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMC_ADD_EXTENSIONS_INFO {
@@ -18492,8 +18492,8 @@ impl ::core::fmt::Debug for CMC_DATA_INFO {
         f.debug_struct("CMC_DATA_INFO").field("cTaggedAttribute", &self.cTaggedAttribute).field("rgTaggedAttribute", &self.rgTaggedAttribute).field("cTaggedRequest", &self.cTaggedRequest).field("rgTaggedRequest", &self.rgTaggedRequest).field("cTaggedContentInfo", &self.cTaggedContentInfo).field("rgTaggedContentInfo", &self.rgTaggedContentInfo).field("cTaggedOtherMsg", &self.cTaggedOtherMsg).field("rgTaggedOtherMsg", &self.rgTaggedOtherMsg).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_DATA_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_DATA_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18528,8 +18528,8 @@ impl ::core::fmt::Debug for CMC_PEND_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMC_PEND_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_PEND_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMC_PEND_INFO {
@@ -18566,8 +18566,8 @@ impl ::core::fmt::Debug for CMC_RESPONSE_INFO {
         f.debug_struct("CMC_RESPONSE_INFO").field("cTaggedAttribute", &self.cTaggedAttribute).field("rgTaggedAttribute", &self.rgTaggedAttribute).field("cTaggedContentInfo", &self.cTaggedContentInfo).field("rgTaggedContentInfo", &self.rgTaggedContentInfo).field("cTaggedOtherMsg", &self.cTaggedOtherMsg).field("rgTaggedOtherMsg", &self.rgTaggedOtherMsg).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_RESPONSE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18600,8 +18600,8 @@ impl ::core::clone::Clone for CMC_STATUS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMC_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMC_STATUS_INFO {
@@ -18625,8 +18625,8 @@ impl ::core::clone::Clone for CMC_STATUS_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMC_STATUS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_STATUS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMC_STATUS_INFO_0 {
@@ -18651,8 +18651,8 @@ impl ::core::fmt::Debug for CMC_TAGGED_ATTRIBUTE {
         f.debug_struct("CMC_TAGGED_ATTRIBUTE").field("dwBodyPartID", &self.dwBodyPartID).field("Attribute", &self.Attribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_ATTRIBUTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_ATTRIBUTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_TAGGED_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
@@ -18682,8 +18682,8 @@ impl ::core::fmt::Debug for CMC_TAGGED_CERT_REQUEST {
         f.debug_struct("CMC_TAGGED_CERT_REQUEST").field("dwBodyPartID", &self.dwBodyPartID).field("SignedCertRequest", &self.SignedCertRequest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_CERT_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_CERT_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_TAGGED_CERT_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -18713,8 +18713,8 @@ impl ::core::fmt::Debug for CMC_TAGGED_CONTENT_INFO {
         f.debug_struct("CMC_TAGGED_CONTENT_INFO").field("dwBodyPartID", &self.dwBodyPartID).field("EncodedContentInfo", &self.EncodedContentInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_CONTENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_CONTENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_TAGGED_CONTENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18745,8 +18745,8 @@ impl ::core::fmt::Debug for CMC_TAGGED_OTHER_MSG {
         f.debug_struct("CMC_TAGGED_OTHER_MSG").field("dwBodyPartID", &self.dwBodyPartID).field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_OTHER_MSG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_OTHER_MSG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMC_TAGGED_OTHER_MSG {
     fn eq(&self, other: &Self) -> bool {
@@ -18771,8 +18771,8 @@ impl ::core::clone::Clone for CMC_TAGGED_REQUEST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMC_TAGGED_REQUEST {
     fn default() -> Self {
@@ -18790,8 +18790,8 @@ impl ::core::clone::Clone for CMC_TAGGED_REQUEST_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMC_TAGGED_REQUEST_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMC_TAGGED_REQUEST_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMC_TAGGED_REQUEST_0 {
     fn default() -> Self {
@@ -18814,8 +18814,8 @@ impl ::core::clone::Clone for CMSG_CMS_RECIPIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CMS_RECIPIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CMS_RECIPIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CMS_RECIPIENT_INFO {
@@ -18840,8 +18840,8 @@ impl ::core::clone::Clone for CMSG_CMS_RECIPIENT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CMS_RECIPIENT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CMS_RECIPIENT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CMS_RECIPIENT_INFO_0 {
@@ -18866,8 +18866,8 @@ impl ::core::clone::Clone for CMSG_CMS_SIGNER_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CMS_SIGNER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CMS_SIGNER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CMS_SIGNER_INFO {
     fn default() -> Self {
@@ -18898,8 +18898,8 @@ impl ::core::fmt::Debug for CMSG_CNG_CONTENT_DECRYPT_INFO {
         f.debug_struct("CMSG_CNG_CONTENT_DECRYPT_INFO").field("cbSize", &self.cbSize).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("hNCryptKey", &self.hNCryptKey).field("pbContentEncryptKey", &self.pbContentEncryptKey).field("cbContentEncryptKey", &self.cbContentEncryptKey).field("hCNGContentEncryptKey", &self.hCNGContentEncryptKey).field("pbCNGContentEncryptKeyObject", &self.pbCNGContentEncryptKeyObject).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CNG_CONTENT_DECRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CNG_CONTENT_DECRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
     fn default() -> Self {
@@ -18935,8 +18935,8 @@ impl ::core::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CONTENT_ENCRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CONTENT_ENCRYPT_INFO {
@@ -18960,8 +18960,8 @@ impl ::core::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CONTENT_ENCRYPT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CONTENT_ENCRYPT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CONTENT_ENCRYPT_INFO_0 {
@@ -18987,8 +18987,8 @@ impl ::core::fmt::Debug for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
         f.debug_struct("CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA").field("cbSize", &self.cbSize).field("dwSignerIndex", &self.dwSignerIndex).field("blob", &self.blob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -19015,8 +19015,8 @@ impl ::core::clone::Clone for CMSG_CTRL_DECRYPT_PARA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_DECRYPT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_DECRYPT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CTRL_DECRYPT_PARA {
     fn default() -> Self {
@@ -19035,8 +19035,8 @@ impl ::core::clone::Clone for CMSG_CTRL_DECRYPT_PARA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_DECRYPT_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_DECRYPT_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CTRL_DECRYPT_PARA_0 {
     fn default() -> Self {
@@ -19061,8 +19061,8 @@ impl ::core::fmt::Debug for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
         f.debug_struct("CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA").field("cbSize", &self.cbSize).field("dwSignerIndex", &self.dwSignerIndex).field("dwUnauthAttrIndex", &self.dwUnauthAttrIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -19096,8 +19096,8 @@ impl ::core::clone::Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
@@ -19121,8 +19121,8 @@ impl ::core::clone::Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
@@ -19145,8 +19145,8 @@ impl ::core::clone::Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
     fn default() -> Self {
@@ -19165,8 +19165,8 @@ impl ::core::clone::Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     fn default() -> Self {
@@ -19193,8 +19193,8 @@ impl ::core::clone::Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
@@ -19218,8 +19218,8 @@ impl ::core::clone::Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
@@ -19247,8 +19247,8 @@ impl ::core::fmt::Debug for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
         f.debug_struct("CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA").field("cbSize", &self.cbSize).field("hCryptProv", &self.hCryptProv).field("dwSignerIndex", &self.dwSignerIndex).field("dwSignerType", &self.dwSignerType).field("pvSigner", &self.pvSigner).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -19279,8 +19279,8 @@ impl ::core::fmt::Debug for CMSG_ENCRYPTED_ENCODE_INFO {
         f.debug_struct("CMSG_ENCRYPTED_ENCODE_INFO").field("cbSize", &self.cbSize).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("pvEncryptionAuxInfo", &self.pvEncryptionAuxInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_ENCRYPTED_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_ENCRYPTED_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_ENCRYPTED_ENCODE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19319,8 +19319,8 @@ impl ::core::fmt::Debug for CMSG_ENVELOPED_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_ENVELOPED_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_ENVELOPED_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMSG_ENVELOPED_ENCODE_INFO {
@@ -19355,8 +19355,8 @@ impl ::core::fmt::Debug for CMSG_HASHED_ENCODE_INFO {
         f.debug_struct("CMSG_HASHED_ENCODE_INFO").field("cbSize", &self.cbSize).field("hCryptProv", &self.hCryptProv).field("HashAlgorithm", &self.HashAlgorithm).field("pvHashAuxInfo", &self.pvHashAuxInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_HASHED_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_HASHED_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_HASHED_ENCODE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19388,8 +19388,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_ENCRYPT_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_KEY_AGREE_ENCRYPT_INFO {
     fn default() -> Self {
@@ -19408,8 +19408,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     fn default() -> Self {
@@ -19433,8 +19433,8 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
         f.debug_struct("CMSG_KEY_AGREE_KEY_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("EncryptedKey", &self.EncryptedKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19473,8 +19473,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
@@ -19498,8 +19498,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
@@ -19528,8 +19528,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_KEY_AGREE_RECIPIENT_INFO {
@@ -19553,8 +19553,8 @@ impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
@@ -19582,8 +19582,8 @@ impl ::core::fmt::Debug for CMSG_KEY_TRANS_ENCRYPT_INFO {
         f.debug_struct("CMSG_KEY_TRANS_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("dwRecipientIndex", &self.dwRecipientIndex).field("KeyEncryptionAlgorithm", &self.KeyEncryptionAlgorithm).field("EncryptedKey", &self.EncryptedKey).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_TRANS_ENCRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_TRANS_ENCRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_KEY_TRANS_ENCRYPT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19612,8 +19612,8 @@ impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
     fn default() -> Self {
@@ -19634,8 +19634,8 @@ impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_KEY_TRANS_RECIPIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_KEY_TRANS_RECIPIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CMSG_KEY_TRANS_RECIPIENT_INFO {
     fn default() -> Self {
@@ -19662,8 +19662,8 @@ impl ::core::fmt::Debug for CMSG_MAIL_LIST_ENCRYPT_INFO {
         f.debug_struct("CMSG_MAIL_LIST_ENCRYPT_INFO").field("cbSize", &self.cbSize).field("dwRecipientIndex", &self.dwRecipientIndex).field("KeyEncryptionAlgorithm", &self.KeyEncryptionAlgorithm).field("EncryptedKey", &self.EncryptedKey).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_MAIL_LIST_ENCRYPT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_MAIL_LIST_ENCRYPT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_MAIL_LIST_ENCRYPT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19699,8 +19699,8 @@ impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
@@ -19724,8 +19724,8 @@ impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
@@ -19759,8 +19759,8 @@ impl ::core::fmt::Debug for CMSG_MAIL_LIST_RECIPIENT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_MAIL_LIST_RECIPIENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_MAIL_LIST_RECIPIENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMSG_MAIL_LIST_RECIPIENT_INFO {
@@ -19793,8 +19793,8 @@ impl ::core::fmt::Debug for CMSG_RC2_AUX_INFO {
         f.debug_struct("CMSG_RC2_AUX_INFO").field("cbSize", &self.cbSize).field("dwBitLen", &self.dwBitLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_RC2_AUX_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RC2_AUX_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_RC2_AUX_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19824,8 +19824,8 @@ impl ::core::fmt::Debug for CMSG_RC4_AUX_INFO {
         f.debug_struct("CMSG_RC4_AUX_INFO").field("cbSize", &self.cbSize).field("dwBitLen", &self.dwBitLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_RC4_AUX_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RC4_AUX_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_RC4_AUX_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -19854,8 +19854,8 @@ impl ::core::clone::Clone for CMSG_RECIPIENT_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_RECIPIENT_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_RECIPIENT_ENCODE_INFO {
@@ -19880,8 +19880,8 @@ impl ::core::clone::Clone for CMSG_RECIPIENT_ENCODE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_RECIPIENT_ENCODE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RECIPIENT_ENCODE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_RECIPIENT_ENCODE_INFO_0 {
@@ -19908,8 +19908,8 @@ impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
@@ -19935,8 +19935,8 @@ impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
@@ -19967,8 +19967,8 @@ impl ::core::fmt::Debug for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
@@ -20011,8 +20011,8 @@ impl ::core::fmt::Debug for CMSG_SIGNED_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_SIGNED_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SIGNED_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMSG_SIGNED_ENCODE_INFO {
@@ -20052,8 +20052,8 @@ impl ::core::clone::Clone for CMSG_SIGNER_ENCODE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_SIGNER_ENCODE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SIGNER_ENCODE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_SIGNER_ENCODE_INFO {
@@ -20077,8 +20077,8 @@ impl ::core::clone::Clone for CMSG_SIGNER_ENCODE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_SIGNER_ENCODE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SIGNER_ENCODE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_SIGNER_ENCODE_INFO_0 {
@@ -20109,8 +20109,8 @@ impl ::core::fmt::Debug for CMSG_SIGNER_INFO {
         f.debug_struct("CMSG_SIGNER_INFO").field("dwVersion", &self.dwVersion).field("Issuer", &self.Issuer).field("SerialNumber", &self.SerialNumber).field("HashAlgorithm", &self.HashAlgorithm).field("HashEncryptionAlgorithm", &self.HashEncryptionAlgorithm).field("EncryptedHash", &self.EncryptedHash).field("AuthAttrs", &self.AuthAttrs).field("UnauthAttrs", &self.UnauthAttrs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_SIGNER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SIGNER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_SIGNER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20140,8 +20140,8 @@ impl ::core::fmt::Debug for CMSG_SP3_COMPATIBLE_AUX_INFO {
         f.debug_struct("CMSG_SP3_COMPATIBLE_AUX_INFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMSG_SP3_COMPATIBLE_AUX_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_SP3_COMPATIBLE_AUX_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMSG_SP3_COMPATIBLE_AUX_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20177,8 +20177,8 @@ impl ::core::fmt::Debug for CMSG_STREAM_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMSG_STREAM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMSG_STREAM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMSG_STREAM_INFO {
@@ -20206,8 +20206,8 @@ impl ::core::fmt::Debug for CMS_DH_KEY_INFO {
         f.debug_struct("CMS_DH_KEY_INFO").field("dwVersion", &self.dwVersion).field("Algid", &self.Algid).field("pszContentEncObjId", &self.pszContentEncObjId).field("PubInfo", &self.PubInfo).field("pReserved", &self.pReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMS_DH_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMS_DH_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMS_DH_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20239,8 +20239,8 @@ impl ::core::fmt::Debug for CMS_KEY_INFO {
         f.debug_struct("CMS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Algid", &self.Algid).field("pbOID", &self.pbOID).field("cbOID", &self.cbOID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMS_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMS_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMS_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20271,8 +20271,8 @@ impl ::core::fmt::Debug for CPS_URLS {
         f.debug_struct("CPS_URLS").field("pszURL", &self.pszURL).field("pAlgorithm", &self.pAlgorithm).field("pDigest", &self.pDigest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CPS_URLS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CPS_URLS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CPS_URLS {
     fn eq(&self, other: &Self) -> bool {
@@ -20310,8 +20310,8 @@ impl ::core::fmt::Debug for CRL_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRL_CONTEXT {
@@ -20340,8 +20340,8 @@ impl ::core::clone::Clone for CRL_DIST_POINT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRL_DIST_POINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_DIST_POINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRL_DIST_POINT {
     fn default() -> Self {
@@ -20365,8 +20365,8 @@ impl ::core::fmt::Debug for CRL_DIST_POINTS_INFO {
         f.debug_struct("CRL_DIST_POINTS_INFO").field("cDistPoint", &self.cDistPoint).field("rgDistPoint", &self.rgDistPoint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRL_DIST_POINTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_DIST_POINTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRL_DIST_POINTS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20391,8 +20391,8 @@ impl ::core::clone::Clone for CRL_DIST_POINT_NAME {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRL_DIST_POINT_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_DIST_POINT_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRL_DIST_POINT_NAME {
     fn default() -> Self {
@@ -20410,8 +20410,8 @@ impl ::core::clone::Clone for CRL_DIST_POINT_NAME_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRL_DIST_POINT_NAME_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_DIST_POINT_NAME_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRL_DIST_POINT_NAME_0 {
     fn default() -> Self {
@@ -20442,8 +20442,8 @@ impl ::core::fmt::Debug for CRL_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRL_ENTRY {
@@ -20481,8 +20481,8 @@ impl ::core::fmt::Debug for CRL_FIND_ISSUED_FOR_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_FIND_ISSUED_FOR_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_FIND_ISSUED_FOR_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRL_FIND_ISSUED_FOR_PARA {
@@ -20527,8 +20527,8 @@ impl ::core::fmt::Debug for CRL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRL_INFO {
@@ -20563,8 +20563,8 @@ impl ::core::clone::Clone for CRL_ISSUING_DIST_POINT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_ISSUING_DIST_POINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_ISSUING_DIST_POINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRL_ISSUING_DIST_POINT {
@@ -20595,8 +20595,8 @@ impl ::core::fmt::Debug for CRL_REVOCATION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRL_REVOCATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRL_REVOCATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRL_REVOCATION_INFO {
@@ -20630,8 +20630,8 @@ impl ::core::fmt::Debug for CROSS_CERT_DIST_POINTS_INFO {
         f.debug_struct("CROSS_CERT_DIST_POINTS_INFO").field("dwSyncDeltaTime", &self.dwSyncDeltaTime).field("cDistPoint", &self.cDistPoint).field("rgDistPoint", &self.rgDistPoint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CROSS_CERT_DIST_POINTS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CROSS_CERT_DIST_POINTS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CROSS_CERT_DIST_POINTS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20667,8 +20667,8 @@ impl ::core::fmt::Debug for CRYPTNET_URL_CACHE_FLUSH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTNET_URL_CACHE_FLUSH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPTNET_URL_CACHE_FLUSH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTNET_URL_CACHE_FLUSH_INFO {
@@ -20711,8 +20711,8 @@ impl ::core::fmt::Debug for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
@@ -20755,8 +20755,8 @@ impl ::core::fmt::Debug for CRYPTNET_URL_CACHE_RESPONSE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTNET_URL_CACHE_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPTNET_URL_CACHE_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTNET_URL_CACHE_RESPONSE_INFO {
@@ -20796,8 +20796,8 @@ impl ::core::fmt::Debug for CRYPTPROTECT_PROMPTSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPTPROTECT_PROMPTSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPTPROTECT_PROMPTSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPTPROTECT_PROMPTSTRUCT {
@@ -20831,8 +20831,8 @@ impl ::core::fmt::Debug for CRYPT_3DES_KEY_STATE {
         f.debug_struct("CRYPT_3DES_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("Feedback", &self.Feedback).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_3DES_KEY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_3DES_KEY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_3DES_KEY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -20865,8 +20865,8 @@ impl ::core::fmt::Debug for CRYPT_AES_128_KEY_STATE {
         f.debug_struct("CRYPT_AES_128_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("EncryptionState", &self.EncryptionState).field("DecryptionState", &self.DecryptionState).field("Feedback", &self.Feedback).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_AES_128_KEY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_AES_128_KEY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_AES_128_KEY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -20899,8 +20899,8 @@ impl ::core::fmt::Debug for CRYPT_AES_256_KEY_STATE {
         f.debug_struct("CRYPT_AES_256_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("EncryptionState", &self.EncryptionState).field("DecryptionState", &self.DecryptionState).field("Feedback", &self.Feedback).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_AES_256_KEY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_AES_256_KEY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_AES_256_KEY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -20930,8 +20930,8 @@ impl ::core::fmt::Debug for CRYPT_ALGORITHM_IDENTIFIER {
         f.debug_struct("CRYPT_ALGORITHM_IDENTIFIER").field("pszObjId", &self.pszObjId).field("Parameters", &self.Parameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ALGORITHM_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ALGORITHM_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ALGORITHM_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
@@ -20961,8 +20961,8 @@ impl ::core::fmt::Debug for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
         f.debug_struct("CRYPT_ASYNC_RETRIEVAL_COMPLETION").field("pvCompletion", &self.pvCompletion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     fn default() -> Self {
@@ -20987,8 +20987,8 @@ impl ::core::fmt::Debug for CRYPT_ATTRIBUTE {
         f.debug_struct("CRYPT_ATTRIBUTE").field("pszObjId", &self.pszObjId).field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ATTRIBUTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ATTRIBUTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
@@ -21018,8 +21018,8 @@ impl ::core::fmt::Debug for CRYPT_ATTRIBUTES {
         f.debug_struct("CRYPT_ATTRIBUTES").field("cAttr", &self.cAttr).field("rgAttr", &self.rgAttr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
@@ -21049,8 +21049,8 @@ impl ::core::fmt::Debug for CRYPT_ATTRIBUTE_TYPE_VALUE {
         f.debug_struct("CRYPT_ATTRIBUTE_TYPE_VALUE").field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ATTRIBUTE_TYPE_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ATTRIBUTE_TYPE_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ATTRIBUTE_TYPE_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -21081,8 +21081,8 @@ impl ::core::fmt::Debug for CRYPT_BIT_BLOB {
         f.debug_struct("CRYPT_BIT_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).field("cUnusedBits", &self.cUnusedBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_BIT_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_BIT_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_BIT_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -21112,8 +21112,8 @@ impl ::core::fmt::Debug for CRYPT_BLOB_ARRAY {
         f.debug_struct("CRYPT_BLOB_ARRAY").field("cBlob", &self.cBlob).field("rgBlob", &self.rgBlob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_BLOB_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_BLOB_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_BLOB_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -21143,8 +21143,8 @@ impl ::core::fmt::Debug for CRYPT_CONTENT_INFO {
         f.debug_struct("CRYPT_CONTENT_INFO").field("pszObjId", &self.pszObjId).field("Content", &self.Content).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21175,8 +21175,8 @@ impl ::core::fmt::Debug for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
         f.debug_struct("CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY").field("pszObjId", &self.pszObjId).field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     fn eq(&self, other: &Self) -> bool {
@@ -21206,8 +21206,8 @@ impl ::core::fmt::Debug for CRYPT_CONTEXTS {
         f.debug_struct("CRYPT_CONTEXTS").field("cContexts", &self.cContexts).field("rgpszContexts", &self.rgpszContexts).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTEXTS {
     fn eq(&self, other: &Self) -> bool {
@@ -21237,8 +21237,8 @@ impl ::core::fmt::Debug for CRYPT_CONTEXT_CONFIG {
         f.debug_struct("CRYPT_CONTEXT_CONFIG").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXT_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTEXT_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -21268,8 +21268,8 @@ impl ::core::fmt::Debug for CRYPT_CONTEXT_FUNCTIONS {
         f.debug_struct("CRYPT_CONTEXT_FUNCTIONS").field("cFunctions", &self.cFunctions).field("rgpszFunctions", &self.rgpszFunctions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_FUNCTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXT_FUNCTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTEXT_FUNCTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -21299,8 +21299,8 @@ impl ::core::fmt::Debug for CRYPT_CONTEXT_FUNCTION_CONFIG {
         f.debug_struct("CRYPT_CONTEXT_FUNCTION_CONFIG").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_FUNCTION_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXT_FUNCTION_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTEXT_FUNCTION_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -21330,8 +21330,8 @@ impl ::core::fmt::Debug for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
         f.debug_struct("CRYPT_CONTEXT_FUNCTION_PROVIDERS").field("cProviders", &self.cProviders).field("rgpszProviders", &self.rgpszProviders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     fn eq(&self, other: &Self) -> bool {
@@ -21362,8 +21362,8 @@ impl ::core::fmt::Debug for CRYPT_CREDENTIALS {
         f.debug_struct("CRYPT_CREDENTIALS").field("cbSize", &self.cbSize).field("pszCredentialsOid", &self.pszCredentialsOid).field("pvCredentials", &self.pvCredentials).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CREDENTIALS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CREDENTIALS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CREDENTIALS {
     fn eq(&self, other: &Self) -> bool {
@@ -21394,8 +21394,8 @@ impl ::core::fmt::Debug for CRYPT_CSP_PROVIDER {
         f.debug_struct("CRYPT_CSP_PROVIDER").field("dwKeySpec", &self.dwKeySpec).field("pwszProviderName", &self.pwszProviderName).field("Signature", &self.Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_CSP_PROVIDER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_CSP_PROVIDER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_CSP_PROVIDER {
     fn eq(&self, other: &Self) -> bool {
@@ -21426,8 +21426,8 @@ impl ::core::fmt::Debug for CRYPT_DECODE_PARA {
         f.debug_struct("CRYPT_DECODE_PARA").field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DECODE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DECODE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_DECODE_PARA {
     fn default() -> Self {
@@ -21453,8 +21453,8 @@ impl ::core::fmt::Debug for CRYPT_DECRYPT_MESSAGE_PARA {
         f.debug_struct("CRYPT_DECRYPT_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgAndCertEncodingType", &self.dwMsgAndCertEncodingType).field("cCertStore", &self.cCertStore).field("rghCertStore", &self.rghCertStore).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DECRYPT_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DECRYPT_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_DECRYPT_MESSAGE_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -21484,8 +21484,8 @@ impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
         f.debug_struct("CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA").field("cOID", &self.cOID).field("rgpszOID", &self.rgpszOID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -21516,8 +21516,8 @@ impl ::core::fmt::Debug for CRYPT_DES_KEY_STATE {
         f.debug_struct("CRYPT_DES_KEY_STATE").field("Key", &self.Key).field("IV", &self.IV).field("Feedback", &self.Feedback).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_DES_KEY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_DES_KEY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_DES_KEY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -21548,8 +21548,8 @@ impl ::core::fmt::Debug for CRYPT_ECC_CMS_SHARED_INFO {
         f.debug_struct("CRYPT_ECC_CMS_SHARED_INFO").field("Algorithm", &self.Algorithm).field("EntityUInfo", &self.EntityUInfo).field("rgbSuppPubInfo", &self.rgbSuppPubInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ECC_CMS_SHARED_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ECC_CMS_SHARED_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ECC_CMS_SHARED_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21581,8 +21581,8 @@ impl ::core::fmt::Debug for CRYPT_ECC_PRIVATE_KEY_INFO {
         f.debug_struct("CRYPT_ECC_PRIVATE_KEY_INFO").field("dwVersion", &self.dwVersion).field("PrivateKey", &self.PrivateKey).field("szCurveOid", &self.szCurveOid).field("PublicKey", &self.PublicKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ECC_PRIVATE_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ECC_PRIVATE_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ECC_PRIVATE_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21613,8 +21613,8 @@ impl ::core::fmt::Debug for CRYPT_ENCODE_PARA {
         f.debug_struct("CRYPT_ENCODE_PARA").field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ENCODE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ENCODE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_ENCODE_PARA {
     fn default() -> Self {
@@ -21638,8 +21638,8 @@ impl ::core::fmt::Debug for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
         f.debug_struct("CRYPT_ENCRYPTED_PRIVATE_KEY_INFO").field("EncryptionAlgorithm", &self.EncryptionAlgorithm).field("EncryptedPrivateKey", &self.EncryptedPrivateKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21674,8 +21674,8 @@ impl ::core::fmt::Debug for CRYPT_ENCRYPT_MESSAGE_PARA {
         f.debug_struct("CRYPT_ENCRYPT_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).field("ContentEncryptionAlgorithm", &self.ContentEncryptionAlgorithm).field("pvEncryptionAuxInfo", &self.pvEncryptionAuxInfo).field("dwFlags", &self.dwFlags).field("dwInnerContentType", &self.dwInnerContentType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ENCRYPT_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ENCRYPT_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ENCRYPT_MESSAGE_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -21705,8 +21705,8 @@ impl ::core::fmt::Debug for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
         f.debug_struct("CRYPT_ENROLLMENT_NAME_VALUE_PAIR").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     fn eq(&self, other: &Self) -> bool {
@@ -21746,8 +21746,8 @@ impl ::core::fmt::Debug for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
@@ -21780,8 +21780,8 @@ impl ::core::fmt::Debug for CRYPT_HASH_INFO {
         f.debug_struct("CRYPT_HASH_INFO").field("HashAlgorithm", &self.HashAlgorithm).field("Hash", &self.Hash).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_HASH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_HASH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_HASH_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21814,8 +21814,8 @@ impl ::core::fmt::Debug for CRYPT_HASH_MESSAGE_PARA {
         f.debug_struct("CRYPT_HASH_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).field("HashAlgorithm", &self.HashAlgorithm).field("pvHashAuxInfo", &self.pvHashAuxInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_HASH_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_HASH_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_HASH_MESSAGE_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -21845,8 +21845,8 @@ impl ::core::fmt::Debug for CRYPT_IMAGE_REF {
         f.debug_struct("CRYPT_IMAGE_REF").field("pszImage", &self.pszImage).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_IMAGE_REF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_IMAGE_REF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_IMAGE_REF {
     fn eq(&self, other: &Self) -> bool {
@@ -21877,8 +21877,8 @@ impl ::core::fmt::Debug for CRYPT_IMAGE_REG {
         f.debug_struct("CRYPT_IMAGE_REG").field("pszImage", &self.pszImage).field("cInterfaces", &self.cInterfaces).field("rgpInterfaces", &self.rgpInterfaces).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_IMAGE_REG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_IMAGE_REG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_IMAGE_REG {
     fn eq(&self, other: &Self) -> bool {
@@ -21908,8 +21908,8 @@ impl ::core::fmt::Debug for CRYPT_INTEGER_BLOB {
         f.debug_struct("CRYPT_INTEGER_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_INTEGER_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_INTEGER_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_INTEGER_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -21941,8 +21941,8 @@ impl ::core::fmt::Debug for CRYPT_INTERFACE_REG {
         f.debug_struct("CRYPT_INTERFACE_REG").field("dwInterface", &self.dwInterface).field("dwFlags", &self.dwFlags).field("cFunctions", &self.cFunctions).field("rgpszFunctions", &self.rgpszFunctions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_INTERFACE_REG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_INTERFACE_REG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_INTERFACE_REG {
     fn eq(&self, other: &Self) -> bool {
@@ -21977,8 +21977,8 @@ impl ::core::fmt::Debug for CRYPT_KEY_PROV_INFO {
         f.debug_struct("CRYPT_KEY_PROV_INFO").field("pwszContainerName", &self.pwszContainerName).field("pwszProvName", &self.pwszProvName).field("dwProvType", &self.dwProvType).field("dwFlags", &self.dwFlags).field("cProvParam", &self.cProvParam).field("rgProvParam", &self.rgProvParam).field("dwKeySpec", &self.dwKeySpec).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_PROV_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_PROV_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_KEY_PROV_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -22010,8 +22010,8 @@ impl ::core::fmt::Debug for CRYPT_KEY_PROV_PARAM {
         f.debug_struct("CRYPT_KEY_PROV_PARAM").field("dwParam", &self.dwParam).field("pbData", &self.pbData).field("cbData", &self.cbData).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_PROV_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_PROV_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_KEY_PROV_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -22041,8 +22041,8 @@ impl ::core::clone::Clone for CRYPT_KEY_SIGN_MESSAGE_PARA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_KEY_SIGN_MESSAGE_PARA {
     fn default() -> Self {
@@ -22061,8 +22061,8 @@ impl ::core::clone::Clone for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     fn default() -> Self {
@@ -22087,8 +22087,8 @@ impl ::core::fmt::Debug for CRYPT_KEY_VERIFY_MESSAGE_PARA {
         f.debug_struct("CRYPT_KEY_VERIFY_MESSAGE_PARA").field("cbSize", &self.cbSize).field("dwMsgEncodingType", &self.dwMsgEncodingType).field("hCryptProv", &self.hCryptProv).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_KEY_VERIFY_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_KEY_VERIFY_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_KEY_VERIFY_MESSAGE_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -22118,8 +22118,8 @@ impl ::core::fmt::Debug for CRYPT_MASK_GEN_ALGORITHM {
         f.debug_struct("CRYPT_MASK_GEN_ALGORITHM").field("pszObjId", &self.pszObjId).field("HashAlgorithm", &self.HashAlgorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_MASK_GEN_ALGORITHM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_MASK_GEN_ALGORITHM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_MASK_GEN_ALGORITHM {
     fn eq(&self, other: &Self) -> bool {
@@ -22158,8 +22158,8 @@ impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
@@ -22184,8 +22184,8 @@ impl ::core::fmt::Debug for CRYPT_OBJID_TABLE {
         f.debug_struct("CRYPT_OBJID_TABLE").field("dwAlgId", &self.dwAlgId).field("pszObjId", &self.pszObjId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_OBJID_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OBJID_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_OBJID_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -22215,8 +22215,8 @@ impl ::core::fmt::Debug for CRYPT_OID_FUNC_ENTRY {
         f.debug_struct("CRYPT_OID_FUNC_ENTRY").field("pszOID", &self.pszOID).field("pvFuncAddr", &self.pvFuncAddr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_OID_FUNC_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OID_FUNC_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_OID_FUNC_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -22245,8 +22245,8 @@ impl ::core::clone::Clone for CRYPT_OID_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_OID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_OID_INFO {
     fn default() -> Self {
@@ -22266,8 +22266,8 @@ impl ::core::clone::Clone for CRYPT_OID_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_OID_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_OID_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_OID_INFO_0 {
     fn default() -> Self {
@@ -22292,8 +22292,8 @@ impl ::core::fmt::Debug for CRYPT_PASSWORD_CREDENTIALSA {
         f.debug_struct("CRYPT_PASSWORD_CREDENTIALSA").field("cbSize", &self.cbSize).field("pszUsername", &self.pszUsername).field("pszPassword", &self.pszPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PASSWORD_CREDENTIALSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PASSWORD_CREDENTIALSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PASSWORD_CREDENTIALSA {
     fn eq(&self, other: &Self) -> bool {
@@ -22324,8 +22324,8 @@ impl ::core::fmt::Debug for CRYPT_PASSWORD_CREDENTIALSW {
         f.debug_struct("CRYPT_PASSWORD_CREDENTIALSW").field("cbSize", &self.cbSize).field("pszUsername", &self.pszUsername).field("pszPassword", &self.pszPassword).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PASSWORD_CREDENTIALSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PASSWORD_CREDENTIALSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PASSWORD_CREDENTIALSW {
     fn eq(&self, other: &Self) -> bool {
@@ -22355,8 +22355,8 @@ impl ::core::fmt::Debug for CRYPT_PKCS12_PBE_PARAMS {
         f.debug_struct("CRYPT_PKCS12_PBE_PARAMS").field("iIterations", &self.iIterations).field("cbSalt", &self.cbSalt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PKCS12_PBE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PKCS12_PBE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PKCS12_PBE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -22394,8 +22394,8 @@ impl ::core::fmt::Debug for CRYPT_PKCS8_EXPORT_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_PKCS8_EXPORT_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PKCS8_EXPORT_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_PKCS8_EXPORT_PARAMS {
@@ -22428,8 +22428,8 @@ impl ::core::fmt::Debug for CRYPT_PKCS8_IMPORT_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_PKCS8_IMPORT_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PKCS8_IMPORT_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_PKCS8_IMPORT_PARAMS {
@@ -22456,8 +22456,8 @@ impl ::core::fmt::Debug for CRYPT_PRIVATE_KEY_INFO {
         f.debug_struct("CRYPT_PRIVATE_KEY_INFO").field("Version", &self.Version).field("Algorithm", &self.Algorithm).field("PrivateKey", &self.PrivateKey).field("pAttributes", &self.pAttributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PRIVATE_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PRIVATE_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PRIVATE_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -22488,8 +22488,8 @@ impl ::core::fmt::Debug for CRYPT_PROPERTY_REF {
         f.debug_struct("CRYPT_PROPERTY_REF").field("pszProperty", &self.pszProperty).field("cbValue", &self.cbValue).field("pbValue", &self.pbValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PROPERTY_REF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PROPERTY_REF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PROPERTY_REF {
     fn eq(&self, other: &Self) -> bool {
@@ -22519,8 +22519,8 @@ impl ::core::fmt::Debug for CRYPT_PROVIDERS {
         f.debug_struct("CRYPT_PROVIDERS").field("cProviders", &self.cProviders).field("rgpszProviders", &self.rgpszProviders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PROVIDERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PROVIDERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDERS {
     fn eq(&self, other: &Self) -> bool {
@@ -22555,8 +22555,8 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_REF {
         f.debug_struct("CRYPT_PROVIDER_REF").field("dwInterface", &self.dwInterface).field("pszFunction", &self.pszFunction).field("pszProvider", &self.pszProvider).field("cProperties", &self.cProperties).field("rgpProperties", &self.rgpProperties).field("pUM", &self.pUM).field("pKM", &self.pKM).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_REF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PROVIDER_REF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_REF {
     fn eq(&self, other: &Self) -> bool {
@@ -22586,8 +22586,8 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_REFS {
         f.debug_struct("CRYPT_PROVIDER_REFS").field("cProviders", &self.cProviders).field("rgpProviders", &self.rgpProviders).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_REFS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PROVIDER_REFS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_REFS {
     fn eq(&self, other: &Self) -> bool {
@@ -22619,8 +22619,8 @@ impl ::core::fmt::Debug for CRYPT_PROVIDER_REG {
         f.debug_struct("CRYPT_PROVIDER_REG").field("cAliases", &self.cAliases).field("rgpszAliases", &self.rgpszAliases).field("pUM", &self.pUM).field("pKM", &self.pKM).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PROVIDER_REG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PROVIDER_REG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PROVIDER_REG {
     fn eq(&self, other: &Self) -> bool {
@@ -22650,8 +22650,8 @@ impl ::core::fmt::Debug for CRYPT_PSOURCE_ALGORITHM {
         f.debug_struct("CRYPT_PSOURCE_ALGORITHM").field("pszObjId", &self.pszObjId).field("EncodingParameters", &self.EncodingParameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_PSOURCE_ALGORITHM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_PSOURCE_ALGORITHM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_PSOURCE_ALGORITHM {
     fn eq(&self, other: &Self) -> bool {
@@ -22687,8 +22687,8 @@ impl ::core::fmt::Debug for CRYPT_RC2_CBC_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_RC2_CBC_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_RC2_CBC_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_RC2_CBC_PARAMETERS {
@@ -22723,8 +22723,8 @@ impl ::core::fmt::Debug for CRYPT_RC4_KEY_STATE {
         f.debug_struct("CRYPT_RC4_KEY_STATE").field("Key", &self.Key).field("SBox", &self.SBox).field("i", &self.i).field("j", &self.j).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_RC4_KEY_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_RC4_KEY_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_RC4_KEY_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -22782,8 +22782,8 @@ impl ::core::fmt::Debug for CRYPT_RETRIEVE_AUX_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_RETRIEVE_AUX_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_RETRIEVE_AUX_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_RETRIEVE_AUX_INFO {
@@ -22817,8 +22817,8 @@ impl ::core::fmt::Debug for CRYPT_RSAES_OAEP_PARAMETERS {
         f.debug_struct("CRYPT_RSAES_OAEP_PARAMETERS").field("HashAlgorithm", &self.HashAlgorithm).field("MaskGenAlgorithm", &self.MaskGenAlgorithm).field("PSourceAlgorithm", &self.PSourceAlgorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_RSAES_OAEP_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_RSAES_OAEP_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_RSAES_OAEP_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -22850,8 +22850,8 @@ impl ::core::fmt::Debug for CRYPT_RSA_SSA_PSS_PARAMETERS {
         f.debug_struct("CRYPT_RSA_SSA_PSS_PARAMETERS").field("HashAlgorithm", &self.HashAlgorithm).field("MaskGenAlgorithm", &self.MaskGenAlgorithm).field("dwSaltLength", &self.dwSaltLength).field("dwTrailerField", &self.dwTrailerField).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_RSA_SSA_PSS_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_RSA_SSA_PSS_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_RSA_SSA_PSS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -22881,8 +22881,8 @@ impl ::core::fmt::Debug for CRYPT_SEQUENCE_OF_ANY {
         f.debug_struct("CRYPT_SEQUENCE_OF_ANY").field("cValue", &self.cValue).field("rgValue", &self.rgValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SEQUENCE_OF_ANY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SEQUENCE_OF_ANY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_SEQUENCE_OF_ANY {
     fn eq(&self, other: &Self) -> bool {
@@ -22946,8 +22946,8 @@ impl ::core::fmt::Debug for CRYPT_SIGN_MESSAGE_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_SIGN_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SIGN_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_SIGN_MESSAGE_PARA {
@@ -22980,8 +22980,8 @@ impl ::core::fmt::Debug for CRYPT_SMART_CARD_ROOT_INFO {
         f.debug_struct("CRYPT_SMART_CARD_ROOT_INFO").field("rgbCardID", &self.rgbCardID).field("luid", &self.luid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SMART_CARD_ROOT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SMART_CARD_ROOT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_SMART_CARD_ROOT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23011,8 +23011,8 @@ impl ::core::fmt::Debug for CRYPT_SMIME_CAPABILITIES {
         f.debug_struct("CRYPT_SMIME_CAPABILITIES").field("cCapability", &self.cCapability).field("rgCapability", &self.rgCapability).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SMIME_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SMIME_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_SMIME_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -23042,8 +23042,8 @@ impl ::core::fmt::Debug for CRYPT_SMIME_CAPABILITY {
         f.debug_struct("CRYPT_SMIME_CAPABILITY").field("pszObjId", &self.pszObjId).field("Parameters", &self.Parameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_SMIME_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_SMIME_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_SMIME_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
@@ -23074,8 +23074,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_ACCURACY {
         f.debug_struct("CRYPT_TIMESTAMP_ACCURACY").field("dwSeconds", &self.dwSeconds).field("dwMillis", &self.dwMillis).field("dwMicros", &self.dwMicros).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_ACCURACY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_ACCURACY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_ACCURACY {
     fn eq(&self, other: &Self) -> bool {
@@ -23111,8 +23111,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_CONTEXT {
@@ -23173,8 +23173,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_INFO {
@@ -23215,8 +23215,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_PARA {
@@ -23260,8 +23260,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_REQUEST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_REQUEST {
@@ -23297,8 +23297,8 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE {
         f.debug_struct("CRYPT_TIMESTAMP_RESPONSE").field("dwStatus", &self.dwStatus).field("cFreeText", &self.cFreeText).field("rgFreeText", &self.rgFreeText).field("FailureInfo", &self.FailureInfo).field("ContentInfo", &self.ContentInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIMESTAMP_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_TIMESTAMP_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
@@ -23331,8 +23331,8 @@ impl ::core::fmt::Debug for CRYPT_TIME_STAMP_REQUEST_INFO {
         f.debug_struct("CRYPT_TIME_STAMP_REQUEST_INFO").field("pszTimeStampAlgorithm", &self.pszTimeStampAlgorithm).field("pszContentType", &self.pszContentType).field("Content", &self.Content).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_TIME_STAMP_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_TIME_STAMP_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_TIME_STAMP_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23362,8 +23362,8 @@ impl ::core::fmt::Debug for CRYPT_URL_ARRAY {
         f.debug_struct("CRYPT_URL_ARRAY").field("cUrl", &self.cUrl).field("rgwszUrl", &self.rgwszUrl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_URL_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_URL_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_URL_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -23395,8 +23395,8 @@ impl ::core::fmt::Debug for CRYPT_URL_INFO {
         f.debug_struct("CRYPT_URL_INFO").field("cbSize", &self.cbSize).field("dwSyncDeltaTime", &self.dwSyncDeltaTime).field("cGroup", &self.cGroup).field("rgcGroupEntry", &self.rgcGroupEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_URL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_URL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_URL_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23426,8 +23426,8 @@ impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
         f.debug_struct("CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO").field("CertSignHashCNGAlgPropData", &self.CertSignHashCNGAlgPropData).field("CertIssuerPubKeyBitLengthPropData", &self.CertIssuerPubKeyBitLengthPropData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23458,8 +23458,8 @@ impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
         f.debug_struct("CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO").field("cCNGHashAlgid", &self.cCNGHashAlgid).field("rgpwszCNGHashAlgid", &self.rgpwszCNGHashAlgid).field("dwWeakIndex", &self.dwWeakIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23497,8 +23497,8 @@ impl ::core::fmt::Debug for CRYPT_VERIFY_MESSAGE_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CRYPT_VERIFY_MESSAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_VERIFY_MESSAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CRYPT_VERIFY_MESSAGE_PARA {
@@ -23525,8 +23525,8 @@ impl ::core::fmt::Debug for CRYPT_X942_OTHER_INFO {
         f.debug_struct("CRYPT_X942_OTHER_INFO").field("pszContentEncryptionObjId", &self.pszContentEncryptionObjId).field("rgbCounter", &self.rgbCounter).field("rgbKeyLength", &self.rgbKeyLength).field("PubInfo", &self.PubInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_X942_OTHER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_X942_OTHER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_X942_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23557,8 +23557,8 @@ impl ::core::fmt::Debug for CRYPT_XML_ALGORITHM {
         f.debug_struct("CRYPT_XML_ALGORITHM").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("Encoded", &self.Encoded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_ALGORITHM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_ALGORITHM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_ALGORITHM {
     fn eq(&self, other: &Self) -> bool {
@@ -23596,8 +23596,8 @@ impl ::core::fmt::Debug for CRYPT_XML_ALGORITHM_INFO {
         f.debug_struct("CRYPT_XML_ALGORITHM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithmURI", &self.wszAlgorithmURI).field("wszName", &self.wszName).field("dwGroupId", &self.dwGroupId).field("wszCNGAlgid", &self.wszCNGAlgid).field("wszCNGExtraAlgid", &self.wszCNGExtraAlgid).field("dwSignFlags", &self.dwSignFlags).field("dwVerifyFlags", &self.dwVerifyFlags).field("pvPaddingInfo", &self.pvPaddingInfo).field("pvExtraInfo", &self.pvExtraInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_ALGORITHM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_ALGORITHM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_ALGORITHM_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23628,8 +23628,8 @@ impl ::core::fmt::Debug for CRYPT_XML_BLOB {
         f.debug_struct("CRYPT_XML_BLOB").field("dwCharset", &self.dwCharset).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -23666,8 +23666,8 @@ impl ::core::fmt::Debug for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
         f.debug_struct("CRYPT_XML_CRYPTOGRAPHIC_INTERFACE").field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     fn default() -> Self {
@@ -23691,8 +23691,8 @@ impl ::core::fmt::Debug for CRYPT_XML_DATA_BLOB {
         f.debug_struct("CRYPT_XML_DATA_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_DATA_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_DATA_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_DATA_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -23724,8 +23724,8 @@ impl ::core::fmt::Debug for CRYPT_XML_DATA_PROVIDER {
         f.debug_struct("CRYPT_XML_DATA_PROVIDER").field("pvCallbackState", &self.pvCallbackState).field("cbBufferSize", &self.cbBufferSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_DATA_PROVIDER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_DATA_PROVIDER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_DATA_PROVIDER {
     fn default() -> Self {
@@ -23752,8 +23752,8 @@ impl ::core::fmt::Debug for CRYPT_XML_DOC_CTXT {
         f.debug_struct("CRYPT_XML_DOC_CTXT").field("cbSize", &self.cbSize).field("hDocCtxt", &self.hDocCtxt).field("pTransformsConfig", &self.pTransformsConfig).field("cSignature", &self.cSignature).field("rgpSignature", &self.rgpSignature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_DOC_CTXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_DOC_CTXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_DOC_CTXT {
     fn eq(&self, other: &Self) -> bool {
@@ -23783,8 +23783,8 @@ impl ::core::fmt::Debug for CRYPT_XML_ISSUER_SERIAL {
         f.debug_struct("CRYPT_XML_ISSUER_SERIAL").field("wszIssuer", &self.wszIssuer).field("wszSerial", &self.wszSerial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_ISSUER_SERIAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_ISSUER_SERIAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_ISSUER_SERIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -23820,8 +23820,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_PARAM {
         f.debug_struct("CRYPT_XML_KEYINFO_PARAM").field("wszId", &self.wszId).field("wszKeyName", &self.wszKeyName).field("SKI", &self.SKI).field("wszSubjectName", &self.wszSubjectName).field("cCertificate", &self.cCertificate).field("rgCertificate", &self.rgCertificate).field("cCRL", &self.cCRL).field("rgCRL", &self.rgCRL).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_PARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEYINFO_PARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_KEYINFO_PARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -23856,8 +23856,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_DSA_KEY_VALUE {
         f.debug_struct("CRYPT_XML_KEY_DSA_KEY_VALUE").field("P", &self.P).field("Q", &self.Q).field("G", &self.G).field("Y", &self.Y).field("J", &self.J).field("Seed", &self.Seed).field("Counter", &self.Counter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_DSA_KEY_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_DSA_KEY_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_KEY_DSA_KEY_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -23889,8 +23889,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
         f.debug_struct("CRYPT_XML_KEY_ECDSA_KEY_VALUE").field("wszNamedCurve", &self.wszNamedCurve).field("X", &self.X).field("Y", &self.Y).field("ExplicitPara", &self.ExplicitPara).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -23923,8 +23923,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_INFO {
         f.debug_struct("CRYPT_XML_KEY_INFO").field("cbSize", &self.cbSize).field("wszId", &self.wszId).field("cKeyInfo", &self.cKeyInfo).field("rgKeyInfo", &self.rgKeyInfo).field("hVerifyKey", &self.hVerifyKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -23949,8 +23949,8 @@ impl ::core::clone::Clone for CRYPT_XML_KEY_INFO_ITEM {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_INFO_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_INFO_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_KEY_INFO_ITEM {
     fn default() -> Self {
@@ -23972,8 +23972,8 @@ impl ::core::clone::Clone for CRYPT_XML_KEY_INFO_ITEM_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_INFO_ITEM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_INFO_ITEM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_KEY_INFO_ITEM_0 {
     fn default() -> Self {
@@ -23997,8 +23997,8 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_RSA_KEY_VALUE {
         f.debug_struct("CRYPT_XML_KEY_RSA_KEY_VALUE").field("Modulus", &self.Modulus).field("Exponent", &self.Exponent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_RSA_KEY_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_RSA_KEY_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_KEY_RSA_KEY_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -24023,8 +24023,8 @@ impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_KEY_VALUE {
     fn default() -> Self {
@@ -24045,8 +24045,8 @@ impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_KEY_VALUE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_KEY_VALUE_0 {
     fn default() -> Self {
@@ -24075,8 +24075,8 @@ impl ::core::fmt::Debug for CRYPT_XML_OBJECT {
         f.debug_struct("CRYPT_XML_OBJECT").field("cbSize", &self.cbSize).field("hObject", &self.hObject).field("wszId", &self.wszId).field("wszMimeType", &self.wszMimeType).field("wszEncoding", &self.wszEncoding).field("Manifest", &self.Manifest).field("Encoded", &self.Encoded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_OBJECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_OBJECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_OBJECT {
     fn eq(&self, other: &Self) -> bool {
@@ -24107,8 +24107,8 @@ impl ::core::fmt::Debug for CRYPT_XML_PROPERTY {
         f.debug_struct("CRYPT_XML_PROPERTY").field("dwPropId", &self.dwPropId).field("pvValue", &self.pvValue).field("cbValue", &self.cbValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -24145,8 +24145,8 @@ impl ::core::fmt::Debug for CRYPT_XML_REFERENCE {
         f.debug_struct("CRYPT_XML_REFERENCE").field("cbSize", &self.cbSize).field("hReference", &self.hReference).field("wszId", &self.wszId).field("wszUri", &self.wszUri).field("wszType", &self.wszType).field("DigestMethod", &self.DigestMethod).field("DigestValue", &self.DigestValue).field("cTransform", &self.cTransform).field("rgTransform", &self.rgTransform).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_REFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_REFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_REFERENCE {
     fn eq(&self, other: &Self) -> bool {
@@ -24176,8 +24176,8 @@ impl ::core::fmt::Debug for CRYPT_XML_REFERENCES {
         f.debug_struct("CRYPT_XML_REFERENCES").field("cReference", &self.cReference).field("rgpReference", &self.rgpReference).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_REFERENCES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_REFERENCES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_REFERENCES {
     fn eq(&self, other: &Self) -> bool {
@@ -24213,8 +24213,8 @@ impl ::core::fmt::Debug for CRYPT_XML_SIGNATURE {
         f.debug_struct("CRYPT_XML_SIGNATURE").field("cbSize", &self.cbSize).field("hSignature", &self.hSignature).field("wszId", &self.wszId).field("SignedInfo", &self.SignedInfo).field("SignatureValue", &self.SignatureValue).field("pKeyInfo", &self.pKeyInfo).field("cObject", &self.cObject).field("rgpObject", &self.rgpObject).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -24249,8 +24249,8 @@ impl ::core::fmt::Debug for CRYPT_XML_SIGNED_INFO {
         f.debug_struct("CRYPT_XML_SIGNED_INFO").field("cbSize", &self.cbSize).field("wszId", &self.wszId).field("Canonicalization", &self.Canonicalization).field("SignatureMethod", &self.SignatureMethod).field("cReference", &self.cReference).field("rgpReference", &self.rgpReference).field("Encoded", &self.Encoded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_SIGNED_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_SIGNED_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_SIGNED_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -24281,8 +24281,8 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS {
         f.debug_struct("CRYPT_XML_STATUS").field("cbSize", &self.cbSize).field("dwErrorStatus", &self.dwErrorStatus).field("dwInfoStatus", &self.dwInfoStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -24313,8 +24313,8 @@ impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
         f.debug_struct("CRYPT_XML_TRANSFORM_CHAIN_CONFIG").field("cbSize", &self.cbSize).field("cTransformInfo", &self.cTransformInfo).field("rgpTransformInfo", &self.rgpTransformInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -24347,8 +24347,8 @@ impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_INFO {
         f.debug_struct("CRYPT_XML_TRANSFORM_INFO").field("cbSize", &self.cbSize).field("wszAlgorithm", &self.wszAlgorithm).field("cbBufferSize", &self.cbBufferSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_TRANSFORM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_TRANSFORM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_TRANSFORM_INFO {
     fn default() -> Self {
@@ -24372,8 +24372,8 @@ impl ::core::fmt::Debug for CRYPT_XML_X509DATA {
         f.debug_struct("CRYPT_XML_X509DATA").field("cX509Data", &self.cX509Data).field("rgX509Data", &self.rgX509Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_X509DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CRYPT_XML_X509DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -24398,8 +24398,8 @@ impl ::core::clone::Clone for CRYPT_XML_X509DATA_ITEM {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_ITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_X509DATA_ITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_X509DATA_ITEM {
     fn default() -> Self {
@@ -24422,8 +24422,8 @@ impl ::core::clone::Clone for CRYPT_XML_X509DATA_ITEM_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_ITEM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CRYPT_XML_X509DATA_ITEM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CRYPT_XML_X509DATA_ITEM_0 {
     fn default() -> Self {
@@ -24447,8 +24447,8 @@ impl ::core::fmt::Debug for CTL_ANY_SUBJECT_INFO {
         f.debug_struct("CTL_ANY_SUBJECT_INFO").field("SubjectAlgorithm", &self.SubjectAlgorithm).field("SubjectIdentifier", &self.SubjectIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CTL_ANY_SUBJECT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_ANY_SUBJECT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CTL_ANY_SUBJECT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -24489,8 +24489,8 @@ impl ::core::fmt::Debug for CTL_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CTL_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CTL_CONTEXT {
@@ -24524,8 +24524,8 @@ impl ::core::fmt::Debug for CTL_ENTRY {
         f.debug_struct("CTL_ENTRY").field("SubjectIdentifier", &self.SubjectIdentifier).field("cAttribute", &self.cAttribute).field("rgAttribute", &self.rgAttribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CTL_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CTL_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -24562,8 +24562,8 @@ impl ::core::fmt::Debug for CTL_FIND_SUBJECT_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CTL_FIND_SUBJECT_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_FIND_SUBJECT_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CTL_FIND_SUBJECT_PARA {
@@ -24603,8 +24603,8 @@ impl ::core::fmt::Debug for CTL_FIND_USAGE_PARA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CTL_FIND_USAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_FIND_USAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CTL_FIND_USAGE_PARA {
@@ -24663,8 +24663,8 @@ impl ::core::fmt::Debug for CTL_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CTL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CTL_INFO {
@@ -24697,8 +24697,8 @@ impl ::core::fmt::Debug for CTL_USAGE {
         f.debug_struct("CTL_USAGE").field("cUsageIdentifier", &self.cUsageIdentifier).field("rgpszUsageIdentifier", &self.rgpszUsageIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CTL_USAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_USAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CTL_USAGE {
     fn eq(&self, other: &Self) -> bool {
@@ -24728,8 +24728,8 @@ impl ::core::fmt::Debug for CTL_USAGE_MATCH {
         f.debug_struct("CTL_USAGE_MATCH").field("dwType", &self.dwType).field("Usage", &self.Usage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CTL_USAGE_MATCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_USAGE_MATCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CTL_USAGE_MATCH {
     fn eq(&self, other: &Self) -> bool {
@@ -24763,8 +24763,8 @@ impl ::core::fmt::Debug for CTL_VERIFY_USAGE_PARA {
         f.debug_struct("CTL_VERIFY_USAGE_PARA").field("cbSize", &self.cbSize).field("ListIdentifier", &self.ListIdentifier).field("cCtlStore", &self.cCtlStore).field("rghCtlStore", &self.rghCtlStore).field("cSignerStore", &self.cSignerStore).field("rghSignerStore", &self.rghSignerStore).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CTL_VERIFY_USAGE_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_VERIFY_USAGE_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CTL_VERIFY_USAGE_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -24804,8 +24804,8 @@ impl ::core::fmt::Debug for CTL_VERIFY_USAGE_STATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CTL_VERIFY_USAGE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CTL_VERIFY_USAGE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CTL_VERIFY_USAGE_STATUS {
@@ -24838,8 +24838,8 @@ impl ::core::fmt::Debug for DSSSEED {
         f.debug_struct("DSSSEED").field("counter", &self.counter).field("seed", &self.seed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSSSEED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSSSEED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSSSEED {
     fn eq(&self, other: &Self) -> bool {
@@ -24870,8 +24870,8 @@ impl ::core::fmt::Debug for ENDPOINTADDRESS {
         f.debug_struct("ENDPOINTADDRESS").field("serviceUrl", &self.serviceUrl).field("policyUrl", &self.policyUrl).field("rawCertificate", &self.rawCertificate).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENDPOINTADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENDPOINTADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENDPOINTADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -24903,8 +24903,8 @@ impl ::core::fmt::Debug for ENDPOINTADDRESS2 {
         f.debug_struct("ENDPOINTADDRESS2").field("serviceUrl", &self.serviceUrl).field("policyUrl", &self.policyUrl).field("identityType", &self.identityType).field("identityBytes", &self.identityBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENDPOINTADDRESS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENDPOINTADDRESS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENDPOINTADDRESS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -24934,8 +24934,8 @@ impl ::core::fmt::Debug for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
         f.debug_struct("EV_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwRootProgramQualifierFlags", &self.dwRootProgramQualifierFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -24966,8 +24966,8 @@ impl ::core::fmt::Debug for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
         f.debug_struct("EV_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwQualifiers", &self.dwQualifiers).field("dwIssuanceUsageIndex", &self.dwIssuanceUsageIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -24999,8 +24999,8 @@ impl ::core::clone::Clone for GENERIC_XML_TOKEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GENERIC_XML_TOKEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GENERIC_XML_TOKEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GENERIC_XML_TOKEN {
@@ -25037,8 +25037,8 @@ impl ::core::convert::From<::core::option::Option<HCERTCHAINENGINE>> for HCERTCH
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCERTCHAINENGINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCERTCHAINENGINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25069,8 +25069,8 @@ impl ::core::convert::From<::core::option::Option<HCERTSTORE>> for HCERTSTORE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCERTSTORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCERTSTORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25101,8 +25101,8 @@ impl ::core::convert::From<::core::option::Option<HCERTSTOREPROV>> for HCERTSTOR
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCERTSTOREPROV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCERTSTOREPROV {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25133,8 +25133,8 @@ impl ::core::convert::From<::core::option::Option<HCRYPTASYNC>> for HCRYPTASYNC 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCRYPTASYNC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCRYPTASYNC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25165,8 +25165,8 @@ impl ::core::convert::From<::core::option::Option<HCRYPTPROV_LEGACY>> for HCRYPT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCRYPTPROV_LEGACY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCRYPTPROV_LEGACY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25197,8 +25197,8 @@ impl ::core::convert::From<::core::option::Option<HCRYPTPROV_OR_NCRYPT_KEY_HANDL
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -25220,8 +25220,8 @@ impl ::core::fmt::Debug for HMAC_INFO {
         f.debug_struct("HMAC_INFO").field("HashAlgid", &self.HashAlgid).field("pbInnerString", &self.pbInnerString).field("cbInnerString", &self.cbInnerString).field("pbOuterString", &self.pbOuterString).field("cbOuterString", &self.cbOuterString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HMAC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HMAC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HMAC_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25248,8 +25248,8 @@ impl ::core::clone::Clone for HTTPSPolicyCallbackData {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HTTPSPolicyCallbackData {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTPSPolicyCallbackData {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HTTPSPolicyCallbackData {
     fn default() -> Self {
@@ -25268,8 +25268,8 @@ impl ::core::clone::Clone for HTTPSPolicyCallbackData_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HTTPSPolicyCallbackData_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HTTPSPolicyCallbackData_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HTTPSPolicyCallbackData_0 {
     fn default() -> Self {
@@ -25294,8 +25294,8 @@ impl ::core::fmt::Debug for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
         f.debug_struct("INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS").field("keySize", &self.keySize).field("keyExchangeAlgorithm", &self.keyExchangeAlgorithm).field("signatureAlgorithm", &self.signatureAlgorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -25326,8 +25326,8 @@ impl ::core::fmt::Debug for INFORMATIONCARD_CRYPTO_HANDLE {
         f.debug_struct("INFORMATIONCARD_CRYPTO_HANDLE").field("type", &self.r#type).field("expiration", &self.expiration).field("cryptoParameters", &self.cryptoParameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INFORMATIONCARD_CRYPTO_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFORMATIONCARD_CRYPTO_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INFORMATIONCARD_CRYPTO_HANDLE {
     fn eq(&self, other: &Self) -> bool {
@@ -25362,8 +25362,8 @@ impl ::core::fmt::Debug for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
@@ -25397,8 +25397,8 @@ impl ::core::fmt::Debug for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
         f.debug_struct("INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS").field("keySize", &self.keySize).field("blockSize", &self.blockSize).field("feedbackSize", &self.feedbackSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -25435,8 +25435,8 @@ impl ::core::fmt::Debug for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
@@ -25470,8 +25470,8 @@ impl ::core::fmt::Debug for KEY_TYPE_SUBTYPE {
         f.debug_struct("KEY_TYPE_SUBTYPE").field("dwKeySpec", &self.dwKeySpec).field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KEY_TYPE_SUBTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEY_TYPE_SUBTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KEY_TYPE_SUBTYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -25502,8 +25502,8 @@ impl ::core::fmt::Debug for NCRYPT_ALLOC_PARA {
         f.debug_struct("NCRYPT_ALLOC_PARA").field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_ALLOC_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_ALLOC_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NCRYPT_ALLOC_PARA {
     fn default() -> Self {
@@ -25531,8 +25531,8 @@ impl ::core::fmt::Debug for NCRYPT_CIPHER_PADDING_INFO {
         f.debug_struct("NCRYPT_CIPHER_PADDING_INFO").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("pbIV", &self.pbIV).field("cbIV", &self.cbIV).field("pbOtherInfo", &self.pbOtherInfo).field("cbOtherInfo", &self.cbOtherInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_CIPHER_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_CIPHER_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_CIPHER_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25561,8 +25561,8 @@ impl ::core::fmt::Debug for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
         f.debug_struct("NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE").field("Header", &self.Header).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     fn eq(&self, other: &Self) -> bool {
@@ -25598,8 +25598,8 @@ impl ::core::fmt::Debug for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
         f.debug_struct("NCRYPT_EXPORTED_ISOLATED_KEY_HEADER").field("Version", &self.Version).field("KeyUsage", &self.KeyUsage).field("_bitfield", &self._bitfield).field("cbAlgName", &self.cbAlgName).field("cbNonce", &self.cbNonce).field("cbAuthTag", &self.cbAuthTag).field("cbWrappingKey", &self.cbWrappingKey).field("cbIsolatedKey", &self.cbIsolatedKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -25641,8 +25641,8 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_HANDLE>> for NCRYPT_HAN
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -25673,8 +25673,8 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_HASH_HANDLE>> for NCRYP
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_HASH_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_HASH_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -25694,8 +25694,8 @@ impl ::core::fmt::Debug for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
         f.debug_struct("NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES").field("Version", &self.Version).field("Flags", &self.Flags).field("cbPublicKeyBlob", &self.cbPublicKeyBlob).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
@@ -25727,8 +25727,8 @@ impl ::core::fmt::Debug for NCRYPT_KEY_ACCESS_POLICY_BLOB {
         f.debug_struct("NCRYPT_KEY_ACCESS_POLICY_BLOB").field("dwVersion", &self.dwVersion).field("dwPolicyFlags", &self.dwPolicyFlags).field("cbUserSid", &self.cbUserSid).field("cbApplicationSid", &self.cbApplicationSid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_KEY_ACCESS_POLICY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_KEY_ACCESS_POLICY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_KEY_ACCESS_POLICY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -25761,8 +25761,8 @@ impl ::core::fmt::Debug for NCRYPT_KEY_ATTEST_PADDING_INFO {
         f.debug_struct("NCRYPT_KEY_ATTEST_PADDING_INFO").field("magic", &self.magic).field("pbKeyBlob", &self.pbKeyBlob).field("cbKeyBlob", &self.cbKeyBlob).field("pbKeyAuth", &self.pbKeyAuth).field("cbKeyAuth", &self.cbKeyAuth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_KEY_ATTEST_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_KEY_ATTEST_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_KEY_ATTEST_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25794,8 +25794,8 @@ impl ::core::fmt::Debug for NCRYPT_KEY_BLOB_HEADER {
         f.debug_struct("NCRYPT_KEY_BLOB_HEADER").field("cbSize", &self.cbSize).field("dwMagic", &self.dwMagic).field("cbAlgName", &self.cbAlgName).field("cbKeyData", &self.cbKeyData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_KEY_BLOB_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_KEY_BLOB_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_KEY_BLOB_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -25837,8 +25837,8 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_KEY_HANDLE>> for NCRYPT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_KEY_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_KEY_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<NCRYPT_KEY_HANDLE> for NCRYPT_HANDLE {
     fn from(item: NCRYPT_KEY_HANDLE) -> NCRYPT_HANDLE {
@@ -25865,8 +25865,8 @@ impl ::core::fmt::Debug for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
         f.debug_struct("NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO").field("dwVersion", &self.dwVersion).field("iExpiration", &self.iExpiration).field("pabNonce", &self.pabNonce).field("pabPolicyRef", &self.pabPolicyRef).field("pabHMAC", &self.pabHMAC).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25896,8 +25896,8 @@ impl ::core::fmt::Debug for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
         f.debug_struct("NCRYPT_PCP_RAW_POLICYDIGEST_INFO").field("dwVersion", &self.dwVersion).field("cbDigest", &self.cbDigest).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25929,8 +25929,8 @@ impl ::core::fmt::Debug for NCRYPT_PCP_TPM_FW_VERSION_INFO {
         f.debug_struct("NCRYPT_PCP_TPM_FW_VERSION_INFO").field("major1", &self.major1).field("major2", &self.major2).field("minor1", &self.minor1).field("minor2", &self.minor2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PCP_TPM_FW_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PCP_TPM_FW_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_PCP_TPM_FW_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -25964,8 +25964,8 @@ impl ::core::fmt::Debug for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
         f.debug_struct("NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("HeaderSize", &self.HeaderSize).field("cbCertifyInfo", &self.cbCertifyInfo).field("cbSignature", &self.cbSignature).field("cbTpmPublic", &self.cbTpmPublic).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -25995,8 +25995,8 @@ impl ::core::fmt::Debug for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
         f.debug_struct("NCRYPT_PLATFORM_ATTEST_PADDING_INFO").field("magic", &self.magic).field("pcrMask", &self.pcrMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26031,8 +26031,8 @@ impl ::core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NCRYPT_PROTECT_STREAM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PROTECT_STREAM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NCRYPT_PROTECT_STREAM_INFO {
@@ -26062,8 +26062,8 @@ impl ::core::fmt::Debug for NCRYPT_PROTECT_STREAM_INFO_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NCRYPT_PROTECT_STREAM_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PROTECT_STREAM_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NCRYPT_PROTECT_STREAM_INFO_EX {
@@ -26100,8 +26100,8 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_PROV_HANDLE>> for NCRYP
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_PROV_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_PROV_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::convert::From<NCRYPT_PROV_HANDLE> for NCRYPT_HANDLE {
     fn from(item: NCRYPT_PROV_HANDLE) -> NCRYPT_HANDLE {
@@ -26137,8 +26137,8 @@ impl ::core::convert::From<::core::option::Option<NCRYPT_SECRET_HANDLE>> for NCR
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_SECRET_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_SECRET_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -26159,8 +26159,8 @@ impl ::core::fmt::Debug for NCRYPT_SUPPORTED_LENGTHS {
         f.debug_struct("NCRYPT_SUPPORTED_LENGTHS").field("dwMinLength", &self.dwMinLength).field("dwMaxLength", &self.dwMaxLength).field("dwIncrement", &self.dwIncrement).field("dwDefaultLength", &self.dwDefaultLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_SUPPORTED_LENGTHS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_SUPPORTED_LENGTHS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_SUPPORTED_LENGTHS {
     fn eq(&self, other: &Self) -> bool {
@@ -26193,8 +26193,8 @@ impl ::core::fmt::Debug for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
         f.debug_struct("NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER").field("magic", &self.magic).field("cbHeader", &self.cbHeader).field("cbPublic", &self.cbPublic).field("cbPrivate", &self.cbPrivate).field("cbName", &self.cbName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -26228,8 +26228,8 @@ impl ::core::fmt::Debug for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
         f.debug_struct("NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("pcrAlg", &self.pcrAlg).field("cbSignature", &self.cbSignature).field("cbQuote", &self.cbQuote).field("cbPcrs", &self.cbPcrs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -26262,8 +26262,8 @@ impl ::core::fmt::Debug for NCRYPT_UI_POLICY {
         f.debug_struct("NCRYPT_UI_POLICY").field("dwVersion", &self.dwVersion).field("dwFlags", &self.dwFlags).field("pszCreationTitle", &self.pszCreationTitle).field("pszFriendlyName", &self.pszFriendlyName).field("pszDescription", &self.pszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_UI_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_UI_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_UI_POLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -26297,8 +26297,8 @@ impl ::core::fmt::Debug for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
         f.debug_struct("NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS").field("Version", &self.Version).field("TrustletId", &self.TrustletId).field("MinSvn", &self.MinSvn).field("FlagsMask", &self.FlagsMask).field("FlagsExpected", &self.FlagsExpected).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -26331,8 +26331,8 @@ impl ::core::fmt::Debug for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
         f.debug_struct("NCRYPT_VSM_KEY_ATTESTATION_STATEMENT").field("Magic", &self.Magic).field("Version", &self.Version).field("cbSignature", &self.cbSignature).field("cbReport", &self.cbReport).field("cbAttributes", &self.cbAttributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -26364,8 +26364,8 @@ impl ::core::fmt::Debug for NCryptAlgorithmName {
         f.debug_struct("NCryptAlgorithmName").field("pszName", &self.pszName).field("dwClass", &self.dwClass).field("dwAlgOperations", &self.dwAlgOperations).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCryptAlgorithmName {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCryptAlgorithmName {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCryptAlgorithmName {
     fn eq(&self, other: &Self) -> bool {
@@ -26397,8 +26397,8 @@ impl ::core::fmt::Debug for NCryptKeyName {
         f.debug_struct("NCryptKeyName").field("pszName", &self.pszName).field("pszAlgid", &self.pszAlgid).field("dwLegacyKeySpec", &self.dwLegacyKeySpec).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCryptKeyName {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCryptKeyName {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCryptKeyName {
     fn eq(&self, other: &Self) -> bool {
@@ -26428,8 +26428,8 @@ impl ::core::fmt::Debug for NCryptProviderName {
         f.debug_struct("NCryptProviderName").field("pszName", &self.pszName).field("pszComment", &self.pszComment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NCryptProviderName {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCryptProviderName {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NCryptProviderName {
     fn eq(&self, other: &Self) -> bool {
@@ -26463,8 +26463,8 @@ impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_BASIC_RESPONSE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OCSP_BASIC_RESPONSE_ENTRY {
@@ -26487,8 +26487,8 @@ impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_ENTRY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_BASIC_RESPONSE_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_RESPONSE_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OCSP_BASIC_RESPONSE_ENTRY_0 {
@@ -26518,8 +26518,8 @@ impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_BASIC_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OCSP_BASIC_RESPONSE_INFO {
@@ -26543,8 +26543,8 @@ impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_BASIC_RESPONSE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_RESPONSE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OCSP_BASIC_RESPONSE_INFO_0 {
@@ -26574,8 +26574,8 @@ impl ::core::fmt::Debug for OCSP_BASIC_REVOKED_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_BASIC_REVOKED_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_REVOKED_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OCSP_BASIC_REVOKED_INFO {
@@ -26608,8 +26608,8 @@ impl ::core::fmt::Debug for OCSP_BASIC_SIGNED_RESPONSE_INFO {
         f.debug_struct("OCSP_BASIC_SIGNED_RESPONSE_INFO").field("ToBeSigned", &self.ToBeSigned).field("SignatureInfo", &self.SignatureInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OCSP_BASIC_SIGNED_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_BASIC_SIGNED_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OCSP_BASIC_SIGNED_RESPONSE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26641,8 +26641,8 @@ impl ::core::fmt::Debug for OCSP_CERT_ID {
         f.debug_struct("OCSP_CERT_ID").field("HashAlgorithm", &self.HashAlgorithm).field("IssuerNameHash", &self.IssuerNameHash).field("IssuerKeyHash", &self.IssuerKeyHash).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OCSP_CERT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_CERT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OCSP_CERT_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -26678,8 +26678,8 @@ impl ::core::fmt::Debug for OCSP_REQUEST_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_REQUEST_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_REQUEST_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OCSP_REQUEST_ENTRY {
@@ -26721,8 +26721,8 @@ impl ::core::fmt::Debug for OCSP_REQUEST_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OCSP_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OCSP_REQUEST_INFO {
@@ -26756,8 +26756,8 @@ impl ::core::fmt::Debug for OCSP_RESPONSE_INFO {
         f.debug_struct("OCSP_RESPONSE_INFO").field("dwStatus", &self.dwStatus).field("pszObjId", &self.pszObjId).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OCSP_RESPONSE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_RESPONSE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OCSP_RESPONSE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26789,8 +26789,8 @@ impl ::core::fmt::Debug for OCSP_SIGNATURE_INFO {
         f.debug_struct("OCSP_SIGNATURE_INFO").field("SignatureAlgorithm", &self.SignatureAlgorithm).field("Signature", &self.Signature).field("cCertEncoded", &self.cCertEncoded).field("rgCertEncoded", &self.rgCertEncoded).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OCSP_SIGNATURE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_SIGNATURE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OCSP_SIGNATURE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26820,8 +26820,8 @@ impl ::core::fmt::Debug for OCSP_SIGNED_REQUEST_INFO {
         f.debug_struct("OCSP_SIGNED_REQUEST_INFO").field("ToBeSigned", &self.ToBeSigned).field("pOptionalSignatureInfo", &self.pOptionalSignatureInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OCSP_SIGNED_REQUEST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OCSP_SIGNED_REQUEST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OCSP_SIGNED_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -26852,8 +26852,8 @@ impl ::core::fmt::Debug for PKCS12_PBES2_EXPORT_PARAMS {
         f.debug_struct("PKCS12_PBES2_EXPORT_PARAMS").field("dwSize", &self.dwSize).field("hNcryptDescriptor", &self.hNcryptDescriptor).field("pwszPbes2Alg", &self.pwszPbes2Alg).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PKCS12_PBES2_EXPORT_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PKCS12_PBES2_EXPORT_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PKCS12_PBES2_EXPORT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -26892,8 +26892,8 @@ impl ::core::fmt::Debug for POLICY_ELEMENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POLICY_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POLICY_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for POLICY_ELEMENT {
@@ -26930,8 +26930,8 @@ impl ::core::fmt::Debug for PRIVKEYVER3 {
         f.debug_struct("PRIVKEYVER3").field("magic", &self.magic).field("bitlenP", &self.bitlenP).field("bitlenQ", &self.bitlenQ).field("bitlenJ", &self.bitlenJ).field("bitlenX", &self.bitlenX).field("DSSSeed", &self.DSSSeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRIVKEYVER3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRIVKEYVER3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRIVKEYVER3 {
     fn eq(&self, other: &Self) -> bool {
@@ -26968,8 +26968,8 @@ impl ::core::fmt::Debug for PROV_ENUMALGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROV_ENUMALGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROV_ENUMALGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROV_ENUMALGS {
@@ -27014,8 +27014,8 @@ impl ::core::fmt::Debug for PROV_ENUMALGS_EX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROV_ENUMALGS_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROV_ENUMALGS_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROV_ENUMALGS_EX {
@@ -27048,8 +27048,8 @@ impl ::core::fmt::Debug for PUBKEY {
         f.debug_struct("PUBKEY").field("magic", &self.magic).field("bitlen", &self.bitlen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PUBKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -27082,8 +27082,8 @@ impl ::core::fmt::Debug for PUBKEYVER3 {
         f.debug_struct("PUBKEYVER3").field("magic", &self.magic).field("bitlenP", &self.bitlenP).field("bitlenQ", &self.bitlenQ).field("bitlenJ", &self.bitlenJ).field("DSSSeed", &self.DSSSeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PUBKEYVER3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBKEYVER3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBKEYVER3 {
     fn eq(&self, other: &Self) -> bool {
@@ -27115,8 +27115,8 @@ impl ::core::fmt::Debug for PUBLICKEYSTRUC {
         f.debug_struct("PUBLICKEYSTRUC").field("bType", &self.bType).field("bVersion", &self.bVersion).field("reserved", &self.reserved).field("aiKeyAlg", &self.aiKeyAlg).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PUBLICKEYSTRUC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBLICKEYSTRUC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBLICKEYSTRUC {
     fn eq(&self, other: &Self) -> bool {
@@ -27151,8 +27151,8 @@ impl ::core::fmt::Debug for RECIPIENTPOLICY {
         f.debug_struct("RECIPIENTPOLICY").field("recipient", &self.recipient).field("issuer", &self.issuer).field("tokenType", &self.tokenType).field("requiredClaims", &self.requiredClaims).field("optionalClaims", &self.optionalClaims).field("privacyUrl", &self.privacyUrl).field("privacyVersion", &self.privacyVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RECIPIENTPOLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECIPIENTPOLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RECIPIENTPOLICY {
     fn eq(&self, other: &Self) -> bool {
@@ -27187,8 +27187,8 @@ impl ::core::fmt::Debug for RECIPIENTPOLICY2 {
         f.debug_struct("RECIPIENTPOLICY2").field("recipient", &self.recipient).field("issuer", &self.issuer).field("tokenType", &self.tokenType).field("requiredClaims", &self.requiredClaims).field("optionalClaims", &self.optionalClaims).field("privacyUrl", &self.privacyUrl).field("privacyVersion", &self.privacyVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RECIPIENTPOLICY2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECIPIENTPOLICY2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RECIPIENTPOLICY2 {
     fn eq(&self, other: &Self) -> bool {
@@ -27218,8 +27218,8 @@ impl ::core::fmt::Debug for ROOT_INFO_LUID {
         f.debug_struct("ROOT_INFO_LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ROOT_INFO_LUID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ROOT_INFO_LUID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ROOT_INFO_LUID {
     fn eq(&self, other: &Self) -> bool {
@@ -27250,8 +27250,8 @@ impl ::core::fmt::Debug for RSAPUBKEY {
         f.debug_struct("RSAPUBKEY").field("magic", &self.magic).field("bitlen", &self.bitlen).field("pubexp", &self.pubexp).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RSAPUBKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RSAPUBKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RSAPUBKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -27284,8 +27284,8 @@ impl ::core::fmt::Debug for SCHANNEL_ALG {
         f.debug_struct("SCHANNEL_ALG").field("dwUse", &self.dwUse).field("Algid", &self.Algid).field("cBits", &self.cBits).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SCHANNEL_ALG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SCHANNEL_ALG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SCHANNEL_ALG {
     fn eq(&self, other: &Self) -> bool {
@@ -27315,8 +27315,8 @@ impl ::core::fmt::Debug for SSL_ECCKEY_BLOB {
         f.debug_struct("SSL_ECCKEY_BLOB").field("dwCurveType", &self.dwCurveType).field("cbKey", &self.cbKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_ECCKEY_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_ECCKEY_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_ECCKEY_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -27349,8 +27349,8 @@ impl ::core::fmt::Debug for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
         f.debug_struct("SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("dwErrorLevel", &self.dwErrorLevel).field("dwErrorCategory", &self.dwErrorCategory).field("dwReserved", &self.dwReserved).field("wszErrorText", &self.wszErrorText).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -27382,8 +27382,8 @@ impl ::core::fmt::Debug for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
         f.debug_struct("SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwReserved", &self.dwReserved).field("pwszServerName", &self.pwszServerName).field("rgpszHpkpValue", &self.rgpszHpkpValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -27414,8 +27414,8 @@ impl ::core::fmt::Debug for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
         f.debug_struct("SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA").field("cbSize", &self.cbSize).field("dwReserved", &self.dwReserved).field("pwszServerName", &self.pwszServerName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     fn eq(&self, other: &Self) -> bool {
@@ -27446,8 +27446,8 @@ impl ::core::fmt::Debug for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
         f.debug_struct("SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS").field("cbSize", &self.cbSize).field("lError", &self.lError).field("wszErrorText", &self.wszErrorText).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     fn eq(&self, other: &Self) -> bool {

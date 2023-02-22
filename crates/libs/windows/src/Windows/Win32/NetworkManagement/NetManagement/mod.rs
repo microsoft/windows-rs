@@ -310,8 +310,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "netapi32.dll""system" fn NetGetAadJoinInformation ( pcsztenantid : :: windows::core::PCWSTR , ppjoininfo : *mut *mut DSREG_JOIN_INFO ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NetGetAadJoinInformation(pcsztenantid.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut DSREG_JOIN_INFO>();
+    NetGetAadJoinInformation(pcsztenantid.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[inline]
@@ -1662,11 +1662,6 @@ impl IEnumNetCfgBindingInterface {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgBindingInterface, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumNetCfgBindingInterface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1680,6 +1675,11 @@ impl ::core::fmt::Debug for IEnumNetCfgBindingInterface {
 }
 unsafe impl ::windows::core::Vtable for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_Vtbl;
+}
+impl ::core::clone::Clone for IEnumNetCfgBindingInterface {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumNetCfgBindingInterface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
@@ -1711,11 +1711,6 @@ impl IEnumNetCfgBindingPath {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgBindingPath, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumNetCfgBindingPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumNetCfgBindingPath {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1729,6 +1724,11 @@ impl ::core::fmt::Debug for IEnumNetCfgBindingPath {
 }
 unsafe impl ::windows::core::Vtable for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_Vtbl;
+}
+impl ::core::clone::Clone for IEnumNetCfgBindingPath {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumNetCfgBindingPath {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
@@ -1760,11 +1760,6 @@ impl IEnumNetCfgComponent {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumNetCfgComponent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumNetCfgComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumNetCfgComponent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1778,6 +1773,11 @@ impl ::core::fmt::Debug for IEnumNetCfgComponent {
 }
 unsafe impl ::windows::core::Vtable for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_Vtbl;
+}
+impl ::core::clone::Clone for IEnumNetCfgComponent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumNetCfgComponent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
@@ -1821,11 +1821,6 @@ impl INetCfg {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfg, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfg {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfg {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1839,6 +1834,11 @@ impl ::core::fmt::Debug for INetCfg {
 }
 unsafe impl ::windows::core::Vtable for INetCfg {
     type Vtable = INetCfg_Vtbl;
+}
+impl ::core::clone::Clone for INetCfg {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfg {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
@@ -1870,11 +1870,6 @@ impl INetCfgBindingInterface {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgBindingInterface, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgBindingInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgBindingInterface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1888,6 +1883,11 @@ impl ::core::fmt::Debug for INetCfgBindingInterface {
 }
 unsafe impl ::windows::core::Vtable for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgBindingInterface {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgBindingInterface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
@@ -1934,19 +1934,14 @@ impl INetCfgBindingPath {
         (::windows::core::Vtable::vtable(self).GetOwner)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppcomponent.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumBindingInterfaces(&self, ppenuminterface: ::core::option::Option<*mut ::core::option::Option<IEnumNetCfgBindingInterface>>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumBindingInterfaces)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppenuminterface.unwrap_or(::std::ptr::null_mut()))).ok()
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgBindingPath, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgBindingPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgBindingPath {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1960,6 +1955,11 @@ impl ::core::fmt::Debug for INetCfgBindingPath {
 }
 unsafe impl ::windows::core::Vtable for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgBindingPath {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgBindingPath {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
@@ -1995,11 +1995,6 @@ impl INetCfgClass {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgClass, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgClass {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2013,6 +2008,11 @@ impl ::core::fmt::Debug for INetCfgClass {
 }
 unsafe impl ::windows::core::Vtable for INetCfgClass {
     type Vtable = INetCfgClass_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgClass {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgClass {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
@@ -2056,11 +2056,6 @@ impl INetCfgClassSetup {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgClassSetup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgClassSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgClassSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2074,6 +2069,11 @@ impl ::core::fmt::Debug for INetCfgClassSetup {
 }
 unsafe impl ::windows::core::Vtable for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgClassSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgClassSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
@@ -2133,11 +2133,6 @@ impl INetCfgClassSetup2 {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgClassSetup2, ::windows::core::IUnknown, INetCfgClassSetup);
-impl ::core::clone::Clone for INetCfgClassSetup2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgClassSetup2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2151,6 +2146,11 @@ impl ::core::fmt::Debug for INetCfgClassSetup2 {
 }
 unsafe impl ::windows::core::Vtable for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgClassSetup2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgClassSetup2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
@@ -2181,8 +2181,8 @@ impl INetCfgComponent {
         (::windows::core::Vtable::vtable(self).GetId)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwid.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCharacteristics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCharacteristics)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInstanceGuid(&self, pguid: ::core::option::Option<*mut ::windows::core::GUID>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetInstanceGuid)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pguid.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2197,8 +2197,8 @@ impl INetCfgComponent {
         (::windows::core::Vtable::vtable(self).GetBindName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(ppszwbindname.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetDeviceStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetDeviceStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
@@ -2216,11 +2216,6 @@ impl INetCfgComponent {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2234,6 +2229,11 @@ impl ::core::fmt::Debug for INetCfgComponent {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponent {
     type Vtable = INetCfgComponent_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
@@ -2314,11 +2314,6 @@ impl INetCfgComponentBindings {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentBindings, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentBindings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentBindings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2332,6 +2327,11 @@ impl ::core::fmt::Debug for INetCfgComponentBindings {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentBindings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentBindings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
@@ -2377,11 +2377,6 @@ impl INetCfgComponentControl {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2395,6 +2390,11 @@ impl ::core::fmt::Debug for INetCfgComponentControl {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
@@ -2429,11 +2429,6 @@ impl INetCfgComponentNotifyBinding {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentNotifyBinding, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentNotifyBinding {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2447,6 +2442,11 @@ impl ::core::fmt::Debug for INetCfgComponentNotifyBinding {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentNotifyBinding {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyBinding {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
@@ -2463,8 +2463,8 @@ pub struct INetCfgComponentNotifyBinding_Vtbl {
 pub struct INetCfgComponentNotifyGlobal(::windows::core::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSupportedNotifications)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetSupportedNotifications)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SysQueryBindingPath<P0>(&self, dwchangeflag: u32, pipath: P0) -> ::windows::core::Result<()>
     where
@@ -2486,11 +2486,6 @@ impl INetCfgComponentNotifyGlobal {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentNotifyGlobal, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentNotifyGlobal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2504,6 +2499,11 @@ impl ::core::fmt::Debug for INetCfgComponentNotifyGlobal {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentNotifyGlobal {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyGlobal {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
@@ -2557,11 +2557,6 @@ impl INetCfgComponentPropertyUi {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentPropertyUi, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentPropertyUi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentPropertyUi {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2575,6 +2570,11 @@ impl ::core::fmt::Debug for INetCfgComponentPropertyUi {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentPropertyUi {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentPropertyUi {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
@@ -2618,11 +2618,6 @@ impl INetCfgComponentSetup {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentSetup, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentSetup {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2636,6 +2631,11 @@ impl ::core::fmt::Debug for INetCfgComponentSetup {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentSetup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentSetup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
@@ -2669,11 +2669,6 @@ impl INetCfgComponentSysPrep {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentSysPrep, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentSysPrep {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentSysPrep {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2687,6 +2682,11 @@ impl ::core::fmt::Debug for INetCfgComponentSysPrep {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentSysPrep {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentSysPrep {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
@@ -2722,11 +2722,6 @@ impl INetCfgComponentUpperEdge {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgComponentUpperEdge, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgComponentUpperEdge {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgComponentUpperEdge {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2740,6 +2735,11 @@ impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
 }
 unsafe impl ::windows::core::Vtable for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgComponentUpperEdge {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
@@ -2770,11 +2770,6 @@ impl INetCfgLock {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgLock, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgLock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2788,6 +2783,11 @@ impl ::core::fmt::Debug for INetCfgLock {
 }
 unsafe impl ::windows::core::Vtable for INetCfgLock {
     type Vtable = INetCfgLock_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgLock {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgLock {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
@@ -2813,11 +2813,6 @@ impl INetCfgPnpReconfigCallback {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgPnpReconfigCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgPnpReconfigCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2831,6 +2826,11 @@ impl ::core::fmt::Debug for INetCfgPnpReconfigCallback {
 }
 unsafe impl ::windows::core::Vtable for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgPnpReconfigCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgPnpReconfigCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
@@ -2880,11 +2880,6 @@ impl INetCfgSysPrep {
     }
 }
 ::windows::core::interface_hierarchy!(INetCfgSysPrep, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetCfgSysPrep {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetCfgSysPrep {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2898,6 +2893,11 @@ impl ::core::fmt::Debug for INetCfgSysPrep {
 }
 unsafe impl ::windows::core::Vtable for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_Vtbl;
+}
+impl ::core::clone::Clone for INetCfgSysPrep {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetCfgSysPrep {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
@@ -2919,16 +2919,11 @@ pub struct INetCfgSysPrep_Vtbl {
 pub struct INetLanConnectionUiInfo(::windows::core::IUnknown);
 impl INetLanConnectionUiInfo {
     pub unsafe fn GetDeviceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeviceGuid)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetDeviceGuid)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(INetLanConnectionUiInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetLanConnectionUiInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetLanConnectionUiInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2942,6 +2937,11 @@ impl ::core::fmt::Debug for INetLanConnectionUiInfo {
 }
 unsafe impl ::windows::core::Vtable for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_Vtbl;
+}
+impl ::core::clone::Clone for INetLanConnectionUiInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetLanConnectionUiInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
@@ -2963,11 +2963,6 @@ impl INetRasConnectionIpUiInfo {
     }
 }
 ::windows::core::interface_hierarchy!(INetRasConnectionIpUiInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for INetRasConnectionIpUiInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2981,6 +2976,11 @@ impl ::core::fmt::Debug for INetRasConnectionIpUiInfo {
 }
 unsafe impl ::windows::core::Vtable for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_Vtbl;
+}
+impl ::core::clone::Clone for INetRasConnectionIpUiInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for INetRasConnectionIpUiInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
@@ -3012,16 +3012,11 @@ impl IProvisioningDomain {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pszwdomain.into().abi(), pszwlanguage.into().abi(), pszwxpathquery.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>();
+        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pszwdomain.into().abi(), pszwlanguage.into().abi(), pszwxpathquery.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProvisioningDomain, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProvisioningDomain {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProvisioningDomain {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3035,6 +3030,11 @@ impl ::core::fmt::Debug for IProvisioningDomain {
 }
 unsafe impl ::windows::core::Vtable for IProvisioningDomain {
     type Vtable = IProvisioningDomain_Vtbl;
+}
+impl ::core::clone::Clone for IProvisioningDomain {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProvisioningDomain {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
@@ -3054,16 +3054,11 @@ pub struct IProvisioningDomain_Vtbl {
 pub struct IProvisioningProfileWireless(::windows::core::IUnknown);
 impl IProvisioningProfileWireless {
     pub unsafe fn CreateProfile(&self, bstrxmlwirelessconfigprofile: &::windows::core::BSTR, bstrxmlconnectionconfigprofile: &::windows::core::BSTR, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxmlwirelessconfigprofile), ::core::mem::transmute_copy(bstrxmlconnectionconfigprofile), padapterinstanceguid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CreateProfile)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxmlwirelessconfigprofile), ::core::mem::transmute_copy(bstrxmlconnectionconfigprofile), padapterinstanceguid, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IProvisioningProfileWireless, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProvisioningProfileWireless {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProvisioningProfileWireless {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3078,6 +3073,11 @@ impl ::core::fmt::Debug for IProvisioningProfileWireless {
 unsafe impl ::windows::core::Vtable for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_Vtbl;
 }
+impl ::core::clone::Clone for IProvisioningProfileWireless {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);
 }
@@ -3085,7 +3085,7 @@ unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
 #[doc(hidden)]
 pub struct IProvisioningProfileWireless_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: *mut ::core::ffi::c_void, bstrxmlconnectionconfigprofile: *mut ::core::ffi::c_void, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub CreateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmlwirelessconfigprofile: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrxmlconnectionconfigprofile: ::std::mem::MaybeUninit<::windows::core::BSTR>, padapterinstanceguid: *const ::windows::core::GUID, pulstatus: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AA_AUDIT_ALL: u32 = 1u32;
@@ -7248,8 +7248,8 @@ impl ::core::default::Default for AF_OP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AF_OP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AF_OP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AF_OP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7326,8 +7326,8 @@ impl ::core::default::Default for BIND_FLAGS1 {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BIND_FLAGS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIND_FLAGS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BIND_FLAGS1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7379,8 +7379,8 @@ impl ::core::default::Default for COMPONENT_CHARACTERISTICS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPONENT_CHARACTERISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPONENT_CHARACTERISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPONENT_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7404,8 +7404,8 @@ impl ::core::default::Default for DEFAULT_PAGES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEFAULT_PAGES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEFAULT_PAGES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEFAULT_PAGES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7433,8 +7433,8 @@ impl ::core::default::Default for DSREG_JOIN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DSREG_JOIN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSREG_JOIN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DSREG_JOIN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7460,8 +7460,8 @@ impl ::core::default::Default for ENUM_BINDING_PATHS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENUM_BINDING_PATHS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUM_BINDING_PATHS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENUM_BINDING_PATHS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7489,8 +7489,8 @@ impl ::core::default::Default for FORCE_LEVEL_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FORCE_LEVEL_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORCE_LEVEL_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FORCE_LEVEL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7516,8 +7516,8 @@ impl ::core::default::Default for MSA_INFO_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSA_INFO_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSA_INFO_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSA_INFO_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7549,8 +7549,8 @@ impl ::core::default::Default for MSA_INFO_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MSA_INFO_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSA_INFO_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MSA_INFO_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7576,8 +7576,8 @@ impl ::core::default::Default for NCPNP_RECONFIG_LAYER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NCPNP_RECONFIG_LAYER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCPNP_RECONFIG_LAYER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NCPNP_RECONFIG_LAYER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7603,8 +7603,8 @@ impl ::core::default::Default for NCRP_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NCRP_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCRP_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NCRP_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7634,8 +7634,8 @@ impl ::core::default::Default for NETSETUP_JOIN_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETSETUP_JOIN_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETSETUP_JOIN_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETSETUP_JOIN_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7669,8 +7669,8 @@ impl ::core::default::Default for NETSETUP_NAME_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETSETUP_NAME_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETSETUP_NAME_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETSETUP_NAME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7702,8 +7702,8 @@ impl ::core::default::Default for NETSETUP_PROVISION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETSETUP_PROVISION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETSETUP_PROVISION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETSETUP_PROVISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7762,8 +7762,8 @@ impl ::core::default::Default for NETWORK_INSTALL_TIME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_INSTALL_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_INSTALL_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETWORK_INSTALL_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7797,8 +7797,8 @@ impl ::core::default::Default for NETWORK_UPGRADE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_UPGRADE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_UPGRADE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETWORK_UPGRADE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7828,8 +7828,8 @@ impl ::core::default::Default for NET_COMPUTER_NAME_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_COMPUTER_NAME_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_COMPUTER_NAME_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_COMPUTER_NAME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7885,8 +7885,8 @@ impl ::core::default::Default for NET_JOIN_DOMAIN_JOIN_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_JOIN_DOMAIN_JOIN_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_JOIN_DOMAIN_JOIN_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7951,8 +7951,8 @@ impl ::core::default::Default for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7976,8 +7976,8 @@ impl ::core::default::Default for NET_REQUEST_PROVISION_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_REQUEST_PROVISION_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_REQUEST_PROVISION_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_REQUEST_PROVISION_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8098,8 +8098,8 @@ impl ::core::default::Default for NET_SERVER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_SERVER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_SERVER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_SERVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8164,8 +8164,8 @@ impl ::core::default::Default for NET_USER_ENUM_FILTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_USER_ENUM_FILTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_USER_ENUM_FILTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_USER_ENUM_FILTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8226,8 +8226,8 @@ impl ::core::default::Default for NET_VALIDATE_PASSWORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_PASSWORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8255,8 +8255,8 @@ impl ::core::default::Default for OBO_TOKEN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OBO_TOKEN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBO_TOKEN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8310,8 +8310,8 @@ impl ::core::default::Default for RASCON_UIINFO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RASCON_UIINFO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RASCON_UIINFO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RASCON_UIINFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8337,8 +8337,8 @@ impl ::core::default::Default for SERVER_INFO_HIDDEN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_HIDDEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_HIDDEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SERVER_INFO_HIDDEN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8364,8 +8364,8 @@ impl ::core::default::Default for SERVER_INFO_SECURITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_SECURITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_SECURITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SERVER_INFO_SECURITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8391,8 +8391,8 @@ impl ::core::default::Default for SUPPORTS_BINDING_INTERFACE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SUPPORTS_BINDING_INTERFACE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SUPPORTS_BINDING_INTERFACE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SUPPORTS_BINDING_INTERFACE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8420,8 +8420,8 @@ impl ::core::default::Default for TRANSPORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRANSPORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSPORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSPORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8473,8 +8473,8 @@ impl ::core::default::Default for USER_ACCOUNT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USER_ACCOUNT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_ACCOUNT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USER_ACCOUNT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8537,8 +8537,8 @@ impl ::core::default::Default for USER_MODALS_ROLES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_ROLES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_ROLES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USER_MODALS_ROLES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8566,8 +8566,8 @@ impl ::core::default::Default for USER_PRIV {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USER_PRIV {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_PRIV {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USER_PRIV {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8597,8 +8597,8 @@ impl ::core::default::Default for USE_INFO_ASG_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_ASG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_ASG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for USE_INFO_ASG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8621,8 +8621,8 @@ impl ::core::fmt::Debug for ACCESS_INFO_0 {
         f.debug_struct("ACCESS_INFO_0").field("acc0_resource_name", &self.acc0_resource_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACCESS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCESS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8653,8 +8653,8 @@ impl ::core::fmt::Debug for ACCESS_INFO_1 {
         f.debug_struct("ACCESS_INFO_1").field("acc1_resource_name", &self.acc1_resource_name).field("acc1_attr", &self.acc1_attr).field("acc1_count", &self.acc1_count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACCESS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCESS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8683,8 +8683,8 @@ impl ::core::fmt::Debug for ACCESS_INFO_1002 {
         f.debug_struct("ACCESS_INFO_1002").field("acc1002_attr", &self.acc1002_attr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACCESS_INFO_1002 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCESS_INFO_1002 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACCESS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
@@ -8714,8 +8714,8 @@ impl ::core::fmt::Debug for ACCESS_LIST {
         f.debug_struct("ACCESS_LIST").field("acl_ugname", &self.acl_ugname).field("acl_access", &self.acl_access).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACCESS_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCESS_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACCESS_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -8745,8 +8745,8 @@ impl ::core::fmt::Debug for ADMIN_OTHER_INFO {
         f.debug_struct("ADMIN_OTHER_INFO").field("alrtad_errcode", &self.alrtad_errcode).field("alrtad_numstrings", &self.alrtad_numstrings).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADMIN_OTHER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADMIN_OTHER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADMIN_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8778,8 +8778,8 @@ impl ::core::fmt::Debug for AE_ACCLIM {
         f.debug_struct("AE_ACCLIM").field("ae_al_compname", &self.ae_al_compname).field("ae_al_username", &self.ae_al_username).field("ae_al_resname", &self.ae_al_resname).field("ae_al_limit", &self.ae_al_limit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_ACCLIM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_ACCLIM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_ACCLIM {
     fn eq(&self, other: &Self) -> bool {
@@ -8812,8 +8812,8 @@ impl ::core::fmt::Debug for AE_ACLMOD {
         f.debug_struct("AE_ACLMOD").field("ae_am_compname", &self.ae_am_compname).field("ae_am_username", &self.ae_am_username).field("ae_am_resname", &self.ae_am_resname).field("ae_am_action", &self.ae_am_action).field("ae_am_datalen", &self.ae_am_datalen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_ACLMOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_ACLMOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_ACLMOD {
     fn eq(&self, other: &Self) -> bool {
@@ -8847,8 +8847,8 @@ impl ::core::fmt::Debug for AE_CLOSEFILE {
         f.debug_struct("AE_CLOSEFILE").field("ae_cf_compname", &self.ae_cf_compname).field("ae_cf_username", &self.ae_cf_username).field("ae_cf_resname", &self.ae_cf_resname).field("ae_cf_fileid", &self.ae_cf_fileid).field("ae_cf_duration", &self.ae_cf_duration).field("ae_cf_reason", &self.ae_cf_reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_CLOSEFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_CLOSEFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_CLOSEFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -8880,8 +8880,8 @@ impl ::core::fmt::Debug for AE_CONNREJ {
         f.debug_struct("AE_CONNREJ").field("ae_cr_compname", &self.ae_cr_compname).field("ae_cr_username", &self.ae_cr_username).field("ae_cr_netname", &self.ae_cr_netname).field("ae_cr_reason", &self.ae_cr_reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_CONNREJ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_CONNREJ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_CONNREJ {
     fn eq(&self, other: &Self) -> bool {
@@ -8913,8 +8913,8 @@ impl ::core::fmt::Debug for AE_CONNSTART {
         f.debug_struct("AE_CONNSTART").field("ae_ct_compname", &self.ae_ct_compname).field("ae_ct_username", &self.ae_ct_username).field("ae_ct_netname", &self.ae_ct_netname).field("ae_ct_connid", &self.ae_ct_connid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_CONNSTART {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_CONNSTART {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_CONNSTART {
     fn eq(&self, other: &Self) -> bool {
@@ -8947,8 +8947,8 @@ impl ::core::fmt::Debug for AE_CONNSTOP {
         f.debug_struct("AE_CONNSTOP").field("ae_cp_compname", &self.ae_cp_compname).field("ae_cp_username", &self.ae_cp_username).field("ae_cp_netname", &self.ae_cp_netname).field("ae_cp_connid", &self.ae_cp_connid).field("ae_cp_reason", &self.ae_cp_reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_CONNSTOP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_CONNSTOP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_CONNSTOP {
     fn eq(&self, other: &Self) -> bool {
@@ -9001,8 +9001,8 @@ impl ::core::fmt::Debug for AE_GENERIC {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_GENERIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_GENERIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_GENERIC {
     fn eq(&self, other: &Self) -> bool {
@@ -9034,8 +9034,8 @@ impl ::core::fmt::Debug for AE_LOCKOUT {
         f.debug_struct("AE_LOCKOUT").field("ae_lk_compname", &self.ae_lk_compname).field("ae_lk_username", &self.ae_lk_username).field("ae_lk_action", &self.ae_lk_action).field("ae_lk_bad_pw_count", &self.ae_lk_bad_pw_count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_LOCKOUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_LOCKOUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_LOCKOUT {
     fn eq(&self, other: &Self) -> bool {
@@ -9067,8 +9067,8 @@ impl ::core::fmt::Debug for AE_NETLOGOFF {
         f.debug_struct("AE_NETLOGOFF").field("ae_nf_compname", &self.ae_nf_compname).field("ae_nf_username", &self.ae_nf_username).field("ae_nf_reserved1", &self.ae_nf_reserved1).field("ae_nf_reserved2", &self.ae_nf_reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_NETLOGOFF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_NETLOGOFF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_NETLOGOFF {
     fn eq(&self, other: &Self) -> bool {
@@ -9100,8 +9100,8 @@ impl ::core::fmt::Debug for AE_NETLOGON {
         f.debug_struct("AE_NETLOGON").field("ae_no_compname", &self.ae_no_compname).field("ae_no_username", &self.ae_no_username).field("ae_no_privilege", &self.ae_no_privilege).field("ae_no_authflags", &self.ae_no_authflags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_NETLOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_NETLOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_NETLOGON {
     fn eq(&self, other: &Self) -> bool {
@@ -9136,8 +9136,8 @@ impl ::core::fmt::Debug for AE_RESACCESS {
         f.debug_struct("AE_RESACCESS").field("ae_ra_compname", &self.ae_ra_compname).field("ae_ra_username", &self.ae_ra_username).field("ae_ra_resname", &self.ae_ra_resname).field("ae_ra_operation", &self.ae_ra_operation).field("ae_ra_returncode", &self.ae_ra_returncode).field("ae_ra_restype", &self.ae_ra_restype).field("ae_ra_fileid", &self.ae_ra_fileid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_RESACCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_RESACCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_RESACCESS {
     fn eq(&self, other: &Self) -> bool {
@@ -9169,8 +9169,8 @@ impl ::core::fmt::Debug for AE_RESACCESSREJ {
         f.debug_struct("AE_RESACCESSREJ").field("ae_rr_compname", &self.ae_rr_compname).field("ae_rr_username", &self.ae_rr_username).field("ae_rr_resname", &self.ae_rr_resname).field("ae_rr_operation", &self.ae_rr_operation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_RESACCESSREJ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_RESACCESSREJ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_RESACCESSREJ {
     fn eq(&self, other: &Self) -> bool {
@@ -9205,8 +9205,8 @@ impl ::core::fmt::Debug for AE_SERVICESTAT {
         f.debug_struct("AE_SERVICESTAT").field("ae_ss_compname", &self.ae_ss_compname).field("ae_ss_username", &self.ae_ss_username).field("ae_ss_svcname", &self.ae_ss_svcname).field("ae_ss_status", &self.ae_ss_status).field("ae_ss_code", &self.ae_ss_code).field("ae_ss_text", &self.ae_ss_text).field("ae_ss_returnval", &self.ae_ss_returnval).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_SERVICESTAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_SERVICESTAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_SERVICESTAT {
     fn eq(&self, other: &Self) -> bool {
@@ -9237,8 +9237,8 @@ impl ::core::fmt::Debug for AE_SESSLOGOFF {
         f.debug_struct("AE_SESSLOGOFF").field("ae_sf_compname", &self.ae_sf_compname).field("ae_sf_username", &self.ae_sf_username).field("ae_sf_reason", &self.ae_sf_reason).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_SESSLOGOFF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_SESSLOGOFF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_SESSLOGOFF {
     fn eq(&self, other: &Self) -> bool {
@@ -9269,8 +9269,8 @@ impl ::core::fmt::Debug for AE_SESSLOGON {
         f.debug_struct("AE_SESSLOGON").field("ae_so_compname", &self.ae_so_compname).field("ae_so_username", &self.ae_so_username).field("ae_so_privilege", &self.ae_so_privilege).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_SESSLOGON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_SESSLOGON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_SESSLOGON {
     fn eq(&self, other: &Self) -> bool {
@@ -9300,8 +9300,8 @@ impl ::core::fmt::Debug for AE_SESSPWERR {
         f.debug_struct("AE_SESSPWERR").field("ae_sp_compname", &self.ae_sp_compname).field("ae_sp_username", &self.ae_sp_username).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_SESSPWERR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_SESSPWERR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_SESSPWERR {
     fn eq(&self, other: &Self) -> bool {
@@ -9330,8 +9330,8 @@ impl ::core::fmt::Debug for AE_SRVSTATUS {
         f.debug_struct("AE_SRVSTATUS").field("ae_sv_status", &self.ae_sv_status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_SRVSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_SRVSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_SRVSTATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -9365,8 +9365,8 @@ impl ::core::fmt::Debug for AE_UASMOD {
         f.debug_struct("AE_UASMOD").field("ae_um_compname", &self.ae_um_compname).field("ae_um_username", &self.ae_um_username).field("ae_um_resname", &self.ae_um_resname).field("ae_um_rectype", &self.ae_um_rectype).field("ae_um_action", &self.ae_um_action).field("ae_um_datalen", &self.ae_um_datalen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AE_UASMOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AE_UASMOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AE_UASMOD {
     fn eq(&self, other: &Self) -> bool {
@@ -9400,8 +9400,8 @@ impl ::core::fmt::Debug for AT_ENUM {
         f.debug_struct("AT_ENUM").field("JobId", &self.JobId).field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AT_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AT_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AT_ENUM {
     fn eq(&self, other: &Self) -> bool {
@@ -9434,8 +9434,8 @@ impl ::core::fmt::Debug for AT_INFO {
         f.debug_struct("AT_INFO").field("JobTime", &self.JobTime).field("DaysOfMonth", &self.DaysOfMonth).field("DaysOfWeek", &self.DaysOfWeek).field("Flags", &self.Flags).field("Command", &self.Command).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9469,8 +9469,8 @@ impl ::core::fmt::Debug for AUDIT_ENTRY {
         f.debug_struct("AUDIT_ENTRY").field("ae_len", &self.ae_len).field("ae_reserved", &self.ae_reserved).field("ae_time", &self.ae_time).field("ae_type", &self.ae_type).field("ae_data_offset", &self.ae_data_offset).field("ae_data_size", &self.ae_data_size).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUDIT_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIT_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUDIT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -9500,8 +9500,8 @@ impl ::core::fmt::Debug for CONFIG_INFO_0 {
         f.debug_struct("CONFIG_INFO_0").field("cfgi0_key", &self.cfgi0_key).field("cfgi0_data", &self.cfgi0_data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONFIG_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONFIG_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONFIG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9559,8 +9559,8 @@ impl ::core::fmt::Debug for DSREG_JOIN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-unsafe impl ::windows::core::Abi for DSREG_JOIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSREG_JOIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for DSREG_JOIN_INFO {
@@ -9594,8 +9594,8 @@ impl ::core::fmt::Debug for DSREG_USER_INFO {
         f.debug_struct("DSREG_USER_INFO").field("pszUserEmail", &self.pszUserEmail).field("pszUserKeyId", &self.pszUserKeyId).field("pszUserKeyName", &self.pszUserKeyName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DSREG_USER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DSREG_USER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DSREG_USER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9625,8 +9625,8 @@ impl ::core::fmt::Debug for ERRLOG_OTHER_INFO {
         f.debug_struct("ERRLOG_OTHER_INFO").field("alrter_errcode", &self.alrter_errcode).field("alrter_offset", &self.alrter_offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ERRLOG_OTHER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERRLOG_OTHER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ERRLOG_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9663,8 +9663,8 @@ impl ::core::fmt::Debug for ERROR_LOG {
         f.debug_struct("ERROR_LOG").field("el_len", &self.el_len).field("el_reserved", &self.el_reserved).field("el_time", &self.el_time).field("el_error", &self.el_error).field("el_name", &self.el_name).field("el_text", &self.el_text).field("el_data", &self.el_data).field("el_data_size", &self.el_data_size).field("el_nstrings", &self.el_nstrings).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ERROR_LOG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERROR_LOG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ERROR_LOG {
     fn eq(&self, other: &Self) -> bool {
@@ -9700,8 +9700,8 @@ impl ::core::fmt::Debug for FLAT_STRING {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FLAT_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FLAT_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FLAT_STRING {
@@ -9733,8 +9733,8 @@ impl ::core::fmt::Debug for GROUP_INFO_0 {
         f.debug_struct("GROUP_INFO_0").field("grpi0_name", &self.grpi0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9764,8 +9764,8 @@ impl ::core::fmt::Debug for GROUP_INFO_1 {
         f.debug_struct("GROUP_INFO_1").field("grpi1_name", &self.grpi1_name).field("grpi1_comment", &self.grpi1_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9794,8 +9794,8 @@ impl ::core::fmt::Debug for GROUP_INFO_1002 {
         f.debug_struct("GROUP_INFO_1002").field("grpi1002_comment", &self.grpi1002_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_INFO_1002 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_1002 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
@@ -9824,8 +9824,8 @@ impl ::core::fmt::Debug for GROUP_INFO_1005 {
         f.debug_struct("GROUP_INFO_1005").field("grpi1005_attributes", &self.grpi1005_attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_INFO_1005 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_1005 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
@@ -9857,8 +9857,8 @@ impl ::core::fmt::Debug for GROUP_INFO_2 {
         f.debug_struct("GROUP_INFO_2").field("grpi2_name", &self.grpi2_name).field("grpi2_comment", &self.grpi2_comment).field("grpi2_group_id", &self.grpi2_group_id).field("grpi2_attributes", &self.grpi2_attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9895,8 +9895,8 @@ impl ::core::fmt::Debug for GROUP_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GROUP_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GROUP_INFO_3 {
@@ -9928,8 +9928,8 @@ impl ::core::fmt::Debug for GROUP_USERS_INFO_0 {
         f.debug_struct("GROUP_USERS_INFO_0").field("grui0_name", &self.grui0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_USERS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9959,8 +9959,8 @@ impl ::core::fmt::Debug for GROUP_USERS_INFO_1 {
         f.debug_struct("GROUP_USERS_INFO_1").field("grui1_name", &self.grui1_name).field("grui1_attributes", &self.grui1_attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GROUP_USERS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GROUP_USERS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GROUP_USERS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9989,8 +9989,8 @@ impl ::core::fmt::Debug for HARDWARE_ADDRESS {
         f.debug_struct("HARDWARE_ADDRESS").field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HARDWARE_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HARDWARE_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HARDWARE_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -10022,8 +10022,8 @@ impl ::core::fmt::Debug for HLOG {
         f.debug_struct("HLOG").field("time", &self.time).field("last_flags", &self.last_flags).field("offset", &self.offset).field("rec_offset", &self.rec_offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HLOG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HLOG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HLOG {
     fn eq(&self, other: &Self) -> bool {
@@ -10052,8 +10052,8 @@ impl ::core::fmt::Debug for LOCALGROUP_INFO_0 {
         f.debug_struct("LOCALGROUP_INFO_0").field("lgrpi0_name", &self.lgrpi0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10083,8 +10083,8 @@ impl ::core::fmt::Debug for LOCALGROUP_INFO_1 {
         f.debug_struct("LOCALGROUP_INFO_1").field("lgrpi1_name", &self.lgrpi1_name).field("lgrpi1_comment", &self.lgrpi1_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10113,8 +10113,8 @@ impl ::core::fmt::Debug for LOCALGROUP_INFO_1002 {
         f.debug_struct("LOCALGROUP_INFO_1002").field("lgrpi1002_comment", &self.lgrpi1002_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOCALGROUP_INFO_1002 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_INFO_1002 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
@@ -10148,8 +10148,8 @@ impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_MEMBERS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_0 {
@@ -10188,8 +10188,8 @@ impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_MEMBERS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_1 {
@@ -10228,8 +10228,8 @@ impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_MEMBERS_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_2 {
@@ -10261,8 +10261,8 @@ impl ::core::fmt::Debug for LOCALGROUP_MEMBERS_INFO_3 {
         f.debug_struct("LOCALGROUP_MEMBERS_INFO_3").field("lgrmi3_domainandname", &self.lgrmi3_domainandname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOCALGROUP_MEMBERS_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_MEMBERS_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_MEMBERS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -10291,8 +10291,8 @@ impl ::core::fmt::Debug for LOCALGROUP_USERS_INFO_0 {
         f.debug_struct("LOCALGROUP_USERS_INFO_0").field("lgrui0_name", &self.lgrui0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LOCALGROUP_USERS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCALGROUP_USERS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LOCALGROUP_USERS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10323,8 +10323,8 @@ impl ::core::fmt::Debug for MPR_PROTOCOL_0 {
         f.debug_struct("MPR_PROTOCOL_0").field("dwProtocolId", &self.dwProtocolId).field("wszProtocol", &self.wszProtocol).field("wszDLLName", &self.wszDLLName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MPR_PROTOCOL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MPR_PROTOCOL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MPR_PROTOCOL_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10353,8 +10353,8 @@ impl ::core::fmt::Debug for MSA_INFO_0 {
         f.debug_struct("MSA_INFO_0").field("State", &self.State).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSA_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSA_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSA_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10383,8 +10383,8 @@ impl ::core::fmt::Debug for MSG_INFO_0 {
         f.debug_struct("MSG_INFO_0").field("msgi0_name", &self.msgi0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSG_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSG_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSG_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10415,8 +10415,8 @@ impl ::core::fmt::Debug for MSG_INFO_1 {
         f.debug_struct("MSG_INFO_1").field("msgi1_name", &self.msgi1_name).field("msgi1_forward_flag", &self.msgi1_forward_flag).field("msgi1_forward", &self.msgi1_forward).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MSG_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSG_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MSG_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10446,8 +10446,8 @@ impl ::core::fmt::Debug for NETLOGON_INFO_1 {
         f.debug_struct("NETLOGON_INFO_1").field("netlog1_flags", &self.netlog1_flags).field("netlog1_pdc_connection_status", &self.netlog1_pdc_connection_status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10479,8 +10479,8 @@ impl ::core::fmt::Debug for NETLOGON_INFO_2 {
         f.debug_struct("NETLOGON_INFO_2").field("netlog2_flags", &self.netlog2_flags).field("netlog2_pdc_connection_status", &self.netlog2_pdc_connection_status).field("netlog2_trusted_dc_name", &self.netlog2_trusted_dc_name).field("netlog2_tc_connection_status", &self.netlog2_tc_connection_status).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -10515,8 +10515,8 @@ impl ::core::fmt::Debug for NETLOGON_INFO_3 {
         f.debug_struct("NETLOGON_INFO_3").field("netlog3_flags", &self.netlog3_flags).field("netlog3_logon_attempts", &self.netlog3_logon_attempts).field("netlog3_reserved1", &self.netlog3_reserved1).field("netlog3_reserved2", &self.netlog3_reserved2).field("netlog3_reserved3", &self.netlog3_reserved3).field("netlog3_reserved4", &self.netlog3_reserved4).field("netlog3_reserved5", &self.netlog3_reserved5).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -10546,8 +10546,8 @@ impl ::core::fmt::Debug for NETLOGON_INFO_4 {
         f.debug_struct("NETLOGON_INFO_4").field("netlog4_trusted_dc_name", &self.netlog4_trusted_dc_name).field("netlog4_trusted_domain_name", &self.netlog4_trusted_domain_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETLOGON_INFO_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETLOGON_INFO_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETLOGON_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -10606,8 +10606,8 @@ impl ::core::fmt::Debug for NETSETUP_PROVISIONING_PARAMS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETSETUP_PROVISIONING_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETSETUP_PROVISIONING_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETSETUP_PROVISIONING_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -10641,8 +10641,8 @@ impl ::core::fmt::Debug for NETWORK_NAME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETWORK_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETWORK_NAME {
@@ -10678,8 +10678,8 @@ impl ::core::fmt::Debug for NET_DISPLAY_GROUP {
         f.debug_struct("NET_DISPLAY_GROUP").field("grpi3_name", &self.grpi3_name).field("grpi3_comment", &self.grpi3_comment).field("grpi3_group_id", &self.grpi3_group_id).field("grpi3_attributes", &self.grpi3_attributes).field("grpi3_next_index", &self.grpi3_next_index).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_DISPLAY_GROUP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_DISPLAY_GROUP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_GROUP {
     fn eq(&self, other: &Self) -> bool {
@@ -10712,8 +10712,8 @@ impl ::core::fmt::Debug for NET_DISPLAY_MACHINE {
         f.debug_struct("NET_DISPLAY_MACHINE").field("usri2_name", &self.usri2_name).field("usri2_comment", &self.usri2_comment).field("usri2_flags", &self.usri2_flags).field("usri2_user_id", &self.usri2_user_id).field("usri2_next_index", &self.usri2_next_index).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_DISPLAY_MACHINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_DISPLAY_MACHINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_MACHINE {
     fn eq(&self, other: &Self) -> bool {
@@ -10747,8 +10747,8 @@ impl ::core::fmt::Debug for NET_DISPLAY_USER {
         f.debug_struct("NET_DISPLAY_USER").field("usri1_name", &self.usri1_name).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_full_name", &self.usri1_full_name).field("usri1_user_id", &self.usri1_user_id).field("usri1_next_index", &self.usri1_next_index).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_DISPLAY_USER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_DISPLAY_USER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_DISPLAY_USER {
     fn eq(&self, other: &Self) -> bool {
@@ -10783,8 +10783,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
@@ -10822,8 +10822,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_OUTPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_VALIDATE_OUTPUT_ARG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_OUTPUT_ARG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_OUTPUT_ARG {
@@ -10864,8 +10864,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
@@ -10898,8 +10898,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_HASH {
         f.debug_struct("NET_VALIDATE_PASSWORD_HASH").field("Length", &self.Length).field("Hash", &self.Hash).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_HASH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_PASSWORD_HASH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_HASH {
     fn eq(&self, other: &Self) -> bool {
@@ -10938,8 +10938,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
@@ -10982,8 +10982,8 @@ impl ::core::fmt::Debug for NET_VALIDATE_PERSISTED_FIELDS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NET_VALIDATE_PERSISTED_FIELDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_VALIDATE_PERSISTED_FIELDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NET_VALIDATE_PERSISTED_FIELDS {
@@ -11023,8 +11023,8 @@ impl ::core::fmt::Debug for OBO_TOKEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OBO_TOKEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBO_TOKEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBO_TOKEN {
@@ -11059,8 +11059,8 @@ impl ::core::fmt::Debug for PRINT_OTHER_INFO {
         f.debug_struct("PRINT_OTHER_INFO").field("alrtpr_jobid", &self.alrtpr_jobid).field("alrtpr_status", &self.alrtpr_status).field("alrtpr_submitted", &self.alrtpr_submitted).field("alrtpr_size", &self.alrtpr_size).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINT_OTHER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINT_OTHER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINT_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11124,8 +11124,8 @@ impl ::core::fmt::Debug for RASCON_IPUI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RASCON_IPUI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RASCON_IPUI {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RASCON_IPUI {
@@ -11157,8 +11157,8 @@ impl ::core::fmt::Debug for REPL_EDIR_INFO_0 {
         f.debug_struct("REPL_EDIR_INFO_0").field("rped0_dirname", &self.rped0_dirname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_EDIR_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11189,8 +11189,8 @@ impl ::core::fmt::Debug for REPL_EDIR_INFO_1 {
         f.debug_struct("REPL_EDIR_INFO_1").field("rped1_dirname", &self.rped1_dirname).field("rped1_integrity", &self.rped1_integrity).field("rped1_extent", &self.rped1_extent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_EDIR_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11219,8 +11219,8 @@ impl ::core::fmt::Debug for REPL_EDIR_INFO_1000 {
         f.debug_struct("REPL_EDIR_INFO_1000").field("rped1000_integrity", &self.rped1000_integrity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1000 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_EDIR_INFO_1000 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
@@ -11249,8 +11249,8 @@ impl ::core::fmt::Debug for REPL_EDIR_INFO_1001 {
         f.debug_struct("REPL_EDIR_INFO_1001").field("rped1001_extent", &self.rped1001_extent).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_1001 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_EDIR_INFO_1001 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
@@ -11283,8 +11283,8 @@ impl ::core::fmt::Debug for REPL_EDIR_INFO_2 {
         f.debug_struct("REPL_EDIR_INFO_2").field("rped2_dirname", &self.rped2_dirname).field("rped2_integrity", &self.rped2_integrity).field("rped2_extent", &self.rped2_extent).field("rped2_lockcount", &self.rped2_lockcount).field("rped2_locktime", &self.rped2_locktime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_EDIR_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_EDIR_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_EDIR_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -11313,8 +11313,8 @@ impl ::core::fmt::Debug for REPL_IDIR_INFO_0 {
         f.debug_struct("REPL_IDIR_INFO_0").field("rpid0_dirname", &self.rpid0_dirname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_IDIR_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_IDIR_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11348,8 +11348,8 @@ impl ::core::fmt::Debug for REPL_IDIR_INFO_1 {
         f.debug_struct("REPL_IDIR_INFO_1").field("rpid1_dirname", &self.rpid1_dirname).field("rpid1_state", &self.rpid1_state).field("rpid1_mastername", &self.rpid1_mastername).field("rpid1_last_update_time", &self.rpid1_last_update_time).field("rpid1_lockcount", &self.rpid1_lockcount).field("rpid1_locktime", &self.rpid1_locktime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_IDIR_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_IDIR_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_IDIR_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -11387,8 +11387,8 @@ impl ::core::fmt::Debug for REPL_INFO_0 {
         f.debug_struct("REPL_INFO_0").field("rp0_role", &self.rp0_role).field("rp0_exportpath", &self.rp0_exportpath).field("rp0_exportlist", &self.rp0_exportlist).field("rp0_importpath", &self.rp0_importpath).field("rp0_importlist", &self.rp0_importlist).field("rp0_logonusername", &self.rp0_logonusername).field("rp0_interval", &self.rp0_interval).field("rp0_pulse", &self.rp0_pulse).field("rp0_guardtime", &self.rp0_guardtime).field("rp0_random", &self.rp0_random).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -11417,8 +11417,8 @@ impl ::core::fmt::Debug for REPL_INFO_1000 {
         f.debug_struct("REPL_INFO_1000").field("rp1000_interval", &self.rp1000_interval).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_INFO_1000 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_INFO_1000 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1000 {
     fn eq(&self, other: &Self) -> bool {
@@ -11447,8 +11447,8 @@ impl ::core::fmt::Debug for REPL_INFO_1001 {
         f.debug_struct("REPL_INFO_1001").field("rp1001_pulse", &self.rp1001_pulse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_INFO_1001 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_INFO_1001 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
@@ -11477,8 +11477,8 @@ impl ::core::fmt::Debug for REPL_INFO_1002 {
         f.debug_struct("REPL_INFO_1002").field("rp1002_guardtime", &self.rp1002_guardtime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_INFO_1002 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_INFO_1002 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
@@ -11507,8 +11507,8 @@ impl ::core::fmt::Debug for REPL_INFO_1003 {
         f.debug_struct("REPL_INFO_1003").field("rp1003_random", &self.rp1003_random).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPL_INFO_1003 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPL_INFO_1003 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPL_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
@@ -11540,8 +11540,8 @@ impl ::core::fmt::Debug for RTR_INFO_BLOCK_HEADER {
         f.debug_struct("RTR_INFO_BLOCK_HEADER").field("Version", &self.Version).field("Size", &self.Size).field("TocEntriesCount", &self.TocEntriesCount).field("TocEntry", &self.TocEntry).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RTR_INFO_BLOCK_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RTR_INFO_BLOCK_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTR_INFO_BLOCK_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -11573,8 +11573,8 @@ impl ::core::fmt::Debug for RTR_TOC_ENTRY {
         f.debug_struct("RTR_TOC_ENTRY").field("InfoType", &self.InfoType).field("InfoSize", &self.InfoSize).field("Count", &self.Count).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RTR_TOC_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RTR_TOC_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RTR_TOC_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -11604,8 +11604,8 @@ impl ::core::fmt::Debug for SERVER_INFO_100 {
         f.debug_struct("SERVER_INFO_100").field("sv100_platform_id", &self.sv100_platform_id).field("sv100_name", &self.sv100_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_100 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_100 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
@@ -11634,8 +11634,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1005 {
         f.debug_struct("SERVER_INFO_1005").field("sv1005_comment", &self.sv1005_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1005 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1005 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
@@ -11669,8 +11669,8 @@ impl ::core::fmt::Debug for SERVER_INFO_101 {
         f.debug_struct("SERVER_INFO_101").field("sv101_platform_id", &self.sv101_platform_id).field("sv101_name", &self.sv101_name).field("sv101_version_major", &self.sv101_version_major).field("sv101_version_minor", &self.sv101_version_minor).field("sv101_type", &self.sv101_type).field("sv101_comment", &self.sv101_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_101 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_101 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
@@ -11699,8 +11699,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1010 {
         f.debug_struct("SERVER_INFO_1010").field("sv1010_disc", &self.sv1010_disc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1010 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1010 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
@@ -11729,8 +11729,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1016 {
         f.debug_struct("SERVER_INFO_1016").field("sv1016_hidden", &self.sv1016_hidden).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1016 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1016 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1016 {
     fn eq(&self, other: &Self) -> bool {
@@ -11759,8 +11759,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1017 {
         f.debug_struct("SERVER_INFO_1017").field("sv1017_announce", &self.sv1017_announce).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1017 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1017 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
@@ -11789,8 +11789,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1018 {
         f.debug_struct("SERVER_INFO_1018").field("sv1018_anndelta", &self.sv1018_anndelta).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1018 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1018 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
@@ -11845,8 +11845,8 @@ impl ::core::fmt::Debug for SERVER_INFO_102 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_102 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_102 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
@@ -11908,8 +11908,8 @@ impl ::core::fmt::Debug for SERVER_INFO_103 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_103 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_103 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_103 {
@@ -11941,8 +11941,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1107 {
         f.debug_struct("SERVER_INFO_1107").field("sv1107_users", &self.sv1107_users).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1107 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1107 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1107 {
     fn eq(&self, other: &Self) -> bool {
@@ -11971,8 +11971,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1501 {
         f.debug_struct("SERVER_INFO_1501").field("sv1501_sessopens", &self.sv1501_sessopens).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1501 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1501 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1501 {
     fn eq(&self, other: &Self) -> bool {
@@ -12001,8 +12001,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1502 {
         f.debug_struct("SERVER_INFO_1502").field("sv1502_sessvcs", &self.sv1502_sessvcs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1502 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1502 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1502 {
     fn eq(&self, other: &Self) -> bool {
@@ -12031,8 +12031,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1503 {
         f.debug_struct("SERVER_INFO_1503").field("sv1503_opensearch", &self.sv1503_opensearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1503 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1503 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1503 {
     fn eq(&self, other: &Self) -> bool {
@@ -12061,8 +12061,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1506 {
         f.debug_struct("SERVER_INFO_1506").field("sv1506_maxworkitems", &self.sv1506_maxworkitems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1506 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1506 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1506 {
     fn eq(&self, other: &Self) -> bool {
@@ -12091,8 +12091,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1509 {
         f.debug_struct("SERVER_INFO_1509").field("sv1509_maxrawbuflen", &self.sv1509_maxrawbuflen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1509 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1509 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1509 {
     fn eq(&self, other: &Self) -> bool {
@@ -12121,8 +12121,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1510 {
         f.debug_struct("SERVER_INFO_1510").field("sv1510_sessusers", &self.sv1510_sessusers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1510 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1510 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1510 {
     fn eq(&self, other: &Self) -> bool {
@@ -12151,8 +12151,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1511 {
         f.debug_struct("SERVER_INFO_1511").field("sv1511_sessconns", &self.sv1511_sessconns).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1511 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1511 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1511 {
     fn eq(&self, other: &Self) -> bool {
@@ -12181,8 +12181,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1512 {
         f.debug_struct("SERVER_INFO_1512").field("sv1512_maxnonpagedmemoryusage", &self.sv1512_maxnonpagedmemoryusage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1512 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1512 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1512 {
     fn eq(&self, other: &Self) -> bool {
@@ -12211,8 +12211,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1513 {
         f.debug_struct("SERVER_INFO_1513").field("sv1513_maxpagedmemoryusage", &self.sv1513_maxpagedmemoryusage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1513 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1513 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1513 {
     fn eq(&self, other: &Self) -> bool {
@@ -12246,8 +12246,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1514 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1514 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1514 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1514 {
@@ -12284,8 +12284,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1515 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1515 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1515 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1515 {
@@ -12322,8 +12322,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1516 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1516 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1516 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1516 {
@@ -12360,8 +12360,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1518 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1518 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1518 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1518 {
@@ -12393,8 +12393,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1520 {
         f.debug_struct("SERVER_INFO_1520").field("sv1520_maxcopyreadlen", &self.sv1520_maxcopyreadlen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1520 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1520 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1520 {
     fn eq(&self, other: &Self) -> bool {
@@ -12423,8 +12423,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1521 {
         f.debug_struct("SERVER_INFO_1521").field("sv1521_maxcopywritelen", &self.sv1521_maxcopywritelen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1521 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1521 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1521 {
     fn eq(&self, other: &Self) -> bool {
@@ -12453,8 +12453,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1522 {
         f.debug_struct("SERVER_INFO_1522").field("sv1522_minkeepsearch", &self.sv1522_minkeepsearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1522 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1522 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1522 {
     fn eq(&self, other: &Self) -> bool {
@@ -12483,8 +12483,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1523 {
         f.debug_struct("SERVER_INFO_1523").field("sv1523_maxkeepsearch", &self.sv1523_maxkeepsearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1523 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1523 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1523 {
     fn eq(&self, other: &Self) -> bool {
@@ -12513,8 +12513,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1524 {
         f.debug_struct("SERVER_INFO_1524").field("sv1524_minkeepcomplsearch", &self.sv1524_minkeepcomplsearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1524 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1524 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1524 {
     fn eq(&self, other: &Self) -> bool {
@@ -12543,8 +12543,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1525 {
         f.debug_struct("SERVER_INFO_1525").field("sv1525_maxkeepcomplsearch", &self.sv1525_maxkeepcomplsearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1525 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1525 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1525 {
     fn eq(&self, other: &Self) -> bool {
@@ -12573,8 +12573,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1528 {
         f.debug_struct("SERVER_INFO_1528").field("sv1528_scavtimeout", &self.sv1528_scavtimeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1528 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1528 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1528 {
     fn eq(&self, other: &Self) -> bool {
@@ -12603,8 +12603,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1529 {
         f.debug_struct("SERVER_INFO_1529").field("sv1529_minrcvqueue", &self.sv1529_minrcvqueue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1529 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1529 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1529 {
     fn eq(&self, other: &Self) -> bool {
@@ -12633,8 +12633,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1530 {
         f.debug_struct("SERVER_INFO_1530").field("sv1530_minfreeworkitems", &self.sv1530_minfreeworkitems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1530 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1530 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1530 {
     fn eq(&self, other: &Self) -> bool {
@@ -12663,8 +12663,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1533 {
         f.debug_struct("SERVER_INFO_1533").field("sv1533_maxmpxct", &self.sv1533_maxmpxct).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1533 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1533 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1533 {
     fn eq(&self, other: &Self) -> bool {
@@ -12693,8 +12693,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1534 {
         f.debug_struct("SERVER_INFO_1534").field("sv1534_oplockbreakwait", &self.sv1534_oplockbreakwait).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1534 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1534 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1534 {
     fn eq(&self, other: &Self) -> bool {
@@ -12723,8 +12723,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1535 {
         f.debug_struct("SERVER_INFO_1535").field("sv1535_oplockbreakresponsewait", &self.sv1535_oplockbreakresponsewait).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1535 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1535 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1535 {
     fn eq(&self, other: &Self) -> bool {
@@ -12758,8 +12758,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1536 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1536 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1536 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1536 {
@@ -12796,8 +12796,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1537 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1537 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1537 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1537 {
@@ -12834,8 +12834,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1538 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1538 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1538 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1538 {
@@ -12872,8 +12872,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1539 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1539 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1539 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1539 {
@@ -12910,8 +12910,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1540 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1540 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1540 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1540 {
@@ -12948,8 +12948,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1541 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1541 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1541 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1541 {
@@ -12986,8 +12986,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1542 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1542 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1542 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1542 {
@@ -13019,8 +13019,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1543 {
         f.debug_struct("SERVER_INFO_1543").field("sv1543_initsesstable", &self.sv1543_initsesstable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1543 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1543 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1543 {
     fn eq(&self, other: &Self) -> bool {
@@ -13049,8 +13049,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1544 {
         f.debug_struct("SERVER_INFO_1544").field("sv1544_initconntable", &self.sv1544_initconntable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1544 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1544 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1544 {
     fn eq(&self, other: &Self) -> bool {
@@ -13079,8 +13079,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1545 {
         f.debug_struct("SERVER_INFO_1545").field("sv1545_initfiletable", &self.sv1545_initfiletable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1545 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1545 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1545 {
     fn eq(&self, other: &Self) -> bool {
@@ -13109,8 +13109,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1546 {
         f.debug_struct("SERVER_INFO_1546").field("sv1546_initsearchtable", &self.sv1546_initsearchtable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1546 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1546 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1546 {
     fn eq(&self, other: &Self) -> bool {
@@ -13139,8 +13139,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1547 {
         f.debug_struct("SERVER_INFO_1547").field("sv1547_alertschedule", &self.sv1547_alertschedule).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1547 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1547 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1547 {
     fn eq(&self, other: &Self) -> bool {
@@ -13169,8 +13169,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1548 {
         f.debug_struct("SERVER_INFO_1548").field("sv1548_errorthreshold", &self.sv1548_errorthreshold).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1548 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1548 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1548 {
     fn eq(&self, other: &Self) -> bool {
@@ -13199,8 +13199,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1549 {
         f.debug_struct("SERVER_INFO_1549").field("sv1549_networkerrorthreshold", &self.sv1549_networkerrorthreshold).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1549 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1549 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1549 {
     fn eq(&self, other: &Self) -> bool {
@@ -13229,8 +13229,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1550 {
         f.debug_struct("SERVER_INFO_1550").field("sv1550_diskspacethreshold", &self.sv1550_diskspacethreshold).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1550 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1550 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1550 {
     fn eq(&self, other: &Self) -> bool {
@@ -13259,8 +13259,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1552 {
         f.debug_struct("SERVER_INFO_1552").field("sv1552_maxlinkdelay", &self.sv1552_maxlinkdelay).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1552 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1552 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1552 {
     fn eq(&self, other: &Self) -> bool {
@@ -13289,8 +13289,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1553 {
         f.debug_struct("SERVER_INFO_1553").field("sv1553_minlinkthroughput", &self.sv1553_minlinkthroughput).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1553 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1553 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1553 {
     fn eq(&self, other: &Self) -> bool {
@@ -13319,8 +13319,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1554 {
         f.debug_struct("SERVER_INFO_1554").field("sv1554_linkinfovalidtime", &self.sv1554_linkinfovalidtime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1554 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1554 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1554 {
     fn eq(&self, other: &Self) -> bool {
@@ -13349,8 +13349,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1555 {
         f.debug_struct("SERVER_INFO_1555").field("sv1555_scavqosinfoupdatetime", &self.sv1555_scavqosinfoupdatetime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1555 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1555 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1555 {
     fn eq(&self, other: &Self) -> bool {
@@ -13379,8 +13379,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1556 {
         f.debug_struct("SERVER_INFO_1556").field("sv1556_maxworkitemidletime", &self.sv1556_maxworkitemidletime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1556 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1556 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1556 {
     fn eq(&self, other: &Self) -> bool {
@@ -13409,8 +13409,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1557 {
         f.debug_struct("SERVER_INFO_1557").field("sv1557_maxrawworkitems", &self.sv1557_maxrawworkitems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1557 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1557 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1557 {
     fn eq(&self, other: &Self) -> bool {
@@ -13439,8 +13439,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1560 {
         f.debug_struct("SERVER_INFO_1560").field("sv1560_producttype", &self.sv1560_producttype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1560 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1560 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1560 {
     fn eq(&self, other: &Self) -> bool {
@@ -13469,8 +13469,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1561 {
         f.debug_struct("SERVER_INFO_1561").field("sv1561_serversize", &self.sv1561_serversize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1561 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1561 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1561 {
     fn eq(&self, other: &Self) -> bool {
@@ -13499,8 +13499,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1562 {
         f.debug_struct("SERVER_INFO_1562").field("sv1562_connectionlessautodisc", &self.sv1562_connectionlessautodisc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1562 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1562 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1562 {
     fn eq(&self, other: &Self) -> bool {
@@ -13529,8 +13529,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1563 {
         f.debug_struct("SERVER_INFO_1563").field("sv1563_sharingviolationretries", &self.sv1563_sharingviolationretries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1563 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1563 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1563 {
     fn eq(&self, other: &Self) -> bool {
@@ -13559,8 +13559,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1564 {
         f.debug_struct("SERVER_INFO_1564").field("sv1564_sharingviolationdelay", &self.sv1564_sharingviolationdelay).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1564 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1564 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1564 {
     fn eq(&self, other: &Self) -> bool {
@@ -13589,8 +13589,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1565 {
         f.debug_struct("SERVER_INFO_1565").field("sv1565_maxglobalopensearch", &self.sv1565_maxglobalopensearch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1565 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1565 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1565 {
     fn eq(&self, other: &Self) -> bool {
@@ -13624,8 +13624,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1566 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1566 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1566 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1566 {
@@ -13657,8 +13657,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1567 {
         f.debug_struct("SERVER_INFO_1567").field("sv1567_lockviolationretries", &self.sv1567_lockviolationretries).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1567 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1567 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1567 {
     fn eq(&self, other: &Self) -> bool {
@@ -13687,8 +13687,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1568 {
         f.debug_struct("SERVER_INFO_1568").field("sv1568_lockviolationoffset", &self.sv1568_lockviolationoffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1568 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1568 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1568 {
     fn eq(&self, other: &Self) -> bool {
@@ -13717,8 +13717,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1569 {
         f.debug_struct("SERVER_INFO_1569").field("sv1569_lockviolationdelay", &self.sv1569_lockviolationdelay).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1569 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1569 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1569 {
     fn eq(&self, other: &Self) -> bool {
@@ -13747,8 +13747,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1570 {
         f.debug_struct("SERVER_INFO_1570").field("sv1570_mdlreadswitchover", &self.sv1570_mdlreadswitchover).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1570 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1570 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1570 {
     fn eq(&self, other: &Self) -> bool {
@@ -13777,8 +13777,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1571 {
         f.debug_struct("SERVER_INFO_1571").field("sv1571_cachedopenlimit", &self.sv1571_cachedopenlimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1571 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1571 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1571 {
     fn eq(&self, other: &Self) -> bool {
@@ -13807,8 +13807,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1572 {
         f.debug_struct("SERVER_INFO_1572").field("sv1572_criticalthreads", &self.sv1572_criticalthreads).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1572 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1572 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1572 {
     fn eq(&self, other: &Self) -> bool {
@@ -13837,8 +13837,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1573 {
         f.debug_struct("SERVER_INFO_1573").field("sv1573_restrictnullsessaccess", &self.sv1573_restrictnullsessaccess).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1573 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1573 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1573 {
     fn eq(&self, other: &Self) -> bool {
@@ -13867,8 +13867,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1574 {
         f.debug_struct("SERVER_INFO_1574").field("sv1574_enablewfw311directipx", &self.sv1574_enablewfw311directipx).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1574 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1574 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1574 {
     fn eq(&self, other: &Self) -> bool {
@@ -13897,8 +13897,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1575 {
         f.debug_struct("SERVER_INFO_1575").field("sv1575_otherqueueaffinity", &self.sv1575_otherqueueaffinity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1575 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1575 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1575 {
     fn eq(&self, other: &Self) -> bool {
@@ -13927,8 +13927,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1576 {
         f.debug_struct("SERVER_INFO_1576").field("sv1576_queuesamplesecs", &self.sv1576_queuesamplesecs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1576 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1576 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1576 {
     fn eq(&self, other: &Self) -> bool {
@@ -13957,8 +13957,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1577 {
         f.debug_struct("SERVER_INFO_1577").field("sv1577_balancecount", &self.sv1577_balancecount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1577 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1577 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1577 {
     fn eq(&self, other: &Self) -> bool {
@@ -13987,8 +13987,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1578 {
         f.debug_struct("SERVER_INFO_1578").field("sv1578_preferredaffinity", &self.sv1578_preferredaffinity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1578 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1578 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1578 {
     fn eq(&self, other: &Self) -> bool {
@@ -14017,8 +14017,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1579 {
         f.debug_struct("SERVER_INFO_1579").field("sv1579_maxfreerfcbs", &self.sv1579_maxfreerfcbs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1579 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1579 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1579 {
     fn eq(&self, other: &Self) -> bool {
@@ -14047,8 +14047,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1580 {
         f.debug_struct("SERVER_INFO_1580").field("sv1580_maxfreemfcbs", &self.sv1580_maxfreemfcbs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1580 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1580 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1580 {
     fn eq(&self, other: &Self) -> bool {
@@ -14077,8 +14077,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1581 {
         f.debug_struct("SERVER_INFO_1581").field("sv1581_maxfreemlcbs", &self.sv1581_maxfreemlcbs).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1581 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1581 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1581 {
     fn eq(&self, other: &Self) -> bool {
@@ -14107,8 +14107,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1582 {
         f.debug_struct("SERVER_INFO_1582").field("sv1582_maxfreepagedpoolchunks", &self.sv1582_maxfreepagedpoolchunks).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1582 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1582 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1582 {
     fn eq(&self, other: &Self) -> bool {
@@ -14137,8 +14137,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1583 {
         f.debug_struct("SERVER_INFO_1583").field("sv1583_minpagedpoolchunksize", &self.sv1583_minpagedpoolchunksize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1583 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1583 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1583 {
     fn eq(&self, other: &Self) -> bool {
@@ -14167,8 +14167,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1584 {
         f.debug_struct("SERVER_INFO_1584").field("sv1584_maxpagedpoolchunksize", &self.sv1584_maxpagedpoolchunksize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1584 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1584 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1584 {
     fn eq(&self, other: &Self) -> bool {
@@ -14202,8 +14202,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1585 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1585 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1585 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1585 {
@@ -14235,8 +14235,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1586 {
         f.debug_struct("SERVER_INFO_1586").field("sv1586_maxthreadsperqueue", &self.sv1586_maxthreadsperqueue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1586 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1586 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1586 {
     fn eq(&self, other: &Self) -> bool {
@@ -14265,8 +14265,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1587 {
         f.debug_struct("SERVER_INFO_1587").field("sv1587_cacheddirectorylimit", &self.sv1587_cacheddirectorylimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1587 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1587 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1587 {
     fn eq(&self, other: &Self) -> bool {
@@ -14295,8 +14295,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1588 {
         f.debug_struct("SERVER_INFO_1588").field("sv1588_maxcopylength", &self.sv1588_maxcopylength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1588 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1588 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1588 {
     fn eq(&self, other: &Self) -> bool {
@@ -14325,8 +14325,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1590 {
         f.debug_struct("SERVER_INFO_1590").field("sv1590_enablecompression", &self.sv1590_enablecompression).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1590 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1590 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1590 {
     fn eq(&self, other: &Self) -> bool {
@@ -14355,8 +14355,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1591 {
         f.debug_struct("SERVER_INFO_1591").field("sv1591_autosharewks", &self.sv1591_autosharewks).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1591 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1591 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1591 {
     fn eq(&self, other: &Self) -> bool {
@@ -14385,8 +14385,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1592 {
         f.debug_struct("SERVER_INFO_1592").field("sv1592_autosharewks", &self.sv1592_autosharewks).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1592 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1592 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1592 {
     fn eq(&self, other: &Self) -> bool {
@@ -14415,8 +14415,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1593 {
         f.debug_struct("SERVER_INFO_1593").field("sv1593_enablesecuritysignature", &self.sv1593_enablesecuritysignature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1593 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1593 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1593 {
     fn eq(&self, other: &Self) -> bool {
@@ -14445,8 +14445,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1594 {
         f.debug_struct("SERVER_INFO_1594").field("sv1594_requiresecuritysignature", &self.sv1594_requiresecuritysignature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1594 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1594 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1594 {
     fn eq(&self, other: &Self) -> bool {
@@ -14475,8 +14475,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1595 {
         f.debug_struct("SERVER_INFO_1595").field("sv1595_minclientbuffersize", &self.sv1595_minclientbuffersize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1595 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1595 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1595 {
     fn eq(&self, other: &Self) -> bool {
@@ -14505,8 +14505,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1596 {
         f.debug_struct("SERVER_INFO_1596").field("sv1596_ConnectionNoSessionsTimeout", &self.sv1596_ConnectionNoSessionsTimeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1596 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1596 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1596 {
     fn eq(&self, other: &Self) -> bool {
@@ -14535,8 +14535,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1597 {
         f.debug_struct("SERVER_INFO_1597").field("sv1597_IdleThreadTimeOut", &self.sv1597_IdleThreadTimeOut).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1597 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1597 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1597 {
     fn eq(&self, other: &Self) -> bool {
@@ -14565,8 +14565,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1598 {
         f.debug_struct("SERVER_INFO_1598").field("sv1598_enableW9xsecuritysignature", &self.sv1598_enableW9xsecuritysignature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1598 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1598 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1598 {
     fn eq(&self, other: &Self) -> bool {
@@ -14600,8 +14600,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1599 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1599 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1599 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1599 {
@@ -14638,8 +14638,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1600 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1600 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1600 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1600 {
@@ -14671,8 +14671,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1601 {
         f.debug_struct("SERVER_INFO_1601").field("sv1598_lowdiskspaceminimum", &self.sv1598_lowdiskspaceminimum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_1601 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1601 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_1601 {
     fn eq(&self, other: &Self) -> bool {
@@ -14706,8 +14706,8 @@ impl ::core::fmt::Debug for SERVER_INFO_1602 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_1602 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_1602 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_1602 {
@@ -14801,8 +14801,8 @@ impl ::core::fmt::Debug for SERVER_INFO_402 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_402 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_402 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
@@ -14929,8 +14929,8 @@ impl ::core::fmt::Debug for SERVER_INFO_403 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_INFO_403 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_403 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_INFO_403 {
     fn eq(&self, other: &Self) -> bool {
@@ -15033,8 +15033,8 @@ impl ::core::fmt::Debug for SERVER_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_502 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_502 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_502 {
@@ -15172,8 +15172,8 @@ impl ::core::fmt::Debug for SERVER_INFO_503 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_503 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_503 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_503 {
@@ -15337,8 +15337,8 @@ impl ::core::fmt::Debug for SERVER_INFO_598 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_598 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_598 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_598 {
@@ -15529,8 +15529,8 @@ impl ::core::fmt::Debug for SERVER_INFO_599 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_INFO_599 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_INFO_599 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_INFO_599 {
@@ -15621,8 +15621,8 @@ impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_0 {
         f.debug_struct("SERVER_TRANSPORT_INFO_0").field("svti0_numberofvcs", &self.svti0_numberofvcs).field("svti0_transportname", &self.svti0_transportname).field("svti0_transportaddress", &self.svti0_transportaddress).field("svti0_transportaddresslength", &self.svti0_transportaddresslength).field("svti0_networkaddress", &self.svti0_networkaddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_TRANSPORT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15656,8 +15656,8 @@ impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_1 {
         f.debug_struct("SERVER_TRANSPORT_INFO_1").field("svti1_numberofvcs", &self.svti1_numberofvcs).field("svti1_transportname", &self.svti1_transportname).field("svti1_transportaddress", &self.svti1_transportaddress).field("svti1_transportaddresslength", &self.svti1_transportaddresslength).field("svti1_networkaddress", &self.svti1_networkaddress).field("svti1_domain", &self.svti1_domain).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_TRANSPORT_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -15692,8 +15692,8 @@ impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_2 {
         f.debug_struct("SERVER_TRANSPORT_INFO_2").field("svti2_numberofvcs", &self.svti2_numberofvcs).field("svti2_transportname", &self.svti2_transportname).field("svti2_transportaddress", &self.svti2_transportaddress).field("svti2_transportaddresslength", &self.svti2_transportaddresslength).field("svti2_networkaddress", &self.svti2_networkaddress).field("svti2_domain", &self.svti2_domain).field("svti2_flags", &self.svti2_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_TRANSPORT_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -15740,8 +15740,8 @@ impl ::core::fmt::Debug for SERVER_TRANSPORT_INFO_3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_TRANSPORT_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_TRANSPORT_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_TRANSPORT_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -15770,8 +15770,8 @@ impl ::core::fmt::Debug for SERVICE_INFO_0 {
         f.debug_struct("SERVICE_INFO_0").field("svci0_name", &self.svci0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVICE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVICE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15803,8 +15803,8 @@ impl ::core::fmt::Debug for SERVICE_INFO_1 {
         f.debug_struct("SERVICE_INFO_1").field("svci1_name", &self.svci1_name).field("svci1_status", &self.svci1_status).field("svci1_code", &self.svci1_code).field("svci1_pid", &self.svci1_pid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVICE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVICE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -15839,8 +15839,8 @@ impl ::core::fmt::Debug for SERVICE_INFO_2 {
         f.debug_struct("SERVICE_INFO_2").field("svci2_name", &self.svci2_name).field("svci2_status", &self.svci2_status).field("svci2_code", &self.svci2_code).field("svci2_pid", &self.svci2_pid).field("svci2_text", &self.svci2_text).field("svci2_specific_error", &self.svci2_specific_error).field("svci2_display_name", &self.svci2_display_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVICE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVICE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVICE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -15877,8 +15877,8 @@ impl ::core::fmt::Debug for SMB_COMPRESSION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SMB_COMPRESSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SMB_COMPRESSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SMB_COMPRESSION_INFO {
@@ -15913,8 +15913,8 @@ impl ::core::fmt::Debug for SMB_TREE_CONNECT_PARAMETERS {
         f.debug_struct("SMB_TREE_CONNECT_PARAMETERS").field("EABufferOffset", &self.EABufferOffset).field("EABufferLen", &self.EABufferLen).field("CreateOptions", &self.CreateOptions).field("TreeConnectAttributes", &self.TreeConnectAttributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SMB_TREE_CONNECT_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SMB_TREE_CONNECT_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SMB_TREE_CONNECT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -15945,8 +15945,8 @@ impl ::core::fmt::Debug for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
         f.debug_struct("SMB_USE_OPTION_COMPRESSION_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -15977,8 +15977,8 @@ impl ::core::fmt::Debug for STD_ALERT {
         f.debug_struct("STD_ALERT").field("alrt_timestamp", &self.alrt_timestamp).field("alrt_eventname", &self.alrt_eventname).field("alrt_servicename", &self.alrt_servicename).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STD_ALERT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STD_ALERT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STD_ALERT {
     fn eq(&self, other: &Self) -> bool {
@@ -16031,8 +16031,8 @@ impl ::core::fmt::Debug for TIME_OF_DAY_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for TIME_OF_DAY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TIME_OF_DAY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TIME_OF_DAY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -16067,8 +16067,8 @@ impl ::core::fmt::Debug for TRANSPORT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRANSPORT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSPORT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRANSPORT_INFO {
@@ -16100,8 +16100,8 @@ impl ::core::fmt::Debug for USER_INFO_0 {
         f.debug_struct("USER_INFO_0").field("usri0_name", &self.usri0_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -16137,8 +16137,8 @@ impl ::core::fmt::Debug for USER_INFO_1 {
         f.debug_struct("USER_INFO_1").field("usri1_name", &self.usri1_name).field("usri1_password", &self.usri1_password).field("usri1_password_age", &self.usri1_password_age).field("usri1_priv", &self.usri1_priv).field("usri1_home_dir", &self.usri1_home_dir).field("usri1_comment", &self.usri1_comment).field("usri1_flags", &self.usri1_flags).field("usri1_script_path", &self.usri1_script_path).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -16170,8 +16170,8 @@ impl ::core::fmt::Debug for USER_INFO_10 {
         f.debug_struct("USER_INFO_10").field("usri10_name", &self.usri10_name).field("usri10_comment", &self.usri10_comment).field("usri10_usr_comment", &self.usri10_usr_comment).field("usri10_full_name", &self.usri10_full_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_10 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_10 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_10 {
     fn eq(&self, other: &Self) -> bool {
@@ -16200,8 +16200,8 @@ impl ::core::fmt::Debug for USER_INFO_1003 {
         f.debug_struct("USER_INFO_1003").field("usri1003_password", &self.usri1003_password).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1003 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1003 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
@@ -16230,8 +16230,8 @@ impl ::core::fmt::Debug for USER_INFO_1005 {
         f.debug_struct("USER_INFO_1005").field("usri1005_priv", &self.usri1005_priv).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1005 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1005 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
@@ -16260,8 +16260,8 @@ impl ::core::fmt::Debug for USER_INFO_1006 {
         f.debug_struct("USER_INFO_1006").field("usri1006_home_dir", &self.usri1006_home_dir).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1006 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1006 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
@@ -16290,8 +16290,8 @@ impl ::core::fmt::Debug for USER_INFO_1007 {
         f.debug_struct("USER_INFO_1007").field("usri1007_comment", &self.usri1007_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1007 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1007 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
@@ -16320,8 +16320,8 @@ impl ::core::fmt::Debug for USER_INFO_1008 {
         f.debug_struct("USER_INFO_1008").field("usri1008_flags", &self.usri1008_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1008 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1008 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1008 {
     fn eq(&self, other: &Self) -> bool {
@@ -16350,8 +16350,8 @@ impl ::core::fmt::Debug for USER_INFO_1009 {
         f.debug_struct("USER_INFO_1009").field("usri1009_script_path", &self.usri1009_script_path).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1009 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1009 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1009 {
     fn eq(&self, other: &Self) -> bool {
@@ -16380,8 +16380,8 @@ impl ::core::fmt::Debug for USER_INFO_1010 {
         f.debug_struct("USER_INFO_1010").field("usri1010_auth_flags", &self.usri1010_auth_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1010 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1010 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
@@ -16410,8 +16410,8 @@ impl ::core::fmt::Debug for USER_INFO_1011 {
         f.debug_struct("USER_INFO_1011").field("usri1011_full_name", &self.usri1011_full_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1011 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1011 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
@@ -16440,8 +16440,8 @@ impl ::core::fmt::Debug for USER_INFO_1012 {
         f.debug_struct("USER_INFO_1012").field("usri1012_usr_comment", &self.usri1012_usr_comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1012 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1012 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
@@ -16470,8 +16470,8 @@ impl ::core::fmt::Debug for USER_INFO_1013 {
         f.debug_struct("USER_INFO_1013").field("usri1013_parms", &self.usri1013_parms).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1013 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1013 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
@@ -16500,8 +16500,8 @@ impl ::core::fmt::Debug for USER_INFO_1014 {
         f.debug_struct("USER_INFO_1014").field("usri1014_workstations", &self.usri1014_workstations).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1014 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1014 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1014 {
     fn eq(&self, other: &Self) -> bool {
@@ -16530,8 +16530,8 @@ impl ::core::fmt::Debug for USER_INFO_1017 {
         f.debug_struct("USER_INFO_1017").field("usri1017_acct_expires", &self.usri1017_acct_expires).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1017 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1017 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1017 {
     fn eq(&self, other: &Self) -> bool {
@@ -16560,8 +16560,8 @@ impl ::core::fmt::Debug for USER_INFO_1018 {
         f.debug_struct("USER_INFO_1018").field("usri1018_max_storage", &self.usri1018_max_storage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1018 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1018 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
@@ -16591,8 +16591,8 @@ impl ::core::fmt::Debug for USER_INFO_1020 {
         f.debug_struct("USER_INFO_1020").field("usri1020_units_per_week", &self.usri1020_units_per_week).field("usri1020_logon_hours", &self.usri1020_logon_hours).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1020 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1020 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1020 {
     fn eq(&self, other: &Self) -> bool {
@@ -16621,8 +16621,8 @@ impl ::core::fmt::Debug for USER_INFO_1023 {
         f.debug_struct("USER_INFO_1023").field("usri1023_logon_server", &self.usri1023_logon_server).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1023 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1023 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
@@ -16651,8 +16651,8 @@ impl ::core::fmt::Debug for USER_INFO_1024 {
         f.debug_struct("USER_INFO_1024").field("usri1024_country_code", &self.usri1024_country_code).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1024 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1024 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1024 {
     fn eq(&self, other: &Self) -> bool {
@@ -16681,8 +16681,8 @@ impl ::core::fmt::Debug for USER_INFO_1025 {
         f.debug_struct("USER_INFO_1025").field("usri1025_code_page", &self.usri1025_code_page).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1025 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1025 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1025 {
     fn eq(&self, other: &Self) -> bool {
@@ -16711,8 +16711,8 @@ impl ::core::fmt::Debug for USER_INFO_1051 {
         f.debug_struct("USER_INFO_1051").field("usri1051_primary_group_id", &self.usri1051_primary_group_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1051 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1051 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1051 {
     fn eq(&self, other: &Self) -> bool {
@@ -16741,8 +16741,8 @@ impl ::core::fmt::Debug for USER_INFO_1052 {
         f.debug_struct("USER_INFO_1052").field("usri1052_profile", &self.usri1052_profile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1052 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1052 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1052 {
     fn eq(&self, other: &Self) -> bool {
@@ -16771,8 +16771,8 @@ impl ::core::fmt::Debug for USER_INFO_1053 {
         f.debug_struct("USER_INFO_1053").field("usri1053_home_dir_drive", &self.usri1053_home_dir_drive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_1053 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_1053 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_1053 {
     fn eq(&self, other: &Self) -> bool {
@@ -16841,8 +16841,8 @@ impl ::core::fmt::Debug for USER_INFO_11 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_11 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_11 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_11 {
     fn eq(&self, other: &Self) -> bool {
@@ -16938,8 +16938,8 @@ impl ::core::fmt::Debug for USER_INFO_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16995,8 +16995,8 @@ impl ::core::fmt::Debug for USER_INFO_20 {
         f.debug_struct("USER_INFO_20").field("usri20_name", &self.usri20_name).field("usri20_full_name", &self.usri20_full_name).field("usri20_comment", &self.usri20_comment).field("usri20_flags", &self.usri20_flags).field("usri20_user_id", &self.usri20_user_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_20 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_20 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_20 {
     fn eq(&self, other: &Self) -> bool {
@@ -17025,8 +17025,8 @@ impl ::core::fmt::Debug for USER_INFO_21 {
         f.debug_struct("USER_INFO_21").field("usri21_password", &self.usri21_password).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_21 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_21 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_21 {
     fn eq(&self, other: &Self) -> bool {
@@ -17103,8 +17103,8 @@ impl ::core::fmt::Debug for USER_INFO_22 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_22 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_22 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_22 {
     fn eq(&self, other: &Self) -> bool {
@@ -17165,8 +17165,8 @@ impl ::core::fmt::Debug for USER_INFO_23 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_INFO_23 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_23 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_23 {
@@ -17207,8 +17207,8 @@ impl ::core::fmt::Debug for USER_INFO_24 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_INFO_24 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_24 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_24 {
@@ -17298,8 +17298,8 @@ impl ::core::fmt::Debug for USER_INFO_3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -17419,8 +17419,8 @@ impl ::core::fmt::Debug for USER_INFO_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_INFO_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_INFO_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_INFO_4 {
@@ -17484,8 +17484,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_0 {
         f.debug_struct("USER_MODALS_INFO_0").field("usrmod0_min_passwd_len", &self.usrmod0_min_passwd_len).field("usrmod0_max_passwd_age", &self.usrmod0_max_passwd_age).field("usrmod0_min_passwd_age", &self.usrmod0_min_passwd_age).field("usrmod0_force_logoff", &self.usrmod0_force_logoff).field("usrmod0_password_hist_len", &self.usrmod0_password_hist_len).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -17515,8 +17515,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1 {
         f.debug_struct("USER_MODALS_INFO_1").field("usrmod1_role", &self.usrmod1_role).field("usrmod1_primary", &self.usrmod1_primary).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -17545,8 +17545,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1001 {
         f.debug_struct("USER_MODALS_INFO_1001").field("usrmod1001_min_passwd_len", &self.usrmod1001_min_passwd_len).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1001 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1001 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1001 {
     fn eq(&self, other: &Self) -> bool {
@@ -17575,8 +17575,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1002 {
         f.debug_struct("USER_MODALS_INFO_1002").field("usrmod1002_max_passwd_age", &self.usrmod1002_max_passwd_age).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1002 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1002 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1002 {
     fn eq(&self, other: &Self) -> bool {
@@ -17605,8 +17605,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1003 {
         f.debug_struct("USER_MODALS_INFO_1003").field("usrmod1003_min_passwd_age", &self.usrmod1003_min_passwd_age).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1003 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1003 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1003 {
     fn eq(&self, other: &Self) -> bool {
@@ -17635,8 +17635,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1004 {
         f.debug_struct("USER_MODALS_INFO_1004").field("usrmod1004_force_logoff", &self.usrmod1004_force_logoff).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1004 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1004 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1004 {
     fn eq(&self, other: &Self) -> bool {
@@ -17665,8 +17665,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1005 {
         f.debug_struct("USER_MODALS_INFO_1005").field("usrmod1005_password_hist_len", &self.usrmod1005_password_hist_len).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1005 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1005 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
@@ -17695,8 +17695,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1006 {
         f.debug_struct("USER_MODALS_INFO_1006").field("usrmod1006_role", &self.usrmod1006_role).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1006 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1006 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
@@ -17725,8 +17725,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_1007 {
         f.debug_struct("USER_MODALS_INFO_1007").field("usrmod1007_primary", &self.usrmod1007_primary).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_1007 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_1007 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_1007 {
     fn eq(&self, other: &Self) -> bool {
@@ -17761,8 +17761,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_2 {
@@ -17796,8 +17796,8 @@ impl ::core::fmt::Debug for USER_MODALS_INFO_3 {
         f.debug_struct("USER_MODALS_INFO_3").field("usrmod3_lockout_duration", &self.usrmod3_lockout_duration).field("usrmod3_lockout_observation_window", &self.usrmod3_lockout_observation_window).field("usrmod3_lockout_threshold", &self.usrmod3_lockout_threshold).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_MODALS_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_MODALS_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_MODALS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -17827,8 +17827,8 @@ impl ::core::fmt::Debug for USER_OTHER_INFO {
         f.debug_struct("USER_OTHER_INFO").field("alrtus_errcode", &self.alrtus_errcode).field("alrtus_numstrings", &self.alrtus_numstrings).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USER_OTHER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USER_OTHER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USER_OTHER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17858,8 +17858,8 @@ impl ::core::fmt::Debug for USE_INFO_0 {
         f.debug_struct("USE_INFO_0").field("ui0_local", &self.ui0_local).field("ui0_remote", &self.ui0_remote).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -17894,8 +17894,8 @@ impl ::core::fmt::Debug for USE_INFO_1 {
         f.debug_struct("USE_INFO_1").field("ui1_local", &self.ui1_local).field("ui1_remote", &self.ui1_remote).field("ui1_password", &self.ui1_password).field("ui1_status", &self.ui1_status).field("ui1_asg_type", &self.ui1_asg_type).field("ui1_refcount", &self.ui1_refcount).field("ui1_usecount", &self.ui1_usecount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -17932,8 +17932,8 @@ impl ::core::fmt::Debug for USE_INFO_2 {
         f.debug_struct("USE_INFO_2").field("ui2_local", &self.ui2_local).field("ui2_remote", &self.ui2_remote).field("ui2_password", &self.ui2_password).field("ui2_status", &self.ui2_status).field("ui2_asg_type", &self.ui2_asg_type).field("ui2_refcount", &self.ui2_refcount).field("ui2_usecount", &self.ui2_usecount).field("ui2_username", &self.ui2_username).field("ui2_domainname", &self.ui2_domainname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -17963,8 +17963,8 @@ impl ::core::fmt::Debug for USE_INFO_3 {
         f.debug_struct("USE_INFO_3").field("ui3_ui2", &self.ui3_ui2).field("ui3_flags", &self.ui3_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -17995,8 +17995,8 @@ impl ::core::fmt::Debug for USE_INFO_4 {
         f.debug_struct("USE_INFO_4").field("ui4_ui3", &self.ui4_ui3).field("ui4_auth_identity_length", &self.ui4_auth_identity_length).field("ui4_auth_identity", &self.ui4_auth_identity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -18031,8 +18031,8 @@ impl ::core::fmt::Debug for USE_INFO_5 {
         f.debug_struct("USE_INFO_5").field("ui4_ui3", &self.ui4_ui3).field("ui4_auth_identity_length", &self.ui4_auth_identity_length).field("ui4_auth_identity", &self.ui4_auth_identity).field("ui5_security_descriptor_length", &self.ui5_security_descriptor_length).field("ui5_security_descriptor", &self.ui5_security_descriptor).field("ui5_use_options_length", &self.ui5_use_options_length).field("ui5_use_options", &self.ui5_use_options).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_INFO_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_INFO_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -18063,8 +18063,8 @@ impl ::core::fmt::Debug for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
         f.debug_struct("USE_OPTION_DEFERRED_CONNECTION_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -18095,8 +18095,8 @@ impl ::core::fmt::Debug for USE_OPTION_GENERIC {
         f.debug_struct("USE_OPTION_GENERIC").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_OPTION_GENERIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_OPTION_GENERIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_OPTION_GENERIC {
     fn eq(&self, other: &Self) -> bool {
@@ -18127,8 +18127,8 @@ impl ::core::fmt::Debug for USE_OPTION_PROPERTIES {
         f.debug_struct("USE_OPTION_PROPERTIES").field("Tag", &self.Tag).field("pInfo", &self.pInfo).field("Length", &self.Length).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_OPTION_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_OPTION_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_OPTION_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -18159,8 +18159,8 @@ impl ::core::fmt::Debug for USE_OPTION_TRANSPORT_PARAMETERS {
         f.debug_struct("USE_OPTION_TRANSPORT_PARAMETERS").field("Tag", &self.Tag).field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USE_OPTION_TRANSPORT_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USE_OPTION_TRANSPORT_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USE_OPTION_TRANSPORT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -18193,8 +18193,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_100 {
         f.debug_struct("WKSTA_INFO_100").field("wki100_platform_id", &self.wki100_platform_id).field("wki100_computername", &self.wki100_computername).field("wki100_langroup", &self.wki100_langroup).field("wki100_ver_major", &self.wki100_ver_major).field("wki100_ver_minor", &self.wki100_ver_minor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_100 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_100 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
@@ -18228,8 +18228,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_101 {
         f.debug_struct("WKSTA_INFO_101").field("wki101_platform_id", &self.wki101_platform_id).field("wki101_computername", &self.wki101_computername).field("wki101_langroup", &self.wki101_langroup).field("wki101_ver_major", &self.wki101_ver_major).field("wki101_ver_minor", &self.wki101_ver_minor).field("wki101_lanroot", &self.wki101_lanroot).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_101 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_101 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
@@ -18258,8 +18258,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1010 {
         f.debug_struct("WKSTA_INFO_1010").field("wki1010_char_wait", &self.wki1010_char_wait).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1010 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1010 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1010 {
     fn eq(&self, other: &Self) -> bool {
@@ -18288,8 +18288,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1011 {
         f.debug_struct("WKSTA_INFO_1011").field("wki1011_collection_time", &self.wki1011_collection_time).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1011 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1011 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1011 {
     fn eq(&self, other: &Self) -> bool {
@@ -18318,8 +18318,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1012 {
         f.debug_struct("WKSTA_INFO_1012").field("wki1012_maximum_collection_count", &self.wki1012_maximum_collection_count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1012 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1012 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1012 {
     fn eq(&self, other: &Self) -> bool {
@@ -18348,8 +18348,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1013 {
         f.debug_struct("WKSTA_INFO_1013").field("wki1013_keep_conn", &self.wki1013_keep_conn).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1013 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1013 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1013 {
     fn eq(&self, other: &Self) -> bool {
@@ -18378,8 +18378,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1018 {
         f.debug_struct("WKSTA_INFO_1018").field("wki1018_sess_timeout", &self.wki1018_sess_timeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1018 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1018 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1018 {
     fn eq(&self, other: &Self) -> bool {
@@ -18414,8 +18414,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_102 {
         f.debug_struct("WKSTA_INFO_102").field("wki102_platform_id", &self.wki102_platform_id).field("wki102_computername", &self.wki102_computername).field("wki102_langroup", &self.wki102_langroup).field("wki102_ver_major", &self.wki102_ver_major).field("wki102_ver_minor", &self.wki102_ver_minor).field("wki102_lanroot", &self.wki102_lanroot).field("wki102_logged_on_users", &self.wki102_logged_on_users).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_102 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_102 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
@@ -18444,8 +18444,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1023 {
         f.debug_struct("WKSTA_INFO_1023").field("wki1023_siz_char_buf", &self.wki1023_siz_char_buf).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1023 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1023 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1023 {
     fn eq(&self, other: &Self) -> bool {
@@ -18474,8 +18474,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1027 {
         f.debug_struct("WKSTA_INFO_1027").field("wki1027_errlog_sz", &self.wki1027_errlog_sz).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1027 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1027 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1027 {
     fn eq(&self, other: &Self) -> bool {
@@ -18504,8 +18504,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1028 {
         f.debug_struct("WKSTA_INFO_1028").field("wki1028_print_buf_time", &self.wki1028_print_buf_time).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1028 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1028 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1028 {
     fn eq(&self, other: &Self) -> bool {
@@ -18534,8 +18534,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1032 {
         f.debug_struct("WKSTA_INFO_1032").field("wki1032_wrk_heuristics", &self.wki1032_wrk_heuristics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1032 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1032 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1032 {
     fn eq(&self, other: &Self) -> bool {
@@ -18564,8 +18564,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1033 {
         f.debug_struct("WKSTA_INFO_1033").field("wki1033_max_threads", &self.wki1033_max_threads).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1033 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1033 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1033 {
     fn eq(&self, other: &Self) -> bool {
@@ -18594,8 +18594,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1041 {
         f.debug_struct("WKSTA_INFO_1041").field("wki1041_lock_quota", &self.wki1041_lock_quota).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1041 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1041 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1041 {
     fn eq(&self, other: &Self) -> bool {
@@ -18624,8 +18624,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1042 {
         f.debug_struct("WKSTA_INFO_1042").field("wki1042_lock_increment", &self.wki1042_lock_increment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1042 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1042 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1042 {
     fn eq(&self, other: &Self) -> bool {
@@ -18654,8 +18654,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1043 {
         f.debug_struct("WKSTA_INFO_1043").field("wki1043_lock_maximum", &self.wki1043_lock_maximum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1043 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1043 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1043 {
     fn eq(&self, other: &Self) -> bool {
@@ -18684,8 +18684,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1044 {
         f.debug_struct("WKSTA_INFO_1044").field("wki1044_pipe_increment", &self.wki1044_pipe_increment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1044 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1044 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1044 {
     fn eq(&self, other: &Self) -> bool {
@@ -18714,8 +18714,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1045 {
         f.debug_struct("WKSTA_INFO_1045").field("wki1045_pipe_maximum", &self.wki1045_pipe_maximum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1045 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1045 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1045 {
     fn eq(&self, other: &Self) -> bool {
@@ -18744,8 +18744,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1046 {
         f.debug_struct("WKSTA_INFO_1046").field("wki1046_dormant_file_limit", &self.wki1046_dormant_file_limit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1046 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1046 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1046 {
     fn eq(&self, other: &Self) -> bool {
@@ -18774,8 +18774,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1047 {
         f.debug_struct("WKSTA_INFO_1047").field("wki1047_cache_file_timeout", &self.wki1047_cache_file_timeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1047 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1047 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1047 {
     fn eq(&self, other: &Self) -> bool {
@@ -18809,8 +18809,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1048 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1048 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1048 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1048 {
@@ -18847,8 +18847,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1049 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1049 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1049 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1049 {
@@ -18885,8 +18885,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1050 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1050 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1050 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1050 {
@@ -18923,8 +18923,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1051 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1051 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1051 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1051 {
@@ -18961,8 +18961,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1052 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1052 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1052 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1052 {
@@ -18999,8 +18999,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1053 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1053 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1053 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1053 {
@@ -19037,8 +19037,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1054 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1054 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1054 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1054 {
@@ -19075,8 +19075,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1055 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1055 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1055 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1055 {
@@ -19113,8 +19113,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1056 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1056 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1056 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1056 {
@@ -19151,8 +19151,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1057 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1057 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1057 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1057 {
@@ -19189,8 +19189,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1058 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1058 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1058 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1058 {
@@ -19227,8 +19227,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1059 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1059 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1059 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1059 {
@@ -19265,8 +19265,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1060 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1060 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1060 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1060 {
@@ -19303,8 +19303,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1061 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1061 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1061 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_1061 {
@@ -19336,8 +19336,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_1062 {
         f.debug_struct("WKSTA_INFO_1062").field("wki1062_read_ahead_throughput", &self.wki1062_read_ahead_throughput).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_1062 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_1062 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_1062 {
     fn eq(&self, other: &Self) -> bool {
@@ -19406,8 +19406,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_302 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_302 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_302 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_302 {
     fn eq(&self, other: &Self) -> bool {
@@ -19497,8 +19497,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_402 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_INFO_402 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_402 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_INFO_402 {
     fn eq(&self, other: &Self) -> bool {
@@ -19622,8 +19622,8 @@ impl ::core::fmt::Debug for WKSTA_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_INFO_502 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_INFO_502 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_INFO_502 {
@@ -19698,8 +19698,8 @@ impl ::core::fmt::Debug for WKSTA_TRANSPORT_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WKSTA_TRANSPORT_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_TRANSPORT_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WKSTA_TRANSPORT_INFO_0 {
@@ -19731,8 +19731,8 @@ impl ::core::fmt::Debug for WKSTA_USER_INFO_0 {
         f.debug_struct("WKSTA_USER_INFO_0").field("wkui0_username", &self.wkui0_username).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_USER_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -19764,8 +19764,8 @@ impl ::core::fmt::Debug for WKSTA_USER_INFO_1 {
         f.debug_struct("WKSTA_USER_INFO_1").field("wkui1_username", &self.wkui1_username).field("wkui1_logon_domain", &self.wkui1_logon_domain).field("wkui1_oth_domains", &self.wkui1_oth_domains).field("wkui1_logon_server", &self.wkui1_logon_server).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_USER_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -19794,8 +19794,8 @@ impl ::core::fmt::Debug for WKSTA_USER_INFO_1101 {
         f.debug_struct("WKSTA_USER_INFO_1101").field("wkui1101_oth_domains", &self.wkui1101_oth_domains).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WKSTA_USER_INFO_1101 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WKSTA_USER_INFO_1101 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WKSTA_USER_INFO_1101 {
     fn eq(&self, other: &Self) -> bool {

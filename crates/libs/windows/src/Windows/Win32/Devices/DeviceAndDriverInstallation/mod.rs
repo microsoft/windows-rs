@@ -8099,8 +8099,8 @@ impl ::core::default::Default for CM_NOTIFY_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CM_NOTIFY_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8130,8 +8130,8 @@ impl ::core::default::Default for CM_NOTIFY_FILTER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8283,8 +8283,8 @@ impl ::core::default::Default for CONFIGRET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONFIGRET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONFIGRET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONFIGRET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8312,8 +8312,8 @@ impl ::core::default::Default for OEM_SOURCE_MEDIA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OEM_SOURCE_MEDIA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEM_SOURCE_MEDIA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8363,8 +8363,8 @@ impl ::core::default::Default for PNP_VETO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PNP_VETO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PNP_VETO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PNP_VETO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8390,8 +8390,8 @@ impl ::core::default::Default for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8417,8 +8417,8 @@ impl ::core::default::Default for SETUP_FILE_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SETUP_FILE_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SETUP_FILE_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8496,8 +8496,8 @@ impl ::core::default::Default for SP_COPY_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SP_COPY_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_COPY_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SP_COPY_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8558,8 +8558,8 @@ impl ::core::default::Default for SP_INF_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SP_INF_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SP_INF_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8593,8 +8593,8 @@ impl ::core::default::Default for SetupFileLogInfo {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SetupFileLogInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SetupFileLogInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SetupFileLogInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8616,8 +8616,8 @@ impl ::core::clone::Clone for BUSNUMBER_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BUSNUMBER_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BUSNUMBER_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BUSNUMBER_DES {
     fn default() -> Self {
@@ -8638,8 +8638,8 @@ impl ::core::clone::Clone for BUSNUMBER_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BUSNUMBER_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BUSNUMBER_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BUSNUMBER_RANGE {
     fn default() -> Self {
@@ -8658,8 +8658,8 @@ impl ::core::clone::Clone for BUSNUMBER_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BUSNUMBER_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BUSNUMBER_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BUSNUMBER_RESOURCE {
     fn default() -> Self {
@@ -8685,8 +8685,8 @@ impl ::core::clone::Clone for CABINET_INFO_A {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for CABINET_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINET_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for CABINET_INFO_A {
@@ -8713,8 +8713,8 @@ impl ::core::clone::Clone for CABINET_INFO_A {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINET_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for CABINET_INFO_A {
@@ -8741,8 +8741,8 @@ impl ::core::clone::Clone for CABINET_INFO_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for CABINET_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINET_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for CABINET_INFO_W {
@@ -8769,8 +8769,8 @@ impl ::core::clone::Clone for CABINET_INFO_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINET_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for CABINET_INFO_W {
@@ -8791,8 +8791,8 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_EVENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA {
     fn default() -> Self {
@@ -8812,8 +8812,8 @@ impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0 {
     fn default() -> Self {
@@ -8839,8 +8839,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_0 {
         f.debug_struct("CM_NOTIFY_EVENT_DATA_0_0").field("EventGuid", &self.EventGuid).field("NameOffset", &self.NameOffset).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8869,8 +8869,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_1 {
         f.debug_struct("CM_NOTIFY_EVENT_DATA_0_1").field("InstanceId", &self.InstanceId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8900,8 +8900,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_2 {
         f.debug_struct("CM_NOTIFY_EVENT_DATA_0_2").field("ClassGuid", &self.ClassGuid).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8933,8 +8933,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER {
@@ -8959,8 +8959,8 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER_0 {
@@ -8989,8 +8989,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_0 {
@@ -9027,8 +9027,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_1 {
@@ -9065,8 +9065,8 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CM_NOTIFY_FILTER_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_2 {
@@ -9103,8 +9103,8 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9134,8 +9134,8 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COINSTALLER_CONTEXT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -9170,8 +9170,8 @@ impl ::core::fmt::Debug for CONFLICT_DETAILS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONFLICT_DETAILS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONFLICT_DETAILS_A {
@@ -9208,8 +9208,8 @@ impl ::core::fmt::Debug for CONFLICT_DETAILS_W {
         f.debug_struct("CONFLICT_DETAILS_W").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONFLICT_DETAILS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONFLICT_DETAILS_W {
     fn eq(&self, other: &Self) -> bool {
@@ -9239,8 +9239,8 @@ impl ::core::clone::Clone for CONNECTION_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CONNECTION_DES {
     fn default() -> Self {
@@ -9258,8 +9258,8 @@ impl ::core::clone::Clone for CONNECTION_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CONNECTION_RESOURCE {
     fn default() -> Self {
@@ -9282,8 +9282,8 @@ impl ::core::clone::Clone for CS_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CS_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CS_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CS_DES {
     fn default() -> Self {
@@ -9301,8 +9301,8 @@ impl ::core::clone::Clone for CS_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CS_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CS_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CS_RESOURCE {
     fn default() -> Self {
@@ -9325,8 +9325,8 @@ impl ::core::clone::Clone for DEVPRIVATE_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DEVPRIVATE_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPRIVATE_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DEVPRIVATE_DES {
     fn default() -> Self {
@@ -9346,8 +9346,8 @@ impl ::core::clone::Clone for DEVPRIVATE_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DEVPRIVATE_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPRIVATE_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DEVPRIVATE_RANGE {
     fn default() -> Self {
@@ -9366,8 +9366,8 @@ impl ::core::clone::Clone for DEVPRIVATE_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DEVPRIVATE_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVPRIVATE_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DEVPRIVATE_RESOURCE {
     fn default() -> Self {
@@ -9388,8 +9388,8 @@ impl ::core::clone::Clone for DMA_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMA_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMA_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMA_DES {
     fn default() -> Self {
@@ -9409,8 +9409,8 @@ impl ::core::clone::Clone for DMA_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMA_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMA_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMA_RANGE {
     fn default() -> Self {
@@ -9429,8 +9429,8 @@ impl ::core::clone::Clone for DMA_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DMA_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DMA_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DMA_RESOURCE {
     fn default() -> Self {
@@ -9455,8 +9455,8 @@ impl ::core::clone::Clone for FILEPATHS_A {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for FILEPATHS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FILEPATHS_A {
@@ -9482,8 +9482,8 @@ impl ::core::clone::Clone for FILEPATHS_A {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for FILEPATHS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FILEPATHS_A {
@@ -9512,8 +9512,8 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
@@ -9542,8 +9542,8 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_SIGNERINFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
@@ -9572,8 +9572,8 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
@@ -9602,8 +9602,8 @@ impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_SIGNERINFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
@@ -9629,8 +9629,8 @@ impl ::core::clone::Clone for FILEPATHS_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for FILEPATHS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FILEPATHS_W {
@@ -9656,8 +9656,8 @@ impl ::core::clone::Clone for FILEPATHS_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for FILEPATHS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILEPATHS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FILEPATHS_W {
@@ -9690,8 +9690,8 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9725,8 +9725,8 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_IN_CABINET_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -9756,8 +9756,8 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
@@ -9786,8 +9786,8 @@ impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_IN_CABINET_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
@@ -9824,8 +9824,8 @@ impl ::core::convert::From<::core::option::Option<HCMNOTIFICATION>> for HCMNOTIF
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCMNOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCMNOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9856,8 +9856,8 @@ impl ::core::convert::From<::core::option::Option<HDEVINFO>> for HDEVINFO {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HDEVINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDEVINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -9872,8 +9872,8 @@ impl ::core::clone::Clone for HWPROFILEINFO_W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HWPROFILEINFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HWPROFILEINFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HWPROFILEINFO_W {
     fn default() -> Self {
@@ -9897,8 +9897,8 @@ impl ::core::clone::Clone for HWProfileInfo_sA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HWProfileInfo_sA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HWProfileInfo_sA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HWProfileInfo_sA {
@@ -9924,8 +9924,8 @@ impl ::core::clone::Clone for INFCONTEXT {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for INFCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for INFCONTEXT {
@@ -9951,8 +9951,8 @@ impl ::core::clone::Clone for INFCONTEXT {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for INFCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INFCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for INFCONTEXT {
@@ -9975,8 +9975,8 @@ impl ::core::clone::Clone for IO_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IO_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IO_DES {
     fn default() -> Self {
@@ -9999,8 +9999,8 @@ impl ::core::clone::Clone for IO_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IO_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IO_RANGE {
     fn default() -> Self {
@@ -10019,8 +10019,8 @@ impl ::core::clone::Clone for IO_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IO_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IO_RESOURCE {
     fn default() -> Self {
@@ -10042,8 +10042,8 @@ impl ::core::clone::Clone for IRQ_DES_32 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IRQ_DES_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IRQ_DES_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IRQ_DES_32 {
     fn default() -> Self {
@@ -10065,8 +10065,8 @@ impl ::core::clone::Clone for IRQ_DES_64 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IRQ_DES_64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IRQ_DES_64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IRQ_DES_64 {
     fn default() -> Self {
@@ -10086,8 +10086,8 @@ impl ::core::clone::Clone for IRQ_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IRQ_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IRQ_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IRQ_RANGE {
     fn default() -> Self {
@@ -10106,8 +10106,8 @@ impl ::core::clone::Clone for IRQ_RESOURCE_32 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IRQ_RESOURCE_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IRQ_RESOURCE_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IRQ_RESOURCE_32 {
     fn default() -> Self {
@@ -10126,8 +10126,8 @@ impl ::core::clone::Clone for IRQ_RESOURCE_64 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IRQ_RESOURCE_64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IRQ_RESOURCE_64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IRQ_RESOURCE_64 {
     fn default() -> Self {
@@ -10150,8 +10150,8 @@ impl ::core::clone::Clone for MEM_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_DES {
     fn default() -> Self {
@@ -10174,8 +10174,8 @@ impl ::core::clone::Clone for MEM_LARGE_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_LARGE_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_LARGE_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_LARGE_DES {
     fn default() -> Self {
@@ -10198,8 +10198,8 @@ impl ::core::clone::Clone for MEM_LARGE_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_LARGE_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_LARGE_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_LARGE_RANGE {
     fn default() -> Self {
@@ -10218,8 +10218,8 @@ impl ::core::clone::Clone for MEM_LARGE_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_LARGE_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_LARGE_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_LARGE_RESOURCE {
     fn default() -> Self {
@@ -10242,8 +10242,8 @@ impl ::core::clone::Clone for MEM_RANGE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_RANGE {
     fn default() -> Self {
@@ -10262,8 +10262,8 @@ impl ::core::clone::Clone for MEM_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MEM_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEM_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MEM_RESOURCE {
     fn default() -> Self {
@@ -10287,8 +10287,8 @@ impl ::core::clone::Clone for MFCARD_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MFCARD_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MFCARD_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MFCARD_DES {
     fn default() -> Self {
@@ -10306,8 +10306,8 @@ impl ::core::clone::Clone for MFCARD_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MFCARD_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MFCARD_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MFCARD_RESOURCE {
     fn default() -> Self {
@@ -10334,8 +10334,8 @@ impl ::core::clone::Clone for PCCARD_DES {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PCCARD_DES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PCCARD_DES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PCCARD_DES {
     fn default() -> Self {
@@ -10353,8 +10353,8 @@ impl ::core::clone::Clone for PCCARD_RESOURCE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PCCARD_RESOURCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PCCARD_RESOURCE {
     fn default() -> Self {
@@ -10381,8 +10381,8 @@ impl ::core::clone::Clone for SOURCE_MEDIA_A {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SOURCE_MEDIA_A {
@@ -10410,8 +10410,8 @@ impl ::core::clone::Clone for SOURCE_MEDIA_A {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOURCE_MEDIA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SOURCE_MEDIA_A {
@@ -10439,8 +10439,8 @@ impl ::core::clone::Clone for SOURCE_MEDIA_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SOURCE_MEDIA_W {
@@ -10468,8 +10468,8 @@ impl ::core::clone::Clone for SOURCE_MEDIA_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOURCE_MEDIA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SOURCE_MEDIA_W {
@@ -10501,8 +10501,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10535,8 +10535,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10571,8 +10571,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10601,8 +10601,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10637,8 +10637,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10667,8 +10667,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -10702,8 +10702,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
@@ -10727,8 +10727,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
@@ -10761,8 +10761,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
@@ -10786,8 +10786,8 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ALTPLATFORM_INFO_V3_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
@@ -10816,8 +10816,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10847,8 +10847,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -10874,8 +10874,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -10900,8 +10900,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -10931,8 +10931,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10963,8 +10963,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -10991,8 +10991,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
@@ -11018,8 +11018,8 @@ impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
@@ -11048,8 +11048,8 @@ impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
-unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -11079,8 +11079,8 @@ impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
-unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_CLASSIMAGELIST_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -11105,8 +11105,8 @@ impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
@@ -11130,8 +11130,8 @@ impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_CLASSINSTALL_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
@@ -11160,8 +11160,8 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11191,8 +11191,8 @@ impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DETECTDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11219,8 +11219,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
@@ -11246,8 +11246,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
@@ -11275,8 +11275,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11305,8 +11305,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11331,8 +11331,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -11356,8 +11356,8 @@ impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -11383,8 +11383,8 @@ impl ::core::clone::Clone for SP_DEVINFO_DATA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_DEVINFO_DATA {
@@ -11410,8 +11410,8 @@ impl ::core::clone::Clone for SP_DEVINFO_DATA {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_DEVINFO_DATA {
@@ -11441,8 +11441,8 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11473,8 +11473,8 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11505,8 +11505,8 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11537,8 +11537,8 @@ impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11575,8 +11575,8 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11613,8 +11613,8 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINSTALL_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11651,8 +11651,8 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11689,8 +11689,8 @@ impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DEVINSTALL_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11723,8 +11723,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11757,8 +11757,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11787,8 +11787,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
@@ -11816,8 +11816,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
@@ -11851,8 +11851,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11887,8 +11887,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11923,8 +11923,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -11959,8 +11959,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DATA_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -11996,8 +11996,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -12033,8 +12033,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DETAIL_DATA_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -12070,8 +12070,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -12107,8 +12107,8 @@ impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINFO_DETAIL_DATA_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -12136,8 +12136,8 @@ impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
@@ -12164,8 +12164,8 @@ impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_DRVINSTALL_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
@@ -12190,8 +12190,8 @@ impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
@@ -12216,8 +12216,8 @@ impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ENABLECLASS_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
@@ -12251,8 +12251,8 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
@@ -12286,8 +12286,8 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_FILE_COPY_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
@@ -12321,8 +12321,8 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
@@ -12356,8 +12356,8 @@ impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_FILE_COPY_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
@@ -12382,8 +12382,8 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_INF_INFORMATION {
@@ -12408,8 +12408,8 @@ impl ::core::clone::Clone for SP_INF_INFORMATION {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_INF_INFORMATION {
@@ -12439,8 +12439,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -12471,8 +12471,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V1_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -12499,8 +12499,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
@@ -12526,8 +12526,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V1_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
@@ -12558,8 +12558,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -12591,8 +12591,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V2_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -12620,8 +12620,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
@@ -12648,8 +12648,8 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INF_SIGNER_INFO_V2_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
@@ -12683,8 +12683,8 @@ impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -12719,8 +12719,8 @@ impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_INSTALLWIZARD_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -12752,8 +12752,8 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -12785,8 +12785,8 @@ impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_NEWDEVICEWIZARD_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -12816,8 +12816,8 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -12847,8 +12847,8 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ORIGINAL_FILE_INFO_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -12874,8 +12874,8 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
@@ -12900,8 +12900,8 @@ impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_ORIGINAL_FILE_INFO_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
@@ -12925,8 +12925,8 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_A {
@@ -12950,8 +12950,8 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -12975,8 +12975,8 @@ impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -13002,8 +13002,8 @@ impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
@@ -13029,8 +13029,8 @@ impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_PROPCHANGE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
@@ -13056,8 +13056,8 @@ impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
@@ -13083,8 +13083,8 @@ impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_PROPSHEETPAGE_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
@@ -13110,8 +13110,8 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
@@ -13137,8 +13137,8 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REGISTER_CONTROL_STATUSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
@@ -13164,8 +13164,8 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
@@ -13191,8 +13191,8 @@ impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REGISTER_CONTROL_STATUSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
@@ -13217,8 +13217,8 @@ impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
@@ -13243,8 +13243,8 @@ impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_REMOVEDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
@@ -13272,8 +13272,8 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_SELECTDEVICE_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_A {
@@ -13300,8 +13300,8 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
@@ -13328,8 +13328,8 @@ impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_SELECTDEVICE_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
@@ -13354,8 +13354,8 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_TROUBLESHOOTER_PARAMS_A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_A {
@@ -13380,8 +13380,8 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
@@ -13406,8 +13406,8 @@ impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_TROUBLESHOOTER_PARAMS_W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
@@ -13432,8 +13432,8 @@ impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
@@ -13458,8 +13458,8 @@ impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SP_UNREMOVEDEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {

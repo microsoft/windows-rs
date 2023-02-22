@@ -6,6 +6,11 @@ pub struct IAppWindow(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindow {
     type Vtable = IAppWindow_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindow {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindow {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
 }
@@ -20,11 +25,11 @@ pub struct IAppWindow_Vtbl {
     DispatcherQueue: usize,
     pub Frame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub PersistedStateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPersistedStateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PersistedStateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPersistedStateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Presenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TitleBar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UIContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WindowingEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -91,6 +96,11 @@ pub struct IAppWindowChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
 }
@@ -113,6 +123,11 @@ pub struct IAppWindowCloseRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowCloseRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowCloseRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
 }
@@ -133,6 +148,11 @@ pub struct IAppWindowClosedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowClosedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowClosedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
 }
@@ -147,6 +167,11 @@ pub struct IAppWindowClosedEventArgs_Vtbl {
 pub struct IAppWindowFrame(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowFrame {
     type Vtable = IAppWindowFrame_Vtbl;
+}
+impl ::core::clone::Clone for IAppWindowFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppWindowFrame {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
@@ -166,6 +191,11 @@ pub struct IAppWindowFrameStyle(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowFrameStyle {
     type Vtable = IAppWindowFrameStyle_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowFrameStyle {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowFrameStyle {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac412946_e1ac_5230_944a_c60873dcf4a9);
 }
@@ -181,6 +211,11 @@ pub struct IAppWindowFrameStyle_Vtbl {
 pub struct IAppWindowPlacement(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowPlacement {
     type Vtable = IAppWindowPlacement_Vtbl;
+}
+impl ::core::clone::Clone for IAppWindowPlacement {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppWindowPlacement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
@@ -205,6 +240,11 @@ pub struct IAppWindowPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowPresentationConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
 }
@@ -220,6 +260,11 @@ pub struct IAppWindowPresentationConfigurationFactory(::windows::core::IUnknown)
 unsafe impl ::windows::core::Vtable for IAppWindowPresentationConfigurationFactory {
     type Vtable = IAppWindowPresentationConfigurationFactory_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowPresentationConfigurationFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowPresentationConfigurationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3606a6_7875_5de8_84ff_6351ee13dd0d);
 }
@@ -233,6 +278,11 @@ pub struct IAppWindowPresentationConfigurationFactory_Vtbl {
 pub struct IAppWindowPresenter(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowPresenter {
     type Vtable = IAppWindowPresenter_Vtbl;
+}
+impl ::core::clone::Clone for IAppWindowPresenter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppWindowPresenter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
@@ -252,6 +302,11 @@ pub struct IAppWindowStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowStatics {
     type Vtable = IAppWindowStatics_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1f3ea3_b769_50ef_9873_108cd0e89746);
 }
@@ -264,13 +319,18 @@ pub struct IAppWindowStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     TryCreateAsync: usize,
     pub ClearAllPersistedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ClearPersistedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ClearPersistedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAppWindowTitleBar(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_Vtbl;
+}
+impl ::core::clone::Clone for IAppWindowTitleBar {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAppWindowTitleBar {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
@@ -389,6 +449,11 @@ pub struct IAppWindowTitleBarOcclusion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowTitleBarOcclusion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowTitleBarOcclusion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
 }
@@ -407,6 +472,11 @@ pub struct IAppWindowTitleBarVisibility(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IAppWindowTitleBarVisibility {
     type Vtable = IAppWindowTitleBarVisibility_Vtbl;
 }
+impl ::core::clone::Clone for IAppWindowTitleBarVisibility {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IAppWindowTitleBarVisibility {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa215a4e3_6e7e_5651_8c3b_624819528154);
 }
@@ -423,6 +493,11 @@ pub struct ICompactOverlayPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
 }
+impl ::core::clone::Clone for ICompactOverlayPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICompactOverlayPresentationConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
 }
@@ -436,6 +511,11 @@ pub struct ICompactOverlayPresentationConfiguration_Vtbl {
 pub struct IDefaultPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IDefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_Vtbl;
+}
+impl ::core::clone::Clone for IDefaultPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDefaultPresentationConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
@@ -451,6 +531,11 @@ pub struct IDisplayRegion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IDisplayRegion {
     type Vtable = IDisplayRegion_Vtbl;
 }
+impl ::core::clone::Clone for IDisplayRegion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDisplayRegion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
 }
@@ -458,7 +543,7 @@ unsafe impl ::windows::core::Interface for IDisplayRegion {
 #[doc(hidden)]
 pub struct IDisplayRegion_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub DisplayMonitorDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayMonitorDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub WorkAreaOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
@@ -484,6 +569,11 @@ pub struct IFullScreenPresentationConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IFullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_Vtbl;
 }
+impl ::core::clone::Clone for IFullScreenPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFullScreenPresentationConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
 }
@@ -499,6 +589,11 @@ pub struct IFullScreenPresentationConfiguration_Vtbl {
 pub struct IWindowServicesStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowServicesStatics {
     type Vtable = IWindowServicesStatics_Vtbl;
+}
+impl ::core::clone::Clone for IWindowServicesStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowServicesStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcff4d519_50a6_5c64_97f6_c2d96add7f42);
@@ -517,6 +612,11 @@ pub struct IWindowServicesStatics_Vtbl {
 pub struct IWindowingEnvironment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowingEnvironment {
     type Vtable = IWindowingEnvironment_Vtbl;
+}
+impl ::core::clone::Clone for IWindowingEnvironment {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowingEnvironment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
@@ -546,6 +646,11 @@ pub struct IWindowingEnvironmentAddedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IWindowingEnvironmentAddedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentAddedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
 }
@@ -561,6 +666,11 @@ pub struct IWindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IWindowingEnvironmentChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
 }
@@ -574,6 +684,11 @@ pub struct IWindowingEnvironmentChangedEventArgs_Vtbl {
 pub struct IWindowingEnvironmentRemovedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
+}
+impl ::core::clone::Clone for IWindowingEnvironmentRemovedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentRemovedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
@@ -589,6 +704,11 @@ pub struct IWindowingEnvironmentRemovedEventArgs_Vtbl {
 pub struct IWindowingEnvironmentStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWindowingEnvironmentStatics {
     type Vtable = IWindowingEnvironmentStatics_Vtbl;
+}
+impl ::core::clone::Clone for IWindowingEnvironmentStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowingEnvironmentStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x874e9fb7_c642_55ab_8aa2_162f734a9a72);
@@ -613,8 +733,8 @@ impl AppWindow {
     pub fn Content(&self) -> ::windows::core::Result<super::UIContentRoot> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::UIContentRoot>();
+            (::windows::core::Vtable::vtable(this).Content)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"System\"`*"]
@@ -622,29 +742,29 @@ impl AppWindow {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Frame(&self) -> ::windows::core::Result<AppWindowFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Frame)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowFrame>();
+            (::windows::core::Vtable::vtable(this).Frame)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PersistedStateId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).PersistedStateId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPersistedStateId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -654,15 +774,15 @@ impl AppWindow {
     pub fn Presenter(&self) -> ::windows::core::Result<AppWindowPresenter> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Presenter)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresenter>();
+            (::windows::core::Vtable::vtable(this).Presenter)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Title)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTitle(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -672,22 +792,22 @@ impl AppWindow {
     pub fn TitleBar(&self) -> ::windows::core::Result<AppWindowTitleBar> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TitleBar)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowTitleBar>();
+            (::windows::core::Vtable::vtable(this).TitleBar)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UIContext(&self) -> ::windows::core::Result<super::UIContext> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UIContext)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::UIContext>();
+            (::windows::core::Vtable::vtable(this).UIContext)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WindowingEnvironment>();
+            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -695,15 +815,15 @@ impl AppWindow {
     pub fn CloseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CloseAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).CloseAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPlacement(&self) -> ::windows::core::Result<AppWindowPlacement> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPlacement)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPlacement>();
+            (::windows::core::Vtable::vtable(this).GetPlacement)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -711,8 +831,8 @@ impl AppWindow {
     pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDisplayRegions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>();
+            (::windows::core::Vtable::vtable(this).GetDisplayRegions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestMoveToDisplayRegion(&self, displayregion: &DisplayRegion) -> ::windows::core::Result<()> {
@@ -756,8 +876,8 @@ impl AppWindow {
     pub fn TryShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryShowAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows::core::Vtable::vtable(this).TryShowAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -765,8 +885,8 @@ impl AppWindow {
     pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -780,8 +900,8 @@ impl AppWindow {
     pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Closed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -795,8 +915,8 @@ impl AppWindow {
     pub fn CloseRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).CloseRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -809,8 +929,8 @@ impl AppWindow {
     #[cfg(feature = "Foundation")]
     pub fn TryCreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryCreateAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<AppWindow>>();
+            (::windows::core::Vtable::vtable(this).TryCreateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ClearAllPersistedState() -> ::windows::core::Result<()> {
@@ -825,11 +945,6 @@ impl AppWindow {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for AppWindow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for AppWindow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -841,11 +956,12 @@ impl ::core::fmt::Debug for AppWindow {
         f.debug_tuple("AppWindow").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindow {
+impl ::windows::core::RuntimeType for AppWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindow;{663014a6-b75e-5dbd-995c-f0117fa3fb61})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindow {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindow {
@@ -867,63 +983,58 @@ impl AppWindowChangedEventArgs {
     pub fn DidAvailableWindowPresentationsChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidAvailableWindowPresentationsChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidAvailableWindowPresentationsChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidDisplayRegionsChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidDisplayRegionsChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidDisplayRegionsChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidFrameChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidFrameChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidFrameChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidSizeChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidSizeChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidSizeChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidTitleBarChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidTitleBarChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidTitleBarChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidVisibilityChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidVisibilityChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidVisibilityChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidWindowingEnvironmentChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidWindowingEnvironmentChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidWindowingEnvironmentChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DidWindowPresentationChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DidWindowPresentationChange)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).DidWindowPresentationChange)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowChangedEventArgs {
@@ -937,11 +1048,12 @@ impl ::core::fmt::Debug for AppWindowChangedEventArgs {
         f.debug_tuple("AppWindowChangedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
+impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowChangedEventArgs;{1de1f3be-a655-55ad-b2b6-eb240f880356})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowChangedEventArgs {
@@ -963,8 +1075,8 @@ impl AppWindowCloseRequestedEventArgs {
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).Cancel)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
@@ -976,14 +1088,9 @@ impl AppWindowCloseRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Deferral>();
+            (::windows::core::Vtable::vtable(this).GetDeferral)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowCloseRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowCloseRequestedEventArgs {
@@ -997,11 +1104,12 @@ impl ::core::fmt::Debug for AppWindowCloseRequestedEventArgs {
         f.debug_tuple("AppWindowCloseRequestedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
+impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs;{e9ff01da-e7a2-57a8-8b5e-39c4003afdbb})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowCloseRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowCloseRequestedEventArgs {
@@ -1023,14 +1131,9 @@ impl AppWindowClosedEventArgs {
     pub fn Reason(&self) -> ::windows::core::Result<AppWindowClosedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowClosedReason>();
+            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowClosedEventArgs {
@@ -1044,11 +1147,12 @@ impl ::core::fmt::Debug for AppWindowClosedEventArgs {
         f.debug_tuple("AppWindowClosedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
+impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowClosedEventArgs;{cc7df816-9520-5a06-821e-456ad8b358aa})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowClosedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowClosedEventArgs {
@@ -1072,25 +1176,20 @@ impl AppWindowFrame {
     pub fn DragRegionVisuals(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DragRegionVisuals)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>();
+            (::windows::core::Vtable::vtable(this).DragRegionVisuals)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetFrameStyle(&self) -> ::windows::core::Result<AppWindowFrameStyle> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFrameStyle)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowFrameStyle>();
+            (::windows::core::Vtable::vtable(this).GetFrameStyle)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetFrameStyle)(::windows::core::Vtable::as_raw(this), framestyle).ok() }
-    }
-}
-impl ::core::clone::Clone for AppWindowFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowFrame {
@@ -1104,11 +1203,12 @@ impl ::core::fmt::Debug for AppWindowFrame {
         f.debug_tuple("AppWindowFrame").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowFrame {
+impl ::windows::core::RuntimeType for AppWindowFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowFrame;{9ee22601-7e5d-52af-846b-01dc6c296567})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowFrame {
@@ -1130,8 +1230,8 @@ impl AppWindowPlacement {
     pub fn DisplayRegion(&self) -> ::windows::core::Result<DisplayRegion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayRegion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<DisplayRegion>();
+            (::windows::core::Vtable::vtable(this).DisplayRegion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1139,8 +1239,8 @@ impl AppWindowPlacement {
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Offset)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Point>();
+            (::windows::core::Vtable::vtable(this).Offset)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1148,14 +1248,9 @@ impl AppWindowPlacement {
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
+            (::windows::core::Vtable::vtable(this).Size)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowPlacement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowPlacement {
@@ -1169,11 +1264,12 @@ impl ::core::fmt::Debug for AppWindowPlacement {
         f.debug_tuple("AppWindowPlacement").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowPlacement {
+impl ::windows::core::RuntimeType for AppWindowPlacement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPlacement;{03dc815e-e7a9-5857-9c03-7d670594410e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowPlacement {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowPlacement {
@@ -1195,14 +1291,9 @@ impl AppWindowPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresentationKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowPresentationConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowPresentationConfiguration {
@@ -1216,11 +1307,12 @@ impl ::core::fmt::Debug for AppWindowPresentationConfiguration {
         f.debug_tuple("AppWindowPresentationConfiguration").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration {
+impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresentationConfiguration;{b5a43ee3-df33-5e67-bd31-1072457300df})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowPresentationConfiguration {
@@ -1242,15 +1334,15 @@ impl AppWindowPresenter {
     pub fn GetConfiguration(&self) -> ::windows::core::Result<AppWindowPresentationConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetConfiguration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresentationConfiguration>();
+            (::windows::core::Vtable::vtable(this).GetConfiguration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPresentationSupported)(::windows::core::Vtable::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsPresentationSupported)(::windows::core::Vtable::as_raw(this), presentationkind, &mut result__).from_abi(result__)
         }
     }
     pub fn RequestPresentation<P0>(&self, configuration: P0) -> ::windows::core::Result<bool>
@@ -1259,21 +1351,16 @@ impl AppWindowPresenter {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPresentation)(::windows::core::Vtable::as_raw(this), configuration.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).RequestPresentation)(::windows::core::Vtable::as_raw(this), configuration.into().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestPresentationByKind)(::windows::core::Vtable::as_raw(this), presentationkind, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).RequestPresentationByKind)(::windows::core::Vtable::as_raw(this), presentationkind, &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowPresenter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowPresenter {
@@ -1287,11 +1374,12 @@ impl ::core::fmt::Debug for AppWindowPresenter {
         f.debug_tuple("AppWindowPresenter").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowPresenter {
+impl ::windows::core::RuntimeType for AppWindowPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowPresenter;{5ae9ed73-e1fd-5317-ad78-5a3ed271bbde})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowPresenter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowPresenter {
@@ -1315,8 +1403,8 @@ impl AppWindowTitleBar {
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).BackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1334,8 +1422,8 @@ impl AppWindowTitleBar {
     pub fn ButtonBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonBackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonBackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1353,8 +1441,8 @@ impl AppWindowTitleBar {
     pub fn ButtonForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1372,8 +1460,8 @@ impl AppWindowTitleBar {
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonHoverBackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonHoverBackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1391,8 +1479,8 @@ impl AppWindowTitleBar {
     pub fn ButtonHoverForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonHoverForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonHoverForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1410,8 +1498,8 @@ impl AppWindowTitleBar {
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonInactiveBackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonInactiveBackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1429,8 +1517,8 @@ impl AppWindowTitleBar {
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonInactiveForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonInactiveForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1448,8 +1536,8 @@ impl AppWindowTitleBar {
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonPressedBackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonPressedBackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1467,8 +1555,8 @@ impl AppWindowTitleBar {
     pub fn ButtonPressedForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ButtonPressedForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ButtonPressedForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1484,8 +1572,8 @@ impl AppWindowTitleBar {
     pub fn ExtendsContentIntoTitleBar(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendsContentIntoTitleBar)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).ExtendsContentIntoTitleBar)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1497,8 +1585,8 @@ impl AppWindowTitleBar {
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).ForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1516,8 +1604,8 @@ impl AppWindowTitleBar {
     pub fn InactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InactiveBackgroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).InactiveBackgroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1535,8 +1623,8 @@ impl AppWindowTitleBar {
     pub fn InactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InactiveForegroundColor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IReference<super::Color>>();
+            (::windows::core::Vtable::vtable(this).InactiveForegroundColor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1552,8 +1640,8 @@ impl AppWindowTitleBar {
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1561,25 +1649,20 @@ impl AppWindowTitleBar {
     pub fn GetTitleBarOcclusions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetTitleBarOcclusions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>();
+            (::windows::core::Vtable::vtable(this).GetTitleBarOcclusions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPreferredVisibility(&self) -> ::windows::core::Result<AppWindowTitleBarVisibility> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetPreferredVisibility)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowTitleBarVisibility>();
+            (::windows::core::Vtable::vtable(this).GetPreferredVisibility)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetPreferredVisibility)(::windows::core::Vtable::as_raw(this), visibilitymode).ok() }
-    }
-}
-impl ::core::clone::Clone for AppWindowTitleBar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowTitleBar {
@@ -1593,11 +1676,12 @@ impl ::core::fmt::Debug for AppWindowTitleBar {
         f.debug_tuple("AppWindowTitleBar").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowTitleBar {
+impl ::windows::core::RuntimeType for AppWindowTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBar;{6e932c84-f644-541d-a2d7-0c262437842d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowTitleBar {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowTitleBar {
@@ -1621,14 +1705,9 @@ impl AppWindowTitleBarOcclusion {
     pub fn OccludingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).OccludingRect)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Rect>();
+            (::windows::core::Vtable::vtable(this).OccludingRect)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for AppWindowTitleBarOcclusion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for AppWindowTitleBarOcclusion {
@@ -1642,11 +1721,12 @@ impl ::core::fmt::Debug for AppWindowTitleBarOcclusion {
         f.debug_tuple("AppWindowTitleBarOcclusion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
+impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.AppWindowTitleBarOcclusion;{fea3cffd-2ccf-5fc3-aeae-f843876bf37e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for AppWindowTitleBarOcclusion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for AppWindowTitleBarOcclusion {
@@ -1675,14 +1755,9 @@ impl CompactOverlayPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresentationKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for CompactOverlayPresentationConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for CompactOverlayPresentationConfiguration {
@@ -1696,11 +1771,12 @@ impl ::core::fmt::Debug for CompactOverlayPresentationConfiguration {
         f.debug_tuple("CompactOverlayPresentationConfiguration").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for CompactOverlayPresentationConfiguration {
+impl ::windows::core::RuntimeType for CompactOverlayPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration;{a7e5750f-5730-56c6-8e1f-d63ff4d7980d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for CompactOverlayPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for CompactOverlayPresentationConfiguration {
@@ -1725,7 +1801,7 @@ impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for AppWind
 }
 impl ::core::convert::From<&CompactOverlayPresentationConfiguration> for ::windows::core::InParam<AppWindowPresentationConfiguration> {
     fn from(value: &CompactOverlayPresentationConfiguration) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
@@ -1744,14 +1820,9 @@ impl DefaultPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresentationKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for DefaultPresentationConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for DefaultPresentationConfiguration {
@@ -1765,11 +1836,12 @@ impl ::core::fmt::Debug for DefaultPresentationConfiguration {
         f.debug_tuple("DefaultPresentationConfiguration").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
+impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DefaultPresentationConfiguration;{d8c2b53b-2168-5703-a853-d525589fe2b9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for DefaultPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for DefaultPresentationConfiguration {
@@ -1794,7 +1866,7 @@ impl ::core::convert::From<&DefaultPresentationConfiguration> for AppWindowPrese
 }
 impl ::core::convert::From<&DefaultPresentationConfiguration> for ::windows::core::InParam<AppWindowPresentationConfiguration> {
     fn from(value: &DefaultPresentationConfiguration) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
@@ -1806,15 +1878,15 @@ impl DisplayRegion {
     pub fn DisplayMonitorDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DisplayMonitorDeviceId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).DisplayMonitorDeviceId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsVisible)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1822,8 +1894,8 @@ impl DisplayRegion {
     pub fn WorkAreaOffset(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WorkAreaOffset)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Point>();
+            (::windows::core::Vtable::vtable(this).WorkAreaOffset)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1831,15 +1903,15 @@ impl DisplayRegion {
     pub fn WorkAreaSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WorkAreaSize)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Size>();
+            (::windows::core::Vtable::vtable(this).WorkAreaSize)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WindowingEnvironment>();
+            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1847,8 +1919,8 @@ impl DisplayRegion {
     pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1856,11 +1928,6 @@ impl DisplayRegion {
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveChanged)(::windows::core::Vtable::as_raw(this), token).ok() }
-    }
-}
-impl ::core::clone::Clone for DisplayRegion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for DisplayRegion {
@@ -1874,11 +1941,12 @@ impl ::core::fmt::Debug for DisplayRegion {
         f.debug_tuple("DisplayRegion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for DisplayRegion {
+impl ::windows::core::RuntimeType for DisplayRegion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.DisplayRegion;{db50c3a2-4094-5f47-8cb1-ea01ddafaa94})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for DisplayRegion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for DisplayRegion {
@@ -1907,25 +1975,20 @@ impl FullScreenPresentationConfiguration {
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<AppWindowPresentationKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsExclusive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsExclusive)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsExclusive)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsExclusive(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetIsExclusive)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for FullScreenPresentationConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for FullScreenPresentationConfiguration {
@@ -1939,11 +2002,12 @@ impl ::core::fmt::Debug for FullScreenPresentationConfiguration {
         f.debug_tuple("FullScreenPresentationConfiguration").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration {
+impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.FullScreenPresentationConfiguration;{43d3dcd8-d2a8-503d-a626-15533d6d5f62})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for FullScreenPresentationConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for FullScreenPresentationConfiguration {
@@ -1968,7 +2032,7 @@ impl ::core::convert::From<&FullScreenPresentationConfiguration> for AppWindowPr
 }
 impl ::core::convert::From<&FullScreenPresentationConfiguration> for ::windows::core::InParam<AppWindowPresentationConfiguration> {
     fn from(value: &FullScreenPresentationConfiguration) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for FullScreenPresentationConfiguration {}
@@ -1980,8 +2044,8 @@ impl WindowServices {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllTopLevelWindowIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindAllTopLevelWindowIds)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<super::WindowId>>();
+            (::windows::core::Vtable::vtable(this).FindAllTopLevelWindowIds)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2000,15 +2064,15 @@ impl WindowingEnvironment {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows::core::Result<WindowingEnvironmentKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WindowingEnvironmentKind>();
+            (::windows::core::Vtable::vtable(this).Kind)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2016,8 +2080,8 @@ impl WindowingEnvironment {
     pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDisplayRegions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>();
+            (::windows::core::Vtable::vtable(this).GetDisplayRegions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2025,8 +2089,8 @@ impl WindowingEnvironment {
     pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Changed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2039,27 +2103,22 @@ impl WindowingEnvironment {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAll() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindAll)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>();
+            (::windows::core::Vtable::vtable(this).FindAll)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindAllWithKind)(::windows::core::Vtable::as_raw(this), kind, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>();
+            (::windows::core::Vtable::vtable(this).FindAllWithKind)(::windows::core::Vtable::as_raw(this), kind, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for WindowingEnvironment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for WindowingEnvironment {
@@ -2073,11 +2132,12 @@ impl ::core::fmt::Debug for WindowingEnvironment {
         f.debug_tuple("WindowingEnvironment").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowingEnvironment {
+impl ::windows::core::RuntimeType for WindowingEnvironment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironment;{264363c0-2a49-5417-b3ae-48a71c63a3bd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WindowingEnvironment {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WindowingEnvironment {
@@ -2099,14 +2159,9 @@ impl WindowingEnvironmentAddedEventArgs {
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WindowingEnvironment>();
+            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for WindowingEnvironmentAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for WindowingEnvironmentAddedEventArgs {
@@ -2120,11 +2175,12 @@ impl ::core::fmt::Debug for WindowingEnvironmentAddedEventArgs {
         f.debug_tuple("WindowingEnvironmentAddedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs {
+impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs;{ff2a5b7f-f183-5c66-99b2-429082069299})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WindowingEnvironmentAddedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WindowingEnvironmentAddedEventArgs {
@@ -2143,11 +2199,6 @@ unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
 #[repr(transparent)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentChangedEventArgs {}
-impl ::core::clone::Clone for WindowingEnvironmentChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for WindowingEnvironmentChangedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2159,11 +2210,12 @@ impl ::core::fmt::Debug for WindowingEnvironmentChangedEventArgs {
         f.debug_tuple("WindowingEnvironmentChangedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArgs {
+impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs;{4160cfc6-023d-5e9a-b431-350e67dc978a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WindowingEnvironmentChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WindowingEnvironmentChangedEventArgs {
@@ -2185,14 +2237,9 @@ impl WindowingEnvironmentRemovedEventArgs {
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WindowingEnvironment>();
+            (::windows::core::Vtable::vtable(this).WindowingEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for WindowingEnvironmentRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for WindowingEnvironmentRemovedEventArgs {
@@ -2206,11 +2253,12 @@ impl ::core::fmt::Debug for WindowingEnvironmentRemovedEventArgs {
         f.debug_tuple("WindowingEnvironmentRemovedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
+impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs;{2e5b5473-beff-5e53-9316-7e775fe568b3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for WindowingEnvironmentRemovedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for WindowingEnvironmentRemovedEventArgs {
@@ -2245,20 +2293,16 @@ impl ::core::default::Default for AppWindowClosedReason {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppWindowClosedReason {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppWindowClosedReason {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppWindowClosedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowClosedReason {
+impl ::windows::core::RuntimeType for AppWindowClosedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowClosedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2279,20 +2323,16 @@ impl ::core::default::Default for AppWindowFrameStyle {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppWindowFrameStyle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppWindowFrameStyle {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppWindowFrameStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowFrameStyle {
+impl ::windows::core::RuntimeType for AppWindowFrameStyle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowFrameStyle;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2314,20 +2354,16 @@ impl ::core::default::Default for AppWindowPresentationKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppWindowPresentationKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppWindowPresentationKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppWindowPresentationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowPresentationKind {
+impl ::windows::core::RuntimeType for AppWindowPresentationKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowPresentationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2348,20 +2384,16 @@ impl ::core::default::Default for AppWindowTitleBarVisibility {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AppWindowTitleBarVisibility {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AppWindowTitleBarVisibility {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
+impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.AppWindowTitleBarVisibility;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
 #[repr(transparent)]
@@ -2383,20 +2415,16 @@ impl ::core::default::Default for WindowingEnvironmentKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WindowingEnvironmentKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WindowingEnvironmentKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WindowingEnvironmentKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
+impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

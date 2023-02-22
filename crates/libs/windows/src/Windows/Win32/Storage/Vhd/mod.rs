@@ -332,8 +332,8 @@ impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLY_SNAPSHOT_VHDSET_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -392,8 +392,8 @@ impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLY_SNAPSHOT_VHDSET_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -437,8 +437,8 @@ impl ::core::default::Default for ATTACH_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -499,8 +499,8 @@ impl ::core::default::Default for ATTACH_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -528,8 +528,8 @@ impl ::core::default::Default for COMPACT_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPACT_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -588,8 +588,8 @@ impl ::core::default::Default for COMPACT_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPACT_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -635,8 +635,8 @@ impl ::core::default::Default for CREATE_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -701,8 +701,8 @@ impl ::core::default::Default for CREATE_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -728,8 +728,8 @@ impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_SNAPSHOT_VHDSET_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -788,8 +788,8 @@ impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_SNAPSHOT_VHDSET_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -841,8 +841,8 @@ impl ::core::default::Default for DEPENDENT_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEPENDENT_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEPENDENT_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEPENDENT_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -899,8 +899,8 @@ impl ::core::default::Default for DETACH_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DETACH_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DETACH_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DETACH_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -959,8 +959,8 @@ impl ::core::default::Default for EXPAND_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPAND_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1019,8 +1019,8 @@ impl ::core::default::Default for EXPAND_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPAND_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1046,8 +1046,8 @@ impl ::core::default::Default for FORK_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORK_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1106,8 +1106,8 @@ impl ::core::default::Default for FORK_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORK_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1135,8 +1135,8 @@ impl ::core::default::Default for GET_STORAGE_DEPENDENCY_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_STORAGE_DEPENDENCY_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_STORAGE_DEPENDENCY_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_STORAGE_DEPENDENCY_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1223,8 +1223,8 @@ impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1248,8 +1248,8 @@ impl ::core::default::Default for MERGE_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1310,8 +1310,8 @@ impl ::core::default::Default for MERGE_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1343,8 +1343,8 @@ impl ::core::default::Default for MIRROR_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIRROR_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1403,8 +1403,8 @@ impl ::core::default::Default for MIRROR_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIRROR_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1430,8 +1430,8 @@ impl ::core::default::Default for MODIFY_VHDSET_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_VHDSET_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_VHDSET_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODIFY_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1494,8 +1494,8 @@ impl ::core::default::Default for MODIFY_VHDSET_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_VHDSET_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_VHDSET_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODIFY_VHDSET_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1543,8 +1543,8 @@ impl ::core::default::Default for OPEN_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1607,8 +1607,8 @@ impl ::core::default::Default for OPEN_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1632,8 +1632,8 @@ impl ::core::default::Default for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1690,8 +1690,8 @@ impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1750,8 +1750,8 @@ impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1779,8 +1779,8 @@ impl ::core::default::Default for RESIZE_VIRTUAL_DISK_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESIZE_VIRTUAL_DISK_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1839,8 +1839,8 @@ impl ::core::default::Default for RESIZE_VIRTUAL_DISK_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESIZE_VIRTUAL_DISK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1878,8 +1878,8 @@ impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_VIRTUAL_DISK_INFO_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1907,8 +1907,8 @@ impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_DEPENDENCY_INFO_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1934,8 +1934,8 @@ impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAKE_SNAPSHOT_VHDSET_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1994,8 +1994,8 @@ impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAKE_SNAPSHOT_VHDSET_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2037,8 +2037,8 @@ impl ::core::default::Default for VIRTUAL_DISK_ACCESS_MASK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_DISK_ACCESS_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_DISK_ACCESS_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_DISK_ACCESS_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2090,8 +2090,8 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
     fn default() -> Self {
@@ -2109,8 +2109,8 @@ impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     fn default() -> Self {
@@ -2134,8 +2134,8 @@ impl ::core::fmt::Debug for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         f.debug_struct("APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("LeafSnapshotId", &self.LeafSnapshotId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2160,8 +2160,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -2180,8 +2180,8 @@ impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -2204,8 +2204,8 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2235,8 +2235,8 @@ impl ::core::fmt::Debug for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
         f.debug_struct("ATTACH_VIRTUAL_DISK_PARAMETERS_0_1").field("RestrictedOffset", &self.RestrictedOffset).field("RestrictedLength", &self.RestrictedLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2261,8 +2261,8 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -2280,8 +2280,8 @@ impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -2304,8 +2304,8 @@ impl ::core::fmt::Debug for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("COMPACT_VIRTUAL_DISK_PARAMETERS_0_0").field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2330,8 +2330,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -2352,8 +2352,8 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -2381,8 +2381,8 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("CREATE_VIRTUAL_DISK_PARAMETERS_0_0").field("UniqueId", &self.UniqueId).field("MaximumSize", &self.MaximumSize).field("BlockSizeInBytes", &self.BlockSizeInBytes).field("SectorSizeInBytes", &self.SectorSizeInBytes).field("ParentPath", &self.ParentPath).field("SourcePath", &self.SourcePath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2433,8 +2433,8 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2489,8 +2489,8 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2549,8 +2549,8 @@ impl ::core::fmt::Debug for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2575,8 +2575,8 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
     fn default() -> Self {
@@ -2594,8 +2594,8 @@ impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     fn default() -> Self {
@@ -2618,8 +2618,8 @@ impl ::core::fmt::Debug for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         f.debug_struct("DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2644,8 +2644,8 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -2663,8 +2663,8 @@ impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -2687,8 +2687,8 @@ impl ::core::fmt::Debug for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("EXPAND_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2713,8 +2713,8 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -2732,8 +2732,8 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -2756,8 +2756,8 @@ impl ::core::fmt::Debug for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("FORK_VIRTUAL_DISK_PARAMETERS_0_0").field("ForkedVirtualDiskPath", &self.ForkedVirtualDiskPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2786,8 +2786,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO {
@@ -2824,8 +2824,8 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0 {
@@ -2856,8 +2856,8 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_0 {
@@ -2895,8 +2895,8 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_1 {
@@ -2935,8 +2935,8 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_2 {
@@ -2976,8 +2976,8 @@ impl ::core::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
@@ -3005,8 +3005,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -3025,8 +3025,8 @@ impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -3049,8 +3049,8 @@ impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_0").field("MergeDepth", &self.MergeDepth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3080,8 +3080,8 @@ impl ::core::fmt::Debug for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
         f.debug_struct("MERGE_VIRTUAL_DISK_PARAMETERS_0_1").field("MergeSourceDepth", &self.MergeSourceDepth).field("MergeTargetDepth", &self.MergeTargetDepth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3106,8 +3106,8 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -3125,8 +3125,8 @@ impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -3149,8 +3149,8 @@ impl ::core::fmt::Debug for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("MIRROR_VIRTUAL_DISK_PARAMETERS_0_0").field("MirrorVirtualDiskPath", &self.MirrorVirtualDiskPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3175,8 +3175,8 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_VHDSET_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS {
     fn default() -> Self {
@@ -3196,8 +3196,8 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_VHDSET_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MODIFY_VHDSET_PARAMETERS_0 {
     fn default() -> Self {
@@ -3221,8 +3221,8 @@ impl ::core::fmt::Debug for MODIFY_VHDSET_PARAMETERS_0_0 {
         f.debug_struct("MODIFY_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).field("SnapshotFilePath", &self.SnapshotFilePath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODIFY_VHDSET_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFY_VHDSET_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODIFY_VHDSET_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3251,8 +3251,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS {
@@ -3277,8 +3277,8 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
@@ -3307,8 +3307,8 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -3347,8 +3347,8 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
@@ -3388,8 +3388,8 @@ impl ::core::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
@@ -3423,8 +3423,8 @@ impl ::core::fmt::Debug for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
         f.debug_struct("QUERY_CHANGES_VIRTUAL_DISK_RANGE").field("ByteOffset", &self.ByteOffset).field("ByteLength", &self.ByteLength).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     fn eq(&self, other: &Self) -> bool {
@@ -3453,8 +3453,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
@@ -3477,8 +3477,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
@@ -3515,8 +3515,8 @@ impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
@@ -3544,8 +3544,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
     fn default() -> Self {
@@ -3563,8 +3563,8 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     fn default() -> Self {
@@ -3589,8 +3589,8 @@ impl ::core::fmt::Debug for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
         f.debug_struct("RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0").field("ScsiStatus", &self.ScsiStatus).field("SenseInfoLength", &self.SenseInfoLength).field("DataTransferLength", &self.DataTransferLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3615,8 +3615,8 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS {
     fn default() -> Self {
@@ -3634,8 +3634,8 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     fn default() -> Self {
@@ -3658,8 +3658,8 @@ impl ::core::fmt::Debug for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
         f.debug_struct("RESIZE_VIRTUAL_DISK_PARAMETERS_0_0").field("NewSize", &self.NewSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -3688,8 +3688,8 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_VIRTUAL_DISK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO {
@@ -3718,8 +3718,8 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_VIRTUAL_DISK_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SET_VIRTUAL_DISK_INFO_0 {
@@ -3749,8 +3749,8 @@ impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_0 {
@@ -3788,8 +3788,8 @@ impl ::core::fmt::Debug for SET_VIRTUAL_DISK_INFO_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SET_VIRTUAL_DISK_INFO_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_VIRTUAL_DISK_INFO_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SET_VIRTUAL_DISK_INFO_0_1 {
@@ -3818,8 +3818,8 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_DEPENDENCY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for STORAGE_DEPENDENCY_INFO {
     fn default() -> Self {
@@ -3838,8 +3838,8 @@ impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_DEPENDENCY_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for STORAGE_DEPENDENCY_INFO_0 {
     fn default() -> Self {
@@ -3864,8 +3864,8 @@ impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_1 {
         f.debug_struct("STORAGE_DEPENDENCY_INFO_TYPE_1").field("DependencyTypeFlags", &self.DependencyTypeFlags).field("ProviderSpecificFlags", &self.ProviderSpecificFlags).field("VirtualStorageType", &self.VirtualStorageType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3910,8 +3910,8 @@ impl ::core::fmt::Debug for STORAGE_DEPENDENCY_INFO_TYPE_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_DEPENDENCY_INFO_TYPE_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_DEPENDENCY_INFO_TYPE_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STORAGE_DEPENDENCY_INFO_TYPE_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -3936,8 +3936,8 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
     fn default() -> Self {
@@ -3955,8 +3955,8 @@ impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     fn default() -> Self {
@@ -3979,8 +3979,8 @@ impl ::core::fmt::Debug for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
         f.debug_struct("TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0").field("SnapshotId", &self.SnapshotId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -4011,8 +4011,8 @@ impl ::core::fmt::Debug for VIRTUAL_DISK_PROGRESS {
         f.debug_struct("VIRTUAL_DISK_PROGRESS").field("OperationStatus", &self.OperationStatus).field("CurrentValue", &self.CurrentValue).field("CompletionValue", &self.CompletionValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_DISK_PROGRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_DISK_PROGRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_DISK_PROGRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -4042,8 +4042,8 @@ impl ::core::fmt::Debug for VIRTUAL_STORAGE_TYPE {
         f.debug_struct("VIRTUAL_STORAGE_TYPE").field("DeviceId", &self.DeviceId).field("VendorId", &self.VendorId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_STORAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_STORAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIRTUAL_STORAGE_TYPE {
     fn eq(&self, other: &Self) -> bool {

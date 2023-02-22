@@ -65,8 +65,8 @@ where
     P2: ::std::convert::Into<HCS_OPERATION>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsCreateComputeSystem ( id : :: windows::core::PCWSTR , configuration : :: windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateComputeSystem(id.into().abi(), configuration.into().abi(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
+    HcsCreateComputeSystem(id.into().abi(), configuration.into().abi(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -78,8 +78,8 @@ where
     P3: ::std::convert::Into<HCS_OPERATION>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsCreateComputeSystemInNamespace ( idnamespace : :: windows::core::PCWSTR , id : :: windows::core::PCWSTR , configuration : :: windows::core::PCWSTR , operation : HCS_OPERATION , options : *const HCS_CREATE_OPTIONS , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateComputeSystemInNamespace(idnamespace.into().abi(), id.into().abi(), configuration.into().abi(), operation.into(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
+    HcsCreateComputeSystemInNamespace(idnamespace.into().abi(), id.into().abi(), configuration.into().abi(), operation.into(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -115,8 +115,8 @@ where
     P2: ::std::convert::Into<HCS_OPERATION>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsCreateProcess ( computesystem : HCS_SYSTEM , processparameters : :: windows::core::PCWSTR , operation : HCS_OPERATION , securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR , process : *mut HCS_PROCESS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsCreateProcess(computesystem.into(), processparameters.into().abi(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_PROCESS>();
+    HcsCreateProcess(computesystem.into(), processparameters.into().abi(), operation.into(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -219,8 +219,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "computestorage.dll""system" fn HcsGetLayerVhdMountPath ( vhdhandle : super::super::Foundation:: HANDLE , mountpath : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsGetLayerVhdMountPath(vhdhandle.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    HcsGetLayerVhdMountPath(vhdhandle.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -314,8 +314,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsGetServiceProperties ( propertyquery : :: windows::core::PCWSTR , result : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsGetServiceProperties(propertyquery.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    HcsGetServiceProperties(propertyquery.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -410,8 +410,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsOpenComputeSystem ( id : :: windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsOpenComputeSystem(id.into().abi(), requestedaccess, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
+    HcsOpenComputeSystem(id.into().abi(), requestedaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -421,8 +421,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsOpenComputeSystemInNamespace ( idnamespace : :: windows::core::PCWSTR , id : :: windows::core::PCWSTR , requestedaccess : u32 , computesystem : *mut HCS_SYSTEM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsOpenComputeSystemInNamespace(idnamespace.into().abi(), id.into().abi(), requestedaccess, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_SYSTEM>();
+    HcsOpenComputeSystemInNamespace(idnamespace.into().abi(), id.into().abi(), requestedaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -431,8 +431,8 @@ where
     P0: ::std::convert::Into<HCS_SYSTEM>,
 {
     ::windows::core::link ! ( "computecore.dll""system" fn HcsOpenProcess ( computesystem : HCS_SYSTEM , processid : u32 , requestedaccess : u32 , process : *mut HCS_PROCESS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcsOpenProcess(computesystem.into(), processid, requestedaccess, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HCS_PROCESS>();
+    HcsOpenProcess(computesystem.into(), processid, requestedaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[inline]
@@ -663,8 +663,8 @@ impl ::core::default::Default for HCS_CREATE_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_CREATE_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -690,8 +690,8 @@ impl ::core::default::Default for HCS_EVENT_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_EVENT_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_EVENT_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_EVENT_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -766,8 +766,8 @@ impl ::core::default::Default for HCS_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -831,8 +831,8 @@ impl ::core::default::Default for HCS_NOTIFICATIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_NOTIFICATIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -858,8 +858,8 @@ impl ::core::default::Default for HCS_NOTIFICATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_NOTIFICATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -915,8 +915,8 @@ impl ::core::default::Default for HCS_OPERATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCS_OPERATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_OPERATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -949,8 +949,8 @@ impl ::core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_CREATE_OPTIONS_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for HCS_CREATE_OPTIONS_1 {
@@ -976,8 +976,8 @@ impl ::core::fmt::Debug for HCS_EVENT {
         f.debug_struct("HCS_EVENT").field("Type", &self.Type).field("EventData", &self.EventData).field("Operation", &self.Operation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HCS_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HCS_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -1019,8 +1019,8 @@ impl ::core::convert::From<::core::option::Option<HCS_OPERATION>> for HCS_OPERAT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCS_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1051,8 +1051,8 @@ impl ::core::convert::From<::core::option::Option<HCS_PROCESS>> for HCS_PROCESS 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCS_PROCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_PROCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
@@ -1079,8 +1079,8 @@ impl ::core::fmt::Debug for HCS_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_PROCESS_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
@@ -1125,8 +1125,8 @@ impl ::core::convert::From<::core::option::Option<HCS_SYSTEM>> for HCS_SYSTEM {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCS_SYSTEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCS_SYSTEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void) -> ()>;

@@ -68,7 +68,7 @@ impl<'a> Gen<'a> {
             let kind = self.type_name(ty);
 
             if ty.is_generic() {
-                quote! { <#kind as ::windows::core::RuntimeType>::DefaultType }
+                quote! { <#kind as ::windows::core::Type<#kind>>::Default }
             } else if self.reader.type_is_nullable(ty) && !self.sys {
                 quote! { ::core::option::Option<#kind> }
             } else {
@@ -165,8 +165,14 @@ impl<'a> Gen<'a> {
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
         match ty {
-            Type::String | Type::BSTR | Type::IUnknown | Type::IInspectable => {
+            Type::IUnknown | Type::IInspectable => {
                 quote! { *mut ::core::ffi::c_void }
+            }
+            Type::String => {
+                quote! { ::std::mem::MaybeUninit<::windows::core::HSTRING> }
+            }
+            Type::BSTR => {
+                quote! { ::std::mem::MaybeUninit<::windows::core::BSTR> }
             }
             Type::Win32Array((kind, len)) => {
                 let name = self.type_abi_name(kind);
@@ -175,7 +181,7 @@ impl<'a> Gen<'a> {
             }
             Type::GenericParam(generic) => {
                 let name = to_ident(self.reader.generic_param_name(*generic));
-                quote! { <#name as ::windows::core::Abi>::Abi }
+                quote! { ::windows::core::AbiType<#name> }
             }
             Type::TypeDef((def, _)) => match self.reader.type_def_kind(*def) {
                 TypeKind::Enum => self.type_def_name(*def, &[]),
@@ -184,7 +190,7 @@ impl<'a> Gen<'a> {
                     if self.reader.type_def_is_blittable(*def) {
                         tokens
                     } else {
-                        quote! { ::std::mem::ManuallyDrop<#tokens> }
+                        quote! { ::std::mem::MaybeUninit<#tokens> }
                     }
                 }
                 TypeKind::Delegate => {
@@ -544,17 +550,11 @@ impl<'a> Gen<'a> {
         _generics: &[Type],
         ident: &TokenStream,
         constraints: &TokenStream,
-        phantoms: &TokenStream,
+        _phantoms: &TokenStream,
         features: &TokenStream,
     ) -> TokenStream {
         let name = trim_tick(self.reader.type_def_name(def));
         quote! {
-            #features
-            impl<#constraints> ::core::clone::Clone for #ident {
-                fn clone(&self) -> Self {
-                    Self(self.0.clone(), #phantoms)
-                }
-            }
             #features
             impl<#constraints> ::core::cmp::PartialEq for #ident {
                 fn eq(&self, other: &Self) -> bool {
@@ -729,12 +729,8 @@ impl<'a> Gen<'a> {
 
             quote! {
                 #features
-                unsafe impl<#constraints> ::windows::core::RuntimeType for #ident {
+                impl<#constraints> ::windows::core::RuntimeType for #ident {
                     const SIGNATURE: ::windows::core::ConstBuffer = #type_signature;
-                    type DefaultType = ::core::option::Option<Self>;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-                    }
                 }
             }
         } else {
@@ -785,6 +781,12 @@ impl<'a> Gen<'a> {
             let vtbl = self.type_vtbl_name(&default);
             quote! {
                 #features
+                impl<#constraints> ::core::clone::Clone for #ident {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone())
+                    }
+                }
+                #features
                 unsafe impl ::windows::core::Vtable for #ident {
                     type Vtable = #vtbl;
                 }
@@ -810,10 +812,18 @@ impl<'a> Gen<'a> {
                 }
             };
 
+            let phantoms = self.generic_phantoms(generics);
+
             let mut tokens = quote! {
                 #features
                 unsafe impl<#constraints> ::windows::core::Vtable for #ident {
                     type Vtable = #vtbl;
+                }
+                #features
+                impl<#constraints> ::core::clone::Clone for #ident {
+                    fn clone(&self) -> Self {
+                        Self(self.0.clone(), #phantoms)
+                    }
                 }
             };
 
@@ -998,12 +1008,12 @@ impl<'a> Gen<'a> {
         for (position, param) in params.iter().enumerate() {
             let new = match kind {
                 SignatureKind::Query(query) if query.object == position => {
-                    quote! { result__.as_mut_ptr(), }
+                    quote! { &mut result__, }
                 }
                 SignatureKind::ReturnValue | SignatureKind::ResultValue
                     if params.len() - 1 == position =>
                 {
-                    quote! { result__.as_mut_ptr(), }
+                    quote! { &mut result__, }
                 }
                 SignatureKind::QueryOptional(query) if query.object == position => {
                     quote! { result__ as *mut _ as *mut _, }

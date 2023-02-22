@@ -26,8 +26,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetInterfaceAndReleaseStream ( pstm : * mut::core::ffi::c_void , iid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoGetInterfaceAndReleaseStream(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CoGetInterfaceAndReleaseStream(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -37,8 +37,8 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CreateILockBytesOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , pplkbyt : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateILockBytesOnHGlobal(hglobal, fdeleteonrelease.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<ILockBytes>();
+    CreateILockBytesOnHGlobal(hglobal, fdeleteonrelease.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -48,8 +48,8 @@ where
     P0: ::std::convert::Into<super::super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CreateStreamOnHGlobal ( hglobal : isize , fdeleteonrelease : super::super::super::Foundation:: BOOL , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::IStream>();
+    CreateStreamOnHGlobal(hglobal, fdeleteonrelease.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -80,8 +80,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ILockBytes>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn GetHGlobalFromILockBytes ( plkbyt : * mut::core::ffi::c_void , phglobal : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetHGlobalFromILockBytes(plkbyt.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<isize>();
+    GetHGlobalFromILockBytes(plkbyt.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -90,8 +90,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::IStream>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn GetHGlobalFromStream ( pstm : * mut::core::ffi::c_void , phglobal : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetHGlobalFromStream(pstm.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<isize>();
+    GetHGlobalFromStream(pstm.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -100,8 +100,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn OleConvertIStorageToOLESTREAM ( pstg : * mut::core::ffi::c_void , lpolestream : *mut OLESTREAM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleConvertIStorageToOLESTREAM(pstg.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<OLESTREAM>();
+    OleConvertIStorageToOLESTREAM(pstg.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -111,8 +111,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn OleConvertIStorageToOLESTREAMEx ( pstg : * mut::core::ffi::c_void , cfformat : u16 , lwidth : i32 , lheight : i32 , dwsize : u32 , pmedium : *const super:: STGMEDIUM , polestm : *mut OLESTREAM ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, pmedium, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<OLESTREAM>();
+    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, pmedium, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -140,8 +140,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn PropStgNameToFmtId ( oszname : :: windows::core::PCWSTR , pfmtid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PropStgNameToFmtId(oszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    PropStgNameToFmtId(oszname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -164,8 +164,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn ReadClassStg ( pstg : * mut::core::ffi::c_void , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ReadClassStg(pstg.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    ReadClassStg(pstg.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -174,8 +174,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::IStream>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn ReadClassStm ( pstm : * mut::core::ffi::c_void , pclsid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ReadClassStm(pstm.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    ReadClassStm(pstm.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -221,8 +221,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgCreateDocfile ( pwcsname : :: windows::core::PCWSTR , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreateDocfile(pwcsname.into().abi(), grfmode, reserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgCreateDocfile(pwcsname.into().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -231,8 +231,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ILockBytes>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgCreateDocfileOnILockBytes ( plkbyt : * mut::core::ffi::c_void , grfmode : super:: STGM , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreateDocfileOnILockBytes(plkbyt.into().abi(), grfmode, reserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgCreateDocfileOnILockBytes(plkbyt.into().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -241,8 +241,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgCreatePropSetStg ( pstorage : * mut::core::ffi::c_void , dwreserved : u32 , pppropsetstg : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreatePropSetStg(pstorage.into().abi(), dwreserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IPropertySetStorage>();
+    StgCreatePropSetStg(pstorage.into().abi(), dwreserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -251,8 +251,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgCreatePropStg ( punk : * mut::core::ffi::c_void , fmtid : *const :: windows::core::GUID , pclsid : *const :: windows::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreatePropStg(punk.into().abi(), fmtid, pclsid, grfflags, dwreserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
+    StgCreatePropStg(punk.into().abi(), fmtid, pclsid, grfflags, dwreserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -270,8 +270,8 @@ where
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
     ::windows::core::link ! ( "propsys.dll""system" fn StgDeserializePropVariant ( pprop : *const SERIALIZEDPROPERTYVALUE , cbmax : u32 , ppropvar : *mut PROPVARIANT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgDeserializePropVariant(pprop, cbmax, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<PROPVARIANT>();
+    StgDeserializePropVariant(pprop, cbmax, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -280,8 +280,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgGetIFillLockBytesOnFile ( pwcsname : :: windows::core::PCWSTR , ppflb : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgGetIFillLockBytesOnFile(pwcsname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IFillLockBytes>();
+    StgGetIFillLockBytesOnFile(pwcsname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -290,8 +290,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<ILockBytes>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgGetIFillLockBytesOnILockBytes ( pilb : * mut::core::ffi::c_void , ppflb : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgGetIFillLockBytesOnILockBytes(pilb.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IFillLockBytes>();
+    StgGetIFillLockBytesOnILockBytes(pilb.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -318,8 +318,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IFillLockBytes>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgOpenAsyncDocfileOnIFillLockBytes ( pflb : * mut::core::ffi::c_void , grfmode : u32 , asyncflags : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenAsyncDocfileOnIFillLockBytes(pflb.into().abi(), grfmode, asyncflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgOpenAsyncDocfileOnIFillLockBytes(pflb.into().abi(), grfmode, asyncflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -328,8 +328,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "dflayout.dll""system" fn StgOpenLayoutDocfile ( pwcsdfname : :: windows::core::PCWSTR , grfmode : u32 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenLayoutDocfile(pwcsdfname.into().abi(), grfmode, reserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgOpenLayoutDocfile(pwcsdfname.into().abi(), grfmode, reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -338,8 +338,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgOpenPropStg ( punk : * mut::core::ffi::c_void , fmtid : *const :: windows::core::GUID , grfflags : u32 , dwreserved : u32 , pppropstg : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenPropStg(punk.into().abi(), fmtid, grfflags, dwreserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
+    StgOpenPropStg(punk.into().abi(), fmtid, grfflags, dwreserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -349,8 +349,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgOpenStorage ( pwcsname : :: windows::core::PCWSTR , pstgpriority : * mut::core::ffi::c_void , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenStorage(pwcsname.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgOpenStorage(pwcsname.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -371,8 +371,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IStorage>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn StgOpenStorageOnILockBytes ( plkbyt : * mut::core::ffi::c_void , pstgpriority : * mut::core::ffi::c_void , grfmode : super:: STGM , snbexclude : *const *const u16 , reserved : u32 , ppstgopen : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenStorageOnILockBytes(plkbyt.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IStorage>();
+    StgOpenStorageOnILockBytes(plkbyt.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
@@ -440,11 +440,6 @@ impl IDirectWriterLock {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectWriterLock, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectWriterLock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectWriterLock {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -458,6 +453,11 @@ impl ::core::fmt::Debug for IDirectWriterLock {
 }
 unsafe impl ::windows::core::Vtable for IDirectWriterLock {
     type Vtable = IDirectWriterLock_Vtbl;
+}
+impl ::core::clone::Clone for IDirectWriterLock {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectWriterLock {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d92_6738_11cf_9608_00aa00680db4);
@@ -486,16 +486,11 @@ impl IEnumSTATPROPSETSTG {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATPROPSETSTG>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumSTATPROPSETSTG, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumSTATPROPSETSTG {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -509,6 +504,11 @@ impl ::core::fmt::Debug for IEnumSTATPROPSETSTG {
 }
 unsafe impl ::windows::core::Vtable for IEnumSTATPROPSETSTG {
     type Vtable = IEnumSTATPROPSETSTG_Vtbl;
+}
+impl ::core::clone::Clone for IEnumSTATPROPSETSTG {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSETSTG {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013b_0000_0000_c000_000000000046);
@@ -539,16 +539,11 @@ impl IEnumSTATPROPSTG {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSTATPROPSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATPROPSTG>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumSTATPROPSTG, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumSTATPROPSTG {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumSTATPROPSTG {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -562,6 +557,11 @@ impl ::core::fmt::Debug for IEnumSTATPROPSTG {
 }
 unsafe impl ::windows::core::Vtable for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTG_Vtbl;
+}
+impl ::core::clone::Clone for IEnumSTATPROPSTG {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSTG {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000139_0000_0000_c000_000000000046);
@@ -591,16 +591,11 @@ impl IEnumSTATSTG {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumSTATSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATSTG>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumSTATSTG, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumSTATSTG {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumSTATSTG {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -614,6 +609,11 @@ impl ::core::fmt::Debug for IEnumSTATSTG {
 }
 unsafe impl ::windows::core::Vtable for IEnumSTATSTG {
     type Vtable = IEnumSTATSTG_Vtbl;
+}
+impl ::core::clone::Clone for IEnumSTATSTG {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumSTATSTG {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0000_0000_c000_000000000046);
@@ -635,12 +635,12 @@ pub struct IEnumSTATSTG_Vtbl {
 pub struct IFillLockBytes(::windows::core::IUnknown);
 impl IFillLockBytes {
     pub unsafe fn FillAppend(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillAppend)(::windows::core::Vtable::as_raw(self), pv, cb, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FillAppend)(::windows::core::Vtable::as_raw(self), pv, cb, &mut result__).from_abi(result__)
     }
     pub unsafe fn FillAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FillAt)(::windows::core::Vtable::as_raw(self), uloffset, pv, cb, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).FillAt)(::windows::core::Vtable::as_raw(self), uloffset, pv, cb, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFillSize(&self, ulsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetFillSize)(::windows::core::Vtable::as_raw(self), ulsize).ok()
@@ -655,11 +655,6 @@ impl IFillLockBytes {
     }
 }
 ::windows::core::interface_hierarchy!(IFillLockBytes, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFillLockBytes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFillLockBytes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -673,6 +668,11 @@ impl ::core::fmt::Debug for IFillLockBytes {
 }
 unsafe impl ::windows::core::Vtable for IFillLockBytes {
     type Vtable = IFillLockBytes_Vtbl;
+}
+impl ::core::clone::Clone for IFillLockBytes {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFillLockBytes {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99caf010_415e_11cf_8814_00aa00b569f5);
@@ -716,11 +716,6 @@ impl ILayoutStorage {
     }
 }
 ::windows::core::interface_hierarchy!(ILayoutStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILayoutStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILayoutStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -734,6 +729,11 @@ impl ::core::fmt::Debug for ILayoutStorage {
 }
 unsafe impl ::windows::core::Vtable for ILayoutStorage {
     type Vtable = ILayoutStorage_Vtbl;
+}
+impl ::core::clone::Clone for ILayoutStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILayoutStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d90_6738_11cf_9608_00aa00680db4);
@@ -777,11 +777,6 @@ impl ILockBytes {
     }
 }
 ::windows::core::interface_hierarchy!(ILockBytes, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILockBytes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILockBytes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -795,6 +790,11 @@ impl ::core::fmt::Debug for ILockBytes {
 }
 unsafe impl ::windows::core::Vtable for ILockBytes {
     type Vtable = ILockBytes_Vtbl;
+}
+impl ::core::clone::Clone for ILockBytes {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILockBytes {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0000_0000_c000_000000000046);
@@ -819,8 +819,8 @@ pub struct ILockBytes_Vtbl {
 pub struct IPersistStorage(::windows::core::IUnknown);
 impl IPersistStorage {
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.GetClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsDirty(&self) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).IsDirty)(::windows::core::Vtable::as_raw(self))
@@ -857,11 +857,6 @@ impl IPersistStorage {
     }
 }
 ::windows::core::interface_hierarchy!(IPersistStorage, ::windows::core::IUnknown, super::IPersist);
-impl ::core::clone::Clone for IPersistStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPersistStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -875,6 +870,11 @@ impl ::core::fmt::Debug for IPersistStorage {
 }
 unsafe impl ::windows::core::Vtable for IPersistStorage {
     type Vtable = IPersistStorage_Vtbl;
+}
+impl ::core::clone::Clone for IPersistStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPersistStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0000_0000_c000_000000000046);
@@ -916,11 +916,6 @@ impl IPropertyBag {
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyBag, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropertyBag {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -934,6 +929,11 @@ impl ::core::fmt::Debug for IPropertyBag {
 }
 unsafe impl ::windows::core::Vtable for IPropertyBag {
     type Vtable = IPropertyBag_Vtbl;
+}
+impl ::core::clone::Clone for IPropertyBag {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertyBag {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55272a00_42cb_11ce_8135_00aa004bb851);
@@ -969,8 +969,8 @@ impl IPropertyBag2 {
         (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), cproperties, ppropbag, pvarvalue).ok()
     }
     pub unsafe fn CountProperties(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CountProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CountProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPropertyInfo(&self, iproperty: u32, ppropbag: &mut [PROPBAG2], pcproperties: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPropertyInfo)(::windows::core::Vtable::as_raw(self), iproperty, ppropbag.len() as _, ::core::mem::transmute(ppropbag.as_ptr()), pcproperties).ok()
@@ -985,11 +985,6 @@ impl IPropertyBag2 {
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyBag2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPropertyBag2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropertyBag2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1003,6 +998,11 @@ impl ::core::fmt::Debug for IPropertyBag2 {
 }
 unsafe impl ::windows::core::Vtable for IPropertyBag2 {
     type Vtable = IPropertyBag2_Vtbl;
+}
+impl ::core::clone::Clone for IPropertyBag2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertyBag2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f55882_280b_11d0_a8a9_00a0c90c2004);
@@ -1028,27 +1028,22 @@ pub struct IPropertyBag2_Vtbl {
 pub struct IPropertySetStorage(::windows::core::IUnknown);
 impl IPropertySetStorage {
     pub unsafe fn Create(&self, rfmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, grfmode: u32) -> ::windows::core::Result<IPropertyStorage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), rfmtid, pclsid, grfflags, grfmode, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
+        (::windows::core::Vtable::vtable(self).Create)(::windows::core::Vtable::as_raw(self), rfmtid, pclsid, grfflags, grfmode, &mut result__).from_abi(result__)
     }
     pub unsafe fn Open(&self, rfmtid: *const ::windows::core::GUID, grfmode: u32) -> ::windows::core::Result<IPropertyStorage> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), rfmtid, grfmode, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPropertyStorage>();
+        (::windows::core::Vtable::vtable(self).Open)(::windows::core::Vtable::as_raw(self), rfmtid, grfmode, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, rfmtid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), rfmtid).ok()
     }
     pub unsafe fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSETSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATPROPSETSTG>();
+        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPropertySetStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPropertySetStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropertySetStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1062,6 +1057,11 @@ impl ::core::fmt::Debug for IPropertySetStorage {
 }
 unsafe impl ::windows::core::Vtable for IPropertySetStorage {
     type Vtable = IPropertySetStorage_Vtbl;
+}
+impl ::core::clone::Clone for IPropertySetStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertySetStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013a_0000_0000_c000_000000000046);
@@ -1108,8 +1108,8 @@ impl IPropertyStorage {
         (::windows::core::Vtable::vtable(self).Revert)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Enum(&self) -> ::windows::core::Result<IEnumSTATPROPSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATPROPSTG>();
+        (::windows::core::Vtable::vtable(self).Enum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1126,11 +1126,6 @@ impl IPropertyStorage {
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPropertyStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropertyStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1144,6 +1139,11 @@ impl ::core::fmt::Debug for IPropertyStorage {
 }
 unsafe impl ::windows::core::Vtable for IPropertyStorage {
     type Vtable = IPropertyStorage_Vtbl;
+}
+impl ::core::clone::Clone for IPropertyStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertyStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000138_0000_0000_c000_000000000046);
@@ -1189,11 +1189,6 @@ impl IRootStorage {
     }
 }
 ::windows::core::interface_hierarchy!(IRootStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IRootStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IRootStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1207,6 +1202,11 @@ impl ::core::fmt::Debug for IRootStorage {
 }
 unsafe impl ::windows::core::Vtable for IRootStorage {
     type Vtable = IRootStorage_Vtbl;
+}
+impl ::core::clone::Clone for IRootStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IRootStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000012_0000_0000_c000_000000000046);
@@ -1225,30 +1225,30 @@ impl IStorage {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, reserved1, reserved2, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::IStream>();
+        (::windows::core::Vtable::vtable(self).CreateStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, reserved1, reserved2, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenStream<P0>(&self, pwcsname: P0, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, grfmode: super::STGM, reserved2: u32) -> ::windows::core::Result<super::IStream>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), grfmode, reserved2, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::IStream>();
+        (::windows::core::Vtable::vtable(self).OpenStream)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), grfmode, reserved2, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateStorage<P0>(&self, pwcsname: P0, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateStorage)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, reserved1, reserved2, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IStorage>();
+        (::windows::core::Vtable::vtable(self).CreateStorage)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), grfmode, reserved1, reserved2, &mut result__).from_abi(result__)
     }
     pub unsafe fn OpenStorage<P0, P1>(&self, pwcsname: P0, pstgpriority: P1, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<IStorage>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenStorage)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), pstgpriority.into().abi(), grfmode, snbexclude, reserved, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IStorage>();
+        (::windows::core::Vtable::vtable(self).OpenStorage)(::windows::core::Vtable::as_raw(self), pwcsname.into().abi(), pstgpriority.into().abi(), grfmode, snbexclude, reserved, &mut result__).from_abi(result__)
     }
     pub unsafe fn CopyTo<P0>(&self, rgiidexclude: ::core::option::Option<&[::windows::core::GUID]>, snbexclude: ::core::option::Option<*const *const u16>, pstgdest: P0) -> ::windows::core::Result<()>
     where
@@ -1271,8 +1271,8 @@ impl IStorage {
         (::windows::core::Vtable::vtable(self).Revert)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn EnumElements(&self, reserved1: u32, reserved2: ::core::option::Option<*const ::core::ffi::c_void>, reserved3: u32) -> ::windows::core::Result<IEnumSTATSTG> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumElements)(::windows::core::Vtable::as_raw(self), reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumSTATSTG>();
+        (::windows::core::Vtable::vtable(self).EnumElements)(::windows::core::Vtable::as_raw(self), reserved1, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())), reserved3, &mut result__).from_abi(result__)
     }
     pub unsafe fn DestroyElement<P0>(&self, pwcsname: P0) -> ::windows::core::Result<()>
     where
@@ -1308,11 +1308,6 @@ impl IStorage {
     }
 }
 ::windows::core::interface_hierarchy!(IStorage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IStorage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1326,6 +1321,11 @@ impl ::core::fmt::Debug for IStorage {
 }
 unsafe impl ::windows::core::Vtable for IStorage {
     type Vtable = IStorage_Vtbl;
+}
+impl ::core::clone::Clone for IStorage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IStorage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);
@@ -1523,8 +1523,8 @@ impl ::core::default::Default for PIDMSI_STATUS_VALUE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PIDMSI_STATUS_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1550,8 +1550,8 @@ impl ::core::default::Default for PROPSPEC_KIND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSPEC_KIND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PROPSPEC_KIND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1585,8 +1585,8 @@ impl ::core::default::Default for STGFMT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STGFMT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STGFMT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STGFMT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1614,8 +1614,8 @@ impl ::core::default::Default for STGMOVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STGMOVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STGMOVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STGMOVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1639,8 +1639,8 @@ impl ::core::fmt::Debug for BSTRBLOB {
         f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BSTRBLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BSTRBLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BSTRBLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -1675,8 +1675,8 @@ impl ::core::fmt::Debug for CABOOL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABOOL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABOOL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABOOL {
@@ -1709,8 +1709,8 @@ impl ::core::fmt::Debug for CABSTR {
         f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CABSTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABSTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CABSTR {
     fn eq(&self, other: &Self) -> bool {
@@ -1740,8 +1740,8 @@ impl ::core::fmt::Debug for CABSTRBLOB {
         f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CABSTRBLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABSTRBLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CABSTRBLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -1771,8 +1771,8 @@ impl ::core::fmt::Debug for CAC {
         f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAC {
     fn eq(&self, other: &Self) -> bool {
@@ -1802,8 +1802,8 @@ impl ::core::fmt::Debug for CACLIPDATA {
         f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CACLIPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CACLIPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CACLIPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -1833,8 +1833,8 @@ impl ::core::fmt::Debug for CACLSID {
         f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CACLSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CACLSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CACLSID {
     fn eq(&self, other: &Self) -> bool {
@@ -1864,8 +1864,8 @@ impl ::core::fmt::Debug for CACY {
         f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CACY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CACY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CACY {
     fn eq(&self, other: &Self) -> bool {
@@ -1895,8 +1895,8 @@ impl ::core::fmt::Debug for CADATE {
         f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CADATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CADATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CADATE {
     fn eq(&self, other: &Self) -> bool {
@@ -1926,8 +1926,8 @@ impl ::core::fmt::Debug for CADBL {
         f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CADBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CADBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CADBL {
     fn eq(&self, other: &Self) -> bool {
@@ -1962,8 +1962,8 @@ impl ::core::fmt::Debug for CAFILETIME {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAFILETIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAFILETIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAFILETIME {
@@ -1996,8 +1996,8 @@ impl ::core::fmt::Debug for CAFLT {
         f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAFLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAFLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAFLT {
     fn eq(&self, other: &Self) -> bool {
@@ -2027,8 +2027,8 @@ impl ::core::fmt::Debug for CAH {
         f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAH {
     fn eq(&self, other: &Self) -> bool {
@@ -2058,8 +2058,8 @@ impl ::core::fmt::Debug for CAI {
         f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAI {
     fn eq(&self, other: &Self) -> bool {
@@ -2089,8 +2089,8 @@ impl ::core::fmt::Debug for CAL {
         f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAL {
     fn eq(&self, other: &Self) -> bool {
@@ -2120,8 +2120,8 @@ impl ::core::fmt::Debug for CALPSTR {
         f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CALPSTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALPSTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CALPSTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2151,8 +2151,8 @@ impl ::core::fmt::Debug for CALPWSTR {
         f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CALPWSTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALPWSTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CALPWSTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2187,8 +2187,8 @@ impl ::core::fmt::Debug for CAPROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPROPVARIANT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAPROPVARIANT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPROPVARIANT {
@@ -2221,8 +2221,8 @@ impl ::core::fmt::Debug for CASCODE {
         f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CASCODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CASCODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CASCODE {
     fn eq(&self, other: &Self) -> bool {
@@ -2252,8 +2252,8 @@ impl ::core::fmt::Debug for CAUB {
         f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAUB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAUB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAUB {
     fn eq(&self, other: &Self) -> bool {
@@ -2283,8 +2283,8 @@ impl ::core::fmt::Debug for CAUH {
         f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAUH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAUH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAUH {
     fn eq(&self, other: &Self) -> bool {
@@ -2314,8 +2314,8 @@ impl ::core::fmt::Debug for CAUI {
         f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAUI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAUI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAUI {
     fn eq(&self, other: &Self) -> bool {
@@ -2345,8 +2345,8 @@ impl ::core::fmt::Debug for CAUL {
         f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAUL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAUL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAUL {
     fn eq(&self, other: &Self) -> bool {
@@ -2377,8 +2377,8 @@ impl ::core::fmt::Debug for CLIPDATA {
         f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLIPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLIPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLIPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -2407,8 +2407,8 @@ impl ::core::fmt::Debug for OLESTREAM {
         f.debug_struct("OLESTREAM").field("lpstbl", &self.lpstbl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OLESTREAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLESTREAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OLESTREAM {
     fn eq(&self, other: &Self) -> bool {
@@ -2438,8 +2438,8 @@ impl ::core::fmt::Debug for OLESTREAMVTBL {
         f.debug_struct("OLESTREAMVTBL").field("Get", &self.Get).field("Put", &self.Put).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OLESTREAMVTBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLESTREAMVTBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OLESTREAMVTBL {
     fn eq(&self, other: &Self) -> bool {
@@ -2475,8 +2475,8 @@ impl ::core::fmt::Debug for PROPBAG2 {
         f.debug_struct("PROPBAG2").field("dwType", &self.dwType).field("vt", &self.vt).field("cfType", &self.cfType).field("dwHint", &self.dwHint).field("pstrName", &self.pstrName).field("clsid", &self.clsid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROPBAG2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPBAG2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROPBAG2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2501,8 +2501,8 @@ impl ::core::clone::Clone for PROPSPEC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PROPSPEC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSPEC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PROPSPEC {
     fn default() -> Self {
@@ -2521,8 +2521,8 @@ impl ::core::clone::Clone for PROPSPEC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PROPSPEC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSPEC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PROPSPEC_0 {
     fn default() -> Self {
@@ -2542,8 +2542,8 @@ impl ::core::clone::Clone for PROPVARIANT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROPVARIANT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPVARIANT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPVARIANT {
@@ -2565,8 +2565,8 @@ impl ::core::clone::Clone for PROPVARIANT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROPVARIANT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPVARIANT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPVARIANT_0 {
@@ -2591,8 +2591,8 @@ impl ::core::clone::Clone for PROPVARIANT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROPVARIANT_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPVARIANT_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPVARIANT_0_0 {
@@ -2685,8 +2685,8 @@ impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROPVARIANT_0_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPVARIANT_0_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPVARIANT_0_0_0 {
@@ -2712,8 +2712,8 @@ impl ::core::fmt::Debug for RemSNB {
         f.debug_struct("RemSNB").field("ulCntStr", &self.ulCntStr).field("ulCntChar", &self.ulCntChar).field("rgString", &self.rgString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RemSNB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RemSNB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RemSNB {
     fn eq(&self, other: &Self) -> bool {
@@ -2743,8 +2743,8 @@ impl ::core::fmt::Debug for SERIALIZEDPROPERTYVALUE {
         f.debug_struct("SERIALIZEDPROPERTYVALUE").field("dwType", &self.dwType).field("rgb", &self.rgb).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERIALIZEDPROPERTYVALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERIALIZEDPROPERTYVALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERIALIZEDPROPERTYVALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -2784,8 +2784,8 @@ impl ::core::fmt::Debug for STATPROPSETSTG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STATPROPSETSTG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STATPROPSETSTG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STATPROPSETSTG {
@@ -2819,8 +2819,8 @@ impl ::core::fmt::Debug for STATPROPSTG {
         f.debug_struct("STATPROPSTG").field("lpwstrName", &self.lpwstrName).field("propid", &self.propid).field("vt", &self.vt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STATPROPSTG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STATPROPSTG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STATPROPSTG {
     fn eq(&self, other: &Self) -> bool {
@@ -2852,8 +2852,8 @@ impl ::core::fmt::Debug for STGOPTIONS {
         f.debug_struct("STGOPTIONS").field("usVersion", &self.usVersion).field("reserved", &self.reserved).field("ulSectorSize", &self.ulSectorSize).field("pwcsTemplateFile", &self.pwcsTemplateFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STGOPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STGOPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STGOPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -2882,8 +2882,8 @@ impl ::core::fmt::Debug for VERSIONEDSTREAM {
         f.debug_struct("VERSIONEDSTREAM").field("guidVersion", &self.guidVersion).field("pStream", &self.pStream).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VERSIONEDSTREAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VERSIONEDSTREAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VERSIONEDSTREAM {
     fn eq(&self, other: &Self) -> bool {

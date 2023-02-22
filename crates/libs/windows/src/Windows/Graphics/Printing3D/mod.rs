@@ -4,6 +4,11 @@ pub struct IPrint3DManager(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DManager {
     type Vtable = IPrint3DManager_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
 }
@@ -26,6 +31,11 @@ pub struct IPrint3DManagerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DManagerStatics {
     type Vtable = IPrint3DManagerStatics_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DManagerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DManagerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ef1cafe_a9ad_4c08_a917_1d1f863eabcb);
 }
@@ -44,6 +54,11 @@ pub struct IPrint3DManagerStatics_Vtbl {
 pub struct IPrint3DTask(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTask {
     type Vtable = IPrint3DTask_Vtbl;
+}
+impl ::core::clone::Clone for IPrint3DTask {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrint3DTask {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
@@ -84,6 +99,11 @@ pub struct IPrint3DTaskCompletedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DTaskCompletedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DTaskCompletedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
 }
@@ -100,6 +120,11 @@ pub struct IPrint3DTaskRequest(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DTaskRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DTaskRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
 }
@@ -107,13 +132,18 @@ unsafe impl ::windows::core::Interface for IPrint3DTaskRequest {
 #[doc(hidden)]
 pub struct IPrint3DTaskRequest_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: *mut ::core::ffi::c_void, printerid: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::std::mem::MaybeUninit<::windows::core::HSTRING>, printerid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrint3DTaskRequestedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_Vtbl;
+}
+impl ::core::clone::Clone for IPrint3DTaskRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrint3DTaskRequestedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
@@ -130,6 +160,11 @@ pub struct IPrint3DTaskSourceChangedEventArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DTaskSourceChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DTaskSourceChangedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
 }
@@ -145,6 +180,11 @@ pub struct IPrint3DTaskSourceRequestedArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrint3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_Vtbl;
 }
+impl ::core::clone::Clone for IPrint3DTaskSourceRequestedArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrint3DTaskSourceRequestedArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
 }
@@ -159,6 +199,11 @@ pub struct IPrint3DTaskSourceRequestedArgs_Vtbl {
 pub struct IPrinting3D3MFPackage(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3D3MFPackage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
@@ -208,6 +253,11 @@ pub struct IPrinting3D3MFPackage2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3D3MFPackage2 {
     type Vtable = IPrinting3D3MFPackage2_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3D3MFPackage2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3D3MFPackage2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965c7ac4_93cb_4430_92b8_789cd454f883);
 }
@@ -223,6 +273,11 @@ pub struct IPrinting3D3MFPackage2_Vtbl {
 pub struct IPrinting3D3MFPackageStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3D3MFPackageStatics {
     type Vtable = IPrinting3D3MFPackageStatics_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3D3MFPackageStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3D3MFPackageStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7058d9af_7a9a_4787_b817_f6f459214823);
@@ -242,6 +297,11 @@ pub struct IPrinting3DBaseMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DBaseMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
 }
@@ -249,8 +309,8 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterial {
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterial_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -259,6 +319,11 @@ pub struct IPrinting3DBaseMaterial_Vtbl {
 pub struct IPrinting3DBaseMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DBaseMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
@@ -279,6 +344,11 @@ pub struct IPrinting3DBaseMaterialGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DBaseMaterialGroupFactory {
     type Vtable = IPrinting3DBaseMaterialGroupFactory_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DBaseMaterialGroupFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1546dc_8697_4193_976b_84bb4116e5bf);
 }
@@ -294,6 +364,11 @@ pub struct IPrinting3DBaseMaterialStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DBaseMaterialStatics {
     type Vtable = IPrinting3DBaseMaterialStatics_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DBaseMaterialStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x815a47bc_374a_476d_be92_3ecfd1cb9776);
 }
@@ -301,14 +376,19 @@ unsafe impl ::windows::core::Interface for IPrinting3DBaseMaterialStatics {
 #[doc(hidden)]
 pub struct IPrinting3DBaseMaterialStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Abs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Pla: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Abs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Pla: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrinting3DColorMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DColorMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
@@ -325,6 +405,11 @@ pub struct IPrinting3DColorMaterial_Vtbl {
 pub struct IPrinting3DColorMaterial2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DColorMaterial2 {
     type Vtable = IPrinting3DColorMaterial2_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DColorMaterial2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DColorMaterial2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e852_0aef_44e9_9ddd_36eeea5acd44);
@@ -348,6 +433,11 @@ pub struct IPrinting3DColorMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DColorMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
 }
@@ -367,6 +457,11 @@ pub struct IPrinting3DColorMaterialGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DColorMaterialGroupFactory {
     type Vtable = IPrinting3DColorMaterialGroupFactory_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DColorMaterialGroupFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DColorMaterialGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71d38d6d_b1ea_4a5b_bc54_19c65f3df044);
 }
@@ -381,6 +476,11 @@ pub struct IPrinting3DColorMaterialGroupFactory_Vtbl {
 pub struct IPrinting3DComponent(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DComponent {
     type Vtable = IPrinting3DComponent_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DComponent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DComponent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
@@ -399,16 +499,21 @@ pub struct IPrinting3DComponent_Vtbl {
     pub SetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Printing3DObjectType) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Printing3DObjectType) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetPartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPartNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IPrinting3DComponentWithMatrix(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DComponentWithMatrix {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DComponentWithMatrix {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
@@ -434,6 +539,11 @@ pub struct IPrinting3DCompositeMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DCompositeMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
 }
@@ -451,6 +561,11 @@ pub struct IPrinting3DCompositeMaterial_Vtbl {
 pub struct IPrinting3DCompositeMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DCompositeMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
@@ -475,6 +590,11 @@ pub struct IPrinting3DCompositeMaterialGroup2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DCompositeMaterialGroup2 {
     type Vtable = IPrinting3DCompositeMaterialGroup2_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DCompositeMaterialGroup2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroup2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06e86d62_7d3b_41e1_944c_bafde4555483);
 }
@@ -491,6 +611,11 @@ pub struct IPrinting3DCompositeMaterialGroupFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DCompositeMaterialGroupFactory {
     type Vtable = IPrinting3DCompositeMaterialGroupFactory_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DCompositeMaterialGroupFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DCompositeMaterialGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd08ecd13_92ff_43aa_a627_8d43c22c817e);
 }
@@ -505,6 +630,11 @@ pub struct IPrinting3DCompositeMaterialGroupFactory_Vtbl {
 pub struct IPrinting3DFaceReductionOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DFaceReductionOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DFaceReductionOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
@@ -525,6 +655,11 @@ pub struct IPrinting3DFaceReductionOptions_Vtbl {
 pub struct IPrinting3DMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DMaterial {
     type Vtable = IPrinting3DMaterial_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
@@ -559,6 +694,11 @@ pub struct IPrinting3DMaterial_Vtbl {
 pub struct IPrinting3DMesh(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DMesh {
     type Vtable = IPrinting3DMesh_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DMesh {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DMesh {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
@@ -618,6 +758,11 @@ pub struct IPrinting3DMeshVerificationResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DMeshVerificationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DMeshVerificationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
 }
@@ -640,6 +785,11 @@ pub struct IPrinting3DMeshVerificationResult_Vtbl {
 pub struct IPrinting3DModel(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DModel {
     type Vtable = IPrinting3DModel_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DModel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DModel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
@@ -666,8 +816,8 @@ pub struct IPrinting3DModel_Vtbl {
     pub SetMaterial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Build: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetBuild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
     pub RequiredExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
@@ -687,6 +837,11 @@ pub struct IPrinting3DModel_Vtbl {
 pub struct IPrinting3DModel2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DModel2 {
     type Vtable = IPrinting3DModel2_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DModel2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DModel2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92069c7_c841_47f3_a84e_a149fd08b657);
@@ -726,6 +881,11 @@ pub struct IPrinting3DModelTexture(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DModelTexture {
     type Vtable = IPrinting3DModelTexture_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DModelTexture {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DModelTexture {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
 }
@@ -746,6 +906,11 @@ pub struct IPrinting3DMultiplePropertyMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DMultiplePropertyMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
 }
@@ -763,6 +928,11 @@ pub struct IPrinting3DMultiplePropertyMaterial_Vtbl {
 pub struct IPrinting3DMultiplePropertyMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DMultiplePropertyMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
@@ -787,6 +957,11 @@ pub struct IPrinting3DMultiplePropertyMaterialGroupFactory(::windows::core::IUnk
 unsafe impl ::windows::core::Vtable for IPrinting3DMultiplePropertyMaterialGroupFactory {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DMultiplePropertyMaterialGroupFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DMultiplePropertyMaterialGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323e196e_d4c6_451e_a814_4d78a210fe53);
 }
@@ -801,6 +976,11 @@ pub struct IPrinting3DMultiplePropertyMaterialGroupFactory_Vtbl {
 pub struct IPrinting3DTexture2CoordMaterial(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DTexture2CoordMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterial {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
@@ -822,6 +1002,11 @@ pub struct IPrinting3DTexture2CoordMaterialGroup(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DTexture2CoordMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
 }
@@ -841,6 +1026,11 @@ pub struct IPrinting3DTexture2CoordMaterialGroup2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DTexture2CoordMaterialGroup2 {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup2_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DTexture2CoordMaterialGroup2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroup2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fbdbba_b12e_429b_8386_df5284f6e80f);
 }
@@ -857,6 +1047,11 @@ pub struct IPrinting3DTexture2CoordMaterialGroupFactory(::windows::core::IUnknow
 unsafe impl ::windows::core::Vtable for IPrinting3DTexture2CoordMaterialGroupFactory {
     type Vtable = IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl;
 }
+impl ::core::clone::Clone for IPrinting3DTexture2CoordMaterialGroupFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinting3DTexture2CoordMaterialGroupFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbb049b0_468a_4c6f_b2a2_8eb8ba8dea48);
 }
@@ -871,6 +1066,11 @@ pub struct IPrinting3DTexture2CoordMaterialGroupFactory_Vtbl {
 pub struct IPrinting3DTextureResource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IPrinting3DTextureResource {
     type Vtable = IPrinting3DTextureResource_Vtbl;
+}
+impl ::core::clone::Clone for IPrinting3DTextureResource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinting3DTextureResource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
@@ -887,8 +1087,8 @@ pub struct IPrinting3DTextureResource_Vtbl {
     pub SetTextureData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SetTextureData: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -899,8 +1099,8 @@ impl Print3DManager {
     pub fn TaskRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<Print3DManager, Print3DTaskRequestedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TaskRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).TaskRequested)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -911,27 +1111,22 @@ impl Print3DManager {
     }
     pub fn GetForCurrentView() -> ::windows::core::Result<Print3DManager> {
         Self::IPrint3DManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Print3DManager>();
+            (::windows::core::Vtable::vtable(this).GetForCurrentView)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowPrintUIAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrint3DManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShowPrintUIAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows::core::Vtable::vtable(this).ShowPrintUIAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrint3DManagerStatics<R, F: FnOnce(&IPrint3DManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Print3DManager, IPrint3DManagerStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Print3DManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DManager {
@@ -945,11 +1140,12 @@ impl ::core::fmt::Debug for Print3DManager {
         f.debug_tuple("Print3DManager").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DManager {
+impl ::windows::core::RuntimeType for Print3DManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DManager;{4d2fcb0a-7366-4971-8bd5-17c4e3e8c6c0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DManager {
@@ -971,8 +1167,8 @@ impl Print3DTask {
     pub fn Source(&self) -> ::windows::core::Result<Printing3D3MFPackage> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3D3MFPackage>();
+            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -980,8 +1176,8 @@ impl Print3DTask {
     pub fn Submitting(&self, eventhandler: &super::super::Foundation::TypedEventHandler<Print3DTask, ::windows::core::IInspectable>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Submitting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Submitting)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -995,8 +1191,8 @@ impl Print3DTask {
     pub fn Completed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskCompletedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Completed)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1010,8 +1206,8 @@ impl Print3DTask {
     pub fn SourceChanged(&self, eventhandler: &super::super::Foundation::TypedEventHandler<Print3DTask, Print3DTaskSourceChangedEventArgs>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SourceChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).SourceChanged)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1019,11 +1215,6 @@ impl Print3DTask {
     pub fn RemoveSourceChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).RemoveSourceChanged)(::windows::core::Vtable::as_raw(this), eventcookie).ok() }
-    }
-}
-impl ::core::clone::Clone for Print3DTask {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DTask {
@@ -1037,11 +1228,12 @@ impl ::core::fmt::Debug for Print3DTask {
         f.debug_tuple("Print3DTask").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTask {
+impl ::windows::core::RuntimeType for Print3DTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTask;{8ce3d080-2118-4c28-80de-f426d70191ae})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTask {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTask {
@@ -1063,21 +1255,16 @@ impl Print3DTaskCompletedEventArgs {
     pub fn Completion(&self) -> ::windows::core::Result<Print3DTaskCompletion> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Completion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Print3DTaskCompletion>();
+            (::windows::core::Vtable::vtable(this).Completion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<Print3DTaskDetail> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedStatus)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Print3DTaskDetail>();
+            (::windows::core::Vtable::vtable(this).ExtendedStatus)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Print3DTaskCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DTaskCompletedEventArgs {
@@ -1091,11 +1278,12 @@ impl ::core::fmt::Debug for Print3DTaskCompletedEventArgs {
         f.debug_tuple("Print3DTaskCompletedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
+impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs;{cc1914af-2614-4f1d-accc-d6fc4fda5455})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTaskCompletedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTaskCompletedEventArgs {
@@ -1117,14 +1305,9 @@ impl Print3DTaskRequest {
     pub fn CreateTask(&self, title: &::windows::core::HSTRING, printerid: &::windows::core::HSTRING, handler: &Print3DTaskSourceRequestedHandler) -> ::windows::core::Result<Print3DTask> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(printerid), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Print3DTask>();
+            (::windows::core::Vtable::vtable(this).CreateTask)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(printerid), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Print3DTaskRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DTaskRequest {
@@ -1138,11 +1321,12 @@ impl ::core::fmt::Debug for Print3DTaskRequest {
         f.debug_tuple("Print3DTaskRequest").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskRequest {
+impl ::windows::core::RuntimeType for Print3DTaskRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequest;{2595c46f-2245-4c5a-8731-0d604dc6bc3c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTaskRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTaskRequest {
@@ -1164,14 +1348,9 @@ impl Print3DTaskRequestedEventArgs {
     pub fn Request(&self) -> ::windows::core::Result<Print3DTaskRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Print3DTaskRequest>();
+            (::windows::core::Vtable::vtable(this).Request)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Print3DTaskRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DTaskRequestedEventArgs {
@@ -1185,11 +1364,12 @@ impl ::core::fmt::Debug for Print3DTaskRequestedEventArgs {
         f.debug_tuple("Print3DTaskRequestedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
+impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs;{150cb77f-18c5-40d7-9f40-fab3096e05a9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTaskRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTaskRequestedEventArgs {
@@ -1211,14 +1391,9 @@ impl Print3DTaskSourceChangedEventArgs {
     pub fn Source(&self) -> ::windows::core::Result<Printing3D3MFPackage> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3D3MFPackage>();
+            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Print3DTaskSourceChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Print3DTaskSourceChangedEventArgs {
@@ -1232,11 +1407,12 @@ impl ::core::fmt::Debug for Print3DTaskSourceChangedEventArgs {
         f.debug_tuple("Print3DTaskSourceChangedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
+impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs;{5bcd34af-24e9-4c10-8d07-14c346ba3fcf})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTaskSourceChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTaskSourceChangedEventArgs {
@@ -1260,11 +1436,6 @@ impl Print3DTaskSourceRequestedArgs {
         unsafe { (::windows::core::Vtable::vtable(this).SetSource)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(source)).ok() }
     }
 }
-impl ::core::clone::Clone for Print3DTaskSourceRequestedArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1276,11 +1447,12 @@ impl ::core::fmt::Debug for Print3DTaskSourceRequestedArgs {
         f.debug_tuple("Print3DTaskSourceRequestedArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
+impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs;{c77c9aba-24af-424d-a3bf-92250c355602})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Print3DTaskSourceRequestedArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Print3DTaskSourceRequestedArgs {
@@ -1311,8 +1483,8 @@ impl Printing3D3MFPackage {
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>();
+            (::windows::core::Vtable::vtable(this).SaveAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1320,8 +1492,8 @@ impl Printing3D3MFPackage {
     pub fn PrintTicket(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PrintTicket)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStream>();
+            (::windows::core::Vtable::vtable(this).PrintTicket)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1339,8 +1511,8 @@ impl Printing3D3MFPackage {
     pub fn ModelPart(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ModelPart)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStream>();
+            (::windows::core::Vtable::vtable(this).ModelPart)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1356,8 +1528,8 @@ impl Printing3D3MFPackage {
     pub fn Thumbnail(&self) -> ::windows::core::Result<Printing3DTextureResource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTextureResource>();
+            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetThumbnail(&self, value: &Printing3DTextureResource) -> ::windows::core::Result<()> {
@@ -1369,8 +1541,8 @@ impl Printing3D3MFPackage {
     pub fn Textures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DTextureResource>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Textures)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DTextureResource>>();
+            (::windows::core::Vtable::vtable(this).Textures)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1382,8 +1554,8 @@ impl Printing3D3MFPackage {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadModelFromPackageAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Printing3DModel>>();
+            (::windows::core::Vtable::vtable(this).LoadModelFromPackageAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1391,15 +1563,15 @@ impl Printing3D3MFPackage {
     pub fn SaveModelToPackageAsync(&self, value: &Printing3DModel) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SaveModelToPackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).SaveModelToPackageAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     pub fn Compression(&self) -> ::windows::core::Result<Printing3DPackageCompression> {
         let this = &::windows::core::Interface::cast::<IPrinting3D3MFPackage2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compression)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DPackageCompression>();
+            (::windows::core::Vtable::vtable(this).Compression)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCompression(&self, value: Printing3DPackageCompression) -> ::windows::core::Result<()> {
@@ -1414,19 +1586,14 @@ impl Printing3D3MFPackage {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IPrinting3D3MFPackageStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>();
+            (::windows::core::Vtable::vtable(this).LoadAsync)(::windows::core::Vtable::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3D3MFPackageStatics<R, F: FnOnce(&IPrinting3D3MFPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3D3MFPackage, IPrinting3D3MFPackageStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3D3MFPackage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3D3MFPackage {
@@ -1440,11 +1607,12 @@ impl ::core::fmt::Debug for Printing3D3MFPackage {
         f.debug_tuple("Printing3D3MFPackage").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3D3MFPackage {
+impl ::windows::core::RuntimeType for Printing3D3MFPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3D3MFPackage;{f64dd5c8-2ab7-45a9-a1b7-267e948d5b18})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3D3MFPackage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3D3MFPackage {
@@ -1473,8 +1641,8 @@ impl Printing3DBaseMaterial {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1484,8 +1652,8 @@ impl Printing3DBaseMaterial {
     pub fn Color(&self) -> ::windows::core::Result<Printing3DColorMaterial> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DColorMaterial>();
+            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetColor(&self, value: &Printing3DColorMaterial) -> ::windows::core::Result<()> {
@@ -1494,25 +1662,20 @@ impl Printing3DBaseMaterial {
     }
     pub fn Abs() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPrinting3DBaseMaterialStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Abs)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Abs)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Pla() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPrinting3DBaseMaterialStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Pla)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Pla)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DBaseMaterialStatics<R, F: FnOnce(&IPrinting3DBaseMaterialStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterial, IPrinting3DBaseMaterialStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DBaseMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DBaseMaterial {
@@ -1526,11 +1689,12 @@ impl ::core::fmt::Debug for Printing3DBaseMaterial {
         f.debug_tuple("Printing3DBaseMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
+impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterial;{d0f0e743-c50c-4bcb-9d04-fc16adcea2c9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DBaseMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DBaseMaterial {
@@ -1554,32 +1718,27 @@ impl Printing3DBaseMaterialGroup {
     pub fn Bases(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Bases)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>>();
+            (::windows::core::Vtable::vtable(this).Bases)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaterialGroupId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DBaseMaterialGroup> {
         Self::IPrinting3DBaseMaterialGroupFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBaseMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DBaseMaterialGroupFactory<R, F: FnOnce(&IPrinting3DBaseMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DBaseMaterialGroup, IPrinting3DBaseMaterialGroupFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DBaseMaterialGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DBaseMaterialGroup {
@@ -1593,11 +1752,12 @@ impl ::core::fmt::Debug for Printing3DBaseMaterialGroup {
         f.debug_tuple("Printing3DBaseMaterialGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
+impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup;{94f070b8-2515-4a8d-a1f0-d0fc13d06021})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DBaseMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DBaseMaterialGroup {
@@ -1626,8 +1786,8 @@ impl Printing3DColorMaterial {
     pub fn Value(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValue(&self, value: u32) -> ::windows::core::Result<()> {
@@ -1639,8 +1799,8 @@ impl Printing3DColorMaterial {
     pub fn Color(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = &::windows::core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::UI::Color>();
+            (::windows::core::Vtable::vtable(this).Color)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI\"`*"]
@@ -1648,11 +1808,6 @@ impl Printing3DColorMaterial {
     pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrinting3DColorMaterial2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetColor)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DColorMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DColorMaterial {
@@ -1666,11 +1821,12 @@ impl ::core::fmt::Debug for Printing3DColorMaterial {
         f.debug_tuple("Printing3DColorMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterial {
+impl ::windows::core::RuntimeType for Printing3DColorMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterial;{e1899928-7ce7-4285-a35d-f145c9510c7b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DColorMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DColorMaterial {
@@ -1694,32 +1850,27 @@ impl Printing3DColorMaterialGroup {
     pub fn Colors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Colors)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>>();
+            (::windows::core::Vtable::vtable(this).Colors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaterialGroupId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DColorMaterialGroup> {
         Self::IPrinting3DColorMaterialGroupFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DColorMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DColorMaterialGroupFactory<R, F: FnOnce(&IPrinting3DColorMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DColorMaterialGroup, IPrinting3DColorMaterialGroupFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DColorMaterialGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DColorMaterialGroup {
@@ -1733,11 +1884,12 @@ impl ::core::fmt::Debug for Printing3DColorMaterialGroup {
         f.debug_tuple("Printing3DColorMaterialGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
+impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DColorMaterialGroup;{001a6bd0-aadf-4226-afe9-f369a0b45004})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DColorMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DColorMaterialGroup {
@@ -1766,8 +1918,8 @@ impl Printing3DComponent {
     pub fn Mesh(&self) -> ::windows::core::Result<Printing3DMesh> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Mesh)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DMesh>();
+            (::windows::core::Vtable::vtable(this).Mesh)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMesh(&self, value: &Printing3DMesh) -> ::windows::core::Result<()> {
@@ -1779,15 +1931,15 @@ impl Printing3DComponent {
     pub fn Components(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Components)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>>();
+            (::windows::core::Vtable::vtable(this).Components)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Thumbnail(&self) -> ::windows::core::Result<Printing3DTextureResource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTextureResource>();
+            (::windows::core::Vtable::vtable(this).Thumbnail)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetThumbnail(&self, value: &Printing3DTextureResource) -> ::windows::core::Result<()> {
@@ -1797,8 +1949,8 @@ impl Printing3DComponent {
     pub fn Type(&self) -> ::windows::core::Result<Printing3DObjectType> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DObjectType>();
+            (::windows::core::Vtable::vtable(this).Type)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetType(&self, value: Printing3DObjectType) -> ::windows::core::Result<()> {
@@ -1808,8 +1960,8 @@ impl Printing3DComponent {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1819,18 +1971,13 @@ impl Printing3DComponent {
     pub fn PartNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PartNumber)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).PartNumber)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPartNumber(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetPartNumber)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DComponent {
@@ -1844,11 +1991,12 @@ impl ::core::fmt::Debug for Printing3DComponent {
         f.debug_tuple("Printing3DComponent").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DComponent {
+impl ::windows::core::RuntimeType for Printing3DComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponent;{7e287845-bf7f-4cdb-a27f-30a01437fede})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DComponent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DComponent {
@@ -1877,8 +2025,8 @@ impl Printing3DComponentWithMatrix {
     pub fn Component(&self) -> ::windows::core::Result<Printing3DComponent> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Component)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DComponent>();
+            (::windows::core::Vtable::vtable(this).Component)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComponent(&self, value: &Printing3DComponent) -> ::windows::core::Result<()> {
@@ -1890,8 +2038,8 @@ impl Printing3DComponentWithMatrix {
     pub fn Matrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Matrix)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Numerics::Matrix4x4>();
+            (::windows::core::Vtable::vtable(this).Matrix)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1899,11 +2047,6 @@ impl Printing3DComponentWithMatrix {
     pub fn SetMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetMatrix)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DComponentWithMatrix {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DComponentWithMatrix {
@@ -1917,11 +2060,12 @@ impl ::core::fmt::Debug for Printing3DComponentWithMatrix {
         f.debug_tuple("Printing3DComponentWithMatrix").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
+impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DComponentWithMatrix;{3279f335-0ef0-456b-9a21-49bebe8b51c2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DComponentWithMatrix {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DComponentWithMatrix {
@@ -1952,14 +2096,9 @@ impl Printing3DCompositeMaterial {
     pub fn Values(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<f64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Values)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<f64>>();
+            (::windows::core::Vtable::vtable(this).Values)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DCompositeMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DCompositeMaterial {
@@ -1973,11 +2112,12 @@ impl ::core::fmt::Debug for Printing3DCompositeMaterial {
         f.debug_tuple("Printing3DCompositeMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
+impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterial;{462238dd-562e-4f6c-882d-f4d841fd63c7})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DCompositeMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DCompositeMaterial {
@@ -2001,15 +2141,15 @@ impl Printing3DCompositeMaterialGroup {
     pub fn Composites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Composites)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>>();
+            (::windows::core::Vtable::vtable(this).Composites)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaterialGroupId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2017,15 +2157,15 @@ impl Printing3DCompositeMaterialGroup {
     pub fn MaterialIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialIndices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<u32>>();
+            (::windows::core::Vtable::vtable(this).MaterialIndices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BaseMaterialGroup(&self) -> ::windows::core::Result<Printing3DBaseMaterialGroup> {
         let this = &::windows::core::Interface::cast::<IPrinting3DCompositeMaterialGroup2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BaseMaterialGroup)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBaseMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).BaseMaterialGroup)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBaseMaterialGroup(&self, value: &Printing3DBaseMaterialGroup) -> ::windows::core::Result<()> {
@@ -2034,19 +2174,14 @@ impl Printing3DCompositeMaterialGroup {
     }
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DCompositeMaterialGroup> {
         Self::IPrinting3DCompositeMaterialGroupFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DCompositeMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DCompositeMaterialGroupFactory<R, F: FnOnce(&IPrinting3DCompositeMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DCompositeMaterialGroup, IPrinting3DCompositeMaterialGroupFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DCompositeMaterialGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DCompositeMaterialGroup {
@@ -2060,11 +2195,12 @@ impl ::core::fmt::Debug for Printing3DCompositeMaterialGroup {
         f.debug_tuple("Printing3DCompositeMaterialGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
+impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup;{8d946a5b-40f1-496d-a5fb-340a5a678e30})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DCompositeMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DCompositeMaterialGroup {
@@ -2093,8 +2229,8 @@ impl Printing3DFaceReductionOptions {
     pub fn MaxReductionArea(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxReductionArea)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f64>();
+            (::windows::core::Vtable::vtable(this).MaxReductionArea)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxReductionArea(&self, value: f64) -> ::windows::core::Result<()> {
@@ -2104,8 +2240,8 @@ impl Printing3DFaceReductionOptions {
     pub fn TargetTriangleCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TargetTriangleCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).TargetTriangleCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTargetTriangleCount(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2115,18 +2251,13 @@ impl Printing3DFaceReductionOptions {
     pub fn MaxEdgeLength(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxEdgeLength)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f64>();
+            (::windows::core::Vtable::vtable(this).MaxEdgeLength)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxEdgeLength(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetMaxEdgeLength)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DFaceReductionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DFaceReductionOptions {
@@ -2140,11 +2271,12 @@ impl ::core::fmt::Debug for Printing3DFaceReductionOptions {
         f.debug_tuple("Printing3DFaceReductionOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
+impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DFaceReductionOptions;{bbfed397-2d74-46f7-be85-99a67bbb6629})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DFaceReductionOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DFaceReductionOptions {
@@ -2175,8 +2307,8 @@ impl Printing3DMaterial {
     pub fn BaseGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BaseGroups)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>>();
+            (::windows::core::Vtable::vtable(this).BaseGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2184,8 +2316,8 @@ impl Printing3DMaterial {
     pub fn ColorGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ColorGroups)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>>();
+            (::windows::core::Vtable::vtable(this).ColorGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2193,8 +2325,8 @@ impl Printing3DMaterial {
     pub fn Texture2CoordGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Texture2CoordGroups)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>>();
+            (::windows::core::Vtable::vtable(this).Texture2CoordGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2202,8 +2334,8 @@ impl Printing3DMaterial {
     pub fn CompositeGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CompositeGroups)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>>();
+            (::windows::core::Vtable::vtable(this).CompositeGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2211,14 +2343,9 @@ impl Printing3DMaterial {
     pub fn MultiplePropertyGroups(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MultiplePropertyGroups)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>>();
+            (::windows::core::Vtable::vtable(this).MultiplePropertyGroups)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DMaterial {
@@ -2232,11 +2359,12 @@ impl ::core::fmt::Debug for Printing3DMaterial {
         f.debug_tuple("Printing3DMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMaterial {
+impl ::windows::core::RuntimeType for Printing3DMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMaterial;{378db256-ed62-4952-b85b-03567d7c465e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DMaterial {
@@ -2265,8 +2393,8 @@ impl Printing3DMesh {
     pub fn VertexCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VertexCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).VertexCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVertexCount(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2276,8 +2404,8 @@ impl Printing3DMesh {
     pub fn IndexCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IndexCount)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).IndexCount)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIndexCount(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2287,8 +2415,8 @@ impl Printing3DMesh {
     pub fn VertexPositionsDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VertexPositionsDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBufferDescription>();
+            (::windows::core::Vtable::vtable(this).VertexPositionsDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVertexPositionsDescription(&self, value: Printing3DBufferDescription) -> ::windows::core::Result<()> {
@@ -2298,8 +2426,8 @@ impl Printing3DMesh {
     pub fn VertexNormalsDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VertexNormalsDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBufferDescription>();
+            (::windows::core::Vtable::vtable(this).VertexNormalsDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVertexNormalsDescription(&self, value: Printing3DBufferDescription) -> ::windows::core::Result<()> {
@@ -2309,8 +2437,8 @@ impl Printing3DMesh {
     pub fn TriangleIndicesDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TriangleIndicesDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBufferDescription>();
+            (::windows::core::Vtable::vtable(this).TriangleIndicesDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTriangleIndicesDescription(&self, value: Printing3DBufferDescription) -> ::windows::core::Result<()> {
@@ -2320,8 +2448,8 @@ impl Printing3DMesh {
     pub fn TriangleMaterialIndicesDescription(&self) -> ::windows::core::Result<Printing3DBufferDescription> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TriangleMaterialIndicesDescription)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DBufferDescription>();
+            (::windows::core::Vtable::vtable(this).TriangleMaterialIndicesDescription)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTriangleMaterialIndicesDescription(&self, value: Printing3DBufferDescription) -> ::windows::core::Result<()> {
@@ -2333,8 +2461,8 @@ impl Printing3DMesh {
     pub fn GetVertexPositions(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetVertexPositions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            (::windows::core::Vtable::vtable(this).GetVertexPositions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateVertexPositions(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2346,8 +2474,8 @@ impl Printing3DMesh {
     pub fn GetVertexNormals(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetVertexNormals)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            (::windows::core::Vtable::vtable(this).GetVertexNormals)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateVertexNormals(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2359,8 +2487,8 @@ impl Printing3DMesh {
     pub fn GetTriangleIndices(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetTriangleIndices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            (::windows::core::Vtable::vtable(this).GetTriangleIndices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateTriangleIndices(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2372,8 +2500,8 @@ impl Printing3DMesh {
     pub fn GetTriangleMaterialIndices(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetTriangleMaterialIndices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            (::windows::core::Vtable::vtable(this).GetTriangleMaterialIndices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateTriangleMaterialIndices(&self, value: u32) -> ::windows::core::Result<()> {
@@ -2385,8 +2513,8 @@ impl Printing3DMesh {
     pub fn BufferDescriptionSet(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BufferDescriptionSet)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            (::windows::core::Vtable::vtable(this).BufferDescriptionSet)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2394,8 +2522,8 @@ impl Printing3DMesh {
     pub fn BufferSet(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).BufferSet)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            (::windows::core::Vtable::vtable(this).BufferSet)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2403,14 +2531,9 @@ impl Printing3DMesh {
     pub fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).VerifyAsync)(::windows::core::Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>>();
+            (::windows::core::Vtable::vtable(this).VerifyAsync)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DMesh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DMesh {
@@ -2424,11 +2547,12 @@ impl ::core::fmt::Debug for Printing3DMesh {
         f.debug_tuple("Printing3DMesh").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMesh {
+impl ::windows::core::RuntimeType for Printing3DMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMesh;{192e90dc-0228-2e01-bc20-c5290cbf32c4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DMesh {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DMesh {
@@ -2450,8 +2574,8 @@ impl Printing3DMeshVerificationResult {
     pub fn IsValid(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsValid)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsValid)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2459,8 +2583,8 @@ impl Printing3DMeshVerificationResult {
     pub fn NonmanifoldTriangles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NonmanifoldTriangles)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u32>>();
+            (::windows::core::Vtable::vtable(this).NonmanifoldTriangles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2468,14 +2592,9 @@ impl Printing3DMeshVerificationResult {
     pub fn ReversedNormalTriangles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ReversedNormalTriangles)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<u32>>();
+            (::windows::core::Vtable::vtable(this).ReversedNormalTriangles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DMeshVerificationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DMeshVerificationResult {
@@ -2489,11 +2608,12 @@ impl ::core::fmt::Debug for Printing3DMeshVerificationResult {
         f.debug_tuple("Printing3DMeshVerificationResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
+impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMeshVerificationResult;{195671ba-e93a-4e8a-a46f-dea8e852197e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DMeshVerificationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DMeshVerificationResult {
@@ -2522,8 +2642,8 @@ impl Printing3DModel {
     pub fn Unit(&self) -> ::windows::core::Result<Printing3DModelUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Unit)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DModelUnit>();
+            (::windows::core::Vtable::vtable(this).Unit)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetUnit(&self, value: Printing3DModelUnit) -> ::windows::core::Result<()> {
@@ -2535,8 +2655,8 @@ impl Printing3DModel {
     pub fn Textures(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DModelTexture>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Textures)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DModelTexture>>();
+            (::windows::core::Vtable::vtable(this).Textures)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2544,8 +2664,8 @@ impl Printing3DModel {
     pub fn Meshes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DMesh>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Meshes)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DMesh>>();
+            (::windows::core::Vtable::vtable(this).Meshes)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2553,15 +2673,15 @@ impl Printing3DModel {
     pub fn Components(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DComponent>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Components)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DComponent>>();
+            (::windows::core::Vtable::vtable(this).Components)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Material(&self) -> ::windows::core::Result<Printing3DMaterial> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Material)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DMaterial>();
+            (::windows::core::Vtable::vtable(this).Material)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaterial(&self, value: &Printing3DMaterial) -> ::windows::core::Result<()> {
@@ -2571,8 +2691,8 @@ impl Printing3DModel {
     pub fn Build(&self) -> ::windows::core::Result<Printing3DComponent> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Build)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DComponent>();
+            (::windows::core::Vtable::vtable(this).Build)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetBuild(&self, value: &Printing3DComponent) -> ::windows::core::Result<()> {
@@ -2582,8 +2702,8 @@ impl Printing3DModel {
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Version)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetVersion(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2595,8 +2715,8 @@ impl Printing3DModel {
     pub fn RequiredExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequiredExtensions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).RequiredExtensions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2604,8 +2724,8 @@ impl Printing3DModel {
     pub fn Metadata(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Metadata)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).Metadata)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2613,15 +2733,15 @@ impl Printing3DModel {
     pub fn RepairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RepairAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).RepairAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Clone(&self) -> ::windows::core::Result<Printing3DModel> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Clone)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DModel>();
+            (::windows::core::Vtable::vtable(this).Clone)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2629,8 +2749,8 @@ impl Printing3DModel {
     pub fn TryPartialRepairAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryPartialRepairAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows::core::Vtable::vtable(this).TryPartialRepairAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2638,8 +2758,8 @@ impl Printing3DModel {
     pub fn TryPartialRepairWithTimeAsync(&self, maxwaittime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryPartialRepairWithTimeAsync)(::windows::core::Vtable::as_raw(this), maxwaittime, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows::core::Vtable::vtable(this).TryPartialRepairWithTimeAsync)(::windows::core::Vtable::as_raw(this), maxwaittime, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2647,8 +2767,8 @@ impl Printing3DModel {
     pub fn TryReduceFacesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryReduceFacesAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>();
+            (::windows::core::Vtable::vtable(this).TryReduceFacesAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2656,8 +2776,8 @@ impl Printing3DModel {
     pub fn TryReduceFacesWithOptionsAsync(&self, printing3dfacereductionoptions: &Printing3DFaceReductionOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryReduceFacesWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printing3dfacereductionoptions), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>();
+            (::windows::core::Vtable::vtable(this).TryReduceFacesWithOptionsAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printing3dfacereductionoptions), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2665,8 +2785,8 @@ impl Printing3DModel {
     pub fn TryReduceFacesWithOptionsAndTimeAsync(&self, printing3dfacereductionoptions: &Printing3DFaceReductionOptions, maxwait: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printing3dfacereductionoptions), maxwait, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>();
+            (::windows::core::Vtable::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(printing3dfacereductionoptions), maxwait, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2674,14 +2794,9 @@ impl Printing3DModel {
     pub fn RepairWithProgressAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows::core::Interface::cast::<IPrinting3DModel2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RepairWithProgressAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>();
+            (::windows::core::Vtable::vtable(this).RepairWithProgressAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DModel {
@@ -2695,11 +2810,12 @@ impl ::core::fmt::Debug for Printing3DModel {
         f.debug_tuple("Printing3DModel").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DModel {
+impl ::windows::core::RuntimeType for Printing3DModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModel;{2d012ef0-52fb-919a-77b0-4b1a3b80324f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DModel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DModel {
@@ -2728,8 +2844,8 @@ impl Printing3DModelTexture {
     pub fn TextureResource(&self) -> ::windows::core::Result<Printing3DTextureResource> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TextureResource)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTextureResource>();
+            (::windows::core::Vtable::vtable(this).TextureResource)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTextureResource(&self, value: &Printing3DTextureResource) -> ::windows::core::Result<()> {
@@ -2739,8 +2855,8 @@ impl Printing3DModelTexture {
     pub fn TileStyleU(&self) -> ::windows::core::Result<Printing3DTextureEdgeBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TileStyleU)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTextureEdgeBehavior>();
+            (::windows::core::Vtable::vtable(this).TileStyleU)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTileStyleU(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
@@ -2750,18 +2866,13 @@ impl Printing3DModelTexture {
     pub fn TileStyleV(&self) -> ::windows::core::Result<Printing3DTextureEdgeBehavior> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TileStyleV)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTextureEdgeBehavior>();
+            (::windows::core::Vtable::vtable(this).TileStyleV)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTileStyleV(&self, value: Printing3DTextureEdgeBehavior) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetTileStyleV)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DModelTexture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DModelTexture {
@@ -2775,11 +2886,12 @@ impl ::core::fmt::Debug for Printing3DModelTexture {
         f.debug_tuple("Printing3DModelTexture").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DModelTexture {
+impl ::windows::core::RuntimeType for Printing3DModelTexture {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DModelTexture;{5dafcf01-b59d-483c-97bb-a4d546d1c75c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DModelTexture {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DModelTexture {
@@ -2810,14 +2922,9 @@ impl Printing3DMultiplePropertyMaterial {
     pub fn MaterialIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialIndices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<u32>>();
+            (::windows::core::Vtable::vtable(this).MaterialIndices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for Printing3DMultiplePropertyMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterial {
@@ -2831,11 +2938,12 @@ impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterial {
         f.debug_tuple("Printing3DMultiplePropertyMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial {
+impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial;{25a6254b-c6e9-484d-a214-a25e5776ba62})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DMultiplePropertyMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DMultiplePropertyMaterial {
@@ -2859,8 +2967,8 @@ impl Printing3DMultiplePropertyMaterialGroup {
     pub fn MultipleProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MultipleProperties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>>();
+            (::windows::core::Vtable::vtable(this).MultipleProperties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2868,32 +2976,27 @@ impl Printing3DMultiplePropertyMaterialGroup {
     pub fn MaterialGroupIndices(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupIndices)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<u32>>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupIndices)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaterialGroupId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DMultiplePropertyMaterialGroup> {
         Self::IPrinting3DMultiplePropertyMaterialGroupFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DMultiplePropertyMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DMultiplePropertyMaterialGroupFactory<R, F: FnOnce(&IPrinting3DMultiplePropertyMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DMultiplePropertyMaterialGroup, IPrinting3DMultiplePropertyMaterialGroupFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DMultiplePropertyMaterialGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DMultiplePropertyMaterialGroup {
@@ -2907,11 +3010,12 @@ impl ::core::fmt::Debug for Printing3DMultiplePropertyMaterialGroup {
         f.debug_tuple("Printing3DMultiplePropertyMaterialGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
+impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup;{f0950519-aeb9-4515-a39b-a088fbbb277c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DMultiplePropertyMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DMultiplePropertyMaterialGroup {
@@ -2940,8 +3044,8 @@ impl Printing3DTexture2CoordMaterial {
     pub fn Texture(&self) -> ::windows::core::Result<Printing3DModelTexture> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Texture)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DModelTexture>();
+            (::windows::core::Vtable::vtable(this).Texture)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTexture(&self, value: &Printing3DModelTexture) -> ::windows::core::Result<()> {
@@ -2951,8 +3055,8 @@ impl Printing3DTexture2CoordMaterial {
     pub fn U(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).U)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f64>();
+            (::windows::core::Vtable::vtable(this).U)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetU(&self, value: f64) -> ::windows::core::Result<()> {
@@ -2962,18 +3066,13 @@ impl Printing3DTexture2CoordMaterial {
     pub fn V(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).V)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f64>();
+            (::windows::core::Vtable::vtable(this).V)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetV(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetV)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DTexture2CoordMaterial {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterial {
@@ -2987,11 +3086,12 @@ impl ::core::fmt::Debug for Printing3DTexture2CoordMaterial {
         f.debug_tuple("Printing3DTexture2CoordMaterial").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
+impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial;{8d844bfb-07e9-4986-9833-8dd3d48c6859})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DTexture2CoordMaterial {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DTexture2CoordMaterial {
@@ -3015,22 +3115,22 @@ impl Printing3DTexture2CoordMaterialGroup {
     pub fn Texture2Coords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Texture2Coords)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>>();
+            (::windows::core::Vtable::vtable(this).Texture2Coords)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaterialGroupId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).MaterialGroupId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Texture(&self) -> ::windows::core::Result<Printing3DModelTexture> {
         let this = &::windows::core::Interface::cast::<IPrinting3DTexture2CoordMaterialGroup2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Texture)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DModelTexture>();
+            (::windows::core::Vtable::vtable(this).Texture)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetTexture(&self, value: &Printing3DModelTexture) -> ::windows::core::Result<()> {
@@ -3039,19 +3139,14 @@ impl Printing3DTexture2CoordMaterialGroup {
     }
     pub fn Create(materialgroupid: u32) -> ::windows::core::Result<Printing3DTexture2CoordMaterialGroup> {
         Self::IPrinting3DTexture2CoordMaterialGroupFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<Printing3DTexture2CoordMaterialGroup>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), materialgroupid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IPrinting3DTexture2CoordMaterialGroupFactory<R, F: FnOnce(&IPrinting3DTexture2CoordMaterialGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<Printing3DTexture2CoordMaterialGroup, IPrinting3DTexture2CoordMaterialGroupFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Printing3DTexture2CoordMaterialGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DTexture2CoordMaterialGroup {
@@ -3065,11 +3160,12 @@ impl ::core::fmt::Debug for Printing3DTexture2CoordMaterialGroup {
         f.debug_tuple("Printing3DTexture2CoordMaterialGroup").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
+impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup;{627d7ca7-6d90-4fb9-9fc4-9feff3dfa892})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DTexture2CoordMaterialGroup {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DTexture2CoordMaterialGroup {
@@ -3100,8 +3196,8 @@ impl Printing3DTextureResource {
     pub fn TextureData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TextureData)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+            (::windows::core::Vtable::vtable(this).TextureData)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -3117,18 +3213,13 @@ impl Printing3DTextureResource {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetName(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetName)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for Printing3DTextureResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for Printing3DTextureResource {
@@ -3142,11 +3233,12 @@ impl ::core::fmt::Debug for Printing3DTextureResource {
         f.debug_tuple("Printing3DTextureResource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DTextureResource {
+impl ::windows::core::RuntimeType for Printing3DTextureResource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Printing3D.Printing3DTextureResource;{a70df32d-6ab1-44ae-bc45-a27382c0d38c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for Printing3DTextureResource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for Printing3DTextureResource {
@@ -3183,20 +3275,16 @@ impl ::core::default::Default for Print3DTaskCompletion {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Print3DTaskCompletion {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Print3DTaskCompletion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
+impl ::windows::core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3222,20 +3310,16 @@ impl ::core::default::Default for Print3DTaskDetail {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Print3DTaskDetail {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Print3DTaskDetail {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Print3DTaskDetail {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
+impl ::windows::core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3261,20 +3345,16 @@ impl ::core::default::Default for Printing3DBufferFormat {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DBufferFormat {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DBufferFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
+impl ::windows::core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3295,20 +3375,16 @@ impl ::core::default::Default for Printing3DMeshVerificationMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DMeshVerificationMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
+impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3333,20 +3409,16 @@ impl ::core::default::Default for Printing3DModelUnit {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DModelUnit {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DModelUnit {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DModelUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
+impl ::windows::core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3368,20 +3440,16 @@ impl ::core::default::Default for Printing3DObjectType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DObjectType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DObjectType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DObjectType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
+impl ::windows::core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3403,20 +3471,16 @@ impl ::core::default::Default for Printing3DPackageCompression {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DPackageCompression {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DPackageCompression {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
+impl ::windows::core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
@@ -3439,20 +3503,16 @@ impl ::core::default::Default for Printing3DTextureEdgeBehavior {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DTextureEdgeBehavior {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
+impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
@@ -3471,15 +3531,11 @@ impl ::core::fmt::Debug for Printing3DBufferDescription {
         f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
     }
 }
-unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for Printing3DBufferDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
-unsafe impl ::windows::core::RuntimeType for Printing3DBufferDescription {
+impl ::windows::core::RuntimeType for Printing3DBufferDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 impl ::core::cmp::PartialEq for Printing3DBufferDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -3543,11 +3599,6 @@ impl<F: FnMut(::core::option::Option<&Print3DTaskSourceRequestedArgs>) -> ::wind
         ((*this).invoke)(::windows::core::from_raw_borrowed(&args)).into()
     }
 }
-impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3562,15 +3613,16 @@ impl ::core::fmt::Debug for Print3DTaskSourceRequestedHandler {
 unsafe impl ::windows::core::Vtable for Print3DTaskSourceRequestedHandler {
     type Vtable = Print3DTaskSourceRequestedHandler_Vtbl;
 }
+impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
 }
-unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
+impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9175e70-c917-46de-bb51-d9a94db3711f}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

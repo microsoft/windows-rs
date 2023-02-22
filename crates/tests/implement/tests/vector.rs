@@ -19,12 +19,17 @@ pub(crate) fn err_memory() -> Error {
     IVector<T>,
     IVectorView<T>,
 )]
-struct Vector<T>(std::sync::RwLock<Vec<T::DefaultType>>)
+struct Vector<T>(std::sync::RwLock<Vec<T::Default>>)
 where
-    T: ::windows::core::RuntimeType;
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone;
 
-impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
-    fn new(vec: Vec<T::DefaultType>) -> Self {
+impl<T> Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
+    fn new(vec: Vec<T::Default>) -> Self {
         Self(RwLock::new(vec))
     }
 
@@ -38,7 +43,7 @@ impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
         let reader = self.0.read().unwrap();
         Ok(reader.len() as _)
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
         match reader.iter().position(|element| element == value) {
             Some(index) => {
@@ -48,12 +53,16 @@ impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
             None => Ok(false),
         }
     }
-    fn GetMany(&self, _startindex: u32, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
         todo!();
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
+impl<T> IVector_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
     }
@@ -63,16 +72,16 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     fn GetView(&self) -> Result<windows::Foundation::Collections::IVectorView<T>> {
         unsafe { self.cast() }
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
-    fn SetAt(&self, index: u32, value: &T::DefaultType) -> Result<()> {
+    fn SetAt(&self, index: u32, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
         *item = value.clone();
         Ok(())
     }
-    fn InsertAt(&self, index: u32, value: &T::DefaultType) -> Result<()> {
+    fn InsertAt(&self, index: u32, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let index = index as usize;
         if index > writer.len() {
@@ -94,7 +103,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
             Err(err_bounds())
         }
     }
-    fn Append(&self, value: &T::DefaultType) -> Result<()> {
+    fn Append(&self, value: &T::Default) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         let len = writer.len();
         writer.try_reserve(len + 1).map_err(|_| err_memory())?;
@@ -114,10 +123,10 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
         writer.clear();
         Ok(())
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
         self.GetMany(startindex, items)
     }
-    fn ReplaceAll(&self, items: &[T::DefaultType]) -> Result<()> {
+    fn ReplaceAll(&self, items: &[T::Default]) -> Result<()> {
         let mut writer = self.0.write().unwrap();
         writer.try_reserve(items.len() + 1).map_err(|_| err_memory())?;
         for item in items {
@@ -127,22 +136,30 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IVectorView_Impl<T> for Vector<T> {
+impl<T> IVectorView_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn GetAt(&self, index: u32) -> Result<T> {
         self.GetAt(index)
     }
     fn Size(&self) -> Result<u32> {
         self.Size()
     }
-    fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)
     }
-    fn GetMany(&self, startindex: u32, items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, startindex: u32, items: &mut [T::Default]) -> Result<u32> {
         self.GetMany(startindex, items)
     }
 }
 
-impl<T: ::windows::core::RuntimeType + 'static> IIterable_Impl<T> for Vector<T> {
+impl<T> IIterable_Impl<T> for Vector<T>
+where
+    T: RuntimeType + 'static,
+    <T as Type<T>>::Default: PartialEq + Clone,
+{
     fn First(&self) -> Result<IIterator<T>> {
         todo!()
     }

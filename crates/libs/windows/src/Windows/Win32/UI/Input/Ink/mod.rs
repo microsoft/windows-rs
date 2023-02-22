@@ -7,11 +7,6 @@ impl IInkCommitRequestHandler {
     }
 }
 ::windows::core::interface_hierarchy!(IInkCommitRequestHandler, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkCommitRequestHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkCommitRequestHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -25,6 +20,11 @@ impl ::core::fmt::Debug for IInkCommitRequestHandler {
 }
 unsafe impl ::windows::core::Vtable for IInkCommitRequestHandler {
     type Vtable = IInkCommitRequestHandler_Vtbl;
+}
+impl ::core::clone::Clone for IInkCommitRequestHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkCommitRequestHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
@@ -51,11 +51,6 @@ impl IInkD2DRenderer {
     }
 }
 ::windows::core::interface_hierarchy!(IInkD2DRenderer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkD2DRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkD2DRenderer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -69,6 +64,11 @@ impl ::core::fmt::Debug for IInkD2DRenderer {
 }
 unsafe impl ::windows::core::Vtable for IInkD2DRenderer {
     type Vtable = IInkD2DRenderer_Vtbl;
+}
+impl ::core::clone::Clone for IInkD2DRenderer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkD2DRenderer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
@@ -95,11 +95,6 @@ impl IInkD2DRenderer2 {
     }
 }
 ::windows::core::interface_hierarchy!(IInkD2DRenderer2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkD2DRenderer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkD2DRenderer2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -113,6 +108,11 @@ impl ::core::fmt::Debug for IInkD2DRenderer2 {
 }
 unsafe impl ::windows::core::Vtable for IInkD2DRenderer2 {
     type Vtable = IInkD2DRenderer2_Vtbl;
+}
+impl ::core::clone::Clone for IInkD2DRenderer2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkD2DRenderer2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
@@ -137,24 +137,19 @@ impl IInkDesktopHost {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInkPresenter)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateInkPresenter)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> ::windows::core::Result<T>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateAndInitializeInkPresenter)(::windows::core::Vtable::as_raw(self), rootvisual.into().abi(), width, height, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IInkDesktopHost, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkDesktopHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkDesktopHost {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -168,6 +163,11 @@ impl ::core::fmt::Debug for IInkDesktopHost {
 }
 unsafe impl ::windows::core::Vtable for IInkDesktopHost {
     type Vtable = IInkDesktopHost_Vtbl;
+}
+impl ::core::clone::Clone for IInkDesktopHost {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkDesktopHost {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
@@ -189,11 +189,6 @@ impl IInkHostWorkItem {
     }
 }
 ::windows::core::interface_hierarchy!(IInkHostWorkItem, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkHostWorkItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkHostWorkItem {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -207,6 +202,11 @@ impl ::core::fmt::Debug for IInkHostWorkItem {
 }
 unsafe impl ::windows::core::Vtable for IInkHostWorkItem {
     type Vtable = IInkHostWorkItem_Vtbl;
+}
+impl ::core::clone::Clone for IInkHostWorkItem {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkHostWorkItem {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccda0a9a_1b78_4632_bb96_97800662e26c);
@@ -245,11 +245,6 @@ impl IInkPresenterDesktop {
     }
 }
 ::windows::core::interface_hierarchy!(IInkPresenterDesktop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInkPresenterDesktop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInkPresenterDesktop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,6 +258,11 @@ impl ::core::fmt::Debug for IInkPresenterDesktop {
 }
 unsafe impl ::windows::core::Vtable for IInkPresenterDesktop {
     type Vtable = IInkPresenterDesktop_Vtbl;
+}
+impl ::core::clone::Clone for IInkPresenterDesktop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInkPresenterDesktop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
@@ -302,8 +302,8 @@ impl ::core::default::Default for INK_HIGH_CONTRAST_ADJUSTMENT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INK_HIGH_CONTRAST_ADJUSTMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INK_HIGH_CONTRAST_ADJUSTMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INK_HIGH_CONTRAST_ADJUSTMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

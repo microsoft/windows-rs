@@ -248,8 +248,8 @@ impl ::core::default::Default for POINTER_BUTTON_CHANGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POINTER_BUTTON_CHANGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTER_BUTTON_CHANGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -309,8 +309,8 @@ impl ::core::default::Default for POINTER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for POINTER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for POINTER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -371,8 +371,8 @@ impl ::core::default::Default for TOUCH_FEEDBACK_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TOUCH_FEEDBACK_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TOUCH_FEEDBACK_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TOUCH_FEEDBACK_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -398,8 +398,8 @@ impl ::core::fmt::Debug for INPUT_INJECTION_VALUE {
         f.debug_struct("INPUT_INJECTION_VALUE").field("page", &self.page).field("usage", &self.usage).field("value", &self.value).field("index", &self.index).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_INJECTION_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_INJECTION_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INPUT_INJECTION_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -423,8 +423,8 @@ impl ::core::clone::Clone for INPUT_TRANSFORM {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_TRANSFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INPUT_TRANSFORM {
     fn default() -> Self {
@@ -443,8 +443,8 @@ impl ::core::clone::Clone for INPUT_TRANSFORM_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_TRANSFORM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INPUT_TRANSFORM_0 {
     fn default() -> Self {
@@ -482,8 +482,8 @@ impl ::core::fmt::Debug for INPUT_TRANSFORM_0_0 {
         f.debug_struct("INPUT_TRANSFORM_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_TRANSFORM_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_TRANSFORM_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INPUT_TRANSFORM_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -549,8 +549,8 @@ impl ::core::fmt::Debug for POINTER_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for POINTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_INFO {
@@ -593,8 +593,8 @@ impl ::core::fmt::Debug for POINTER_PEN_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for POINTER_PEN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTER_PEN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_PEN_INFO {
@@ -637,8 +637,8 @@ impl ::core::fmt::Debug for POINTER_TOUCH_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for POINTER_TOUCH_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POINTER_TOUCH_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for POINTER_TOUCH_INFO {

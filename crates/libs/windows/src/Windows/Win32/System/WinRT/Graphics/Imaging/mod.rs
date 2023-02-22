@@ -6,16 +6,11 @@ impl ISoftwareBitmapNative {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISoftwareBitmapNative, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISoftwareBitmapNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISoftwareBitmapNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -29,6 +24,11 @@ impl ::core::fmt::Debug for ISoftwareBitmapNative {
 }
 unsafe impl ::windows::core::Vtable for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNative_Vtbl;
+}
+impl ::core::clone::Clone for ISoftwareBitmapNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
@@ -51,8 +51,8 @@ impl ISoftwareBitmapNativeFactory {
         P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromWICBitmap)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromWICBitmap)(::windows::core::Vtable::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
@@ -62,16 +62,11 @@ impl ISoftwareBitmapNativeFactory {
         P1: ::std::convert::Into<super::super::super::super::Foundation::BOOL>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateFromMF2DBuffer2)(::windows::core::Vtable::as_raw(self), data.into().abi(), subtype, width, height, forcereadonly.into(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISoftwareBitmapNativeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -85,6 +80,11 @@ impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
 }
 unsafe impl ::windows::core::Vtable for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactory_Vtbl;
+}
+impl ::core::clone::Clone for ISoftwareBitmapNativeFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);

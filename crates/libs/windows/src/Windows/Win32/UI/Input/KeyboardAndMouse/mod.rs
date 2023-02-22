@@ -744,8 +744,8 @@ impl ::core::default::Default for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -771,8 +771,8 @@ impl ::core::default::Default for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -804,8 +804,8 @@ impl ::core::default::Default for HOT_KEY_MODIFIERS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HOT_KEY_MODIFIERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HOT_KEY_MODIFIERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HOT_KEY_MODIFIERS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -866,8 +866,8 @@ impl ::core::default::Default for INPUT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -897,8 +897,8 @@ impl ::core::default::Default for KEYBD_EVENT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KEYBD_EVENT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEYBD_EVENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KEYBD_EVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -963,8 +963,8 @@ impl ::core::default::Default for MAP_VIRTUAL_KEY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MAP_VIRTUAL_KEY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAP_VIRTUAL_KEY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MAP_VIRTUAL_KEY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1014,8 +1014,8 @@ impl ::core::default::Default for MOUSE_EVENT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MOUSE_EVENT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOUSE_EVENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MOUSE_EVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1080,8 +1080,8 @@ impl ::core::default::Default for TRACKMOUSEEVENT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACKMOUSEEVENT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRACKMOUSEEVENT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1596,8 +1596,8 @@ impl ::core::default::Default for VIRTUAL_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VIRTUAL_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIRTUAL_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VIRTUAL_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1622,8 +1622,8 @@ impl ::core::fmt::Debug for DEADKEY {
         f.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DEADKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEADKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DEADKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -1654,8 +1654,8 @@ impl ::core::fmt::Debug for HARDWAREINPUT {
         f.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HARDWAREINPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HARDWAREINPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HARDWAREINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -1680,8 +1680,8 @@ impl ::core::clone::Clone for INPUT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INPUT {
     fn default() -> Self {
@@ -1701,8 +1701,8 @@ impl ::core::clone::Clone for INPUT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for INPUT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for INPUT_0 {
     fn default() -> Self {
@@ -1730,8 +1730,8 @@ impl ::core::fmt::Debug for KBDNLSTABLES {
         f.debug_struct("KBDNLSTABLES").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KBDNLSTABLES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KBDNLSTABLES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDNLSTABLES {
     fn eq(&self, other: &Self) -> bool {
@@ -1792,8 +1792,8 @@ impl ::core::fmt::Debug for KBDTABLES {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for KBDTABLES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KBDTABLES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLES {
     fn eq(&self, other: &Self) -> bool {
@@ -1824,8 +1824,8 @@ impl ::core::fmt::Debug for KBDTABLE_DESC {
         f.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KBDTABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KBDTABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1855,8 +1855,8 @@ impl ::core::fmt::Debug for KBDTABLE_MULTI {
         f.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KBDTABLE_MULTI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KBDTABLE_MULTI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBDTABLE_MULTI {
     fn eq(&self, other: &Self) -> bool {
@@ -1887,8 +1887,8 @@ impl ::core::fmt::Debug for KBD_TYPE_INFO {
         f.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KBD_TYPE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KBD_TYPE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KBD_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1921,8 +1921,8 @@ impl ::core::fmt::Debug for KEYBDINPUT {
         f.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KEYBDINPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEYBDINPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KEYBDINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -1952,8 +1952,8 @@ impl ::core::fmt::Debug for LASTINPUTINFO {
         f.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LASTINPUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LASTINPUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LASTINPUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1984,8 +1984,8 @@ impl ::core::fmt::Debug for LIGATURE1 {
         f.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LIGATURE1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LIGATURE1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2016,8 +2016,8 @@ impl ::core::fmt::Debug for LIGATURE2 {
         f.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LIGATURE2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LIGATURE2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2048,8 +2048,8 @@ impl ::core::fmt::Debug for LIGATURE3 {
         f.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LIGATURE3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LIGATURE3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2080,8 +2080,8 @@ impl ::core::fmt::Debug for LIGATURE4 {
         f.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LIGATURE4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LIGATURE4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2112,8 +2112,8 @@ impl ::core::fmt::Debug for LIGATURE5 {
         f.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LIGATURE5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LIGATURE5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LIGATURE5 {
     fn eq(&self, other: &Self) -> bool {
@@ -2144,8 +2144,8 @@ impl ::core::fmt::Debug for MODIFIERS {
         f.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODIFIERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODIFIERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODIFIERS {
     fn eq(&self, other: &Self) -> bool {
@@ -2179,8 +2179,8 @@ impl ::core::fmt::Debug for MOUSEINPUT {
         f.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MOUSEINPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOUSEINPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOUSEINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -2212,8 +2212,8 @@ impl ::core::fmt::Debug for MOUSEMOVEPOINT {
         f.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MOUSEMOVEPOINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOUSEMOVEPOINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MOUSEMOVEPOINT {
     fn eq(&self, other: &Self) -> bool {
@@ -2250,8 +2250,8 @@ impl ::core::fmt::Debug for TRACKMOUSEEVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRACKMOUSEEVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRACKMOUSEEVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRACKMOUSEEVENT {
@@ -2288,8 +2288,8 @@ impl ::core::fmt::Debug for VK_F {
         f.debug_struct("VK_F").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_F {
     fn eq(&self, other: &Self) -> bool {
@@ -2319,8 +2319,8 @@ impl ::core::fmt::Debug for VK_FPARAM {
         f.debug_struct("VK_FPARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_FPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_FPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_FPARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -2350,8 +2350,8 @@ impl ::core::fmt::Debug for VK_TO_BIT {
         f.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_BIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_BIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_BIT {
     fn eq(&self, other: &Self) -> bool {
@@ -2382,8 +2382,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS1 {
         f.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2414,8 +2414,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS10 {
         f.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS10 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS10 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS10 {
     fn eq(&self, other: &Self) -> bool {
@@ -2446,8 +2446,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS2 {
         f.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS2 {
     fn eq(&self, other: &Self) -> bool {
@@ -2478,8 +2478,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS3 {
         f.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2510,8 +2510,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS4 {
         f.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2542,8 +2542,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS5 {
         f.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS5 {
     fn eq(&self, other: &Self) -> bool {
@@ -2574,8 +2574,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS6 {
         f.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS6 {
     fn eq(&self, other: &Self) -> bool {
@@ -2606,8 +2606,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS7 {
         f.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS7 {
     fn eq(&self, other: &Self) -> bool {
@@ -2638,8 +2638,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS8 {
         f.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS8 {
     fn eq(&self, other: &Self) -> bool {
@@ -2670,8 +2670,8 @@ impl ::core::fmt::Debug for VK_TO_WCHARS9 {
         f.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHARS9 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHARS9 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHARS9 {
     fn eq(&self, other: &Self) -> bool {
@@ -2702,8 +2702,8 @@ impl ::core::fmt::Debug for VK_TO_WCHAR_TABLE {
         f.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_TO_WCHAR_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_TO_WCHAR_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -2733,8 +2733,8 @@ impl ::core::fmt::Debug for VK_VSC {
         f.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VK_VSC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VK_VSC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VK_VSC {
     fn eq(&self, other: &Self) -> bool {
@@ -2764,8 +2764,8 @@ impl ::core::fmt::Debug for VSC_LPWSTR {
         f.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VSC_LPWSTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VSC_LPWSTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VSC_LPWSTR {
     fn eq(&self, other: &Self) -> bool {
@@ -2795,8 +2795,8 @@ impl ::core::fmt::Debug for VSC_VK {
         f.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VSC_VK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VSC_VK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VSC_VK {
     fn eq(&self, other: &Self) -> bool {

@@ -3,11 +3,6 @@
 pub struct IApoAcousticEchoCancellation(::windows::core::IUnknown);
 impl IApoAcousticEchoCancellation {}
 ::windows::core::interface_hierarchy!(IApoAcousticEchoCancellation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IApoAcousticEchoCancellation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IApoAcousticEchoCancellation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -21,6 +16,11 @@ impl ::core::fmt::Debug for IApoAcousticEchoCancellation {
 }
 unsafe impl ::windows::core::Vtable for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellation_Vtbl;
+}
+impl ::core::clone::Clone for IApoAcousticEchoCancellation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IApoAcousticEchoCancellation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25385759_3236_4101_a943_25693dfb5d2d);
@@ -44,16 +44,11 @@ impl IApoAuxiliaryInputConfiguration {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), prequestedinputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAudioMediaType>();
+        (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), prequestedinputformat.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IApoAuxiliaryInputConfiguration, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IApoAuxiliaryInputConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IApoAuxiliaryInputConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -67,6 +62,11 @@ impl ::core::fmt::Debug for IApoAuxiliaryInputConfiguration {
 }
 unsafe impl ::windows::core::Vtable for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfiguration_Vtbl;
+}
+impl ::core::clone::Clone for IApoAuxiliaryInputConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
@@ -88,11 +88,6 @@ impl IApoAuxiliaryInputRT {
     }
 }
 ::windows::core::interface_hierarchy!(IApoAuxiliaryInputRT, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IApoAuxiliaryInputRT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IApoAuxiliaryInputRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -106,6 +101,11 @@ impl ::core::fmt::Debug for IApoAuxiliaryInputRT {
 }
 unsafe impl ::windows::core::Vtable for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRT_Vtbl;
+}
+impl ::core::clone::Clone for IApoAuxiliaryInputRT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IApoAuxiliaryInputRT {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf851809c_c177_49a0_b1b2_b66f017943ab);
@@ -128,11 +128,6 @@ impl IAudioDeviceModulesClient {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioDeviceModulesClient, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioDeviceModulesClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioDeviceModulesClient {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -146,6 +141,11 @@ impl ::core::fmt::Debug for IAudioDeviceModulesClient {
 }
 unsafe impl ::windows::core::Vtable for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClient_Vtbl;
+}
+impl ::core::clone::Clone for IAudioDeviceModulesClient {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioDeviceModulesClient {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f37dac_d0b6_49f5_896a_aa4d169a4c48);
@@ -163,15 +163,15 @@ impl IAudioMediaType {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsCompressedFormat)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).IsCompressedFormat)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> ::windows::core::Result<u32>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), piaudiotype.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).IsEqual)(::windows::core::Vtable::as_raw(self), piaudiotype.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
         (::windows::core::Vtable::vtable(self).GetAudioFormat)(::windows::core::Vtable::as_raw(self))
@@ -181,11 +181,6 @@ impl IAudioMediaType {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioMediaType, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioMediaType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioMediaType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -199,6 +194,11 @@ impl ::core::fmt::Debug for IAudioMediaType {
 }
 unsafe impl ::windows::core::Vtable for IAudioMediaType {
     type Vtable = IAudioMediaType_Vtbl;
+}
+impl ::core::clone::Clone for IAudioMediaType {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioMediaType {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
@@ -223,12 +223,12 @@ impl IAudioProcessingObject {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetLatency(&self) -> ::windows::core::Result<i64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLatency)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i64>();
+        (::windows::core::Vtable::vtable(self).GetLatency)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut APO_REG_PROPERTIES> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRegistrationProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut APO_REG_PROPERTIES>();
+        (::windows::core::Vtable::vtable(self).GetRegistrationProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pbydata.len() as _, ::core::mem::transmute(pbydata.as_ptr())).ok()
@@ -238,28 +238,23 @@ impl IAudioProcessingObject {
         P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
         P1: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedinputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAudioMediaType>();
+        (::windows::core::Vtable::vtable(self).IsInputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedinputformat.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> ::windows::core::Result<IAudioMediaType>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
         P1: ::std::convert::Into<::windows::core::InParam<IAudioMediaType>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsOutputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedoutputformat.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAudioMediaType>();
+        (::windows::core::Vtable::vtable(self).IsOutputFormatSupported)(::windows::core::Vtable::as_raw(self), poppositeformat.into().abi(), prequestedoutputformat.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputChannelCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputChannelCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetInputChannelCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -273,6 +268,11 @@ impl ::core::fmt::Debug for IAudioProcessingObject {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObject {
     type Vtable = IAudioProcessingObject_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f2b29_24d0_4b5c_b177_592c39f9ca10);
@@ -301,11 +301,6 @@ impl IAudioProcessingObjectConfiguration {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectConfiguration, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectConfiguration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -319,6 +314,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectConfiguration {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectConfiguration {
     type Vtable = IAudioProcessingObjectConfiguration_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e5ed805_aba6_49c3_8f9a_2b8c889c4fa8);
@@ -342,11 +342,6 @@ impl IAudioProcessingObjectLoggingService {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectLoggingService, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectLoggingService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectLoggingService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -360,6 +355,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectLoggingService {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectLoggingService {
     type Vtable = IAudioProcessingObjectLoggingService_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectLoggingService {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectLoggingService {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698f0107_1745_4708_95a5_d84478a62a65);
@@ -384,11 +384,6 @@ impl IAudioProcessingObjectNotifications {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectNotifications, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectNotifications {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectNotifications {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -402,6 +397,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectNotifications {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectNotifications {
     type Vtable = IAudioProcessingObjectNotifications_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectNotifications {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectNotifications {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b0c76f_02fd_4b21_a52e_9f8219fc86e4);
@@ -431,11 +431,6 @@ impl IAudioProcessingObjectRT {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectRT, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectRT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectRT {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -449,6 +444,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectRT {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRT_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectRT {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectRT {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
@@ -466,16 +466,11 @@ pub struct IAudioProcessingObjectRT_Vtbl {
 pub struct IAudioProcessingObjectRTQueueService(::windows::core::IUnknown);
 impl IAudioProcessingObjectRTQueueService {
     pub unsafe fn GetRealTimeWorkQueue(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRealTimeWorkQueue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetRealTimeWorkQueue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectRTQueueService, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectRTQueueService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectRTQueueService {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -489,6 +484,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectRTQueueService {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectRTQueueService {
     type Vtable = IAudioProcessingObjectRTQueueService_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectRTQueueService {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectRTQueueService {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd65e2f_955b_4b57_b9bf_ac297bb752c9);
@@ -504,20 +504,15 @@ pub struct IAudioProcessingObjectRTQueueService_Vtbl {
 pub struct IAudioProcessingObjectVBR(::windows::core::IUnknown);
 impl IAudioProcessingObjectVBR {
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CalcMaxInputFrames)(::windows::core::Vtable::as_raw(self), u32maxoutputframecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CalcMaxInputFrames)(::windows::core::Vtable::as_raw(self), u32maxoutputframecount, &mut result__).from_abi(result__)
     }
     pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CalcMaxOutputFrames)(::windows::core::Vtable::as_raw(self), u32maxinputframecount, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).CalcMaxOutputFrames)(::windows::core::Vtable::as_raw(self), u32maxinputframecount, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioProcessingObjectVBR, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioProcessingObjectVBR {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioProcessingObjectVBR {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -531,6 +526,11 @@ impl ::core::fmt::Debug for IAudioProcessingObjectVBR {
 }
 unsafe impl ::windows::core::Vtable for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBR_Vtbl;
+}
+impl ::core::clone::Clone for IAudioProcessingObjectVBR {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectVBR {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba1db8f_78ad_49cd_9591_f79d80a17c81);
@@ -547,11 +547,6 @@ pub struct IAudioProcessingObjectVBR_Vtbl {
 pub struct IAudioSystemEffects(::windows::core::IUnknown);
 impl IAudioSystemEffects {}
 ::windows::core::interface_hierarchy!(IAudioSystemEffects, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioSystemEffects {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioSystemEffects {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -565,6 +560,11 @@ impl ::core::fmt::Debug for IAudioSystemEffects {
 }
 unsafe impl ::windows::core::Vtable for IAudioSystemEffects {
     type Vtable = IAudioSystemEffects_Vtbl;
+}
+impl ::core::clone::Clone for IAudioSystemEffects {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioSystemEffects {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
@@ -588,11 +588,6 @@ impl IAudioSystemEffects2 {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSystemEffects2, ::windows::core::IUnknown, IAudioSystemEffects);
-impl ::core::clone::Clone for IAudioSystemEffects2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioSystemEffects2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -606,6 +601,11 @@ impl ::core::fmt::Debug for IAudioSystemEffects2 {
 }
 unsafe impl ::windows::core::Vtable for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2_Vtbl;
+}
+impl ::core::clone::Clone for IAudioSystemEffects2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioSystemEffects2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafe99d2_7436_44ce_9e0e_4d89afbfff56);
@@ -644,11 +644,6 @@ impl IAudioSystemEffects3 {
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSystemEffects3, ::windows::core::IUnknown, IAudioSystemEffects, IAudioSystemEffects2);
-impl ::core::clone::Clone for IAudioSystemEffects3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioSystemEffects3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -662,6 +657,11 @@ impl ::core::fmt::Debug for IAudioSystemEffects3 {
 }
 unsafe impl ::windows::core::Vtable for IAudioSystemEffects3 {
     type Vtable = IAudioSystemEffects3_Vtbl;
+}
+impl ::core::clone::Clone for IAudioSystemEffects3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioSystemEffects3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc58b31cd_fc6a_4255_bc1f_ad29bb0a4a17);
@@ -681,24 +681,19 @@ pub struct IAudioSystemEffects3_Vtbl {
 pub struct IAudioSystemEffectsCustomFormats(::windows::core::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
     pub unsafe fn GetFormatCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormatCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetFormatCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormat(&self, nformat: u32) -> ::windows::core::Result<IAudioMediaType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), nformat, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAudioMediaType>();
+        (::windows::core::Vtable::vtable(self).GetFormat)(::windows::core::Vtable::as_raw(self), nformat, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFormatRepresentation)(::windows::core::Vtable::as_raw(self), nformat, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetFormatRepresentation)(::windows::core::Vtable::as_raw(self), nformat, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IAudioSystemEffectsCustomFormats, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAudioSystemEffectsCustomFormats {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAudioSystemEffectsCustomFormats {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -712,6 +707,11 @@ impl ::core::fmt::Debug for IAudioSystemEffectsCustomFormats {
 }
 unsafe impl ::windows::core::Vtable for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormats_Vtbl;
+}
+impl ::core::clone::Clone for IAudioSystemEffectsCustomFormats {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsCustomFormats {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1176e34_bb7f_4f05_bebd_1b18a534e097);
@@ -881,8 +881,8 @@ impl ::core::default::Default for APO_BUFFER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APO_BUFFER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_BUFFER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APO_BUFFER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -910,8 +910,8 @@ impl ::core::default::Default for APO_CONNECTION_BUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APO_CONNECTION_BUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_CONNECTION_BUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APO_CONNECTION_BUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -947,8 +947,8 @@ impl ::core::default::Default for APO_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APO_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APO_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -982,8 +982,8 @@ impl ::core::default::Default for APO_LOG_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APO_LOG_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_LOG_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APO_LOG_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1013,8 +1013,8 @@ impl ::core::default::Default for APO_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for APO_NOTIFICATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_NOTIFICATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for APO_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1040,8 +1040,8 @@ impl ::core::default::Default for AUDIO_FLOW_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AUDIO_FLOW_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_FLOW_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AUDIO_FLOW_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1067,8 +1067,8 @@ impl ::core::default::Default for AUDIO_SYSTEMEFFECT_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_SYSTEMEFFECT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1100,8 +1100,8 @@ impl ::core::default::Default for EAudioConstriction {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EAudioConstriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EAudioConstriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EAudioConstriction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1125,8 +1125,8 @@ impl ::core::fmt::Debug for APOInitBaseStruct {
         f.debug_struct("APOInitBaseStruct").field("cbSize", &self.cbSize).field("clsid", &self.clsid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APOInitBaseStruct {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APOInitBaseStruct {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APOInitBaseStruct {
     fn eq(&self, other: &Self) -> bool {
@@ -1162,8 +1162,8 @@ impl ::core::fmt::Debug for APOInitSystemEffects {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-unsafe impl ::windows::core::Abi for APOInitSystemEffects {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APOInitSystemEffects {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for APOInitSystemEffects {
@@ -1216,8 +1216,8 @@ impl ::core::fmt::Debug for APOInitSystemEffects2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for APOInitSystemEffects2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APOInitSystemEffects2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for APOInitSystemEffects2 {
@@ -1268,8 +1268,8 @@ impl ::core::fmt::Debug for APOInitSystemEffects3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for APOInitSystemEffects3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APOInitSystemEffects3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for APOInitSystemEffects3 {
@@ -1304,8 +1304,8 @@ impl ::core::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
         f.debug_struct("APO_CONNECTION_DESCRIPTOR").field("Type", &self.Type).field("pBuffer", &self.pBuffer).field("u32MaxFrameCount", &self.u32MaxFrameCount).field("pFormat", &self.pFormat).field("u32Signature", &self.u32Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APO_CONNECTION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_CONNECTION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1337,8 +1337,8 @@ impl ::core::fmt::Debug for APO_CONNECTION_PROPERTY {
         f.debug_struct("APO_CONNECTION_PROPERTY").field("pBuffer", &self.pBuffer).field("u32ValidFrameCount", &self.u32ValidFrameCount).field("u32BufferFlags", &self.u32BufferFlags).field("u32Signature", &self.u32Signature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_CONNECTION_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
@@ -1368,8 +1368,8 @@ impl ::core::fmt::Debug for APO_CONNECTION_PROPERTY_V2 {
         f.debug_struct("APO_CONNECTION_PROPERTY_V2").field("property", &self.property).field("u64QPCTime", &self.u64QPCTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APO_CONNECTION_PROPERTY_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_CONNECTION_PROPERTY_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APO_CONNECTION_PROPERTY_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1396,8 +1396,8 @@ impl ::core::clone::Clone for APO_NOTIFICATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for APO_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION {
@@ -1420,8 +1420,8 @@ impl ::core::clone::Clone for APO_NOTIFICATION_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for APO_NOTIFICATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_NOTIFICATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for APO_NOTIFICATION_0 {
@@ -1440,8 +1440,8 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
@@ -1460,8 +1460,8 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for APO_NOTIFICATION_DESCRIPTOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_NOTIFICATION_DESCRIPTOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for APO_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -1510,8 +1510,8 @@ impl ::core::fmt::Debug for APO_REG_PROPERTIES {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for APO_REG_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APO_REG_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APO_REG_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -1539,8 +1539,8 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESC
         f.debug_struct("AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1574,8 +1574,8 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
@@ -1606,8 +1606,8 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
         f.debug_struct("AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1640,8 +1640,8 @@ impl ::core::fmt::Debug for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
@@ -1680,8 +1680,8 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_SYSTEMEFFECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECT {
@@ -1713,8 +1713,8 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION
         f.debug_struct("AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR").field("device", &self.device).field("propertyStoreContext", &self.propertyStoreContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1750,8 +1750,8 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-unsafe impl ::windows::core::Abi for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::cmp::PartialEq for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
@@ -1788,8 +1788,8 @@ impl ::core::fmt::Debug for AudioFXExtensionParams {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
-unsafe impl ::windows::core::Abi for AudioFXExtensionParams {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AudioFXExtensionParams {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for AudioFXExtensionParams {
@@ -1826,8 +1826,8 @@ impl ::core::fmt::Debug for UNCOMPRESSEDAUDIOFORMAT {
         f.debug_struct("UNCOMPRESSEDAUDIOFORMAT").field("guidFormatType", &self.guidFormatType).field("dwSamplesPerFrame", &self.dwSamplesPerFrame).field("dwBytesPerSampleContainer", &self.dwBytesPerSampleContainer).field("dwValidBitsPerSample", &self.dwValidBitsPerSample).field("fFramesPerSecond", &self.fFramesPerSecond).field("dwChannelMask", &self.dwChannelMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNCOMPRESSEDAUDIOFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNCOMPRESSEDAUDIOFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNCOMPRESSEDAUDIOFORMAT {
     fn eq(&self, other: &Self) -> bool {

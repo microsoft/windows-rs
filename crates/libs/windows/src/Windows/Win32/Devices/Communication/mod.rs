@@ -503,8 +503,8 @@ impl ::core::default::Default for CLEAR_COMM_ERROR_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLEAR_COMM_ERROR_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLEAR_COMM_ERROR_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLEAR_COMM_ERROR_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -575,8 +575,8 @@ impl ::core::default::Default for COMMPROP_STOP_PARITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMMPROP_STOP_PARITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMMPROP_STOP_PARITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMMPROP_STOP_PARITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -657,8 +657,8 @@ impl ::core::default::Default for COMM_EVENT_MASK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMM_EVENT_MASK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMM_EVENT_MASK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMM_EVENT_MASK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -723,8 +723,8 @@ impl ::core::default::Default for DCB_PARITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DCB_PARITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCB_PARITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DCB_PARITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -752,8 +752,8 @@ impl ::core::default::Default for DCB_STOP_BITS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DCB_STOP_BITS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCB_STOP_BITS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DCB_STOP_BITS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -791,8 +791,8 @@ impl ::core::default::Default for ESCAPE_COMM_FUNCTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ESCAPE_COMM_FUNCTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ESCAPE_COMM_FUNCTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ESCAPE_COMM_FUNCTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -820,8 +820,8 @@ impl ::core::default::Default for MODEMDEVCAPS_DIAL_OPTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMDEVCAPS_DIAL_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEMDEVCAPS_DIAL_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -884,8 +884,8 @@ impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMDEVCAPS_SPEAKER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -946,8 +946,8 @@ impl ::core::default::Default for MODEMDEVCAPS_SPEAKER_VOLUME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMDEVCAPS_SPEAKER_VOLUME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1010,8 +1010,8 @@ impl ::core::default::Default for MODEMSETTINGS_SPEAKER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEMSETTINGS_SPEAKER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMSETTINGS_SPEAKER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEMSETTINGS_SPEAKER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1039,8 +1039,8 @@ impl ::core::default::Default for MODEM_SPEAKER_VOLUME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEM_SPEAKER_VOLUME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEM_SPEAKER_VOLUME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEM_SPEAKER_VOLUME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1070,8 +1070,8 @@ impl ::core::default::Default for MODEM_STATUS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MODEM_STATUS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEM_STATUS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MODEM_STATUS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1134,8 +1134,8 @@ impl ::core::default::Default for PURGE_COMM_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PURGE_COMM_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PURGE_COMM_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PURGE_COMM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1203,8 +1203,8 @@ impl ::core::fmt::Debug for COMMCONFIG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COMMCONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMMCONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMMCONFIG {
@@ -1272,8 +1272,8 @@ impl ::core::fmt::Debug for COMMPROP {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMMPROP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMMPROP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMMPROP {
     fn eq(&self, other: &Self) -> bool {
@@ -1323,8 +1323,8 @@ impl ::core::fmt::Debug for COMMTIMEOUTS {
         f.debug_struct("COMMTIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMMTIMEOUTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMMTIMEOUTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMMTIMEOUTS {
     fn eq(&self, other: &Self) -> bool {
@@ -1355,8 +1355,8 @@ impl ::core::fmt::Debug for COMSTAT {
         f.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMSTAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMSTAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMSTAT {
     fn eq(&self, other: &Self) -> bool {
@@ -1420,8 +1420,8 @@ impl ::core::fmt::Debug for DCB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DCB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCB {
@@ -1493,8 +1493,8 @@ impl ::core::fmt::Debug for MODEMDEVCAPS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMDEVCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODEMDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -1566,8 +1566,8 @@ impl ::core::fmt::Debug for MODEMSETTINGS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODEMSETTINGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODEMSETTINGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODEMSETTINGS {
     fn eq(&self, other: &Self) -> bool {

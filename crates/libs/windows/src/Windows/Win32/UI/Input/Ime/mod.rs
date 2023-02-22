@@ -942,24 +942,19 @@ impl IActiveIME {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordW>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u16>();
+        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIME, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveIME {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIME {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -973,6 +968,11 @@ impl ::core::fmt::Debug for IActiveIME {
 }
 unsafe impl ::windows::core::Vtable for IActiveIME {
     type Vtable = IActiveIME_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIME {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIME {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
@@ -1134,16 +1134,16 @@ impl IActiveIME2 {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordW>();
+        (::windows::core::Vtable::vtable(self).base__.EnumRegisterWord)(::windows::core::Vtable::as_raw(self), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCodePageA)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetCodePageA)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetLangId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u16>();
+        (::windows::core::Vtable::vtable(self).base__.GetLangId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Sleep)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1158,11 +1158,6 @@ impl IActiveIME2 {
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIME2, ::windows::core::IUnknown, IActiveIME);
-impl ::core::clone::Clone for IActiveIME2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIME2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1176,6 +1171,11 @@ impl ::core::fmt::Debug for IActiveIME2 {
 }
 unsafe impl ::windows::core::Vtable for IActiveIME2 {
     type Vtable = IActiveIME2_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIME2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIME2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
@@ -1201,8 +1201,8 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AssociateContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), hime.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).AssociateContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), hime.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -1225,8 +1225,8 @@ impl IActiveIMMApp {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).CreateContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -1244,8 +1244,8 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordA>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1255,8 +1255,8 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordW>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -1362,8 +1362,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -1399,8 +1399,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefaultIMEWnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).GetDefaultIMEWnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1464,8 +1464,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), hkl.into(), fdwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), hkl.into(), fdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -1489,8 +1489,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatusWindowPos)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::POINT>();
+        (::windows::core::Vtable::vtable(self).GetStatusWindowPos)(::windows::core::Vtable::as_raw(self), himc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1498,8 +1498,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVirtualKey)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetVirtualKey)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1508,8 +1508,8 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::TextServices::HKL>();
+        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1518,8 +1518,8 @@ impl IActiveIMMApp {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::TextServices::HKL>();
+        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1706,8 +1706,8 @@ impl IActiveIMMApp {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OnDefWindowProc)(::windows::core::Vtable::as_raw(self), hwnd.into(), msg, wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::LRESULT>();
+        (::windows::core::Vtable::vtable(self).OnDefWindowProc)(::windows::core::Vtable::as_raw(self), hwnd.into(), msg, wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).FilterClientWindows)(::windows::core::Vtable::as_raw(self), aaclasslist, usize).ok()
@@ -1718,8 +1718,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), hkl.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), hkl.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -1727,8 +1727,8 @@ impl IActiveIMMApp {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), hkl.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u16>();
+        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), hkl.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -1759,16 +1759,11 @@ impl IActiveIMMApp {
         (::windows::core::Vtable::vtable(self).GetImeMenuItemsW)(::windows::core::Vtable::as_raw(self), himc.into(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumInputContext)(::windows::core::Vtable::as_raw(self), idthread, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumInputContext>();
+        (::windows::core::Vtable::vtable(self).EnumInputContext)(::windows::core::Vtable::as_raw(self), idthread, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIMMApp, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveIMMApp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIMMApp {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1782,6 +1777,11 @@ impl ::core::fmt::Debug for IActiveIMMApp {
 }
 unsafe impl ::windows::core::Vtable for IActiveIMMApp {
     type Vtable = IActiveIMMApp_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIMMApp {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMApp {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
@@ -2062,8 +2062,8 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         P1: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AssociateContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), hime.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).AssociateContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), hime.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -2086,8 +2086,8 @@ impl IActiveIMMIME {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows::core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).CreateContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2105,8 +2105,8 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordA>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordA)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2116,8 +2116,8 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordW>();
+        (::windows::core::Vtable::vtable(self).EnumRegisterWordW)(::windows::core::Vtable::as_raw(self), hkl.into(), szreading.into().abi(), dwstyle, szregister.into().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -2223,8 +2223,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMC>();
+        (::windows::core::Vtable::vtable(self).GetContext)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
@@ -2260,8 +2260,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefaultIMEWnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).GetDefaultIMEWnd)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2325,8 +2325,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), hkl.into(), fdwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), hkl.into(), fdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
@@ -2350,8 +2350,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStatusWindowPos)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::POINT>();
+        (::windows::core::Vtable::vtable(self).GetStatusWindowPos)(::windows::core::Vtable::as_raw(self), himc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2359,8 +2359,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetVirtualKey)(::windows::core::Vtable::as_raw(self), hwnd.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetVirtualKey)(::windows::core::Vtable::as_raw(self), hwnd.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2369,8 +2369,8 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::TextServices::HKL>();
+        (::windows::core::Vtable::vtable(self).InstallIMEA)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2379,8 +2379,8 @@ impl IActiveIMMIME {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::TextServices::HKL>();
+        (::windows::core::Vtable::vtable(self).InstallIMEW)(::windows::core::Vtable::as_raw(self), szimefilename.into().abi(), szlayouttext.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2562,8 +2562,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LockIMC)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut INPUTCONTEXT>();
+        (::windows::core::Vtable::vtable(self).LockIMC)(::windows::core::Vtable::as_raw(self), himc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2579,14 +2579,14 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIMCLockCount)(::windows::core::Vtable::as_raw(self), himc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetIMCLockCount)(::windows::core::Vtable::as_raw(self), himc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateIMCC(&self, dwsize: u32) -> ::windows::core::Result<super::super::super::Globalization::HIMCC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateIMCC)(::windows::core::Vtable::as_raw(self), dwsize, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMCC>();
+        (::windows::core::Vtable::vtable(self).CreateIMCC)(::windows::core::Vtable::as_raw(self), dwsize, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2618,8 +2618,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReSizeIMCC)(::windows::core::Vtable::as_raw(self), himcc.into(), dwsize, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Globalization::HIMCC>();
+        (::windows::core::Vtable::vtable(self).ReSizeIMCC)(::windows::core::Vtable::as_raw(self), himcc.into(), dwsize, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2627,8 +2627,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIMCCSize)(::windows::core::Vtable::as_raw(self), himcc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetIMCCSize)(::windows::core::Vtable::as_raw(self), himcc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -2636,8 +2636,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIMCCLockCount)(::windows::core::Vtable::as_raw(self), himcc.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetIMCCLockCount)(::windows::core::Vtable::as_raw(self), himcc.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2658,8 +2658,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateSoftKeyboard)(::windows::core::Vtable::as_raw(self), utype, howner.into(), x, y, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::HWND>();
+        (::windows::core::Vtable::vtable(self).CreateSoftKeyboard)(::windows::core::Vtable::as_raw(self), utype, howner.into(), x, y, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2683,8 +2683,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), hkl.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCodePageA)(::windows::core::Vtable::as_raw(self), hkl.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
     #[cfg(feature = "Win32_UI_TextServices")]
@@ -2692,8 +2692,8 @@ impl IActiveIMMIME {
     where
         P0: ::std::convert::Into<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), hkl.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u16>();
+        (::windows::core::Vtable::vtable(self).GetLangId)(::windows::core::Vtable::as_raw(self), hkl.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).KeybdEvent)(::windows::core::Vtable::as_raw(self), lgidime, bvk, bscan, dwflags, dwextrainfo).ok()
@@ -2733,8 +2733,8 @@ impl IActiveIMMIME {
         (::windows::core::Vtable::vtable(self).GetImeMenuItemsW)(::windows::core::Vtable::as_raw(self), himc.into(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumInputContext)(::windows::core::Vtable::as_raw(self), idthread, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumInputContext>();
+        (::windows::core::Vtable::vtable(self).EnumInputContext)(::windows::core::Vtable::as_raw(self), idthread, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -2744,8 +2744,8 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestMessageA)(::windows::core::Vtable::as_raw(self), himc.into(), wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::LRESULT>();
+        (::windows::core::Vtable::vtable(self).RequestMessageA)(::windows::core::Vtable::as_raw(self), himc.into(), wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -2755,8 +2755,8 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RequestMessageW)(::windows::core::Vtable::as_raw(self), himc.into(), wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::LRESULT>();
+        (::windows::core::Vtable::vtable(self).RequestMessageW)(::windows::core::Vtable::as_raw(self), himc.into(), wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2766,8 +2766,8 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SendIMCA)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::LRESULT>();
+        (::windows::core::Vtable::vtable(self).SendIMCA)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2777,19 +2777,14 @@ impl IActiveIMMIME {
         P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
         P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SendIMCW)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::LRESULT>();
+        (::windows::core::Vtable::vtable(self).SendIMCW)(::windows::core::Vtable::as_raw(self), hwnd.into(), umsg, wparam.into(), lparam.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsSleeping(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).IsSleeping)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIMMIME, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveIMMIME {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIMMIME {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2803,6 +2798,11 @@ impl ::core::fmt::Debug for IActiveIMMIME {
 }
 unsafe impl ::windows::core::Vtable for IActiveIMMIME {
     type Vtable = IActiveIMMIME_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIMMIME {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMIME {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
@@ -3162,19 +3162,14 @@ impl IActiveIMMMessagePumpOwner {
         (::windows::core::Vtable::vtable(self).OnTranslateMessage)(::windows::core::Vtable::as_raw(self), pmsg).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Pause)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Resume(&self, dwcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self), dwcookie).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIMMMessagePumpOwner, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIMMMessagePumpOwner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3188,6 +3183,11 @@ impl ::core::fmt::Debug for IActiveIMMMessagePumpOwner {
 }
 unsafe impl ::windows::core::Vtable for IActiveIMMMessagePumpOwner {
     type Vtable = IActiveIMMMessagePumpOwner_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
@@ -3221,11 +3221,6 @@ impl IActiveIMMRegistrar {
     }
 }
 ::windows::core::interface_hierarchy!(IActiveIMMRegistrar, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IActiveIMMRegistrar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IActiveIMMRegistrar {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3239,6 +3234,11 @@ impl ::core::fmt::Debug for IActiveIMMRegistrar {
 }
 unsafe impl ::windows::core::Vtable for IActiveIMMRegistrar {
     type Vtable = IActiveIMMRegistrar_Vtbl;
+}
+impl ::core::clone::Clone for IActiveIMMRegistrar {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
@@ -3255,8 +3255,8 @@ pub struct IActiveIMMRegistrar_Vtbl {
 pub struct IEnumInputContext(::windows::core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumInputContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumInputContext>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
@@ -3271,11 +3271,6 @@ impl IEnumInputContext {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumInputContext, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumInputContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumInputContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3289,6 +3284,11 @@ impl ::core::fmt::Debug for IEnumInputContext {
 }
 unsafe impl ::windows::core::Vtable for IEnumInputContext {
     type Vtable = IEnumInputContext_Vtbl;
+}
+impl ::core::clone::Clone for IEnumInputContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumInputContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
@@ -3310,8 +3310,8 @@ pub struct IEnumInputContext_Vtbl {
 pub struct IEnumRegisterWordA(::windows::core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordA> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordA>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ulcount, rgregisterword, pcfetched).ok()
@@ -3324,11 +3324,6 @@ impl IEnumRegisterWordA {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumRegisterWordA, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumRegisterWordA {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumRegisterWordA {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3342,6 +3337,11 @@ impl ::core::fmt::Debug for IEnumRegisterWordA {
 }
 unsafe impl ::windows::core::Vtable for IEnumRegisterWordA {
     type Vtable = IEnumRegisterWordA_Vtbl;
+}
+impl ::core::clone::Clone for IEnumRegisterWordA {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
@@ -3360,8 +3360,8 @@ pub struct IEnumRegisterWordA_Vtbl {
 pub struct IEnumRegisterWordW(::windows::core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumRegisterWordW> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumRegisterWordW>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Next)(::windows::core::Vtable::as_raw(self), ulcount, rgregisterword, pcfetched).ok()
@@ -3374,11 +3374,6 @@ impl IEnumRegisterWordW {
     }
 }
 ::windows::core::interface_hierarchy!(IEnumRegisterWordW, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumRegisterWordW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumRegisterWordW {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3392,6 +3387,11 @@ impl ::core::fmt::Debug for IEnumRegisterWordW {
 }
 unsafe impl ::windows::core::Vtable for IEnumRegisterWordW {
     type Vtable = IEnumRegisterWordW_Vtbl;
+}
+impl ::core::clone::Clone for IEnumRegisterWordW {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
@@ -3418,8 +3418,8 @@ impl IFEClassFactory {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.CreateInstance)(::windows::core::Vtable::as_raw(self), punkouter.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -3432,12 +3432,6 @@ impl IFEClassFactory {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IFEClassFactory, ::windows::core::IUnknown, super::super::super::System::Com::IClassFactory);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFEClassFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFEClassFactory {
     fn eq(&self, other: &Self) -> bool {
@@ -3455,6 +3449,12 @@ impl ::core::fmt::Debug for IFEClassFactory {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IFEClassFactory {
     type Vtable = IFEClassFactory_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFEClassFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFEClassFactory {
@@ -3488,11 +3488,6 @@ impl IFECommon {
     }
 }
 ::windows::core::interface_hierarchy!(IFECommon, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFECommon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFECommon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3506,6 +3501,11 @@ impl ::core::fmt::Debug for IFECommon {
 }
 unsafe impl ::windows::core::Vtable for IFECommon {
     type Vtable = IFECommon_Vtbl;
+}
+impl ::core::clone::Clone for IFECommon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFECommon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
@@ -3614,11 +3614,6 @@ impl IFEDictionary {
     }
 }
 ::windows::core::interface_hierarchy!(IFEDictionary, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFEDictionary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFEDictionary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3632,6 +3627,11 @@ impl ::core::fmt::Debug for IFEDictionary {
 }
 unsafe impl ::windows::core::Vtable for IFEDictionary {
     type Vtable = IFEDictionary_Vtbl;
+}
+impl ::core::clone::Clone for IFEDictionary {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFEDictionary {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
@@ -3703,11 +3703,6 @@ impl IFELanguage {
     }
 }
 ::windows::core::interface_hierarchy!(IFELanguage, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFELanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFELanguage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3722,6 +3717,11 @@ impl ::core::fmt::Debug for IFELanguage {
 unsafe impl ::windows::core::Vtable for IFELanguage {
     type Vtable = IFELanguage_Vtbl;
 }
+impl ::core::clone::Clone for IFELanguage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFELanguage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
 }
@@ -3733,8 +3733,8 @@ pub struct IFELanguage_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetJMorphResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrequest: u32, dwcmode: u32, cwchinput: i32, pwchinput: ::windows::core::PCWSTR, pfcinfo: *mut u32, ppresult: *mut *mut MORRSLT) -> ::windows::core::HRESULT,
     pub GetConversionModeCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcaps: *mut u32) -> ::windows::core::HRESULT,
-    pub GetPhonetic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: *mut ::core::ffi::c_void, start: i32, length: i32, phonetic: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: *mut ::core::ffi::c_void, start: i32, length: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPhonetic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::std::mem::MaybeUninit<::windows::core::BSTR>, start: i32, length: i32, phonetic: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::std::mem::MaybeUninit<::windows::core::BSTR>, start: i32, length: i32, result: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
@@ -3752,11 +3752,6 @@ impl IImePad {
     }
 }
 ::windows::core::interface_hierarchy!(IImePad, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IImePad {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IImePad {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3770,6 +3765,11 @@ impl ::core::fmt::Debug for IImePad {
 }
 unsafe impl ::windows::core::Vtable for IImePad {
     type Vtable = IImePad_Vtbl;
+}
+impl ::core::clone::Clone for IImePad {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IImePad {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
@@ -3821,11 +3821,6 @@ impl IImePadApplet {
     }
 }
 ::windows::core::interface_hierarchy!(IImePadApplet, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IImePadApplet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IImePadApplet {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3839,6 +3834,11 @@ impl ::core::fmt::Debug for IImePadApplet {
 }
 unsafe impl ::windows::core::Vtable for IImePadApplet {
     type Vtable = IImePadApplet_Vtbl;
+}
+impl ::core::clone::Clone for IImePadApplet {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IImePadApplet {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
@@ -3876,11 +3876,6 @@ impl IImePlugInDictDictionaryList {
     }
 }
 ::windows::core::interface_hierarchy!(IImePlugInDictDictionaryList, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IImePlugInDictDictionaryList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IImePlugInDictDictionaryList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3895,6 +3890,11 @@ impl ::core::fmt::Debug for IImePlugInDictDictionaryList {
 unsafe impl ::windows::core::Vtable for IImePlugInDictDictionaryList {
     type Vtable = IImePlugInDictDictionaryList_Vtbl;
 }
+impl ::core::clone::Clone for IImePlugInDictDictionaryList {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
 }
@@ -3906,7 +3906,7 @@ pub struct IImePlugInDictDictionaryList_Vtbl {
     pub GetDictionariesInUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDictionariesInUse: usize,
-    pub DeleteDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdictionaryguid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DeleteDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 #[repr(transparent)]
@@ -3917,11 +3917,6 @@ impl IImeSpecifyApplets {
     }
 }
 ::windows::core::interface_hierarchy!(IImeSpecifyApplets, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IImeSpecifyApplets {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IImeSpecifyApplets {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3935,6 +3930,11 @@ impl ::core::fmt::Debug for IImeSpecifyApplets {
 }
 unsafe impl ::windows::core::Vtable for IImeSpecifyApplets {
     type Vtable = IImeSpecifyApplets_Vtbl;
+}
+impl ::core::clone::Clone for IImeSpecifyApplets {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);
@@ -5168,8 +5168,8 @@ impl ::core::default::Default for GET_CONVERSION_LIST_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_CONVERSION_LIST_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_CONVERSION_LIST_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5199,8 +5199,8 @@ impl ::core::default::Default for GET_GUIDE_LINE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_GUIDE_LINE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_GUIDE_LINE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_GUIDE_LINE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5276,8 +5276,8 @@ impl ::core::default::Default for IMEFMT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IMEFMT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEFMT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IMEFMT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5305,8 +5305,8 @@ impl ::core::default::Default for IMEREG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IMEREG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEREG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IMEREG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5378,8 +5378,8 @@ impl ::core::default::Default for IMEREL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IMEREL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEREL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IMEREL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5411,8 +5411,8 @@ impl ::core::default::Default for IMEUCT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IMEUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IMEUCT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5458,8 +5458,8 @@ impl ::core::default::Default for IME_COMPOSITION_STRING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_COMPOSITION_STRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_COMPOSITION_STRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_COMPOSITION_STRING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5552,8 +5552,8 @@ impl ::core::default::Default for IME_CONVERSION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_CONVERSION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_CONVERSION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_CONVERSION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5638,8 +5638,8 @@ impl ::core::default::Default for IME_ESCAPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_ESCAPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_ESCAPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_ESCAPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5689,8 +5689,8 @@ impl ::core::default::Default for IME_HOTKEY_IDENTIFIER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_HOTKEY_IDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_HOTKEY_IDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_HOTKEY_IDENTIFIER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5750,8 +5750,8 @@ impl ::core::default::Default for IME_PAD_REQUEST_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_PAD_REQUEST_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_PAD_REQUEST_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5787,8 +5787,8 @@ impl ::core::default::Default for IME_SENTENCE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IME_SENTENCE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IME_SENTENCE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IME_SENTENCE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5859,8 +5859,8 @@ impl ::core::default::Default for NOTIFY_IME_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFY_IME_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFY_IME_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NOTIFY_IME_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5890,8 +5890,8 @@ impl ::core::default::Default for NOTIFY_IME_INDEX {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFY_IME_INDEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFY_IME_INDEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NOTIFY_IME_INDEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5923,8 +5923,8 @@ impl ::core::default::Default for SET_COMPOSITION_STRING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SET_COMPOSITION_STRING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_COMPOSITION_STRING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5948,8 +5948,8 @@ impl ::core::fmt::Debug for APPLETIDLIST {
         f.debug_struct("APPLETIDLIST").field("count", &self.count).field("pIIDList", &self.pIIDList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APPLETIDLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLETIDLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APPLETIDLIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5981,8 +5981,8 @@ impl ::core::fmt::Debug for APPLYCANDEXPARAM {
         f.debug_struct("APPLYCANDEXPARAM").field("dwSize", &self.dwSize).field("lpwstrDisplay", &self.lpwstrDisplay).field("lpwstrReading", &self.lpwstrReading).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for APPLYCANDEXPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APPLYCANDEXPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for APPLYCANDEXPARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -6019,8 +6019,8 @@ impl ::core::fmt::Debug for CANDIDATEFORM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CANDIDATEFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CANDIDATEFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CANDIDATEFORM {
@@ -6056,8 +6056,8 @@ impl ::core::fmt::Debug for CANDIDATEINFO {
         f.debug_struct("CANDIDATEINFO").field("dwSize", &self.dwSize).field("dwCount", &self.dwCount).field("dwOffset", &self.dwOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CANDIDATEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CANDIDATEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CANDIDATEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6092,8 +6092,8 @@ impl ::core::fmt::Debug for CANDIDATELIST {
         f.debug_struct("CANDIDATELIST").field("dwSize", &self.dwSize).field("dwStyle", &self.dwStyle).field("dwCount", &self.dwCount).field("dwSelection", &self.dwSelection).field("dwPageStart", &self.dwPageStart).field("dwPageSize", &self.dwPageSize).field("dwOffset", &self.dwOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CANDIDATELIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CANDIDATELIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CANDIDATELIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6129,8 +6129,8 @@ impl ::core::fmt::Debug for COMPOSITIONFORM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COMPOSITIONFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPOSITIONFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMPOSITIONFORM {
@@ -6212,8 +6212,8 @@ impl ::core::fmt::Debug for COMPOSITIONSTRING {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMPOSITIONSTRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPOSITIONSTRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COMPOSITIONSTRING {
     fn eq(&self, other: &Self) -> bool {
@@ -6272,8 +6272,8 @@ impl ::core::fmt::Debug for GUIDELINE {
         f.debug_struct("GUIDELINE").field("dwSize", &self.dwSize).field("dwLevel", &self.dwLevel).field("dwIndex", &self.dwIndex).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwPrivateSize", &self.dwPrivateSize).field("dwPrivateOffset", &self.dwPrivateOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GUIDELINE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GUIDELINE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GUIDELINE {
     fn eq(&self, other: &Self) -> bool {
@@ -6315,8 +6315,8 @@ impl ::core::fmt::Debug for IMEAPPLETCFG {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for IMEAPPLETCFG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEAPPLETCFG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::cmp::PartialEq for IMEAPPLETCFG {
@@ -6362,8 +6362,8 @@ impl ::core::fmt::Debug for IMEAPPLETUI {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMEAPPLETUI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEAPPLETUI {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMEAPPLETUI {
@@ -6396,8 +6396,8 @@ impl ::core::fmt::Debug for IMECHARINFO {
         f.debug_struct("IMECHARINFO").field("wch", &self.wch).field("dwCharInfo", &self.dwCharInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMECHARINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMECHARINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMECHARINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6435,8 +6435,8 @@ impl ::core::fmt::Debug for IMECHARPOSITION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMECHARPOSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMECHARPOSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMECHARPOSITION {
@@ -6473,8 +6473,8 @@ impl ::core::fmt::Debug for IMECOMPOSITIONSTRINGINFO {
         f.debug_struct("IMECOMPOSITIONSTRINGINFO").field("iCompStrLen", &self.iCompStrLen).field("iCaretPos", &self.iCaretPos).field("iEditStart", &self.iEditStart).field("iEditLen", &self.iEditLen).field("iTargetStart", &self.iTargetStart).field("iTargetLen", &self.iTargetLen).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMECOMPOSITIONSTRINGINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMECOMPOSITIONSTRINGINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMECOMPOSITIONSTRINGINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6505,8 +6505,8 @@ impl ::core::clone::Clone for IMEDLG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMEDLG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEDLG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMEDLG {
@@ -6527,8 +6527,8 @@ impl ::core::clone::Clone for IMEDP {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEDP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEDP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEDP {
     fn default() -> Self {
@@ -6553,8 +6553,8 @@ impl ::core::fmt::Debug for IMEFAREASTINFO {
         f.debug_struct("IMEFAREASTINFO").field("dwSize", &self.dwSize).field("dwType", &self.dwType).field("dwData", &self.dwData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMEFAREASTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEFAREASTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMEFAREASTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6589,8 +6589,8 @@ impl ::core::fmt::Debug for IMEINFO {
         f.debug_struct("IMEINFO").field("dwPrivateDataSize", &self.dwPrivateDataSize).field("fdwProperty", &self.fdwProperty).field("fdwConversionCaps", &self.fdwConversionCaps).field("fdwSentenceCaps", &self.fdwSentenceCaps).field("fdwUICaps", &self.fdwUICaps).field("fdwSCSCaps", &self.fdwSCSCaps).field("fdwSelectCaps", &self.fdwSelectCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6621,8 +6621,8 @@ impl ::core::fmt::Debug for IMEITEM {
         f.debug_struct("IMEITEM").field("cbSize", &self.cbSize).field("iType", &self.iType).field("lpItemData", &self.lpItemData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMEITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMEITEM {
     fn eq(&self, other: &Self) -> bool {
@@ -6652,8 +6652,8 @@ impl ::core::fmt::Debug for IMEITEMCANDIDATE {
         f.debug_struct("IMEITEMCANDIDATE").field("uCount", &self.uCount).field("imeItem", &self.imeItem).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMEITEMCANDIDATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEITEMCANDIDATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMEITEMCANDIDATE {
     fn eq(&self, other: &Self) -> bool {
@@ -6684,8 +6684,8 @@ impl ::core::clone::Clone for IMEKMS {
     }
 }
 #[cfg(feature = "Win32_Globalization")]
-unsafe impl ::windows::core::Abi for IMEKMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Globalization")]
 impl ::core::default::Default for IMEKMS {
@@ -6707,8 +6707,8 @@ impl ::core::clone::Clone for IMEKMSFUNCDESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEKMSFUNCDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSFUNCDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEKMSFUNCDESC {
     fn default() -> Self {
@@ -6731,8 +6731,8 @@ impl ::core::clone::Clone for IMEKMSINIT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMEKMSINIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSINIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMEKMSINIT {
@@ -6757,8 +6757,8 @@ impl ::core::clone::Clone for IMEKMSINVK {
     }
 }
 #[cfg(feature = "Win32_Globalization")]
-unsafe impl ::windows::core::Abi for IMEKMSINVK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSINVK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Globalization")]
 impl ::core::default::Default for IMEKMSINVK {
@@ -6781,8 +6781,8 @@ impl ::core::clone::Clone for IMEKMSKEY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEKMSKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEKMSKEY {
     fn default() -> Self {
@@ -6801,8 +6801,8 @@ impl ::core::clone::Clone for IMEKMSKEY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEKMSKEY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSKEY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEKMSKEY_0 {
     fn default() -> Self {
@@ -6821,8 +6821,8 @@ impl ::core::clone::Clone for IMEKMSKEY_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEKMSKEY_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSKEY_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEKMSKEY_1 {
     fn default() -> Self {
@@ -6850,8 +6850,8 @@ impl ::core::clone::Clone for IMEKMSKMP {
     }
 }
 #[cfg(feature = "Win32_Globalization")]
-unsafe impl ::windows::core::Abi for IMEKMSKMP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSKMP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Globalization")]
 impl ::core::default::Default for IMEKMSKMP {
@@ -6876,8 +6876,8 @@ impl ::core::clone::Clone for IMEKMSNTFY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-unsafe impl ::windows::core::Abi for IMEKMSNTFY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEKMSNTFY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 impl ::core::default::Default for IMEKMSNTFY {
@@ -6914,8 +6914,8 @@ impl ::core::fmt::Debug for IMEMENUITEMINFOA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for IMEMENUITEMINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEMENUITEMINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IMEMENUITEMINFOA {
@@ -6960,8 +6960,8 @@ impl ::core::fmt::Debug for IMEMENUITEMINFOW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for IMEMENUITEMINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEMENUITEMINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for IMEMENUITEMINFOW {
@@ -6996,8 +6996,8 @@ impl ::core::clone::Clone for IMESHF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMESHF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMESHF {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMESHF {
@@ -7022,8 +7022,8 @@ impl ::core::fmt::Debug for IMESTRINGCANDIDATE {
         f.debug_struct("IMESTRINGCANDIDATE").field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMESTRINGCANDIDATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMESTRINGCANDIDATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMESTRINGCANDIDATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7057,8 +7057,8 @@ impl ::core::fmt::Debug for IMESTRINGCANDIDATEINFO {
         f.debug_struct("IMESTRINGCANDIDATEINFO").field("dwFarEastId", &self.dwFarEastId).field("lpFarEastInfo", &self.lpFarEastInfo).field("fInfoMask", &self.fInfoMask).field("iSelIndex", &self.iSelIndex).field("uCount", &self.uCount).field("lpwstr", &self.lpwstr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMESTRINGCANDIDATEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMESTRINGCANDIDATEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMESTRINGCANDIDATEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7088,8 +7088,8 @@ impl ::core::fmt::Debug for IMESTRINGINFO {
         f.debug_struct("IMESTRINGINFO").field("dwFarEastId", &self.dwFarEastId).field("lpwstr", &self.lpwstr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMESTRINGINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMESTRINGINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMESTRINGINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7119,8 +7119,8 @@ impl ::core::clone::Clone for IMEWRD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEWRD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEWRD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEWRD {
     fn default() -> Self {
@@ -7139,8 +7139,8 @@ impl ::core::clone::Clone for IMEWRD_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEWRD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEWRD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEWRD_0 {
     fn default() -> Self {
@@ -7159,8 +7159,8 @@ impl ::core::clone::Clone for IMEWRD_0_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMEWRD_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEWRD_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMEWRD_0_0 {
     fn default() -> Self {
@@ -7198,8 +7198,8 @@ impl ::core::clone::Clone for INPUTCONTEXT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for INPUTCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUTCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for INPUTCONTEXT {
@@ -7223,8 +7223,8 @@ impl ::core::clone::Clone for INPUTCONTEXT_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for INPUTCONTEXT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INPUTCONTEXT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for INPUTCONTEXT_0 {
@@ -7255,8 +7255,8 @@ impl ::core::clone::Clone for MORRSLT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MORRSLT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MORRSLT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MORRSLT {
     fn default() -> Self {
@@ -7275,8 +7275,8 @@ impl ::core::clone::Clone for MORRSLT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MORRSLT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MORRSLT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MORRSLT_0 {
     fn default() -> Self {
@@ -7295,8 +7295,8 @@ impl ::core::clone::Clone for MORRSLT_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MORRSLT_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MORRSLT_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MORRSLT_1 {
     fn default() -> Self {
@@ -7315,8 +7315,8 @@ impl ::core::clone::Clone for MORRSLT_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MORRSLT_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MORRSLT_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MORRSLT_2 {
     fn default() -> Self {
@@ -7335,8 +7335,8 @@ impl ::core::clone::Clone for POSTBL {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for POSTBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for POSTBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for POSTBL {
     fn default() -> Self {
@@ -7366,8 +7366,8 @@ impl ::core::fmt::Debug for RECONVERTSTRING {
         f.debug_struct("RECONVERTSTRING").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("dwStrLen", &self.dwStrLen).field("dwStrOffset", &self.dwStrOffset).field("dwCompStrLen", &self.dwCompStrLen).field("dwCompStrOffset", &self.dwCompStrOffset).field("dwTargetStrLen", &self.dwTargetStrLen).field("dwTargetStrOffset", &self.dwTargetStrOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RECONVERTSTRING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RECONVERTSTRING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RECONVERTSTRING {
     fn eq(&self, other: &Self) -> bool {
@@ -7397,8 +7397,8 @@ impl ::core::fmt::Debug for REGISTERWORDA {
         f.debug_struct("REGISTERWORDA").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REGISTERWORDA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REGISTERWORDA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REGISTERWORDA {
     fn eq(&self, other: &Self) -> bool {
@@ -7428,8 +7428,8 @@ impl ::core::fmt::Debug for REGISTERWORDW {
         f.debug_struct("REGISTERWORDW").field("lpReading", &self.lpReading).field("lpWord", &self.lpWord).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REGISTERWORDW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REGISTERWORDW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REGISTERWORDW {
     fn eq(&self, other: &Self) -> bool {
@@ -7459,8 +7459,8 @@ impl ::core::fmt::Debug for SOFTKBDDATA {
         f.debug_struct("SOFTKBDDATA").field("uCount", &self.uCount).field("wCode", &self.wCode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SOFTKBDDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOFTKBDDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SOFTKBDDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -7495,8 +7495,8 @@ impl ::core::fmt::Debug for STYLEBUFA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STYLEBUFA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STYLEBUFA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STYLEBUFA {
@@ -7529,8 +7529,8 @@ impl ::core::fmt::Debug for STYLEBUFW {
         f.debug_struct("STYLEBUFW").field("dwStyle", &self.dwStyle).field("szDescription", &self.szDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STYLEBUFW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STYLEBUFW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STYLEBUFW {
     fn eq(&self, other: &Self) -> bool {
@@ -7566,8 +7566,8 @@ impl ::core::fmt::Debug for TRANSMSG {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRANSMSG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSMSG {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRANSMSG {
@@ -7605,8 +7605,8 @@ impl ::core::fmt::Debug for TRANSMSGLIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TRANSMSGLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSMSGLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TRANSMSGLIST {
@@ -7640,8 +7640,8 @@ impl ::core::clone::Clone for WDD {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WDD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WDD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WDD {
     fn default() -> Self {
@@ -7660,8 +7660,8 @@ impl ::core::clone::Clone for WDD_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WDD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WDD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WDD_0 {
     fn default() -> Self {
@@ -7680,8 +7680,8 @@ impl ::core::clone::Clone for WDD_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WDD_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WDD_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WDD_1 {
     fn default() -> Self {

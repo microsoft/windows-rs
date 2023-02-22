@@ -9,16 +9,11 @@ impl ICoreFrameworkInputViewInterop {
         P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetForWindow)(::windows::core::Vtable::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICoreFrameworkInputViewInterop, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICoreFrameworkInputViewInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -32,6 +27,11 @@ impl ::core::fmt::Debug for ICoreFrameworkInputViewInterop {
 }
 unsafe impl ::windows::core::Vtable for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInterop_Vtbl;
+}
+impl ::core::clone::Clone for ICoreFrameworkInputViewInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);

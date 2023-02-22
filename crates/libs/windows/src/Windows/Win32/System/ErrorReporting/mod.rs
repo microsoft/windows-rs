@@ -53,8 +53,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "kernel32.dll""system" fn WerGetFlags ( hprocess : super::super::Foundation:: HANDLE , pdwflags : *mut WER_FAULT_REPORTING ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerGetFlags(hprocess.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WER_FAULT_REPORTING>();
+    WerGetFlags(hprocess.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -161,8 +161,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerReportCreate ( pwzeventtype : :: windows::core::PCWSTR , reptype : WER_REPORT_TYPE , preportinformation : *const WER_REPORT_INFORMATION , phreporthandle : *mut HREPORT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerReportCreate(pwzeventtype.into().abi(), reptype, ::core::mem::transmute(preportinformation.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HREPORT>();
+    WerReportCreate(pwzeventtype.into().abi(), reptype, ::core::mem::transmute(preportinformation.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -245,8 +245,8 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreGetReportCount ( hreportstore : HREPORTSTORE , pdwreportcount : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetReportCount(hreportstore.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    WerStoreGetReportCount(hreportstore.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -255,15 +255,15 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreGetSizeOnDisk ( hreportstore : HREPORTSTORE , pqwsizeinbytes : *mut u64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreGetSizeOnDisk(hreportstore.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    WerStoreGetSizeOnDisk(hreportstore.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
     ::windows::core::link ! ( "wer.dll""system" fn WerStoreOpen ( repstoretype : REPORT_STORE_TYPES , phreportstore : *mut HREPORTSTORE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WerStoreOpen(repstoretype, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HREPORTSTORE>();
+    WerStoreOpen(repstoretype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
@@ -492,8 +492,8 @@ impl ::core::default::Default for EFaultRepRetVal {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EFaultRepRetVal {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFaultRepRetVal {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EFaultRepRetVal {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -525,8 +525,8 @@ impl ::core::default::Default for REPORT_STORE_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REPORT_STORE_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPORT_STORE_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REPORT_STORE_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -558,8 +558,8 @@ impl ::core::default::Default for WER_CONSENT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_CONSENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_CONSENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_CONSENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -593,8 +593,8 @@ impl ::core::default::Default for WER_DUMP_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_DUMP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_DUMP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_DUMP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -626,8 +626,8 @@ impl ::core::default::Default for WER_FAULT_REPORTING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_FAULT_REPORTING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_FAULT_REPORTING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_FAULT_REPORTING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -686,8 +686,8 @@ impl ::core::default::Default for WER_FILE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_FILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_FILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_FILE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -762,8 +762,8 @@ impl ::core::default::Default for WER_FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -791,8 +791,8 @@ impl ::core::default::Default for WER_REGISTER_FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_REGISTER_FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REGISTER_FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_REGISTER_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -826,8 +826,8 @@ impl ::core::default::Default for WER_REPORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_REPORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_REPORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -871,8 +871,8 @@ impl ::core::default::Default for WER_REPORT_UI {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_REPORT_UI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_UI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_REPORT_UI {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -922,8 +922,8 @@ impl ::core::default::Default for WER_SUBMIT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_SUBMIT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_SUBMIT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_SUBMIT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1004,8 +1004,8 @@ impl ::core::default::Default for WER_SUBMIT_RESULT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WER_SUBMIT_RESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_SUBMIT_RESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WER_SUBMIT_RESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1041,8 +1041,8 @@ impl ::core::convert::From<::core::option::Option<HREPORT>> for HREPORT {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HREPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HREPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1073,8 +1073,8 @@ impl ::core::convert::From<::core::option::Option<HREPORTSTORE>> for HREPORTSTOR
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HREPORTSTORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HREPORTSTORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
@@ -1119,8 +1119,8 @@ impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_DUMP_CUSTOM_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS {
@@ -1183,8 +1183,8 @@ impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V2 {
@@ -1253,8 +1253,8 @@ impl ::core::fmt::Debug for WER_DUMP_CUSTOM_OPTIONS_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_DUMP_CUSTOM_OPTIONS_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_DUMP_CUSTOM_OPTIONS_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_DUMP_CUSTOM_OPTIONS_V3 {
@@ -1307,8 +1307,8 @@ impl ::core::fmt::Debug for WER_EXCEPTION_INFORMATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for WER_EXCEPTION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_EXCEPTION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for WER_EXCEPTION_INFORMATION {
@@ -1352,8 +1352,8 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION {
@@ -1410,8 +1410,8 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_INFORMATION_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V3 {
@@ -1474,8 +1474,8 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_INFORMATION_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V4 {
@@ -1540,8 +1540,8 @@ impl ::core::fmt::Debug for WER_REPORT_INFORMATION_V5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_INFORMATION_V5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_INFORMATION_V5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_INFORMATION_V5 {
@@ -1582,8 +1582,8 @@ impl ::core::fmt::Debug for WER_REPORT_METADATA_V1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_METADATA_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V1 {
@@ -1642,8 +1642,8 @@ impl ::core::fmt::Debug for WER_REPORT_METADATA_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_METADATA_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V2 {
@@ -1714,8 +1714,8 @@ impl ::core::fmt::Debug for WER_REPORT_METADATA_V3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WER_REPORT_METADATA_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_METADATA_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WER_REPORT_METADATA_V3 {
@@ -1748,8 +1748,8 @@ impl ::core::fmt::Debug for WER_REPORT_PARAMETER {
         f.debug_struct("WER_REPORT_PARAMETER").field("Name", &self.Name).field("Value", &self.Value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WER_REPORT_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WER_REPORT_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
@@ -1779,8 +1779,8 @@ impl ::core::fmt::Debug for WER_REPORT_SIGNATURE {
         f.debug_struct("WER_REPORT_SIGNATURE").field("EventName", &self.EventName).field("Parameters", &self.Parameters).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WER_REPORT_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_REPORT_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WER_REPORT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -1815,8 +1815,8 @@ impl ::core::clone::Clone for WER_RUNTIME_EXCEPTION_INFORMATION {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for WER_RUNTIME_EXCEPTION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WER_RUNTIME_EXCEPTION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for WER_RUNTIME_EXCEPTION_INFORMATION {

@@ -191,8 +191,8 @@ impl ::core::fmt::Debug for ACTION_HEADER {
         f.debug_struct("ACTION_HEADER").field("transport_id", &self.transport_id).field("action_code", &self.action_code).field("reserved", &self.reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACTION_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTION_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -275,8 +275,8 @@ impl ::core::fmt::Debug for ADAPTER_STATUS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADAPTER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADAPTER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADAPTER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -336,8 +336,8 @@ impl ::core::fmt::Debug for FIND_NAME_BUFFER {
         f.debug_struct("FIND_NAME_BUFFER").field("length", &self.length).field("access_control", &self.access_control).field("frame_control", &self.frame_control).field("destination_addr", &self.destination_addr).field("source_addr", &self.source_addr).field("routing_info", &self.routing_info).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FIND_NAME_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIND_NAME_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FIND_NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -368,8 +368,8 @@ impl ::core::fmt::Debug for FIND_NAME_HEADER {
         f.debug_struct("FIND_NAME_HEADER").field("node_count", &self.node_count).field("reserved", &self.reserved).field("unique_group", &self.unique_group).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FIND_NAME_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIND_NAME_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FIND_NAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -399,8 +399,8 @@ impl ::core::fmt::Debug for LANA_ENUM {
         f.debug_struct("LANA_ENUM").field("length", &self.length).field("lana", &self.lana).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LANA_ENUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LANA_ENUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LANA_ENUM {
     fn eq(&self, other: &Self) -> bool {
@@ -431,8 +431,8 @@ impl ::core::fmt::Debug for NAME_BUFFER {
         f.debug_struct("NAME_BUFFER").field("name", &self.name).field("name_num", &self.name_num).field("name_flags", &self.name_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NAME_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NAME_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -501,8 +501,8 @@ impl ::core::fmt::Debug for NCB {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NCB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -577,8 +577,8 @@ impl ::core::fmt::Debug for NCB {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NCB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NCB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
@@ -618,8 +618,8 @@ impl ::core::fmt::Debug for SESSION_BUFFER {
         f.debug_struct("SESSION_BUFFER").field("lsn", &self.lsn).field("state", &self.state).field("local_name", &self.local_name).field("remote_name", &self.remote_name).field("rcvs_outstanding", &self.rcvs_outstanding).field("sends_outstanding", &self.sends_outstanding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -651,8 +651,8 @@ impl ::core::fmt::Debug for SESSION_HEADER {
         f.debug_struct("SESSION_HEADER").field("sess_name", &self.sess_name).field("num_sess", &self.num_sess).field("rcv_dg_outstanding", &self.rcv_dg_outstanding).field("rcv_any_outstanding", &self.rcv_any_outstanding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_HEADER {
     fn eq(&self, other: &Self) -> bool {

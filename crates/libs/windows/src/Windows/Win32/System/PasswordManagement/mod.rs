@@ -43,8 +43,8 @@ impl ::core::fmt::Debug for CYPHER_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CYPHER_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CYPHER_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CYPHER_BLOCK {
@@ -81,8 +81,8 @@ impl ::core::fmt::Debug for ENCRYPTED_LM_OWF_PASSWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENCRYPTED_LM_OWF_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTED_LM_OWF_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ENCRYPTED_LM_OWF_PASSWORD {
@@ -119,8 +119,8 @@ impl ::core::fmt::Debug for LM_OWF_PASSWORD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LM_OWF_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LM_OWF_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LM_OWF_PASSWORD {
@@ -152,8 +152,8 @@ impl ::core::fmt::Debug for SAMPR_ENCRYPTED_USER_PASSWORD {
         f.debug_struct("SAMPR_ENCRYPTED_USER_PASSWORD").field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SAMPR_ENCRYPTED_USER_PASSWORD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SAMPR_ENCRYPTED_USER_PASSWORD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SAMPR_ENCRYPTED_USER_PASSWORD {
     fn eq(&self, other: &Self) -> bool {

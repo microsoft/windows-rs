@@ -64,6 +64,6 @@ impl PWSTR {
     }
 }
 
-unsafe impl Abi for PWSTR {
-    type Abi = Self;
+impl TypeKind for PWSTR {
+    type TypeKind = CopyType;
 }

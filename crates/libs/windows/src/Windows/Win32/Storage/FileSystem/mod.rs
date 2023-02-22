@@ -536,8 +536,8 @@ where
 #[inline]
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
     ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn CreateIoRing ( ioringversion : IORING_VERSION , flags : IORING_CREATE_FLAGS , submissionqueuesize : u32 , completionqueuesize : u32 , h : *mut *mut HIORING__ ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<*mut HIORING__>();
+    CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2662,8 +2662,8 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows:
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::Result<IORING_CQE> {
     ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn PopIoRingCompletion ( ioring : *const HIORING__ , cqe : *mut IORING_CQE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PopIoRingCompletion(ioring, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IORING_CQE>();
+    PopIoRingCompletion(ioring, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2748,8 +2748,8 @@ where
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABILITIES> {
     ::windows::core::link ! ( "api-ms-win-core-ioring-l1-1-0.dll""system" fn QueryIoRingCapabilities ( capabilities : *mut IORING_CAPABILITIES ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryIoRingCapabilities(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IORING_CAPABILITIES>();
+    QueryIoRingCapabilities(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3586,9 +3586,9 @@ pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
     ::windows::core::link ! ( "txfw32.dll""system" fn TxfGetThreadMiniVersionForCreate ( miniversion : *mut u16 ) -> ( ) );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    TxfGetThreadMiniVersionForCreate(result__.as_mut_ptr());
-    result__.assume_init()
+    let mut result__ = ::windows::core::zeroed::<u16>();
+    TxfGetThreadMiniVersionForCreate(&mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3792,8 +3792,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "wofutil.dll""system" fn WofGetDriverVersion ( fileorvolumehandle : super::super::Foundation:: HANDLE , provider : u32 , wofversion : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WofGetDriverVersion(fileorvolumehandle.into(), provider, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    WofGetDriverVersion(fileorvolumehandle.into(), provider, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3833,8 +3833,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "wofutil.dll""system" fn WofWimAddEntry ( volumename : :: windows::core::PCWSTR , wimpath : :: windows::core::PCWSTR , wimtype : u32 , wimindex : u32 , datasourceid : *mut i64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WofWimAddEntry(volumename.into().abi(), wimpath.into().abi(), wimtype, wimindex, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<i64>();
+    WofWimAddEntry(volumename.into().abi(), wimpath.into().abi(), wimtype, wimindex, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3961,14 +3961,14 @@ impl IDiskQuotaControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.EnumConnectionPoints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumConnectionPoints>();
+        (::windows::core::Vtable::vtable(self).base__.EnumConnectionPoints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.FindConnectionPoint)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IConnectionPoint>();
+        (::windows::core::Vtable::vtable(self).base__.FindConnectionPoint)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4021,15 +4021,15 @@ impl IDiskQuotaControl {
     where
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddUserSid)(::windows::core::Vtable::as_raw(self), pusersid.into(), fnameresolution, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDiskQuotaUser>();
+        (::windows::core::Vtable::vtable(self).AddUserSid)(::windows::core::Vtable::as_raw(self), pusersid.into(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddUserName<P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddUserName)(::windows::core::Vtable::as_raw(self), pszlogonname.into().abi(), fnameresolution, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDiskQuotaUser>();
+        (::windows::core::Vtable::vtable(self).AddUserName)(::windows::core::Vtable::as_raw(self), pszlogonname.into().abi(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> ::windows::core::Result<()>
     where
@@ -4043,15 +4043,15 @@ impl IDiskQuotaControl {
     where
         P0: ::std::convert::Into<super::super::Foundation::PSID>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindUserSid)(::windows::core::Vtable::as_raw(self), pusersid.into(), fnameresolution, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDiskQuotaUser>();
+        (::windows::core::Vtable::vtable(self).FindUserSid)(::windows::core::Vtable::as_raw(self), pusersid.into(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindUserName<P0>(&self, pszlogonname: P0) -> ::windows::core::Result<IDiskQuotaUser>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).FindUserName)(::windows::core::Vtable::as_raw(self), pszlogonname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDiskQuotaUser>();
+        (::windows::core::Vtable::vtable(self).FindUserName)(::windows::core::Vtable::as_raw(self), pszlogonname.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4059,8 +4059,8 @@ impl IDiskQuotaControl {
         (::windows::core::Vtable::vtable(self).CreateEnumUsers)(::windows::core::Vtable::as_raw(self), rgpusersids, cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateUserBatch)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDiskQuotaUserBatch>();
+        (::windows::core::Vtable::vtable(self).CreateUserBatch)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).InvalidateSidNameCache)(::windows::core::Vtable::as_raw(self)).ok()
@@ -4078,12 +4078,6 @@ impl IDiskQuotaControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IDiskQuotaControl, ::windows::core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDiskQuotaControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IDiskQuotaControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4100,6 +4094,12 @@ impl ::core::fmt::Debug for IDiskQuotaControl {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IDiskQuotaControl {
     type Vtable = IDiskQuotaControl_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IDiskQuotaControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IDiskQuotaControl {
@@ -4156,11 +4156,6 @@ impl IDiskQuotaEvents {
     }
 }
 ::windows::core::interface_hierarchy!(IDiskQuotaEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDiskQuotaEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDiskQuotaEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4174,6 +4169,11 @@ impl ::core::fmt::Debug for IDiskQuotaEvents {
 }
 unsafe impl ::windows::core::Vtable for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEvents_Vtbl;
+}
+impl ::core::clone::Clone for IDiskQuotaEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
@@ -4259,11 +4259,6 @@ impl IDiskQuotaUser {
     }
 }
 ::windows::core::interface_hierarchy!(IDiskQuotaUser, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDiskQuotaUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDiskQuotaUser {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4277,6 +4272,11 @@ impl ::core::fmt::Debug for IDiskQuotaUser {
 }
 unsafe impl ::windows::core::Vtable for IDiskQuotaUser {
     type Vtable = IDiskQuotaUser_Vtbl;
+}
+impl ::core::clone::Clone for IDiskQuotaUser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaUser {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
@@ -4331,11 +4331,6 @@ impl IDiskQuotaUserBatch {
     }
 }
 ::windows::core::interface_hierarchy!(IDiskQuotaUserBatch, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDiskQuotaUserBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDiskQuotaUserBatch {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4349,6 +4344,11 @@ impl ::core::fmt::Debug for IDiskQuotaUserBatch {
 }
 unsafe impl ::windows::core::Vtable for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatch_Vtbl;
+}
+impl ::core::clone::Clone for IDiskQuotaUserBatch {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
@@ -4376,16 +4376,11 @@ impl IEnumDiskQuotaUsers {
         (::windows::core::Vtable::vtable(self).Reset)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IEnumDiskQuotaUsers>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEnumDiskQuotaUsers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEnumDiskQuotaUsers {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4399,6 +4394,11 @@ impl ::core::fmt::Debug for IEnumDiskQuotaUsers {
 }
 unsafe impl ::windows::core::Vtable for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsers_Vtbl;
+}
+impl ::core::clone::Clone for IEnumDiskQuotaUsers {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);
@@ -4997,8 +4997,8 @@ impl ::core::default::Default for CLFS_CONTEXT_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_CONTEXT_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_CONTEXT_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_CONTEXT_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5028,8 +5028,8 @@ impl ::core::default::Default for CLFS_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5088,8 +5088,8 @@ impl ::core::default::Default for CLFS_IOSTATS_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_IOSTATS_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_IOSTATS_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_IOSTATS_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5115,8 +5115,8 @@ impl ::core::default::Default for CLFS_LOG_ARCHIVE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_LOG_ARCHIVE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_LOG_ARCHIVE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_LOG_ARCHIVE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5146,8 +5146,8 @@ impl ::core::default::Default for CLFS_MGMT_NOTIFICATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_NOTIFICATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5191,8 +5191,8 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLFS_MGMT_POLICY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5222,8 +5222,8 @@ impl ::core::default::Default for CLS_CONTEXT_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLS_CONTEXT_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_CONTEXT_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLS_CONTEXT_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5249,8 +5249,8 @@ impl ::core::default::Default for CLS_IOSTATS_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLS_IOSTATS_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_IOSTATS_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLS_IOSTATS_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5284,8 +5284,8 @@ impl ::core::default::Default for CLS_LOG_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CLS_LOG_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_LOG_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CLS_LOG_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5319,8 +5319,8 @@ impl ::core::default::Default for COMPRESSION_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPRESSION_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPRESSION_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPRESSION_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5358,8 +5358,8 @@ impl ::core::default::Default for COPYFILE2_COPY_PHASE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COPYFILE2_COPY_PHASE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_COPY_PHASE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COPYFILE2_COPY_PHASE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5391,8 +5391,8 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5430,8 +5430,8 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COPYFILE2_MESSAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5459,8 +5459,8 @@ impl ::core::default::Default for CREATE_TAPE_PARTITION_METHOD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_TAPE_PARTITION_METHOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_TAPE_PARTITION_METHOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_TAPE_PARTITION_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5492,8 +5492,8 @@ impl ::core::default::Default for DEFINE_DOS_DEVICE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DEFINE_DOS_DEVICE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEFINE_DOS_DEVICE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DEFINE_DOS_DEVICE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5554,8 +5554,8 @@ impl ::core::default::Default for DISKQUOTA_USERNAME_RESOLVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISKQUOTA_USERNAME_RESOLVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISKQUOTA_USERNAME_RESOLVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISKQUOTA_USERNAME_RESOLVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5581,8 +5581,8 @@ impl ::core::default::Default for ERASE_TAPE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ERASE_TAPE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERASE_TAPE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ERASE_TAPE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5662,8 +5662,8 @@ impl ::core::default::Default for FILE_ACCESS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ACCESS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ACCESS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_ACCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5728,8 +5728,8 @@ impl ::core::default::Default for FILE_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5761,8 +5761,8 @@ impl ::core::default::Default for FILE_CREATION_DISPOSITION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_CREATION_DISPOSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_CREATION_DISPOSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_CREATION_DISPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5792,8 +5792,8 @@ impl ::core::default::Default for FILE_DEVICE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_DEVICE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_DEVICE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5905,8 +5905,8 @@ impl ::core::default::Default for FILE_FLAGS_AND_ATTRIBUTES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_FLAGS_AND_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_FLAGS_AND_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_FLAGS_AND_ATTRIBUTES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5969,8 +5969,8 @@ impl ::core::default::Default for FILE_ID_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_ID_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6044,8 +6044,8 @@ impl ::core::default::Default for FILE_INFO_BY_HANDLE_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_INFO_BY_HANDLE_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_INFO_BY_HANDLE_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_INFO_BY_HANDLE_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6073,8 +6073,8 @@ impl ::core::default::Default for FILE_INFO_FLAGS_PERMISSIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_INFO_FLAGS_PERMISSIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_INFO_FLAGS_PERMISSIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_INFO_FLAGS_PERMISSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6133,8 +6133,8 @@ impl ::core::default::Default for FILE_NAME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6172,8 +6172,8 @@ impl ::core::default::Default for FILE_NOTIFY_CHANGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_CHANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_NOTIFY_CHANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_NOTIFY_CHANGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6236,8 +6236,8 @@ impl ::core::default::Default for FILE_SHARE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_SHARE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_SHARE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_SHARE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6302,8 +6302,8 @@ impl ::core::default::Default for FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6331,8 +6331,8 @@ impl ::core::default::Default for FINDEX_INFO_LEVELS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FINDEX_INFO_LEVELS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FINDEX_INFO_LEVELS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FINDEX_INFO_LEVELS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6362,8 +6362,8 @@ impl ::core::default::Default for FINDEX_SEARCH_OPS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FINDEX_SEARCH_OPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FINDEX_SEARCH_OPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FINDEX_SEARCH_OPS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6391,8 +6391,8 @@ impl ::core::default::Default for FIND_FIRST_EX_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FIND_FIRST_EX_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIND_FIRST_EX_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FIND_FIRST_EX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6451,8 +6451,8 @@ impl ::core::default::Default for GET_FILEEX_INFO_LEVELS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_FILEEX_INFO_LEVELS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_FILEEX_INFO_LEVELS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_FILEEX_INFO_LEVELS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6480,8 +6480,8 @@ impl ::core::default::Default for GET_FILE_VERSION_INFO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_FILE_VERSION_INFO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_FILE_VERSION_INFO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_FILE_VERSION_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6540,8 +6540,8 @@ impl ::core::default::Default for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6565,8 +6565,8 @@ impl ::core::default::Default for IORING_CREATE_ADVISORY_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_CREATE_ADVISORY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_CREATE_ADVISORY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_CREATE_ADVISORY_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6590,8 +6590,8 @@ impl ::core::default::Default for IORING_CREATE_REQUIRED_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_CREATE_REQUIRED_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_CREATE_REQUIRED_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_CREATE_REQUIRED_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6619,8 +6619,8 @@ impl ::core::default::Default for IORING_FEATURE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_FEATURE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_FEATURE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_FEATURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6652,8 +6652,8 @@ impl ::core::default::Default for IORING_OP_CODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_OP_CODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_OP_CODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_OP_CODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6679,8 +6679,8 @@ impl ::core::default::Default for IORING_REF_KIND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_REF_KIND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_REF_KIND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_REF_KIND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6704,8 +6704,8 @@ impl ::core::default::Default for IORING_SQE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_SQE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_SQE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_SQE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6731,8 +6731,8 @@ impl ::core::default::Default for IORING_VERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IORING_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IORING_VERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6758,8 +6758,8 @@ impl ::core::default::Default for LOCK_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LOCK_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOCK_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LOCK_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6818,8 +6818,8 @@ impl ::core::default::Default for LPPROGRESS_ROUTINE_CALLBACK_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LPPROGRESS_ROUTINE_CALLBACK_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LPPROGRESS_ROUTINE_CALLBACK_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6873,8 +6873,8 @@ impl ::core::default::Default for LZOPENFILE_STYLE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for LZOPENFILE_STYLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LZOPENFILE_STYLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for LZOPENFILE_STYLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -6941,8 +6941,8 @@ impl ::core::default::Default for MOVE_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MOVE_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOVE_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MOVE_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7001,8 +7001,8 @@ impl ::core::default::Default for NTMS_OMID_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_OMID_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OMID_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NTMS_OMID_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7036,8 +7036,8 @@ impl ::core::default::Default for NT_CREATE_FILE_DISPOSITION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NT_CREATE_FILE_DISPOSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NT_CREATE_FILE_DISPOSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NT_CREATE_FILE_DISPOSITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7065,8 +7065,8 @@ impl ::core::default::Default for NtmsAccessMask {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsAccessMask {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsAccessMask {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsAccessMask {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7094,8 +7094,8 @@ impl ::core::default::Default for NtmsAllocateOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsAllocateOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsAllocateOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsAllocateOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7119,8 +7119,8 @@ impl ::core::default::Default for NtmsAllocationPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsAllocationPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsAllocationPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsAllocationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7144,8 +7144,8 @@ impl ::core::default::Default for NtmsAsyncOperations {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsAsyncOperations {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsAsyncOperations {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsAsyncOperations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7177,8 +7177,8 @@ impl ::core::default::Default for NtmsAsyncStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsAsyncStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsAsyncStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsAsyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7204,8 +7204,8 @@ impl ::core::default::Default for NtmsBarCodeState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsBarCodeState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsBarCodeState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsBarCodeState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7229,8 +7229,8 @@ impl ::core::default::Default for NtmsCreateNtmsMediaOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsCreateNtmsMediaOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsCreateNtmsMediaOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsCreateNtmsMediaOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7258,8 +7258,8 @@ impl ::core::default::Default for NtmsCreateOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsCreateOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsCreateOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsCreateOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7283,8 +7283,8 @@ impl ::core::default::Default for NtmsDeallocationPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsDeallocationPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsDeallocationPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsDeallocationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7310,8 +7310,8 @@ impl ::core::default::Default for NtmsDismountOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsDismountOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsDismountOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsDismountOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7339,8 +7339,8 @@ impl ::core::default::Default for NtmsDoorState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsDoorState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsDoorState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsDoorState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7374,8 +7374,8 @@ impl ::core::default::Default for NtmsDriveState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsDriveState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsDriveState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsDriveState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7399,8 +7399,8 @@ impl ::core::default::Default for NtmsDriveType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsDriveType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsDriveType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsDriveType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7434,8 +7434,8 @@ impl ::core::default::Default for NtmsEjectOperation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsEjectOperation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsEjectOperation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsEjectOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7461,8 +7461,8 @@ impl ::core::default::Default for NtmsEnumerateOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsEnumerateOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsEnumerateOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsEnumerateOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7492,8 +7492,8 @@ impl ::core::default::Default for NtmsInjectOperation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsInjectOperation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsInjectOperation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsInjectOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7529,8 +7529,8 @@ impl ::core::default::Default for NtmsInventoryMethod {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsInventoryMethod {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsInventoryMethod {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsInventoryMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7556,8 +7556,8 @@ impl ::core::default::Default for NtmsLibRequestFlags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsLibRequestFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsLibRequestFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsLibRequestFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7589,8 +7589,8 @@ impl ::core::default::Default for NtmsLibraryFlags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsLibraryFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsLibraryFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsLibraryFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7620,8 +7620,8 @@ impl ::core::default::Default for NtmsLibraryType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsLibraryType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsLibraryType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsLibraryType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7693,8 +7693,8 @@ impl ::core::default::Default for NtmsLmOperation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsLmOperation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsLmOperation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsLmOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7736,8 +7736,8 @@ impl ::core::default::Default for NtmsLmState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsLmState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsLmState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsLmState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7763,8 +7763,8 @@ impl ::core::default::Default for NtmsMediaPoolPolicy {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsMediaPoolPolicy {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsMediaPoolPolicy {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsMediaPoolPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7800,8 +7800,8 @@ impl ::core::default::Default for NtmsMediaState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsMediaState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsMediaState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsMediaState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7839,8 +7839,8 @@ impl ::core::default::Default for NtmsMountOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsMountOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsMountOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsMountOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7874,8 +7874,8 @@ impl ::core::default::Default for NtmsMountPriority {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsMountPriority {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsMountPriority {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsMountPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7907,8 +7907,8 @@ impl ::core::default::Default for NtmsNotificationOperations {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsNotificationOperations {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsNotificationOperations {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsNotificationOperations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -7970,8 +7970,8 @@ impl ::core::default::Default for NtmsObjectsTypes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsObjectsTypes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsObjectsTypes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsObjectsTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8001,8 +8001,8 @@ impl ::core::default::Default for NtmsOpRequestFlags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsOpRequestFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsOpRequestFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsOpRequestFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8032,8 +8032,8 @@ impl ::core::default::Default for NtmsOperationalState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsOperationalState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsOperationalState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsOperationalState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8067,8 +8067,8 @@ impl ::core::default::Default for NtmsOpreqCommand {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsOpreqCommand {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsOpreqCommand {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsOpreqCommand {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8102,8 +8102,8 @@ impl ::core::default::Default for NtmsOpreqState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsOpreqState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsOpreqState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsOpreqState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8145,8 +8145,8 @@ impl ::core::default::Default for NtmsPartitionState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsPartitionState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsPartitionState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsPartitionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8178,8 +8178,8 @@ impl ::core::default::Default for NtmsPoolType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsPoolType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsPoolType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsPoolType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8207,8 +8207,8 @@ impl ::core::default::Default for NtmsPortContent {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsPortContent {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsPortContent {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsPortContent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8236,8 +8236,8 @@ impl ::core::default::Default for NtmsPortPosition {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsPortPosition {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsPortPosition {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsPortPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8267,8 +8267,8 @@ impl ::core::default::Default for NtmsReadWriteCharacteristics {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsReadWriteCharacteristics {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsReadWriteCharacteristics {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsReadWriteCharacteristics {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8292,8 +8292,8 @@ impl ::core::default::Default for NtmsSessionOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsSessionOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsSessionOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsSessionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8325,8 +8325,8 @@ impl ::core::default::Default for NtmsSlotState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsSlotState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsSlotState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsSlotState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8356,8 +8356,8 @@ impl ::core::default::Default for NtmsUIOperations {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsUIOperations {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsUIOperations {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsUIOperations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8389,8 +8389,8 @@ impl ::core::default::Default for NtmsUITypes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NtmsUITypes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NtmsUITypes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NtmsUITypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8424,8 +8424,8 @@ impl ::core::default::Default for PREPARE_TAPE_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PREPARE_TAPE_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PREPARE_TAPE_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PREPARE_TAPE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8455,8 +8455,8 @@ impl ::core::default::Default for PRIORITY_HINT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRIORITY_HINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRIORITY_HINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRIORITY_HINT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8482,8 +8482,8 @@ impl ::core::default::Default for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8511,8 +8511,8 @@ impl ::core::default::Default for REPLACE_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for REPLACE_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPLACE_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for REPLACE_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8569,8 +8569,8 @@ impl ::core::default::Default for SERVER_CERTIFICATE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_CERTIFICATE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SERVER_CERTIFICATE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8596,8 +8596,8 @@ impl ::core::default::Default for SESSION_INFO_USER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_USER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_USER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SESSION_INFO_USER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8625,8 +8625,8 @@ impl ::core::default::Default for SET_FILE_POINTER_MOVE_METHOD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SET_FILE_POINTER_MOVE_METHOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SET_FILE_POINTER_MOVE_METHOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SET_FILE_POINTER_MOVE_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8664,8 +8664,8 @@ impl ::core::default::Default for SHARE_INFO_PERMISSIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_PERMISSIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_PERMISSIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHARE_INFO_PERMISSIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8701,8 +8701,8 @@ impl ::core::default::Default for SHARE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHARE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8801,8 +8801,8 @@ impl ::core::default::Default for STORAGE_BUS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STORAGE_BUS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STORAGE_BUS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STORAGE_BUS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8828,8 +8828,8 @@ impl ::core::default::Default for STREAM_INFO_LEVELS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STREAM_INFO_LEVELS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STREAM_INFO_LEVELS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STREAM_INFO_LEVELS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8855,8 +8855,8 @@ impl ::core::default::Default for SYMBOLIC_LINK_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYMBOLIC_LINK_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYMBOLIC_LINK_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYMBOLIC_LINK_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8919,8 +8919,8 @@ impl ::core::default::Default for TAPEMARK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAPEMARK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPEMARK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAPEMARK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8946,8 +8946,8 @@ impl ::core::default::Default for TAPE_INFORMATION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAPE_INFORMATION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_INFORMATION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAPE_INFORMATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -8987,8 +8987,8 @@ impl ::core::default::Default for TAPE_POSITION_METHOD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAPE_POSITION_METHOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_POSITION_METHOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAPE_POSITION_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9014,8 +9014,8 @@ impl ::core::default::Default for TAPE_POSITION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAPE_POSITION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_POSITION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAPE_POSITION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9043,8 +9043,8 @@ impl ::core::default::Default for TRANSACTION_OUTCOME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_OUTCOME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_OUTCOME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSACTION_OUTCOME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9072,8 +9072,8 @@ impl ::core::default::Default for TXFS_MINIVERSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TXFS_MINIVERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXFS_MINIVERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TXFS_MINIVERSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9101,8 +9101,8 @@ impl ::core::default::Default for TXF_LOG_RECORD_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_LOG_RECORD_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TXF_LOG_RECORD_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9126,8 +9126,8 @@ impl ::core::default::Default for VER_FIND_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VER_FIND_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VER_FIND_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VER_FIND_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9155,8 +9155,8 @@ impl ::core::default::Default for VER_FIND_FILE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VER_FIND_FILE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VER_FIND_FILE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VER_FIND_FILE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9215,8 +9215,8 @@ impl ::core::default::Default for VER_INSTALL_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VER_INSTALL_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9280,8 +9280,8 @@ impl ::core::default::Default for VER_INSTALL_FILE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VER_INSTALL_FILE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VER_INSTALL_FILE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VER_INSTALL_FILE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9348,8 +9348,8 @@ impl ::core::default::Default for VS_FIXEDFILEINFO_FILE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VS_FIXEDFILEINFO_FILE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9436,8 +9436,8 @@ impl ::core::default::Default for VS_FIXEDFILEINFO_FILE_OS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_OS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VS_FIXEDFILEINFO_FILE_OS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_OS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9491,8 +9491,8 @@ impl ::core::default::Default for VS_FIXEDFILEINFO_FILE_SUBTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_SUBTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VS_FIXEDFILEINFO_FILE_SUBTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9528,8 +9528,8 @@ impl ::core::default::Default for VS_FIXEDFILEINFO_FILE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO_FILE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VS_FIXEDFILEINFO_FILE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9571,8 +9571,8 @@ impl ::core::default::Default for WIN_STREAM_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WIN_STREAM_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN_STREAM_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WIN_STREAM_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -9620,8 +9620,8 @@ impl ::core::fmt::Debug for BY_HANDLE_FILE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BY_HANDLE_FILE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BY_HANDLE_FILE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BY_HANDLE_FILE_INFORMATION {
@@ -9654,8 +9654,8 @@ impl ::core::fmt::Debug for CLFS_LOG_NAME_INFORMATION {
         f.debug_struct("CLFS_LOG_NAME_INFORMATION").field("NameLengthInBytes", &self.NameLengthInBytes).field("Name", &self.Name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_LOG_NAME_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_LOG_NAME_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_LOG_NAME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -9686,8 +9686,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION {
         f.debug_struct("CLFS_MGMT_NOTIFICATION").field("Notification", &self.Notification).field("Lsn", &self.Lsn).field("LogIsPinned", &self.LogIsPinned).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -9715,8 +9715,8 @@ impl ::core::clone::Clone for CLFS_MGMT_POLICY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CLFS_MGMT_POLICY {
     fn default() -> Self {
@@ -9743,8 +9743,8 @@ impl ::core::clone::Clone for CLFS_MGMT_POLICY_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for CLFS_MGMT_POLICY_0 {
     fn default() -> Self {
@@ -9767,8 +9767,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_0 {
         f.debug_struct("CLFS_MGMT_POLICY_0_0").field("Enabled", &self.Enabled).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9797,8 +9797,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_1 {
         f.debug_struct("CLFS_MGMT_POLICY_0_1").field("Percentage", &self.Percentage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9828,8 +9828,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_2 {
         f.debug_struct("CLFS_MGMT_POLICY_0_2").field("AbsoluteGrowthInContainers", &self.AbsoluteGrowthInContainers).field("RelativeGrowthPercentage", &self.RelativeGrowthPercentage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9859,8 +9859,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_3 {
         f.debug_struct("CLFS_MGMT_POLICY_0_3").field("MinimumAvailablePercentage", &self.MinimumAvailablePercentage).field("MinimumAvailableContainers", &self.MinimumAvailableContainers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -9889,8 +9889,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_4 {
         f.debug_struct("CLFS_MGMT_POLICY_0_4").field("Containers", &self.Containers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -9919,8 +9919,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_5 {
         f.debug_struct("CLFS_MGMT_POLICY_0_5").field("Containers", &self.Containers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -9950,8 +9950,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_6 {
         f.debug_struct("CLFS_MGMT_POLICY_0_6").field("ExtensionLengthInBytes", &self.ExtensionLengthInBytes).field("ExtensionString", &self.ExtensionString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_6 {
     fn eq(&self, other: &Self) -> bool {
@@ -9981,8 +9981,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_7 {
         f.debug_struct("CLFS_MGMT_POLICY_0_7").field("PrefixLengthInBytes", &self.PrefixLengthInBytes).field("PrefixString", &self.PrefixString).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_7 {
     fn eq(&self, other: &Self) -> bool {
@@ -10011,8 +10011,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_8 {
         f.debug_struct("CLFS_MGMT_POLICY_0_8").field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_8 {
     fn eq(&self, other: &Self) -> bool {
@@ -10041,8 +10041,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_0_9 {
         f.debug_struct("CLFS_MGMT_POLICY_0_9").field("NextContainerSuffix", &self.NextContainerSuffix).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_MGMT_POLICY_0_9 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_MGMT_POLICY_0_9 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_MGMT_POLICY_0_9 {
     fn eq(&self, other: &Self) -> bool {
@@ -10072,8 +10072,8 @@ impl ::core::fmt::Debug for CLFS_NODE_ID {
         f.debug_struct("CLFS_NODE_ID").field("cType", &self.cType).field("cbNode", &self.cbNode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_NODE_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_NODE_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_NODE_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -10104,8 +10104,8 @@ impl ::core::fmt::Debug for CLFS_PHYSICAL_LSN_INFORMATION {
         f.debug_struct("CLFS_PHYSICAL_LSN_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).field("VirtualLsn", &self.VirtualLsn).field("PhysicalLsn", &self.PhysicalLsn).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_PHYSICAL_LSN_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_PHYSICAL_LSN_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_PHYSICAL_LSN_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10134,8 +10134,8 @@ impl ::core::fmt::Debug for CLFS_STREAM_ID_INFORMATION {
         f.debug_struct("CLFS_STREAM_ID_INFORMATION").field("StreamIdentifier", &self.StreamIdentifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLFS_STREAM_ID_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLFS_STREAM_ID_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLFS_STREAM_ID_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10166,8 +10166,8 @@ impl ::core::fmt::Debug for CLS_ARCHIVE_DESCRIPTOR {
         f.debug_struct("CLS_ARCHIVE_DESCRIPTOR").field("coffLow", &self.coffLow).field("coffHigh", &self.coffHigh).field("infoContainer", &self.infoContainer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_ARCHIVE_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_ARCHIVE_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_ARCHIVE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -10218,8 +10218,8 @@ impl ::core::fmt::Debug for CLS_CONTAINER_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_CONTAINER_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_CONTAINER_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_CONTAINER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10282,8 +10282,8 @@ impl ::core::fmt::Debug for CLS_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -10316,8 +10316,8 @@ impl ::core::fmt::Debug for CLS_IO_STATISTICS {
         f.debug_struct("CLS_IO_STATISTICS").field("hdrIoStats", &self.hdrIoStats).field("cFlush", &self.cFlush).field("cbFlush", &self.cbFlush).field("cMetaFlush", &self.cMetaFlush).field("cbMetaFlush", &self.cbMetaFlush).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_IO_STATISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_IO_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -10350,8 +10350,8 @@ impl ::core::fmt::Debug for CLS_IO_STATISTICS_HEADER {
         f.debug_struct("CLS_IO_STATISTICS_HEADER").field("ubMajorVersion", &self.ubMajorVersion).field("ubMinorVersion", &self.ubMinorVersion).field("eStatsClass", &self.eStatsClass).field("cbLength", &self.cbLength).field("coffData", &self.coffData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_IO_STATISTICS_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_IO_STATISTICS_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_IO_STATISTICS_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -10380,8 +10380,8 @@ impl ::core::fmt::Debug for CLS_LSN {
         f.debug_struct("CLS_LSN").field("Internal", &self.Internal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_LSN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_LSN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_LSN {
     fn eq(&self, other: &Self) -> bool {
@@ -10421,8 +10421,8 @@ impl ::core::fmt::Debug for CLS_SCAN_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLS_SCAN_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_SCAN_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLS_SCAN_CONTEXT {
@@ -10455,8 +10455,8 @@ impl ::core::fmt::Debug for CLS_WRITE_ENTRY {
         f.debug_struct("CLS_WRITE_ENTRY").field("Buffer", &self.Buffer).field("ByteLength", &self.ByteLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CLS_WRITE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLS_WRITE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CLS_WRITE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -10485,8 +10485,8 @@ impl ::core::fmt::Debug for CONNECTION_INFO_0 {
         f.debug_struct("CONNECTION_INFO_0").field("coni0_id", &self.coni0_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -10521,8 +10521,8 @@ impl ::core::fmt::Debug for CONNECTION_INFO_1 {
         f.debug_struct("CONNECTION_INFO_1").field("coni1_id", &self.coni1_id).field("coni1_type", &self.coni1_type).field("coni1_num_opens", &self.coni1_num_opens).field("coni1_num_users", &self.coni1_num_users).field("coni1_time", &self.coni1_time).field("coni1_username", &self.coni1_username).field("coni1_netname", &self.coni1_netname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTION_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTION_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONNECTION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -10560,8 +10560,8 @@ impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
@@ -10598,8 +10598,8 @@ impl ::core::fmt::Debug for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_EXTENDED_PARAMETERS_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_EXTENDED_PARAMETERS_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
@@ -10624,8 +10624,8 @@ impl ::core::clone::Clone for COPYFILE2_MESSAGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE {
@@ -10653,8 +10653,8 @@ impl ::core::clone::Clone for COPYFILE2_MESSAGE_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COPYFILE2_MESSAGE_0 {
@@ -10703,8 +10703,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_0 {
@@ -10748,8 +10748,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_1 {
@@ -10794,8 +10794,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
@@ -10832,8 +10832,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
@@ -10877,8 +10877,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_4 {
@@ -10920,8 +10920,8 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_0_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COPYFILE2_MESSAGE_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COPYFILE2_MESSAGE_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COPYFILE2_MESSAGE_0_5 {
@@ -10963,8 +10963,8 @@ impl ::core::fmt::Debug for CREATEFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATEFILE2_EXTENDED_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for CREATEFILE2_EXTENDED_PARAMETERS {
@@ -10998,8 +10998,8 @@ impl ::core::fmt::Debug for DISKQUOTA_USER_INFORMATION {
         f.debug_struct("DISKQUOTA_USER_INFORMATION").field("QuotaUsed", &self.QuotaUsed).field("QuotaThreshold", &self.QuotaThreshold).field("QuotaLimit", &self.QuotaLimit).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DISKQUOTA_USER_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISKQUOTA_USER_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DISKQUOTA_USER_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -11054,8 +11054,8 @@ impl ::core::fmt::Debug for DISK_SPACE_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DISK_SPACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISK_SPACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DISK_SPACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -11098,8 +11098,8 @@ impl ::core::fmt::Debug for EFS_CERTIFICATE_BLOB {
         f.debug_struct("EFS_CERTIFICATE_BLOB").field("dwCertEncodingType", &self.dwCertEncodingType).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_CERTIFICATE_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_CERTIFICATE_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_CERTIFICATE_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -11128,8 +11128,8 @@ impl ::core::fmt::Debug for EFS_COMPATIBILITY_INFO {
         f.debug_struct("EFS_COMPATIBILITY_INFO").field("EfsVersion", &self.EfsVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_COMPATIBILITY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_COMPATIBILITY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_COMPATIBILITY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11160,8 +11160,8 @@ impl ::core::fmt::Debug for EFS_DECRYPTION_STATUS_INFO {
         f.debug_struct("EFS_DECRYPTION_STATUS_INFO").field("dwDecryptionError", &self.dwDecryptionError).field("dwHashOffset", &self.dwHashOffset).field("cbHash", &self.cbHash).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_DECRYPTION_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_DECRYPTION_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_DECRYPTION_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11196,8 +11196,8 @@ impl ::core::fmt::Debug for EFS_ENCRYPTION_STATUS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EFS_ENCRYPTION_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_ENCRYPTION_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EFS_ENCRYPTION_STATUS_INFO {
@@ -11230,8 +11230,8 @@ impl ::core::fmt::Debug for EFS_HASH_BLOB {
         f.debug_struct("EFS_HASH_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_HASH_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_HASH_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_HASH_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -11263,8 +11263,8 @@ impl ::core::fmt::Debug for EFS_KEY_INFO {
         f.debug_struct("EFS_KEY_INFO").field("dwVersion", &self.dwVersion).field("Entropy", &self.Entropy).field("Algorithm", &self.Algorithm).field("KeyLength", &self.KeyLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_KEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_KEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11295,8 +11295,8 @@ impl ::core::fmt::Debug for EFS_PIN_BLOB {
         f.debug_struct("EFS_PIN_BLOB").field("cbPadding", &self.cbPadding).field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_PIN_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_PIN_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_PIN_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -11326,8 +11326,8 @@ impl ::core::fmt::Debug for EFS_RPC_BLOB {
         f.debug_struct("EFS_RPC_BLOB").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_RPC_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_RPC_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_RPC_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -11357,8 +11357,8 @@ impl ::core::fmt::Debug for EFS_VERSION_INFO {
         f.debug_struct("EFS_VERSION_INFO").field("EfsVersion", &self.EfsVersion).field("SubVersion", &self.SubVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EFS_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFS_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EFS_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11395,8 +11395,8 @@ impl ::core::fmt::Debug for ENCRYPTED_FILE_METADATA_SIGNATURE {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTED_FILE_METADATA_SIGNATURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTED_FILE_METADATA_SIGNATURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTED_FILE_METADATA_SIGNATURE {
@@ -11435,8 +11435,8 @@ impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_CERTIFICATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE {
@@ -11476,8 +11476,8 @@ impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_CERTIFICATE_HASH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH {
@@ -11515,8 +11515,8 @@ impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_HASH_LIST {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_HASH_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_CERTIFICATE_HASH_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_HASH_LIST {
@@ -11554,8 +11554,8 @@ impl ::core::fmt::Debug for ENCRYPTION_CERTIFICATE_LIST {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_CERTIFICATE_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_CERTIFICATE_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_CERTIFICATE_LIST {
@@ -11594,8 +11594,8 @@ impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_PROTECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR {
@@ -11633,8 +11633,8 @@ impl ::core::fmt::Debug for ENCRYPTION_PROTECTOR_LIST {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for ENCRYPTION_PROTECTOR_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCRYPTION_PROTECTOR_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for ENCRYPTION_PROTECTOR_LIST {
@@ -11680,8 +11680,8 @@ impl ::core::fmt::Debug for FH_OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FH_OVERLAPPED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_OVERLAPPED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FH_OVERLAPPED {
@@ -11705,8 +11705,8 @@ impl ::core::fmt::Debug for FILE_ALIGNMENT_INFO {
         f.debug_struct("FILE_ALIGNMENT_INFO").field("AlignmentRequirement", &self.AlignmentRequirement).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ALIGNMENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ALIGNMENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ALIGNMENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11735,8 +11735,8 @@ impl ::core::fmt::Debug for FILE_ALLOCATION_INFO {
         f.debug_struct("FILE_ALLOCATION_INFO").field("AllocationSize", &self.AllocationSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ALLOCATION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ALLOCATION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ALLOCATION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11766,8 +11766,8 @@ impl ::core::fmt::Debug for FILE_ATTRIBUTE_TAG_INFO {
         f.debug_struct("FILE_ATTRIBUTE_TAG_INFO").field("FileAttributes", &self.FileAttributes).field("ReparseTag", &self.ReparseTag).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ATTRIBUTE_TAG_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ATTRIBUTE_TAG_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ATTRIBUTE_TAG_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11800,8 +11800,8 @@ impl ::core::fmt::Debug for FILE_BASIC_INFO {
         f.debug_struct("FILE_BASIC_INFO").field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_BASIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_BASIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11835,8 +11835,8 @@ impl ::core::fmt::Debug for FILE_COMPRESSION_INFO {
         f.debug_struct("FILE_COMPRESSION_INFO").field("CompressedFileSize", &self.CompressedFileSize).field("CompressionFormat", &self.CompressionFormat).field("CompressionUnitShift", &self.CompressionUnitShift).field("ChunkShift", &self.ChunkShift).field("ClusterShift", &self.ClusterShift).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_COMPRESSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_COMPRESSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_COMPRESSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11870,8 +11870,8 @@ impl ::core::fmt::Debug for FILE_DISPOSITION_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_DISPOSITION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO {
@@ -11903,8 +11903,8 @@ impl ::core::fmt::Debug for FILE_END_OF_FILE_INFO {
         f.debug_struct("FILE_END_OF_FILE_INFO").field("EndOfFile", &self.EndOfFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_END_OF_FILE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_END_OF_FILE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_END_OF_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11934,8 +11934,8 @@ impl ::core::fmt::Debug for FILE_EXTENT {
         f.debug_struct("FILE_EXTENT").field("VolumeOffset", &self.VolumeOffset).field("ExtentLength", &self.ExtentLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_EXTENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_EXTENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_EXTENT {
     fn eq(&self, other: &Self) -> bool {
@@ -11988,8 +11988,8 @@ impl ::core::fmt::Debug for FILE_FULL_DIR_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_FULL_DIR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_FULL_DIR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_FULL_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12018,8 +12018,8 @@ impl ::core::fmt::Debug for FILE_ID_128 {
         f.debug_struct("FILE_ID_128").field("Identifier", &self.Identifier).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_128 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_128 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ID_128 {
     fn eq(&self, other: &Self) -> bool {
@@ -12078,8 +12078,8 @@ impl ::core::fmt::Debug for FILE_ID_BOTH_DIR_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_BOTH_DIR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_BOTH_DIR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ID_BOTH_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12105,8 +12105,8 @@ impl ::core::clone::Clone for FILE_ID_DESCRIPTOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILE_ID_DESCRIPTOR {
     fn default() -> Self {
@@ -12126,8 +12126,8 @@ impl ::core::clone::Clone for FILE_ID_DESCRIPTOR_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_DESCRIPTOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_DESCRIPTOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILE_ID_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -12178,8 +12178,8 @@ impl ::core::fmt::Debug for FILE_ID_EXTD_DIR_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_EXTD_DIR_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_EXTD_DIR_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ID_EXTD_DIR_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12209,8 +12209,8 @@ impl ::core::fmt::Debug for FILE_ID_INFO {
         f.debug_struct("FILE_ID_INFO").field("VolumeSerialNumber", &self.VolumeSerialNumber).field("FileId", &self.FileId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_ID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_ID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_ID_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12239,8 +12239,8 @@ impl ::core::fmt::Debug for FILE_INFO_2 {
         f.debug_struct("FILE_INFO_2").field("fi2_id", &self.fi2_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -12273,8 +12273,8 @@ impl ::core::fmt::Debug for FILE_INFO_3 {
         f.debug_struct("FILE_INFO_3").field("fi3_id", &self.fi3_id).field("fi3_permissions", &self.fi3_permissions).field("fi3_num_locks", &self.fi3_num_locks).field("fi3_pathname", &self.fi3_pathname).field("fi3_username", &self.fi3_username).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -12303,8 +12303,8 @@ impl ::core::fmt::Debug for FILE_IO_PRIORITY_HINT_INFO {
         f.debug_struct("FILE_IO_PRIORITY_HINT_INFO").field("PriorityHint", &self.PriorityHint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_IO_PRIORITY_HINT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_IO_PRIORITY_HINT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_IO_PRIORITY_HINT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12334,8 +12334,8 @@ impl ::core::fmt::Debug for FILE_NAME_INFO {
         f.debug_struct("FILE_NAME_INFO").field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_NAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_NAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_NAME_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12392,8 +12392,8 @@ impl ::core::fmt::Debug for FILE_NOTIFY_EXTENDED_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_EXTENDED_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_NOTIFY_EXTENDED_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -12425,8 +12425,8 @@ impl ::core::fmt::Debug for FILE_NOTIFY_INFORMATION {
         f.debug_struct("FILE_NOTIFY_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Action", &self.Action).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_NOTIFY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_NOTIFY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_NOTIFY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -12459,8 +12459,8 @@ impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO {
     fn default() -> Self {
@@ -12483,8 +12483,8 @@ impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_0 {
         f.debug_struct("FILE_REMOTE_PROTOCOL_INFO_0").field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12509,8 +12509,8 @@ impl ::core::clone::Clone for FILE_REMOTE_PROTOCOL_INFO_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     fn default() -> Self {
@@ -12534,8 +12534,8 @@ impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0 {
         f.debug_struct("FILE_REMOTE_PROTOCOL_INFO_1_0").field("Server", &self.Server).field("Share", &self.Share).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12564,8 +12564,8 @@ impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
         f.debug_struct("FILE_REMOTE_PROTOCOL_INFO_1_0_0").field("Capabilities", &self.Capabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -12595,8 +12595,8 @@ impl ::core::fmt::Debug for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
         f.debug_struct("FILE_REMOTE_PROTOCOL_INFO_1_0_1").field("Capabilities", &self.Capabilities).field("CachingFlags", &self.CachingFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -12627,8 +12627,8 @@ impl ::core::clone::Clone for FILE_RENAME_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_RENAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_RENAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_RENAME_INFO {
@@ -12652,8 +12652,8 @@ impl ::core::clone::Clone for FILE_RENAME_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_RENAME_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_RENAME_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILE_RENAME_INFO_0 {
@@ -12673,8 +12673,8 @@ impl ::core::clone::Clone for FILE_SEGMENT_ELEMENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for FILE_SEGMENT_ELEMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_SEGMENT_ELEMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
     fn default() -> Self {
@@ -12706,8 +12706,8 @@ impl ::core::fmt::Debug for FILE_STANDARD_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_STANDARD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_STANDARD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_STANDARD_INFO {
@@ -12753,8 +12753,8 @@ impl ::core::fmt::Debug for FILE_STORAGE_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_STORAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_STORAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12787,8 +12787,8 @@ impl ::core::fmt::Debug for FILE_STREAM_INFO {
         f.debug_struct("FILE_STREAM_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("StreamNameLength", &self.StreamNameLength).field("StreamSize", &self.StreamSize).field("StreamAllocationSize", &self.StreamAllocationSize).field("StreamName", &self.StreamName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_STREAM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_STREAM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_STREAM_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -12826,8 +12826,8 @@ impl ::core::fmt::Debug for FIO_CONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FIO_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FIO_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FIO_CONTEXT {
@@ -12872,8 +12872,8 @@ impl ::core::convert::From<::core::option::Option<FindChangeNotificationHandle>>
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindChangeNotificationHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindChangeNotificationHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12904,8 +12904,8 @@ impl ::core::convert::From<::core::option::Option<FindFileHandle>> for FindFileH
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindFileHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindFileHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12936,8 +12936,8 @@ impl ::core::convert::From<::core::option::Option<FindFileNameHandle>> for FindF
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindFileNameHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindFileNameHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12968,8 +12968,8 @@ impl ::core::convert::From<::core::option::Option<FindStreamHandle>> for FindStr
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindStreamHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindStreamHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13000,8 +13000,8 @@ impl ::core::convert::From<::core::option::Option<FindVolumeHandle>> for FindVol
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindVolumeHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindVolumeHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13032,8 +13032,8 @@ impl ::core::convert::From<::core::option::Option<FindVolumeMointPointHandle>> f
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FindVolumeMointPointHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FindVolumeMointPointHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -13051,8 +13051,8 @@ impl ::core::fmt::Debug for HIORING__ {
         f.debug_struct("HIORING__").field("unused", &self.unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HIORING__ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HIORING__ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HIORING__ {
     fn eq(&self, other: &Self) -> bool {
@@ -13082,8 +13082,8 @@ impl ::core::fmt::Debug for IORING_BUFFER_INFO {
         f.debug_struct("IORING_BUFFER_INFO").field("Address", &self.Address).field("Length", &self.Length).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_BUFFER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_BUFFER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_BUFFER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13108,8 +13108,8 @@ impl ::core::clone::Clone for IORING_BUFFER_REF {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IORING_BUFFER_REF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_BUFFER_REF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IORING_BUFFER_REF {
     fn default() -> Self {
@@ -13128,8 +13128,8 @@ impl ::core::clone::Clone for IORING_BUFFER_REF_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IORING_BUFFER_REF_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_BUFFER_REF_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IORING_BUFFER_REF_0 {
     fn default() -> Self {
@@ -13155,8 +13155,8 @@ impl ::core::fmt::Debug for IORING_CAPABILITIES {
         f.debug_struct("IORING_CAPABILITIES").field("MaxVersion", &self.MaxVersion).field("MaxSubmissionQueueSize", &self.MaxSubmissionQueueSize).field("MaxCompletionQueueSize", &self.MaxCompletionQueueSize).field("FeatureFlags", &self.FeatureFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -13187,8 +13187,8 @@ impl ::core::fmt::Debug for IORING_CQE {
         f.debug_struct("IORING_CQE").field("UserData", &self.UserData).field("ResultCode", &self.ResultCode).field("Information", &self.Information).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_CQE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_CQE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_CQE {
     fn eq(&self, other: &Self) -> bool {
@@ -13218,8 +13218,8 @@ impl ::core::fmt::Debug for IORING_CREATE_FLAGS {
         f.debug_struct("IORING_CREATE_FLAGS").field("Required", &self.Required).field("Advisory", &self.Advisory).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_CREATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_CREATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_CREATE_FLAGS {
     fn eq(&self, other: &Self) -> bool {
@@ -13248,8 +13248,8 @@ impl ::core::clone::Clone for IORING_HANDLE_REF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IORING_HANDLE_REF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_HANDLE_REF {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IORING_HANDLE_REF {
@@ -13273,8 +13273,8 @@ impl ::core::clone::Clone for IORING_HANDLE_REF_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IORING_HANDLE_REF_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_HANDLE_REF_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IORING_HANDLE_REF_0 {
@@ -13301,8 +13301,8 @@ impl ::core::fmt::Debug for IORING_INFO {
         f.debug_struct("IORING_INFO").field("IoRingVersion", &self.IoRingVersion).field("Flags", &self.Flags).field("SubmissionQueueSize", &self.SubmissionQueueSize).field("CompletionQueueSize", &self.CompletionQueueSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13332,8 +13332,8 @@ impl ::core::fmt::Debug for IORING_REGISTERED_BUFFER {
         f.debug_struct("IORING_REGISTERED_BUFFER").field("BufferIndex", &self.BufferIndex).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IORING_REGISTERED_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IORING_REGISTERED_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IORING_REGISTERED_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -13365,8 +13365,8 @@ impl ::core::fmt::Debug for KCRM_MARSHAL_HEADER {
         f.debug_struct("KCRM_MARSHAL_HEADER").field("VersionMajor", &self.VersionMajor).field("VersionMinor", &self.VersionMinor).field("NumProtocols", &self.NumProtocols).field("Unused", &self.Unused).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KCRM_MARSHAL_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KCRM_MARSHAL_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KCRM_MARSHAL_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -13399,8 +13399,8 @@ impl ::core::fmt::Debug for KCRM_PROTOCOL_BLOB {
         f.debug_struct("KCRM_PROTOCOL_BLOB").field("ProtocolId", &self.ProtocolId).field("StaticInfoLength", &self.StaticInfoLength).field("TransactionIdInfoLength", &self.TransactionIdInfoLength).field("Unused1", &self.Unused1).field("Unused2", &self.Unused2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KCRM_PROTOCOL_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KCRM_PROTOCOL_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KCRM_PROTOCOL_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -13434,8 +13434,8 @@ impl ::core::fmt::Debug for KCRM_TRANSACTION_BLOB {
         f.debug_struct("KCRM_TRANSACTION_BLOB").field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("IsolationLevel", &self.IsolationLevel).field("IsolationFlags", &self.IsolationFlags).field("Timeout", &self.Timeout).field("Description", &self.Description).finish()
     }
 }
-unsafe impl ::windows::core::Abi for KCRM_TRANSACTION_BLOB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KCRM_TRANSACTION_BLOB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for KCRM_TRANSACTION_BLOB {
     fn eq(&self, other: &Self) -> bool {
@@ -13472,8 +13472,8 @@ impl ::core::fmt::Debug for LOG_MANAGEMENT_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LOG_MANAGEMENT_CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOG_MANAGEMENT_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
@@ -13500,8 +13500,8 @@ impl ::core::fmt::Debug for MediaLabelInfo {
         f.debug_struct("MediaLabelInfo").field("LabelType", &self.LabelType).field("LabelIDSize", &self.LabelIDSize).field("LabelID", &self.LabelID).field("LabelAppDescr", &self.LabelAppDescr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MediaLabelInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MediaLabelInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MediaLabelInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -13530,8 +13530,8 @@ impl ::core::fmt::Debug for NAME_CACHE_CONTEXT {
         f.debug_struct("NAME_CACHE_CONTEXT").field("m_dwSignature", &self.m_dwSignature).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NAME_CACHE_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NAME_CACHE_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NAME_CACHE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -13562,8 +13562,8 @@ impl ::core::fmt::Debug for NTMS_ALLOCATION_INFORMATION {
         f.debug_struct("NTMS_ALLOCATION_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).field("AllocatedFrom", &self.AllocatedFrom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_ALLOCATION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_ALLOCATION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_ALLOCATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -13603,8 +13603,8 @@ impl ::core::fmt::Debug for NTMS_ASYNC_IO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_ASYNC_IO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_ASYNC_IO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_ASYNC_IO {
@@ -13650,8 +13650,8 @@ impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_CHANGERINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
@@ -13692,8 +13692,8 @@ impl ::core::fmt::Debug for NTMS_CHANGERINFORMATIONW {
         f.debug_struct("NTMS_CHANGERINFORMATIONW").field("Number", &self.Number).field("ChangerType", &self.ChangerType).field("szSerialNumber", &self.szSerialNumber).field("szRevision", &self.szRevision).field("szDeviceName", &self.szDeviceName).field("ScsiPort", &self.ScsiPort).field("ScsiBus", &self.ScsiBus).field("ScsiTarget", &self.ScsiTarget).field("ScsiLun", &self.ScsiLun).field("Library", &self.Library).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_CHANGERINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_CHANGERINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_CHANGERINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -13729,8 +13729,8 @@ impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_CHANGERTYPEINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
@@ -13764,8 +13764,8 @@ impl ::core::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONW {
         f.debug_struct("NTMS_CHANGERTYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("DeviceType", &self.DeviceType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_CHANGERTYPEINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_CHANGERTYPEINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -13798,8 +13798,8 @@ impl ::core::fmt::Debug for NTMS_COMPUTERINFORMATION {
         f.debug_struct("NTMS_COMPUTERINFORMATION").field("dwLibRequestPurgeTime", &self.dwLibRequestPurgeTime).field("dwOpRequestPurgeTime", &self.dwOpRequestPurgeTime).field("dwLibRequestFlags", &self.dwLibRequestFlags).field("dwOpRequestFlags", &self.dwOpRequestFlags).field("dwMediaPoolPolicy", &self.dwMediaPoolPolicy).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_COMPUTERINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_COMPUTERINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_COMPUTERINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -13865,8 +13865,8 @@ impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_DRIVEINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
@@ -13935,8 +13935,8 @@ impl ::core::fmt::Debug for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVEINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_DRIVEINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVEINFORMATIONW {
@@ -13976,8 +13976,8 @@ impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_DRIVETYPEINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
@@ -14012,8 +14012,8 @@ impl ::core::fmt::Debug for NTMS_DRIVETYPEINFORMATIONW {
         f.debug_struct("NTMS_DRIVETYPEINFORMATIONW").field("szVendor", &self.szVendor).field("szProduct", &self.szProduct).field("NumberOfHeads", &self.NumberOfHeads).field("DeviceType", &self.DeviceType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_DRIVETYPEINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_DRIVETYPEINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -14044,8 +14044,8 @@ impl ::core::fmt::Debug for NTMS_FILESYSTEM_INFO {
         f.debug_struct("NTMS_FILESYSTEM_INFO").field("FileSystemType", &self.FileSystemType).field("VolumeName", &self.VolumeName).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_FILESYSTEM_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_FILESYSTEM_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_FILESYSTEM_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -14121,8 +14121,8 @@ impl ::core::fmt::Debug for NTMS_I1_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBRARYINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_LIBRARYINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_LIBRARYINFORMATION {
@@ -14205,8 +14205,8 @@ impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
@@ -14269,8 +14269,8 @@ impl ::core::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_LIBREQUESTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONW {
@@ -14310,8 +14310,8 @@ impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OBJECTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA {
@@ -14348,8 +14348,8 @@ impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OBJECTINFORMATIONA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
@@ -14381,8 +14381,8 @@ impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OBJECTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW {
@@ -14419,8 +14419,8 @@ impl ::core::clone::Clone for NTMS_I1_OBJECTINFORMATIONW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OBJECTINFORMATIONW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
@@ -14459,8 +14459,8 @@ impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
@@ -14507,8 +14507,8 @@ impl ::core::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_OPREQUESTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONW {
@@ -14554,8 +14554,8 @@ impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_PARTITIONINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
@@ -14596,8 +14596,8 @@ impl ::core::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONW {
         f.debug_struct("NTMS_I1_PARTITIONINFORMATIONW").field("PhysicalMedia", &self.PhysicalMedia).field("LogicalMedia", &self.LogicalMedia).field("State", &self.State).field("Side", &self.Side).field("dwOmidLabelIdLength", &self.dwOmidLabelIdLength).field("OmidLabelId", &self.OmidLabelId).field("szOmidLabelType", &self.szOmidLabelType).field("szOmidLabelInfo", &self.szOmidLabelInfo).field("dwMountCount", &self.dwMountCount).field("dwAllocateCount", &self.dwAllocateCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_I1_PARTITIONINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_PARTITIONINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -14653,8 +14653,8 @@ impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_PMIDINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
@@ -14708,8 +14708,8 @@ impl ::core::fmt::Debug for NTMS_I1_PMIDINFORMATIONW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_I1_PMIDINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_I1_PMIDINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -14741,8 +14741,8 @@ impl ::core::fmt::Debug for NTMS_IEDOORINFORMATION {
         f.debug_struct("NTMS_IEDOORINFORMATION").field("Number", &self.Number).field("State", &self.State).field("MaxOpenSecs", &self.MaxOpenSecs).field("Library", &self.Library).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_IEDOORINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_IEDOORINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_IEDOORINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -14775,8 +14775,8 @@ impl ::core::fmt::Debug for NTMS_IEPORTINFORMATION {
         f.debug_struct("NTMS_IEPORTINFORMATION").field("Number", &self.Number).field("Content", &self.Content).field("Position", &self.Position).field("MaxExtendSecs", &self.MaxExtendSecs).field("Library", &self.Library).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_IEPORTINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_IEPORTINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_IEPORTINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -14856,8 +14856,8 @@ impl ::core::fmt::Debug for NTMS_LIBRARYINFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBRARYINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_LIBRARYINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_LIBRARYINFORMATION {
@@ -14948,8 +14948,8 @@ impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_LIBREQUESTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
@@ -15018,8 +15018,8 @@ impl ::core::fmt::Debug for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_LIBREQUESTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_LIBREQUESTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONW {
@@ -15052,8 +15052,8 @@ impl ::core::fmt::Debug for NTMS_LMIDINFORMATION {
         f.debug_struct("NTMS_LMIDINFORMATION").field("MediaPool", &self.MediaPool).field("dwNumberOfPartitions", &self.dwNumberOfPartitions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_LMIDINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_LMIDINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_LMIDINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15100,8 +15100,8 @@ impl ::core::fmt::Debug for NTMS_MEDIAPOOLINFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_MEDIAPOOLINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_MEDIAPOOLINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_MEDIAPOOLINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15133,8 +15133,8 @@ impl ::core::fmt::Debug for NTMS_MEDIATYPEINFORMATION {
         f.debug_struct("NTMS_MEDIATYPEINFORMATION").field("MediaType", &self.MediaType).field("NumberOfSides", &self.NumberOfSides).field("ReadWriteCharacteristics", &self.ReadWriteCharacteristics).field("DeviceType", &self.DeviceType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_MEDIATYPEINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_MEDIATYPEINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_MEDIATYPEINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15164,8 +15164,8 @@ impl ::core::fmt::Debug for NTMS_MOUNT_INFORMATION {
         f.debug_struct("NTMS_MOUNT_INFORMATION").field("dwSize", &self.dwSize).field("lpReserved", &self.lpReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_MOUNT_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_MOUNT_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_MOUNT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15195,8 +15195,8 @@ impl ::core::fmt::Debug for NTMS_NOTIFICATIONINFORMATION {
         f.debug_struct("NTMS_NOTIFICATIONINFORMATION").field("dwOperation", &self.dwOperation).field("ObjectId", &self.ObjectId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_NOTIFICATIONINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_NOTIFICATIONINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_NOTIFICATIONINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15233,8 +15233,8 @@ impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OBJECTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONA {
@@ -15272,8 +15272,8 @@ impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OBJECTINFORMATIONA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONA_0 {
@@ -15305,8 +15305,8 @@ impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OBJECTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONW {
@@ -15344,8 +15344,8 @@ impl ::core::clone::Clone for NTMS_OBJECTINFORMATIONW_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OBJECTINFORMATIONW_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OBJECTINFORMATIONW_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
@@ -15384,8 +15384,8 @@ impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OPREQUESTINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
@@ -15432,8 +15432,8 @@ impl ::core::fmt::Debug for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_OPREQUESTINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_OPREQUESTINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONW {
@@ -15492,8 +15492,8 @@ impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_PARTITIONINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
@@ -15547,8 +15547,8 @@ impl ::core::fmt::Debug for NTMS_PARTITIONINFORMATIONW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_PARTITIONINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_PARTITIONINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_PARTITIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -15610,8 +15610,8 @@ impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_PMIDINFORMATIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
@@ -15671,8 +15671,8 @@ impl ::core::fmt::Debug for NTMS_PMIDINFORMATIONW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_PMIDINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_PMIDINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_PMIDINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -15703,8 +15703,8 @@ impl ::core::fmt::Debug for NTMS_STORAGESLOTINFORMATION {
         f.debug_struct("NTMS_STORAGESLOTINFORMATION").field("Number", &self.Number).field("State", &self.State).field("Library", &self.Library).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NTMS_STORAGESLOTINFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NTMS_STORAGESLOTINFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NTMS_STORAGESLOTINFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -15743,8 +15743,8 @@ impl ::core::fmt::Debug for OFSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFSTRUCT {
@@ -15780,8 +15780,8 @@ impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER {
         f.debug_struct("REPARSE_GUID_DATA_BUFFER").field("ReparseTag", &self.ReparseTag).field("ReparseDataLength", &self.ReparseDataLength).field("Reserved", &self.Reserved).field("ReparseGuid", &self.ReparseGuid).field("GenericReparseBuffer", &self.GenericReparseBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPARSE_GUID_DATA_BUFFER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER {
     fn eq(&self, other: &Self) -> bool {
@@ -15810,8 +15810,8 @@ impl ::core::fmt::Debug for REPARSE_GUID_DATA_BUFFER_0 {
         f.debug_struct("REPARSE_GUID_DATA_BUFFER_0").field("DataBuffer", &self.DataBuffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REPARSE_GUID_DATA_BUFFER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REPARSE_GUID_DATA_BUFFER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REPARSE_GUID_DATA_BUFFER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15848,8 +15848,8 @@ impl ::core::fmt::Debug for SERVER_ALIAS_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVER_ALIAS_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_ALIAS_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SERVER_ALIAS_INFO_0 {
@@ -15905,8 +15905,8 @@ impl ::core::fmt::Debug for SERVER_CERTIFICATE_INFO_0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for SERVER_CERTIFICATE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SERVER_CERTIFICATE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SERVER_CERTIFICATE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15935,8 +15935,8 @@ impl ::core::fmt::Debug for SESSION_INFO_0 {
         f.debug_struct("SESSION_INFO_0").field("sesi0_cname", &self.sesi0_cname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15970,8 +15970,8 @@ impl ::core::fmt::Debug for SESSION_INFO_1 {
         f.debug_struct("SESSION_INFO_1").field("sesi1_cname", &self.sesi1_cname).field("sesi1_username", &self.sesi1_username).field("sesi1_num_opens", &self.sesi1_num_opens).field("sesi1_time", &self.sesi1_time).field("sesi1_idle_time", &self.sesi1_idle_time).field("sesi1_user_flags", &self.sesi1_user_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -16003,8 +16003,8 @@ impl ::core::fmt::Debug for SESSION_INFO_10 {
         f.debug_struct("SESSION_INFO_10").field("sesi10_cname", &self.sesi10_cname).field("sesi10_username", &self.sesi10_username).field("sesi10_time", &self.sesi10_time).field("sesi10_idle_time", &self.sesi10_idle_time).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_10 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_10 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_INFO_10 {
     fn eq(&self, other: &Self) -> bool {
@@ -16039,8 +16039,8 @@ impl ::core::fmt::Debug for SESSION_INFO_2 {
         f.debug_struct("SESSION_INFO_2").field("sesi2_cname", &self.sesi2_cname).field("sesi2_username", &self.sesi2_username).field("sesi2_num_opens", &self.sesi2_num_opens).field("sesi2_time", &self.sesi2_time).field("sesi2_idle_time", &self.sesi2_idle_time).field("sesi2_user_flags", &self.sesi2_user_flags).field("sesi2_cltype_name", &self.sesi2_cltype_name).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16076,8 +16076,8 @@ impl ::core::fmt::Debug for SESSION_INFO_502 {
         f.debug_struct("SESSION_INFO_502").field("sesi502_cname", &self.sesi502_cname).field("sesi502_username", &self.sesi502_username).field("sesi502_num_opens", &self.sesi502_num_opens).field("sesi502_time", &self.sesi502_time).field("sesi502_idle_time", &self.sesi502_idle_time).field("sesi502_user_flags", &self.sesi502_user_flags).field("sesi502_cltype_name", &self.sesi502_cltype_name).field("sesi502_transport", &self.sesi502_transport).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SESSION_INFO_502 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SESSION_INFO_502 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SESSION_INFO_502 {
     fn eq(&self, other: &Self) -> bool {
@@ -16106,8 +16106,8 @@ impl ::core::fmt::Debug for SHARE_INFO_0 {
         f.debug_struct("SHARE_INFO_0").field("shi0_netname", &self.shi0_netname).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -16138,8 +16138,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1 {
         f.debug_struct("SHARE_INFO_1").field("shi1_netname", &self.shi1_netname).field("shi1_type", &self.shi1_type).field("shi1_remark", &self.shi1_remark).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -16168,8 +16168,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1004 {
         f.debug_struct("SHARE_INFO_1004").field("shi1004_remark", &self.shi1004_remark).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_1004 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1004 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_1004 {
     fn eq(&self, other: &Self) -> bool {
@@ -16198,8 +16198,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1005 {
         f.debug_struct("SHARE_INFO_1005").field("shi1005_flags", &self.shi1005_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_1005 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1005 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_1005 {
     fn eq(&self, other: &Self) -> bool {
@@ -16228,8 +16228,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1006 {
         f.debug_struct("SHARE_INFO_1006").field("shi1006_max_uses", &self.shi1006_max_uses).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_1006 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1006 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_1006 {
     fn eq(&self, other: &Self) -> bool {
@@ -16264,8 +16264,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1501 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_1501 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1501 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for SHARE_INFO_1501 {
@@ -16297,8 +16297,8 @@ impl ::core::fmt::Debug for SHARE_INFO_1503 {
         f.debug_struct("SHARE_INFO_1503").field("shi1503_sharefilter", &self.shi1503_sharefilter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_1503 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_1503 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_1503 {
     fn eq(&self, other: &Self) -> bool {
@@ -16334,8 +16334,8 @@ impl ::core::fmt::Debug for SHARE_INFO_2 {
         f.debug_struct("SHARE_INFO_2").field("shi2_netname", &self.shi2_netname).field("shi2_type", &self.shi2_type).field("shi2_remark", &self.shi2_remark).field("shi2_permissions", &self.shi2_permissions).field("shi2_max_uses", &self.shi2_max_uses).field("shi2_current_uses", &self.shi2_current_uses).field("shi2_path", &self.shi2_path).field("shi2_passwd", &self.shi2_passwd).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16367,8 +16367,8 @@ impl ::core::fmt::Debug for SHARE_INFO_501 {
         f.debug_struct("SHARE_INFO_501").field("shi501_netname", &self.shi501_netname).field("shi501_type", &self.shi501_type).field("shi501_remark", &self.shi501_remark).field("shi501_flags", &self.shi501_flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SHARE_INFO_501 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_501 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SHARE_INFO_501 {
     fn eq(&self, other: &Self) -> bool {
@@ -16422,8 +16422,8 @@ impl ::core::fmt::Debug for SHARE_INFO_502 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_502 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_502 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for SHARE_INFO_502 {
@@ -16482,8 +16482,8 @@ impl ::core::fmt::Debug for SHARE_INFO_503 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for SHARE_INFO_503 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHARE_INFO_503 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for SHARE_INFO_503 {
@@ -16549,8 +16549,8 @@ impl ::core::fmt::Debug for STAT_SERVER_0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for STAT_SERVER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STAT_SERVER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STAT_SERVER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -16675,8 +16675,8 @@ impl ::core::fmt::Debug for STAT_WORKSTATION_0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for STAT_WORKSTATION_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STAT_WORKSTATION_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STAT_WORKSTATION_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -16750,8 +16750,8 @@ impl ::core::fmt::Debug for TAPE_ERASE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_ERASE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_ERASE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_ERASE {
@@ -16785,8 +16785,8 @@ impl ::core::fmt::Debug for TAPE_GET_POSITION {
         f.debug_struct("TAPE_GET_POSITION").field("Type", &self.Type).field("Partition", &self.Partition).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TAPE_GET_POSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_GET_POSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TAPE_GET_POSITION {
     fn eq(&self, other: &Self) -> bool {
@@ -16821,8 +16821,8 @@ impl ::core::fmt::Debug for TAPE_PREPARE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_PREPARE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_PREPARE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_PREPARE {
@@ -16862,8 +16862,8 @@ impl ::core::fmt::Debug for TAPE_SET_POSITION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_SET_POSITION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_SET_POSITION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_SET_POSITION {
@@ -16902,8 +16902,8 @@ impl ::core::fmt::Debug for TAPE_WRITE_MARKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAPE_WRITE_MARKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAPE_WRITE_MARKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TAPE_WRITE_MARKS {
@@ -16938,8 +16938,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION {
         f.debug_struct("TRANSACTION_NOTIFICATION").field("TransactionKey", &self.TransactionKey).field("TransactionNotification", &self.TransactionNotification).field("TmVirtualClock", &self.TmVirtualClock).field("ArgumentLength", &self.ArgumentLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -16969,8 +16969,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
         f.debug_struct("TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT").field("MarshalCookie", &self.MarshalCookie).field("UOW", &self.UOW).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17002,8 +17002,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
         f.debug_struct("TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT").field("PropagationCookie", &self.PropagationCookie).field("UOW", &self.UOW).field("TmIdentity", &self.TmIdentity).field("BufferLength", &self.BufferLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17033,8 +17033,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
         f.debug_struct("TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT").field("EnlistmentId", &self.EnlistmentId).field("UOW", &self.UOW).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17063,8 +17063,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
         f.debug_struct("TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT").field("SavepointId", &self.SavepointId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17094,8 +17094,8 @@ impl ::core::fmt::Debug for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         f.debug_struct("TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT").field("TmIdentity", &self.TmIdentity).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -17119,8 +17119,8 @@ impl ::core::clone::Clone for TXF_ID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_ID {
     fn default() -> Self {
@@ -17139,8 +17139,8 @@ impl ::core::clone::Clone for TXF_ID_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_ID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_ID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_ID_0 {
     fn default() -> Self {
@@ -17164,8 +17164,8 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_AFFECTED_FILE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_AFFECTED_FILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_LOG_RECORD_AFFECTED_FILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
     fn default() -> Self {
@@ -17185,8 +17185,8 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_BASE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_BASE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_LOG_RECORD_BASE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_LOG_RECORD_BASE {
     fn default() -> Self {
@@ -17212,8 +17212,8 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_TRUNCATE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_TRUNCATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_LOG_RECORD_TRUNCATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
     fn default() -> Self {
@@ -17241,8 +17241,8 @@ impl ::core::clone::Clone for TXF_LOG_RECORD_WRITE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TXF_LOG_RECORD_WRITE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TXF_LOG_RECORD_WRITE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TXF_LOG_RECORD_WRITE {
     fn default() -> Self {
@@ -17279,8 +17279,8 @@ impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_INPUT {
@@ -17313,8 +17313,8 @@ impl ::core::fmt::Debug for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
         f.debug_struct("VOLUME_ALLOCATE_BC_STREAM_OUTPUT").field("RequestSize", &self.RequestSize).field("NumOutStandingRequests", &self.NumOutStandingRequests).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17345,8 +17345,8 @@ impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_INPUT {
         f.debug_struct("VOLUME_ALLOCATION_HINT_INPUT").field("ClusterSize", &self.ClusterSize).field("NumberOfClusters", &self.NumberOfClusters).field("StartingClusterNumber", &self.StartingClusterNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_ALLOCATION_HINT_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17375,8 +17375,8 @@ impl ::core::fmt::Debug for VOLUME_ALLOCATION_HINT_OUTPUT {
         f.debug_struct("VOLUME_ALLOCATION_HINT_OUTPUT").field("Bitmap", &self.Bitmap).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_ALLOCATION_HINT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_ALLOCATION_HINT_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17407,8 +17407,8 @@ impl ::core::fmt::Debug for VOLUME_CRITICAL_IO {
         f.debug_struct("VOLUME_CRITICAL_IO").field("AccessType", &self.AccessType).field("ExtentsCount", &self.ExtentsCount).field("Extents", &self.Extents).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_CRITICAL_IO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_CRITICAL_IO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_CRITICAL_IO {
     fn eq(&self, other: &Self) -> bool {
@@ -17438,8 +17438,8 @@ impl ::core::fmt::Debug for VOLUME_FAILOVER_SET {
         f.debug_struct("VOLUME_FAILOVER_SET").field("NumberOfDisks", &self.NumberOfDisks).field("DiskNumbers", &self.DiskNumbers).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_FAILOVER_SET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_FAILOVER_SET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_FAILOVER_SET {
     fn eq(&self, other: &Self) -> bool {
@@ -17473,8 +17473,8 @@ impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_INPUT {
         f.debug_struct("VOLUME_GET_BC_PROPERTIES_INPUT").field("Version", &self.Version).field("Reserved1", &self.Reserved1).field("LowestByteOffset", &self.LowestByteOffset).field("HighestByteOffset", &self.HighestByteOffset).field("AccessType", &self.AccessType).field("AccessMode", &self.AccessMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_GET_BC_PROPERTIES_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17508,8 +17508,8 @@ impl ::core::fmt::Debug for VOLUME_GET_BC_PROPERTIES_OUTPUT {
         f.debug_struct("VOLUME_GET_BC_PROPERTIES_OUTPUT").field("MaximumRequestsPerPeriod", &self.MaximumRequestsPerPeriod).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumRequestSize", &self.MaximumRequestSize).field("EstimatedTimePerRequest", &self.EstimatedTimePerRequest).field("NumOutStandingRequests", &self.NumOutStandingRequests).field("RequestSize", &self.RequestSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_GET_BC_PROPERTIES_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17538,8 +17538,8 @@ impl ::core::fmt::Debug for VOLUME_LOGICAL_OFFSET {
         f.debug_struct("VOLUME_LOGICAL_OFFSET").field("LogicalOffset", &self.LogicalOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_LOGICAL_OFFSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_LOGICAL_OFFSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_LOGICAL_OFFSET {
     fn eq(&self, other: &Self) -> bool {
@@ -17569,8 +17569,8 @@ impl ::core::fmt::Debug for VOLUME_NUMBER {
         f.debug_struct("VOLUME_NUMBER").field("VolumeNumber", &self.VolumeNumber).field("VolumeManagerName", &self.VolumeManagerName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_NUMBER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_NUMBER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_NUMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -17600,8 +17600,8 @@ impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSET {
         f.debug_struct("VOLUME_PHYSICAL_OFFSET").field("DiskNumber", &self.DiskNumber).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_PHYSICAL_OFFSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSET {
     fn eq(&self, other: &Self) -> bool {
@@ -17631,8 +17631,8 @@ impl ::core::fmt::Debug for VOLUME_PHYSICAL_OFFSETS {
         f.debug_struct("VOLUME_PHYSICAL_OFFSETS").field("NumberOfPhysicalOffsets", &self.NumberOfPhysicalOffsets).field("PhysicalOffset", &self.PhysicalOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_PHYSICAL_OFFSETS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_PHYSICAL_OFFSETS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_PHYSICAL_OFFSETS {
     fn eq(&self, other: &Self) -> bool {
@@ -17663,8 +17663,8 @@ impl ::core::fmt::Debug for VOLUME_READ_PLEX_INPUT {
         f.debug_struct("VOLUME_READ_PLEX_INPUT").field("ByteOffset", &self.ByteOffset).field("Length", &self.Length).field("PlexNumber", &self.PlexNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_READ_PLEX_INPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_READ_PLEX_INPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_READ_PLEX_INPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -17702,8 +17702,8 @@ impl ::core::fmt::Debug for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
@@ -17735,8 +17735,8 @@ impl ::core::fmt::Debug for VOLUME_SHRINK_INFO {
         f.debug_struct("VOLUME_SHRINK_INFO").field("VolumeSize", &self.VolumeSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VOLUME_SHRINK_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VOLUME_SHRINK_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VOLUME_SHRINK_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17791,8 +17791,8 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for VS_FIXEDFILEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VS_FIXEDFILEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VS_FIXEDFILEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17827,8 +17827,8 @@ impl ::core::fmt::Debug for WIM_ENTRY_INFO {
         f.debug_struct("WIM_ENTRY_INFO").field("WimEntryInfoSize", &self.WimEntryInfoSize).field("WimType", &self.WimType).field("DataSourceId", &self.DataSourceId).field("WimGuid", &self.WimGuid).field("WimPath", &self.WimPath).field("WimIndex", &self.WimIndex).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIM_ENTRY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIM_ENTRY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIM_ENTRY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17859,8 +17859,8 @@ impl ::core::fmt::Debug for WIM_EXTERNAL_FILE_INFO {
         f.debug_struct("WIM_EXTERNAL_FILE_INFO").field("DataSourceId", &self.DataSourceId).field("ResourceHash", &self.ResourceHash).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIM_EXTERNAL_FILE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIM_EXTERNAL_FILE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIM_EXTERNAL_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -17899,8 +17899,8 @@ impl ::core::fmt::Debug for WIN32_FILE_ATTRIBUTE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FILE_ATTRIBUTE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_FILE_ATTRIBUTE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN32_FILE_ATTRIBUTE_DATA {
@@ -17957,8 +17957,8 @@ impl ::core::fmt::Debug for WIN32_FIND_DATAA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FIND_DATAA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_FIND_DATAA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN32_FIND_DATAA {
@@ -18015,8 +18015,8 @@ impl ::core::fmt::Debug for WIN32_FIND_DATAW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WIN32_FIND_DATAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_FIND_DATAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WIN32_FIND_DATAW {
@@ -18049,8 +18049,8 @@ impl ::core::fmt::Debug for WIN32_FIND_STREAM_DATA {
         f.debug_struct("WIN32_FIND_STREAM_DATA").field("StreamSize", &self.StreamSize).field("cStreamName", &self.cStreamName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIN32_FIND_STREAM_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_FIND_STREAM_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIN32_FIND_STREAM_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -18083,8 +18083,8 @@ impl ::core::fmt::Debug for WIN32_STREAM_ID {
         f.debug_struct("WIN32_STREAM_ID").field("dwStreamId", &self.dwStreamId).field("dwStreamAttributes", &self.dwStreamAttributes).field("Size", &self.Size).field("dwStreamNameSize", &self.dwStreamNameSize).field("cStreamName", &self.cStreamName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIN32_STREAM_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIN32_STREAM_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIN32_STREAM_ID {
     fn eq(&self, other: &Self) -> bool {
@@ -18113,8 +18113,8 @@ impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V0 {
         f.debug_struct("WOF_FILE_COMPRESSION_INFO_V0").field("Algorithm", &self.Algorithm).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WOF_FILE_COMPRESSION_INFO_V0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V0 {
     fn eq(&self, other: &Self) -> bool {
@@ -18144,8 +18144,8 @@ impl ::core::fmt::Debug for WOF_FILE_COMPRESSION_INFO_V1 {
         f.debug_struct("WOF_FILE_COMPRESSION_INFO_V1").field("Algorithm", &self.Algorithm).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WOF_FILE_COMPRESSION_INFO_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WOF_FILE_COMPRESSION_INFO_V1 {
     fn eq(&self, other: &Self) -> bool {

@@ -27,8 +27,8 @@ impl ::core::convert::From<::core::option::Option<JET_API_PTR>> for JET_API_PTR 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_API_PTR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_API_PTR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -59,8 +59,8 @@ impl ::core::convert::From<::core::option::Option<JET_HANDLE>> for JET_HANDLE {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -91,8 +91,8 @@ impl ::core::convert::From<::core::option::Option<JET_INSTANCE>> for JET_INSTANC
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_INSTANCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_INSTANCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -123,8 +123,8 @@ impl ::core::convert::From<::core::option::Option<JET_SESID>> for JET_SESID {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_SESID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_SESID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -155,8 +155,8 @@ impl ::core::convert::From<::core::option::Option<JET_TABLEID>> for JET_TABLEID 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for JET_TABLEID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JET_TABLEID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

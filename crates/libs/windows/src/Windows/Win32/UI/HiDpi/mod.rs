@@ -111,8 +111,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "api-ms-win-shcore-scaling-l1-1-1.dll""system" fn GetProcessDpiAwareness ( hprocess : super::super::Foundation:: HANDLE , value : *mut PROCESS_DPI_AWARENESS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetProcessDpiAwareness(hprocess.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<PROCESS_DPI_AWARENESS>();
+    GetProcessDpiAwareness(hprocess.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -293,8 +293,8 @@ impl ::core::default::Default for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -357,8 +357,8 @@ impl ::core::default::Default for DIALOG_DPI_CHANGE_BEHAVIORS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DIALOG_DPI_CHANGE_BEHAVIORS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIALOG_DPI_CHANGE_BEHAVIORS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DIALOG_DPI_CHANGE_BEHAVIORS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -421,8 +421,8 @@ impl ::core::default::Default for DPI_AWARENESS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DPI_AWARENESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DPI_AWARENESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DPI_AWARENESS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -450,8 +450,8 @@ impl ::core::default::Default for DPI_HOSTING_BEHAVIOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DPI_HOSTING_BEHAVIOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DPI_HOSTING_BEHAVIOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -481,8 +481,8 @@ impl ::core::default::Default for MONITOR_DPI_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_DPI_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_DPI_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -510,8 +510,8 @@ impl ::core::default::Default for PROCESS_DPI_AWARENESS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PROCESS_DPI_AWARENESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESS_DPI_AWARENESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PROCESS_DPI_AWARENESS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -547,8 +547,8 @@ impl ::core::convert::From<::core::option::Option<DPI_AWARENESS_CONTEXT>> for DP
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for DPI_AWARENESS_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DPI_AWARENESS_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -153,8 +153,8 @@ impl ::core::default::Default for PSS_CAPTURE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_CAPTURE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_CAPTURE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_CAPTURE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -213,8 +213,8 @@ impl ::core::default::Default for PSS_DUPLICATE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_DUPLICATE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_DUPLICATE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_DUPLICATE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -279,8 +279,8 @@ impl ::core::default::Default for PSS_HANDLE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_HANDLE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_HANDLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -349,8 +349,8 @@ impl ::core::default::Default for PSS_OBJECT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_OBJECT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_OBJECT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_OBJECT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -384,8 +384,8 @@ impl ::core::default::Default for PSS_PROCESS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_PROCESS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PROCESS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_PROCESS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -456,8 +456,8 @@ impl ::core::default::Default for PSS_QUERY_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_QUERY_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_QUERY_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_QUERY_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -483,8 +483,8 @@ impl ::core::default::Default for PSS_THREAD_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_THREAD_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_THREAD_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -547,8 +547,8 @@ impl ::core::default::Default for PSS_WALK_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PSS_WALK_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_WALK_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PSS_WALK_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -584,8 +584,8 @@ impl ::core::convert::From<::core::option::Option<HPSS>> for HPSS {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPSS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPSS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -616,8 +616,8 @@ impl ::core::convert::From<::core::option::Option<HPSSWALK>> for HPSSWALK {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HPSSWALK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HPSSWALK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ProcessSnapshotting\"`*"]
@@ -637,8 +637,8 @@ impl ::core::fmt::Debug for PSS_ALLOCATOR {
         f.debug_struct("PSS_ALLOCATOR").field("Context", &self.Context).field("AllocRoutine", &self.AllocRoutine).field("FreeRoutine", &self.FreeRoutine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_ALLOCATOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_ALLOCATOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_ALLOCATOR {
     fn eq(&self, other: &Self) -> bool {
@@ -667,8 +667,8 @@ impl ::core::fmt::Debug for PSS_AUXILIARY_PAGES_INFORMATION {
         f.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION").field("AuxPagesCaptured", &self.AuxPagesCaptured).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGES_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_AUXILIARY_PAGES_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -706,8 +706,8 @@ impl ::core::fmt::Debug for PSS_AUXILIARY_PAGE_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
-unsafe impl ::windows::core::Abi for PSS_AUXILIARY_PAGE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_AUXILIARY_PAGE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
@@ -753,8 +753,8 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY {
@@ -782,8 +782,8 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSS_HANDLE_ENTRY_0 {
@@ -813,8 +813,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_0 {
@@ -854,8 +854,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_1 {
@@ -898,8 +898,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
@@ -938,8 +938,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
@@ -977,8 +977,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
@@ -1022,8 +1022,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_ENTRY_0_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
@@ -1055,8 +1055,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_INFORMATION {
         f.debug_struct("PSS_HANDLE_INFORMATION").field("HandlesCaptured", &self.HandlesCaptured).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_HANDLE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_HANDLE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1091,8 +1091,8 @@ impl ::core::fmt::Debug for PSS_HANDLE_TRACE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_HANDLE_TRACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_HANDLE_TRACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_HANDLE_TRACE_INFORMATION {
@@ -1148,8 +1148,8 @@ impl ::core::fmt::Debug for PSS_PERFORMANCE_COUNTERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_PERFORMANCE_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PERFORMANCE_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_PERFORMANCE_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -1235,8 +1235,8 @@ impl ::core::fmt::Debug for PSS_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_PROCESS_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_PROCESS_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_PROCESS_INFORMATION {
@@ -1336,8 +1336,8 @@ impl ::core::fmt::Debug for PSS_THREAD_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for PSS_THREAD_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for PSS_THREAD_ENTRY {
@@ -1388,8 +1388,8 @@ impl ::core::fmt::Debug for PSS_THREAD_INFORMATION {
         f.debug_struct("PSS_THREAD_INFORMATION").field("ThreadsCaptured", &self.ThreadsCaptured).field("ContextLength", &self.ContextLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_THREAD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_THREAD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_THREAD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1423,8 +1423,8 @@ impl ::core::fmt::Debug for PSS_VA_CLONE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSS_VA_CLONE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_CLONE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PSS_VA_CLONE_INFORMATION {
@@ -1482,8 +1482,8 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_ENTRY {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_VA_SPACE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_SPACE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -1512,8 +1512,8 @@ impl ::core::fmt::Debug for PSS_VA_SPACE_INFORMATION {
         f.debug_struct("PSS_VA_SPACE_INFORMATION").field("RegionCount", &self.RegionCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSS_VA_SPACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSS_VA_SPACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {

@@ -56,12 +56,6 @@ impl ISensLogon {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ISensLogon, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensLogon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -80,6 +74,12 @@ unsafe impl ::windows::core::Vtable for ISensLogon {
     type Vtable = ISensLogon_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ISensLogon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensLogon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab3_5b9f_11d1_8dd2_00aa004abd5e);
 }
@@ -88,13 +88,13 @@ unsafe impl ::windows::core::Interface for ISensLogon {
 #[doc(hidden)]
 pub struct ISensLogon_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DisplayLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub DisplayUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StartScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StopScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StartShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub DisplayUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StartScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub StopScreenSaver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -121,12 +121,6 @@ impl ISensLogon2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ISensLogon2, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensLogon2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensLogon2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -145,6 +139,12 @@ unsafe impl ::windows::core::Vtable for ISensLogon2 {
     type Vtable = ISensLogon2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ISensLogon2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensLogon2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab4_5b9f_11d1_8dd2_00aa004abd5e);
 }
@@ -153,11 +153,11 @@ unsafe impl ::windows::core::Interface for ISensLogon2 {
 #[doc(hidden)]
 pub struct ISensLogon2_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub SessionDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub SessionReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
-    pub PostShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::core::ffi::c_void, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub Logon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub Logoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub SessionDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub SessionReconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
+    pub PostShell: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::std::mem::MaybeUninit<::windows::core::BSTR>, dwsessionid: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -184,12 +184,6 @@ impl ISensNetwork {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ISensNetwork, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensNetwork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensNetwork {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -208,6 +202,12 @@ unsafe impl ::windows::core::Vtable for ISensNetwork {
     type Vtable = ISensNetwork_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ISensNetwork {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensNetwork {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597bab1_5b9f_11d1_8dd2_00aa004abd5e);
 }
@@ -216,11 +216,11 @@ unsafe impl ::windows::core::Interface for ISensNetwork {
 #[doc(hidden)]
 pub struct ISensNetwork_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ConnectionMade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
-    pub ConnectionMadeNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32) -> ::windows::core::HRESULT,
-    pub ConnectionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::HRESULT,
-    pub DestinationReachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
-    pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: *mut ::core::ffi::c_void, bstrconnection: *mut ::core::ffi::c_void, ultype: u32) -> ::windows::core::HRESULT,
+    pub ConnectionMade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
+    pub ConnectionMadeNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32) -> ::windows::core::HRESULT,
+    pub ConnectionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: SENS_CONNECTION_TYPE) -> ::windows::core::HRESULT,
+    pub DestinationReachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows::core::HRESULT,
+    pub DestinationReachableNoQOCInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrconnection: ::std::mem::MaybeUninit<::windows::core::BSTR>, ultype: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -241,12 +241,6 @@ impl ISensOnNow {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(ISensOnNow, ::windows::core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISensOnNow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for ISensOnNow {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -263,6 +257,12 @@ impl ::core::fmt::Debug for ISensOnNow {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for ISensOnNow {
     type Vtable = ISensOnNow_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for ISensOnNow {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for ISensOnNow {
@@ -322,8 +322,8 @@ impl ::core::default::Default for SENS_CONNECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SENS_CONNECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENS_CONNECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SENS_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -349,8 +349,8 @@ impl ::core::fmt::Debug for QOCINFO {
         f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for QOCINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QOCINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for QOCINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -382,8 +382,8 @@ impl ::core::fmt::Debug for SENS_QOCINFO {
         f.debug_struct("SENS_QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwOutSpeed", &self.dwOutSpeed).field("dwInSpeed", &self.dwInSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SENS_QOCINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SENS_QOCINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SENS_QOCINFO {
     fn eq(&self, other: &Self) -> bool {

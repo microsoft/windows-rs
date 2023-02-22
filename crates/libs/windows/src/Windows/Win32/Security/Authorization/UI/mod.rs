@@ -47,11 +47,6 @@ impl IEffectivePermission {
     }
 }
 ::windows::core::interface_hierarchy!(IEffectivePermission, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEffectivePermission {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEffectivePermission {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -65,6 +60,11 @@ impl ::core::fmt::Debug for IEffectivePermission {
 }
 unsafe impl ::windows::core::Vtable for IEffectivePermission {
     type Vtable = IEffectivePermission_Vtbl;
+}
+impl ::core::clone::Clone for IEffectivePermission {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEffectivePermission {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
@@ -127,11 +127,6 @@ impl IEffectivePermission2 {
     }
 }
 ::windows::core::interface_hierarchy!(IEffectivePermission2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEffectivePermission2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEffectivePermission2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -145,6 +140,11 @@ impl ::core::fmt::Debug for IEffectivePermission2 {
 }
 unsafe impl ::windows::core::Vtable for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_Vtbl;
+}
+impl ::core::clone::Clone for IEffectivePermission2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEffectivePermission2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
@@ -216,11 +216,6 @@ impl ISecurityInformation {
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISecurityInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISecurityInformation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -234,6 +229,11 @@ impl ::core::fmt::Debug for ISecurityInformation {
 }
 unsafe impl ::windows::core::Vtable for ISecurityInformation {
     type Vtable = ISecurityInformation_Vtbl;
+}
+impl ::core::clone::Clone for ISecurityInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
@@ -271,16 +271,11 @@ impl ISecurityInformation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows::core::Result<super::super::super::System::Com::IDataObject> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, rgpsids, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::System::Com::IDataObject>();
+        (::windows::core::Vtable::vtable(self).LookupSids)(::windows::core::Vtable::as_raw(self), csids, rgpsids, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISecurityInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISecurityInformation2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -294,6 +289,11 @@ impl ::core::fmt::Debug for ISecurityInformation2 {
 }
 unsafe impl ::windows::core::Vtable for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_Vtbl;
+}
+impl ::core::clone::Clone for ISecurityInformation2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
@@ -316,8 +316,8 @@ pub struct ISecurityInformation2_Vtbl {
 pub struct ISecurityInformation3(::windows::core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFullResourceName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetFullResourceName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -329,11 +329,6 @@ impl ISecurityInformation3 {
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISecurityInformation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISecurityInformation3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -347,6 +342,11 @@ impl ::core::fmt::Debug for ISecurityInformation3 {
 }
 unsafe impl ::windows::core::Vtable for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_Vtbl;
+}
+impl ::core::clone::Clone for ISecurityInformation3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
@@ -372,11 +372,6 @@ impl ISecurityInformation4 {
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityInformation4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISecurityInformation4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISecurityInformation4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -390,6 +385,11 @@ impl ::core::fmt::Debug for ISecurityInformation4 {
 }
 unsafe impl ::windows::core::Vtable for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_Vtbl;
+}
+impl ::core::clone::Clone for ISecurityInformation4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISecurityInformation4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
@@ -412,11 +412,6 @@ impl ISecurityObjectTypeInfo {
     }
 }
 ::windows::core::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ISecurityObjectTypeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ISecurityObjectTypeInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -430,6 +425,11 @@ impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
 }
 unsafe impl ::windows::core::Vtable for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_Vtbl;
+}
+impl ::core::clone::Clone for ISecurityObjectTypeInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ISecurityObjectTypeInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
@@ -517,8 +517,8 @@ impl ::core::default::Default for SECURITY_INFO_PAGE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SECURITY_INFO_PAGE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_INFO_PAGE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SECURITY_INFO_PAGE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -601,8 +601,8 @@ impl ::core::default::Default for SI_OBJECT_INFO_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SI_OBJECT_INFO_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_OBJECT_INFO_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SI_OBJECT_INFO_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -671,8 +671,8 @@ impl ::core::default::Default for SI_PAGE_ACTIVATED {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SI_PAGE_ACTIVATED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_PAGE_ACTIVATED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SI_PAGE_ACTIVATED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -708,8 +708,8 @@ impl ::core::default::Default for SI_PAGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SI_PAGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_PAGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SI_PAGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -740,8 +740,8 @@ impl ::core::fmt::Debug for EFFPERM_RESULT_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EFFPERM_RESULT_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EFFPERM_RESULT_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EFFPERM_RESULT_LIST {
@@ -784,8 +784,8 @@ impl ::core::fmt::Debug for SECURITY_OBJECT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SECURITY_OBJECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SECURITY_OBJECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SECURITY_OBJECT {
@@ -825,8 +825,8 @@ impl ::core::fmt::Debug for SID_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SID_INFO {
@@ -864,8 +864,8 @@ impl ::core::fmt::Debug for SID_INFO_LIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SID_INFO_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SID_INFO_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SID_INFO_LIST {
@@ -900,8 +900,8 @@ impl ::core::fmt::Debug for SI_ACCESS {
         f.debug_struct("SI_ACCESS").field("pguid", &self.pguid).field("mask", &self.mask).field("pszName", &self.pszName).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SI_ACCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_ACCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SI_ACCESS {
     fn eq(&self, other: &Self) -> bool {
@@ -932,8 +932,8 @@ impl ::core::fmt::Debug for SI_INHERIT_TYPE {
         f.debug_struct("SI_INHERIT_TYPE").field("pguid", &self.pguid).field("dwFlags", &self.dwFlags).field("pszName", &self.pszName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SI_INHERIT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_INHERIT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SI_INHERIT_TYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -972,8 +972,8 @@ impl ::core::fmt::Debug for SI_OBJECT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SI_OBJECT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SI_OBJECT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SI_OBJECT_INFO {

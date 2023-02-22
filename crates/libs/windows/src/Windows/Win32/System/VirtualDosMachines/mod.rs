@@ -215,8 +215,8 @@ impl ::core::clone::Clone for GLOBALENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBALENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLOBALENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLOBALENTRY {
@@ -248,8 +248,8 @@ impl ::core::fmt::Debug for IMAGE_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMAGE_NOTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_NOTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGE_NOTE {
@@ -285,8 +285,8 @@ impl ::core::clone::Clone for MODULEENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MODULEENTRY {
@@ -321,8 +321,8 @@ impl ::core::fmt::Debug for SEGMENT_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SEGMENT_NOTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SEGMENT_NOTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SEGMENT_NOTE {
@@ -361,8 +361,8 @@ impl ::core::fmt::Debug for TEMP_BP_NOTE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TEMP_BP_NOTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TEMP_BP_NOTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TEMP_BP_NOTE {
@@ -454,8 +454,8 @@ impl ::core::fmt::Debug for VDMCONTEXT {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for VDMCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -543,8 +543,8 @@ impl ::core::fmt::Debug for VDMCONTEXT_WITHOUT_XSAVE {
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for VDMCONTEXT_WITHOUT_XSAVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMCONTEXT_WITHOUT_XSAVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT_WITHOUT_XSAVE {
@@ -577,8 +577,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMLDT_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY {
@@ -602,8 +602,8 @@ impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMLDT_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
@@ -632,8 +632,8 @@ impl ::core::fmt::Debug for VDMLDT_ENTRY_0_0 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMLDT_ENTRY_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
@@ -673,8 +673,8 @@ impl ::core::fmt::Debug for VDMLDT_ENTRY_0_1 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDMLDT_ENTRY_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
@@ -716,8 +716,8 @@ impl ::core::fmt::Debug for VDM_SEGINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VDM_SEGINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VDM_SEGINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VDM_SEGINFO {

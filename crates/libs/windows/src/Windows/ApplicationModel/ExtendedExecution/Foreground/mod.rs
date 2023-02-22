@@ -4,6 +4,11 @@ pub struct IExtendedExecutionForegroundRevokedEventArgs(::windows::core::IUnknow
 unsafe impl ::windows::core::Vtable for IExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
 }
+impl ::core::clone::Clone for IExtendedExecutionForegroundRevokedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundRevokedEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
 }
@@ -19,6 +24,11 @@ pub struct IExtendedExecutionForegroundSession(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;
 }
+impl ::core::clone::Clone for IExtendedExecutionForegroundSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
 }
@@ -26,8 +36,8 @@ unsafe impl ::windows::core::Interface for IExtendedExecutionForegroundSession {
 #[doc(hidden)]
 pub struct IExtendedExecutionForegroundSession_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub Revoked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -50,14 +60,9 @@ impl ExtendedExecutionForegroundRevokedEventArgs {
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionForegroundRevokedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ExtendedExecutionForegroundRevokedReason>();
+            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ExtendedExecutionForegroundRevokedEventArgs {
@@ -71,11 +76,12 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedEventArgs {
         f.debug_tuple("ExtendedExecutionForegroundRevokedEventArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
+impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs;{b07cd940-9557-aea4-2c99-bdd56d9be461})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for ExtendedExecutionForegroundRevokedEventArgs {
@@ -110,8 +116,8 @@ impl ExtendedExecutionForegroundSession {
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Description)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetDescription(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -123,8 +129,8 @@ impl ExtendedExecutionForegroundSession {
     pub fn Revoked(&self, handler: &super::super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ExtendedExecutionForegroundRevokedEventArgs>) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Revoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            (::windows::core::Vtable::vtable(this).Revoked)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -138,25 +144,20 @@ impl ExtendedExecutionForegroundSession {
     pub fn RequestExtensionAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestExtensionAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>>();
+            (::windows::core::Vtable::vtable(this).RequestExtensionAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows::core::Result<ExtendedExecutionForegroundReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<ExtendedExecutionForegroundReason>();
+            (::windows::core::Vtable::vtable(this).Reason)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetReason(&self, value: ExtendedExecutionForegroundReason) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetReason)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for ExtendedExecutionForegroundSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for ExtendedExecutionForegroundSession {
@@ -170,11 +171,12 @@ impl ::core::fmt::Debug for ExtendedExecutionForegroundSession {
         f.debug_tuple("ExtendedExecutionForegroundSession").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession {
+impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession;{fbf440e1-9d10-4201-b01e-c83275296f2e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for ExtendedExecutionForegroundSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for ExtendedExecutionForegroundSession {
@@ -206,7 +208,7 @@ impl ::core::convert::TryFrom<&ExtendedExecutionForegroundSession> for ::windows
     type Error = ::windows::core::Error;
     fn try_from(value: &ExtendedExecutionForegroundSession) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundSession {}
@@ -232,20 +234,16 @@ impl ::core::default::Default for ExtendedExecutionForegroundReason {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundReason {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ExtendedExecutionForegroundReason {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundReason").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
+impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
@@ -266,20 +264,16 @@ impl ::core::default::Default for ExtendedExecutionForegroundResult {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundResult {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ExtendedExecutionForegroundResult {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
+impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
@@ -300,20 +294,16 @@ impl ::core::default::Default for ExtendedExecutionForegroundRevokedReason {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundRevokedReason {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ExtendedExecutionForegroundRevokedReason {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundRevokedReason").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
+impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -182,8 +182,8 @@ impl ::core::default::Default for FCIERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FCIERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FCIERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FCIERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -211,8 +211,8 @@ impl ::core::default::Default for FDICREATE_CPU_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FDICREATE_CPU_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDICREATE_CPU_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FDICREATE_CPU_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -240,8 +240,8 @@ impl ::core::default::Default for FDIDECRYPTTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FDIDECRYPTTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPTTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FDIDECRYPTTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -289,8 +289,8 @@ impl ::core::default::Default for FDIERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FDIERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FDIERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -324,8 +324,8 @@ impl ::core::default::Default for FDINOTIFICATIONTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FDINOTIFICATIONTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDINOTIFICATIONTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FDINOTIFICATIONTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -377,8 +377,8 @@ impl ::core::fmt::Debug for CCAB {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CCAB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CCAB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CCAB {
@@ -417,8 +417,8 @@ impl ::core::fmt::Debug for ERF {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ERF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ERF {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ERF {
@@ -462,8 +462,8 @@ impl ::core::fmt::Debug for FDICABINETINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDICABINETINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDICABINETINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDICABINETINFO {
@@ -496,8 +496,8 @@ impl ::core::clone::Clone for FDIDECRYPT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT {
@@ -522,8 +522,8 @@ impl ::core::clone::Clone for FDIDECRYPT_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0 {
@@ -555,8 +555,8 @@ impl ::core::fmt::Debug for FDIDECRYPT_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPT_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
@@ -598,8 +598,8 @@ impl ::core::fmt::Debug for FDIDECRYPT_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPT_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_1 {
@@ -638,8 +638,8 @@ impl ::core::fmt::Debug for FDIDECRYPT_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDIDECRYPT_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
@@ -683,8 +683,8 @@ impl ::core::fmt::Debug for FDINOTIFICATION {
         f.debug_struct("FDINOTIFICATION").field("cb", &self.cb).field("psz1", &self.psz1).field("psz2", &self.psz2).field("psz3", &self.psz3).field("pv", &self.pv).field("hf", &self.hf).field("date", &self.date).field("time", &self.time).field("attribs", &self.attribs).field("setID", &self.setID).field("iCabinet", &self.iCabinet).field("iFolder", &self.iFolder).field("fdie", &self.fdie).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FDINOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDINOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FDINOTIFICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -717,8 +717,8 @@ impl ::core::clone::Clone for FDISPILLFILE {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDISPILLFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDISPILLFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -747,8 +747,8 @@ impl ::core::clone::Clone for FDISPILLFILE {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FDISPILLFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FDISPILLFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]

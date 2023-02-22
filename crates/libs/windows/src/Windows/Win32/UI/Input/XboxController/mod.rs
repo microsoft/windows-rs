@@ -73,8 +73,8 @@ impl ::core::default::Default for BATTERY_DEVTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_DEVTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_DEVTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_DEVTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -104,8 +104,8 @@ impl ::core::default::Default for BATTERY_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -137,8 +137,8 @@ impl ::core::default::Default for BATTERY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BATTERY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BATTERY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BATTERY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -170,8 +170,8 @@ impl ::core::default::Default for XINPUT_CAPABILITIES_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_CAPABILITIES_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_CAPABILITIES_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_CAPABILITIES_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -248,8 +248,8 @@ impl ::core::default::Default for XINPUT_DEVSUBTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_DEVSUBTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_DEVSUBTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_DEVSUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -273,8 +273,8 @@ impl ::core::default::Default for XINPUT_DEVTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_DEVTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_DEVTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_DEVTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -300,8 +300,8 @@ impl ::core::default::Default for XINPUT_FLAG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_FLAG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_FLAG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_FLAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -390,8 +390,8 @@ impl ::core::default::Default for XINPUT_GAMEPAD_BUTTON_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_GAMEPAD_BUTTON_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_GAMEPAD_BUTTON_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_GAMEPAD_BUTTON_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -452,8 +452,8 @@ impl ::core::default::Default for XINPUT_KEYSTROKE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_KEYSTROKE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_KEYSTROKE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -572,8 +572,8 @@ impl ::core::default::Default for XINPUT_VIRTUAL_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_VIRTUAL_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_VIRTUAL_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -597,8 +597,8 @@ impl ::core::fmt::Debug for XINPUT_BATTERY_INFORMATION {
         f.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_BATTERY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_BATTERY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -631,8 +631,8 @@ impl ::core::fmt::Debug for XINPUT_CAPABILITIES {
         f.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -667,8 +667,8 @@ impl ::core::fmt::Debug for XINPUT_GAMEPAD {
         f.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_GAMEPAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_GAMEPAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_GAMEPAD {
     fn eq(&self, other: &Self) -> bool {
@@ -701,8 +701,8 @@ impl ::core::fmt::Debug for XINPUT_KEYSTROKE {
         f.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_KEYSTROKE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_KEYSTROKE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_KEYSTROKE {
     fn eq(&self, other: &Self) -> bool {
@@ -732,8 +732,8 @@ impl ::core::fmt::Debug for XINPUT_STATE {
         f.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -763,8 +763,8 @@ impl ::core::fmt::Debug for XINPUT_VIBRATION {
         f.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XINPUT_VIBRATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XINPUT_VIBRATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XINPUT_VIBRATION {
     fn eq(&self, other: &Self) -> bool {

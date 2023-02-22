@@ -41,8 +41,8 @@ impl ::core::default::Default for DXGI_ALPHA_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_ALPHA_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_ALPHA_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -116,8 +116,8 @@ impl ::core::default::Default for DXGI_COLOR_SPACE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_COLOR_SPACE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_COLOR_SPACE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_COLOR_SPACE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -383,8 +383,8 @@ impl ::core::default::Default for DXGI_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -416,8 +416,8 @@ impl ::core::default::Default for DXGI_MODE_ROTATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_MODE_ROTATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_MODE_ROTATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_MODE_ROTATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -445,8 +445,8 @@ impl ::core::default::Default for DXGI_MODE_SCALING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_MODE_SCALING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_MODE_SCALING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_MODE_SCALING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -476,8 +476,8 @@ impl ::core::default::Default for DXGI_MODE_SCANLINE_ORDER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_MODE_SCANLINE_ORDER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_MODE_SCANLINE_ORDER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXGI_MODE_SCANLINE_ORDER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -502,8 +502,8 @@ impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL {
         f.debug_struct("DXGI_GAMMA_CONTROL").field("Scale", &self.Scale).field("Offset", &self.Offset).field("GammaCurve", &self.GammaCurve).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_GAMMA_CONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -541,8 +541,8 @@ impl ::core::fmt::Debug for DXGI_GAMMA_CONTROL_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DXGI_GAMMA_CONTROL_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_GAMMA_CONTROL_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXGI_GAMMA_CONTROL_CAPABILITIES {
@@ -575,8 +575,8 @@ impl ::core::fmt::Debug for DXGI_JPEG_AC_HUFFMAN_TABLE {
         f.debug_struct("DXGI_JPEG_AC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_JPEG_AC_HUFFMAN_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_JPEG_AC_HUFFMAN_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_AC_HUFFMAN_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -606,8 +606,8 @@ impl ::core::fmt::Debug for DXGI_JPEG_DC_HUFFMAN_TABLE {
         f.debug_struct("DXGI_JPEG_DC_HUFFMAN_TABLE").field("CodeCounts", &self.CodeCounts).field("CodeValues", &self.CodeValues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_JPEG_DC_HUFFMAN_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_JPEG_DC_HUFFMAN_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_DC_HUFFMAN_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -636,8 +636,8 @@ impl ::core::fmt::Debug for DXGI_JPEG_QUANTIZATION_TABLE {
         f.debug_struct("DXGI_JPEG_QUANTIZATION_TABLE").field("Elements", &self.Elements).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_JPEG_QUANTIZATION_TABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_JPEG_QUANTIZATION_TABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_JPEG_QUANTIZATION_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -671,8 +671,8 @@ impl ::core::fmt::Debug for DXGI_MODE_DESC {
         f.debug_struct("DXGI_MODE_DESC").field("Width", &self.Width).field("Height", &self.Height).field("RefreshRate", &self.RefreshRate).field("Format", &self.Format).field("ScanlineOrdering", &self.ScanlineOrdering).field("Scaling", &self.Scaling).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_MODE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_MODE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_MODE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -702,8 +702,8 @@ impl ::core::fmt::Debug for DXGI_RATIONAL {
         f.debug_struct("DXGI_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_RATIONAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_RATIONAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_RATIONAL {
     fn eq(&self, other: &Self) -> bool {
@@ -734,8 +734,8 @@ impl ::core::fmt::Debug for DXGI_RGB {
         f.debug_struct("DXGI_RGB").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_RGB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_RGB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_RGB {
     fn eq(&self, other: &Self) -> bool {
@@ -765,8 +765,8 @@ impl ::core::fmt::Debug for DXGI_SAMPLE_DESC {
         f.debug_struct("DXGI_SAMPLE_DESC").field("Count", &self.Count).field("Quality", &self.Quality).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXGI_SAMPLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXGI_SAMPLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXGI_SAMPLE_DESC {
     fn eq(&self, other: &Self) -> bool {

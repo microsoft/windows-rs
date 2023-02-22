@@ -21,8 +21,8 @@ where
 #[inline]
 pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTIONCONTEXT> {
     ::windows::core::link ! ( "ninput.dll""system" fn CreateInteractionContext ( interactioncontext : *mut HINTERACTIONCONTEXT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateInteractionContext(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<HINTERACTIONCONTEXT>();
+    CreateInteractionContext(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -40,8 +40,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetCrossSlideParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , threshold : CROSS_SLIDE_THRESHOLD , distance : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -50,8 +50,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetHoldParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : HOLD_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetHoldParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetHoldParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -60,8 +60,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetInertiaParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , inertiaparameter : INERTIA_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -79,8 +79,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetMouseWheelParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : MOUSE_WHEEL_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -89,8 +89,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetPropertyInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , contextproperty : INTERACTION_CONTEXT_PROPERTY , value : *mut u32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetPropertyInteractionContext(interactioncontext.into(), contextproperty, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u32>();
+    GetPropertyInteractionContext(interactioncontext.into(), contextproperty, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -100,8 +100,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetStateInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , pointerinfo : *const super::Input::Pointer:: POINTER_INFO , state : *mut INTERACTION_STATE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<INTERACTION_STATE>();
+    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -110,8 +110,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetTapParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TAP_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetTapParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetTapParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -120,8 +120,8 @@ where
     P0: ::std::convert::Into<HINTERACTIONCONTEXT>,
 {
     ::windows::core::link ! ( "ninput.dll""system" fn GetTranslationParameterInteractionContext ( interactioncontext : HINTERACTIONCONTEXT , parameter : TRANSLATION_PARAMETER , value : *mut f32 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<f32>();
+    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
@@ -304,8 +304,8 @@ impl ::core::default::Default for CROSS_SLIDE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CROSS_SLIDE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CROSS_SLIDE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CROSS_SLIDE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -372,8 +372,8 @@ impl ::core::default::Default for CROSS_SLIDE_THRESHOLD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CROSS_SLIDE_THRESHOLD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CROSS_SLIDE_THRESHOLD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -405,8 +405,8 @@ impl ::core::default::Default for HOLD_PARAMETER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HOLD_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HOLD_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HOLD_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -442,8 +442,8 @@ impl ::core::default::Default for INERTIA_PARAMETER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INERTIA_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INERTIA_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INERTIA_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -521,8 +521,8 @@ impl ::core::default::Default for INTERACTION_CONFIGURATION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_CONFIGURATION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONFIGURATION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERACTION_CONFIGURATION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -585,8 +585,8 @@ impl ::core::default::Default for INTERACTION_CONTEXT_PROPERTY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_PROPERTY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_PROPERTY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -620,8 +620,8 @@ impl ::core::default::Default for INTERACTION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERACTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -692,8 +692,8 @@ impl ::core::default::Default for INTERACTION_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERACTION_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -723,8 +723,8 @@ impl ::core::default::Default for INTERACTION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for INTERACTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -754,8 +754,8 @@ impl ::core::default::Default for MANIPULATION_RAILS_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MANIPULATION_RAILS_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MANIPULATION_RAILS_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MANIPULATION_RAILS_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -791,8 +791,8 @@ impl ::core::default::Default for MOUSE_WHEEL_PARAMETER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MOUSE_WHEEL_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MOUSE_WHEEL_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -820,8 +820,8 @@ impl ::core::default::Default for TAP_PARAMETER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TAP_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TAP_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TAP_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -849,8 +849,8 @@ impl ::core::default::Default for TRANSLATION_PARAMETER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRANSLATION_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSLATION_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TRANSLATION_PARAMETER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -874,8 +874,8 @@ impl ::core::fmt::Debug for CROSS_SLIDE_PARAMETER {
         f.debug_struct("CROSS_SLIDE_PARAMETER").field("threshold", &self.threshold).field("distance", &self.distance).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CROSS_SLIDE_PARAMETER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CROSS_SLIDE_PARAMETER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CROSS_SLIDE_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
@@ -917,8 +917,8 @@ impl ::core::convert::From<::core::option::Option<HINTERACTIONCONTEXT>> for HINT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HINTERACTIONCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HINTERACTIONCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
@@ -936,8 +936,8 @@ impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_CROSS_SLIDE {
         f.debug_struct("INTERACTION_ARGUMENTS_CROSS_SLIDE").field("flags", &self.flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_CROSS_SLIDE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_ARGUMENTS_CROSS_SLIDE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_CROSS_SLIDE {
     fn eq(&self, other: &Self) -> bool {
@@ -969,8 +969,8 @@ impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_MANIPULATION {
         f.debug_struct("INTERACTION_ARGUMENTS_MANIPULATION").field("delta", &self.delta).field("cumulative", &self.cumulative).field("velocity", &self.velocity).field("railsState", &self.railsState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_MANIPULATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_ARGUMENTS_MANIPULATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_MANIPULATION {
     fn eq(&self, other: &Self) -> bool {
@@ -999,8 +999,8 @@ impl ::core::fmt::Debug for INTERACTION_ARGUMENTS_TAP {
         f.debug_struct("INTERACTION_ARGUMENTS_TAP").field("count", &self.count).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_ARGUMENTS_TAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_ARGUMENTS_TAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERACTION_ARGUMENTS_TAP {
     fn eq(&self, other: &Self) -> bool {
@@ -1030,8 +1030,8 @@ impl ::core::fmt::Debug for INTERACTION_CONTEXT_CONFIGURATION {
         f.debug_struct("INTERACTION_CONTEXT_CONFIGURATION").field("interactionId", &self.interactionId).field("enable", &self.enable).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_CONFIGURATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_CONFIGURATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
@@ -1064,8 +1064,8 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_OUTPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT {
@@ -1090,8 +1090,8 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT_0 {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_OUTPUT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
@@ -1121,8 +1121,8 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_OUTPUT2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2 {
@@ -1147,8 +1147,8 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INTERACTION_CONTEXT_OUTPUT2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2_0 {
@@ -1176,8 +1176,8 @@ impl ::core::fmt::Debug for MANIPULATION_TRANSFORM {
         f.debug_struct("MANIPULATION_TRANSFORM").field("translationX", &self.translationX).field("translationY", &self.translationY).field("scale", &self.scale).field("expansion", &self.expansion).field("rotation", &self.rotation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MANIPULATION_TRANSFORM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MANIPULATION_TRANSFORM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MANIPULATION_TRANSFORM {
     fn eq(&self, other: &Self) -> bool {
@@ -1209,8 +1209,8 @@ impl ::core::fmt::Debug for MANIPULATION_VELOCITY {
         f.debug_struct("MANIPULATION_VELOCITY").field("velocityX", &self.velocityX).field("velocityY", &self.velocityY).field("velocityExpansion", &self.velocityExpansion).field("velocityAngular", &self.velocityAngular).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MANIPULATION_VELOCITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MANIPULATION_VELOCITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MANIPULATION_VELOCITY {
     fn eq(&self, other: &Self) -> bool {

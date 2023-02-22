@@ -375,8 +375,8 @@ impl ::core::default::Default for ENCLAVE_SEALING_IDENTITY_POLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENCLAVE_SEALING_IDENTITY_POLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCLAVE_SEALING_IDENTITY_POLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -404,8 +404,8 @@ impl ::core::clone::Clone for ENCLAVE_IDENTITY {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ENCLAVE_IDENTITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCLAVE_IDENTITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ENCLAVE_IDENTITY {
     fn default() -> Self {
@@ -427,8 +427,8 @@ impl ::core::clone::Clone for ENCLAVE_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ENCLAVE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCLAVE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ENCLAVE_INFORMATION {
     fn default() -> Self {
@@ -455,8 +455,8 @@ impl ::core::fmt::Debug for ENCLAVE_VBS_BASIC_KEY_REQUEST {
         f.debug_struct("ENCLAVE_VBS_BASIC_KEY_REQUEST").field("RequestSize", &self.RequestSize).field("Flags", &self.Flags).field("EnclaveSVN", &self.EnclaveSVN).field("SystemKeyID", &self.SystemKeyID).field("CurrentSystemKeyID", &self.CurrentSystemKeyID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -492,8 +492,8 @@ impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
         f.debug_struct("VBS_BASIC_ENCLAVE_EXCEPTION_AMD64").field("ExceptionCode", &self.ExceptionCode).field("NumberParameters", &self.NumberParameters).field("ExceptionInformation", &self.ExceptionInformation).field("ExceptionRAX", &self.ExceptionRAX).field("ExceptionRCX", &self.ExceptionRCX).field("ExceptionRIP", &self.ExceptionRIP).field("ExceptionRFLAGS", &self.ExceptionRFLAGS).field("ExceptionRSP", &self.ExceptionRSP).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     fn eq(&self, other: &Self) -> bool {
@@ -534,8 +534,8 @@ impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
         f.debug_struct("VBS_BASIC_ENCLAVE_SYSCALL_PAGE").finish()
     }
 }
-unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     fn default() -> Self {
@@ -563,8 +563,8 @@ impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
         f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn eq(&self, other: &Self) -> bool {
@@ -598,8 +598,8 @@ impl ::core::fmt::Debug for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
         f.debug_struct("VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64").field("ThreadContext", &self.ThreadContext).field("EntryPoint", &self.EntryPoint).field("StackPointer", &self.StackPointer).field("ExceptionEntryPoint", &self.ExceptionEntryPoint).field("ExceptionStack", &self.ExceptionStack).field("ExceptionActive", &self.ExceptionActive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn eq(&self, other: &Self) -> bool {
@@ -626,8 +626,8 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_ENCLAVE_REPORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VBS_ENCLAVE_REPORT {
     fn default() -> Self {
@@ -651,8 +651,8 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_MODULE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_MODULE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_ENCLAVE_REPORT_MODULE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_MODULE {
     fn default() -> Self {
@@ -675,8 +675,8 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_PKG_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_ENCLAVE_REPORT_PKG_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
     fn default() -> Self {
@@ -695,8 +695,8 @@ impl ::core::clone::Clone for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn default() -> Self {

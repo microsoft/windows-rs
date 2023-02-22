@@ -25,11 +25,6 @@ impl ID2D1SimplifiedGeometrySink {
     }
 }
 ::windows::core::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -45,6 +40,11 @@ unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::windows::core::Vtable for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
+}
+impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
@@ -90,8 +90,8 @@ impl ::core::default::Default for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -123,8 +123,8 @@ impl ::core::default::Default for D2D1_ALPHA_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_ALPHA_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_ALPHA_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -200,8 +200,8 @@ impl ::core::default::Default for D2D1_BLEND_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_BLEND_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_BLEND_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_BLEND_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -229,8 +229,8 @@ impl ::core::default::Default for D2D1_BORDER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_BORDER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_BORDER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_BORDER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -258,8 +258,8 @@ impl ::core::default::Default for D2D1_COLORMATRIX_ALPHA_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_COLORMATRIX_ALPHA_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_COLORMATRIX_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -309,8 +309,8 @@ impl ::core::default::Default for D2D1_COMPOSITE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_COMPOSITE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_COMPOSITE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_COMPOSITE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -338,8 +338,8 @@ impl ::core::default::Default for D2D1_FIGURE_BEGIN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_FIGURE_BEGIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_FIGURE_BEGIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_FIGURE_BEGIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -367,8 +367,8 @@ impl ::core::default::Default for D2D1_FIGURE_END {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_FIGURE_END {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_FIGURE_END {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_FIGURE_END {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -396,8 +396,8 @@ impl ::core::default::Default for D2D1_FILL_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_FILL_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_FILL_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_FILL_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -427,8 +427,8 @@ impl ::core::default::Default for D2D1_PATH_SEGMENT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_PATH_SEGMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_PATH_SEGMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_PATH_SEGMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -489,8 +489,8 @@ impl ::core::default::Default for D2D1_TURBULENCE_NOISE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_NOISE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_TURBULENCE_NOISE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D2D1_TURBULENCE_NOISE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -515,8 +515,8 @@ impl ::core::fmt::Debug for D2D1_BEZIER_SEGMENT {
         f.debug_struct("D2D1_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_BEZIER_SEGMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
     fn eq(&self, other: &Self) -> bool {
@@ -548,8 +548,8 @@ impl ::core::fmt::Debug for D2D1_COLOR_F {
         f.debug_struct("D2D1_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_COLOR_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D1_COLOR_F {
     fn eq(&self, other: &Self) -> bool {
@@ -584,8 +584,8 @@ impl ::core::fmt::Debug for D2D1_PIXEL_FORMAT {
     }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-unsafe impl ::windows::core::Abi for D2D1_PIXEL_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D1_PIXEL_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D2D1_PIXEL_FORMAT {
@@ -620,8 +620,8 @@ impl ::core::fmt::Debug for D2D_COLOR_F {
         f.debug_struct("D2D_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_COLOR_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_COLOR_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_COLOR_F {
     fn eq(&self, other: &Self) -> bool {
@@ -645,8 +645,8 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X3_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_4X3_F {
     fn default() -> Self {
@@ -665,8 +665,8 @@ impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X3_F_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_4X3_F_0 {
     fn default() -> Self {
@@ -700,8 +700,8 @@ impl ::core::fmt::Debug for D2D_MATRIX_4X3_F_0_0 {
         f.debug_struct("D2D_MATRIX_4X3_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X3_F_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X3_F_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X3_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -725,8 +725,8 @@ impl ::core::clone::Clone for D2D_MATRIX_4X4_F {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X4_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_4X4_F {
     fn default() -> Self {
@@ -745,8 +745,8 @@ impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X4_F_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_4X4_F_0 {
     fn default() -> Self {
@@ -784,8 +784,8 @@ impl ::core::fmt::Debug for D2D_MATRIX_4X4_F_0_0 {
         f.debug_struct("D2D_MATRIX_4X4_F_0_0").field("_11", &self._11).field("_12", &self._12).field("_13", &self._13).field("_14", &self._14).field("_21", &self._21).field("_22", &self._22).field("_23", &self._23).field("_24", &self._24).field("_31", &self._31).field("_32", &self._32).field("_33", &self._33).field("_34", &self._34).field("_41", &self._41).field("_42", &self._42).field("_43", &self._43).field("_44", &self._44).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_4X4_F_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_4X4_F_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_4X4_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -809,8 +809,8 @@ impl ::core::clone::Clone for D2D_MATRIX_5X4_F {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_5X4_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_5X4_F {
     fn default() -> Self {
@@ -829,8 +829,8 @@ impl ::core::clone::Clone for D2D_MATRIX_5X4_F_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_5X4_F_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for D2D_MATRIX_5X4_F_0 {
     fn default() -> Self {
@@ -893,8 +893,8 @@ impl ::core::fmt::Debug for D2D_MATRIX_5X4_F_0_0 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_MATRIX_5X4_F_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_MATRIX_5X4_F_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_MATRIX_5X4_F_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -924,8 +924,8 @@ impl ::core::fmt::Debug for D2D_POINT_2F {
         f.debug_struct("D2D_POINT_2F").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_POINT_2F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_POINT_2F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_POINT_2F {
     fn eq(&self, other: &Self) -> bool {
@@ -955,8 +955,8 @@ impl ::core::fmt::Debug for D2D_POINT_2U {
         f.debug_struct("D2D_POINT_2U").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_POINT_2U {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_POINT_2U {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_POINT_2U {
     fn eq(&self, other: &Self) -> bool {
@@ -988,8 +988,8 @@ impl ::core::fmt::Debug for D2D_RECT_F {
         f.debug_struct("D2D_RECT_F").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_RECT_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_RECT_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_RECT_F {
     fn eq(&self, other: &Self) -> bool {
@@ -1021,8 +1021,8 @@ impl ::core::fmt::Debug for D2D_RECT_U {
         f.debug_struct("D2D_RECT_U").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_RECT_U {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_RECT_U {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_RECT_U {
     fn eq(&self, other: &Self) -> bool {
@@ -1052,8 +1052,8 @@ impl ::core::fmt::Debug for D2D_SIZE_F {
         f.debug_struct("D2D_SIZE_F").field("width", &self.width).field("height", &self.height).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_SIZE_F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_SIZE_F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_SIZE_F {
     fn eq(&self, other: &Self) -> bool {
@@ -1083,8 +1083,8 @@ impl ::core::fmt::Debug for D2D_SIZE_U {
         f.debug_struct("D2D_SIZE_U").field("width", &self.width).field("height", &self.height).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_SIZE_U {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_SIZE_U {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_SIZE_U {
     fn eq(&self, other: &Self) -> bool {
@@ -1114,8 +1114,8 @@ impl ::core::fmt::Debug for D2D_VECTOR_2F {
         f.debug_struct("D2D_VECTOR_2F").field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_VECTOR_2F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_VECTOR_2F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_2F {
     fn eq(&self, other: &Self) -> bool {
@@ -1146,8 +1146,8 @@ impl ::core::fmt::Debug for D2D_VECTOR_3F {
         f.debug_struct("D2D_VECTOR_3F").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_VECTOR_3F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_VECTOR_3F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_3F {
     fn eq(&self, other: &Self) -> bool {
@@ -1179,8 +1179,8 @@ impl ::core::fmt::Debug for D2D_VECTOR_4F {
         f.debug_struct("D2D_VECTOR_4F").field("x", &self.x).field("y", &self.y).field("z", &self.z).field("w", &self.w).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D2D_VECTOR_4F {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D2D_VECTOR_4F {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D2D_VECTOR_4F {
     fn eq(&self, other: &Self) -> bool {

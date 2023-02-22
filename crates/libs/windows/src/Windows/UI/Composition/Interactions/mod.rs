@@ -4,6 +4,11 @@ pub struct ICompositionConditionalValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICompositionConditionalValue {
     type Vtable = ICompositionConditionalValue_Vtbl;
 }
+impl ::core::clone::Clone for ICompositionConditionalValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICompositionConditionalValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43250538_eb73_4561_a71d_1a43eaeb7a9b);
 }
@@ -22,6 +27,11 @@ pub struct ICompositionConditionalValueStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICompositionConditionalValueStatics {
     type Vtable = ICompositionConditionalValueStatics_Vtbl;
 }
+impl ::core::clone::Clone for ICompositionConditionalValueStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ICompositionConditionalValueStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x090c4b72_8467_4d0a_9065_ac46b80a5522);
 }
@@ -36,11 +46,6 @@ pub struct ICompositionConditionalValueStatics_Vtbl {
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
 ::windows::core::interface_hierarchy!(ICompositionInteractionSource, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for ICompositionInteractionSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICompositionInteractionSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -52,15 +57,16 @@ impl ::core::fmt::Debug for ICompositionInteractionSource {
         f.debug_tuple("ICompositionInteractionSource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for ICompositionInteractionSource {
+impl ::windows::core::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for ICompositionInteractionSource {
     type Vtable = ICompositionInteractionSource_Vtbl;
+}
+impl ::core::clone::Clone for ICompositionInteractionSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionInteractionSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x043b2431_06e3_495a_ba54_409f0017fac0);
@@ -75,6 +81,11 @@ pub struct ICompositionInteractionSource_Vtbl {
 pub struct ICompositionInteractionSourceCollection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for ICompositionInteractionSourceCollection {
     type Vtable = ICompositionInteractionSourceCollection_Vtbl;
+}
+impl ::core::clone::Clone for ICompositionInteractionSourceCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionInteractionSourceCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b468e4b_a5bf_47d8_a547_3894155a158c);
@@ -93,6 +104,11 @@ pub struct ICompositionInteractionSourceCollection_Vtbl {
 pub struct IInteractionSourceConfiguration(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionSourceConfiguration {
     type Vtable = IInteractionSourceConfiguration_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionSourceConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionSourceConfiguration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa78347e5_a9d1_4d02_985e_b930cd0b9da4);
@@ -113,6 +129,11 @@ pub struct IInteractionSourceConfiguration_Vtbl {
 pub struct IInteractionTracker(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTracker {
     type Vtable = IInteractionTracker_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTracker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTracker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a8e8cb1_1000_4416_8363_cc27fb877308);
@@ -221,6 +242,11 @@ pub struct IInteractionTracker2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTracker2 {
     type Vtable = IInteractionTracker2_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTracker2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTracker2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25769a3e_ce6d_448c_8386_92620d240756);
 }
@@ -243,6 +269,11 @@ pub struct IInteractionTracker3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTracker3 {
     type Vtable = IInteractionTracker3_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTracker3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTracker3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091);
 }
@@ -260,6 +291,11 @@ pub struct IInteractionTracker3_Vtbl {
 pub struct IInteractionTracker4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTracker4 {
     type Vtable = IInteractionTracker4_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTracker4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTracker4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebd222bc_04af_4ac7_847d_06ea36e80a16);
@@ -284,6 +320,11 @@ pub struct IInteractionTracker5(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTracker5 {
     type Vtable = IInteractionTracker5_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTracker5 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTracker5 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3ef5da2_a254_40e4_88d5_44e4e16b5809);
 }
@@ -302,6 +343,11 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs(::windows::core::I
 unsafe impl ::windows::core::Vtable for IInteractionTrackerCustomAnimationStateEnteredArgs {
     type Vtable = IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerCustomAnimationStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerCustomAnimationStateEnteredArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
 }
@@ -316,6 +362,11 @@ pub struct IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl {
 pub struct IInteractionTrackerCustomAnimationStateEnteredArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
     type Vtable = IInteractionTrackerCustomAnimationStateEnteredArgs2_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerCustomAnimationStateEnteredArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d579b7_0985_5e99_b024_2f32c380c1a4);
@@ -332,6 +383,11 @@ pub struct IInteractionTrackerIdleStateEnteredArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerIdleStateEnteredArgs {
     type Vtable = IInteractionTrackerIdleStateEnteredArgs_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerIdleStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerIdleStateEnteredArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50012faa_1510_4142_a1a5_019b09f8857b);
 }
@@ -346,6 +402,11 @@ pub struct IInteractionTrackerIdleStateEnteredArgs_Vtbl {
 pub struct IInteractionTrackerIdleStateEnteredArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerIdleStateEnteredArgs2 {
     type Vtable = IInteractionTrackerIdleStateEnteredArgs2_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerIdleStateEnteredArgs2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerIdleStateEnteredArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e771ed_b803_5137_9435_1c96e48721e9);
@@ -362,6 +423,11 @@ pub struct IInteractionTrackerInertiaModifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaModifier {
     type Vtable = IInteractionTrackerInertiaModifier_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaModifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaModifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e2c920_26b4_4da2_8b61_5e683979bbe2);
 }
@@ -376,6 +442,11 @@ pub struct IInteractionTrackerInertiaModifierFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaModifierFactory {
     type Vtable = IInteractionTrackerInertiaModifierFactory_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaModifierFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaModifierFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x993818fe_c94e_4b86_87f3_922665ba46b9);
 }
@@ -389,6 +460,11 @@ pub struct IInteractionTrackerInertiaModifierFactory_Vtbl {
 pub struct IInteractionTrackerInertiaMotion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaMotion {
     type Vtable = IInteractionTrackerInertiaMotion_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInertiaMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaMotion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04922fdc_f154_4cb8_bf33_cc1ba611e6db);
@@ -408,6 +484,11 @@ pub struct IInteractionTrackerInertiaMotionStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaMotionStatics {
     type Vtable = IInteractionTrackerInertiaMotionStatics_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaMotionStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaMotionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc83dd6_ba7b_431a_844b_6eac9130f99a);
 }
@@ -422,6 +503,11 @@ pub struct IInteractionTrackerInertiaMotionStatics_Vtbl {
 pub struct IInteractionTrackerInertiaNaturalMotion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaNaturalMotion {
     type Vtable = IInteractionTrackerInertiaNaturalMotion_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInertiaNaturalMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaNaturalMotion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2);
@@ -441,6 +527,11 @@ pub struct IInteractionTrackerInertiaNaturalMotionStatics(::windows::core::IUnkn
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaNaturalMotionStatics {
     type Vtable = IInteractionTrackerInertiaNaturalMotionStatics_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaNaturalMotionStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaNaturalMotionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfda55b0_5e3e_4289_932d_ee5f50e74283);
 }
@@ -455,6 +546,11 @@ pub struct IInteractionTrackerInertiaNaturalMotionStatics_Vtbl {
 pub struct IInteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaRestingValue {
     type Vtable = IInteractionTrackerInertiaRestingValue_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInertiaRestingValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaRestingValue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86f7ec09_5096_4170_9cc8_df2fe101bb93);
@@ -474,6 +570,11 @@ pub struct IInteractionTrackerInertiaRestingValueStatics(::windows::core::IUnkno
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaRestingValueStatics {
     type Vtable = IInteractionTrackerInertiaRestingValueStatics_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaRestingValueStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaRestingValueStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18ed4699_0745_4096_bcab_3a4e99569bcf);
 }
@@ -488,6 +589,11 @@ pub struct IInteractionTrackerInertiaRestingValueStatics_Vtbl {
 pub struct IInteractionTrackerInertiaStateEnteredArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaStateEnteredArgs {
     type Vtable = IInteractionTrackerInertiaStateEnteredArgs_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInertiaStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEnteredArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63);
@@ -522,6 +628,11 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs2(::windows::core::IUnknown
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaStateEnteredArgs2 {
     type Vtable = IInteractionTrackerInertiaStateEnteredArgs2_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInertiaStateEnteredArgs2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEnteredArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1eb32f6_c26c_41f6_a189_fabc22b323cc);
 }
@@ -536,6 +647,11 @@ pub struct IInteractionTrackerInertiaStateEnteredArgs2_Vtbl {
 pub struct IInteractionTrackerInertiaStateEnteredArgs3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInertiaStateEnteredArgs3 {
     type Vtable = IInteractionTrackerInertiaStateEnteredArgs3_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInertiaStateEnteredArgs3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInertiaStateEnteredArgs3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48ac1c2f_47bd_59af_a58c_79bd2eb9ef71);
@@ -552,6 +668,11 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs(::windows::core::IUnkn
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInteractingStateEnteredArgs {
     type Vtable = IInteractionTrackerInteractingStateEnteredArgs_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerInteractingStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerInteractingStateEnteredArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7263939_a17b_4011_99fd_b5c24f143748);
 }
@@ -566,6 +687,11 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs_Vtbl {
 pub struct IInteractionTrackerInteractingStateEnteredArgs2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerInteractingStateEnteredArgs2 {
     type Vtable = IInteractionTrackerInteractingStateEnteredArgs2_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerInteractingStateEnteredArgs2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerInteractingStateEnteredArgs2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509652d6_d488_59cd_819f_f52310295b11);
@@ -606,11 +732,6 @@ impl IInteractionTrackerOwner {
     }
 }
 ::windows::core::interface_hierarchy!(IInteractionTrackerOwner, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IInteractionTrackerOwner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInteractionTrackerOwner {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -622,15 +743,16 @@ impl ::core::fmt::Debug for IInteractionTrackerOwner {
         f.debug_tuple("IInteractionTrackerOwner").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IInteractionTrackerOwner {
+impl ::windows::core::RuntimeType for IInteractionTrackerOwner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IInteractionTrackerOwner {
     type Vtable = IInteractionTrackerOwner_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerOwner {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerOwner {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2e8af3_4deb_4e53_b29c_b06c9f96d651);
@@ -652,6 +774,11 @@ pub struct IInteractionTrackerRequestIgnoredArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerRequestIgnoredArgs {
     type Vtable = IInteractionTrackerRequestIgnoredArgs_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerRequestIgnoredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerRequestIgnoredArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
 }
@@ -666,6 +793,11 @@ pub struct IInteractionTrackerRequestIgnoredArgs_Vtbl {
 pub struct IInteractionTrackerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerStatics {
     type Vtable = IInteractionTrackerStatics_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba5d7b7_6590_4498_8d6c_eb62b514c92a);
@@ -683,6 +815,11 @@ pub struct IInteractionTrackerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerStatics2 {
     type Vtable = IInteractionTrackerStatics2_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35e53720_46b7_5cb0_b505_f3d6884a6163);
 }
@@ -698,6 +835,11 @@ pub struct IInteractionTrackerStatics2_Vtbl {
 pub struct IInteractionTrackerValuesChangedArgs(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerValuesChangedArgs {
     type Vtable = IInteractionTrackerValuesChangedArgs_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerValuesChangedArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerValuesChangedArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0);
@@ -719,6 +861,11 @@ pub struct IInteractionTrackerVector2InertiaModifier(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerVector2InertiaModifier {
     type Vtable = IInteractionTrackerVector2InertiaModifier_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerVector2InertiaModifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaModifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87e08ab0_3086_4853_a4b7_77882ad5d7e3);
 }
@@ -733,6 +880,11 @@ pub struct IInteractionTrackerVector2InertiaModifierFactory(::windows::core::IUn
 unsafe impl ::windows::core::Vtable for IInteractionTrackerVector2InertiaModifierFactory {
     type Vtable = IInteractionTrackerVector2InertiaModifierFactory_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerVector2InertiaModifierFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaModifierFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7401d6c4_6c6d_48df_bc3e_171e227e7d7f);
 }
@@ -746,6 +898,11 @@ pub struct IInteractionTrackerVector2InertiaModifierFactory_Vtbl {
 pub struct IInteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IInteractionTrackerVector2InertiaNaturalMotion {
     type Vtable = IInteractionTrackerVector2InertiaNaturalMotion_Vtbl;
+}
+impl ::core::clone::Clone for IInteractionTrackerVector2InertiaNaturalMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaNaturalMotion {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f17695c_162d_4c07_9400_c282b28276ca);
@@ -765,6 +922,11 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics(::windows::core
 unsafe impl ::windows::core::Vtable for IInteractionTrackerVector2InertiaNaturalMotionStatics {
     type Vtable = IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl;
 }
+impl ::core::clone::Clone for IInteractionTrackerVector2InertiaNaturalMotionStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IInteractionTrackerVector2InertiaNaturalMotionStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82001a48_09c0_434f_8189_141c66df362f);
 }
@@ -779,6 +941,11 @@ pub struct IInteractionTrackerVector2InertiaNaturalMotionStatics_Vtbl {
 pub struct IVisualInteractionSource(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSource {
     type Vtable = IVisualInteractionSource_Vtbl;
+}
+impl ::core::clone::Clone for IVisualInteractionSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualInteractionSource {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca0e8a86_d8d6_4111_b088_70347bd2b0ed);
@@ -816,6 +983,11 @@ pub struct IVisualInteractionSource_Vtbl {
 pub struct IVisualInteractionSource2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSource2 {
     type Vtable = IVisualInteractionSource2_Vtbl;
+}
+impl ::core::clone::Clone for IVisualInteractionSource2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualInteractionSource2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa914893_a73c_414d_80d0_249bad2fbd93);
@@ -866,6 +1038,11 @@ pub struct IVisualInteractionSource3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSource3 {
     type Vtable = IVisualInteractionSource3_Vtbl;
 }
+impl ::core::clone::Clone for IVisualInteractionSource3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualInteractionSource3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd941ef2a_0d5c_4057_92d7_c9711533204f);
 }
@@ -881,6 +1058,11 @@ pub struct IVisualInteractionSourceObjectFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSourceObjectFactory {
     type Vtable = IVisualInteractionSourceObjectFactory_Vtbl;
 }
+impl ::core::clone::Clone for IVisualInteractionSourceObjectFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualInteractionSourceObjectFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2ca917c_e98a_41f2_b3c9_891c9266c8f6);
 }
@@ -894,6 +1076,11 @@ pub struct IVisualInteractionSourceObjectFactory_Vtbl {
 pub struct IVisualInteractionSourceStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSourceStatics {
     type Vtable = IVisualInteractionSourceStatics_Vtbl;
+}
+impl ::core::clone::Clone for IVisualInteractionSourceStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualInteractionSourceStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369965e1_8645_4f75_ba00_6479cd10c8e6);
@@ -909,6 +1096,11 @@ pub struct IVisualInteractionSourceStatics_Vtbl {
 pub struct IVisualInteractionSourceStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IVisualInteractionSourceStatics2 {
     type Vtable = IVisualInteractionSourceStatics2_Vtbl;
+}
+impl ::core::clone::Clone for IVisualInteractionSourceStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IVisualInteractionSourceStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa979c032_5764_55e0_bc1f_0778786dcfde);
@@ -936,8 +1128,8 @@ impl CompositionConditionalValue {
     pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCondition(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -947,8 +1139,8 @@ impl CompositionConditionalValue {
     pub fn Value(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Value)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetValue(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -957,15 +1149,15 @@ impl CompositionConditionalValue {
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<CompositionConditionalValue> {
         Self::ICompositionConditionalValueStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<CompositionConditionalValue>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -973,15 +1165,15 @@ impl CompositionConditionalValue {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -998,8 +1190,8 @@ impl CompositionConditionalValue {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1009,8 +1201,8 @@ impl CompositionConditionalValue {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -1038,15 +1230,15 @@ impl CompositionConditionalValue {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -1062,11 +1254,6 @@ impl CompositionConditionalValue {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for CompositionConditionalValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for CompositionConditionalValue {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1078,11 +1265,12 @@ impl ::core::fmt::Debug for CompositionConditionalValue {
         f.debug_tuple("CompositionConditionalValue").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
+impl ::windows::core::RuntimeType for CompositionConditionalValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for CompositionConditionalValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for CompositionConditionalValue {
@@ -1111,7 +1299,7 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core:
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1133,7 +1321,7 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core:
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<CompositionConditionalValue> for super::CompositionObject {
@@ -1148,7 +1336,7 @@ impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionO
 }
 impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &CompositionConditionalValue) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompositionConditionalValue {}
@@ -1170,8 +1358,8 @@ impl CompositionInteractionSourceCollection {
     pub fn Count(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Count)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).Count)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Add<P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -1197,8 +1385,8 @@ impl CompositionInteractionSourceCollection {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -1206,15 +1394,15 @@ impl CompositionInteractionSourceCollection {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -1231,8 +1419,8 @@ impl CompositionInteractionSourceCollection {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1242,8 +1430,8 @@ impl CompositionInteractionSourceCollection {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -1271,15 +1459,15 @@ impl CompositionInteractionSourceCollection {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -1294,14 +1482,9 @@ impl CompositionInteractionSourceCollection {
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>>();
+            (::windows::core::Vtable::vtable(this).First)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for CompositionInteractionSourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for CompositionInteractionSourceCollection {
@@ -1315,11 +1498,12 @@ impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
         f.debug_tuple("CompositionInteractionSourceCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
+impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for CompositionInteractionSourceCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for CompositionInteractionSourceCollection {
@@ -1364,7 +1548,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::win
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1386,7 +1570,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::win
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1408,7 +1592,7 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::win
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<CompositionInteractionSourceCollection> for super::CompositionObject {
@@ -1423,7 +1607,7 @@ impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::C
 }
 impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompositionInteractionSourceCollection {}
@@ -1445,8 +1629,8 @@ impl InteractionSourceConfiguration {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -1454,15 +1638,15 @@ impl InteractionSourceConfiguration {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -1479,8 +1663,8 @@ impl InteractionSourceConfiguration {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1490,8 +1674,8 @@ impl InteractionSourceConfiguration {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -1519,15 +1703,15 @@ impl InteractionSourceConfiguration {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -1540,8 +1724,8 @@ impl InteractionSourceConfiguration {
     pub fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionXSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceRedirectionMode>();
+            (::windows::core::Vtable::vtable(this).PositionXSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionXSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
@@ -1551,8 +1735,8 @@ impl InteractionSourceConfiguration {
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionYSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceRedirectionMode>();
+            (::windows::core::Vtable::vtable(this).PositionYSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionYSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
@@ -1562,18 +1746,13 @@ impl InteractionSourceConfiguration {
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceRedirectionMode>();
+            (::windows::core::Vtable::vtable(this).ScaleSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScaleSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetScaleSourceMode)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for InteractionSourceConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionSourceConfiguration {
@@ -1587,11 +1766,12 @@ impl ::core::fmt::Debug for InteractionSourceConfiguration {
         f.debug_tuple("InteractionSourceConfiguration").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
+impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionSourceConfiguration;{a78347e5-a9d1-4d02-985e-b930cd0b9da4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionSourceConfiguration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionSourceConfiguration {
@@ -1620,7 +1800,7 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::co
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1642,7 +1822,7 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::co
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionSourceConfiguration> for super::CompositionObject {
@@ -1657,7 +1837,7 @@ impl ::core::convert::From<&InteractionSourceConfiguration> for super::Compositi
 }
 impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionSourceConfiguration) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
@@ -1679,8 +1859,8 @@ impl InteractionTracker {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -1688,15 +1868,15 @@ impl InteractionTracker {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -1713,8 +1893,8 @@ impl InteractionTracker {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1724,8 +1904,8 @@ impl InteractionTracker {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -1753,15 +1933,15 @@ impl InteractionTracker {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -1774,15 +1954,15 @@ impl InteractionTracker {
     pub fn InteractionSources(&self) -> ::windows::core::Result<CompositionInteractionSourceCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).InteractionSources)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<CompositionInteractionSourceCollection>();
+            (::windows::core::Vtable::vtable(this).InteractionSources)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPositionRoundingSuggested(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPositionRoundingSuggested)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsPositionRoundingSuggested)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1790,8 +1970,8 @@ impl InteractionTracker {
     pub fn MaxPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).MaxPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1803,8 +1983,8 @@ impl InteractionTracker {
     pub fn MaxScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MaxScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).MaxScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMaxScale(&self, value: f32) -> ::windows::core::Result<()> {
@@ -1816,8 +1996,8 @@ impl InteractionTracker {
     pub fn MinPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MinPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).MinPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1829,8 +2009,8 @@ impl InteractionTracker {
     pub fn MinScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).MinScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).MinScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMinScale(&self, value: f32) -> ::windows::core::Result<()> {
@@ -1842,22 +2022,22 @@ impl InteractionTracker {
     pub fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalRestingPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).NaturalRestingPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NaturalRestingScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalRestingScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).NaturalRestingScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Owner(&self) -> ::windows::core::Result<IInteractionTrackerOwner> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Owner)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IInteractionTrackerOwner>();
+            (::windows::core::Vtable::vtable(this).Owner)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1865,8 +2045,8 @@ impl InteractionTracker {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1874,8 +2054,8 @@ impl InteractionTracker {
     pub fn PositionInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionInertiaDecayRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            (::windows::core::Vtable::vtable(this).PositionInertiaDecayRate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1893,15 +2073,15 @@ impl InteractionTracker {
     pub fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionVelocityInPixelsPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).PositionVelocityInPixelsPerSecond)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Scale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1909,8 +2089,8 @@ impl InteractionTracker {
     pub fn ScaleInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleInertiaDecayRate)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            (::windows::core::Vtable::vtable(this).ScaleInertiaDecayRate)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1926,8 +2106,8 @@ impl InteractionTracker {
     pub fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleVelocityInPercentPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).ScaleVelocityInPercentPerSecond)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AdjustPositionXIfGreaterThanThreshold(&self, adjustment: f32, positionthreshold: f32) -> ::windows::core::Result<()> {
@@ -1973,8 +2153,8 @@ impl InteractionTracker {
     pub fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePosition)(::windows::core::Vtable::as_raw(this), value, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePosition)(::windows::core::Vtable::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1982,8 +2162,8 @@ impl InteractionTracker {
     pub fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionBy)(::windows::core::Vtable::as_raw(this), amount, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionBy)(::windows::core::Vtable::as_raw(this), amount, &mut result__).from_abi(result__)
         }
     }
     pub fn TryUpdatePositionWithAnimation<P0>(&self, animation: P0) -> ::windows::core::Result<i32>
@@ -1992,8 +2172,8 @@ impl InteractionTracker {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithAnimation)(::windows::core::Vtable::as_raw(this), animation.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithAnimation)(::windows::core::Vtable::as_raw(this), animation.into().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2001,8 +2181,8 @@ impl InteractionTracker {
     pub fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithAdditionalVelocity)(::windows::core::Vtable::as_raw(this), velocityinpixelspersecond, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithAdditionalVelocity)(::windows::core::Vtable::as_raw(this), velocityinpixelspersecond, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2010,8 +2190,8 @@ impl InteractionTracker {
     pub fn TryUpdateScale(&self, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdateScale)(::windows::core::Vtable::as_raw(this), value, centerpoint, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdateScale)(::windows::core::Vtable::as_raw(this), value, centerpoint, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2022,8 +2202,8 @@ impl InteractionTracker {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdateScaleWithAnimation)(::windows::core::Vtable::as_raw(this), animation.into().abi(), centerpoint, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdateScaleWithAnimation)(::windows::core::Vtable::as_raw(this), animation.into().abi(), centerpoint, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2031,8 +2211,8 @@ impl InteractionTracker {
     pub fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdateScaleWithAdditionalVelocity)(::windows::core::Vtable::as_raw(this), velocityinpercentpersecond, centerpoint, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdateScaleWithAdditionalVelocity)(::windows::core::Vtable::as_raw(this), velocityinpercentpersecond, centerpoint, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2070,8 +2250,8 @@ impl InteractionTracker {
     pub fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithOption)(::windows::core::Vtable::as_raw(this), value, option, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithOption)(::windows::core::Vtable::as_raw(this), value, option, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2079,15 +2259,15 @@ impl InteractionTracker {
     pub fn TryUpdatePositionByWithOption(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Vtable::as_raw(this), amount, option, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Vtable::as_raw(this), amount, option, &mut result__).from_abi(result__)
         }
     }
     pub fn IsInertiaFromImpulse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsInertiaFromImpulse)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsInertiaFromImpulse)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2095,14 +2275,14 @@ impl InteractionTracker {
     pub fn TryUpdatePositionWithOption2(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker5>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithOption)(::windows::core::Vtable::as_raw(this), value, option, posupdateoption, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).TryUpdatePositionWithOption)(::windows::core::Vtable::as_raw(this), value, option, posupdateoption, &mut result__).from_abi(result__)
         }
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<InteractionTracker> {
         Self::IInteractionTrackerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTracker>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithOwner<P0, E0>(compositor: &super::Compositor, owner: P0) -> ::windows::core::Result<InteractionTracker>
@@ -2111,8 +2291,8 @@ impl InteractionTracker {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IInteractionTrackerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithOwner)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), owner.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTracker>();
+            (::windows::core::Vtable::vtable(this).CreateWithOwner)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), owner.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn SetBindingMode(boundtracker1: &InteractionTracker, boundtracker2: &InteractionTracker, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()> {
@@ -2120,8 +2300,8 @@ impl InteractionTracker {
     }
     pub fn GetBindingMode(boundtracker1: &InteractionTracker, boundtracker2: &InteractionTracker) -> ::windows::core::Result<InteractionBindingAxisModes> {
         Self::IInteractionTrackerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetBindingMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(boundtracker1), ::core::mem::transmute_copy(boundtracker2), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionBindingAxisModes>();
+            (::windows::core::Vtable::vtable(this).GetBindingMode)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(boundtracker1), ::core::mem::transmute_copy(boundtracker2), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2135,11 +2315,6 @@ impl InteractionTracker {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for InteractionTracker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for InteractionTracker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2151,11 +2326,12 @@ impl ::core::fmt::Debug for InteractionTracker {
         f.debug_tuple("InteractionTracker").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTracker {
+impl ::windows::core::RuntimeType for InteractionTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTracker;{2a8e8cb1-1000-4416-8363-cc27fb877308})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTracker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTracker {
@@ -2184,7 +2360,7 @@ impl ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2206,7 +2382,7 @@ impl ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTracker> for super::CompositionObject {
@@ -2221,7 +2397,7 @@ impl ::core::convert::From<&InteractionTracker> for super::CompositionObject {
 }
 impl ::core::convert::From<&InteractionTracker> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTracker) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTracker {}
@@ -2233,21 +2409,16 @@ impl InteractionTrackerCustomAnimationStateEnteredArgs {
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFromBinding(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTrackerCustomAnimationStateEnteredArgs2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -2261,11 +2432,12 @@ impl ::core::fmt::Debug for InteractionTrackerCustomAnimationStateEnteredArgs {
         f.debug_tuple("InteractionTrackerCustomAnimationStateEnteredArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs;{8d1c8cf1-d7b0-434c-a5d2-2d7611864834})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerCustomAnimationStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -2287,21 +2459,16 @@ impl InteractionTrackerIdleStateEnteredArgs {
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFromBinding(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTrackerIdleStateEnteredArgs2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerIdleStateEnteredArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerIdleStateEnteredArgs {
@@ -2315,11 +2482,12 @@ impl ::core::fmt::Debug for InteractionTrackerIdleStateEnteredArgs {
         f.debug_tuple("InteractionTrackerIdleStateEnteredArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs;{50012faa-1510-4142-a1a5-019b09f8857b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerIdleStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerIdleStateEnteredArgs {
@@ -2351,8 +2519,8 @@ impl InteractionTrackerInertiaModifier {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -2360,15 +2528,15 @@ impl InteractionTrackerInertiaModifier {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -2385,8 +2553,8 @@ impl InteractionTrackerInertiaModifier {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2396,8 +2564,8 @@ impl InteractionTrackerInertiaModifier {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -2425,15 +2593,15 @@ impl InteractionTrackerInertiaModifier {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -2442,11 +2610,6 @@ impl InteractionTrackerInertiaModifier {
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInertiaModifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInertiaModifier {
@@ -2460,11 +2623,12 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaModifier {
         f.debug_tuple("InteractionTrackerInertiaModifier").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
+impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier;{a0e2c920-26b4-4da2-8b61-5e683979bbe2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInertiaModifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInertiaModifier {
@@ -2493,7 +2657,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows:
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2515,7 +2679,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows:
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaModifier> for super::CompositionObject {
@@ -2530,7 +2694,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaModifier> for super::Compos
 }
 impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaModifier) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
@@ -2552,8 +2716,8 @@ impl InteractionTrackerInertiaMotion {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -2561,15 +2725,15 @@ impl InteractionTrackerInertiaMotion {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -2586,8 +2750,8 @@ impl InteractionTrackerInertiaMotion {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2597,8 +2761,8 @@ impl InteractionTrackerInertiaMotion {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -2626,15 +2790,15 @@ impl InteractionTrackerInertiaMotion {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -2647,8 +2811,8 @@ impl InteractionTrackerInertiaMotion {
     pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCondition(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -2658,8 +2822,8 @@ impl InteractionTrackerInertiaMotion {
     pub fn Motion(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Motion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Motion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetMotion(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -2668,19 +2832,14 @@ impl InteractionTrackerInertiaMotion {
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<InteractionTrackerInertiaMotion> {
         Self::IInteractionTrackerInertiaMotionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTrackerInertiaMotion>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaMotion, IInteractionTrackerInertiaMotionStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInertiaMotion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInertiaMotion {
@@ -2694,11 +2853,12 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaMotion {
         f.debug_tuple("InteractionTrackerInertiaMotion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
+impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion;{04922fdc-f154-4cb8-bf33-cc1ba611e6db})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInertiaMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInertiaMotion {
@@ -2727,7 +2887,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::c
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2749,7 +2909,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::c
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaMotion> for InteractionTrackerInertiaModifier {
@@ -2764,7 +2924,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for InteractionTrac
 }
 impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaMotion> for super::CompositionObject {
@@ -2779,7 +2939,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for super::Composit
 }
 impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaMotion {}
@@ -2801,8 +2961,8 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -2810,15 +2970,15 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -2835,8 +2995,8 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2846,8 +3006,8 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -2875,15 +3035,15 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -2896,8 +3056,8 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCondition(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -2907,8 +3067,8 @@ impl InteractionTrackerInertiaNaturalMotion {
     pub fn NaturalMotion(&self) -> ::windows::core::Result<super::ScalarNaturalMotionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ScalarNaturalMotionAnimation>();
+            (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNaturalMotion<P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -2920,19 +3080,14 @@ impl InteractionTrackerInertiaNaturalMotion {
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion> {
         Self::IInteractionTrackerInertiaNaturalMotionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTrackerInertiaNaturalMotion>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerInertiaNaturalMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaNaturalMotion, IInteractionTrackerInertiaNaturalMotionStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInertiaNaturalMotion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInertiaNaturalMotion {
@@ -2946,11 +3101,12 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaNaturalMotion {
         f.debug_tuple("InteractionTrackerInertiaNaturalMotion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
+impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion;{70acdaae-27dc-48ed-a3c3-6d61c9a029d2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInertiaNaturalMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInertiaNaturalMotion {
@@ -2979,7 +3135,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::win
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3001,7 +3157,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::win
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for InteractionTrackerInertiaModifier {
@@ -3016,7 +3172,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for Interact
 }
 impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for super::CompositionObject {
@@ -3031,7 +3187,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for super::C
 }
 impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaNaturalMotion {}
@@ -3053,8 +3209,8 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -3062,15 +3218,15 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -3087,8 +3243,8 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3098,8 +3254,8 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -3127,15 +3283,15 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -3148,8 +3304,8 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCondition(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -3159,8 +3315,8 @@ impl InteractionTrackerInertiaRestingValue {
     pub fn RestingValue(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RestingValue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).RestingValue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetRestingValue(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -3169,19 +3325,14 @@ impl InteractionTrackerInertiaRestingValue {
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue> {
         Self::IInteractionTrackerInertiaRestingValueStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTrackerInertiaRestingValue>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerInertiaRestingValueStatics<R, F: FnOnce(&IInteractionTrackerInertiaRestingValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<InteractionTrackerInertiaRestingValue, IInteractionTrackerInertiaRestingValueStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInertiaRestingValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInertiaRestingValue {
@@ -3195,11 +3346,12 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaRestingValue {
         f.debug_tuple("InteractionTrackerInertiaRestingValue").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingValue {
+impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue;{86f7ec09-5096-4170-9cc8-df2fe101bb93})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInertiaRestingValue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInertiaRestingValue {
@@ -3228,7 +3380,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::wind
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3250,7 +3402,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::wind
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for InteractionTrackerInertiaModifier {
@@ -3265,7 +3417,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for Interacti
 }
 impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<InteractionTrackerInertiaModifier> {
     fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for super::CompositionObject {
@@ -3280,7 +3432,7 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for super::Co
 }
 impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaRestingValue {}
@@ -3294,8 +3446,8 @@ impl InteractionTrackerInertiaStateEnteredArgs {
     pub fn ModifiedRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ModifiedRestingPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>();
+            (::windows::core::Vtable::vtable(this).ModifiedRestingPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3303,8 +3455,8 @@ impl InteractionTrackerInertiaStateEnteredArgs {
     pub fn ModifiedRestingScale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ModifiedRestingScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            (::windows::core::Vtable::vtable(this).ModifiedRestingScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -3312,15 +3464,15 @@ impl InteractionTrackerInertiaStateEnteredArgs {
     pub fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalRestingPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).NaturalRestingPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NaturalRestingScale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalRestingScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).NaturalRestingScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -3328,42 +3480,37 @@ impl InteractionTrackerInertiaStateEnteredArgs {
     pub fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionVelocityInPixelsPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).PositionVelocityInPixelsPerSecond)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleVelocityInPercentPerSecond)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).ScaleVelocityInPercentPerSecond)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInertiaFromImpulse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTrackerInertiaStateEnteredArgs2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsInertiaFromImpulse)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsInertiaFromImpulse)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFromBinding(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTrackerInertiaStateEnteredArgs3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInertiaStateEnteredArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInertiaStateEnteredArgs {
@@ -3377,11 +3524,12 @@ impl ::core::fmt::Debug for InteractionTrackerInertiaStateEnteredArgs {
         f.debug_tuple("InteractionTrackerInertiaStateEnteredArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs;{87108cf2-e7ff-4f7d-9ffd-d72f1e409b63})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInertiaStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInertiaStateEnteredArgs {
@@ -3403,21 +3551,16 @@ impl InteractionTrackerInteractingStateEnteredArgs {
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFromBinding(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IInteractionTrackerInteractingStateEnteredArgs2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsFromBinding)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerInteractingStateEnteredArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerInteractingStateEnteredArgs {
@@ -3431,11 +3574,12 @@ impl ::core::fmt::Debug for InteractionTrackerInteractingStateEnteredArgs {
         f.debug_tuple("InteractionTrackerInteractingStateEnteredArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs;{a7263939-a17b-4011-99fd-b5c24f143748})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerInteractingStateEnteredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerInteractingStateEnteredArgs {
@@ -3457,14 +3601,9 @@ impl InteractionTrackerRequestIgnoredArgs {
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerRequestIgnoredArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerRequestIgnoredArgs {
@@ -3478,11 +3617,12 @@ impl ::core::fmt::Debug for InteractionTrackerRequestIgnoredArgs {
         f.debug_tuple("InteractionTrackerRequestIgnoredArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs;{80dd82f1-ce25-488f-91dd-cb6455ccff2e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerRequestIgnoredArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerRequestIgnoredArgs {
@@ -3506,28 +3646,23 @@ impl InteractionTrackerValuesChangedArgs {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<i32>();
+            (::windows::core::Vtable::vtable(this).RequestId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Scale(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerValuesChangedArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerValuesChangedArgs {
@@ -3541,11 +3676,12 @@ impl ::core::fmt::Debug for InteractionTrackerValuesChangedArgs {
         f.debug_tuple("InteractionTrackerValuesChangedArgs").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs {
+impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs;{cf1578ef-d3df-4501-b9e6-f02fb22f73d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerValuesChangedArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerValuesChangedArgs {
@@ -3577,8 +3713,8 @@ impl InteractionTrackerVector2InertiaModifier {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -3586,15 +3722,15 @@ impl InteractionTrackerVector2InertiaModifier {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -3611,8 +3747,8 @@ impl InteractionTrackerVector2InertiaModifier {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3622,8 +3758,8 @@ impl InteractionTrackerVector2InertiaModifier {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -3651,15 +3787,15 @@ impl InteractionTrackerVector2InertiaModifier {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -3668,11 +3804,6 @@ impl InteractionTrackerVector2InertiaModifier {
     {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).StartAnimationWithController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi(), ::core::mem::transmute_copy(animationcontroller)).ok() }
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerVector2InertiaModifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaModifier {
@@ -3686,11 +3817,12 @@ impl ::core::fmt::Debug for InteractionTrackerVector2InertiaModifier {
         f.debug_tuple("InteractionTrackerVector2InertiaModifier").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaModifier {
+impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier;{87e08ab0-3086-4853-a4b7-77882ad5d7e3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerVector2InertiaModifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerVector2InertiaModifier {
@@ -3719,7 +3851,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::w
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3741,7 +3873,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::w
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for super::CompositionObject {
@@ -3756,7 +3888,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for super:
 }
 impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
@@ -3778,8 +3910,8 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -3787,15 +3919,15 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -3812,8 +3944,8 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -3823,8 +3955,8 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -3852,15 +3984,15 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -3873,8 +4005,8 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ExpressionAnimation>();
+            (::windows::core::Vtable::vtable(this).Condition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCondition(&self, value: &super::ExpressionAnimation) -> ::windows::core::Result<()> {
@@ -3884,8 +4016,8 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     pub fn NaturalMotion(&self) -> ::windows::core::Result<super::Vector2NaturalMotionAnimation> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Vector2NaturalMotionAnimation>();
+            (::windows::core::Vtable::vtable(this).NaturalMotion)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetNaturalMotion<P0>(&self, value: P0) -> ::windows::core::Result<()>
@@ -3897,19 +4029,14 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
     }
     pub fn Create(compositor: &super::Compositor) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion> {
         Self::IInteractionTrackerVector2InertiaNaturalMotionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionTrackerVector2InertiaNaturalMotion>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(compositor), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IInteractionTrackerVector2InertiaNaturalMotionStatics<R, F: FnOnce(&IInteractionTrackerVector2InertiaNaturalMotionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<InteractionTrackerVector2InertiaNaturalMotion, IInteractionTrackerVector2InertiaNaturalMotionStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for InteractionTrackerVector2InertiaNaturalMotion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaNaturalMotion {
@@ -3923,11 +4050,12 @@ impl ::core::fmt::Debug for InteractionTrackerVector2InertiaNaturalMotion {
         f.debug_tuple("InteractionTrackerVector2InertiaNaturalMotion").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
+impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion;{5f17695c-162d-4c07-9400-c282b28276ca})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for InteractionTrackerVector2InertiaNaturalMotion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for InteractionTrackerVector2InertiaNaturalMotion {
@@ -3956,7 +4084,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3978,7 +4106,7 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
     type Error = ::windows::core::Error;
     fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for InteractionTrackerVector2InertiaModifier {
@@ -3993,7 +4121,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for I
 }
 impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<InteractionTrackerVector2InertiaModifier> {
     fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for super::CompositionObject {
@@ -4008,7 +4136,7 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for s
 }
 impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaNaturalMotion {}
@@ -4030,8 +4158,8 @@ impl VisualInteractionSource {
     pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Compositor>();
+            (::windows::core::Vtable::vtable(this).Compositor)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core\"`*"]
@@ -4039,15 +4167,15 @@ impl VisualInteractionSource {
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Core::CoreDispatcher>();
+            (::windows::core::Vtable::vtable(this).Dispatcher)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::CompositionPropertySet>();
+            (::windows::core::Vtable::vtable(this).Properties)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimation<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
@@ -4064,8 +4192,8 @@ impl VisualInteractionSource {
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Comment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -4075,8 +4203,8 @@ impl VisualInteractionSource {
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::ImplicitAnimationCollection>();
+            (::windows::core::Vtable::vtable(this).ImplicitAnimations)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetImplicitAnimations(&self, value: &super::ImplicitAnimationCollection) -> ::windows::core::Result<()> {
@@ -4104,15 +4232,15 @@ impl VisualInteractionSource {
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::System::DispatcherQueue>();
+            (::windows::core::Vtable::vtable(this).DispatcherQueue)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::AnimationController>();
+            (::windows::core::Vtable::vtable(this).TryGetAnimationController)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAnimationWithController<P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0, animationcontroller: &super::AnimationController) -> ::windows::core::Result<()>
@@ -4125,8 +4253,8 @@ impl VisualInteractionSource {
     pub fn IsPositionXRailsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPositionXRailsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsPositionXRailsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsPositionXRailsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -4136,8 +4264,8 @@ impl VisualInteractionSource {
     pub fn IsPositionYRailsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsPositionYRailsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsPositionYRailsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsPositionYRailsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -4147,8 +4275,8 @@ impl VisualInteractionSource {
     pub fn ManipulationRedirectionMode(&self) -> ::windows::core::Result<VisualInteractionSourceRedirectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ManipulationRedirectionMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<VisualInteractionSourceRedirectionMode>();
+            (::windows::core::Vtable::vtable(this).ManipulationRedirectionMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetManipulationRedirectionMode(&self, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
@@ -4158,8 +4286,8 @@ impl VisualInteractionSource {
     pub fn PositionXChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionXChainingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionChainingMode>();
+            (::windows::core::Vtable::vtable(this).PositionXChainingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionXChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
@@ -4169,8 +4297,8 @@ impl VisualInteractionSource {
     pub fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionXSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceMode>();
+            (::windows::core::Vtable::vtable(this).PositionXSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionXSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
@@ -4180,8 +4308,8 @@ impl VisualInteractionSource {
     pub fn PositionYChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionYChainingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionChainingMode>();
+            (::windows::core::Vtable::vtable(this).PositionYChainingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionYChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
@@ -4191,8 +4319,8 @@ impl VisualInteractionSource {
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionYSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceMode>();
+            (::windows::core::Vtable::vtable(this).PositionYSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPositionYSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
@@ -4202,8 +4330,8 @@ impl VisualInteractionSource {
     pub fn ScaleChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleChainingMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionChainingMode>();
+            (::windows::core::Vtable::vtable(this).ScaleChainingMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScaleChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
@@ -4213,8 +4341,8 @@ impl VisualInteractionSource {
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleSourceMode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceMode>();
+            (::windows::core::Vtable::vtable(this).ScaleSourceMode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetScaleSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
@@ -4224,8 +4352,8 @@ impl VisualInteractionSource {
     pub fn Source(&self) -> ::windows::core::Result<super::Visual> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Visual>();
+            (::windows::core::Vtable::vtable(this).Source)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input\"`*"]
@@ -4239,15 +4367,15 @@ impl VisualInteractionSource {
     pub fn DeltaPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeltaPosition)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).DeltaPosition)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeltaScale(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).DeltaScale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).DeltaScale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -4255,8 +4383,8 @@ impl VisualInteractionSource {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).Position)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -4264,22 +4392,22 @@ impl VisualInteractionSource {
     pub fn PositionVelocity(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PositionVelocity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            (::windows::core::Vtable::vtable(this).PositionVelocity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Scale(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).Scale)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ScaleVelocity(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ScaleVelocity)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<f32>();
+            (::windows::core::Vtable::vtable(this).ScaleVelocity)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4335,8 +4463,8 @@ impl VisualInteractionSource {
     pub fn PointerWheelConfig(&self) -> ::windows::core::Result<InteractionSourceConfiguration> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PointerWheelConfig)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<InteractionSourceConfiguration>();
+            (::windows::core::Vtable::vtable(this).PointerWheelConfig)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create<P0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
@@ -4344,8 +4472,8 @@ impl VisualInteractionSource {
         P0: ::std::convert::Into<::windows::core::InParam<super::Visual>>,
     {
         Self::IVisualInteractionSourceStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<VisualInteractionSource>();
+            (::windows::core::Vtable::vtable(this).Create)(::windows::core::Vtable::as_raw(this), source.into().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateFromIVisualElement<P0, E0>(source: P0) -> ::windows::core::Result<VisualInteractionSource>
@@ -4354,8 +4482,8 @@ impl VisualInteractionSource {
         E0: ::std::convert::Into<::windows::core::Error>,
     {
         Self::IVisualInteractionSourceStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateFromIVisualElement)(::windows::core::Vtable::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<VisualInteractionSource>();
+            (::windows::core::Vtable::vtable(this).CreateFromIVisualElement)(::windows::core::Vtable::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4369,11 +4497,6 @@ impl VisualInteractionSource {
         SHARED.call(callback)
     }
 }
-impl ::core::clone::Clone for VisualInteractionSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for VisualInteractionSource {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4385,11 +4508,12 @@ impl ::core::fmt::Debug for VisualInteractionSource {
         f.debug_tuple("VisualInteractionSource").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for VisualInteractionSource {
+impl ::windows::core::RuntimeType for VisualInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.VisualInteractionSource;{ca0e8a86-d8d6-4111-b088-70347bd2b0ed})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for VisualInteractionSource {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for VisualInteractionSource {
@@ -4418,7 +4542,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InP
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4440,7 +4564,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InP
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::TryFrom<VisualInteractionSource> for ICompositionInteractionSource {
@@ -4459,7 +4583,7 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InP
     type Error = ::windows::core::Error;
     fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 impl ::core::convert::From<VisualInteractionSource> for super::CompositionObject {
@@ -4474,7 +4598,7 @@ impl ::core::convert::From<&VisualInteractionSource> for super::CompositionObjec
 }
 impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::InParam<super::CompositionObject> {
     fn from(value: &VisualInteractionSource) -> Self {
-        ::windows::core::InParam::owned(value.into())
+        ::windows::core::InParam::Owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for VisualInteractionSource {}
@@ -4500,8 +4624,8 @@ impl ::core::default::Default for InteractionBindingAxisModes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionBindingAxisModes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionBindingAxisModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4541,12 +4665,8 @@ impl ::core::ops::Not for InteractionBindingAxisModes {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
+impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4568,20 +4688,16 @@ impl ::core::default::Default for InteractionChainingMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionChainingMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionChainingMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionChainingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
+impl ::windows::core::RuntimeType for InteractionChainingMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4603,20 +4719,16 @@ impl ::core::default::Default for InteractionSourceMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionSourceMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionSourceMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionSourceMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
+impl ::windows::core::RuntimeType for InteractionSourceMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4637,20 +4749,16 @@ impl ::core::default::Default for InteractionSourceRedirectionMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionSourceRedirectionMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
+impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4671,20 +4779,16 @@ impl ::core::default::Default for InteractionTrackerClampingOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionTrackerClampingOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionTrackerClampingOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
+impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4705,20 +4809,16 @@ impl ::core::default::Default for InteractionTrackerPositionUpdateOption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for InteractionTrackerPositionUpdateOption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
+impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
@@ -4741,20 +4841,16 @@ impl ::core::default::Default for VisualInteractionSourceRedirectionMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VisualInteractionSourceRedirectionMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VisualInteractionSourceRedirectionMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionMode {
+impl ::windows::core::RuntimeType for VisualInteractionSourceRedirectionMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.VisualInteractionSourceRedirectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

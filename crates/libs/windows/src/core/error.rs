@@ -67,7 +67,7 @@ impl std::convert::From<Error> for HRESULT {
         let info: Option<IErrorInfo> = error.info.and_then(|info| info.cast().ok());
 
         unsafe {
-            let _ = SetErrorInfo(0, info.abi());
+            let _ = SetErrorInfo(0, std::mem::transmute_copy(&info));
         }
 
         code
@@ -151,6 +151,6 @@ impl std::error::Error for Error {}
 type RoOriginateError = extern "system" fn(code: HRESULT, message: *mut std::ffi::c_void) -> i32;
 
 fn GetErrorInfo() -> Result<IErrorInfo> {
-    let mut result = std::mem::MaybeUninit::zeroed();
-    unsafe { bindings::GetErrorInfo(0, result.as_mut_ptr()).from_abi(result) }
+    let mut result = std::ptr::null_mut();
+    unsafe { bindings::GetErrorInfo(0, &mut result).from_abi(result) }
 }

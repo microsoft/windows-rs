@@ -4,6 +4,11 @@ pub struct IRemoteTextConnection(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IRemoteTextConnection {
     type Vtable = IRemoteTextConnection_Vtbl;
 }
+impl ::core::clone::Clone for IRemoteTextConnection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IRemoteTextConnection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
 }
@@ -22,6 +27,11 @@ pub struct IRemoteTextConnection_Vtbl {
 pub struct IRemoteTextConnectionFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IRemoteTextConnectionFactory {
     type Vtable = IRemoteTextConnectionFactory_Vtbl;
+}
+impl ::core::clone::Clone for IRemoteTextConnectionFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IRemoteTextConnectionFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88e075c2_0cae_596c_850f_78d345cd728b);
@@ -45,8 +55,8 @@ impl RemoteTextConnection {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsEnabled)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -67,19 +77,14 @@ impl RemoteTextConnection {
     }
     pub fn CreateInstance(connectionid: ::windows::core::GUID, pduforwarder: &RemoteTextConnectionDataHandler) -> ::windows::core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), connectionid, ::core::mem::transmute_copy(pduforwarder), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<RemoteTextConnection>();
+            (::windows::core::Vtable::vtable(this).CreateInstance)(::windows::core::Vtable::as_raw(this), connectionid, ::core::mem::transmute_copy(pduforwarder), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for RemoteTextConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for RemoteTextConnection {
@@ -93,11 +98,12 @@ impl ::core::fmt::Debug for RemoteTextConnection {
         f.debug_tuple("RemoteTextConnection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
+impl ::windows::core::RuntimeType for RemoteTextConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for RemoteTextConnection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for RemoteTextConnection {
@@ -129,7 +135,7 @@ impl ::core::convert::TryFrom<&RemoteTextConnection> for ::windows::core::InPara
     type Error = ::windows::core::Error;
     fn try_from(value: &RemoteTextConnection) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
+        Ok(::windows::core::InParam::Owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteTextConnection {}
@@ -145,8 +151,8 @@ impl RemoteTextConnectionDataHandler {
     pub fn Invoke(&self, pdudata: &[u8]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).Invoke)(::windows::core::Vtable::as_raw(this), pdudata.len() as u32, pdudata.as_ptr(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -195,11 +201,6 @@ impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + '
         }
     }
 }
-impl ::core::clone::Clone for RemoteTextConnectionDataHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for RemoteTextConnectionDataHandler {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -214,15 +215,16 @@ impl ::core::fmt::Debug for RemoteTextConnectionDataHandler {
 unsafe impl ::windows::core::Vtable for RemoteTextConnectionDataHandler {
     type Vtable = RemoteTextConnectionDataHandler_Vtbl;
 }
+impl ::core::clone::Clone for RemoteTextConnectionDataHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);
 }
-unsafe impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
+impl ::windows::core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{099ffbc8-8bcb-41b5-b056-57e77021bf1b}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

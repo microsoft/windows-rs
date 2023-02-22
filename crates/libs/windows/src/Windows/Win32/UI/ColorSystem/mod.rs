@@ -249,8 +249,8 @@ where
 #[inline]
 pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::super::Foundation::LUID, sourceid: u32, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE) -> ::windows::core::Result<::windows::core::PWSTR> {
     ::windows::core::link ! ( "mscms.dll""system" fn ColorProfileGetDisplayDefault ( scope : WCS_PROFILE_MANAGEMENT_SCOPE , targetadapterid : super::super::Foundation:: LUID , sourceid : u32 , profiletype : COLORPROFILETYPE , profilesubtype : COLORPROFILESUBTYPE , profilename : *mut :: windows::core::PWSTR ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ColorProfileGetDisplayDefault(scope, ::core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+    ColorProfileGetDisplayDefault(scope, ::core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -264,8 +264,8 @@ pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, ta
 #[inline]
 pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::super::Foundation::LUID, sourceid: u32) -> ::windows::core::Result<WCS_PROFILE_MANAGEMENT_SCOPE> {
     ::windows::core::link ! ( "mscms.dll""system" fn ColorProfileGetDisplayUserScope ( targetadapterid : super::super::Foundation:: LUID , sourceid : u32 , scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ColorProfileGetDisplayUserScope(::core::mem::transmute(targetadapterid), sourceid, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<WCS_PROFILE_MANAGEMENT_SCOPE>();
+    ColorProfileGetDisplayUserScope(::core::mem::transmute(targetadapterid), sourceid, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1045,21 +1045,21 @@ impl IDeviceModelPlugIn {
         (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrxml), cnummodels, imodelposition).ok()
     }
     pub unsafe fn GetNumChannels(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNumChannels)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetNumChannels)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceToColorimetricColors(&self, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DeviceToColorimetricColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, pdevicevalues, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
     pub unsafe fn ColorimetricToDeviceColors(&self, cchannels: u32, pxyzcolors: &[XYZColorF]) -> ::windows::core::Result<f32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f32>();
+        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColors)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, cchannels, ::core::mem::transmute(pxyzcolors.as_ptr()), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorimetricToDeviceColorsWithBlack(&self, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation) -> ::windows::core::Result<f32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows::core::Vtable::as_raw(self), ccolors, cchannels, pxyzcolors, pblackinformation, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f32>();
+        (::windows::core::Vtable::vtable(self).ColorimetricToDeviceColorsWithBlack)(::windows::core::Vtable::as_raw(self), ccolors, cchannels, pxyzcolors, pblackinformation, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTransformDeviceModelInfo<P0>(&self, imodelposition: u32, pidevicemodelother: P0) -> ::windows::core::Result<()>
     where
@@ -1077,19 +1077,14 @@ impl IDeviceModelPlugIn {
         (::windows::core::Vtable::vtable(self).GetGamutBoundaryMesh)(::windows::core::Vtable::as_raw(self), cchannels, cvertices, ptriangles.len() as _, pvertices, ::core::mem::transmute(ptriangles.as_ptr())).ok()
     }
     pub unsafe fn GetNeutralAxisSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNeutralAxisSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetNeutralAxisSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNeutralAxis(&self, pxyzcolors: &mut [XYZColorF]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetNeutralAxis)(::windows::core::Vtable::as_raw(self), pxyzcolors.len() as _, ::core::mem::transmute(pxyzcolors.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDeviceModelPlugIn, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDeviceModelPlugIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDeviceModelPlugIn {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1104,6 +1099,11 @@ impl ::core::fmt::Debug for IDeviceModelPlugIn {
 unsafe impl ::windows::core::Vtable for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugIn_Vtbl;
 }
+impl ::core::clone::Clone for IDeviceModelPlugIn {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
 }
@@ -1111,7 +1111,7 @@ unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::std::mem::MaybeUninit<::windows::core::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows::core::HRESULT,
     pub GetNumChannels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumchannels: *mut u32) -> ::windows::core::HRESULT,
     pub DeviceToColorimetricColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows::core::HRESULT,
     pub ColorimetricToDeviceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows::core::HRESULT,
@@ -1142,11 +1142,6 @@ impl IGamutMapModelPlugIn {
     }
 }
 ::windows::core::interface_hierarchy!(IGamutMapModelPlugIn, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGamutMapModelPlugIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IGamutMapModelPlugIn {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1161,6 +1156,11 @@ impl ::core::fmt::Debug for IGamutMapModelPlugIn {
 unsafe impl ::windows::core::Vtable for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugIn_Vtbl;
 }
+impl ::core::clone::Clone for IGamutMapModelPlugIn {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 }
@@ -1168,7 +1168,7 @@ unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
 #[doc(hidden)]
 pub struct IGamutMapModelPlugIn_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: *mut ::core::ffi::c_void, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::std::mem::MaybeUninit<::windows::core::BSTR>, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows::core::HRESULT,
     pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -1434,8 +1434,8 @@ impl ::core::default::Default for BMFORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BMFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BMFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BMFORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1471,8 +1471,8 @@ impl ::core::default::Default for COLORDATATYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COLORDATATYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORDATATYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COLORDATATYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1512,8 +1512,8 @@ impl ::core::default::Default for COLORPROFILESUBTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COLORPROFILESUBTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORPROFILESUBTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COLORPROFILESUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1543,8 +1543,8 @@ impl ::core::default::Default for COLORPROFILETYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COLORPROFILETYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORPROFILETYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COLORPROFILETYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1590,8 +1590,8 @@ impl ::core::default::Default for COLORTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COLORTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COLORTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1619,8 +1619,8 @@ impl ::core::default::Default for COLOR_MATCH_TO_TARGET_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COLOR_MATCH_TO_TARGET_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLOR_MATCH_TO_TARGET_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COLOR_MATCH_TO_TARGET_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1656,8 +1656,8 @@ impl ::core::default::Default for ICM_COMMAND {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ICM_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICM_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ICM_COMMAND {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1687,8 +1687,8 @@ impl ::core::default::Default for ICM_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ICM_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICM_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ICM_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1714,8 +1714,8 @@ impl ::core::default::Default for WCS_DEVICE_CAPABILITIES_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCS_DEVICE_CAPABILITIES_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCS_DEVICE_CAPABILITIES_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCS_DEVICE_CAPABILITIES_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1741,8 +1741,8 @@ impl ::core::default::Default for WCS_PROFILE_MANAGEMENT_SCOPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WCS_PROFILE_MANAGEMENT_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCS_PROFILE_MANAGEMENT_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WCS_PROFILE_MANAGEMENT_SCOPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1771,8 +1771,8 @@ impl ::core::fmt::Debug for BlackInformation {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BlackInformation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BlackInformation {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BlackInformation {
@@ -1807,8 +1807,8 @@ impl ::core::fmt::Debug for CMYKCOLOR {
         f.debug_struct("CMYKCOLOR").field("cyan", &self.cyan).field("magenta", &self.magenta).field("yellow", &self.yellow).field("black", &self.black).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CMYKCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CMYKCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CMYKCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -1841,8 +1841,8 @@ impl ::core::clone::Clone for COLOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for COLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for COLOR {
     fn default() -> Self {
@@ -1866,8 +1866,8 @@ impl ::core::fmt::Debug for COLOR_0 {
         f.debug_struct("COLOR_0").field("reserved1", &self.reserved1).field("reserved2", &self.reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COLOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for COLOR_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -1937,8 +1937,8 @@ impl ::core::fmt::Debug for COLORMATCHSETUPA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for COLORMATCHSETUPA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORMATCHSETUPA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPA {
@@ -2003,8 +2003,8 @@ impl ::core::fmt::Debug for COLORMATCHSETUPW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for COLORMATCHSETUPW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COLORMATCHSETUPW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COLORMATCHSETUPW {
@@ -2035,8 +2035,8 @@ impl ::core::fmt::Debug for EMRCREATECOLORSPACE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATECOLORSPACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for EMRCREATECOLORSPACE {
@@ -2078,8 +2078,8 @@ impl ::core::fmt::Debug for EMRCREATECOLORSPACEW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EMRCREATECOLORSPACEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EMRCREATECOLORSPACEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for EMRCREATECOLORSPACEW {
@@ -2151,8 +2151,8 @@ impl ::core::fmt::Debug for ENUMTYPEA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMTYPEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMTYPEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMTYPEA {
     fn eq(&self, other: &Self) -> bool {
@@ -2240,8 +2240,8 @@ impl ::core::fmt::Debug for ENUMTYPEW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUMTYPEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUMTYPEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUMTYPEW {
     fn eq(&self, other: &Self) -> bool {
@@ -2291,8 +2291,8 @@ impl ::core::fmt::Debug for GENERIC3CHANNEL {
         f.debug_struct("GENERIC3CHANNEL").field("ch1", &self.ch1).field("ch2", &self.ch2).field("ch3", &self.ch3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GENERIC3CHANNEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GENERIC3CHANNEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GENERIC3CHANNEL {
     fn eq(&self, other: &Self) -> bool {
@@ -2321,8 +2321,8 @@ impl ::core::fmt::Debug for GRAYCOLOR {
         f.debug_struct("GRAYCOLOR").field("gray", &self.gray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GRAYCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GRAYCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GRAYCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2356,8 +2356,8 @@ impl ::core::fmt::Debug for GamutBoundaryDescription {
         f.debug_struct("GamutBoundaryDescription").field("pPrimaries", &self.pPrimaries).field("cNeutralSamples", &self.cNeutralSamples).field("pNeutralSamples", &self.pNeutralSamples).field("pReferenceShell", &self.pReferenceShell).field("pPlausibleShell", &self.pPlausibleShell).field("pPossibleShell", &self.pPossibleShell).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GamutBoundaryDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GamutBoundaryDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GamutBoundaryDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -2391,8 +2391,8 @@ impl ::core::fmt::Debug for GamutShell {
         f.debug_struct("GamutShell").field("JMin", &self.JMin).field("JMax", &self.JMax).field("cVertices", &self.cVertices).field("cTriangles", &self.cTriangles).field("pVertices", &self.pVertices).field("pTriangles", &self.pTriangles).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GamutShell {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GamutShell {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GamutShell {
     fn eq(&self, other: &Self) -> bool {
@@ -2421,8 +2421,8 @@ impl ::core::fmt::Debug for GamutShellTriangle {
         f.debug_struct("GamutShellTriangle").field("aVertexIndex", &self.aVertexIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GamutShellTriangle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GamutShellTriangle {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GamutShellTriangle {
     fn eq(&self, other: &Self) -> bool {
@@ -2464,8 +2464,8 @@ impl ::core::convert::From<::core::option::Option<HCOLORSPACE>> for HCOLORSPACE 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCOLORSPACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCOLORSPACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -2483,8 +2483,8 @@ impl ::core::fmt::Debug for HiFiCOLOR {
         f.debug_struct("HiFiCOLOR").field("channel", &self.channel).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HiFiCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HiFiCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HiFiCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2515,8 +2515,8 @@ impl ::core::fmt::Debug for JChColorF {
         f.debug_struct("JChColorF").field("J", &self.J).field("C", &self.C).field("h", &self.h).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JChColorF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JChColorF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JChColorF {
     fn eq(&self, other: &Self) -> bool {
@@ -2547,8 +2547,8 @@ impl ::core::fmt::Debug for JabColorF {
         f.debug_struct("JabColorF").field("J", &self.J).field("a", &self.a).field("b", &self.b).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JabColorF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JabColorF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JabColorF {
     fn eq(&self, other: &Self) -> bool {
@@ -2591,8 +2591,8 @@ impl ::core::fmt::Debug for LOGCOLORSPACEA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for LOGCOLORSPACEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGCOLORSPACEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for LOGCOLORSPACEA {
@@ -2638,8 +2638,8 @@ impl ::core::fmt::Debug for LOGCOLORSPACEW {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for LOGCOLORSPACEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LOGCOLORSPACEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for LOGCOLORSPACEW {
@@ -2673,8 +2673,8 @@ impl ::core::fmt::Debug for LabCOLOR {
         f.debug_struct("LabCOLOR").field("L", &self.L).field("a", &self.a).field("b", &self.b).finish()
     }
 }
-unsafe impl ::windows::core::Abi for LabCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LabCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for LabCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2703,8 +2703,8 @@ impl ::core::fmt::Debug for NAMEDCOLOR {
         f.debug_struct("NAMEDCOLOR").field("dwIndex", &self.dwIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NAMEDCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NAMEDCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NAMEDCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2737,8 +2737,8 @@ impl ::core::fmt::Debug for NAMED_PROFILE_INFO {
         f.debug_struct("NAMED_PROFILE_INFO").field("dwFlags", &self.dwFlags).field("dwCount", &self.dwCount).field("dwCountDevCoordinates", &self.dwCountDevCoordinates).field("szPrefix", &self.szPrefix).field("szSuffix", &self.szSuffix).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NAMED_PROFILE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NAMED_PROFILE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NAMED_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2769,8 +2769,8 @@ impl ::core::fmt::Debug for PROFILE {
         f.debug_struct("PROFILE").field("dwType", &self.dwType).field("pProfileData", &self.pProfileData).field("cbDataSize", &self.cbDataSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -2838,8 +2838,8 @@ impl ::core::fmt::Debug for PROFILEHEADER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for PROFILEHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROFILEHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for PROFILEHEADER {
@@ -2878,8 +2878,8 @@ impl ::core::fmt::Debug for PrimaryJabColors {
         f.debug_struct("PrimaryJabColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrimaryJabColors {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrimaryJabColors {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrimaryJabColors {
     fn eq(&self, other: &Self) -> bool {
@@ -2915,8 +2915,8 @@ impl ::core::fmt::Debug for PrimaryXYZColors {
         f.debug_struct("PrimaryXYZColors").field("red", &self.red).field("yellow", &self.yellow).field("green", &self.green).field("cyan", &self.cyan).field("blue", &self.blue).field("magenta", &self.magenta).field("black", &self.black).field("white", &self.white).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrimaryXYZColors {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrimaryXYZColors {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrimaryXYZColors {
     fn eq(&self, other: &Self) -> bool {
@@ -2947,8 +2947,8 @@ impl ::core::fmt::Debug for RGBCOLOR {
         f.debug_struct("RGBCOLOR").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RGBCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RGBCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RGBCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2986,8 +2986,8 @@ impl ::core::fmt::Debug for WCS_DEVICE_MHC2_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCS_DEVICE_MHC2_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCS_DEVICE_MHC2_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCS_DEVICE_MHC2_CAPABILITIES {
@@ -3025,8 +3025,8 @@ impl ::core::fmt::Debug for WCS_DEVICE_VCGT_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WCS_DEVICE_VCGT_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WCS_DEVICE_VCGT_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WCS_DEVICE_VCGT_CAPABILITIES {
@@ -3060,8 +3060,8 @@ impl ::core::fmt::Debug for XYZCOLOR {
         f.debug_struct("XYZCOLOR").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XYZCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XYZCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XYZCOLOR {
     fn eq(&self, other: &Self) -> bool {
@@ -3092,8 +3092,8 @@ impl ::core::fmt::Debug for XYZColorF {
         f.debug_struct("XYZColorF").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
-unsafe impl ::windows::core::Abi for XYZColorF {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XYZColorF {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for XYZColorF {
     fn eq(&self, other: &Self) -> bool {
@@ -3124,8 +3124,8 @@ impl ::core::fmt::Debug for YxyCOLOR {
         f.debug_struct("YxyCOLOR").field("Y", &self.Y).field("x", &self.x).field("y", &self.y).finish()
     }
 }
-unsafe impl ::windows::core::Abi for YxyCOLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for YxyCOLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for YxyCOLOR {
     fn eq(&self, other: &Self) -> bool {

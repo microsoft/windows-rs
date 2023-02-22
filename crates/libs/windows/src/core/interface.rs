@@ -13,7 +13,7 @@ use bindings::IWeakReferenceSource;
 /// * its in-memory representation is equal to `NonNull<NonNull<Self::VTable>>`
 /// * the vtable is correctly structured beginning with the `IUnknown` function pointers
 /// * the vtable must be the correct vtable for the supplied IID
-pub unsafe trait Interface: Vtable {
+pub unsafe trait Interface: Vtable + Clone {
     /// A unique identifier representing this interface.
     const IID: GUID;
 

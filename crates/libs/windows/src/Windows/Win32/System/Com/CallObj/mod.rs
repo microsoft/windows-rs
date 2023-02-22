@@ -47,8 +47,8 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetParamInfo(&self, iparam: u32) -> ::windows::core::Result<CALLFRAMEPARAMINFO> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParamInfo)(::windows::core::Vtable::as_raw(self), iparam, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<CALLFRAMEPARAMINFO>();
+        (::windows::core::Vtable::vtable(self).GetParamInfo)(::windows::core::Vtable::as_raw(self), iparam, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -58,15 +58,15 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetParam(&self, iparam: u32) -> ::windows::core::Result<super::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParam)(::windows::core::Vtable::as_raw(self), iparam, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetParam)(::windows::core::Vtable::as_raw(self), iparam, &mut result__).from_abi(result__)
     }
     pub unsafe fn Copy<P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows::core::Result<ICallFrame>
     where
         P0: ::std::convert::Into<::windows::core::InParam<ICallFrameWalker>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), copycontrol, pwalker.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ICallFrame>();
+        (::windows::core::Vtable::vtable(self).Copy)(::windows::core::Vtable::as_raw(self), copycontrol, pwalker.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Free<P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows::core::Result<()>
     where
@@ -92,8 +92,8 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), pmshlcontext, mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), pmshlcontext, mshlflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -103,8 +103,8 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unmarshal(&self, pbuffer: &[u8], datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, datarep, pcontext, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Unmarshal)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, datarep, pcontext, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -116,11 +116,6 @@ impl ICallFrame {
     }
 }
 ::windows::core::interface_hierarchy!(ICallFrame, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICallFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -134,6 +129,11 @@ impl ::core::fmt::Debug for ICallFrame {
 }
 unsafe impl ::windows::core::Vtable for ICallFrame {
     type Vtable = ICallFrame_Vtbl;
+}
+impl ::core::clone::Clone for ICallFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallFrame {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
@@ -198,11 +198,6 @@ impl ICallFrameEvents {
     }
 }
 ::windows::core::interface_hierarchy!(ICallFrameEvents, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICallFrameEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallFrameEvents {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -216,6 +211,11 @@ impl ::core::fmt::Debug for ICallFrameEvents {
 }
 unsafe impl ::windows::core::Vtable for ICallFrameEvents {
     type Vtable = ICallFrameEvents_Vtbl;
+}
+impl ::core::clone::Clone for ICallFrameEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallFrameEvents {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
@@ -241,11 +241,6 @@ impl ICallFrameWalker {
     }
 }
 ::windows::core::interface_hierarchy!(ICallFrameWalker, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICallFrameWalker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallFrameWalker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -259,6 +254,11 @@ impl ::core::fmt::Debug for ICallFrameWalker {
 }
 unsafe impl ::windows::core::Vtable for ICallFrameWalker {
     type Vtable = ICallFrameWalker_Vtbl;
+}
+impl ::core::clone::Clone for ICallFrameWalker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallFrameWalker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
@@ -285,8 +285,8 @@ impl ICallIndirect {
         (::windows::core::Vtable::vtable(self).GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStackSize)(::windows::core::Vtable::as_raw(self), imethod, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetStackSize)(::windows::core::Vtable::as_raw(self), imethod, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -295,11 +295,6 @@ impl ICallIndirect {
     }
 }
 ::windows::core::interface_hierarchy!(ICallIndirect, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICallIndirect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallIndirect {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -313,6 +308,11 @@ impl ::core::fmt::Debug for ICallIndirect {
 }
 unsafe impl ::windows::core::Vtable for ICallIndirect {
     type Vtable = ICallIndirect_Vtbl;
+}
+impl ::core::clone::Clone for ICallIndirect {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallIndirect {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
@@ -345,8 +345,8 @@ impl ICallInterceptor {
         (::windows::core::Vtable::vtable(self).base__.GetMethodInfo)(::windows::core::Vtable::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStackSize)(::windows::core::Vtable::as_raw(self), imethod, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetStackSize)(::windows::core::Vtable::as_raw(self), imethod, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -360,16 +360,11 @@ impl ICallInterceptor {
         (::windows::core::Vtable::vtable(self).RegisterSink)(::windows::core::Vtable::as_raw(self), psink.into().abi()).ok()
     }
     pub unsafe fn GetRegisteredSink(&self) -> ::windows::core::Result<ICallFrameEvents> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRegisteredSink)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<ICallFrameEvents>();
+        (::windows::core::Vtable::vtable(self).GetRegisteredSink)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICallInterceptor, ::windows::core::IUnknown, ICallIndirect);
-impl ::core::clone::Clone for ICallInterceptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallInterceptor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -383,6 +378,11 @@ impl ::core::fmt::Debug for ICallInterceptor {
 }
 unsafe impl ::windows::core::Vtable for ICallInterceptor {
     type Vtable = ICallInterceptor_Vtbl;
+}
+impl ::core::clone::Clone for ICallInterceptor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallInterceptor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
@@ -413,11 +413,6 @@ impl ICallUnmarshal {
     }
 }
 ::windows::core::interface_hierarchy!(ICallUnmarshal, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICallUnmarshal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICallUnmarshal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -431,6 +426,11 @@ impl ::core::fmt::Debug for ICallUnmarshal {
 }
 unsafe impl ::windows::core::Vtable for ICallUnmarshal {
     type Vtable = ICallUnmarshal_Vtbl;
+}
+impl ::core::clone::Clone for ICallUnmarshal {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICallUnmarshal {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
@@ -456,16 +456,11 @@ impl IInterfaceRelated {
         (::windows::core::Vtable::vtable(self).SetIID)(::windows::core::Vtable::as_raw(self), iid).ok()
     }
     pub unsafe fn GetIID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetIID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IInterfaceRelated, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInterfaceRelated {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInterfaceRelated {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -479,6 +474,11 @@ impl ::core::fmt::Debug for IInterfaceRelated {
 }
 unsafe impl ::windows::core::Vtable for IInterfaceRelated {
     type Vtable = IInterfaceRelated_Vtbl;
+}
+impl ::core::clone::Clone for IInterfaceRelated {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInterfaceRelated {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
@@ -509,8 +509,8 @@ impl ::core::default::Default for CALLFRAME_COPY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CALLFRAME_COPY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAME_COPY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CALLFRAME_COPY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -546,8 +546,8 @@ impl ::core::default::Default for CALLFRAME_FREE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CALLFRAME_FREE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAME_FREE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CALLFRAME_FREE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -577,8 +577,8 @@ impl ::core::default::Default for CALLFRAME_NULL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CALLFRAME_NULL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAME_NULL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CALLFRAME_NULL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -606,8 +606,8 @@ impl ::core::default::Default for CALLFRAME_WALK {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CALLFRAME_WALK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAME_WALK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CALLFRAME_WALK {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -659,8 +659,8 @@ impl ::core::fmt::Debug for CALLFRAMEINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAMEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAMEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAMEINFO {
@@ -700,8 +700,8 @@ impl ::core::fmt::Debug for CALLFRAMEPARAMINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAMEPARAMINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAMEPARAMINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAMEPARAMINFO {
@@ -740,8 +740,8 @@ impl ::core::fmt::Debug for CALLFRAME_MARSHALCONTEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CALLFRAME_MARSHALCONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CALLFRAME_MARSHALCONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CALLFRAME_MARSHALCONTEXT {

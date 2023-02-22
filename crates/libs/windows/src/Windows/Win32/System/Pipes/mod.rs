@@ -259,8 +259,8 @@ impl ::core::default::Default for NAMED_PIPE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NAMED_PIPE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NAMED_PIPE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NAMED_PIPE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

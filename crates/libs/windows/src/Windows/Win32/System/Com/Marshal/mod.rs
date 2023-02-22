@@ -1,49 +1,49 @@
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const ::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
     BSTR_UserFree(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const ::windows::core::BSTR) {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree64 ( param0 : *const u32 , param1 : *const * mut::core::ffi::c_void ) -> ( ) );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserFree64 ( param0 : *const u32 , param1 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> ( ) );
     BSTR_UserFree64(param0, ::core::mem::transmute(param1))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> *mut u8 );
     BSTR_UserMarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserMarshal64 ( param0 : *const u32 , param1 : *mut u8 , param2 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> *mut u8 );
     BSTR_UserMarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserSize(param0: *const u32, param1: u32, param2: *const ::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
     BSTR_UserSize(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserSize64(param0: *const u32, param1: u32, param2: *const ::windows::core::BSTR) -> u32 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const * mut::core::ffi::c_void ) -> u32 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserSize64 ( param0 : *const u32 , param1 : u32 , param2 : *const ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> u32 );
     BSTR_UserSize64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> *mut u8 );
     BSTR_UserUnmarshal(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut ::windows::core::BSTR) -> *mut u8 {
-    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut * mut::core::ffi::c_void ) -> *mut u8 );
+    ::windows::core::link ! ( "oleaut32.dll""system" fn BSTR_UserUnmarshal64 ( param0 : *const u32 , param1 : *const u8 , param2 : *mut ::std::mem::MaybeUninit <::windows::core::BSTR > ) -> *mut u8 );
     BSTR_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
@@ -110,8 +110,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetStandardMarshal ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , dwdestcontext : u32 , pvdestcontext : *const ::core::ffi::c_void , mshlflags : u32 , ppmarshal : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoGetStandardMarshal(riid, punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IMarshal>();
+    CoGetStandardMarshal(riid, punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -120,8 +120,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoGetStdMarshalEx ( punkouter : * mut::core::ffi::c_void , smexflags : u32 , ppunkinner : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoGetStdMarshalEx(punkouter.into().abi(), smexflags, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+    CoGetStdMarshalEx(punkouter.into().abi(), smexflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -139,8 +139,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoMarshalInterThreadInterfaceInStream ( riid : *const :: windows::core::GUID , punk : * mut::core::ffi::c_void , ppstm : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoMarshalInterThreadInterfaceInStream(riid, punk.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::IStream>();
+    CoMarshalInterThreadInterfaceInStream(riid, punk.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -168,8 +168,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::IStream>>,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoUnmarshalHresult ( pstm : * mut::core::ffi::c_void , phresult : *mut :: windows::core::HRESULT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoUnmarshalHresult(pstm.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+    CoUnmarshalHresult(pstm.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
@@ -179,8 +179,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "ole32.dll""system" fn CoUnmarshalInterface ( pstm : * mut::core::ffi::c_void , riid : *const :: windows::core::GUID , ppv : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -835,12 +835,12 @@ pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, par
 pub struct IMarshal(::windows::core::IUnknown);
 impl IMarshal {
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUnmarshalClass)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetUnmarshalClass)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<()>
     where
@@ -865,11 +865,6 @@ impl IMarshal {
     }
 }
 ::windows::core::interface_hierarchy!(IMarshal, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMarshal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMarshal {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -883,6 +878,11 @@ impl ::core::fmt::Debug for IMarshal {
 }
 unsafe impl ::windows::core::Vtable for IMarshal {
     type Vtable = IMarshal_Vtbl;
+}
+impl ::core::clone::Clone for IMarshal {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMarshal {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
@@ -903,12 +903,12 @@ pub struct IMarshal_Vtbl {
 pub struct IMarshal2(::windows::core::IUnknown);
 impl IMarshal2 {
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUnmarshalClass)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.GetUnmarshalClass)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMarshalSizeMax(&self, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetMarshalSizeMax)(::windows::core::Vtable::as_raw(self), riid, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null())), dwdestcontext, ::core::mem::transmute(pvdestcontext.unwrap_or(::std::ptr::null())), mshlflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalInterface<P0>(&self, pstm: P0, riid: *const ::windows::core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows::core::Result<()>
     where
@@ -933,11 +933,6 @@ impl IMarshal2 {
     }
 }
 ::windows::core::interface_hierarchy!(IMarshal2, ::windows::core::IUnknown, IMarshal);
-impl ::core::clone::Clone for IMarshal2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMarshal2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -951,6 +946,11 @@ impl ::core::fmt::Debug for IMarshal2 {
 }
 unsafe impl ::windows::core::Vtable for IMarshal2 {
     type Vtable = IMarshal2_Vtbl;
+}
+impl ::core::clone::Clone for IMarshal2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMarshal2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
@@ -1000,20 +1000,15 @@ impl IMarshalingStream {
         (::windows::core::Vtable::vtable(self).base__.Stat)(::windows::core::Vtable::as_raw(self), pstatstg, grfstatflag).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<super::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::IStream>();
+        (::windows::core::Vtable::vtable(self).base__.Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetMarshalingContextAttribute)(::windows::core::Vtable::as_raw(self), attribute, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<usize>();
+        (::windows::core::Vtable::vtable(self).GetMarshalingContextAttribute)(::windows::core::Vtable::as_raw(self), attribute, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMarshalingStream, ::windows::core::IUnknown, super::ISequentialStream, super::IStream);
-impl ::core::clone::Clone for IMarshalingStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMarshalingStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1027,6 +1022,11 @@ impl ::core::fmt::Debug for IMarshalingStream {
 }
 unsafe impl ::windows::core::Vtable for IMarshalingStream {
     type Vtable = IMarshalingStream_Vtbl;
+}
+impl ::core::clone::Clone for IMarshalingStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMarshalingStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);
@@ -1056,8 +1056,8 @@ impl ::core::default::Default for STDMSHLFLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for STDMSHLFLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STDMSHLFLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for STDMSHLFLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

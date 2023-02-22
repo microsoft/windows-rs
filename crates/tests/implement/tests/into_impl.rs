@@ -5,10 +5,17 @@ use windows::Win32::Foundation::E_BOUNDS;
 #[implement(
     windows::Foundation::Collections::IIterator<T>,
 )]
-struct Iterator<T: RuntimeType + 'static>(std::cell::UnsafeCell<(IIterable<T>, usize)>);
+struct Iterator<T>(std::cell::UnsafeCell<(IIterable<T>, usize)>)
+where
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq;
 
 #[allow(non_snake_case)]
-impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
+impl<T> IIterator_Impl<T> for Iterator<T>
+where
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn Current(&self) -> Result<T> {
         unsafe {
             let this = self.0.get();
@@ -39,7 +46,7 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
         }
     }
 
-    fn GetMany(&self, _items: &mut [T::DefaultType]) -> Result<u32> {
+    fn GetMany(&self, _items: &mut [T::Default]) -> Result<u32> {
         panic!(); // TODO: arrays still need some work.
     }
 }
@@ -49,10 +56,15 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
 )]
 struct Iterable<T>(Vec<T>)
 where
-    T: RuntimeType + 'static;
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq;
 
 #[allow(non_snake_case)]
-impl<T: RuntimeType + 'static> IIterable_Impl<T> for Iterable<T> {
+impl<T> IIterable_Impl<T> for Iterable<T>
+where
+    T: RuntimeType + 'static + Clone,
+    <T as Type<T>>::Default: PartialEq,
+{
     fn First(&self) -> Result<IIterator<T>> {
         Ok(Iterator::<T>((unsafe { self.cast()? }, 0).into()).into())
     }

@@ -131,8 +131,8 @@ impl ::core::clone::Clone for OVERLAPPED {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OVERLAPPED {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED {
@@ -156,8 +156,8 @@ impl ::core::clone::Clone for OVERLAPPED_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OVERLAPPED_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0 {
@@ -187,8 +187,8 @@ impl ::core::fmt::Debug for OVERLAPPED_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OVERLAPPED_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_0_0 {
@@ -228,8 +228,8 @@ impl ::core::fmt::Debug for OVERLAPPED_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OVERLAPPED_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OVERLAPPED_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_ENTRY {

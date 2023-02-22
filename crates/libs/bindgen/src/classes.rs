@@ -215,7 +215,7 @@ fn gen_conversions(
                 type Error = ::windows::core::Error;
                 fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                     let item = ::std::convert::TryInto::try_into(value)?;
-                    Ok(::windows::core::InParam::owned(item))
+                    Ok(::windows::core::InParam::Owned(item))
                 }
             }
         });
@@ -243,7 +243,7 @@ fn gen_conversions(
             #features
             impl ::core::convert::From<&#name> for ::windows::core::InParam<#into> {
                 fn from(value: &#name) -> Self {
-                    ::windows::core::InParam::owned(value.into())
+                    ::windows::core::InParam::Owned(value.into())
                 }
             }
         });

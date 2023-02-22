@@ -644,8 +644,8 @@ impl ::core::default::Default for JsErrorCode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JsErrorCode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JsErrorCode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JsErrorCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -673,8 +673,8 @@ impl ::core::default::Default for JsMemoryEventType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JsMemoryEventType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JsMemoryEventType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JsMemoryEventType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -708,8 +708,8 @@ impl ::core::default::Default for JsRuntimeAttributes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JsRuntimeAttributes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JsRuntimeAttributes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -737,8 +737,8 @@ impl ::core::default::Default for JsRuntimeVersion {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JsRuntimeVersion {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JsRuntimeVersion {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JsRuntimeVersion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -778,8 +778,8 @@ impl ::core::default::Default for JsValueType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for JsValueType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JsValueType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for JsValueType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

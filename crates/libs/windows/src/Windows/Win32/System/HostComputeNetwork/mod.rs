@@ -283,8 +283,8 @@ where
 #[inline]
 pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     ::windows::core::link ! ( "computenetwork.dll""system" fn HcnReserveGuestNetworkServicePort ( guestnetworkservice : *const ::core::ffi::c_void , protocol : HCN_PORT_PROTOCOL , access : HCN_PORT_ACCESS , port : u16 , portreservationhandle : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    HcnReserveGuestNetworkServicePort(guestnetworkservice, protocol, access, port, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    HcnReserveGuestNetworkServicePort(guestnetworkservice, protocol, access, port, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -350,8 +350,8 @@ impl ::core::default::Default for HCN_NOTIFICATIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCN_NOTIFICATIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -377,8 +377,8 @@ impl ::core::default::Default for HCN_PORT_ACCESS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCN_PORT_ACCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCN_PORT_ACCESS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -406,8 +406,8 @@ impl ::core::default::Default for HCN_PORT_PROTOCOL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCN_PORT_PROTOCOL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HCN_PORT_PROTOCOL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -438,8 +438,8 @@ impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
         f.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCN_PORT_RANGE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -469,8 +469,8 @@ impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
         f.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCN_PORT_RANGE_RESERVATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
     fn eq(&self, other: &Self) -> bool {

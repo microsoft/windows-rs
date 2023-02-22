@@ -1,5 +1,4 @@
 use super::*;
-use std::mem::*;
 
 // A streamlined version of the IActivationFactory interface used by WinRT class factories used internally by the windows crate
 // to simplify code generation. Components should implement the `IActivationFactory` interface published by the windows crate.
@@ -10,8 +9,8 @@ pub struct IGenericFactory(IUnknown);
 impl IGenericFactory {
     pub fn ActivateInstance<I: Interface>(&self) -> Result<I> {
         unsafe {
-            let mut result__ = zeroed();
-            (Vtable::vtable(self).ActivateInstance)(transmute_copy(self), &mut result__ as *mut _ as *mut _).from_abi::<IInspectable>(result__)?.cast()
+            let mut result__ = zeroed::<I>();
+            (Vtable::vtable(self).ActivateInstance)(std::mem::transmute_copy(self), &mut result__ as *mut _ as *mut _).from_abi::<IInspectable>(result__)?.cast()
         }
     }
 }

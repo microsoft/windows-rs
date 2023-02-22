@@ -751,8 +751,8 @@ impl ::core::default::Default for SNMP_API_TRANSLATE_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_API_TRANSLATE_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -812,8 +812,8 @@ impl ::core::default::Default for SNMP_ERROR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_ERROR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -873,8 +873,8 @@ impl ::core::default::Default for SNMP_ERROR_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_ERROR_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -908,8 +908,8 @@ impl ::core::default::Default for SNMP_EXTENSION_REQUEST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_EXTENSION_REQUEST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -945,8 +945,8 @@ impl ::core::default::Default for SNMP_GENERICTRAP {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_GENERICTRAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_GENERICTRAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -980,8 +980,8 @@ impl ::core::default::Default for SNMP_LOG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_LOG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_LOG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_LOG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1009,8 +1009,8 @@ impl ::core::default::Default for SNMP_OUTPUT_LOG_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_OUTPUT_LOG_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1044,8 +1044,8 @@ impl ::core::default::Default for SNMP_PDU_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_PDU_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_PDU_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1071,8 +1071,8 @@ impl ::core::default::Default for SNMP_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SNMP_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SNMP_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SNMP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1095,8 +1095,8 @@ impl ::core::clone::Clone for AsnAny {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnAny {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AsnAny {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny {
@@ -1130,8 +1130,8 @@ impl ::core::clone::Clone for AsnAny_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnAny_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AsnAny_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny_0 {
@@ -1151,8 +1151,8 @@ impl ::core::clone::Clone for AsnObjectIdentifier {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AsnObjectIdentifier {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for AsnObjectIdentifier {
     fn default() -> Self {
@@ -1176,8 +1176,8 @@ impl ::core::clone::Clone for AsnOctetString {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnOctetString {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AsnOctetString {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnOctetString {
@@ -1201,8 +1201,8 @@ impl ::core::clone::Clone for SnmpVarBind {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SnmpVarBind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SnmpVarBind {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBind {
@@ -1226,8 +1226,8 @@ impl ::core::clone::Clone for SnmpVarBindList {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SnmpVarBindList {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SnmpVarBindList {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBindList {
@@ -1252,8 +1252,8 @@ impl ::core::fmt::Debug for smiCNTR64 {
         f.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for smiCNTR64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiCNTR64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiCNTR64 {
     fn eq(&self, other: &Self) -> bool {
@@ -1283,8 +1283,8 @@ impl ::core::fmt::Debug for smiOCTETS {
         f.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for smiOCTETS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiOCTETS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiOCTETS {
     fn eq(&self, other: &Self) -> bool {
@@ -1314,8 +1314,8 @@ impl ::core::fmt::Debug for smiOID {
         f.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for smiOID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiOID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for smiOID {
     fn eq(&self, other: &Self) -> bool {
@@ -1340,8 +1340,8 @@ impl ::core::clone::Clone for smiVALUE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for smiVALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiVALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for smiVALUE {
     fn default() -> Self {
@@ -1364,8 +1364,8 @@ impl ::core::clone::Clone for smiVALUE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for smiVALUE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiVALUE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for smiVALUE_0 {
     fn default() -> Self {
@@ -1397,8 +1397,8 @@ impl ::core::fmt::Debug for smiVENDORINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for smiVENDORINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for smiVENDORINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for smiVENDORINFO {

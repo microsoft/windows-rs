@@ -10,8 +10,8 @@ pub struct AgileReference<T>(IAgileReference, PhantomData<T>);
 impl<T: Interface> AgileReference<T> {
     /// Creates an agile reference to the object.
     pub fn new(object: &T) -> Result<Self> {
-        let mut reference = std::mem::MaybeUninit::zeroed();
-        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object.as_raw(), reference.as_mut_ptr()).from_abi(reference).map(|reference| Self(reference, Default::default())) }
+        let mut reference = std::ptr::null_mut();
+        unsafe { RoGetAgileReference(AGILEREFERENCE_DEFAULT, &T::IID, object.as_raw(), &mut reference).from_abi(reference).map(|reference| Self(reference, Default::default())) }
     }
 
     /// Retrieves a proxy to the target of the `AgileReference` object that may safely be used within any thread context in which get is called.

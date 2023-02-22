@@ -1102,8 +1102,8 @@ where
 #[inline]
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows::core::Result<u64> {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-2.dll""system" fn QueryAuxiliaryCounterFrequency ( lpauxiliarycounterfrequency : *mut u64 ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryAuxiliaryCounterFrequency(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    QueryAuxiliaryCounterFrequency(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1123,17 +1123,17 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
 #[inline]
 pub unsafe fn QueryInterruptTime() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryInterruptTime ( lpinterrupttime : *mut u64 ) -> ( ) );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryInterruptTime(result__.as_mut_ptr());
-    result__.assume_init()
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    QueryInterruptTime(&mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn QueryInterruptTimePrecise() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryInterruptTimePrecise ( lpinterrupttimeprecise : *mut u64 ) -> ( ) );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryInterruptTimePrecise(result__.as_mut_ptr());
-    result__.assume_init()
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    QueryInterruptTimePrecise(&mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1166,9 +1166,9 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 #[inline]
 pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
     ::windows::core::link ! ( "api-ms-win-core-realtime-l1-1-1.dll""system" fn QueryUnbiasedInterruptTimePrecise ( lpunbiasedinterrupttimeprecise : *mut u64 ) -> ( ) );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryUnbiasedInterruptTimePrecise(result__.as_mut_ptr());
-    result__.assume_init()
+    let mut result__ = ::windows::core::zeroed::<u64>();
+    QueryUnbiasedInterruptTimePrecise(&mut result__);
+    ::std::mem::transmute(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -1842,8 +1842,8 @@ pub unsafe fn WldpIsClassInApprovedList(classid: *const ::windows::core::GUID, h
 #[inline]
 pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "wldp.dll""system" fn WldpIsDynamicCodePolicyEnabled ( isenabled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WldpIsDynamicCodePolicyEnabled(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    WldpIsDynamicCodePolicyEnabled(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2121,15 +2121,15 @@ impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Suspend(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Suspend)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).Suspend)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Resume)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetCurrentViewType(&self) -> ::windows::core::Result<CameraUIControlViewType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCurrentViewType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<CameraUIControlViewType>();
+        (::windows::core::Vtable::vtable(self).GetCurrentViewType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows::core::BSTR>) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetActiveItem)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2137,8 +2137,8 @@ impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSelectedItems)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut super::Com::SAFEARRAY>();
+        (::windows::core::Vtable::vtable(self).GetSelectedItems)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveCapturedItem<P0>(&self, pszpath: P0) -> ::windows::core::Result<()>
     where
@@ -2148,11 +2148,6 @@ impl ICameraUIControl {
     }
 }
 ::windows::core::interface_hierarchy!(ICameraUIControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICameraUIControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICameraUIControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2166,6 +2161,11 @@ impl ::core::fmt::Debug for ICameraUIControl {
 }
 unsafe impl ::windows::core::Vtable for ICameraUIControl {
     type Vtable = ICameraUIControl_Vtbl;
+}
+impl ::core::clone::Clone for ICameraUIControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICameraUIControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
@@ -2185,7 +2185,7 @@ pub struct ICameraUIControl_Vtbl {
     Suspend: usize,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCurrentViewType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pviewtype: *mut CameraUIControlViewType) -> ::windows::core::HRESULT,
-    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetActiveItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractiveitempath: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetSelectedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppselecteditempaths: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2219,11 +2219,6 @@ impl ICameraUIControlEventCallback {
     }
 }
 ::windows::core::interface_hierarchy!(ICameraUIControlEventCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICameraUIControlEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICameraUIControlEventCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2237,6 +2232,11 @@ impl ::core::fmt::Debug for ICameraUIControlEventCallback {
 }
 unsafe impl ::windows::core::Vtable for ICameraUIControlEventCallback {
     type Vtable = ICameraUIControlEventCallback_Vtbl;
+}
+impl ::core::clone::Clone for ICameraUIControlEventCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
@@ -2260,11 +2260,6 @@ impl IClipServiceNotificationHelper {
     }
 }
 ::windows::core::interface_hierarchy!(IClipServiceNotificationHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IClipServiceNotificationHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IClipServiceNotificationHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2279,6 +2274,11 @@ impl ::core::fmt::Debug for IClipServiceNotificationHelper {
 unsafe impl ::windows::core::Vtable for IClipServiceNotificationHelper {
     type Vtable = IClipServiceNotificationHelper_Vtbl;
 }
+impl ::core::clone::Clone for IClipServiceNotificationHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
 }
@@ -2286,7 +2286,7 @@ unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
 #[doc(hidden)]
 pub struct IClipServiceNotificationHelper_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: *mut ::core::ffi::c_void, bodytext: *mut ::core::ffi::c_void, packagename: *mut ::core::ffi::c_void, appid: *mut ::core::ffi::c_void, launchcommand: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShowToast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titletext: ::std::mem::MaybeUninit<::windows::core::BSTR>, bodytext: ::std::mem::MaybeUninit<::windows::core::BSTR>, packagename: ::std::mem::MaybeUninit<::windows::core::BSTR>, appid: ::std::mem::MaybeUninit<::windows::core::BSTR>, launchcommand: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -2295,16 +2295,11 @@ impl IContainerActivationHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanActivateClientVM(&self) -> ::windows::core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        (::windows::core::Vtable::vtable(self).CanActivateClientVM)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IContainerActivationHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IContainerActivationHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IContainerActivationHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2318,6 +2313,11 @@ impl ::core::fmt::Debug for IContainerActivationHelper {
 }
 unsafe impl ::windows::core::Vtable for IContainerActivationHelper {
     type Vtable = IContainerActivationHelper_Vtbl;
+}
+impl ::core::clone::Clone for IContainerActivationHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IContainerActivationHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
@@ -2342,11 +2342,6 @@ impl IDefaultBrowserSyncSettings {
     }
 }
 ::windows::core::interface_hierarchy!(IDefaultBrowserSyncSettings, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDefaultBrowserSyncSettings {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2360,6 +2355,11 @@ impl ::core::fmt::Debug for IDefaultBrowserSyncSettings {
 }
 unsafe impl ::windows::core::Vtable for IDefaultBrowserSyncSettings {
     type Vtable = IDefaultBrowserSyncSettings_Vtbl;
+}
+impl ::core::clone::Clone for IDefaultBrowserSyncSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
@@ -2382,11 +2382,6 @@ impl IDeleteBrowsingHistory {
     }
 }
 ::windows::core::interface_hierarchy!(IDeleteBrowsingHistory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDeleteBrowsingHistory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDeleteBrowsingHistory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2400,6 +2395,11 @@ impl ::core::fmt::Debug for IDeleteBrowsingHistory {
 }
 unsafe impl ::windows::core::Vtable for IDeleteBrowsingHistory {
     type Vtable = IDeleteBrowsingHistory_Vtbl;
+}
+impl ::core::clone::Clone for IDeleteBrowsingHistory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
@@ -2433,11 +2433,6 @@ impl IEditionUpgradeBroker {
     }
 }
 ::windows::core::interface_hierarchy!(IEditionUpgradeBroker, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEditionUpgradeBroker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEditionUpgradeBroker {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2452,6 +2447,11 @@ impl ::core::fmt::Debug for IEditionUpgradeBroker {
 unsafe impl ::windows::core::Vtable for IEditionUpgradeBroker {
     type Vtable = IEditionUpgradeBroker_Vtbl;
 }
+impl ::core::clone::Clone for IEditionUpgradeBroker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
 }
@@ -2463,7 +2463,7 @@ pub struct IEditionUpgradeBroker_Vtbl {
     pub InitializeParentWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parenthandle: super::Ole::OLE_HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     InitializeParentWindow: usize,
-    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UpdateOperatingSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameter: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ShowProductKeyUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CanUpgrade: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2474,8 +2474,8 @@ impl IEditionUpgradeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanUpgrade(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CanUpgrade)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).CanUpgrade)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn UpdateOperatingSystem<P0>(&self, contentid: P0) -> ::windows::core::Result<()>
     where
@@ -2487,22 +2487,17 @@ impl IEditionUpgradeHelper {
         (::windows::core::Vtable::vtable(self).ShowProductKeyUI)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetOsProductContentId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOsProductContentId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetOsProductContentId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGenuineLocalStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetGenuineLocalStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IEditionUpgradeHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IEditionUpgradeHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IEditionUpgradeHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2516,6 +2511,11 @@ impl ::core::fmt::Debug for IEditionUpgradeHelper {
 }
 unsafe impl ::windows::core::Vtable for IEditionUpgradeHelper {
     type Vtable = IEditionUpgradeHelper_Vtbl;
+}
+impl ::core::clone::Clone for IEditionUpgradeHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
@@ -2543,16 +2543,11 @@ impl IWindowsLockModeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSMode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetSMode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWindowsLockModeHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWindowsLockModeHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWindowsLockModeHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2566,6 +2561,11 @@ impl ::core::fmt::Debug for IWindowsLockModeHelper {
 }
 unsafe impl ::windows::core::Vtable for IWindowsLockModeHelper {
     type Vtable = IWindowsLockModeHelper_Vtbl;
+}
+impl ::core::clone::Clone for IWindowsLockModeHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
@@ -3861,8 +3861,8 @@ impl ::core::default::Default for CameraUIControlCaptureMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlCaptureMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlCaptureMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3888,8 +3888,8 @@ impl ::core::default::Default for CameraUIControlLinearSelectionMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlLinearSelectionMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3915,8 +3915,8 @@ impl ::core::default::Default for CameraUIControlMode {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlMode {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlMode {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3943,8 +3943,8 @@ impl ::core::default::Default for CameraUIControlPhotoFormat {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlPhotoFormat {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3970,8 +3970,8 @@ impl ::core::default::Default for CameraUIControlVideoFormat {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlVideoFormat {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlVideoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3997,8 +3997,8 @@ impl ::core::default::Default for CameraUIControlViewType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CameraUIControlViewType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CameraUIControlViewType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CameraUIControlViewType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4040,8 +4040,8 @@ impl ::core::default::Default for DECISION_LOCATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DECISION_LOCATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DECISION_LOCATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DECISION_LOCATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4071,8 +4071,8 @@ impl ::core::default::Default for FEATURE_CHANGE_TIME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FEATURE_CHANGE_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FEATURE_CHANGE_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4100,8 +4100,8 @@ impl ::core::default::Default for FEATURE_ENABLED_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FEATURE_ENABLED_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FEATURE_ENABLED_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4125,8 +4125,8 @@ impl ::core::default::Default for FILE_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FILE_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4162,8 +4162,8 @@ impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for KEY_SET_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEY_SET_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4189,8 +4189,8 @@ impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OBJECT_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBJECT_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4234,8 +4234,8 @@ impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4273,8 +4273,8 @@ impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TDIENTITY_ENTITY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDIENTITY_ENTITY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4304,8 +4304,8 @@ impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4333,8 +4333,8 @@ impl ::core::default::Default for VALUENAME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VALUENAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VALUENAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VALUENAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4358,8 +4358,8 @@ impl ::core::default::Default for WINSTATIONINFOCLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINSTATIONINFOCLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINSTATIONINFOCLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4387,8 +4387,8 @@ impl ::core::default::Default for WLDP_HOST {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_HOST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_HOST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_HOST {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4428,8 +4428,8 @@ impl ::core::default::Default for WLDP_HOST_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_HOST_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_HOST_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_HOST_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4457,8 +4457,8 @@ impl ::core::default::Default for WLDP_KEY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_KEY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4482,8 +4482,8 @@ impl ::core::default::Default for WLDP_POLICY_SETTING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_POLICY_SETTING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_POLICY_SETTING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4513,8 +4513,8 @@ impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_WINDOWS_LOCKDOWN_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4544,8 +4544,8 @@ impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4593,8 +4593,8 @@ impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_2600 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_2600 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTCTX_SECTION_KEYED_DATA_2600 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_2600 {
@@ -4630,8 +4630,8 @@ impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
         f.debug_struct("ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA").field("lpInformation", &self.lpInformation).field("lpSectionBase", &self.lpSectionBase).field("ulSectionLength", &self.ulSectionLength).field("lpSectionGlobalDataBase", &self.lpSectionGlobalDataBase).field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4666,8 +4666,8 @@ impl ::core::fmt::Debug for ACTIVATION_CONTEXT_BASIC_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_BASIC_INFORMATION {
@@ -4708,8 +4708,8 @@ impl ::core::fmt::Debug for CABINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINFOA {
@@ -4745,8 +4745,8 @@ impl ::core::fmt::Debug for CABINFOW {
         f.debug_struct("CABINFOW").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CABINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CABINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CABINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -4781,8 +4781,8 @@ impl ::core::fmt::Debug for CLIENT_ID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLIENT_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CLIENT_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLIENT_ID {
@@ -4815,8 +4815,8 @@ impl ::core::fmt::Debug for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
         f.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG").field("Size", &self.Size).field("TriggerId", &self.TriggerId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -4850,8 +4850,8 @@ impl ::core::fmt::Debug for DATETIME {
         f.debug_struct("DATETIME").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DATETIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DATETIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATETIME {
     fn eq(&self, other: &Self) -> bool {
@@ -4884,8 +4884,8 @@ impl ::core::fmt::Debug for DCICMD {
         f.debug_struct("DCICMD").field("dwCommand", &self.dwCommand).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DCICMD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCICMD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCICMD {
     fn eq(&self, other: &Self) -> bool {
@@ -4921,8 +4921,8 @@ impl ::core::fmt::Debug for DCICREATEINPUT {
         f.debug_struct("DCICREATEINPUT").field("cmd", &self.cmd).field("dwCompression", &self.dwCompression).field("dwMask", &self.dwMask).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwDCICaps", &self.dwDCICaps).field("dwBitCount", &self.dwBitCount).field("lpSurface", &self.lpSurface).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DCICREATEINPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCICREATEINPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCICREATEINPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -4960,8 +4960,8 @@ impl ::core::fmt::Debug for DCIENUMINPUT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DCIENUMINPUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCIENUMINPUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DCIENUMINPUT {
@@ -4996,8 +4996,8 @@ impl ::core::fmt::Debug for DCIOFFSCREEN {
         f.debug_struct("DCIOFFSCREEN").field("dciInfo", &self.dciInfo).field("Draw", &self.Draw).field("SetClipList", &self.SetClipList).field("SetDestination", &self.SetDestination).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DCIOFFSCREEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCIOFFSCREEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCIOFFSCREEN {
     fn eq(&self, other: &Self) -> bool {
@@ -5028,8 +5028,8 @@ impl ::core::fmt::Debug for DCIOVERLAY {
         f.debug_struct("DCIOVERLAY").field("dciInfo", &self.dciInfo).field("dwChromakeyValue", &self.dwChromakeyValue).field("dwChromakeyMask", &self.dwChromakeyMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DCIOVERLAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCIOVERLAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCIOVERLAY {
     fn eq(&self, other: &Self) -> bool {
@@ -5092,8 +5092,8 @@ impl ::core::fmt::Debug for DCISURFACEINFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DCISURFACEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DCISURFACEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DCISURFACEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5128,8 +5128,8 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELAYLOAD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DELAYLOAD_INFO {
@@ -5159,8 +5159,8 @@ impl ::core::clone::Clone for DELAYLOAD_INFO {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELAYLOAD_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::default::Default for DELAYLOAD_INFO {
@@ -5180,8 +5180,8 @@ impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR {
     fn default() -> Self {
@@ -5200,8 +5200,8 @@ impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -5252,8 +5252,8 @@ impl ::core::fmt::Debug for FEATURE_ERROR {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for FEATURE_ERROR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FEATURE_ERROR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FEATURE_ERROR {
     fn eq(&self, other: &Self) -> bool {
@@ -5295,8 +5295,8 @@ impl ::core::convert::From<::core::option::Option<FEATURE_STATE_CHANGE_SUBSCRIPT
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5327,8 +5327,8 @@ impl ::core::convert::From<::core::option::Option<FH_SERVICE_PIPE_HANDLE>> for F
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for FH_SERVICE_PIPE_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_SERVICE_PIPE_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -5346,8 +5346,8 @@ impl ::core::fmt::Debug for FILE_CASE_SENSITIVE_INFO {
         f.debug_struct("FILE_CASE_SENSITIVE_INFO").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_CASE_SENSITIVE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_CASE_SENSITIVE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_CASE_SENSITIVE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5376,8 +5376,8 @@ impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX {
         f.debug_struct("FILE_DISPOSITION_INFO_EX").field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FILE_DISPOSITION_INFO_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -5419,8 +5419,8 @@ impl ::core::convert::From<::core::option::Option<HWINWATCH>> for HWINWATCH {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HWINWATCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HWINWATCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -5445,8 +5445,8 @@ impl ::core::fmt::Debug for HW_PROFILE_INFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HW_PROFILE_INFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HW_PROFILE_INFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HW_PROFILE_INFOA {
@@ -5480,8 +5480,8 @@ impl ::core::fmt::Debug for HW_PROFILE_INFOW {
         f.debug_struct("HW_PROFILE_INFOW").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HW_PROFILE_INFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HW_PROFILE_INFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HW_PROFILE_INFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -5512,8 +5512,8 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_DELAYLOAD_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_DELAYLOAD_DESCRIPTOR {
     fn default() -> Self {
@@ -5532,8 +5532,8 @@ impl ::core::clone::Clone for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -5556,8 +5556,8 @@ impl ::core::fmt::Debug for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
         f.debug_struct("IMAGE_DELAYLOAD_DESCRIPTOR_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -5581,8 +5581,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_THUNK_DATA32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA32 {
     fn default() -> Self {
@@ -5603,8 +5603,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA32_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA32_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_THUNK_DATA32_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA32_0 {
     fn default() -> Self {
@@ -5622,8 +5622,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA64 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA64 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_THUNK_DATA64 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA64 {
     fn default() -> Self {
@@ -5644,8 +5644,8 @@ impl ::core::clone::Clone for IMAGE_THUNK_DATA64_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for IMAGE_THUNK_DATA64_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAGE_THUNK_DATA64_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for IMAGE_THUNK_DATA64_0 {
     fn default() -> Self {
@@ -5678,8 +5678,8 @@ impl ::core::fmt::Debug for IMEPROA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMEPROA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEPROA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMEPROA {
@@ -5721,8 +5721,8 @@ impl ::core::fmt::Debug for IMEPROW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMEPROW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMEPROW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMEPROW {
@@ -5766,8 +5766,8 @@ impl ::core::fmt::Debug for IMESTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IMESTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMESTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMESTRUCT {
@@ -5799,8 +5799,8 @@ impl ::core::clone::Clone for IO_STATUS_BLOCK {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IO_STATUS_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_STATUS_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IO_STATUS_BLOCK {
@@ -5824,8 +5824,8 @@ impl ::core::clone::Clone for IO_STATUS_BLOCK_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IO_STATUS_BLOCK_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_STATUS_BLOCK_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IO_STATUS_BLOCK_0 {
@@ -5878,8 +5878,8 @@ impl ::core::fmt::Debug for JAVA_TRUST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JAVA_TRUST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JAVA_TRUST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JAVA_TRUST {
@@ -5917,8 +5917,8 @@ impl ::core::fmt::Debug for JIT_DEBUG_INFO {
         f.debug_struct("JIT_DEBUG_INFO").field("dwSize", &self.dwSize).field("dwProcessorArchitecture", &self.dwProcessorArchitecture).field("dwThreadID", &self.dwThreadID).field("dwReserved0", &self.dwReserved0).field("lpExceptionAddress", &self.lpExceptionAddress).field("lpExceptionRecord", &self.lpExceptionRecord).field("lpContextRecord", &self.lpContextRecord).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JIT_DEBUG_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JIT_DEBUG_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JIT_DEBUG_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5955,8 +5955,8 @@ impl ::core::fmt::Debug for KEY_VALUE_ENTRY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for KEY_VALUE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KEY_VALUE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for KEY_VALUE_ENTRY {
@@ -5996,8 +5996,8 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for LDR_DATA_TABLE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDR_DATA_TABLE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY {
@@ -6021,8 +6021,8 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for LDR_DATA_TABLE_ENTRY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for LDR_DATA_TABLE_ENTRY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY_0 {
@@ -6056,8 +6056,8 @@ impl ::core::fmt::Debug for OBJECT_ATTRIBUTES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OBJECT_ATTRIBUTES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OBJECT_ATTRIBUTES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES {
@@ -6101,8 +6101,8 @@ impl ::core::fmt::Debug for PERUSERSECTIONA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PERUSERSECTIONA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERUSERSECTIONA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERUSERSECTIONA {
@@ -6146,8 +6146,8 @@ impl ::core::fmt::Debug for PERUSERSECTIONW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PERUSERSECTIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERUSERSECTIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PERUSERSECTIONW {
@@ -6183,8 +6183,8 @@ impl ::core::fmt::Debug for PUBLIC_OBJECT_BASIC_INFORMATION {
         f.debug_struct("PUBLIC_OBJECT_BASIC_INFORMATION").field("Attributes", &self.Attributes).field("GrantedAccess", &self.GrantedAccess).field("HandleCount", &self.HandleCount).field("PointerCount", &self.PointerCount).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PUBLIC_OBJECT_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBLIC_OBJECT_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBLIC_OBJECT_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6219,8 +6219,8 @@ impl ::core::fmt::Debug for PUBLIC_OBJECT_TYPE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PUBLIC_OBJECT_TYPE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBLIC_OBJECT_TYPE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PUBLIC_OBJECT_TYPE_INFORMATION {
@@ -6253,8 +6253,8 @@ impl ::core::fmt::Debug for STRENTRYA {
         f.debug_struct("STRENTRYA").field("pszName", &self.pszName).field("pszValue", &self.pszValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STRENTRYA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRENTRYA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRENTRYA {
     fn eq(&self, other: &Self) -> bool {
@@ -6284,8 +6284,8 @@ impl ::core::fmt::Debug for STRENTRYW {
         f.debug_struct("STRENTRYW").field("pszName", &self.pszName).field("pszValue", &self.pszValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STRENTRYW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRENTRYW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRENTRYW {
     fn eq(&self, other: &Self) -> bool {
@@ -6318,8 +6318,8 @@ impl ::core::fmt::Debug for STRINGEXSTRUCT {
         f.debug_struct("STRINGEXSTRUCT").field("dwSize", &self.dwSize).field("uDeterminePos", &self.uDeterminePos).field("uDetermineDelimPos", &self.uDetermineDelimPos).field("uYomiPos", &self.uYomiPos).field("uYomiDelimPos", &self.uYomiDelimPos).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STRINGEXSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRINGEXSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRINGEXSTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -6349,8 +6349,8 @@ impl ::core::fmt::Debug for STRTABLEA {
         f.debug_struct("STRTABLEA").field("cEntries", &self.cEntries).field("pse", &self.pse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STRTABLEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRTABLEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRTABLEA {
     fn eq(&self, other: &Self) -> bool {
@@ -6380,8 +6380,8 @@ impl ::core::fmt::Debug for STRTABLEW {
         f.debug_struct("STRTABLEW").field("cEntries", &self.cEntries).field("pse", &self.pse).finish()
     }
 }
-unsafe impl ::windows::core::Abi for STRTABLEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STRTABLEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for STRTABLEW {
     fn eq(&self, other: &Self) -> bool {
@@ -6412,8 +6412,8 @@ impl ::core::fmt::Debug for SYSTEM_BASIC_INFORMATION {
         f.debug_struct("SYSTEM_BASIC_INFORMATION").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("NumberOfProcessors", &self.NumberOfProcessors).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_BASIC_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_BASIC_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6443,8 +6443,8 @@ impl ::core::fmt::Debug for SYSTEM_CODEINTEGRITY_INFORMATION {
         f.debug_struct("SYSTEM_CODEINTEGRITY_INFORMATION").field("Length", &self.Length).field("CodeIntegrityOptions", &self.CodeIntegrityOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_CODEINTEGRITY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_CODEINTEGRITY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_CODEINTEGRITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6473,8 +6473,8 @@ impl ::core::fmt::Debug for SYSTEM_EXCEPTION_INFORMATION {
         f.debug_struct("SYSTEM_EXCEPTION_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_EXCEPTION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_EXCEPTION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_EXCEPTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6503,8 +6503,8 @@ impl ::core::fmt::Debug for SYSTEM_INTERRUPT_INFORMATION {
         f.debug_struct("SYSTEM_INTERRUPT_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_INTERRUPT_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_INTERRUPT_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_INTERRUPT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6533,8 +6533,8 @@ impl ::core::fmt::Debug for SYSTEM_LOOKASIDE_INFORMATION {
         f.debug_struct("SYSTEM_LOOKASIDE_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_LOOKASIDE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_LOOKASIDE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_LOOKASIDE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6563,8 +6563,8 @@ impl ::core::fmt::Debug for SYSTEM_PERFORMANCE_INFORMATION {
         f.debug_struct("SYSTEM_PERFORMANCE_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_PERFORMANCE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_PERFORMANCE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6594,8 +6594,8 @@ impl ::core::fmt::Debug for SYSTEM_POLICY_INFORMATION {
         f.debug_struct("SYSTEM_POLICY_INFORMATION").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_POLICY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_POLICY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_POLICY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6628,8 +6628,8 @@ impl ::core::fmt::Debug for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
         f.debug_struct("SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION").field("IdleTime", &self.IdleTime).field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6709,8 +6709,8 @@ impl ::core::fmt::Debug for SYSTEM_PROCESS_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_PROCESS_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_PROCESS_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_PROCESS_INFORMATION {
@@ -6766,8 +6766,8 @@ impl ::core::fmt::Debug for SYSTEM_REGISTRY_QUOTA_INFORMATION {
         f.debug_struct("SYSTEM_REGISTRY_QUOTA_INFORMATION").field("RegistryQuotaAllowed", &self.RegistryQuotaAllowed).field("RegistryQuotaUsed", &self.RegistryQuotaUsed).field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_REGISTRY_QUOTA_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_REGISTRY_QUOTA_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_REGISTRY_QUOTA_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6809,8 +6809,8 @@ impl ::core::fmt::Debug for SYSTEM_THREAD_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_THREAD_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_THREAD_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SYSTEM_THREAD_INFORMATION {
@@ -6842,8 +6842,8 @@ impl ::core::fmt::Debug for SYSTEM_TIMEOFDAY_INFORMATION {
         f.debug_struct("SYSTEM_TIMEOFDAY_INFORMATION").field("Reserved1", &self.Reserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SYSTEM_TIMEOFDAY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SYSTEM_TIMEOFDAY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SYSTEM_TIMEOFDAY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6878,8 +6878,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX32_XP {
@@ -6912,8 +6912,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
         f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_W2K").field("ID", &self.ID).field("Context", &self.Context).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -6943,8 +6943,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
         f.debug_struct("TCP_REQUEST_QUERY_INFORMATION_EX_XP").field("ID", &self.ID).field("Context", &self.Context).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_QUERY_INFORMATION_EX_XP {
     fn eq(&self, other: &Self) -> bool {
@@ -6975,8 +6975,8 @@ impl ::core::fmt::Debug for TCP_REQUEST_SET_INFORMATION_EX {
         f.debug_struct("TCP_REQUEST_SET_INFORMATION_EX").field("ID", &self.ID).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TCP_REQUEST_SET_INFORMATION_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TCP_REQUEST_SET_INFORMATION_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TCP_REQUEST_SET_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7006,8 +7006,8 @@ impl ::core::fmt::Debug for TDIEntityID {
         f.debug_struct("TDIEntityID").field("tei_entity", &self.tei_entity).field("tei_instance", &self.tei_instance).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TDIEntityID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDIEntityID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TDIEntityID {
     fn eq(&self, other: &Self) -> bool {
@@ -7039,8 +7039,8 @@ impl ::core::fmt::Debug for TDIObjectID {
         f.debug_struct("TDIObjectID").field("toi_entity", &self.toi_entity).field("toi_class", &self.toi_class).field("toi_type", &self.toi_type).field("toi_id", &self.toi_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TDIObjectID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDIObjectID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TDIObjectID {
     fn eq(&self, other: &Self) -> bool {
@@ -7070,8 +7070,8 @@ impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_ENDPOINT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT {
     fn default() -> Self {
@@ -7090,8 +7090,8 @@ impl ::core::clone::Clone for TDI_TL_IO_CONTROL_ENDPOINT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_ENDPOINT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TDI_TL_IO_CONTROL_ENDPOINT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT_0 {
     fn default() -> Self {
@@ -7119,8 +7119,8 @@ impl ::core::fmt::Debug for THREAD_NAME_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for THREAD_NAME_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THREAD_NAME_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for THREAD_NAME_INFORMATION {
@@ -7180,8 +7180,8 @@ impl ::core::fmt::Debug for UNDETERMINESTRUCT {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNDETERMINESTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNDETERMINESTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNDETERMINESTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -7212,8 +7212,8 @@ impl ::core::fmt::Debug for WINSTATIONINFORMATIONW {
         f.debug_struct("WINSTATIONINFORMATIONW").field("Reserved2", &self.Reserved2).field("LogonId", &self.LogonId).field("Reserved3", &self.Reserved3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINSTATIONINFORMATIONW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINSTATIONINFORMATIONW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINSTATIONINFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
@@ -7245,8 +7245,8 @@ impl ::core::fmt::Debug for WLDP_DEVICE_SECURITY_INFORMATION {
         f.debug_struct("WLDP_DEVICE_SECURITY_INFORMATION").field("UnlockIdSize", &self.UnlockIdSize).field("UnlockId", &self.UnlockId).field("ManufacturerIDLength", &self.ManufacturerIDLength).field("ManufacturerID", &self.ManufacturerID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WLDP_DEVICE_SECURITY_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_DEVICE_SECURITY_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WLDP_DEVICE_SECURITY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -7283,8 +7283,8 @@ impl ::core::fmt::Debug for WLDP_HOST_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WLDP_HOST_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WLDP_HOST_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WLDP_HOST_INFORMATION {

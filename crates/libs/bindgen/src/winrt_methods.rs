@@ -41,7 +41,7 @@ pub fn gen(
             let return_type = gen.type_name(return_type);
             quote! { ::windows::core::Array::<#return_type>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
         } else {
-            quote! { result__.as_mut_ptr() }
+            quote! { &mut result__ }
         }
     } else {
         quote! {}
@@ -55,8 +55,9 @@ pub fn gen(
                     .and_then(|| result__.assume_init())
             }
         } else {
+            let return_type = gen.type_name(return_type);
             quote! {
-                let mut result__ = ::core::mem::MaybeUninit::zeroed();
+                let mut result__ = ::windows::core::zeroed::<#return_type>();
                     (::windows::core::Vtable::vtable(this).#vname)(::windows::core::Vtable::as_raw(this), #args #return_arg)
                         .from_abi(result__)
             }

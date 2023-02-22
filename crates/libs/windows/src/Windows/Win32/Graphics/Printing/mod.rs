@@ -102,8 +102,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "spoolss.dll""system" fn AddPrintDeviceObject ( hprinter : super::super::Foundation:: HANDLE , phdeviceobject : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    AddPrintDeviceObject(hprinter.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    AddPrintDeviceObject(hprinter.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -392,8 +392,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
 {
     ::windows::core::link ! ( "winspool.drv""system" fn CorePrinterDriverInstalledA ( pszserver : :: windows::core::PCSTR , pszenvironment : :: windows::core::PCSTR , coredriverguid : :: windows::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CorePrinterDriverInstalledA(pszserver.into().abi(), pszenvironment.into().abi(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), dwldriverversion, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    CorePrinterDriverInstalledA(pszserver.into().abi(), pszenvironment.into().abi(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), dwldriverversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -404,8 +404,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "winspool.drv""system" fn CorePrinterDriverInstalledW ( pszserver : :: windows::core::PCWSTR , pszenvironment : :: windows::core::PCWSTR , coredriverguid : :: windows::core::GUID , ftdriverdate : super::super::Foundation:: FILETIME , dwldriverversion : u64 , pbdriverinstalled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CorePrinterDriverInstalledW(pszserver.into().abi(), pszenvironment.into().abi(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), dwldriverversion, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    CorePrinterDriverInstalledW(pszserver.into().abi(), pszenvironment.into().abi(), ::core::mem::transmute(coredriverguid), ::core::mem::transmute(ftdriverdate), dwldriverversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[inline]
@@ -415,8 +415,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IPrintAsyncNotifyCallback>>,
 {
     ::windows::core::link ! ( "winspool.drv""system" fn CreatePrintAsyncNotifyChannel ( pszname : :: windows::core::PCWSTR , pnotificationtype : *const :: windows::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : * mut::core::ffi::c_void , ppiasynchnotification : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreatePrintAsyncNotifyChannel(pszname.into().abi(), pnotificationtype, euserfilter, econversationstyle, pcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IPrintAsyncNotifyChannel>();
+    CreatePrintAsyncNotifyChannel(pszname.into().abi(), pnotificationtype, euserfilter, econversationstyle, pcallback.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1755,8 +1755,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<IPrintAsyncNotifyCallback>>,
 {
     ::windows::core::link ! ( "winspool.drv""system" fn RegisterForPrintAsyncNotifications ( pszname : :: windows::core::PCWSTR , pnotificationtype : *const :: windows::core::GUID , euserfilter : PrintAsyncNotifyUserFilter , econversationstyle : PrintAsyncNotifyConversationStyle , pcallback : * mut::core::ffi::c_void , phnotify : *mut super::super::Foundation:: HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    RegisterForPrintAsyncNotifications(pszname.into().abi(), pnotificationtype, euserfilter, econversationstyle, pcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+    RegisterForPrintAsyncNotifications(pszname.into().abi(), pnotificationtype, euserfilter, econversationstyle, pcallback.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2250,11 +2250,6 @@ impl IAsyncGetSendNotificationCookie {
     }
 }
 ::windows::core::interface_hierarchy!(IAsyncGetSendNotificationCookie, ::windows::core::IUnknown, IPrintAsyncCookie);
-impl ::core::clone::Clone for IAsyncGetSendNotificationCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAsyncGetSendNotificationCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2268,6 +2263,11 @@ impl ::core::fmt::Debug for IAsyncGetSendNotificationCookie {
 }
 unsafe impl ::windows::core::Vtable for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookie_Vtbl;
+}
+impl ::core::clone::Clone for IAsyncGetSendNotificationCookie {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAsyncGetSendNotificationCookie {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2299,11 +2299,6 @@ impl IAsyncGetSrvReferralCookie {
     }
 }
 ::windows::core::interface_hierarchy!(IAsyncGetSrvReferralCookie, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAsyncGetSrvReferralCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAsyncGetSrvReferralCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2317,6 +2312,11 @@ impl ::core::fmt::Debug for IAsyncGetSrvReferralCookie {
 }
 unsafe impl ::windows::core::Vtable for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookie_Vtbl;
+}
+impl ::core::clone::Clone for IAsyncGetSrvReferralCookie {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAsyncGetSrvReferralCookie {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2370,11 +2370,6 @@ impl IBidiAsyncNotifyChannel {
     }
 }
 ::windows::core::interface_hierarchy!(IBidiAsyncNotifyChannel, ::windows::core::IUnknown, IPrintAsyncNotifyChannel);
-impl ::core::clone::Clone for IBidiAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBidiAsyncNotifyChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2388,6 +2383,11 @@ impl ::core::fmt::Debug for IBidiAsyncNotifyChannel {
 }
 unsafe impl ::windows::core::Vtable for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannel_Vtbl;
+}
+impl ::core::clone::Clone for IBidiAsyncNotifyChannel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBidiAsyncNotifyChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -2416,23 +2416,18 @@ impl IBidiRequest {
         (::windows::core::Vtable::vtable(self).SetInputData)(::windows::core::Vtable::as_raw(self), dwtype, pdata, usize).ok()
     }
     pub unsafe fn GetResult(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputData(&self, dwindex: u32, ppszschema: *mut ::windows::core::PWSTR, pdwtype: *mut u32, ppdata: *mut *mut u8, usize: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetOutputData)(::windows::core::Vtable::as_raw(self), dwindex, ppszschema, pdwtype, ppdata, usize).ok()
     }
     pub unsafe fn GetEnumCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEnumCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetEnumCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBidiRequest, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBidiRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBidiRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2446,6 +2441,11 @@ impl ::core::fmt::Debug for IBidiRequest {
 }
 unsafe impl ::windows::core::Vtable for IBidiRequest {
     type Vtable = IBidiRequest_Vtbl;
+}
+impl ::core::clone::Clone for IBidiRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBidiRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f348bd7_4b47_4755_8a9d_0f422df3dc89);
@@ -2473,20 +2473,15 @@ impl IBidiRequestContainer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEnumObject(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetEnumObject)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IEnumUnknown>();
+        (::windows::core::Vtable::vtable(self).GetEnumObject)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRequestCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRequestCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetRequestCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBidiRequestContainer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBidiRequestContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBidiRequestContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2500,6 +2495,11 @@ impl ::core::fmt::Debug for IBidiRequestContainer {
 }
 unsafe impl ::windows::core::Vtable for IBidiRequestContainer {
     type Vtable = IBidiRequestContainer_Vtbl;
+}
+impl ::core::clone::Clone for IBidiRequestContainer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBidiRequestContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd752f6c0_94a8_4275_a77d_8f1d1a1121ae);
@@ -2544,11 +2544,6 @@ impl IBidiSpl {
     }
 }
 ::windows::core::interface_hierarchy!(IBidiSpl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBidiSpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBidiSpl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2562,6 +2557,11 @@ impl ::core::fmt::Debug for IBidiSpl {
 }
 unsafe impl ::windows::core::Vtable for IBidiSpl {
     type Vtable = IBidiSpl_Vtbl;
+}
+impl ::core::clone::Clone for IBidiSpl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IBidiSpl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd580dc0e_de39_4649_baa8_bf0b85a03a97);
@@ -2589,8 +2589,8 @@ impl IBidiSpl2 {
         (::windows::core::Vtable::vtable(self).UnbindDevice)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn SendRecvXMLString(&self, bstrrequest: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SendRecvXMLString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrequest), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).SendRecvXMLString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrrequest), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2598,16 +2598,11 @@ impl IBidiSpl2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IStream>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SendRecvXMLStream)(::windows::core::Vtable::as_raw(self), psrequest.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).SendRecvXMLStream)(::windows::core::Vtable::as_raw(self), psrequest.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IBidiSpl2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IBidiSpl2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IBidiSpl2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2622,6 +2617,11 @@ impl ::core::fmt::Debug for IBidiSpl2 {
 unsafe impl ::windows::core::Vtable for IBidiSpl2 {
     type Vtable = IBidiSpl2_Vtbl;
 }
+impl ::core::clone::Clone for IBidiSpl2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IBidiSpl2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8f51b8_8273_4906_8e7b_be453ffd2e2b);
 }
@@ -2631,7 +2631,7 @@ pub struct IBidiSpl2_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub BindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdevicename: ::windows::core::PCWSTR, dwaccess: u32) -> ::windows::core::HRESULT,
     pub UnbindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SendRecvXMLString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrequest: *mut ::core::ffi::c_void, pbstrresponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SendRecvXMLString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrequest: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrresponse: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub SendRecvXMLStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrequest: *mut ::core::ffi::c_void, ppsresponse: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2642,12 +2642,12 @@ pub struct IBidiSpl2_Vtbl {
 pub struct IFixedDocument(::windows::core::IUnknown);
 impl IFixedDocument {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPartPrintTicket>();
+        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrintTicket<P0>(&self, pprintticket: P0) -> ::windows::core::Result<()>
     where
@@ -2657,11 +2657,6 @@ impl IFixedDocument {
     }
 }
 ::windows::core::interface_hierarchy!(IFixedDocument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFixedDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFixedDocument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2676,6 +2671,11 @@ impl ::core::fmt::Debug for IFixedDocument {
 unsafe impl ::windows::core::Vtable for IFixedDocument {
     type Vtable = IFixedDocument_Vtbl;
 }
+impl ::core::clone::Clone for IFixedDocument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFixedDocument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf222ca9f_9968_4db9_81bd_abaebf15f93f);
 }
@@ -2683,7 +2683,7 @@ unsafe impl ::windows::core::Interface for IFixedDocument {
 #[doc(hidden)]
 pub struct IFixedDocument_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2692,12 +2692,12 @@ pub struct IFixedDocument_Vtbl {
 pub struct IFixedDocumentSequence(::windows::core::IUnknown);
 impl IFixedDocumentSequence {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPartPrintTicket>();
+        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrintTicket<P0>(&self, pprintticket: P0) -> ::windows::core::Result<()>
     where
@@ -2707,11 +2707,6 @@ impl IFixedDocumentSequence {
     }
 }
 ::windows::core::interface_hierarchy!(IFixedDocumentSequence, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFixedDocumentSequence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFixedDocumentSequence {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2726,6 +2721,11 @@ impl ::core::fmt::Debug for IFixedDocumentSequence {
 unsafe impl ::windows::core::Vtable for IFixedDocumentSequence {
     type Vtable = IFixedDocumentSequence_Vtbl;
 }
+impl ::core::clone::Clone for IFixedDocumentSequence {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFixedDocumentSequence {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8028d181_2c32_4249_8493_1bfb22045574);
 }
@@ -2733,7 +2733,7 @@ unsafe impl ::windows::core::Interface for IFixedDocumentSequence {
 #[doc(hidden)]
 pub struct IFixedDocumentSequence_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprintticket: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrintTicket: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
@@ -2742,34 +2742,34 @@ pub struct IFixedDocumentSequence_Vtbl {
 pub struct IFixedPage(::windows::core::IUnknown);
 impl IFixedPage {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
     pub unsafe fn GetPrintTicket(&self) -> ::windows::core::Result<IPartPrintTicket> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPartPrintTicket>();
+        (::windows::core::Vtable::vtable(self).GetPrintTicket)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPagePart<P0>(&self, uri: P0) -> ::windows::core::Result<::windows::core::IUnknown>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPagePart)(::windows::core::Vtable::as_raw(self), uri.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetPagePart)(::windows::core::Vtable::as_raw(self), uri.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWriteStream(&self) -> ::windows::core::Result<IPrintWriteStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintWriteStream>();
+        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrintTicket<P0>(&self, ppprintticket: P0) -> ::windows::core::Result<()>
     where
@@ -2790,16 +2790,11 @@ impl IFixedPage {
         (::windows::core::Vtable::vtable(self).DeleteResource)(::windows::core::Vtable::as_raw(self), uri.into().abi()).ok()
     }
     pub unsafe fn GetXpsPartIterator(&self) -> ::windows::core::Result<IXpsPartIterator> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetXpsPartIterator)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IXpsPartIterator>();
+        (::windows::core::Vtable::vtable(self).GetXpsPartIterator)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFixedPage, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IFixedPage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFixedPage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2813,6 +2808,11 @@ impl ::core::fmt::Debug for IFixedPage {
 }
 unsafe impl ::windows::core::Vtable for IFixedPage {
     type Vtable = IFixedPage_Vtbl;
+}
+impl ::core::clone::Clone for IFixedPage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFixedPage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9f6448_7e95_4cb5_94fb_0180c2883a57);
@@ -2876,12 +2876,6 @@ impl IImgCreateErrorInfo {
 #[cfg(feature = "Win32_System_Ole")]
 ::windows::core::interface_hierarchy!(IImgCreateErrorInfo, ::windows::core::IUnknown, super::super::System::Ole::ICreateErrorInfo);
 #[cfg(feature = "Win32_System_Ole")]
-impl ::core::clone::Clone for IImgCreateErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
 impl ::core::cmp::PartialEq for IImgCreateErrorInfo {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2898,6 +2892,12 @@ impl ::core::fmt::Debug for IImgCreateErrorInfo {
 #[cfg(feature = "Win32_System_Ole")]
 unsafe impl ::windows::core::Vtable for IImgCreateErrorInfo {
     type Vtable = IImgCreateErrorInfo_Vtbl;
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::clone::Clone for IImgCreateErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Ole")]
 unsafe impl ::windows::core::Interface for IImgCreateErrorInfo {
@@ -2919,56 +2919,56 @@ impl IImgErrorInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.GetGUID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSource(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetSource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHelpFile(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHelpFile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetHelpFile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHelpContext(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetHelpContext)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetHelpContext)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeveloperDescription(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDeveloperDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetDeveloperDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserErrorId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserErrorId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).GetUserErrorId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserParameterCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserParameterCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetUserParameterCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserParameter(&self, cparam: u32) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserParameter)(::windows::core::Vtable::as_raw(self), cparam, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetUserParameter)(::windows::core::Vtable::as_raw(self), cparam, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUserFallback(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUserFallback)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetUserFallback)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExceptionId(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExceptionId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetExceptionId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DetachErrorInfo(&self, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).DetachErrorInfo)(::windows::core::Vtable::as_raw(self), perrorinfo).ok()
@@ -2976,12 +2976,6 @@ impl IImgErrorInfo {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IImgErrorInfo, ::windows::core::IUnknown, super::super::System::Com::IErrorInfo);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IImgErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IImgErrorInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -3001,6 +2995,12 @@ unsafe impl ::windows::core::Vtable for IImgErrorInfo {
     type Vtable = IImgErrorInfo_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IImgErrorInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IImgErrorInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bce4ece_d30e_445a_9423_6829be945ad8);
 }
@@ -3009,11 +3009,11 @@ unsafe impl ::windows::core::Interface for IImgErrorInfo {
 #[doc(hidden)]
 pub struct IImgErrorInfo_Vtbl {
     pub base__: super::super::System::Com::IErrorInfo_Vtbl,
-    pub GetDeveloperDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevdescription: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeveloperDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevdescription: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetUserErrorId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetUserParameterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcuserparams: *mut u32) -> ::windows::core::HRESULT,
-    pub GetUserParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cparam: u32, pbstrparam: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetUserFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfallback: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetUserParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cparam: u32, pbstrparam: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetUserFallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfallback: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetExceptionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionid: *mut u32) -> ::windows::core::HRESULT,
     pub DetachErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorinfo: *mut ImgErrorInfo) -> ::windows::core::HRESULT,
 }
@@ -3029,11 +3029,6 @@ impl IInterFilterCommunicator {
     }
 }
 ::windows::core::interface_hierarchy!(IInterFilterCommunicator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IInterFilterCommunicator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IInterFilterCommunicator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3047,6 +3042,11 @@ impl ::core::fmt::Debug for IInterFilterCommunicator {
 }
 unsafe impl ::windows::core::Vtable for IInterFilterCommunicator {
     type Vtable = IInterFilterCommunicator_Vtbl;
+}
+impl ::core::clone::Clone for IInterFilterCommunicator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IInterFilterCommunicator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4daf1e69_81fd_462d_940f_8cd3ddf56fca);
@@ -3063,27 +3063,22 @@ pub struct IInterFilterCommunicator_Vtbl {
 pub struct IPartBase(::windows::core::IUnknown);
 impl IPartBase {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPartBase, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPartBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartBase {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3098,6 +3093,11 @@ impl ::core::fmt::Debug for IPartBase {
 unsafe impl ::windows::core::Vtable for IPartBase {
     type Vtable = IPartBase_Vtbl;
 }
+impl ::core::clone::Clone for IPartBase {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartBase {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36d51e28_369e_43ba_a666_9540c62c3f58);
 }
@@ -3105,7 +3105,7 @@ unsafe impl ::windows::core::Interface for IPartBase {
 #[doc(hidden)]
 pub struct IPartBase_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPartCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompression: *mut EXpsCompressionOptions) -> ::windows::core::HRESULT,
     pub SetPartCompression: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compression: EXpsCompressionOptions) -> ::windows::core::HRESULT,
@@ -3115,27 +3115,22 @@ pub struct IPartBase_Vtbl {
 pub struct IPartColorProfile(::windows::core::IUnknown);
 impl IPartColorProfile {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPartColorProfile, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartColorProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartColorProfile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3149,6 +3144,11 @@ impl ::core::fmt::Debug for IPartColorProfile {
 }
 unsafe impl ::windows::core::Vtable for IPartColorProfile {
     type Vtable = IPartColorProfile_Vtbl;
+}
+impl ::core::clone::Clone for IPartColorProfile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPartColorProfile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63cca95b_7d18_4762_b15e_98658693d24a);
@@ -3167,11 +3167,6 @@ impl IPartDiscardControl {
     }
 }
 ::windows::core::interface_hierarchy!(IPartDiscardControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPartDiscardControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartDiscardControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3186,6 +3181,11 @@ impl ::core::fmt::Debug for IPartDiscardControl {
 unsafe impl ::windows::core::Vtable for IPartDiscardControl {
     type Vtable = IPartDiscardControl_Vtbl;
 }
+impl ::core::clone::Clone for IPartDiscardControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartDiscardControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc350c00_095b_42a5_bf0f_c8780edadb3c);
 }
@@ -3193,23 +3193,23 @@ unsafe impl ::windows::core::Interface for IPartDiscardControl {
 #[doc(hidden)]
 pub struct IPartDiscardControl_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetDiscardProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urisentinelpage: *mut *mut ::core::ffi::c_void, uriparttodiscard: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDiscardProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, urisentinelpage: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, uriparttodiscard: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
 pub struct IPartFont(::windows::core::IUnknown);
 impl IPartFont {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
@@ -3228,11 +3228,6 @@ impl IPartFont {
     }
 }
 ::windows::core::interface_hierarchy!(IPartFont, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartFont {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartFont {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3247,6 +3242,11 @@ impl ::core::fmt::Debug for IPartFont {
 unsafe impl ::windows::core::Vtable for IPartFont {
     type Vtable = IPartFont_Vtbl;
 }
+impl ::core::clone::Clone for IPartFont {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartFont {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07fe0ab_1124_43d0_a865_e8ffb6a3ea82);
 }
@@ -3254,7 +3254,7 @@ unsafe impl ::windows::core::Interface for IPartFont {
 #[doc(hidden)]
 pub struct IPartFont_Vtbl {
     pub base__: IPartBase_Vtbl,
-    pub GetFontProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut *mut ::core::ffi::c_void, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::HRESULT,
+    pub GetFontProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pfontoptions: *mut EXpsFontOptions) -> ::windows::core::HRESULT,
     pub SetFontContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SetFontOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: EXpsFontOptions) -> ::windows::core::HRESULT,
 }
@@ -3263,16 +3263,16 @@ pub struct IPartFont_Vtbl {
 pub struct IPartFont2(::windows::core::IUnknown);
 impl IPartFont2 {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
@@ -3290,16 +3290,11 @@ impl IPartFont2 {
         (::windows::core::Vtable::vtable(self).base__.SetFontOptions)(::windows::core::Vtable::as_raw(self), options).ok()
     }
     pub unsafe fn GetFontRestriction(&self) -> ::windows::core::Result<EXpsFontRestriction> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFontRestriction)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsFontRestriction>();
+        (::windows::core::Vtable::vtable(self).GetFontRestriction)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPartFont2, ::windows::core::IUnknown, IPartBase, IPartFont);
-impl ::core::clone::Clone for IPartFont2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartFont2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3313,6 +3308,11 @@ impl ::core::fmt::Debug for IPartFont2 {
 }
 unsafe impl ::windows::core::Vtable for IPartFont2 {
     type Vtable = IPartFont2_Vtbl;
+}
+impl ::core::clone::Clone for IPartFont2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPartFont2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511e025f_d6cb_43be_bf65_63fe88515a39);
@@ -3328,23 +3328,23 @@ pub struct IPartFont2_Vtbl {
 pub struct IPartImage(::windows::core::IUnknown);
 impl IPartImage {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
     pub unsafe fn GetImageProperties(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetImageProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetImageProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImageContent<P0>(&self, pcontenttype: P0) -> ::windows::core::Result<()>
     where
@@ -3354,11 +3354,6 @@ impl IPartImage {
     }
 }
 ::windows::core::interface_hierarchy!(IPartImage, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartImage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3373,6 +3368,11 @@ impl ::core::fmt::Debug for IPartImage {
 unsafe impl ::windows::core::Vtable for IPartImage {
     type Vtable = IPartImage_Vtbl;
 }
+impl ::core::clone::Clone for IPartImage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartImage {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x725f2e3c_401a_4705_9de0_fe6f1353b87f);
 }
@@ -3380,7 +3380,7 @@ unsafe impl ::windows::core::Interface for IPartImage {
 #[doc(hidden)]
 pub struct IPartImage_Vtbl {
     pub base__: IPartBase_Vtbl,
-    pub GetImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetImageContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -3388,27 +3388,22 @@ pub struct IPartImage_Vtbl {
 pub struct IPartPrintTicket(::windows::core::IUnknown);
 impl IPartPrintTicket {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPartPrintTicket, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartPrintTicket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartPrintTicket {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3423,6 +3418,11 @@ impl ::core::fmt::Debug for IPartPrintTicket {
 unsafe impl ::windows::core::Vtable for IPartPrintTicket {
     type Vtable = IPartPrintTicket_Vtbl;
 }
+impl ::core::clone::Clone for IPartPrintTicket {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartPrintTicket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0f50f6_f9a2_41f0_99e7_5ae955be8e9e);
 }
@@ -3436,27 +3436,22 @@ pub struct IPartPrintTicket_Vtbl {
 pub struct IPartResourceDictionary(::windows::core::IUnknown);
 impl IPartResourceDictionary {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPartResourceDictionary, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartResourceDictionary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartResourceDictionary {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3471,6 +3466,11 @@ impl ::core::fmt::Debug for IPartResourceDictionary {
 unsafe impl ::windows::core::Vtable for IPartResourceDictionary {
     type Vtable = IPartResourceDictionary_Vtbl;
 }
+impl ::core::clone::Clone for IPartResourceDictionary {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartResourceDictionary {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16cfce6d_e744_4fb3_b474_f1d54f024a01);
 }
@@ -3484,23 +3484,23 @@ pub struct IPartResourceDictionary_Vtbl {
 pub struct IPartThumbnail(::windows::core::IUnknown);
 impl IPartThumbnail {
     pub unsafe fn GetUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPartCompression(&self) -> ::windows::core::Result<EXpsCompressionOptions> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<EXpsCompressionOptions>();
+        (::windows::core::Vtable::vtable(self).base__.GetPartCompression)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPartCompression(&self, compression: EXpsCompressionOptions) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetPartCompression)(::windows::core::Vtable::as_raw(self), compression).ok()
     }
     pub unsafe fn GetThumbnailProperties(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetThumbnailProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetThumbnailProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetThumbnailContent<P0>(&self, pcontenttype: P0) -> ::windows::core::Result<()>
     where
@@ -3510,11 +3510,6 @@ impl IPartThumbnail {
     }
 }
 ::windows::core::interface_hierarchy!(IPartThumbnail, ::windows::core::IUnknown, IPartBase);
-impl ::core::clone::Clone for IPartThumbnail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPartThumbnail {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3529,6 +3524,11 @@ impl ::core::fmt::Debug for IPartThumbnail {
 unsafe impl ::windows::core::Vtable for IPartThumbnail {
     type Vtable = IPartThumbnail_Vtbl;
 }
+impl ::core::clone::Clone for IPartThumbnail {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPartThumbnail {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x027ed1c9_ba39_4cc5_aa55_7ec3a0de171a);
 }
@@ -3536,7 +3536,7 @@ unsafe impl ::windows::core::Interface for IPartThumbnail {
 #[doc(hidden)]
 pub struct IPartThumbnail_Vtbl {
     pub base__: IPartBase_Vtbl,
-    pub GetThumbnailProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetThumbnailProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub SetThumbnailContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontenttype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -3551,11 +3551,6 @@ impl IPrintAsyncCookie {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncCookie, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3569,6 +3564,11 @@ impl ::core::fmt::Debug for IPrintAsyncCookie {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookie_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncCookie {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncCookie {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3595,11 +3595,6 @@ impl IPrintAsyncNewChannelCookie {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNewChannelCookie, ::windows::core::IUnknown, IPrintAsyncCookie);
-impl ::core::clone::Clone for IPrintAsyncNewChannelCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNewChannelCookie {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3613,6 +3608,11 @@ impl ::core::fmt::Debug for IPrintAsyncNewChannelCookie {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookie_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNewChannelCookie {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNewChannelCookie {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3631,23 +3631,18 @@ impl IPrintAsyncNotify {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintAsyncNotifyCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePrintAsyncNotifyChannel)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3, param4.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintAsyncNotifyChannel>();
+        (::windows::core::Vtable::vtable(self).CreatePrintAsyncNotifyChannel)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3, param4.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePrintAsyncNotifyRegistration<P0>(&self, param0: *const ::windows::core::GUID, param1: PrintAsyncNotifyUserFilter, param2: PrintAsyncNotifyConversationStyle, param3: P0) -> ::windows::core::Result<IPrintAsyncNotifyRegistration>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintAsyncNotifyCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePrintAsyncNotifyRegistration)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintAsyncNotifyRegistration>();
+        (::windows::core::Vtable::vtable(self).CreatePrintAsyncNotifyRegistration)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotify, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3661,6 +3656,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotify {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotify_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotify {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -3692,11 +3692,6 @@ impl IPrintAsyncNotifyCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotifyCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotifyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotifyCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3710,6 +3705,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyCallback {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallback_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotifyCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7def34c1_9d92_4c99_b3b3_db94a9d4191b);
@@ -3739,11 +3739,6 @@ impl IPrintAsyncNotifyChannel {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotifyChannel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotifyChannel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3757,6 +3752,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyChannel {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannel_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotifyChannel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyChannel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a5031b1_1f3f_4db0_a462_4530ed8b0451);
@@ -3780,11 +3780,6 @@ impl IPrintAsyncNotifyDataObject {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotifyDataObject, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotifyDataObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotifyDataObject {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3798,6 +3793,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyDataObject {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObject_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotifyDataObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyDataObject {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77cf513e_5d49_4789_9f30_d0822b335c0d);
@@ -3821,11 +3821,6 @@ impl IPrintAsyncNotifyRegistration {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotifyRegistration, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotifyRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3839,6 +3834,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyRegistration {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistration_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyRegistration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6f27b6_6f86_4591_9203_64c3bfadedfe);
@@ -3855,8 +3855,8 @@ pub struct IPrintAsyncNotifyRegistration_Vtbl {
 pub struct IPrintAsyncNotifyServerReferral(::windows::core::IUnknown);
 impl IPrintAsyncNotifyServerReferral {
     pub unsafe fn GetServerReferral(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetServerReferral)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).GetServerReferral)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AsyncGetServerReferral<P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -3872,11 +3872,6 @@ impl IPrintAsyncNotifyServerReferral {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintAsyncNotifyServerReferral, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintAsyncNotifyServerReferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintAsyncNotifyServerReferral {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3890,6 +3885,11 @@ impl ::core::fmt::Debug for IPrintAsyncNotifyServerReferral {
 }
 unsafe impl ::windows::core::Vtable for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferral_Vtbl;
+}
+impl ::core::clone::Clone for IPrintAsyncNotifyServerReferral {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyServerReferral {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3920,11 +3920,6 @@ impl IPrintBidiAsyncNotifyRegistration {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintBidiAsyncNotifyRegistration, ::windows::core::IUnknown, IPrintAsyncNotifyRegistration);
-impl ::core::clone::Clone for IPrintBidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintBidiAsyncNotifyRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3938,6 +3933,11 @@ impl ::core::fmt::Debug for IPrintBidiAsyncNotifyRegistration {
 }
 unsafe impl ::windows::core::Vtable for IPrintBidiAsyncNotifyRegistration {
     type Vtable = IPrintBidiAsyncNotifyRegistration_Vtbl;
+}
+impl ::core::clone::Clone for IPrintBidiAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintBidiAsyncNotifyRegistration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3960,11 +3960,6 @@ impl IPrintClassObjectFactory {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintClassObjectFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintClassObjectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintClassObjectFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -3978,6 +3973,11 @@ impl ::core::fmt::Debug for IPrintClassObjectFactory {
 }
 unsafe impl ::windows::core::Vtable for IPrintClassObjectFactory {
     type Vtable = IPrintClassObjectFactory_Vtbl;
+}
+impl ::core::clone::Clone for IPrintClassObjectFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintClassObjectFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9af593dd_9b02_48a8_9bad_69ace423f88b);
@@ -3998,8 +3998,8 @@ impl IPrintCoreHelper {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Vtable::vtable(self).GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4056,11 +4056,6 @@ impl IPrintCoreHelper {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintCoreHelper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintCoreHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintCoreHelper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4074,6 +4069,11 @@ impl ::core::fmt::Debug for IPrintCoreHelper {
 }
 unsafe impl ::windows::core::Vtable for IPrintCoreHelper {
     type Vtable = IPrintCoreHelper_Vtbl;
+}
+impl ::core::clone::Clone for IPrintCoreHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintCoreHelper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa89ec53e_3905_49c6_9c1a_c0a88117fdb6);
@@ -4114,8 +4114,8 @@ impl IPrintCoreHelperPS {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4193,11 +4193,6 @@ impl IPrintCoreHelperPS {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintCoreHelperPS, ::windows::core::IUnknown, IPrintCoreHelper);
-impl ::core::clone::Clone for IPrintCoreHelperPS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintCoreHelperPS {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4211,6 +4206,11 @@ impl ::core::fmt::Debug for IPrintCoreHelperPS {
 }
 unsafe impl ::windows::core::Vtable for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPS_Vtbl;
+}
+impl ::core::clone::Clone for IPrintCoreHelperPS {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintCoreHelperPS {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2c14f6f_95d3_4d63_96cf_6bd9e6c907c2);
@@ -4233,8 +4233,8 @@ impl IPrintCoreHelperUni {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4297,16 +4297,11 @@ impl IPrintCoreHelperUni {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDefaultGDLSnapshot(&self, dwflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateDefaultGDLSnapshot)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).CreateDefaultGDLSnapshot)(::windows::core::Vtable::as_raw(self), dwflags, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintCoreHelperUni, ::windows::core::IUnknown, IPrintCoreHelper);
-impl ::core::clone::Clone for IPrintCoreHelperUni {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintCoreHelperUni {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4320,6 +4315,11 @@ impl ::core::fmt::Debug for IPrintCoreHelperUni {
 }
 unsafe impl ::windows::core::Vtable for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUni_Vtbl;
+}
+impl ::core::clone::Clone for IPrintCoreHelperUni {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintCoreHelperUni {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e8e51d6_e5ee_4426_817b_958b9444eb79);
@@ -4347,8 +4347,8 @@ impl IPrintCoreHelperUni2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), cbsize, pszfeaturerequested.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4411,8 +4411,8 @@ impl IPrintCoreHelperUni2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDefaultGDLSnapshot(&self, dwflags: u32) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CreateDefaultGDLSnapshot)(::windows::core::Vtable::as_raw(self), dwflags, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).base__.CreateDefaultGDLSnapshot)(::windows::core::Vtable::as_raw(self), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -4424,11 +4424,6 @@ impl IPrintCoreHelperUni2 {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintCoreHelperUni2, ::windows::core::IUnknown, IPrintCoreHelper, IPrintCoreHelperUni);
-impl ::core::clone::Clone for IPrintCoreHelperUni2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintCoreHelperUni2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4442,6 +4437,11 @@ impl ::core::fmt::Debug for IPrintCoreHelperUni2 {
 }
 unsafe impl ::windows::core::Vtable for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2_Vtbl;
+}
+impl ::core::clone::Clone for IPrintCoreHelperUni2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintCoreHelperUni2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8afdfc_ead0_4d2d_8071_9bf0175a6c3a);
@@ -4486,8 +4486,8 @@ impl IPrintCoreUI2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOptions(&self, poemuiobj: *const OEMUIOBJ, dwflags: u32, pmszfeatureoptionbuf: &[u8]) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SetOptions)(::windows::core::Vtable::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeatureoptionbuf.as_ptr()), pmszfeatureoptionbuf.len() as _, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).SetOptions)(::windows::core::Vtable::as_raw(self), poemuiobj, dwflags, ::core::mem::transmute(pmszfeatureoptionbuf.as_ptr()), pmszfeatureoptionbuf.len() as _, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4556,11 +4556,6 @@ impl IPrintCoreUI2 {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintCoreUI2, ::windows::core::IUnknown, IPrintOemDriverUI);
-impl ::core::clone::Clone for IPrintCoreUI2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintCoreUI2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4574,6 +4569,11 @@ impl ::core::fmt::Debug for IPrintCoreUI2 {
 }
 unsafe impl ::windows::core::Vtable for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2_Vtbl;
+}
+impl ::core::clone::Clone for IPrintCoreUI2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintCoreUI2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085ccfca_3adf_4c9e_b491_d851a6edc997);
@@ -4628,39 +4628,34 @@ pub struct IPrintCoreUI2_Vtbl {
 pub struct IPrintJob(::windows::core::IUnknown);
 impl IPrintJob {
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Id)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PrintedPages(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PrintedPages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).PrintedPages)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TotalPages(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).TotalPages)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).TotalPages)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Status(&self) -> ::windows::core::Result<PrintJobStatus> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Status)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintJobStatus>();
+        (::windows::core::Vtable::vtable(self).Status)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SubmissionTime(&self) -> ::windows::core::Result<f64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SubmissionTime)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<f64>();
+        (::windows::core::Vtable::vtable(self).SubmissionTime)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestCancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RequestCancel)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IPrintJob, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintJob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4675,6 +4670,11 @@ impl ::core::fmt::Debug for IPrintJob {
 unsafe impl ::windows::core::Vtable for IPrintJob {
     type Vtable = IPrintJob_Vtbl;
 }
+impl ::core::clone::Clone for IPrintJob {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintJob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb771dab8_1282_41b7_858c_f206e4d20577);
 }
@@ -4682,7 +4682,7 @@ unsafe impl ::windows::core::Interface for IPrintJob {
 #[doc(hidden)]
 pub struct IPrintJob_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows::core::HRESULT,
     pub PrintedPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpages: *mut u32) -> ::windows::core::HRESULT,
     pub TotalPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulpages: *mut u32) -> ::windows::core::HRESULT,
@@ -4697,26 +4697,20 @@ pub struct IPrintJobCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintJobCollection {
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintJob> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintJob>();
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintJobCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintJobCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintJobCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -4734,6 +4728,12 @@ impl ::core::fmt::Debug for IPrintJobCollection {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintJobCollection {
     type Vtable = IPrintJobCollection_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintJobCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintJobCollection {
@@ -4762,11 +4762,6 @@ impl IPrintOemCommon {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintOemCommon, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintOemCommon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintOemCommon {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4780,6 +4775,11 @@ impl ::core::fmt::Debug for IPrintOemCommon {
 }
 unsafe impl ::windows::core::Vtable for IPrintOemCommon {
     type Vtable = IPrintOemCommon_Vtbl;
+}
+impl ::core::clone::Clone for IPrintOemCommon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintOemCommon {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f42285e_91d5_11d1_8820_00c04fb961ec);
@@ -4819,11 +4819,6 @@ impl IPrintOemDriverUI {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintOemDriverUI, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintOemDriverUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintOemDriverUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4837,6 +4832,11 @@ impl ::core::fmt::Debug for IPrintOemDriverUI {
 }
 unsafe impl ::windows::core::Vtable for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUI_Vtbl;
+}
+impl ::core::clone::Clone for IPrintOemDriverUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintOemDriverUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92b05d50_78bc_11d1_9480_00a0c90640b8);
@@ -4955,11 +4955,6 @@ impl IPrintOemUI {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintOemUI, ::windows::core::IUnknown, IPrintOemCommon);
-impl ::core::clone::Clone for IPrintOemUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintOemUI {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -4973,6 +4968,11 @@ impl ::core::fmt::Debug for IPrintOemUI {
 }
 unsafe impl ::windows::core::Vtable for IPrintOemUI {
     type Vtable = IPrintOemUI_Vtbl;
+}
+impl ::core::clone::Clone for IPrintOemUI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintOemUI {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a7a9d0_774c_11d1_947f_00a0c90640b8);
@@ -5147,11 +5147,6 @@ impl IPrintOemUI2 {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintOemUI2, ::windows::core::IUnknown, IPrintOemCommon, IPrintOemUI);
-impl ::core::clone::Clone for IPrintOemUI2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintOemUI2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5165,6 +5160,11 @@ impl ::core::fmt::Debug for IPrintOemUI2 {
 }
 unsafe impl ::windows::core::Vtable for IPrintOemUI2 {
     type Vtable = IPrintOemUI2_Vtbl;
+}
+impl ::core::clone::Clone for IPrintOemUI2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintOemUI2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292515f9_b54b_489b_9275_bab56821395e);
@@ -5213,11 +5213,6 @@ impl IPrintOemUIMXDC {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintOemUIMXDC, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintOemUIMXDC {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintOemUIMXDC {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5231,6 +5226,11 @@ impl ::core::fmt::Debug for IPrintOemUIMXDC {
 }
 unsafe impl ::windows::core::Vtable for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDC_Vtbl;
+}
+impl ::core::clone::Clone for IPrintOemUIMXDC {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintOemUIMXDC {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7349d725_e2c1_4dca_afb5_c13e91bc9306);
@@ -5272,11 +5272,6 @@ impl IPrintPipelineFilter {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintPipelineFilter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintPipelineFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintPipelineFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5290,6 +5285,11 @@ impl ::core::fmt::Debug for IPrintPipelineFilter {
 }
 unsafe impl ::windows::core::Vtable for IPrintPipelineFilter {
     type Vtable = IPrintPipelineFilter_Vtbl;
+}
+impl ::core::clone::Clone for IPrintPipelineFilter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintPipelineFilter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb62fc0_8bed_434e_86fb_a2cae55f19ea);
@@ -5319,11 +5319,6 @@ impl IPrintPipelineManagerControl {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintPipelineManagerControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintPipelineManagerControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintPipelineManagerControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5337,6 +5332,11 @@ impl ::core::fmt::Debug for IPrintPipelineManagerControl {
 }
 unsafe impl ::windows::core::Vtable for IPrintPipelineManagerControl {
     type Vtable = IPrintPipelineManagerControl_Vtbl;
+}
+impl ::core::clone::Clone for IPrintPipelineManagerControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintPipelineManagerControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa3e4910_5889_4681_91ef_823ad4ed4e44);
@@ -5360,11 +5360,6 @@ impl IPrintPipelineProgressReport {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintPipelineProgressReport, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintPipelineProgressReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintPipelineProgressReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5378,6 +5373,11 @@ impl ::core::fmt::Debug for IPrintPipelineProgressReport {
 }
 unsafe impl ::windows::core::Vtable for IPrintPipelineProgressReport {
     type Vtable = IPrintPipelineProgressReport_Vtbl;
+}
+impl ::core::clone::Clone for IPrintPipelineProgressReport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintPipelineProgressReport {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedc12c7c_ed40_4ea5_96a6_5e4397497a61);
@@ -5406,8 +5406,8 @@ impl IPrintPipelinePropertyBag {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), pszname.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5419,11 +5419,6 @@ impl IPrintPipelinePropertyBag {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintPipelinePropertyBag, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintPipelinePropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintPipelinePropertyBag {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5437,6 +5432,11 @@ impl ::core::fmt::Debug for IPrintPipelinePropertyBag {
 }
 unsafe impl ::windows::core::Vtable for IPrintPipelinePropertyBag {
     type Vtable = IPrintPipelinePropertyBag_Vtbl;
+}
+impl ::core::clone::Clone for IPrintPipelinePropertyBag {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintPipelinePropertyBag {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8c99dc_7892_4a95_8a04_57422e9fbb47);
@@ -5478,11 +5478,6 @@ impl IPrintPreviewDxgiPackageTarget {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintPreviewDxgiPackageTarget, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintPreviewDxgiPackageTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintPreviewDxgiPackageTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5496,6 +5491,11 @@ impl ::core::fmt::Debug for IPrintPreviewDxgiPackageTarget {
 }
 unsafe impl ::windows::core::Vtable for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTarget_Vtbl;
+}
+impl ::core::clone::Clone for IPrintPreviewDxgiPackageTarget {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintPreviewDxgiPackageTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a6dd0ad_1e2a_4e99_a5ba_91f17818290e);
@@ -5525,11 +5525,6 @@ impl IPrintReadStream {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintReadStream, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintReadStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintReadStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5543,6 +5538,11 @@ impl ::core::fmt::Debug for IPrintReadStream {
 }
 unsafe impl ::windows::core::Vtable for IPrintReadStream {
     type Vtable = IPrintReadStream_Vtbl;
+}
+impl ::core::clone::Clone for IPrintReadStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintReadStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d47a67c_66cc_4430_850e_daf466fe5bc4);
@@ -5562,16 +5562,11 @@ pub struct IPrintReadStream_Vtbl {
 pub struct IPrintReadStreamFactory(::windows::core::IUnknown);
 impl IPrintReadStreamFactory {
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<IPrintReadStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintReadStream>();
+        (::windows::core::Vtable::vtable(self).GetStream)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintReadStreamFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintReadStreamFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintReadStreamFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5585,6 +5580,11 @@ impl ::core::fmt::Debug for IPrintReadStreamFactory {
 }
 unsafe impl ::windows::core::Vtable for IPrintReadStreamFactory {
     type Vtable = IPrintReadStreamFactory_Vtbl;
+}
+impl ::core::clone::Clone for IPrintReadStreamFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintReadStreamFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacb971e3_df8d_4fc2_bee6_0609d15f3cf9);
@@ -5611,12 +5611,6 @@ impl IPrintSchemaAsyncOperation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaAsyncOperation, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5633,6 +5627,12 @@ impl ::core::fmt::Debug for IPrintSchemaAsyncOperation {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperation_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperation {
@@ -5664,12 +5664,6 @@ impl IPrintSchemaAsyncOperationEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaAsyncOperationEvent, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperationEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -5686,6 +5680,12 @@ impl ::core::fmt::Debug for IPrintSchemaAsyncOperationEvent {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEvent_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperationEvent {
@@ -5708,42 +5708,42 @@ pub struct IPrintSchemaCapabilities(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PageImageableSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaPageImageableSize>();
+        (::windows::core::Vtable::vtable(self).PageImageableSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocumentsMinValue(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).JobCopiesAllDocumentsMinValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).JobCopiesAllDocumentsMinValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocumentsMaxValue(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).JobCopiesAllDocumentsMaxValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).JobCopiesAllDocumentsMaxValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5751,8 +5751,8 @@ impl IPrintSchemaCapabilities {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaFeature>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSelectedOptionInPrintTicket)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOption>();
+        (::windows::core::Vtable::vtable(self).GetSelectedOptionInPrintTicket)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5760,18 +5760,12 @@ impl IPrintSchemaCapabilities {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaFeature>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOptionCollection>();
+        (::windows::core::Vtable::vtable(self).GetOptions)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaCapabilities, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaCapabilities {
     fn eq(&self, other: &Self) -> bool {
@@ -5791,6 +5785,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilities_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaCapabilities {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a577640_501d_4927_bcd0_5ef57a7ed175);
 }
@@ -5800,11 +5800,11 @@ unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities {
 pub struct IPrintSchemaCapabilities_Vtbl {
     pub base__: IPrintSchemaElement_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFeatureByKeyName: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFeature: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -5829,42 +5829,42 @@ pub struct IPrintSchemaCapabilities2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities2 {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).base__.GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).base__.GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PageImageableSize(&self) -> ::windows::core::Result<IPrintSchemaPageImageableSize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.PageImageableSize)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaPageImageableSize>();
+        (::windows::core::Vtable::vtable(self).base__.PageImageableSize)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocumentsMinValue(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocumentsMinValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocumentsMinValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocumentsMaxValue(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocumentsMaxValue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocumentsMaxValue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5872,8 +5872,8 @@ impl IPrintSchemaCapabilities2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaFeature>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetSelectedOptionInPrintTicket)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOption>();
+        (::windows::core::Vtable::vtable(self).base__.GetSelectedOptionInPrintTicket)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5881,24 +5881,18 @@ impl IPrintSchemaCapabilities2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaFeature>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetOptions)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOptionCollection>();
+        (::windows::core::Vtable::vtable(self).base__.GetOptions)(::windows::core::Vtable::as_raw(self), pfeature.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParameterDefinition(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterDefinition> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameterDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaParameterDefinition>();
+        (::windows::core::Vtable::vtable(self).GetParameterDefinition)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaCapabilities2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaCapabilities);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaCapabilities2 {
     fn eq(&self, other: &Self) -> bool {
@@ -5918,6 +5912,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58845f4_9970_4d87_a636_169fb82ed642);
 }
@@ -5927,7 +5927,7 @@ unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities2 {
 pub struct IPrintSchemaCapabilities2_Vtbl {
     pub base__: IPrintSchemaCapabilities_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetParameterDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppparameterdefinition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetParameterDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppparameterdefinition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetParameterDefinition: usize,
 }
@@ -5938,30 +5938,24 @@ pub struct IPrintSchemaDisplayableElement(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaDisplayableElement {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaDisplayableElement, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaDisplayableElement {
     fn eq(&self, other: &Self) -> bool {
@@ -5981,6 +5975,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElement_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaDisplayableElement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf45af49_d6aa_407d_bf87_3912236e9d94);
 }
@@ -5989,7 +5989,7 @@ unsafe impl ::windows::core::Interface for IPrintSchemaDisplayableElement {
 #[doc(hidden)]
 pub struct IPrintSchemaDisplayableElement_Vtbl {
     pub base__: IPrintSchemaElement_Vtbl,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdisplayname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -5998,26 +5998,20 @@ pub struct IPrintSchemaElement(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaElement {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaElement, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaElement {
     fn eq(&self, other: &Self) -> bool {
@@ -6037,6 +6031,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaElement {
     type Vtable = IPrintSchemaElement_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaElement {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaElement {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724c1646_e64b_4bbf_8eb4_d45e4fd580da);
 }
@@ -6046,8 +6046,8 @@ unsafe impl ::windows::core::Interface for IPrintSchemaElement {
 pub struct IPrintSchemaElement_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub XmlNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NamespaceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnamespaceuri: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub NamespaceUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnamespaceuri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6056,26 +6056,26 @@ pub struct IPrintSchemaFeature(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaFeature {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SelectedOption(&self) -> ::windows::core::Result<IPrintSchemaOption> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SelectedOption)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOption>();
+        (::windows::core::Vtable::vtable(self).SelectedOption)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6086,30 +6086,24 @@ impl IPrintSchemaFeature {
         (::windows::core::Vtable::vtable(self).SetSelectedOption)(::windows::core::Vtable::as_raw(self), poption.into().abi()).ok()
     }
     pub unsafe fn SelectionType(&self) -> ::windows::core::Result<PrintSchemaSelectionType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SelectionType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintSchemaSelectionType>();
+        (::windows::core::Vtable::vtable(self).SelectionType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOption(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaOption> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOption>();
+        (::windows::core::Vtable::vtable(self).GetOption)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayUI(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).DisplayUI)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaFeature, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaFeature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaFeature {
     fn eq(&self, other: &Self) -> bool {
@@ -6127,6 +6121,12 @@ impl ::core::fmt::Debug for IPrintSchemaFeature {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeature_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaFeature {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaFeature {
@@ -6147,7 +6147,7 @@ pub struct IPrintSchemaFeature_Vtbl {
     SetSelectedOption: usize,
     pub SelectionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pselectiontype: *mut PrintSchemaSelectionType) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppoption: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppoption: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetOption: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -6162,48 +6162,42 @@ pub struct IPrintSchemaNUpOption(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaNUpOption {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Selected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.Selected)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Constrained)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintSchemaConstrainedSetting>();
+        (::windows::core::Vtable::vtable(self).base__.Constrained)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPropertyValue(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     pub unsafe fn PagesPerSheet(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PagesPerSheet)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).PagesPerSheet)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaNUpOption, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement, IPrintSchemaOption);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaNUpOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaNUpOption {
     fn eq(&self, other: &Self) -> bool {
@@ -6223,6 +6217,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOption_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaNUpOption {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaNUpOption {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6342f2_d848_42e3_8995_c10a9ef9a3ba);
 }
@@ -6240,44 +6240,38 @@ pub struct IPrintSchemaOption(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOption {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Selected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).Selected)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Constrained)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintSchemaConstrainedSetting>();
+        (::windows::core::Vtable::vtable(self).Constrained)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPropertyValue(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaOption, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaOption {
     fn eq(&self, other: &Self) -> bool {
@@ -6297,6 +6291,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaOption {
     type Vtable = IPrintSchemaOption_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaOption {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaOption {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66bb2f51_5844_4997_8d70_4b7cc221cf92);
 }
@@ -6310,7 +6310,7 @@ pub struct IPrintSchemaOption_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Selected: usize,
     pub Constrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psetting: *mut PrintSchemaConstrainedSetting) -> ::windows::core::HRESULT,
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppxmlvaluenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppxmlvaluenode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -6319,28 +6319,22 @@ pub struct IPrintSchemaOptionCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOptionCollection {
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrintSchemaOption> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaOption>();
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaOptionCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaOptionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaOptionCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -6358,6 +6352,12 @@ impl ::core::fmt::Debug for IPrintSchemaOptionCollection {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollection_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaOptionCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaOptionCollection {
@@ -6382,50 +6382,44 @@ pub struct IPrintSchemaPageImageableSize(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageImageableSize {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ImageableSizeWidthInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ImageableSizeWidthInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).ImageableSizeWidthInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ImageableSizeHeightInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ImageableSizeHeightInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).ImageableSizeHeightInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OriginWidthInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OriginWidthInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).OriginWidthInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OriginHeightInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OriginHeightInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).OriginHeightInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ExtentWidthInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ExtentWidthInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).ExtentWidthInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ExtentHeightInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ExtentHeightInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).ExtentHeightInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaPageImageableSize, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaPageImageableSize {
     fn eq(&self, other: &Self) -> bool {
@@ -6443,6 +6437,12 @@ impl ::core::fmt::Debug for IPrintSchemaPageImageableSize {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSize_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaPageImageableSize {
@@ -6467,52 +6467,46 @@ pub struct IPrintSchemaPageMediaSizeOption(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageMediaSizeOption {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Selected)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.Selected)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Constrained(&self) -> ::windows::core::Result<PrintSchemaConstrainedSetting> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Constrained)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintSchemaConstrainedSetting>();
+        (::windows::core::Vtable::vtable(self).base__.Constrained)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPropertyValue(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.GetPropertyValue)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     pub unsafe fn WidthInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WidthInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).WidthInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn HeightInMicrons(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).HeightInMicrons)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).HeightInMicrons)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaPageMediaSizeOption, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement, IPrintSchemaOption);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaPageMediaSizeOption {
     fn eq(&self, other: &Self) -> bool {
@@ -6530,6 +6524,12 @@ impl ::core::fmt::Debug for IPrintSchemaPageMediaSizeOption {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOption_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaPageMediaSizeOption {
@@ -6550,52 +6550,46 @@ pub struct IPrintSchemaParameterDefinition(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterDefinition {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.DisplayName)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserInputRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UserInputRequired)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).UserInputRequired)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnitType(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UnitType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).UnitType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DataType(&self) -> ::windows::core::Result<PrintSchemaParameterDataType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DataType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<PrintSchemaParameterDataType>();
+        (::windows::core::Vtable::vtable(self).DataType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RangeMin(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RangeMin)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).RangeMin)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RangeMax(&self) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RangeMax)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).RangeMax)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaParameterDefinition, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaParameterDefinition {
     fn eq(&self, other: &Self) -> bool {
@@ -6615,6 +6609,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinition_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterDefinition {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ade81e_0e61_4fe1_81c6_c333e4ffe0f1);
 }
@@ -6627,7 +6627,7 @@ pub struct IPrintSchemaParameterDefinition_Vtbl {
     pub UserInputRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisrequired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UserInputRequired: usize,
-    pub UnitType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrunittype: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub UnitType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrunittype: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub DataType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatatype: *mut PrintSchemaParameterDataType) -> ::windows::core::HRESULT,
     pub RangeMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangemin: *mut i32) -> ::windows::core::HRESULT,
     pub RangeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangemax: *mut i32) -> ::windows::core::HRESULT,
@@ -6639,22 +6639,22 @@ pub struct IPrintSchemaParameterInitializer(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterInitializer {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::VARIANT>();
+        (::windows::core::Vtable::vtable(self).Value)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6664,12 +6664,6 @@ impl IPrintSchemaParameterInitializer {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaParameterInitializer, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaParameterInitializer {
     fn eq(&self, other: &Self) -> bool {
@@ -6687,6 +6681,12 @@ impl ::core::fmt::Debug for IPrintSchemaParameterInitializer {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializer_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterInitializer {
@@ -6713,34 +6713,34 @@ pub struct IPrintSchemaTicket(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ValidateAsync)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaAsyncOperation>();
+        (::windows::core::Vtable::vtable(self).ValidateAsync)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6748,8 +6748,8 @@ impl IPrintSchemaTicket {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaTicket>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CommitAsync)(::windows::core::Vtable::as_raw(self), pprintticketcommit.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaAsyncOperation>();
+        (::windows::core::Vtable::vtable(self).CommitAsync)(::windows::core::Vtable::as_raw(self), pprintticketcommit.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn NotifyXmlChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).NotifyXmlChanged)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6757,12 +6757,12 @@ impl IPrintSchemaTicket {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<IPrintSchemaCapabilities> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaCapabilities>();
+        (::windows::core::Vtable::vtable(self).GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocuments(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).JobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).JobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetJobCopiesAllDocuments(&self, uljobcopiesalldocuments: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetJobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), uljobcopiesalldocuments).ok()
@@ -6770,12 +6770,6 @@ impl IPrintSchemaTicket {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaTicket, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaTicket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaTicket {
     fn eq(&self, other: &Self) -> bool {
@@ -6795,6 +6789,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicket_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaTicket {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe480b861_4708_4e6d_a5b4_a2b4eeb9baa4);
 }
@@ -6804,11 +6804,11 @@ unsafe impl ::windows::core::Interface for IPrintSchemaTicket {
 pub struct IPrintSchemaTicket_Vtbl {
     pub base__: IPrintSchemaElement_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFeatureByKeyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrkeyname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFeatureByKeyName: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetFeature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppfeature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetFeature: usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -6834,34 +6834,34 @@ pub struct IPrintSchemaTicket2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket2 {
     pub unsafe fn XmlNode(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).base__.base__.XmlNode)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NamespaceUri(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.base__.NamespaceUri)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeatureByKeyName(&self, bstrkeyname: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).base__.GetFeatureByKeyName)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrkeyname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFeature(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaFeature> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaFeature>();
+        (::windows::core::Vtable::vtable(self).base__.GetFeature)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValidateAsync(&self) -> ::windows::core::Result<IPrintSchemaAsyncOperation> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.ValidateAsync)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaAsyncOperation>();
+        (::windows::core::Vtable::vtable(self).base__.ValidateAsync)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6869,8 +6869,8 @@ impl IPrintSchemaTicket2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrintSchemaTicket>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.CommitAsync)(::windows::core::Vtable::as_raw(self), pprintticketcommit.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaAsyncOperation>();
+        (::windows::core::Vtable::vtable(self).base__.CommitAsync)(::windows::core::Vtable::as_raw(self), pprintticketcommit.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn NotifyXmlChanged(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.NotifyXmlChanged)(::windows::core::Vtable::as_raw(self)).ok()
@@ -6878,12 +6878,12 @@ impl IPrintSchemaTicket2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<IPrintSchemaCapabilities> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaCapabilities>();
+        (::windows::core::Vtable::vtable(self).base__.GetCapabilities)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn JobCopiesAllDocuments(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.JobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetJobCopiesAllDocuments(&self, uljobcopiesalldocuments: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetJobCopiesAllDocuments)(::windows::core::Vtable::as_raw(self), uljobcopiesalldocuments).ok()
@@ -6891,18 +6891,12 @@ impl IPrintSchemaTicket2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParameterInitializer(&self, bstrname: &::windows::core::BSTR, bstrnamespaceuri: &::windows::core::BSTR) -> ::windows::core::Result<IPrintSchemaParameterInitializer> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetParameterInitializer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaParameterInitializer>();
+        (::windows::core::Vtable::vtable(self).GetParameterInitializer)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrnamespaceuri), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrintSchemaTicket2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaTicket);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaTicket2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrintSchemaTicket2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6922,6 +6916,12 @@ unsafe impl ::windows::core::Vtable for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrintSchemaTicket2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec1f844_766a_47a1_91f4_2eeb6190f80c);
 }
@@ -6931,7 +6931,7 @@ unsafe impl ::windows::core::Interface for IPrintSchemaTicket2 {
 pub struct IPrintSchemaTicket2_Vtbl {
     pub base__: IPrintSchemaTicket_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetParameterInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrnamespaceuri: *mut ::core::ffi::c_void, ppparameterinitializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetParameterInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrnamespaceuri: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppparameterinitializer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetParameterInitializer: usize,
 }
@@ -6980,8 +6980,8 @@ impl IPrintTicketProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Data::Xml::MsXml::IXMLDOMDocument2>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>();
+        (::windows::core::Vtable::vtable(self).GetPrintCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -6993,11 +6993,6 @@ impl IPrintTicketProvider {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintTicketProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintTicketProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintTicketProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7011,6 +7006,11 @@ impl ::core::fmt::Debug for IPrintTicketProvider {
 }
 unsafe impl ::windows::core::Vtable for IPrintTicketProvider {
     type Vtable = IPrintTicketProvider_Vtbl;
+}
+impl ::core::clone::Clone for IPrintTicketProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintTicketProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5116db_0a23_4c3a_a6b6_89e5558dfb5d);
@@ -7027,7 +7027,7 @@ pub struct IPrintTicketProvider_Vtbl {
     pub BindPrinter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hprinter: super::super::Foundation::HANDLE, version: i32, poptions: *mut SHIMOPTS, pdevmodeflags: *mut u32, cnamespaces: *mut i32, ppnamespaces: *mut *mut ::windows::core::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     BindPrinter: usize,
-    pub QueryDeviceNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaultnamespace: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueryDeviceNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaultnamespace: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub ConvertPrintTicketToDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintticket: *mut ::core::ffi::c_void, cbdevmodein: u32, pdevmodein: *mut super::Gdi::DEVMODEA, pcbdevmodeout: *mut u32, ppdevmodeout: *mut *mut super::Gdi::DEVMODEA) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
@@ -7090,8 +7090,8 @@ impl IPrintTicketProvider2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Data::Xml::MsXml::IXMLDOMDocument2>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetPrintCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>();
+        (::windows::core::Vtable::vtable(self).base__.GetPrintCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -7107,8 +7107,8 @@ impl IPrintTicketProvider2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Data::Xml::MsXml::IXMLDOMDocument2>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintDeviceCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>();
+        (::windows::core::Vtable::vtable(self).GetPrintDeviceCapabilities)(::windows::core::Vtable::as_raw(self), pprintticket.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -7117,16 +7117,11 @@ impl IPrintTicketProvider2 {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<super::super::Data::Xml::MsXml::IXMLDOMDocument2>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrintDeviceResources)(::windows::core::Vtable::as_raw(self), pszlocalename.into().abi(), pprintticket.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Data::Xml::MsXml::IXMLDOMDocument2>();
+        (::windows::core::Vtable::vtable(self).GetPrintDeviceResources)(::windows::core::Vtable::as_raw(self), pszlocalename.into().abi(), pprintticket.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPrintTicketProvider2, ::windows::core::IUnknown, IPrintTicketProvider);
-impl ::core::clone::Clone for IPrintTicketProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintTicketProvider2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7140,6 +7135,11 @@ impl ::core::fmt::Debug for IPrintTicketProvider2 {
 }
 unsafe impl ::windows::core::Vtable for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2_Vtbl;
+}
+impl ::core::clone::Clone for IPrintTicketProvider2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintTicketProvider2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a70ab2_3dfc_4fec_a074_511b13c651cb);
@@ -7175,11 +7175,6 @@ impl IPrintUnidiAsyncNotifyRegistration {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintUnidiAsyncNotifyRegistration, ::windows::core::IUnknown, IPrintAsyncNotifyRegistration);
-impl ::core::clone::Clone for IPrintUnidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintUnidiAsyncNotifyRegistration {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7193,6 +7188,11 @@ impl ::core::fmt::Debug for IPrintUnidiAsyncNotifyRegistration {
 }
 unsafe impl ::windows::core::Vtable for IPrintUnidiAsyncNotifyRegistration {
     type Vtable = IPrintUnidiAsyncNotifyRegistration_Vtbl;
+}
+impl ::core::clone::Clone for IPrintUnidiAsyncNotifyRegistration {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintUnidiAsyncNotifyRegistration {
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -7208,19 +7208,14 @@ pub struct IPrintUnidiAsyncNotifyRegistration_Vtbl {
 pub struct IPrintWriteStream(::windows::core::IUnknown);
 impl IPrintWriteStream {
     pub unsafe fn WriteBytes(&self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WriteBytes)(::windows::core::Vtable::as_raw(self), pvbuffer, cbbuffer, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).WriteBytes)(::windows::core::Vtable::as_raw(self), pvbuffer, cbbuffer, &mut result__).from_abi(result__)
     }
     pub unsafe fn Close(&self) {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self))
     }
 }
 ::windows::core::interface_hierarchy!(IPrintWriteStream, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintWriteStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintWriteStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7234,6 +7229,11 @@ impl ::core::fmt::Debug for IPrintWriteStream {
 }
 unsafe impl ::windows::core::Vtable for IPrintWriteStream {
     type Vtable = IPrintWriteStream_Vtbl;
+}
+impl ::core::clone::Clone for IPrintWriteStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintWriteStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65bb7f1b_371e_4571_8ac7_912f510c1a38);
@@ -7254,11 +7254,6 @@ impl IPrintWriteStreamFlush {
     }
 }
 ::windows::core::interface_hierarchy!(IPrintWriteStreamFlush, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrintWriteStreamFlush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrintWriteStreamFlush {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7272,6 +7267,11 @@ impl ::core::fmt::Debug for IPrintWriteStreamFlush {
 }
 unsafe impl ::windows::core::Vtable for IPrintWriteStreamFlush {
     type Vtable = IPrintWriteStreamFlush_Vtbl;
+}
+impl ::core::clone::Clone for IPrintWriteStreamFlush {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrintWriteStreamFlush {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07d11ff8_1753_4873_b749_6cdaf068e4c3);
@@ -7291,11 +7291,6 @@ impl IPrinterBidiSetRequestCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IPrinterBidiSetRequestCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrinterBidiSetRequestCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrinterBidiSetRequestCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7310,6 +7305,11 @@ impl ::core::fmt::Debug for IPrinterBidiSetRequestCallback {
 unsafe impl ::windows::core::Vtable for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallback_Vtbl;
 }
+impl ::core::clone::Clone for IPrinterBidiSetRequestCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterBidiSetRequestCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc52d32dd_f2b4_4052_8502_ec4305ecb71f);
 }
@@ -7317,7 +7317,7 @@ unsafe impl ::windows::core::Interface for IPrinterBidiSetRequestCallback {
 #[doc(hidden)]
 pub struct IPrinterBidiSetRequestCallback_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresponse: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresponse: ::std::mem::MaybeUninit<::windows::core::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
@@ -7328,11 +7328,6 @@ impl IPrinterExtensionAsyncOperation {
     }
 }
 ::windows::core::interface_hierarchy!(IPrinterExtensionAsyncOperation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrinterExtensionAsyncOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrinterExtensionAsyncOperation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7346,6 +7341,11 @@ impl ::core::fmt::Debug for IPrinterExtensionAsyncOperation {
 }
 unsafe impl ::windows::core::Vtable for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperation_Vtbl;
+}
+impl ::core::clone::Clone for IPrinterExtensionAsyncOperation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinterExtensionAsyncOperation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108d6a23_6a4b_4552_9448_68b427186acd);
@@ -7365,36 +7365,30 @@ impl IPrinterExtensionContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PrinterQueue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterQueue>();
+        (::windows::core::Vtable::vtable(self).PrinterQueue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).PrintSchemaTicket)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaTicket>();
+        (::windows::core::Vtable::vtable(self).PrintSchemaTicket)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterExtensionContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionContext {
     fn eq(&self, other: &Self) -> bool {
@@ -7412,6 +7406,12 @@ impl ::core::fmt::Debug for IPrinterExtensionContext {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContext_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterExtensionContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionContext {
@@ -7446,28 +7446,22 @@ pub struct IPrinterExtensionContextCollection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContextCollection {
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Count)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::core::Result<IPrinterExtensionContext> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterExtensionContext>();
+        (::windows::core::Vtable::vtable(self).GetAt)(::windows::core::Vtable::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self)._NewEnum)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterExtensionContextCollection, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionContextCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionContextCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -7485,6 +7479,12 @@ impl ::core::fmt::Debug for IPrinterExtensionContextCollection {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollection_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterExtensionContextCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionContextCollection {
@@ -7528,12 +7528,6 @@ impl IPrinterExtensionEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterExtensionEvent, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7550,6 +7544,12 @@ impl ::core::fmt::Debug for IPrinterExtensionEvent {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEvent_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterExtensionEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionEvent {
@@ -7578,70 +7578,64 @@ impl IPrinterExtensionEventArgs {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrinterQueue(&self) -> ::windows::core::Result<IPrinterQueue> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.PrinterQueue)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterQueue>();
+        (::windows::core::Vtable::vtable(self).base__.PrinterQueue)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintSchemaTicket(&self) -> ::windows::core::Result<IPrintSchemaTicket> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.PrintSchemaTicket)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrintSchemaTicket>();
+        (::windows::core::Vtable::vtable(self).base__.PrintSchemaTicket)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.DriverProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).base__.DriverProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.UserProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).base__.UserProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BidiNotification(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).BidiNotification)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).BidiNotification)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ReasonId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ReasonId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).ReasonId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Request(&self) -> ::windows::core::Result<IPrinterExtensionRequest> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterExtensionRequest>();
+        (::windows::core::Vtable::vtable(self).Request)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SourceApplication(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SourceApplication)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).SourceApplication)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DetailedReasonId(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DetailedReasonId)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).DetailedReasonId)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowModal(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WindowModal)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).WindowModal)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowParent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).WindowParent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).WindowParent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterExtensionEventArgs, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrinterExtensionContext);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionEventArgs {
     fn eq(&self, other: &Self) -> bool {
@@ -7661,6 +7655,12 @@ unsafe impl ::windows::core::Vtable for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgs_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterExtensionEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionEventArgs {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf4_c4d2_41fd_b4b2_aedbee5e1900);
 }
@@ -7669,13 +7669,13 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionEventArgs {
 #[doc(hidden)]
 pub struct IPrinterExtensionEventArgs_Vtbl {
     pub base__: IPrinterExtensionContext_Vtbl,
-    pub BidiNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbidinotification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BidiNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbidinotification: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub ReasonId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preasonid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Request: usize,
-    pub SourceApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrapplication: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SourceApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrapplication: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub DetailedReasonId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetailedreasonid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub WindowModal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmodal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -7698,11 +7698,6 @@ impl IPrinterExtensionManager {
     }
 }
 ::windows::core::interface_hierarchy!(IPrinterExtensionManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPrinterExtensionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPrinterExtensionManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7716,6 +7711,11 @@ impl ::core::fmt::Debug for IPrinterExtensionManager {
 }
 unsafe impl ::windows::core::Vtable for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManager_Vtbl;
+}
+impl ::core::clone::Clone for IPrinterExtensionManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPrinterExtensionManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c6eb8c_b001_4355_9629_8e8a1b3f8e77);
@@ -7743,12 +7743,6 @@ impl IPrinterExtensionRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterExtensionRequest, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterExtensionRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -7767,6 +7761,12 @@ unsafe impl ::windows::core::Vtable for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequest_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterExtensionRequest {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterExtensionRequest {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf3_c4d2_41fd_b4b2_aedbee5e1900);
 }
@@ -7775,7 +7775,7 @@ unsafe impl ::windows::core::Interface for IPrinterExtensionRequest {
 #[doc(hidden)]
 pub struct IPrinterExtensionRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, bstrlogmessage: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT, bstrlogmessage: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
@@ -7787,8 +7787,8 @@ impl IPrinterPropertyBag {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBool(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7799,15 +7799,15 @@ impl IPrinterPropertyBag {
         (::windows::core::Vtable::vtable(self).SetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), bvalue.into()).ok()
     }
     pub unsafe fn GetInt32(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInt32(&self, bstrname: &::windows::core::BSTR, nvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), nvalue).ok()
     }
     pub unsafe fn GetString(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetString(&self, bstrname: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -7821,24 +7821,18 @@ impl IPrinterPropertyBag {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReadStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWriteStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IStream>();
+        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterPropertyBag, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterPropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterPropertyBag {
     fn eq(&self, other: &Self) -> bool {
@@ -7858,6 +7852,12 @@ unsafe impl ::windows::core::Vtable for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBag_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterPropertyBag {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterPropertyBag {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea77364_df95_4a23_a905_019b79a8e481);
 }
@@ -7867,25 +7867,25 @@ unsafe impl ::windows::core::Interface for IPrinterPropertyBag {
 pub struct IPrinterPropertyBag_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBool: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub SetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBool: usize,
-    pub GetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pnvalue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, nvalue: i32) -> ::windows::core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pcbvalue: *mut u32, ppvalue: *mut *mut u8) -> ::windows::core::HRESULT,
-    pub SetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, cbvalue: u32, pvalue: *const u8) -> ::windows::core::HRESULT,
+    pub GetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pnvalue: *mut i32) -> ::windows::core::HRESULT,
+    pub SetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, nvalue: i32) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub GetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pcbvalue: *mut u32, ppvalue: *mut *mut u8) -> ::windows::core::HRESULT,
+    pub SetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, cbvalue: u32, pvalue: *const u8) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetReadStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetReadStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetReadStream: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWriteStream: usize,
 }
@@ -7898,12 +7898,12 @@ impl IPrinterQueue {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendBidiQuery(&self, bstrbidiquery: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SendBidiQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrbidiquery)).ok()
@@ -7911,18 +7911,12 @@ impl IPrinterQueue {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterQueue, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueue {
     fn eq(&self, other: &Self) -> bool {
@@ -7942,6 +7936,12 @@ unsafe impl ::windows::core::Vtable for IPrinterQueue {
     type Vtable = IPrinterQueue_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterQueue {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueue {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3580a828_07fe_4b94_ac1a_757d9d2d3056);
 }
@@ -7954,8 +7954,8 @@ pub struct IPrinterQueue_Vtbl {
     pub Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phprinter: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Handle: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SendBidiQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidiquery: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SendBidiQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidiquery: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertybag: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7970,12 +7970,12 @@ impl IPrinterQueue2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Handle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Handle)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).base__.Handle)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.Name)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendBidiQuery(&self, bstrbidiquery: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SendBidiQuery)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrbidiquery)).ok()
@@ -7983,31 +7983,25 @@ impl IPrinterQueue2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<IPrinterPropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterPropertyBag>();
+        (::windows::core::Vtable::vtable(self).base__.GetProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SendBidiSetRequestAsync<P0>(&self, bstrbidirequest: &::windows::core::BSTR, pcallback: P0) -> ::windows::core::Result<IPrinterExtensionAsyncOperation>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IPrinterBidiSetRequestCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).SendBidiSetRequestAsync)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrbidirequest), pcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterExtensionAsyncOperation>();
+        (::windows::core::Vtable::vtable(self).SendBidiSetRequestAsync)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrbidirequest), pcallback.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPrinterQueueView(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows::core::Result<IPrinterQueueView> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPrinterQueueView)(::windows::core::Vtable::as_raw(self), ulviewoffset, ulviewsize, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterQueueView>();
+        (::windows::core::Vtable::vtable(self).GetPrinterQueueView)(::windows::core::Vtable::as_raw(self), ulviewoffset, ulviewsize, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterQueue2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrinterQueue);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueue2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueue2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8027,6 +8021,12 @@ unsafe impl ::windows::core::Vtable for IPrinterQueue2 {
     type Vtable = IPrinterQueue2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterQueue2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueue2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd444e8_c9bb_49b3_8e38_e03209416131);
 }
@@ -8035,7 +8035,7 @@ unsafe impl ::windows::core::Interface for IPrinterQueue2 {
 #[doc(hidden)]
 pub struct IPrinterQueue2_Vtbl {
     pub base__: IPrinterQueue_Vtbl,
-    pub SendBidiSetRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidirequest: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, ppasyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SendBidiSetRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbidirequest: ::std::mem::MaybeUninit<::windows::core::BSTR>, pcallback: *mut ::core::ffi::c_void, ppasyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub GetPrinterQueueView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulviewoffset: u32, ulviewsize: u32, ppjobview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -8053,12 +8053,6 @@ impl IPrinterQueueEvent {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterQueueEvent, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueEvent {
     fn eq(&self, other: &Self) -> bool {
@@ -8078,6 +8072,12 @@ unsafe impl ::windows::core::Vtable for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEvent_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterQueueEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueEvent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214685f6_7b78_4681_87e0_495f739273d1);
 }
@@ -8086,7 +8086,7 @@ unsafe impl ::windows::core::Interface for IPrinterQueueEvent {
 #[doc(hidden)]
 pub struct IPrinterQueueEvent_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub OnBidiResponseReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresponse: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    pub OnBidiResponseReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrresponse: ::std::mem::MaybeUninit<::windows::core::BSTR>, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8100,12 +8100,6 @@ impl IPrinterQueueView {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterQueueView, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueView {
     fn eq(&self, other: &Self) -> bool {
@@ -8123,6 +8117,12 @@ impl ::core::fmt::Debug for IPrinterQueueView {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterQueueView {
     type Vtable = IPrinterQueueView_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterQueueView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueView {
@@ -8153,12 +8153,6 @@ impl IPrinterQueueViewEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterQueueViewEvent, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueViewEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterQueueViewEvent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8175,6 +8169,12 @@ impl ::core::fmt::Debug for IPrinterQueueViewEvent {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEvent_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterQueueViewEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterQueueViewEvent {
@@ -8199,30 +8199,24 @@ impl IPrinterScriptContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DriverProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptablePropertyBag>();
+        (::windows::core::Vtable::vtable(self).DriverProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).QueueProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptablePropertyBag>();
+        (::windows::core::Vtable::vtable(self).QueueProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UserProperties(&self) -> ::windows::core::Result<IPrinterScriptablePropertyBag> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptablePropertyBag>();
+        (::windows::core::Vtable::vtable(self).UserProperties)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterScriptContext, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptContext {
     fn eq(&self, other: &Self) -> bool {
@@ -8240,6 +8234,12 @@ impl ::core::fmt::Debug for IPrinterScriptContext {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterScriptContext {
     type Vtable = IPrinterScriptContext_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterScriptContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptContext {
@@ -8272,8 +8272,8 @@ impl IPrinterScriptablePropertyBag {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBool(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8284,15 +8284,15 @@ impl IPrinterScriptablePropertyBag {
         (::windows::core::Vtable::vtable(self).SetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), bvalue.into()).ok()
     }
     pub unsafe fn GetInt32(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInt32(&self, bstrname: &::windows::core::BSTR, nvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), nvalue).ok()
     }
     pub unsafe fn GetString(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetString(&self, bstrname: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -8300,8 +8300,8 @@ impl IPrinterScriptablePropertyBag {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBytes(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBytes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
+        (::windows::core::Vtable::vtable(self).GetBytes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8314,24 +8314,18 @@ impl IPrinterScriptablePropertyBag {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReadStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptableStream>();
+        (::windows::core::Vtable::vtable(self).GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWriteStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptableStream>();
+        (::windows::core::Vtable::vtable(self).GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterScriptablePropertyBag, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag {
     fn eq(&self, other: &Self) -> bool {
@@ -8351,6 +8345,12 @@ unsafe impl ::windows::core::Vtable for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBag_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c7765f_ed57_49ad_8b01_dc24816a5294);
 }
@@ -8360,31 +8360,31 @@ unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag {
 pub struct IPrinterScriptablePropertyBag_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub GetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbvalue: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBool: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub SetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    pub SetBool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bvalue: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBool: usize,
-    pub GetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pnvalue: *mut i32) -> ::windows::core::HRESULT,
-    pub SetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, nvalue: i32) -> ::windows::core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pbstrvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, bstrvalue: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pnvalue: *mut i32) -> ::windows::core::HRESULT,
+    pub SetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, nvalue: i32) -> ::windows::core::HRESULT,
+    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
+    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, pparray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, pparray: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBytes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, parray: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, parray: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetBytes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetReadStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetReadStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetReadStream: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetWriteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWriteStream: usize,
 }
@@ -8397,8 +8397,8 @@ impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBool(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+        (::windows::core::Vtable::vtable(self).base__.GetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8409,15 +8409,15 @@ impl IPrinterScriptablePropertyBag2 {
         (::windows::core::Vtable::vtable(self).base__.SetBool)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), bvalue.into()).ok()
     }
     pub unsafe fn GetInt32(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).base__.GetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInt32(&self, bstrname: &::windows::core::BSTR, nvalue: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetInt32)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), nvalue).ok()
     }
     pub unsafe fn GetString(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetString(&self, bstrname: &::windows::core::BSTR, bstrvalue: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).base__.SetString)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), ::core::mem::transmute_copy(bstrvalue)).ok()
@@ -8425,8 +8425,8 @@ impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBytes(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetBytes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
+        (::windows::core::Vtable::vtable(self).base__.GetBytes)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8439,28 +8439,22 @@ impl IPrinterScriptablePropertyBag2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReadStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptableStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetReadStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWriteStream(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<IPrinterScriptableStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPrinterScriptableStream>();
+        (::windows::core::Vtable::vtable(self).base__.GetWriteStream)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReadStreamAsXML(&self, bstrname: &::windows::core::BSTR) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetReadStreamAsXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetReadStreamAsXML)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(bstrname), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterScriptablePropertyBag2, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrinterScriptablePropertyBag);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8480,6 +8474,12 @@ unsafe impl ::windows::core::Vtable for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2_Vtbl;
 }
 #[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1c53c4_8638_4b3e_b518_2773c94556a3);
 }
@@ -8488,7 +8488,7 @@ unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag2 {
 #[doc(hidden)]
 pub struct IPrinterScriptablePropertyBag2_Vtbl {
     pub base__: IPrinterScriptablePropertyBag_Vtbl,
-    pub GetReadStreamAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: *mut ::core::ffi::c_void, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetReadStreamAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows::core::BSTR>, ppxmlnode: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -8499,8 +8499,8 @@ impl IPrinterScriptableSequentialStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), cbread, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
+        (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), cbread, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8508,18 +8508,12 @@ impl IPrinterScriptableSequentialStream {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), parray.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Write)(::windows::core::Vtable::as_raw(self), parray.into().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterScriptableSequentialStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptableSequentialStream {
     fn eq(&self, other: &Self) -> bool {
@@ -8537,6 +8531,12 @@ impl ::core::fmt::Debug for IPrinterScriptableSequentialStream {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStream_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptableSequentialStream {
@@ -8565,8 +8565,8 @@ impl IPrinterScriptableStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, cbread: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), cbread, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::IDispatch>();
+        (::windows::core::Vtable::vtable(self).base__.Read)(::windows::core::Vtable::as_raw(self), cbread, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8574,8 +8574,8 @@ impl IPrinterScriptableStream {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::System::Com::IDispatch>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), parray.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).base__.Write)(::windows::core::Vtable::as_raw(self), parray.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Commit)(::windows::core::Vtable::as_raw(self)).ok()
@@ -8583,8 +8583,8 @@ impl IPrinterScriptableStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, loffset: i32, streamseek: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<i32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), loffset, streamseek, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<i32>();
+        (::windows::core::Vtable::vtable(self).Seek)(::windows::core::Vtable::as_raw(self), loffset, streamseek, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSize(&self, lsize: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetSize)(::windows::core::Vtable::as_raw(self), lsize).ok()
@@ -8592,12 +8592,6 @@ impl IPrinterScriptableStream {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IPrinterScriptableStream, ::windows::core::IUnknown, super::super::System::Com::IDispatch, IPrinterScriptableSequentialStream);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptableStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IPrinterScriptableStream {
     fn eq(&self, other: &Self) -> bool {
@@ -8615,6 +8609,12 @@ impl ::core::fmt::Debug for IPrinterScriptableStream {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStream_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IPrinterScriptableStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IPrinterScriptableStream {
@@ -8637,8 +8637,8 @@ pub struct IPrinterScriptableStream_Vtbl {
 pub struct IXpsDocument(::windows::core::IUnknown);
 impl IXpsDocument {
     pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IPartThumbnail> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPartThumbnail>();
+        (::windows::core::Vtable::vtable(self).GetThumbnail)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetThumbnail<P0>(&self, pthumbnail: P0) -> ::windows::core::Result<()>
     where
@@ -8648,11 +8648,6 @@ impl IXpsDocument {
     }
 }
 ::windows::core::interface_hierarchy!(IXpsDocument, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsDocument {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8666,6 +8661,11 @@ impl ::core::fmt::Debug for IXpsDocument {
 }
 unsafe impl ::windows::core::Vtable for IXpsDocument {
     type Vtable = IXpsDocument_Vtbl;
+}
+impl ::core::clone::Clone for IXpsDocument {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsDocument {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d907db_62a9_4a95_abe7_e01763dd30f8);
@@ -8722,11 +8722,6 @@ impl IXpsDocumentConsumer {
     }
 }
 ::windows::core::interface_hierarchy!(IXpsDocumentConsumer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsDocumentConsumer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsDocumentConsumer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8740,6 +8735,11 @@ impl ::core::fmt::Debug for IXpsDocumentConsumer {
 }
 unsafe impl ::windows::core::Vtable for IXpsDocumentConsumer {
     type Vtable = IXpsDocumentConsumer_Vtbl;
+}
+impl ::core::clone::Clone for IXpsDocumentConsumer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsDocumentConsumer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4368d8a2_4181_4a9f_b295_3d9a38bb9ba0);
@@ -8761,16 +8761,11 @@ pub struct IXpsDocumentConsumer_Vtbl {
 pub struct IXpsDocumentProvider(::windows::core::IUnknown);
 impl IXpsDocumentProvider {
     pub unsafe fn GetXpsPart(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetXpsPart)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetXpsPart)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXpsDocumentProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsDocumentProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsDocumentProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8784,6 +8779,11 @@ impl ::core::fmt::Debug for IXpsDocumentProvider {
 }
 unsafe impl ::windows::core::Vtable for IXpsDocumentProvider {
     type Vtable = IXpsDocumentProvider_Vtbl;
+}
+impl ::core::clone::Clone for IXpsDocumentProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsDocumentProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8cf8530_5562_47c4_ab67_b1f69ecf961e);
@@ -8814,11 +8814,6 @@ impl IXpsPartIterator {
     }
 }
 ::windows::core::interface_hierarchy!(IXpsPartIterator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsPartIterator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsPartIterator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8833,6 +8828,11 @@ impl ::core::fmt::Debug for IXpsPartIterator {
 unsafe impl ::windows::core::Vtable for IXpsPartIterator {
     type Vtable = IXpsPartIterator_Vtbl;
 }
+impl ::core::clone::Clone for IXpsPartIterator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsPartIterator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0021d3cd_af6f_42ab_9999_14bc82a62d2e);
 }
@@ -8841,7 +8841,7 @@ unsafe impl ::windows::core::Interface for IXpsPartIterator {
 pub struct IXpsPartIterator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: *mut *mut ::core::ffi::c_void, ppxpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puri: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, ppxpspart: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub IsDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -8858,16 +8858,11 @@ impl IXpsRasterizationFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Storage::Xps::IXpsOMPage>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpi, nontextrenderingmode, textrenderingmode, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IXpsRasterizer>();
+        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpi, nontextrenderingmode, textrenderingmode, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXpsRasterizationFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsRasterizationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsRasterizationFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8881,6 +8876,11 @@ impl ::core::fmt::Debug for IXpsRasterizationFactory {
 }
 unsafe impl ::windows::core::Vtable for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactory_Vtbl;
+}
+impl ::core::clone::Clone for IXpsRasterizationFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe094808a_24c6_482b_a3a7_c21ac9b55f17);
@@ -8904,16 +8904,11 @@ impl IXpsRasterizationFactory1 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Storage::Xps::IXpsOMPage>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpi, nontextrenderingmode, textrenderingmode, pixelformat, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IXpsRasterizer>();
+        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpi, nontextrenderingmode, textrenderingmode, pixelformat, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXpsRasterizationFactory1, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsRasterizationFactory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsRasterizationFactory1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8927,6 +8922,11 @@ impl ::core::fmt::Debug for IXpsRasterizationFactory1 {
 }
 unsafe impl ::windows::core::Vtable for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1_Vtbl;
+}
+impl ::core::clone::Clone for IXpsRasterizationFactory1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d6e5f77_6414_4a1e_a8e0_d4194ce6a26f);
@@ -8950,16 +8950,11 @@ impl IXpsRasterizationFactory2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::Storage::Xps::IXpsOMPage>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpix, dpiy, nontextrenderingmode, textrenderingmode, pixelformat, backgroundcolor, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IXpsRasterizer>();
+        (::windows::core::Vtable::vtable(self).CreateRasterizer)(::windows::core::Vtable::as_raw(self), xpspage.into().abi(), dpix, dpiy, nontextrenderingmode, textrenderingmode, pixelformat, backgroundcolor, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXpsRasterizationFactory2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsRasterizationFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsRasterizationFactory2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -8973,6 +8968,11 @@ impl ::core::fmt::Debug for IXpsRasterizationFactory2 {
 }
 unsafe impl ::windows::core::Vtable for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2_Vtbl;
+}
+impl ::core::clone::Clone for IXpsRasterizationFactory2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c16ce3e_10f5_41fd_9ddc_6826669c2ff6);
@@ -8996,19 +8996,14 @@ impl IXpsRasterizer {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IXpsRasterizerNotificationCallback>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RasterizeRect)(::windows::core::Vtable::as_raw(self), x, y, width, height, notificationcallback.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::Imaging::IWICBitmap>();
+        (::windows::core::Vtable::vtable(self).RasterizeRect)(::windows::core::Vtable::as_raw(self), x, y, width, height, notificationcallback.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMinimalLineWidth(&self, width: i32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetMinimalLineWidth)(::windows::core::Vtable::as_raw(self), width).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IXpsRasterizer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsRasterizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsRasterizer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9022,6 +9017,11 @@ impl ::core::fmt::Debug for IXpsRasterizer {
 }
 unsafe impl ::windows::core::Vtable for IXpsRasterizer {
     type Vtable = IXpsRasterizer_Vtbl;
+}
+impl ::core::clone::Clone for IXpsRasterizer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7567cfc8_c156_47a8_9dac_11a2ae5bdd6b);
@@ -9045,11 +9045,6 @@ impl IXpsRasterizerNotificationCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IXpsRasterizerNotificationCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXpsRasterizerNotificationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXpsRasterizerNotificationCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -9063,6 +9058,11 @@ impl ::core::fmt::Debug for IXpsRasterizerNotificationCallback {
 }
 unsafe impl ::windows::core::Vtable for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallback_Vtbl;
+}
+impl ::core::clone::Clone for IXpsRasterizerNotificationCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXpsRasterizerNotificationCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ab8fd0d_cb94_49c2_9cb0_97ec1d5469d2);
@@ -11906,8 +11906,8 @@ impl ::core::default::Default for BIDI_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BIDI_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BIDI_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11951,8 +11951,8 @@ impl ::core::default::Default for EATTRIBUTE_DATATYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EATTRIBUTE_DATATYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EATTRIBUTE_DATATYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EATTRIBUTE_DATATYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -11986,8 +11986,8 @@ impl ::core::default::Default for EBranchOfficeJobEventType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EBranchOfficeJobEventType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EBranchOfficeJobEventType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EBranchOfficeJobEventType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12029,8 +12029,8 @@ impl ::core::default::Default for EPrintPropertyType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EPrintPropertyType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EPrintPropertyType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EPrintPropertyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12056,8 +12056,8 @@ impl ::core::default::Default for EPrintXPSJobOperation {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EPrintXPSJobOperation {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EPrintXPSJobOperation {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EPrintXPSJobOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12099,8 +12099,8 @@ impl ::core::default::Default for EPrintXPSJobProgress {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EPrintXPSJobProgress {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EPrintXPSJobProgress {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EPrintXPSJobProgress {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12130,8 +12130,8 @@ impl ::core::default::Default for EXpsCompressionOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXpsCompressionOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXpsCompressionOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXpsCompressionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12157,8 +12157,8 @@ impl ::core::default::Default for EXpsFontOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXpsFontOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXpsFontOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXpsFontOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12188,8 +12188,8 @@ impl ::core::default::Default for EXpsFontRestriction {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXpsFontRestriction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXpsFontRestriction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXpsFontRestriction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12217,8 +12217,8 @@ impl ::core::default::Default for EXpsJobConsumption {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for EXpsJobConsumption {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXpsJobConsumption {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for EXpsJobConsumption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12248,8 +12248,8 @@ impl ::core::default::Default for MXDC_IMAGE_TYPE_ENUMS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_IMAGE_TYPE_ENUMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_IMAGE_TYPE_ENUMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MXDC_IMAGE_TYPE_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12277,8 +12277,8 @@ impl ::core::default::Default for MXDC_LANDSCAPE_ROTATION_ENUMS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_LANDSCAPE_ROTATION_ENUMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_LANDSCAPE_ROTATION_ENUMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MXDC_LANDSCAPE_ROTATION_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12320,8 +12320,8 @@ impl ::core::default::Default for MXDC_S0_PAGE_ENUMS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_S0_PAGE_ENUMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_S0_PAGE_ENUMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MXDC_S0_PAGE_ENUMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12349,8 +12349,8 @@ impl ::core::default::Default for NOTIFICATION_CALLBACK_COMMANDS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFICATION_CALLBACK_COMMANDS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION_CALLBACK_COMMANDS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NOTIFICATION_CALLBACK_COMMANDS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12380,8 +12380,8 @@ impl ::core::default::Default for NOTIFICATION_CONFIG_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFICATION_CONFIG_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION_CONFIG_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NOTIFICATION_CONFIG_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12447,8 +12447,8 @@ impl ::core::default::Default for PRINTER_ACCESS_RIGHTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_ACCESS_RIGHTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_ACCESS_RIGHTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRINTER_ACCESS_RIGHTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12511,8 +12511,8 @@ impl ::core::default::Default for PRINTER_OPTION_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_OPTION_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_OPTION_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRINTER_OPTION_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12544,8 +12544,8 @@ impl ::core::default::Default for PRINT_EXECUTION_CONTEXT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRINT_EXECUTION_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINT_EXECUTION_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRINT_EXECUTION_CONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12571,8 +12571,8 @@ impl ::core::default::Default for PageCountType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PageCountType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PageCountType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PageCountType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12598,8 +12598,8 @@ impl ::core::default::Default for PrintAsyncNotifyConversationStyle {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintAsyncNotifyConversationStyle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintAsyncNotifyConversationStyle {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintAsyncNotifyConversationStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12669,8 +12669,8 @@ impl ::core::default::Default for PrintAsyncNotifyError {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintAsyncNotifyError {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintAsyncNotifyError {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintAsyncNotifyError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12696,8 +12696,8 @@ impl ::core::default::Default for PrintAsyncNotifyUserFilter {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintAsyncNotifyUserFilter {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintAsyncNotifyUserFilter {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintAsyncNotifyUserFilter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12747,8 +12747,8 @@ impl ::core::default::Default for PrintJobStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintJobStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintJobStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintJobStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12778,8 +12778,8 @@ impl ::core::default::Default for PrintSchemaConstrainedSetting {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintSchemaConstrainedSetting {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintSchemaConstrainedSetting {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintSchemaConstrainedSetting {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12807,8 +12807,8 @@ impl ::core::default::Default for PrintSchemaParameterDataType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintSchemaParameterDataType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintSchemaParameterDataType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintSchemaParameterDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12834,8 +12834,8 @@ impl ::core::default::Default for PrintSchemaSelectionType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PrintSchemaSelectionType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintSchemaSelectionType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PrintSchemaSelectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12861,8 +12861,8 @@ impl ::core::default::Default for SHIMOPTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SHIMOPTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHIMOPTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SHIMOPTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12886,8 +12886,8 @@ impl ::core::default::Default for UI_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UI_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UI_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UI_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12913,8 +12913,8 @@ impl ::core::default::Default for XPSRAS_BACKGROUND_COLOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XPSRAS_BACKGROUND_COLOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XPSRAS_BACKGROUND_COLOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XPSRAS_BACKGROUND_COLOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12942,8 +12942,8 @@ impl ::core::default::Default for XPSRAS_PIXEL_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XPSRAS_PIXEL_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XPSRAS_PIXEL_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XPSRAS_PIXEL_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12969,8 +12969,8 @@ impl ::core::default::Default for XPSRAS_RENDERING_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XPSRAS_RENDERING_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XPSRAS_RENDERING_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XPSRAS_RENDERING_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -12994,8 +12994,8 @@ impl ::core::fmt::Debug for ADDJOB_INFO_1A {
         f.debug_struct("ADDJOB_INFO_1A").field("Path", &self.Path).field("JobId", &self.JobId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADDJOB_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADDJOB_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADDJOB_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -13025,8 +13025,8 @@ impl ::core::fmt::Debug for ADDJOB_INFO_1W {
         f.debug_struct("ADDJOB_INFO_1W").field("Path", &self.Path).field("JobId", &self.JobId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ADDJOB_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADDJOB_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ADDJOB_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -13061,8 +13061,8 @@ impl ::core::fmt::Debug for ATTRIBUTE_INFO_1 {
         f.debug_struct("ATTRIBUTE_INFO_1").field("dwJobNumberOfPagesPerSide", &self.dwJobNumberOfPagesPerSide).field("dwDrvNumberOfPagesPerSide", &self.dwDrvNumberOfPagesPerSide).field("dwNupBorderFlags", &self.dwNupBorderFlags).field("dwJobPageOrderFlags", &self.dwJobPageOrderFlags).field("dwDrvPageOrderFlags", &self.dwDrvPageOrderFlags).field("dwJobNumberOfCopies", &self.dwJobNumberOfCopies).field("dwDrvNumberOfCopies", &self.dwDrvNumberOfCopies).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTRIBUTE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13107,8 +13107,8 @@ impl ::core::fmt::Debug for ATTRIBUTE_INFO_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTRIBUTE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -13157,8 +13157,8 @@ impl ::core::fmt::Debug for ATTRIBUTE_INFO_3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTRIBUTE_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -13217,8 +13217,8 @@ impl ::core::fmt::Debug for ATTRIBUTE_INFO_4 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for ATTRIBUTE_INFO_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTRIBUTE_INFO_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ATTRIBUTE_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -13261,8 +13261,8 @@ impl ::core::clone::Clone for BIDI_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_DATA {
@@ -13289,8 +13289,8 @@ impl ::core::clone::Clone for BIDI_DATA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_DATA_0 {
@@ -13316,8 +13316,8 @@ impl ::core::clone::Clone for BIDI_REQUEST_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_REQUEST_CONTAINER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_REQUEST_CONTAINER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_REQUEST_CONTAINER {
@@ -13342,8 +13342,8 @@ impl ::core::clone::Clone for BIDI_REQUEST_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_REQUEST_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_REQUEST_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_REQUEST_DATA {
@@ -13369,8 +13369,8 @@ impl ::core::clone::Clone for BIDI_RESPONSE_CONTAINER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_RESPONSE_CONTAINER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_RESPONSE_CONTAINER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_RESPONSE_CONTAINER {
@@ -13396,8 +13396,8 @@ impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIDI_RESPONSE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BIDI_RESPONSE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BIDI_RESPONSE_DATA {
@@ -13422,8 +13422,8 @@ impl ::core::fmt::Debug for BINARY_CONTAINER {
         f.debug_struct("BINARY_CONTAINER").field("cbBuf", &self.cbBuf).field("pData", &self.pData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BINARY_CONTAINER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BINARY_CONTAINER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BINARY_CONTAINER {
     fn eq(&self, other: &Self) -> bool {
@@ -13449,8 +13449,8 @@ impl ::core::clone::Clone for BranchOfficeJobData {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobData {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobData {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BranchOfficeJobData {
     fn default() -> Self {
@@ -13472,8 +13472,8 @@ impl ::core::clone::Clone for BranchOfficeJobData_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobData_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobData_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BranchOfficeJobData_0 {
     fn default() -> Self {
@@ -13492,8 +13492,8 @@ impl ::core::clone::Clone for BranchOfficeJobDataContainer {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobDataContainer {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobDataContainer {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BranchOfficeJobDataContainer {
     fn default() -> Self {
@@ -13540,8 +13540,8 @@ impl ::core::fmt::Debug for BranchOfficeJobDataError {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobDataError {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobDataError {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BranchOfficeJobDataError {
     fn eq(&self, other: &Self) -> bool {
@@ -13572,8 +13572,8 @@ impl ::core::fmt::Debug for BranchOfficeJobDataPipelineFailed {
         f.debug_struct("BranchOfficeJobDataPipelineFailed").field("pDocumentName", &self.pDocumentName).field("pPrinterName", &self.pPrinterName).field("pExtraErrorInfo", &self.pExtraErrorInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobDataPipelineFailed {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobDataPipelineFailed {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BranchOfficeJobDataPipelineFailed {
     fn eq(&self, other: &Self) -> bool {
@@ -13609,8 +13609,8 @@ impl ::core::fmt::Debug for BranchOfficeJobDataPrinted {
         f.debug_struct("BranchOfficeJobDataPrinted").field("Status", &self.Status).field("pDocumentName", &self.pDocumentName).field("pUserName", &self.pUserName).field("pMachineName", &self.pMachineName).field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Size", &self.Size).field("TotalPages", &self.TotalPages).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobDataPrinted {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobDataPrinted {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BranchOfficeJobDataPrinted {
     fn eq(&self, other: &Self) -> bool {
@@ -13645,8 +13645,8 @@ impl ::core::fmt::Debug for BranchOfficeJobDataRendered {
         f.debug_struct("BranchOfficeJobDataRendered").field("Size", &self.Size).field("ICMMethod", &self.ICMMethod).field("Color", &self.Color).field("PrintQuality", &self.PrintQuality).field("YResolution", &self.YResolution).field("Copies", &self.Copies).field("TTOption", &self.TTOption).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeJobDataRendered {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeJobDataRendered {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BranchOfficeJobDataRendered {
     fn eq(&self, other: &Self) -> bool {
@@ -13675,8 +13675,8 @@ impl ::core::fmt::Debug for BranchOfficeLogOfflineFileFull {
         f.debug_struct("BranchOfficeLogOfflineFileFull").field("pMachineName", &self.pMachineName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BranchOfficeLogOfflineFileFull {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BranchOfficeLogOfflineFileFull {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BranchOfficeLogOfflineFileFull {
     fn eq(&self, other: &Self) -> bool {
@@ -13741,8 +13741,8 @@ impl ::core::fmt::Debug for COMPROPSHEETUI {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for COMPROPSHEETUI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPROPSHEETUI {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for COMPROPSHEETUI {
@@ -13767,8 +13767,8 @@ impl ::core::fmt::Debug for CONFIG_INFO_DATA_1 {
         f.debug_struct("CONFIG_INFO_DATA_1").field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CONFIG_INFO_DATA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONFIG_INFO_DATA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CONFIG_INFO_DATA_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -13805,8 +13805,8 @@ impl ::core::fmt::Debug for CORE_PRINTER_DRIVERA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CORE_PRINTER_DRIVERA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CORE_PRINTER_DRIVERA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CORE_PRINTER_DRIVERA {
@@ -13846,8 +13846,8 @@ impl ::core::fmt::Debug for CORE_PRINTER_DRIVERW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CORE_PRINTER_DRIVERW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CORE_PRINTER_DRIVERW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CORE_PRINTER_DRIVERW {
@@ -13887,8 +13887,8 @@ impl ::core::clone::Clone for CPSUICBPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for CPSUICBPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CPSUICBPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for CPSUICBPARAM {
@@ -13912,8 +13912,8 @@ impl ::core::clone::Clone for CPSUICBPARAM_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for CPSUICBPARAM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CPSUICBPARAM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for CPSUICBPARAM_0 {
@@ -13938,8 +13938,8 @@ impl ::core::fmt::Debug for CPSUIDATABLOCK {
         f.debug_struct("CPSUIDATABLOCK").field("cbData", &self.cbData).field("pbData", &self.pbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CPSUIDATABLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CPSUIDATABLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CPSUIDATABLOCK {
     fn eq(&self, other: &Self) -> bool {
@@ -13970,8 +13970,8 @@ impl ::core::fmt::Debug for CUSTOMSIZEPARAM {
         f.debug_struct("CUSTOMSIZEPARAM").field("dwOrder", &self.dwOrder).field("lMinVal", &self.lMinVal).field("lMaxVal", &self.lMaxVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CUSTOMSIZEPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CUSTOMSIZEPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CUSTOMSIZEPARAM {
     fn eq(&self, other: &Self) -> bool {
@@ -14000,8 +14000,8 @@ impl ::core::fmt::Debug for DATATYPES_INFO_1A {
         f.debug_struct("DATATYPES_INFO_1A").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DATATYPES_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DATATYPES_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATATYPES_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -14030,8 +14030,8 @@ impl ::core::fmt::Debug for DATATYPES_INFO_1W {
         f.debug_struct("DATATYPES_INFO_1W").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DATATYPES_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DATATYPES_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATATYPES_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -14064,8 +14064,8 @@ impl ::core::fmt::Debug for DATA_HEADER {
         f.debug_struct("DATA_HEADER").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wDataID", &self.wDataID).field("dwDataSize", &self.dwDataSize).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DATA_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DATA_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DATA_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -14097,8 +14097,8 @@ impl ::core::fmt::Debug for DELETE_PORT_DATA_1 {
         f.debug_struct("DELETE_PORT_DATA_1").field("psztPortName", &self.psztPortName).field("Reserved", &self.Reserved).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DELETE_PORT_DATA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DELETE_PORT_DATA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DELETE_PORT_DATA_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -14135,8 +14135,8 @@ impl ::core::fmt::Debug for DEVICEPROPERTYHEADER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVICEPROPERTYHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVICEPROPERTYHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEVICEPROPERTYHEADER {
@@ -14179,8 +14179,8 @@ impl ::core::fmt::Debug for DEVQUERYPRINT_INFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DEVQUERYPRINT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DEVQUERYPRINT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DEVQUERYPRINT_INFO {
@@ -14216,8 +14216,8 @@ impl ::core::clone::Clone for DLGPAGE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for DLGPAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLGPAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for DLGPAGE {
@@ -14241,8 +14241,8 @@ impl ::core::clone::Clone for DLGPAGE_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for DLGPAGE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DLGPAGE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for DLGPAGE_0 {
@@ -14274,8 +14274,8 @@ impl ::core::fmt::Debug for DOCEVENT_CREATEDCPRE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DOCEVENT_CREATEDCPRE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOCEVENT_CREATEDCPRE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DOCEVENT_CREATEDCPRE {
@@ -14309,8 +14309,8 @@ impl ::core::fmt::Debug for DOCEVENT_ESCAPE {
         f.debug_struct("DOCEVENT_ESCAPE").field("iEscape", &self.iEscape).field("cjInput", &self.cjInput).field("pvInData", &self.pvInData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOCEVENT_ESCAPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOCEVENT_ESCAPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOCEVENT_ESCAPE {
     fn eq(&self, other: &Self) -> bool {
@@ -14343,8 +14343,8 @@ impl ::core::fmt::Debug for DOCEVENT_FILTER {
         f.debug_struct("DOCEVENT_FILTER").field("cbSize", &self.cbSize).field("cElementsAllocated", &self.cElementsAllocated).field("cElementsNeeded", &self.cElementsNeeded).field("cElementsReturned", &self.cElementsReturned).field("aDocEventCall", &self.aDocEventCall).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOCEVENT_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOCEVENT_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOCEVENT_FILTER {
     fn eq(&self, other: &Self) -> bool {
@@ -14385,8 +14385,8 @@ impl ::core::fmt::Debug for DOCUMENTPROPERTYHEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DOCUMENTPROPERTYHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOCUMENTPROPERTYHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DOCUMENTPROPERTYHEADER {
@@ -14420,8 +14420,8 @@ impl ::core::fmt::Debug for DOC_INFO_1A {
         f.debug_struct("DOC_INFO_1A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -14452,8 +14452,8 @@ impl ::core::fmt::Debug for DOC_INFO_1W {
         f.debug_struct("DOC_INFO_1W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -14486,8 +14486,8 @@ impl ::core::fmt::Debug for DOC_INFO_2A {
         f.debug_struct("DOC_INFO_2A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
@@ -14520,8 +14520,8 @@ impl ::core::fmt::Debug for DOC_INFO_2W {
         f.debug_struct("DOC_INFO_2W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwMode", &self.dwMode).field("JobId", &self.JobId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
@@ -14553,8 +14553,8 @@ impl ::core::fmt::Debug for DOC_INFO_3A {
         f.debug_struct("DOC_INFO_3A").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_3A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_3A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_3A {
     fn eq(&self, other: &Self) -> bool {
@@ -14586,8 +14586,8 @@ impl ::core::fmt::Debug for DOC_INFO_3W {
         f.debug_struct("DOC_INFO_3W").field("pDocName", &self.pDocName).field("pOutputFile", &self.pOutputFile).field("pDatatype", &self.pDatatype).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DOC_INFO_3W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOC_INFO_3W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DOC_INFO_3W {
     fn eq(&self, other: &Self) -> bool {
@@ -14616,8 +14616,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_1A {
         f.debug_struct("DRIVER_INFO_1A").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -14646,8 +14646,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_1W {
         f.debug_struct("DRIVER_INFO_1W").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -14681,8 +14681,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_2A {
         f.debug_struct("DRIVER_INFO_2A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
@@ -14716,8 +14716,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_2W {
         f.debug_struct("DRIVER_INFO_2W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
@@ -14755,8 +14755,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_3A {
         f.debug_struct("DRIVER_INFO_3A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_3A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_3A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_3A {
     fn eq(&self, other: &Self) -> bool {
@@ -14794,8 +14794,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_3W {
         f.debug_struct("DRIVER_INFO_3W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("pHelpFile", &self.pHelpFile).field("pDependentFiles", &self.pDependentFiles).field("pMonitorName", &self.pMonitorName).field("pDefaultDataType", &self.pDefaultDataType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_3W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_3W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_3W {
     fn eq(&self, other: &Self) -> bool {
@@ -14846,8 +14846,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_4A {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_4A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_4A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_4A {
     fn eq(&self, other: &Self) -> bool {
@@ -14898,8 +14898,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_4W {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_4W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_4W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_4W {
     fn eq(&self, other: &Self) -> bool {
@@ -14936,8 +14936,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_5A {
         f.debug_struct("DRIVER_INFO_5A").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_5A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_5A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_5A {
     fn eq(&self, other: &Self) -> bool {
@@ -14974,8 +14974,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_5W {
         f.debug_struct("DRIVER_INFO_5W").field("cVersion", &self.cVersion).field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDriverPath", &self.pDriverPath).field("pDataFile", &self.pDataFile).field("pConfigFile", &self.pConfigFile).field("dwDriverAttributes", &self.dwDriverAttributes).field("dwConfigVersion", &self.dwConfigVersion).field("dwDriverVersion", &self.dwDriverVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_INFO_5W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_5W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_INFO_5W {
     fn eq(&self, other: &Self) -> bool {
@@ -15043,8 +15043,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_6A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRIVER_INFO_6A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_6A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_6A {
@@ -15115,8 +15115,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_6W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRIVER_INFO_6W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_6W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_6W {
@@ -15203,8 +15203,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_8A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRIVER_INFO_8A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_8A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_8A {
@@ -15315,8 +15315,8 @@ impl ::core::fmt::Debug for DRIVER_INFO_8W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRIVER_INFO_8W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_INFO_8W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVER_INFO_8W {
@@ -15373,8 +15373,8 @@ impl ::core::fmt::Debug for DRIVER_UPGRADE_INFO_1 {
         f.debug_struct("DRIVER_UPGRADE_INFO_1").field("pPrinterName", &self.pPrinterName).field("pOldDriverDirectory", &self.pOldDriverDirectory).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_UPGRADE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_UPGRADE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_UPGRADE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -15429,8 +15429,8 @@ impl ::core::fmt::Debug for DRIVER_UPGRADE_INFO_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRIVER_UPGRADE_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRIVER_UPGRADE_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRIVER_UPGRADE_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -15466,8 +15466,8 @@ impl ::core::fmt::Debug for EXTCHKBOX {
         f.debug_struct("EXTCHKBOX").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("pTitle", &self.pTitle).field("pSeparator", &self.pSeparator).field("pCheckedName", &self.pCheckedName).field("IconID", &self.IconID).field("wReserved", &self.wReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for EXTCHKBOX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTCHKBOX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EXTCHKBOX {
     fn eq(&self, other: &Self) -> bool {
@@ -15501,8 +15501,8 @@ impl ::core::clone::Clone for EXTPUSH {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for EXTPUSH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTPUSH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for EXTPUSH {
@@ -15526,8 +15526,8 @@ impl ::core::clone::Clone for EXTPUSH_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for EXTPUSH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTPUSH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for EXTPUSH_0 {
@@ -15551,8 +15551,8 @@ impl ::core::clone::Clone for EXTPUSH_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for EXTPUSH_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTPUSH_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for EXTPUSH_1 {
@@ -15628,8 +15628,8 @@ impl ::core::fmt::Debug for EXTTEXTMETRIC {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for EXTTEXTMETRIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXTTEXTMETRIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for EXTTEXTMETRIC {
     fn eq(&self, other: &Self) -> bool {
@@ -15691,8 +15691,8 @@ impl ::core::fmt::Debug for FORM_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FORM_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORM_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FORM_INFO_1A {
@@ -15732,8 +15732,8 @@ impl ::core::fmt::Debug for FORM_INFO_1W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FORM_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORM_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FORM_INFO_1W {
@@ -15779,8 +15779,8 @@ impl ::core::fmt::Debug for FORM_INFO_2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FORM_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORM_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FORM_INFO_2A {
@@ -15826,8 +15826,8 @@ impl ::core::fmt::Debug for FORM_INFO_2W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FORM_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FORM_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FORM_INFO_2W {
@@ -15860,8 +15860,8 @@ impl ::core::fmt::Debug for GLYPHRUN {
         f.debug_struct("GLYPHRUN").field("wcLow", &self.wcLow).field("wGlyphCount", &self.wGlyphCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GLYPHRUN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GLYPHRUN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GLYPHRUN {
     fn eq(&self, other: &Self) -> bool {
@@ -15895,8 +15895,8 @@ impl ::core::fmt::Debug for INSERTPSUIPAGE_INFO {
         f.debug_struct("INSERTPSUIPAGE_INFO").field("cbSize", &self.cbSize).field("Type", &self.Type).field("Mode", &self.Mode).field("dwData1", &self.dwData1).field("dwData2", &self.dwData2).field("dwData3", &self.dwData3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INSERTPSUIPAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INSERTPSUIPAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INSERTPSUIPAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15926,8 +15926,8 @@ impl ::core::fmt::Debug for INVOC {
         f.debug_struct("INVOC").field("dwCount", &self.dwCount).field("loOffset", &self.loOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for INVOC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for INVOC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for INVOC {
     fn eq(&self, other: &Self) -> bool {
@@ -15965,8 +15965,8 @@ impl ::core::fmt::Debug for ImgErrorInfo {
         f.debug_struct("ImgErrorInfo").field("description", &self.description).field("guid", &self.guid).field("helpContext", &self.helpContext).field("helpFile", &self.helpFile).field("source", &self.source).field("devDescription", &self.devDescription).field("errorID", &self.errorID).field("cUserParameters", &self.cUserParameters).field("aUserParameters", &self.aUserParameters).field("userFallback", &self.userFallback).field("exceptionID", &self.exceptionID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ImgErrorInfo {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ImgErrorInfo {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ImgErrorInfo {
     fn eq(&self, other: &Self) -> bool {
@@ -16026,8 +16026,8 @@ impl ::core::fmt::Debug for JOB_INFO_1A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOB_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JOB_INFO_1A {
@@ -16090,8 +16090,8 @@ impl ::core::fmt::Debug for JOB_INFO_1W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOB_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JOB_INFO_1W {
@@ -16174,8 +16174,8 @@ impl ::core::fmt::Debug for JOB_INFO_2A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for JOB_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for JOB_INFO_2A {
@@ -16280,8 +16280,8 @@ impl ::core::fmt::Debug for JOB_INFO_2W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for JOB_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for JOB_INFO_2W {
@@ -16337,8 +16337,8 @@ impl ::core::fmt::Debug for JOB_INFO_3 {
         f.debug_struct("JOB_INFO_3").field("JobId", &self.JobId).field("NextJobId", &self.NextJobId).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for JOB_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for JOB_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -16420,8 +16420,8 @@ impl ::core::fmt::Debug for JOB_INFO_4A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for JOB_INFO_4A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_4A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for JOB_INFO_4A {
@@ -16529,8 +16529,8 @@ impl ::core::fmt::Debug for JOB_INFO_4W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for JOB_INFO_4W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOB_INFO_4W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for JOB_INFO_4W {
@@ -16592,8 +16592,8 @@ impl ::core::fmt::Debug for KERNDATA {
     }
 }
 #[cfg(feature = "Win32_Devices_Display")]
-unsafe impl ::windows::core::Abi for KERNDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for KERNDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Devices_Display")]
 impl ::core::cmp::PartialEq for KERNDATA {
@@ -16622,8 +16622,8 @@ impl ::core::clone::Clone for MAPTABLE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MAPTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MAPTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MAPTABLE {
     fn default() -> Self {
@@ -16656,8 +16656,8 @@ impl ::core::fmt::Debug for MESSAGEBOX_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MESSAGEBOX_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MESSAGEBOX_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MESSAGEBOX_PARAMS {
@@ -16723,8 +16723,8 @@ impl ::core::fmt::Debug for MONITOR {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR {
     fn eq(&self, other: &Self) -> bool {
@@ -16799,8 +16799,8 @@ impl ::core::fmt::Debug for MONITOR2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR2 {
     fn eq(&self, other: &Self) -> bool {
@@ -16852,8 +16852,8 @@ impl ::core::fmt::Debug for MONITOREX {
         f.debug_struct("MONITOREX").field("dwMonitorSize", &self.dwMonitorSize).field("Monitor", &self.Monitor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOREX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOREX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOREX {
     fn eq(&self, other: &Self) -> bool {
@@ -16892,8 +16892,8 @@ impl ::core::fmt::Debug for MONITORINIT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-unsafe impl ::windows::core::Abi for MONITORINIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORINIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::cmp::PartialEq for MONITORINIT {
@@ -16935,8 +16935,8 @@ impl ::core::fmt::Debug for MONITORREG {
         f.debug_struct("MONITORREG").field("cbSize", &self.cbSize).field("fpCreateKey", &self.fpCreateKey).field("fpOpenKey", &self.fpOpenKey).field("fpCloseKey", &self.fpCloseKey).field("fpDeleteKey", &self.fpDeleteKey).field("fpEnumKey", &self.fpEnumKey).field("fpQueryInfoKey", &self.fpQueryInfoKey).field("fpSetValue", &self.fpSetValue).field("fpDeleteValue", &self.fpDeleteValue).field("fpEnumValue", &self.fpEnumValue).field("fpQueryValue", &self.fpQueryValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITORREG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORREG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITORREG {
     fn eq(&self, other: &Self) -> bool {
@@ -16968,8 +16968,8 @@ impl ::core::fmt::Debug for MONITORUI {
         f.debug_struct("MONITORUI").field("dwMonitorUISize", &self.dwMonitorUISize).field("pfnAddPortUI", &self.pfnAddPortUI).field("pfnConfigurePortUI", &self.pfnConfigurePortUI).field("pfnDeletePortUI", &self.pfnDeletePortUI).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITORUI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITORUI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITORUI {
     fn eq(&self, other: &Self) -> bool {
@@ -16998,8 +16998,8 @@ impl ::core::fmt::Debug for MONITOR_INFO_1A {
         f.debug_struct("MONITOR_INFO_1A").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -17028,8 +17028,8 @@ impl ::core::fmt::Debug for MONITOR_INFO_1W {
         f.debug_struct("MONITOR_INFO_1W").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -17060,8 +17060,8 @@ impl ::core::fmt::Debug for MONITOR_INFO_2A {
         f.debug_struct("MONITOR_INFO_2A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
@@ -17092,8 +17092,8 @@ impl ::core::fmt::Debug for MONITOR_INFO_2W {
         f.debug_struct("MONITOR_INFO_2W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MONITOR_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MONITOR_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MONITOR_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
@@ -17119,8 +17119,8 @@ impl ::core::clone::Clone for MXDC_ESCAPE_HEADER_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_ESCAPE_HEADER_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_ESCAPE_HEADER_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_ESCAPE_HEADER_T {
     fn default() -> Self {
@@ -17139,8 +17139,8 @@ impl ::core::clone::Clone for MXDC_GET_FILENAME_DATA_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_GET_FILENAME_DATA_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_GET_FILENAME_DATA_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_GET_FILENAME_DATA_T {
     fn default() -> Self {
@@ -17159,8 +17159,8 @@ impl ::core::clone::Clone for MXDC_PRINTTICKET_DATA_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_PRINTTICKET_DATA_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_PRINTTICKET_DATA_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_PRINTTICKET_DATA_T {
     fn default() -> Self {
@@ -17179,8 +17179,8 @@ impl ::core::clone::Clone for MXDC_PRINTTICKET_ESCAPE_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_PRINTTICKET_ESCAPE_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_PRINTTICKET_ESCAPE_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_PRINTTICKET_ESCAPE_T {
     fn default() -> Self {
@@ -17199,8 +17199,8 @@ impl ::core::clone::Clone for MXDC_S0PAGE_DATA_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_S0PAGE_DATA_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_S0PAGE_DATA_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_S0PAGE_DATA_T {
     fn default() -> Self {
@@ -17219,8 +17219,8 @@ impl ::core::clone::Clone for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_S0PAGE_PASSTHROUGH_ESCAPE_T {
     fn default() -> Self {
@@ -17239,8 +17239,8 @@ impl ::core::clone::Clone for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_S0PAGE_RESOURCE_ESCAPE_T {
     fn default() -> Self {
@@ -17262,8 +17262,8 @@ impl ::core::clone::Clone for MXDC_XPS_S0PAGE_RESOURCE_T {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MXDC_XPS_S0PAGE_RESOURCE_T {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MXDC_XPS_S0PAGE_RESOURCE_T {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MXDC_XPS_S0PAGE_RESOURCE_T {
     fn default() -> Self {
@@ -17294,8 +17294,8 @@ impl ::core::fmt::Debug for NOTIFICATION_CONFIG_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NOTIFICATION_CONFIG_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFICATION_CONFIG_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NOTIFICATION_CONFIG_1 {
@@ -17353,8 +17353,8 @@ impl ::core::fmt::Debug for OEMCUIPPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OEMCUIPPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMCUIPPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OEMCUIPPARAM {
@@ -17391,8 +17391,8 @@ impl ::core::fmt::Debug for OEMDMPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for OEMDMPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMDMPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for OEMDMPARAM {
@@ -17434,8 +17434,8 @@ impl ::core::fmt::Debug for OEMFONTINSTPARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OEMFONTINSTPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMFONTINSTPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OEMFONTINSTPARAM {
@@ -17473,8 +17473,8 @@ impl ::core::fmt::Debug for OEMUIOBJ {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OEMUIOBJ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMUIOBJ {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OEMUIOBJ {
@@ -17512,8 +17512,8 @@ impl ::core::fmt::Debug for OEMUIPROCS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OEMUIPROCS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMUIPROCS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OEMUIPROCS {
@@ -17552,8 +17552,8 @@ impl ::core::fmt::Debug for OEMUIPSPARAM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for OEMUIPSPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEMUIPSPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for OEMUIPSPARAM {
@@ -17587,8 +17587,8 @@ impl ::core::fmt::Debug for OEM_DMEXTRAHEADER {
         f.debug_struct("OEM_DMEXTRAHEADER").field("dwSize", &self.dwSize).field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OEM_DMEXTRAHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OEM_DMEXTRAHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OEM_DMEXTRAHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -17626,8 +17626,8 @@ impl ::core::fmt::Debug for OIEXT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OIEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OIEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OIEXT {
@@ -17669,8 +17669,8 @@ impl ::core::fmt::Debug for OPTCOMBO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPTCOMBO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTCOMBO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPTCOMBO {
@@ -17715,8 +17715,8 @@ impl ::core::clone::Clone for OPTITEM {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OPTITEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTITEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPTITEM {
@@ -17740,8 +17740,8 @@ impl ::core::clone::Clone for OPTITEM_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OPTITEM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTITEM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPTITEM_0 {
@@ -17765,8 +17765,8 @@ impl ::core::clone::Clone for OPTITEM_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for OPTITEM_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTITEM_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for OPTITEM_1 {
@@ -17801,8 +17801,8 @@ impl ::core::fmt::Debug for OPTPARAM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPTPARAM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTPARAM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPTPARAM {
@@ -17847,8 +17847,8 @@ impl ::core::fmt::Debug for OPTTYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPTTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPTTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPTTYPE {
@@ -17908,8 +17908,8 @@ impl ::core::fmt::Debug for PORT_DATA_1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_DATA_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_DATA_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_DATA_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -17966,8 +17966,8 @@ impl ::core::fmt::Debug for PORT_DATA_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_DATA_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_DATA_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_DATA_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -17998,8 +17998,8 @@ impl ::core::fmt::Debug for PORT_DATA_LIST_1 {
         f.debug_struct("PORT_DATA_LIST_1").field("dwVersion", &self.dwVersion).field("cPortData", &self.cPortData).field("pPortData", &self.pPortData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_DATA_LIST_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_DATA_LIST_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_DATA_LIST_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -18028,8 +18028,8 @@ impl ::core::fmt::Debug for PORT_INFO_1A {
         f.debug_struct("PORT_INFO_1A").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -18058,8 +18058,8 @@ impl ::core::fmt::Debug for PORT_INFO_1W {
         f.debug_struct("PORT_INFO_1W").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -18092,8 +18092,8 @@ impl ::core::fmt::Debug for PORT_INFO_2A {
         f.debug_struct("PORT_INFO_2A").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
@@ -18126,8 +18126,8 @@ impl ::core::fmt::Debug for PORT_INFO_2W {
         f.debug_struct("PORT_INFO_2W").field("pPortName", &self.pPortName).field("pMonitorName", &self.pMonitorName).field("pDescription", &self.pDescription).field("fPortType", &self.fPortType).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
@@ -18158,8 +18158,8 @@ impl ::core::fmt::Debug for PORT_INFO_3A {
         f.debug_struct("PORT_INFO_3A").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_3A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_3A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_3A {
     fn eq(&self, other: &Self) -> bool {
@@ -18190,8 +18190,8 @@ impl ::core::fmt::Debug for PORT_INFO_3W {
         f.debug_struct("PORT_INFO_3W").field("dwStatus", &self.dwStatus).field("pszStatus", &self.pszStatus).field("dwSeverity", &self.dwSeverity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PORT_INFO_3W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PORT_INFO_3W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PORT_INFO_3W {
     fn eq(&self, other: &Self) -> bool {
@@ -18221,8 +18221,8 @@ impl ::core::fmt::Debug for PRINTER_CONNECTION_INFO_1A {
         f.debug_struct("PRINTER_CONNECTION_INFO_1A").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_CONNECTION_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_CONNECTION_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_CONNECTION_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -18252,8 +18252,8 @@ impl ::core::fmt::Debug for PRINTER_CONNECTION_INFO_1W {
         f.debug_struct("PRINTER_CONNECTION_INFO_1W").field("dwFlags", &self.dwFlags).field("pszDriverName", &self.pszDriverName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_CONNECTION_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_CONNECTION_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_CONNECTION_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -18289,8 +18289,8 @@ impl ::core::fmt::Debug for PRINTER_DEFAULTSA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_DEFAULTSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_DEFAULTSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_DEFAULTSA {
@@ -18329,8 +18329,8 @@ impl ::core::fmt::Debug for PRINTER_DEFAULTSW {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_DEFAULTSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_DEFAULTSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_DEFAULTSW {
@@ -18366,8 +18366,8 @@ impl ::core::fmt::Debug for PRINTER_ENUM_VALUESA {
         f.debug_struct("PRINTER_ENUM_VALUESA").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_ENUM_VALUESA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_ENUM_VALUESA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_ENUM_VALUESA {
     fn eq(&self, other: &Self) -> bool {
@@ -18400,8 +18400,8 @@ impl ::core::fmt::Debug for PRINTER_ENUM_VALUESW {
         f.debug_struct("PRINTER_ENUM_VALUESW").field("pValueName", &self.pValueName).field("cbValueName", &self.cbValueName).field("dwType", &self.dwType).field("pData", &self.pData).field("cbData", &self.cbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_ENUM_VALUESW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_ENUM_VALUESW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_ENUM_VALUESW {
     fn eq(&self, other: &Self) -> bool {
@@ -18432,8 +18432,8 @@ impl ::core::fmt::Debug for PRINTER_EVENT_ATTRIBUTES_INFO {
         f.debug_struct("PRINTER_EVENT_ATTRIBUTES_INFO").field("cbSize", &self.cbSize).field("dwOldAttributes", &self.dwOldAttributes).field("dwNewAttributes", &self.dwNewAttributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_EVENT_ATTRIBUTES_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_EVENT_ATTRIBUTES_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_EVENT_ATTRIBUTES_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -18465,8 +18465,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_1A {
         f.debug_struct("PRINTER_INFO_1A").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -18498,8 +18498,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_1W {
         f.debug_struct("PRINTER_INFO_1W").field("Flags", &self.Flags).field("pDescription", &self.pDescription).field("pName", &self.pName).field("pComment", &self.pComment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -18575,8 +18575,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_2A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_2A {
@@ -18675,8 +18675,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_2W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_2W {
@@ -18733,8 +18733,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_3 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for PRINTER_INFO_3 {
@@ -18768,8 +18768,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_4A {
         f.debug_struct("PRINTER_INFO_4A").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_4A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_4A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_4A {
     fn eq(&self, other: &Self) -> bool {
@@ -18800,8 +18800,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_4W {
         f.debug_struct("PRINTER_INFO_4W").field("pPrinterName", &self.pPrinterName).field("pServerName", &self.pServerName).field("Attributes", &self.Attributes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_4W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_4W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_4W {
     fn eq(&self, other: &Self) -> bool {
@@ -18834,8 +18834,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_5A {
         f.debug_struct("PRINTER_INFO_5A").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_5A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_5A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_5A {
     fn eq(&self, other: &Self) -> bool {
@@ -18868,8 +18868,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_5W {
         f.debug_struct("PRINTER_INFO_5W").field("pPrinterName", &self.pPrinterName).field("pPortName", &self.pPortName).field("Attributes", &self.Attributes).field("DeviceNotSelectedTimeout", &self.DeviceNotSelectedTimeout).field("TransmissionRetryTimeout", &self.TransmissionRetryTimeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_5W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_5W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_5W {
     fn eq(&self, other: &Self) -> bool {
@@ -18898,8 +18898,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_6 {
         f.debug_struct("PRINTER_INFO_6").field("dwStatus", &self.dwStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_6 {
     fn eq(&self, other: &Self) -> bool {
@@ -18929,8 +18929,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_7A {
         f.debug_struct("PRINTER_INFO_7A").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_7A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_7A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_7A {
     fn eq(&self, other: &Self) -> bool {
@@ -18960,8 +18960,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_7W {
         f.debug_struct("PRINTER_INFO_7W").field("pszObjectGUID", &self.pszObjectGUID).field("dwAction", &self.dwAction).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_INFO_7W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_7W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_INFO_7W {
     fn eq(&self, other: &Self) -> bool {
@@ -18995,8 +18995,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_8A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_8A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_8A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_8A {
@@ -19033,8 +19033,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_8W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_8W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_8W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_8W {
@@ -19071,8 +19071,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_9A {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_9A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_9A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_9A {
@@ -19109,8 +19109,8 @@ impl ::core::fmt::Debug for PRINTER_INFO_9W {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTER_INFO_9W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_INFO_9W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTER_INFO_9W {
@@ -19140,8 +19140,8 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRINTER_NOTIFY_INFO {
     fn default() -> Self {
@@ -19163,8 +19163,8 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_INFO_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRINTER_NOTIFY_INFO_DATA {
     fn default() -> Self {
@@ -19183,8 +19183,8 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRINTER_NOTIFY_INFO_DATA_0 {
     fn default() -> Self {
@@ -19208,8 +19208,8 @@ impl ::core::fmt::Debug for PRINTER_NOTIFY_INFO_DATA_0_0 {
         f.debug_struct("PRINTER_NOTIFY_INFO_DATA_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INFO_DATA_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_NOTIFY_INFO_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -19240,8 +19240,8 @@ impl ::core::fmt::Debug for PRINTER_NOTIFY_INIT {
         f.debug_struct("PRINTER_NOTIFY_INIT").field("Size", &self.Size).field("Reserved", &self.Reserved).field("PollTime", &self.PollTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_INIT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_INIT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_NOTIFY_INIT {
     fn eq(&self, other: &Self) -> bool {
@@ -19273,8 +19273,8 @@ impl ::core::fmt::Debug for PRINTER_NOTIFY_OPTIONS {
         f.debug_struct("PRINTER_NOTIFY_OPTIONS").field("Version", &self.Version).field("Flags", &self.Flags).field("Count", &self.Count).field("pTypes", &self.pTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_NOTIFY_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -19308,8 +19308,8 @@ impl ::core::fmt::Debug for PRINTER_NOTIFY_OPTIONS_TYPE {
         f.debug_struct("PRINTER_NOTIFY_OPTIONS_TYPE").field("Type", &self.Type).field("Reserved0", &self.Reserved0).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Count", &self.Count).field("pFields", &self.pFields).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_NOTIFY_OPTIONS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_NOTIFY_OPTIONS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_NOTIFY_OPTIONS_TYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -19339,8 +19339,8 @@ impl ::core::fmt::Debug for PRINTER_OPTIONSA {
         f.debug_struct("PRINTER_OPTIONSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_OPTIONSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_OPTIONSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_OPTIONSA {
     fn eq(&self, other: &Self) -> bool {
@@ -19370,8 +19370,8 @@ impl ::core::fmt::Debug for PRINTER_OPTIONSW {
         f.debug_struct("PRINTER_OPTIONSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTER_OPTIONSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTER_OPTIONSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTER_OPTIONSW {
     fn eq(&self, other: &Self) -> bool {
@@ -19523,8 +19523,8 @@ impl ::core::fmt::Debug for PRINTIFI32 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTIFI32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTIFI32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTIFI32 {
@@ -19625,8 +19625,8 @@ impl ::core::fmt::Debug for PRINTPROCESSOROPENDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for PRINTPROCESSOROPENDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROCESSOROPENDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTPROCESSOROPENDATA {
@@ -19661,8 +19661,8 @@ impl ::core::fmt::Debug for PRINTPROCESSOR_CAPS_1 {
         f.debug_struct("PRINTPROCESSOR_CAPS_1").field("dwLevel", &self.dwLevel).field("dwNupOptions", &self.dwNupOptions).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTPROCESSOR_CAPS_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROCESSOR_CAPS_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTPROCESSOR_CAPS_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -19709,8 +19709,8 @@ impl ::core::fmt::Debug for PRINTPROCESSOR_CAPS_2 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTPROCESSOR_CAPS_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROCESSOR_CAPS_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTPROCESSOR_CAPS_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -19739,8 +19739,8 @@ impl ::core::fmt::Debug for PRINTPROCESSOR_INFO_1A {
         f.debug_struct("PRINTPROCESSOR_INFO_1A").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTPROCESSOR_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROCESSOR_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTPROCESSOR_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -19769,8 +19769,8 @@ impl ::core::fmt::Debug for PRINTPROCESSOR_INFO_1W {
         f.debug_struct("PRINTPROCESSOR_INFO_1W").field("pName", &self.pName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTPROCESSOR_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROCESSOR_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTPROCESSOR_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -20011,8 +20011,8 @@ impl ::core::fmt::Debug for PRINTPROVIDOR {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINTPROVIDOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINTPROVIDOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINTPROVIDOR {
     fn eq(&self, other: &Self) -> bool {
@@ -20147,8 +20147,8 @@ impl ::core::fmt::Debug for PRINT_EXECUTION_DATA {
         f.debug_struct("PRINT_EXECUTION_DATA").field("context", &self.context).field("clientAppPID", &self.clientAppPID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINT_EXECUTION_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINT_EXECUTION_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINT_EXECUTION_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -20178,8 +20178,8 @@ impl ::core::fmt::Debug for PRINT_FEATURE_OPTION {
         f.debug_struct("PRINT_FEATURE_OPTION").field("pszFeature", &self.pszFeature).field("pszOption", &self.pszOption).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRINT_FEATURE_OPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRINT_FEATURE_OPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRINT_FEATURE_OPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -20217,8 +20217,8 @@ impl ::core::fmt::Debug for PROPSHEETUI_GETICON_INFO {
     }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for PROPSHEETUI_GETICON_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSHEETUI_GETICON_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for PROPSHEETUI_GETICON_INFO {
@@ -20263,8 +20263,8 @@ impl ::core::fmt::Debug for PROPSHEETUI_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROPSHEETUI_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSHEETUI_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROPSHEETUI_INFO {
@@ -20292,8 +20292,8 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for PROPSHEETUI_INFO_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSHEETUI_INFO_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETUI_INFO_HEADER {
@@ -20317,8 +20317,8 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for PROPSHEETUI_INFO_HEADER_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROPSHEETUI_INFO_HEADER_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::default::Default for PROPSHEETUI_INFO_HEADER_0 {
@@ -20344,8 +20344,8 @@ impl ::core::fmt::Debug for PROVIDOR_INFO_1A {
         f.debug_struct("PROVIDOR_INFO_1A").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDOR_INFO_1A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDOR_INFO_1A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDOR_INFO_1A {
     fn eq(&self, other: &Self) -> bool {
@@ -20376,8 +20376,8 @@ impl ::core::fmt::Debug for PROVIDOR_INFO_1W {
         f.debug_struct("PROVIDOR_INFO_1W").field("pName", &self.pName).field("pEnvironment", &self.pEnvironment).field("pDLLName", &self.pDLLName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDOR_INFO_1W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDOR_INFO_1W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDOR_INFO_1W {
     fn eq(&self, other: &Self) -> bool {
@@ -20406,8 +20406,8 @@ impl ::core::fmt::Debug for PROVIDOR_INFO_2A {
         f.debug_struct("PROVIDOR_INFO_2A").field("pOrder", &self.pOrder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDOR_INFO_2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDOR_INFO_2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDOR_INFO_2A {
     fn eq(&self, other: &Self) -> bool {
@@ -20436,8 +20436,8 @@ impl ::core::fmt::Debug for PROVIDOR_INFO_2W {
         f.debug_struct("PROVIDOR_INFO_2W").field("pOrder", &self.pOrder).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROVIDOR_INFO_2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROVIDOR_INFO_2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROVIDOR_INFO_2W {
     fn eq(&self, other: &Self) -> bool {
@@ -20467,8 +20467,8 @@ impl ::core::fmt::Debug for PSCRIPT5_PRIVATE_DEVMODE {
         f.debug_struct("PSCRIPT5_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSCRIPT5_PRIVATE_DEVMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSCRIPT5_PRIVATE_DEVMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSCRIPT5_PRIVATE_DEVMODE {
     fn eq(&self, other: &Self) -> bool {
@@ -20506,8 +20506,8 @@ impl ::core::fmt::Debug for PSPINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PSPINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSPINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PSPINFO {
@@ -20533,8 +20533,8 @@ impl ::core::fmt::Debug for PUBLISHERINFO {
         f.debug_struct("PUBLISHERINFO").field("dwMode", &self.dwMode).field("wMinoutlinePPEM", &self.wMinoutlinePPEM).field("wMaxbitmapPPEM", &self.wMaxbitmapPPEM).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PUBLISHERINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PUBLISHERINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PUBLISHERINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -20559,8 +20559,8 @@ impl ::core::clone::Clone for PrintNamedProperty {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PrintNamedProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintNamedProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PrintNamedProperty {
     fn default() -> Self {
@@ -20584,8 +20584,8 @@ impl ::core::fmt::Debug for PrintPropertiesCollection {
         f.debug_struct("PrintPropertiesCollection").field("numberOfProperties", &self.numberOfProperties).field("propertiesCollection", &self.propertiesCollection).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrintPropertiesCollection {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintPropertiesCollection {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrintPropertiesCollection {
     fn eq(&self, other: &Self) -> bool {
@@ -20610,8 +20610,8 @@ impl ::core::clone::Clone for PrintPropertyValue {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PrintPropertyValue {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintPropertyValue {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PrintPropertyValue {
     fn default() -> Self {
@@ -20633,8 +20633,8 @@ impl ::core::clone::Clone for PrintPropertyValue_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PrintPropertyValue_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintPropertyValue_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PrintPropertyValue_0 {
     fn default() -> Self {
@@ -20658,8 +20658,8 @@ impl ::core::fmt::Debug for PrintPropertyValue_0_0 {
         f.debug_struct("PrintPropertyValue_0_0").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PrintPropertyValue_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PrintPropertyValue_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PrintPropertyValue_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -20696,8 +20696,8 @@ impl ::core::fmt::Debug for SETRESULT_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SETRESULT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SETRESULT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SETRESULT_INFO {
@@ -20735,8 +20735,8 @@ impl ::core::fmt::Debug for SHOWUIPARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHOWUIPARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SHOWUIPARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SHOWUIPARAMS {
@@ -20772,8 +20772,8 @@ impl ::core::fmt::Debug for SIMULATE_CAPS_1 {
         f.debug_struct("SIMULATE_CAPS_1").field("dwLevel", &self.dwLevel).field("dwPageOrderFlags", &self.dwPageOrderFlags).field("dwNumberOfCopies", &self.dwNumberOfCopies).field("dwCollate", &self.dwCollate).field("dwNupOptions", &self.dwNupOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SIMULATE_CAPS_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIMULATE_CAPS_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SIMULATE_CAPS_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -20808,8 +20808,8 @@ impl ::core::fmt::Debug for SPLCLIENT_INFO_1 {
         f.debug_struct("SPLCLIENT_INFO_1").field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPLCLIENT_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPLCLIENT_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -20838,8 +20838,8 @@ impl ::core::fmt::Debug for SPLCLIENT_INFO_2_W2K {
         f.debug_struct("SPLCLIENT_INFO_2_W2K").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_W2K {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPLCLIENT_INFO_2_W2K {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_W2K {
     fn eq(&self, other: &Self) -> bool {
@@ -20873,8 +20873,8 @@ impl ::core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_WINXP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPLCLIENT_INFO_2_WINXP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_WINXP {
@@ -20911,8 +20911,8 @@ impl ::core::fmt::Debug for SPLCLIENT_INFO_2_WINXP {
     }
 }
 #[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_2_WINXP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPLCLIENT_INFO_2_WINXP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for SPLCLIENT_INFO_2_WINXP {
@@ -20953,8 +20953,8 @@ impl ::core::fmt::Debug for SPLCLIENT_INFO_3_VISTA {
         f.debug_struct("SPLCLIENT_INFO_3_VISTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("dwSize", &self.dwSize).field("pMachineName", &self.pMachineName).field("pUserName", &self.pUserName).field("dwBuildNum", &self.dwBuildNum).field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).field("wProcessorArchitecture", &self.wProcessorArchitecture).field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SPLCLIENT_INFO_3_VISTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SPLCLIENT_INFO_3_VISTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SPLCLIENT_INFO_3_VISTA {
     fn eq(&self, other: &Self) -> bool {
@@ -20980,8 +20980,8 @@ impl ::core::clone::Clone for TRANSDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRANSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRANSDATA {
     fn default() -> Self {
@@ -21001,8 +21001,8 @@ impl ::core::clone::Clone for TRANSDATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TRANSDATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSDATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TRANSDATA_0 {
     fn default() -> Self {
@@ -21033,8 +21033,8 @@ impl ::core::fmt::Debug for UFF_FILEHEADER {
         f.debug_struct("UFF_FILEHEADER").field("dwSignature", &self.dwSignature).field("dwVersion", &self.dwVersion).field("dwSize", &self.dwSize).field("nFonts", &self.nFonts).field("nGlyphSets", &self.nGlyphSets).field("nVarData", &self.nVarData).field("offFontDir", &self.offFontDir).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UFF_FILEHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UFF_FILEHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UFF_FILEHEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -21073,8 +21073,8 @@ impl ::core::fmt::Debug for UFF_FONTDIRECTORY {
         f.debug_struct("UFF_FONTDIRECTORY").field("dwSignature", &self.dwSignature).field("wSize", &self.wSize).field("wFontID", &self.wFontID).field("sGlyphID", &self.sGlyphID).field("wFlags", &self.wFlags).field("dwInstallerSig", &self.dwInstallerSig).field("offFontName", &self.offFontName).field("offCartridgeName", &self.offCartridgeName).field("offFontData", &self.offFontData).field("offGlyphData", &self.offGlyphData).field("offVarData", &self.offVarData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UFF_FONTDIRECTORY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UFF_FONTDIRECTORY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UFF_FONTDIRECTORY {
     fn eq(&self, other: &Self) -> bool {
@@ -21115,8 +21115,8 @@ impl ::core::fmt::Debug for UNIDRVINFO {
         f.debug_struct("UNIDRVINFO").field("dwSize", &self.dwSize).field("flGenFlags", &self.flGenFlags).field("wType", &self.wType).field("fCaps", &self.fCaps).field("wXRes", &self.wXRes).field("wYRes", &self.wYRes).field("sYAdjust", &self.sYAdjust).field("sYMoved", &self.sYMoved).field("wPrivateData", &self.wPrivateData).field("sShift", &self.sShift).field("SelectFont", &self.SelectFont).field("UnSelectFont", &self.UnSelectFont).field("wReserved", &self.wReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNIDRVINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNIDRVINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIDRVINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21146,8 +21146,8 @@ impl ::core::fmt::Debug for UNIDRV_PRIVATE_DEVMODE {
         f.debug_struct("UNIDRV_PRIVATE_DEVMODE").field("wReserved", &self.wReserved).field("wSize", &self.wSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNIDRV_PRIVATE_DEVMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNIDRV_PRIVATE_DEVMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIDRV_PRIVATE_DEVMODE {
     fn eq(&self, other: &Self) -> bool {
@@ -21185,8 +21185,8 @@ impl ::core::fmt::Debug for UNIFM_HDR {
         f.debug_struct("UNIFM_HDR").field("dwSize", &self.dwSize).field("dwVersion", &self.dwVersion).field("ulDefaultCodepage", &self.ulDefaultCodepage).field("lGlyphSetDataRCID", &self.lGlyphSetDataRCID).field("loUnidrvInfo", &self.loUnidrvInfo).field("loIFIMetrics", &self.loIFIMetrics).field("loExtTextMetric", &self.loExtTextMetric).field("loWidthTable", &self.loWidthTable).field("loKernPair", &self.loKernPair).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNIFM_HDR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNIFM_HDR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIFM_HDR {
     fn eq(&self, other: &Self) -> bool {
@@ -21217,8 +21217,8 @@ impl ::core::fmt::Debug for UNI_CODEPAGEINFO {
         f.debug_struct("UNI_CODEPAGEINFO").field("dwCodePage", &self.dwCodePage).field("SelectSymbolSet", &self.SelectSymbolSet).field("UnSelectSymbolSet", &self.UnSelectSymbolSet).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNI_CODEPAGEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNI_CODEPAGEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNI_CODEPAGEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -21269,8 +21269,8 @@ impl ::core::fmt::Debug for UNI_GLYPHSETDATA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNI_GLYPHSETDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNI_GLYPHSETDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNI_GLYPHSETDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -21302,8 +21302,8 @@ impl ::core::fmt::Debug for USERDATA {
         f.debug_struct("USERDATA").field("dwSize", &self.dwSize).field("dwItemID", &self.dwItemID).field("pKeyWordName", &self.pKeyWordName).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for USERDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for USERDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for USERDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -21334,8 +21334,8 @@ impl ::core::fmt::Debug for WIDTHRUN {
         f.debug_struct("WIDTHRUN").field("wStartGlyph", &self.wStartGlyph).field("wGlyphCount", &self.wGlyphCount).field("loCharWidthOffset", &self.loCharWidthOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIDTHRUN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIDTHRUN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIDTHRUN {
     fn eq(&self, other: &Self) -> bool {
@@ -21366,8 +21366,8 @@ impl ::core::fmt::Debug for WIDTHTABLE {
         f.debug_struct("WIDTHTABLE").field("dwSize", &self.dwSize).field("dwRunNum", &self.dwRunNum).field("WidthRun", &self.WidthRun).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WIDTHTABLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WIDTHTABLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WIDTHTABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -21396,8 +21396,8 @@ impl ::core::fmt::Debug for _SPLCLIENT_INFO_2_V3 {
         f.debug_struct("_SPLCLIENT_INFO_2_V3").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
-unsafe impl ::windows::core::Abi for _SPLCLIENT_INFO_2_V3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for _SPLCLIENT_INFO_2_V3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for _SPLCLIENT_INFO_2_V3 {
     fn eq(&self, other: &Self) -> bool {

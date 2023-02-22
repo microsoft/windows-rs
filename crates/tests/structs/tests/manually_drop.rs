@@ -51,7 +51,6 @@ fn test() -> Result<()> {
             let a: ITest = Test::new().into();
             let m = ManuallyDrop::<ITest>::new(&a);
             assert_eq!(a.counter(), 1);
-            assert_eq!(a.abi(), m.abi());
             let r: Option<&ITest> = m.as_ref();
             assert_eq!(r, Some(&a));
             assert_eq!(m.unwrap(), &a);

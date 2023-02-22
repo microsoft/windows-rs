@@ -151,8 +151,8 @@ where
 #[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::core::Result<IAVIFile> {
     ::windows::core::link ! ( "avifil32.dll""system" fn AVIGetFromClipboard ( lppf : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    AVIGetFromClipboard(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IAVIFile>();
+    AVIGetFromClipboard(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -177,8 +177,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     ::windows::core::link ! ( "avifil32.dll""system" fn AVIMakeStreamFromClipboard ( cfformat : u32 , hglobal : super::super::Foundation:: HANDLE , ppstream : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    AVIMakeStreamFromClipboard(cfformat, hglobal.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IAVIStream>();
+    AVIMakeStreamFromClipboard(cfformat, hglobal.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -624,8 +624,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<IAVIStream>>,
 {
     ::windows::core::link ! ( "avifil32.dll""system" fn EditStreamClone ( pavi : * mut::core::ffi::c_void , ppresult : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    EditStreamClone(pavi.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IAVIStream>();
+    EditStreamClone(pavi.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[inline]
@@ -1487,8 +1487,8 @@ impl IAVIEditStream {
         (::windows::core::Vtable::vtable(self).Paste)(::windows::core::Vtable::as_raw(self), plpos, pllength, pstream.into().abi(), lstart, lend).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IAVIStream> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IAVIStream>();
+        (::windows::core::Vtable::vtable(self).Clone)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1497,11 +1497,6 @@ impl IAVIEditStream {
     }
 }
 ::windows::core::interface_hierarchy!(IAVIEditStream, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAVIEditStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAVIEditStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1515,6 +1510,11 @@ impl ::core::fmt::Debug for IAVIEditStream {
 }
 unsafe impl ::windows::core::Vtable for IAVIEditStream {
     type Vtable = IAVIEditStream_Vtbl;
+}
+impl ::core::clone::Clone for IAVIEditStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAVIEditStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
@@ -1561,11 +1561,6 @@ impl IAVIFile {
     }
 }
 ::windows::core::interface_hierarchy!(IAVIFile, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAVIFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAVIFile {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1579,6 +1574,11 @@ impl ::core::fmt::Debug for IAVIFile {
 }
 unsafe impl ::windows::core::Vtable for IAVIFile {
     type Vtable = IAVIFile_Vtbl;
+}
+impl ::core::clone::Clone for IAVIFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAVIFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
@@ -1607,8 +1607,8 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+        (::windows::core::Vtable::vtable(self).base__.base__.GetClassID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1643,8 +1643,8 @@ impl IAVIPersistFile {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetCurFile)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::PWSTR>();
+        (::windows::core::Vtable::vtable(self).base__.GetCurFile)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Reserved1)(::windows::core::Vtable::as_raw(self)).ok()
@@ -1652,12 +1652,6 @@ impl IAVIPersistFile {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IAVIPersistFile, ::windows::core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistFile);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAVIPersistFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IAVIPersistFile {
     fn eq(&self, other: &Self) -> bool {
@@ -1675,6 +1669,12 @@ impl ::core::fmt::Debug for IAVIPersistFile {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IAVIPersistFile {
     type Vtable = IAVIPersistFile_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IAVIPersistFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IAVIPersistFile {
@@ -1736,11 +1736,6 @@ impl IAVIStream {
     }
 }
 ::windows::core::interface_hierarchy!(IAVIStream, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAVIStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAVIStream {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1754,6 +1749,11 @@ impl ::core::fmt::Debug for IAVIStream {
 }
 unsafe impl ::windows::core::Vtable for IAVIStream {
     type Vtable = IAVIStream_Vtbl;
+}
+impl ::core::clone::Clone for IAVIStream {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAVIStream {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
@@ -1795,11 +1795,6 @@ impl IAVIStreaming {
     }
 }
 ::windows::core::interface_hierarchy!(IAVIStreaming, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IAVIStreaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IAVIStreaming {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1813,6 +1808,11 @@ impl ::core::fmt::Debug for IAVIStreaming {
 }
 unsafe impl ::windows::core::Vtable for IAVIStreaming {
     type Vtable = IAVIStreaming_Vtbl;
+}
+impl ::core::clone::Clone for IAVIStreaming {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IAVIStreaming {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
@@ -1844,11 +1844,6 @@ impl IGetFrame {
     }
 }
 ::windows::core::interface_hierarchy!(IGetFrame, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGetFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IGetFrame {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1862,6 +1857,11 @@ impl ::core::fmt::Debug for IGetFrame {
 }
 unsafe impl ::windows::core::Vtable for IGetFrame {
     type Vtable = IGetFrame_Vtbl;
+}
+impl ::core::clone::Clone for IGetFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IGetFrame {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);
@@ -11188,8 +11188,8 @@ impl ::core::clone::Clone for ADPCMCOEFSET {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for ADPCMCOEFSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADPCMCOEFSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for ADPCMCOEFSET {
     fn default() -> Self {
@@ -11212,8 +11212,8 @@ impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ADPCMEWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADPCMEWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMEWAVEFORMAT {
@@ -11239,8 +11239,8 @@ impl ::core::clone::Clone for ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ADPCMWAVEFORMAT {
@@ -11263,8 +11263,8 @@ impl ::core::clone::Clone for APTXWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for APTXWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for APTXWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for APTXWAVEFORMAT {
@@ -11287,8 +11287,8 @@ impl ::core::clone::Clone for AUDIOFILE_AF10WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for AUDIOFILE_AF10WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF10WAVEFORMAT {
@@ -11311,8 +11311,8 @@ impl ::core::clone::Clone for AUDIOFILE_AF36WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for AUDIOFILE_AF36WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for AUDIOFILE_AF36WAVEFORMAT {
@@ -11346,8 +11346,8 @@ impl ::core::fmt::Debug for AVICOMPRESSOPTIONS {
         f.debug_struct("AVICOMPRESSOPTIONS").field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwKeyFrameEvery", &self.dwKeyFrameEvery).field("dwQuality", &self.dwQuality).field("dwBytesPerSecond", &self.dwBytesPerSecond).field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("cbFormat", &self.cbFormat).field("lpParms", &self.lpParms).field("cbParms", &self.cbParms).field("dwInterleaveEvery", &self.dwInterleaveEvery).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AVICOMPRESSOPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVICOMPRESSOPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AVICOMPRESSOPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -11405,8 +11405,8 @@ impl ::core::fmt::Debug for AVIFILEINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVIFILEINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVIFILEINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVIFILEINFOA {
@@ -11462,8 +11462,8 @@ impl ::core::fmt::Debug for AVIFILEINFOW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for AVIFILEINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVIFILEINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AVIFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -11533,8 +11533,8 @@ impl ::core::fmt::Debug for AVISTREAMINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVISTREAMINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVISTREAMINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOA {
@@ -11607,8 +11607,8 @@ impl ::core::fmt::Debug for AVISTREAMINFOW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AVISTREAMINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVISTREAMINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AVISTREAMINFOW {
@@ -11667,8 +11667,8 @@ impl ::core::fmt::Debug for CAPDRIVERCAPS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPDRIVERCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAPDRIVERCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPDRIVERCAPS {
@@ -11702,8 +11702,8 @@ impl ::core::fmt::Debug for CAPINFOCHUNK {
         f.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CAPINFOCHUNK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAPINFOCHUNK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CAPINFOCHUNK {
     fn eq(&self, other: &Self) -> bool {
@@ -11773,8 +11773,8 @@ impl ::core::fmt::Debug for CAPSTATUS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CAPSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAPSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CAPSTATUS {
@@ -11876,8 +11876,8 @@ impl ::core::fmt::Debug for CAPTUREPARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPTUREPARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CAPTUREPARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CAPTUREPARMS {
@@ -11940,8 +11940,8 @@ impl ::core::fmt::Debug for CHANNEL_CAPS {
         f.debug_struct("CHANNEL_CAPS").field("dwFlags", &self.dwFlags).field("dwSrcRectXMod", &self.dwSrcRectXMod).field("dwSrcRectYMod", &self.dwSrcRectYMod).field("dwSrcRectWidthMod", &self.dwSrcRectWidthMod).field("dwSrcRectHeightMod", &self.dwSrcRectHeightMod).field("dwDstRectXMod", &self.dwDstRectXMod).field("dwDstRectYMod", &self.dwDstRectYMod).field("dwDstRectWidthMod", &self.dwDstRectWidthMod).field("dwDstRectHeightMod", &self.dwDstRectHeightMod).finish()
     }
 }
-unsafe impl ::windows::core::Abi for CHANNEL_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CHANNEL_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for CHANNEL_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -12007,8 +12007,8 @@ impl ::core::fmt::Debug for COMPVARS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for COMPVARS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPVARS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for COMPVARS {
@@ -12040,8 +12040,8 @@ impl ::core::clone::Clone for CONTRESCR10WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CONTRESCR10WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTRESCR10WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESCR10WAVEFORMAT {
@@ -12065,8 +12065,8 @@ impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CONTRESVQLPCWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONTRESVQLPCWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CONTRESVQLPCWAVEFORMAT {
@@ -12090,8 +12090,8 @@ impl ::core::clone::Clone for CREATIVEADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATIVEADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEADPCMWAVEFORMAT {
@@ -12115,8 +12115,8 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH10WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH10WAVEFORMAT {
@@ -12140,8 +12140,8 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CREATIVEFASTSPEECH8WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CREATIVEFASTSPEECH8WAVEFORMAT {
@@ -12164,8 +12164,8 @@ impl ::core::clone::Clone for CSIMAADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for CSIMAADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CSIMAADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for CSIMAADPCMWAVEFORMAT {
@@ -12188,8 +12188,8 @@ impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIALOGICOKIADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIALOGICOKIADPCMWAVEFORMAT {
@@ -12213,8 +12213,8 @@ impl ::core::clone::Clone for DIGIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIGIADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIADPCMWAVEFORMAT {
@@ -12237,8 +12237,8 @@ impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIFIXWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIGIFIXWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIFIXWAVEFORMAT {
@@ -12262,8 +12262,8 @@ impl ::core::clone::Clone for DIGIREALWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGIREALWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIGIREALWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGIREALWAVEFORMAT {
@@ -12286,8 +12286,8 @@ impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DIGISTDWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DIGISTDWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DIGISTDWAVEFORMAT {
@@ -12311,8 +12311,8 @@ impl ::core::clone::Clone for DOLBYAC2WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DOLBYAC2WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DOLBYAC2WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DOLBYAC2WAVEFORMAT {
@@ -12342,8 +12342,8 @@ impl ::core::fmt::Debug for DRAWDIBTIME {
         f.debug_struct("DRAWDIBTIME").field("timeCount", &self.timeCount).field("timeDraw", &self.timeDraw).field("timeDecompress", &self.timeDecompress).field("timeDither", &self.timeDither).field("timeStretch", &self.timeStretch).field("timeBlt", &self.timeBlt).field("timeSetDIBits", &self.timeSetDIBits).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DRAWDIBTIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRAWDIBTIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DRAWDIBTIME {
     fn eq(&self, other: &Self) -> bool {
@@ -12374,8 +12374,8 @@ impl ::core::clone::Clone for DRMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DRMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DRMWAVEFORMAT {
@@ -12396,8 +12396,8 @@ impl ::core::clone::Clone for DRVCONFIGINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DRVCONFIGINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRVCONFIGINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DRVCONFIGINFO {
     fn default() -> Self {
@@ -12418,8 +12418,8 @@ impl ::core::clone::Clone for DRVCONFIGINFOEX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DRVCONFIGINFOEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRVCONFIGINFOEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DRVCONFIGINFOEX {
     fn default() -> Self {
@@ -12438,8 +12438,8 @@ impl ::core::clone::Clone for DRVM_IOCTL_DATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DRVM_IOCTL_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DRVM_IOCTL_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
@@ -12462,8 +12462,8 @@ impl ::core::clone::Clone for DVIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for DVIADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DVIADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for DVIADPCMWAVEFORMAT {
@@ -12486,8 +12486,8 @@ impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for ECHOSC1WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ECHOSC1WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for ECHOSC1WAVEFORMAT {
@@ -12511,8 +12511,8 @@ impl ::core::clone::Clone for EXBMINFOHEADER {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for EXBMINFOHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for EXBMINFOHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for EXBMINFOHEADER {
@@ -12536,8 +12536,8 @@ impl ::core::clone::Clone for FMTOWNS_SND_WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for FMTOWNS_SND_WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for FMTOWNS_SND_WAVEFORMAT {
@@ -12561,8 +12561,8 @@ impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for G721_ADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for G721_ADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G721_ADPCMWAVEFORMAT {
@@ -12587,8 +12587,8 @@ impl ::core::clone::Clone for G723_ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for G723_ADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for G723_ADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for G723_ADPCMWAVEFORMAT {
@@ -12612,8 +12612,8 @@ impl ::core::clone::Clone for GSM610WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for GSM610WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GSM610WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for GSM610WAVEFORMAT {
@@ -12650,8 +12650,8 @@ impl ::core::convert::From<::core::option::Option<HDRVR>> for HDRVR {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HDRVR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HDRVR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12682,8 +12682,8 @@ impl ::core::convert::From<::core::option::Option<HIC>> for HIC {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12714,8 +12714,8 @@ impl ::core::convert::From<::core::option::Option<HMMIO>> for HMMIO {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HMMIO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HMMIO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12746,8 +12746,8 @@ impl ::core::convert::From<::core::option::Option<HVIDEO>> for HVIDEO {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HVIDEO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HVIDEO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -12781,8 +12781,8 @@ impl ::core::fmt::Debug for ICCOMPRESS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICCOMPRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICCOMPRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICCOMPRESS {
@@ -12851,8 +12851,8 @@ impl ::core::fmt::Debug for ICCOMPRESSFRAMES {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICCOMPRESSFRAMES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICCOMPRESSFRAMES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICCOMPRESSFRAMES {
@@ -12894,8 +12894,8 @@ impl ::core::fmt::Debug for ICDECOMPRESS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDECOMPRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICDECOMPRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDECOMPRESS {
@@ -12944,8 +12944,8 @@ impl ::core::fmt::Debug for ICDECOMPRESSEX {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDECOMPRESSEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICDECOMPRESSEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDECOMPRESSEX {
@@ -12981,8 +12981,8 @@ impl ::core::fmt::Debug for ICDRAW {
         f.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ICDRAW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICDRAW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ICDRAW {
     fn eq(&self, other: &Self) -> bool {
@@ -13030,8 +13030,8 @@ impl ::core::fmt::Debug for ICDRAWBEGIN {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICDRAWBEGIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICDRAWBEGIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ICDRAWBEGIN {
@@ -13074,8 +13074,8 @@ impl ::core::fmt::Debug for ICDRAWSUGGEST {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICDRAWSUGGEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICDRAWSUGGEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICDRAWSUGGEST {
@@ -13115,8 +13115,8 @@ impl ::core::fmt::Debug for ICINFO {
         f.debug_struct("ICINFO").field("dwSize", &self.dwSize).field("fccType", &self.fccType).field("fccHandler", &self.fccHandler).field("dwFlags", &self.dwFlags).field("dwVersion", &self.dwVersion).field("dwVersionICM", &self.dwVersionICM).field("szName", &self.szName).field("szDescription", &self.szDescription).field("szDriver", &self.szDriver).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ICINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ICINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -13158,8 +13158,8 @@ impl ::core::fmt::Debug for ICOPEN {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ICOPEN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICOPEN {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ICOPEN {
@@ -13199,8 +13199,8 @@ impl ::core::fmt::Debug for ICPALETTE {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICPALETTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICPALETTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICPALETTE {
@@ -13239,8 +13239,8 @@ impl ::core::fmt::Debug for ICSETSTATUSPROC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ICSETSTATUSPROC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ICSETSTATUSPROC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ICSETSTATUSPROC {
@@ -13272,8 +13272,8 @@ impl ::core::clone::Clone for IMAADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for IMAADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IMAADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for IMAADPCMWAVEFORMAT {
@@ -13322,8 +13322,8 @@ impl ::core::clone::Clone for JOYCAPS2A {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOYCAPS2A {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYCAPS2A {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPS2A {
@@ -13368,8 +13368,8 @@ impl ::core::clone::Clone for JOYCAPS2W {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JOYCAPS2W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYCAPS2W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JOYCAPS2W {
     fn default() -> Self {
@@ -13414,8 +13414,8 @@ impl ::core::clone::Clone for JOYCAPSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for JOYCAPSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYCAPSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JOYCAPSA {
@@ -13457,8 +13457,8 @@ impl ::core::clone::Clone for JOYCAPSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JOYCAPSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYCAPSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JOYCAPSW {
     fn default() -> Self {
@@ -13479,8 +13479,8 @@ impl ::core::clone::Clone for JOYINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JOYINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JOYINFO {
     fn default() -> Self {
@@ -13510,8 +13510,8 @@ impl ::core::clone::Clone for JOYINFOEX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JOYINFOEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JOYINFOEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JOYINFOEX {
     fn default() -> Self {
@@ -13534,8 +13534,8 @@ impl ::core::clone::Clone for JPEGINFOHEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for JPEGINFOHEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for JPEGINFOHEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for JPEGINFOHEADER {
     fn default() -> Self {
@@ -13563,8 +13563,8 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_OPEN_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_OPEN_PARMSA {
@@ -13593,8 +13593,8 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_OPEN_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_OPEN_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_OPEN_PARMSW {
@@ -13616,8 +13616,8 @@ impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_ANIM_PLAY_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_PLAY_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_ANIM_PLAY_PARMS {
     fn default() -> Self {
@@ -13640,8 +13640,8 @@ impl ::core::clone::Clone for MCI_ANIM_RECT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_RECT_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_RECT_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_RECT_PARMS {
@@ -13661,8 +13661,8 @@ impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_ANIM_STEP_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_STEP_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_ANIM_STEP_PARMS {
     fn default() -> Self {
@@ -13686,8 +13686,8 @@ impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MCI_ANIM_UPDATE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_UPDATE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MCI_ANIM_UPDATE_PARMS {
@@ -13713,8 +13713,8 @@ impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSA {
@@ -13740,8 +13740,8 @@ impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_ANIM_WINDOW_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_ANIM_WINDOW_PARMSW {
@@ -13766,8 +13766,8 @@ impl ::core::clone::Clone for MCI_BREAK_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_BREAK_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_BREAK_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_BREAK_PARMS {
@@ -13792,8 +13792,8 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSA {
@@ -13818,8 +13818,8 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CAPTURE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CAPTURE_PARMSW {
@@ -13847,8 +13847,8 @@ impl ::core::clone::Clone for MCI_DGV_COPY_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_COPY_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_COPY_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_COPY_PARMS {
@@ -13868,8 +13868,8 @@ impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_CUE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_CUE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
@@ -13896,8 +13896,8 @@ impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_CUT_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_CUT_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_CUT_PARMS {
@@ -13925,8 +13925,8 @@ impl ::core::clone::Clone for MCI_DGV_DELETE_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_DELETE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_DELETE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_DELETE_PARMS {
@@ -13948,8 +13948,8 @@ impl ::core::clone::Clone for MCI_DGV_INFO_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_INFO_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_INFO_PARMSA {
     fn default() -> Self {
@@ -13970,8 +13970,8 @@ impl ::core::clone::Clone for MCI_DGV_INFO_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_INFO_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_INFO_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
@@ -13994,8 +13994,8 @@ impl ::core::clone::Clone for MCI_DGV_LIST_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_LIST_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_LIST_PARMSA {
     fn default() -> Self {
@@ -14018,8 +14018,8 @@ impl ::core::clone::Clone for MCI_DGV_LIST_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_LIST_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_LIST_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
@@ -14039,8 +14039,8 @@ impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_MONITOR_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_MONITOR_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_MONITOR_PARMS {
     fn default() -> Self {
@@ -14068,8 +14068,8 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_OPEN_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_OPEN_PARMSA {
@@ -14098,8 +14098,8 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_OPEN_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_OPEN_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_OPEN_PARMSW {
@@ -14126,8 +14126,8 @@ impl ::core::clone::Clone for MCI_DGV_PASTE_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_PASTE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_PASTE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_PASTE_PARMS {
@@ -14150,8 +14150,8 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_QUALITY_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_QUALITY_PARMSA {
     fn default() -> Self {
@@ -14173,8 +14173,8 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_QUALITY_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_QUALITY_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
@@ -14201,8 +14201,8 @@ impl ::core::clone::Clone for MCI_DGV_RECORD_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RECORD_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RECORD_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RECORD_PARMS {
@@ -14226,8 +14226,8 @@ impl ::core::clone::Clone for MCI_DGV_RECT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RECT_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RECT_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RECT_PARMS {
@@ -14248,8 +14248,8 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RESERVE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_RESERVE_PARMSA {
     fn default() -> Self {
@@ -14269,8 +14269,8 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_RESERVE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RESERVE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
@@ -14294,8 +14294,8 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RESTORE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RESTORE_PARMSA {
@@ -14320,8 +14320,8 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_RESTORE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_RESTORE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_RESTORE_PARMSW {
@@ -14346,8 +14346,8 @@ impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SAVE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_SAVE_PARMSA {
@@ -14372,8 +14372,8 @@ impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_SAVE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SAVE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_SAVE_PARMSW {
@@ -14397,8 +14397,8 @@ impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSA {
     fn default() -> Self {
@@ -14421,8 +14421,8 @@ impl ::core::clone::Clone for MCI_DGV_SETAUDIO_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SETAUDIO_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
@@ -14446,8 +14446,8 @@ impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSA {
     fn default() -> Self {
@@ -14471,8 +14471,8 @@ impl ::core::clone::Clone for MCI_DGV_SETVIDEO_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SETVIDEO_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
@@ -14494,8 +14494,8 @@ impl ::core::clone::Clone for MCI_DGV_SET_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SET_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SET_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SET_PARMS {
     fn default() -> Self {
@@ -14516,8 +14516,8 @@ impl ::core::clone::Clone for MCI_DGV_SIGNAL_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_SIGNAL_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_SIGNAL_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
@@ -14540,8 +14540,8 @@ impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_STATUS_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_STATUS_PARMSA {
     fn default() -> Self {
@@ -14564,8 +14564,8 @@ impl ::core::clone::Clone for MCI_DGV_STATUS_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_STATUS_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_STATUS_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
@@ -14584,8 +14584,8 @@ impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_DGV_STEP_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_STEP_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_DGV_STEP_PARMS {
     fn default() -> Self {
@@ -14609,8 +14609,8 @@ impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MCI_DGV_UPDATE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_UPDATE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MCI_DGV_UPDATE_PARMS {
@@ -14636,8 +14636,8 @@ impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_WINDOW_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_WINDOW_PARMSA {
@@ -14663,8 +14663,8 @@ impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_DGV_WINDOW_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_DGV_WINDOW_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_DGV_WINDOW_PARMSW {
@@ -14683,8 +14683,8 @@ impl ::core::clone::Clone for MCI_GENERIC_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_GENERIC_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_GENERIC_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_GENERIC_PARMS {
     fn default() -> Self {
@@ -14704,8 +14704,8 @@ impl ::core::clone::Clone for MCI_GETDEVCAPS_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_GETDEVCAPS_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_GETDEVCAPS_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_GETDEVCAPS_PARMS {
     fn default() -> Self {
@@ -14725,8 +14725,8 @@ impl ::core::clone::Clone for MCI_INFO_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_INFO_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_INFO_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_INFO_PARMSA {
     fn default() -> Self {
@@ -14746,8 +14746,8 @@ impl ::core::clone::Clone for MCI_INFO_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_INFO_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_INFO_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_INFO_PARMSW {
     fn default() -> Self {
@@ -14766,8 +14766,8 @@ impl ::core::clone::Clone for MCI_LOAD_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_LOAD_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_LOAD_PARMSA {
     fn default() -> Self {
@@ -14786,8 +14786,8 @@ impl ::core::clone::Clone for MCI_LOAD_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_LOAD_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_LOAD_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_LOAD_PARMSW {
     fn default() -> Self {
@@ -14808,8 +14808,8 @@ impl ::core::clone::Clone for MCI_OPEN_DRIVER_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_OPEN_DRIVER_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OPEN_DRIVER_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_OPEN_DRIVER_PARMS {
     fn default() -> Self {
@@ -14831,8 +14831,8 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OPEN_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_OPEN_PARMSA {
     fn default() -> Self {
@@ -14854,8 +14854,8 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_OPEN_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OPEN_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_OPEN_PARMSW {
     fn default() -> Self {
@@ -14879,8 +14879,8 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_LOAD_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_LOAD_PARMSA {
@@ -14905,8 +14905,8 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_LOAD_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_LOAD_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_LOAD_PARMSW {
@@ -14935,8 +14935,8 @@ impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_OPEN_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_OPEN_PARMSA {
@@ -14965,8 +14965,8 @@ impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_OPEN_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_OPEN_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_OPEN_PARMSW {
@@ -14990,8 +14990,8 @@ impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_RECT_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_RECT_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_RECT_PARMS {
@@ -15016,8 +15016,8 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_SAVE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_SAVE_PARMSA {
@@ -15042,8 +15042,8 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_SAVE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_SAVE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_SAVE_PARMSW {
@@ -15069,8 +15069,8 @@ impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSA {
@@ -15096,8 +15096,8 @@ impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCI_OVLY_WINDOW_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MCI_OVLY_WINDOW_PARMSW {
@@ -15118,8 +15118,8 @@ impl ::core::clone::Clone for MCI_PLAY_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_PLAY_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_PLAY_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_PLAY_PARMS {
     fn default() -> Self {
@@ -15139,8 +15139,8 @@ impl ::core::clone::Clone for MCI_RECORD_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_RECORD_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_RECORD_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_RECORD_PARMS {
     fn default() -> Self {
@@ -15159,8 +15159,8 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SAVE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SAVE_PARMSA {
     fn default() -> Self {
@@ -15179,8 +15179,8 @@ impl ::core::clone::Clone for MCI_SAVE_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SAVE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SAVE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SAVE_PARMSW {
     fn default() -> Self {
@@ -15199,8 +15199,8 @@ impl ::core::clone::Clone for MCI_SEEK_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SEEK_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SEEK_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SEEK_PARMS {
     fn default() -> Self {
@@ -15225,8 +15225,8 @@ impl ::core::clone::Clone for MCI_SEQ_SET_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SEQ_SET_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SEQ_SET_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SEQ_SET_PARMS {
     fn default() -> Self {
@@ -15246,8 +15246,8 @@ impl ::core::clone::Clone for MCI_SET_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SET_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SET_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SET_PARMS {
     fn default() -> Self {
@@ -15268,8 +15268,8 @@ impl ::core::clone::Clone for MCI_STATUS_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_STATUS_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_STATUS_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_STATUS_PARMS {
     fn default() -> Self {
@@ -15291,8 +15291,8 @@ impl ::core::clone::Clone for MCI_SYSINFO_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SYSINFO_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SYSINFO_PARMSA {
     fn default() -> Self {
@@ -15314,8 +15314,8 @@ impl ::core::clone::Clone for MCI_SYSINFO_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_SYSINFO_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_SYSINFO_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_SYSINFO_PARMSW {
     fn default() -> Self {
@@ -15334,8 +15334,8 @@ impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_VD_ESCAPE_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_VD_ESCAPE_PARMSA {
     fn default() -> Self {
@@ -15354,8 +15354,8 @@ impl ::core::clone::Clone for MCI_VD_ESCAPE_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_VD_ESCAPE_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_VD_ESCAPE_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_VD_ESCAPE_PARMSW {
     fn default() -> Self {
@@ -15376,8 +15376,8 @@ impl ::core::clone::Clone for MCI_VD_PLAY_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_VD_PLAY_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_VD_PLAY_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_VD_PLAY_PARMS {
     fn default() -> Self {
@@ -15396,8 +15396,8 @@ impl ::core::clone::Clone for MCI_VD_STEP_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_VD_STEP_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_VD_STEP_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_VD_STEP_PARMS {
     fn default() -> Self {
@@ -15417,8 +15417,8 @@ impl ::core::clone::Clone for MCI_WAVE_DELETE_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_WAVE_DELETE_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_WAVE_DELETE_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_WAVE_DELETE_PARMS {
     fn default() -> Self {
@@ -15441,8 +15441,8 @@ impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_WAVE_OPEN_PARMSA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_WAVE_OPEN_PARMSA {
     fn default() -> Self {
@@ -15465,8 +15465,8 @@ impl ::core::clone::Clone for MCI_WAVE_OPEN_PARMSW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_WAVE_OPEN_PARMSW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_WAVE_OPEN_PARMSW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_WAVE_OPEN_PARMSW {
     fn default() -> Self {
@@ -15498,8 +15498,8 @@ impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MCI_WAVE_SET_PARMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MCI_WAVE_SET_PARMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MCI_WAVE_SET_PARMS {
     fn default() -> Self {
@@ -15522,8 +15522,8 @@ impl ::core::clone::Clone for MEDIASPACEADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MEDIASPACEADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MEDIASPACEADPCMWAVEFORMAT {
@@ -15543,8 +15543,8 @@ impl ::core::clone::Clone for MIDIOPENSTRMID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MIDIOPENSTRMID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIDIOPENSTRMID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MIDIOPENSTRMID {
     fn default() -> Self {
@@ -15570,8 +15570,8 @@ impl ::core::clone::Clone for MIXEROPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MIXEROPENDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MIXEROPENDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MIXEROPENDESC {
@@ -15594,8 +15594,8 @@ impl ::core::clone::Clone for MMCKINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MMCKINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MMCKINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MMCKINFO {
     fn default() -> Self {
@@ -15632,8 +15632,8 @@ impl ::core::clone::Clone for MMIOINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MMIOINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MMIOINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MMIOINFO {
@@ -15658,8 +15658,8 @@ impl ::core::clone::Clone for MSAUDIO1WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for MSAUDIO1WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MSAUDIO1WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for MSAUDIO1WAVEFORMAT {
@@ -15683,8 +15683,8 @@ impl ::core::clone::Clone for NMS_VBXADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for NMS_VBXADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for NMS_VBXADPCMWAVEFORMAT {
@@ -15707,8 +15707,8 @@ impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLIADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIADPCMWAVEFORMAT {
@@ -15731,8 +15731,8 @@ impl ::core::clone::Clone for OLICELPWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLICELPWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLICELPWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLICELPWAVEFORMAT {
@@ -15755,8 +15755,8 @@ impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIGSMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLIGSMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIGSMWAVEFORMAT {
@@ -15779,8 +15779,8 @@ impl ::core::clone::Clone for OLIOPRWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLIOPRWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLIOPRWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLIOPRWAVEFORMAT {
@@ -15803,8 +15803,8 @@ impl ::core::clone::Clone for OLISBCWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for OLISBCWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OLISBCWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for OLISBCWAVEFORMAT {
@@ -15828,8 +15828,8 @@ impl ::core::clone::Clone for SIERRAADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for SIERRAADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SIERRAADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SIERRAADPCMWAVEFORMAT {
@@ -15853,8 +15853,8 @@ impl ::core::clone::Clone for SONARCWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for SONARCWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SONARCWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for SONARCWAVEFORMAT {
@@ -15878,8 +15878,8 @@ impl ::core::clone::Clone for TIMEREVENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TIMEREVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TIMEREVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TIMEREVENT {
     fn default() -> Self {
@@ -15904,8 +15904,8 @@ impl ::core::clone::Clone for TRUESPEECHWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for TRUESPEECHWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRUESPEECHWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for TRUESPEECHWAVEFORMAT {
@@ -15935,8 +15935,8 @@ impl ::core::fmt::Debug for VIDEOHDR {
         f.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for VIDEOHDR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDEOHDR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for VIDEOHDR {
     fn eq(&self, other: &Self) -> bool {
@@ -15969,8 +15969,8 @@ impl ::core::clone::Clone for WAVEOPENDESC {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WAVEOPENDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WAVEOPENDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WAVEOPENDESC {
@@ -15996,8 +15996,8 @@ impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WMAUDIO2WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMAUDIO2WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO2WAVEFORMAT {
@@ -16026,8 +16026,8 @@ impl ::core::clone::Clone for WMAUDIO3WAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for WMAUDIO3WAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WMAUDIO3WAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for WMAUDIO3WAVEFORMAT {
@@ -16050,8 +16050,8 @@ impl ::core::clone::Clone for YAMAHA_ADPCMWAVEFORMAT {
     }
 }
 #[cfg(feature = "Win32_Media_Audio")]
-unsafe impl ::windows::core::Abi for YAMAHA_ADPCMWAVEFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl ::core::default::Default for YAMAHA_ADPCMWAVEFORMAT {
@@ -16086,8 +16086,8 @@ impl ::core::fmt::Debug for s_RIFFWAVE_inst {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for s_RIFFWAVE_inst {
-    type Abi = Self;
+impl ::windows::core::TypeKind for s_RIFFWAVE_inst {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for s_RIFFWAVE_inst {

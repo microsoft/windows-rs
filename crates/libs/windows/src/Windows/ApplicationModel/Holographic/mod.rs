@@ -4,6 +4,11 @@ pub struct IHolographicKeyboard(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IHolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;
 }
+impl ::core::clone::Clone for IHolographicKeyboard {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicKeyboard {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
 }
@@ -26,6 +31,11 @@ pub struct IHolographicKeyboard_Vtbl {
 pub struct IHolographicKeyboardStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IHolographicKeyboardStatics {
     type Vtable = IHolographicKeyboardStatics_Vtbl;
+}
+impl ::core::clone::Clone for IHolographicKeyboardStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IHolographicKeyboardStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb676c624_63d7_58cf_b06b_08baa032a23f);
@@ -58,19 +68,14 @@ impl HolographicKeyboard {
     }
     pub fn GetDefault() -> ::windows::core::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<HolographicKeyboard>();
+            (::windows::core::Vtable::vtable(this).GetDefault)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IHolographicKeyboardStatics<R, F: FnOnce(&IHolographicKeyboardStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<HolographicKeyboard, IHolographicKeyboardStatics> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for HolographicKeyboard {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for HolographicKeyboard {
@@ -84,11 +89,12 @@ impl ::core::fmt::Debug for HolographicKeyboard {
         f.debug_tuple("HolographicKeyboard").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for HolographicKeyboard {
+impl ::windows::core::RuntimeType for HolographicKeyboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Holographic.HolographicKeyboard;{07dd0893-aa21-5e6f-a91b-11b2b3fd7be3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for HolographicKeyboard {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for HolographicKeyboard {

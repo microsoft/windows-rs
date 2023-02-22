@@ -93,8 +93,8 @@ where
 #[inline]
 pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result<::windows::core::GUID> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetGraphicsStreamClient ( uindex : u32 , pclientuuid : *mut :: windows::core::GUID ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetGraphicsStreamClient(uindex, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+    DwmGetGraphicsStreamClient(uindex, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]
@@ -117,8 +117,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmGetUnmetTabRequirements ( appwindow : super::super::Foundation:: HWND , value : *mut DWM_TAB_WINDOW_REQUIREMENTS ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmGetUnmetTabRequirements(appwindow.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<DWM_TAB_WINDOW_REQUIREMENTS>();
+    DwmGetUnmetTabRequirements(appwindow.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -145,8 +145,8 @@ where
 #[inline]
 pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmIsCompositionEnabled ( pfenabled : *mut super::super::Foundation:: BOOL ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmIsCompositionEnabled(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::BOOL>();
+    DwmIsCompositionEnabled(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -164,8 +164,8 @@ where
 #[inline]
 pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core::Result<super::super::Foundation::SIZE> {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmQueryThumbnailSourceSize ( hthumbnail : isize , psize : *mut super::super::Foundation:: SIZE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmQueryThumbnailSourceSize(hthumbnail, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::Foundation::SIZE>();
+    DwmQueryThumbnailSourceSize(hthumbnail, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -176,8 +176,8 @@ where
     P1: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     ::windows::core::link ! ( "dwmapi.dll""system" fn DwmRegisterThumbnail ( hwnddestination : super::super::Foundation:: HWND , hwndsource : super::super::Foundation:: HWND , phthumbnailid : *mut isize ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DwmRegisterThumbnail(hwnddestination.into(), hwndsource.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<isize>();
+    DwmRegisterThumbnail(hwnddestination.into(), hwndsource.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -340,8 +340,8 @@ impl ::core::default::Default for DWMFLIP3DWINDOWPOLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWMFLIP3DWINDOWPOLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWMFLIP3DWINDOWPOLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -371,8 +371,8 @@ impl ::core::default::Default for DWMNCRENDERINGPOLICY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWMNCRENDERINGPOLICY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWMNCRENDERINGPOLICY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -398,8 +398,8 @@ impl ::core::default::Default for DWMTRANSITION_OWNEDWINDOW_TARGET {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWMTRANSITION_OWNEDWINDOW_TARGET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWMTRANSITION_OWNEDWINDOW_TARGET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -469,8 +469,8 @@ impl ::core::default::Default for DWMWINDOWATTRIBUTE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWMWINDOWATTRIBUTE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWMWINDOWATTRIBUTE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWMWINDOWATTRIBUTE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -506,8 +506,8 @@ impl ::core::default::Default for DWM_SHOWCONTACT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWM_SHOWCONTACT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_SHOWCONTACT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWM_SHOWCONTACT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -568,8 +568,8 @@ impl ::core::default::Default for DWM_SOURCE_FRAME_SAMPLING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWM_SOURCE_FRAME_SAMPLING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_SOURCE_FRAME_SAMPLING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -613,8 +613,8 @@ impl ::core::default::Default for DWM_TAB_WINDOW_REQUIREMENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWM_TAB_WINDOW_REQUIREMENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_TAB_WINDOW_REQUIREMENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWM_TAB_WINDOW_REQUIREMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -677,8 +677,8 @@ impl ::core::default::Default for DWM_WINDOW_CORNER_PREFERENCE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DWM_WINDOW_CORNER_PREFERENCE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_WINDOW_CORNER_PREFERENCE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -722,8 +722,8 @@ impl ::core::default::Default for GESTURE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for GESTURE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GESTURE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for GESTURE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -748,8 +748,8 @@ impl ::core::clone::Clone for DWM_BLURBEHIND {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DWM_BLURBEHIND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_BLURBEHIND {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DWM_BLURBEHIND {
@@ -779,8 +779,8 @@ impl ::core::clone::Clone for DWM_PRESENT_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DWM_PRESENT_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_PRESENT_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DWM_PRESENT_PARAMETERS {
@@ -808,8 +808,8 @@ impl ::core::clone::Clone for DWM_THUMBNAIL_PROPERTIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DWM_THUMBNAIL_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_THUMBNAIL_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DWM_THUMBNAIL_PROPERTIES {
@@ -867,8 +867,8 @@ impl ::core::clone::Clone for DWM_TIMING_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DWM_TIMING_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DWM_TIMING_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DWM_TIMING_INFO {
     fn default() -> Self {
@@ -891,8 +891,8 @@ impl ::core::clone::Clone for MilMatrix3x2D {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MilMatrix3x2D {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MilMatrix3x2D {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MilMatrix3x2D {
     fn default() -> Self {
@@ -911,8 +911,8 @@ impl ::core::clone::Clone for UNSIGNED_RATIO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for UNSIGNED_RATIO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNSIGNED_RATIO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for UNSIGNED_RATIO {
     fn default() -> Self {

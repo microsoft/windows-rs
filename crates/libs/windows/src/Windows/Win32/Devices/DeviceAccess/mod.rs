@@ -5,8 +5,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "deviceaccess.dll""system" fn CreateDeviceAccessInstance ( deviceinterfacepath : :: windows::core::PCWSTR , desiredaccess : u32 , createasync : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateDeviceAccessInstance(deviceinterfacepath.into().abi(), desiredaccess, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<ICreateDeviceAccessAsync>();
+    CreateDeviceAccessInstance(deviceinterfacepath.into().abi(), desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]
@@ -25,16 +25,11 @@ impl ICreateDeviceAccessAsync {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetResult)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ICreateDeviceAccessAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICreateDeviceAccessAsync {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,6 +43,11 @@ impl ::core::fmt::Debug for ICreateDeviceAccessAsync {
 }
 unsafe impl ::windows::core::Vtable for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsync_Vtbl;
+}
+impl ::core::clone::Clone for ICreateDeviceAccessAsync {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICreateDeviceAccessAsync {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
@@ -89,11 +89,6 @@ impl IDeviceIoControl {
     }
 }
 ::windows::core::interface_hierarchy!(IDeviceIoControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDeviceIoControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDeviceIoControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -107,6 +102,11 @@ impl ::core::fmt::Debug for IDeviceIoControl {
 }
 unsafe impl ::windows::core::Vtable for IDeviceIoControl {
     type Vtable = IDeviceIoControl_Vtbl;
+}
+impl ::core::clone::Clone for IDeviceIoControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDeviceIoControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
@@ -128,11 +128,6 @@ impl IDeviceRequestCompletionCallback {
     }
 }
 ::windows::core::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDeviceRequestCompletionCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -146,6 +141,11 @@ impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
 }
 unsafe impl ::windows::core::Vtable for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallback_Vtbl;
+}
+impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDeviceRequestCompletionCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);

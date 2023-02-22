@@ -182,8 +182,8 @@ impl ::core::default::Default for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -244,8 +244,8 @@ impl ::core::default::Default for HEAPENTRY32_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for HEAPENTRY32_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPENTRY32_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for HEAPENTRY32_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -281,8 +281,8 @@ impl ::core::fmt::Debug for HEAPENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HEAPENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HEAPENTRY32 {
@@ -317,8 +317,8 @@ impl ::core::fmt::Debug for HEAPLIST32 {
         f.debug_struct("HEAPLIST32").field("dwSize", &self.dwSize).field("th32ProcessID", &self.th32ProcessID).field("th32HeapID", &self.th32HeapID).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HEAPLIST32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPLIST32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPLIST32 {
     fn eq(&self, other: &Self) -> bool {
@@ -361,8 +361,8 @@ impl ::core::fmt::Debug for MODULEENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32 {
@@ -408,8 +408,8 @@ impl ::core::fmt::Debug for MODULEENTRY32W {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MODULEENTRY32W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEENTRY32W {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MODULEENTRY32W {
@@ -455,8 +455,8 @@ impl ::core::fmt::Debug for PROCESSENTRY32 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROCESSENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESSENTRY32 {
@@ -497,8 +497,8 @@ impl ::core::fmt::Debug for PROCESSENTRY32W {
         f.debug_struct("PROCESSENTRY32W").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ProcessID", &self.th32ProcessID).field("th32DefaultHeapID", &self.th32DefaultHeapID).field("th32ModuleID", &self.th32ModuleID).field("cntThreads", &self.cntThreads).field("th32ParentProcessID", &self.th32ParentProcessID).field("pcPriClassBase", &self.pcPriClassBase).field("dwFlags", &self.dwFlags).field("szExeFile", &self.szExeFile).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESSENTRY32W {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESSENTRY32W {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESSENTRY32W {
     fn eq(&self, other: &Self) -> bool {
@@ -533,8 +533,8 @@ impl ::core::fmt::Debug for THREADENTRY32 {
         f.debug_struct("THREADENTRY32").field("dwSize", &self.dwSize).field("cntUsage", &self.cntUsage).field("th32ThreadID", &self.th32ThreadID).field("th32OwnerProcessID", &self.th32OwnerProcessID).field("tpBasePri", &self.tpBasePri).field("tpDeltaPri", &self.tpDeltaPri).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for THREADENTRY32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for THREADENTRY32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for THREADENTRY32 {
     fn eq(&self, other: &Self) -> bool {

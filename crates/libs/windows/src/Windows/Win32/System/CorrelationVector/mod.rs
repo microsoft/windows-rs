@@ -58,8 +58,8 @@ impl ::core::fmt::Debug for CORRELATION_VECTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CORRELATION_VECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CORRELATION_VECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CORRELATION_VECTOR {

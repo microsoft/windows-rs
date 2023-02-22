@@ -77,8 +77,8 @@ impl ::core::default::Default for RESTOREPOINTINFO_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESTOREPOINTINFO_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RESTOREPOINTINFO_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -110,8 +110,8 @@ impl ::core::default::Default for RESTOREPOINTINFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RESTOREPOINTINFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESTOREPOINTINFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RESTOREPOINTINFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -136,8 +136,8 @@ impl ::core::clone::Clone for RESTOREPOINTINFOA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RESTOREPOINTINFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESTOREPOINTINFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESTOREPOINTINFOA {
@@ -164,8 +164,8 @@ impl ::core::clone::Clone for RESTOREPOINTINFOEX {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RESTOREPOINTINFOEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESTOREPOINTINFOEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESTOREPOINTINFOEX {
@@ -187,8 +187,8 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RESTOREPOINTINFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RESTOREPOINTINFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RESTOREPOINTINFOW {
     fn default() -> Self {
@@ -207,8 +207,8 @@ impl ::core::clone::Clone for STATEMGRSTATUS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for STATEMGRSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for STATEMGRSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for STATEMGRSTATUS {
     fn default() -> Self {

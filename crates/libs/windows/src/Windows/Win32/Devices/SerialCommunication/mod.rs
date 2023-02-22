@@ -97,8 +97,8 @@ impl ::core::convert::From<::core::option::Option<HCOMDB>> for HCOMDB {
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HCOMDB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HCOMDB {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

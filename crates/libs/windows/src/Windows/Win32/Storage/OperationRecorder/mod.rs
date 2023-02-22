@@ -29,8 +29,8 @@ impl ::core::default::Default for OPERATION_END_PARAMETERS_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPERATION_END_PARAMETERS_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OPERATION_END_PARAMETERS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -87,8 +87,8 @@ impl ::core::default::Default for OPERATION_START_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OPERATION_START_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPERATION_START_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OPERATION_START_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -146,8 +146,8 @@ impl ::core::fmt::Debug for OPERATION_END_PARAMETERS {
         f.debug_struct("OPERATION_END_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OPERATION_END_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPERATION_END_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OPERATION_END_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -178,8 +178,8 @@ impl ::core::fmt::Debug for OPERATION_START_PARAMETERS {
         f.debug_struct("OPERATION_START_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OPERATION_START_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OPERATION_START_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OPERATION_START_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {

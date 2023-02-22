@@ -14,11 +14,6 @@ impl ID3DBlob {
     }
 }
 ::windows::core::interface_hierarchy!(ID3DBlob, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DBlob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DBlob {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -35,6 +30,11 @@ unsafe impl ::core::marker::Sync for ID3DBlob {}
 unsafe impl ::windows::core::Vtable for ID3DBlob {
     type Vtable = ID3DBlob_Vtbl;
 }
+impl ::core::clone::Clone for ID3DBlob {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for ID3DBlob {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 }
@@ -50,19 +50,14 @@ pub struct ID3DBlob_Vtbl {
 pub struct ID3DDestructionNotifier(::windows::core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackfn, pdata, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).RegisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackfn, pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterDestructionCallback)(::windows::core::Vtable::as_raw(self), callbackid).ok()
     }
 }
 ::windows::core::interface_hierarchy!(ID3DDestructionNotifier, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3DDestructionNotifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DDestructionNotifier {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -78,6 +73,11 @@ unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
 unsafe impl ::windows::core::Vtable for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_Vtbl;
+}
+impl ::core::clone::Clone for ID3DDestructionNotifier {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
@@ -103,11 +103,6 @@ impl ID3DInclude {
         (::windows::core::Vtable::vtable(self).Close)(::windows::core::Vtable::as_raw(self), pdata).ok()
     }
 }
-impl ::core::clone::Clone for ID3DInclude {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3DInclude {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -123,6 +118,11 @@ unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows::core::Vtable for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
+}
+impl ::core::clone::Clone for ID3DInclude {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -273,8 +273,8 @@ impl ::core::default::Default for D3D_CBUFFER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_CBUFFER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_CBUFFER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_CBUFFER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -308,8 +308,8 @@ impl ::core::default::Default for D3D_DRIVER_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_DRIVER_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_DRIVER_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_DRIVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -353,8 +353,8 @@ impl ::core::default::Default for D3D_FEATURE_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_FEATURE_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_FEATURE_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FEATURE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -392,8 +392,8 @@ impl ::core::default::Default for D3D_FORMAT_COMPONENT_INTERPRETATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_FORMAT_COMPONENT_INTERPRETATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_FORMAT_COMPONENT_INTERPRETATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_INTERPRETATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -429,8 +429,8 @@ impl ::core::default::Default for D3D_FORMAT_COMPONENT_NAME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_FORMAT_COMPONENT_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_FORMAT_COMPONENT_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_COMPONENT_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -456,8 +456,8 @@ impl ::core::default::Default for D3D_FORMAT_LAYOUT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_FORMAT_LAYOUT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_FORMAT_LAYOUT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_LAYOUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -485,8 +485,8 @@ impl ::core::default::Default for D3D_FORMAT_TYPE_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_FORMAT_TYPE_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_FORMAT_TYPE_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_FORMAT_TYPE_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -518,8 +518,8 @@ impl ::core::default::Default for D3D_INCLUDE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_INCLUDE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_INCLUDE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_INCLUDE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -557,8 +557,8 @@ impl ::core::default::Default for D3D_INTERPOLATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_INTERPOLATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_INTERPOLATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_INTERPOLATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -596,8 +596,8 @@ impl ::core::default::Default for D3D_MIN_PRECISION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_MIN_PRECISION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_MIN_PRECISION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_MIN_PRECISION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -727,8 +727,8 @@ impl ::core::default::Default for D3D_NAME {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_NAME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_NAME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_NAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -758,8 +758,8 @@ impl ::core::default::Default for D3D_PARAMETER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_PARAMETER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_PARAMETER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PARAMETER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -945,8 +945,8 @@ impl ::core::default::Default for D3D_PRIMITIVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_PRIMITIVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_PRIMITIVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PRIMITIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1158,8 +1158,8 @@ impl ::core::default::Default for D3D_PRIMITIVE_TOPOLOGY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_PRIMITIVE_TOPOLOGY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_PRIMITIVE_TOPOLOGY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_PRIMITIVE_TOPOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1197,8 +1197,8 @@ impl ::core::default::Default for D3D_REGISTER_COMPONENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_REGISTER_COMPONENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_REGISTER_COMPONENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_REGISTER_COMPONENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1264,8 +1264,8 @@ impl ::core::default::Default for D3D_RESOURCE_RETURN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_RESOURCE_RETURN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_RESOURCE_RETURN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_RESOURCE_RETURN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1293,8 +1293,8 @@ impl ::core::default::Default for D3D_SHADER_CBUFFER_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_CBUFFER_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_CBUFFER_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_CBUFFER_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1340,8 +1340,8 @@ impl ::core::default::Default for D3D_SHADER_INPUT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_INPUT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_INPUT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1415,8 +1415,8 @@ impl ::core::default::Default for D3D_SHADER_INPUT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_INPUT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_INPUT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_INPUT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1472,8 +1472,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1513,8 +1513,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1768,8 +1768,8 @@ impl ::core::default::Default for D3D_SHADER_VARIABLE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_VARIABLE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_VARIABLE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SHADER_VARIABLE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1881,8 +1881,8 @@ impl ::core::default::Default for D3D_SRV_DIMENSION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SRV_DIMENSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SRV_DIMENSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_SRV_DIMENSION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1920,8 +1920,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_DOMAIN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_DOMAIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_TESSELLATOR_DOMAIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_DOMAIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1963,8 +1963,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_OUTPUT_PRIMITIVE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2006,8 +2006,8 @@ impl ::core::default::Default for D3D_TESSELLATOR_PARTITIONING {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for D3D_TESSELLATOR_PARTITIONING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_TESSELLATOR_PARTITIONING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for D3D_TESSELLATOR_PARTITIONING {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2032,8 +2032,8 @@ impl ::core::fmt::Debug for D3DVECTOR {
         f.debug_struct("D3DVECTOR").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3DVECTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3DVECTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3DVECTOR {
     fn eq(&self, other: &Self) -> bool {
@@ -2063,8 +2063,8 @@ impl ::core::fmt::Debug for D3D_SHADER_MACRO {
         f.debug_struct("D3D_SHADER_MACRO").field("Name", &self.Name).field("Definition", &self.Definition).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D_SHADER_MACRO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D_SHADER_MACRO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D_SHADER_MACRO {
     fn eq(&self, other: &Self) -> bool {

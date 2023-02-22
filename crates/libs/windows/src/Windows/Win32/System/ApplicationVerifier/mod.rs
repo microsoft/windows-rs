@@ -29,8 +29,8 @@ impl ::core::default::Default for VERIFIER_ENUM_RESOURCE_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VERIFIER_ENUM_RESOURCE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for VERIFIER_ENUM_RESOURCE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -91,8 +91,8 @@ impl ::core::default::Default for eAvrfResourceTypes {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eAvrfResourceTypes {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eAvrfResourceTypes {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eAvrfResourceTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -122,8 +122,8 @@ impl ::core::default::Default for eHANDLE_TRACE_OPERATIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eHANDLE_TRACE_OPERATIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eHANDLE_TRACE_OPERATIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eHANDLE_TRACE_OPERATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -151,8 +151,8 @@ impl ::core::default::Default for eHeapAllocationState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eHeapAllocationState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eHeapAllocationState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eHeapAllocationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -178,8 +178,8 @@ impl ::core::default::Default for eHeapEnumerationLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eHeapEnumerationLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eHeapEnumerationLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eHeapEnumerationLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -207,8 +207,8 @@ impl ::core::default::Default for eUserAllocationState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for eUserAllocationState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for eUserAllocationState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for eUserAllocationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -233,8 +233,8 @@ impl ::core::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
         f.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AVRF_BACKTRACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVRF_BACKTRACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -268,8 +268,8 @@ impl ::core::fmt::Debug for AVRF_HANDLE_OPERATION {
         f.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AVRF_HANDLE_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVRF_HANDLE_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AVRF_HANDLE_OPERATION {
     fn eq(&self, other: &Self) -> bool {
@@ -306,8 +306,8 @@ impl ::core::fmt::Debug for AVRF_HEAP_ALLOCATION {
         f.debug_struct("AVRF_HEAP_ALLOCATION").field("HeapHandle", &self.HeapHandle).field("UserAllocation", &self.UserAllocation).field("UserAllocationSize", &self.UserAllocationSize).field("Allocation", &self.Allocation).field("AllocationSize", &self.AllocationSize).field("UserAllocationState", &self.UserAllocationState).field("HeapState", &self.HeapState).field("HeapContext", &self.HeapContext).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for AVRF_HEAP_ALLOCATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AVRF_HEAP_ALLOCATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
     fn eq(&self, other: &Self) -> bool {

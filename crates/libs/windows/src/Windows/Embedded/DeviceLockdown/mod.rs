@@ -4,6 +4,11 @@ pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;
 }
+impl ::core::clone::Clone for IDeviceLockdownProfileInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
 }
@@ -11,13 +16,18 @@ unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
 #[doc(hidden)]
 pub struct IDeviceLockdownProfileInformation_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStatics_Vtbl;
+}
+impl ::core::clone::Clone for IDeviceLockdownProfileStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
@@ -44,28 +54,28 @@ impl DeviceLockdownProfile {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockdownProfiles() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetSupportedLockdownProfiles)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows::core::GUID>>();
+            (::windows::core::Vtable::vtable(this).GetSupportedLockdownProfiles)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetCurrentLockdownProfile() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetCurrentLockdownProfile)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+            (::windows::core::Vtable::vtable(this).GetCurrentLockdownProfile)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyLockdownProfileAsync(profileid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Vtable::as_raw(this), profileid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Vtable::as_raw(this), profileid, &mut result__).from_abi(result__)
         })
     }
     pub fn GetLockdownProfileInformation(profileid: ::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetLockdownProfileInformation)(::windows::core::Vtable::as_raw(this), profileid, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<DeviceLockdownProfileInformation>();
+            (::windows::core::Vtable::vtable(this).GetLockdownProfileInformation)(::windows::core::Vtable::as_raw(this), profileid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -84,14 +94,9 @@ impl DeviceLockdownProfileInformation {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Name)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for DeviceLockdownProfileInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for DeviceLockdownProfileInformation {
@@ -105,11 +110,12 @@ impl ::core::fmt::Debug for DeviceLockdownProfileInformation {
         f.debug_tuple("DeviceLockdownProfileInformation").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
+impl ::windows::core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for DeviceLockdownProfileInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for DeviceLockdownProfileInformation {

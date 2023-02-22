@@ -9,8 +9,8 @@ impl IGraphicsCaptureItemInterop {
         P0: ::std::convert::Into<super::super::super::super::Foundation::HWND>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateForWindow)(::windows::core::Vtable::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -19,16 +19,11 @@ impl IGraphicsCaptureItemInterop {
         P0: ::std::convert::Into<super::super::super::super::Graphics::Gdi::HMONITOR>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateForMonitor)(::windows::core::Vtable::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateForMonitor)(::windows::core::Vtable::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IGraphicsCaptureItemInterop, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IGraphicsCaptureItemInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IGraphicsCaptureItemInterop {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -42,6 +37,11 @@ impl ::core::fmt::Debug for IGraphicsCaptureItemInterop {
 }
 unsafe impl ::windows::core::Vtable for IGraphicsCaptureItemInterop {
     type Vtable = IGraphicsCaptureItemInterop_Vtbl;
+}
+impl ::core::clone::Clone for IGraphicsCaptureItemInterop {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IGraphicsCaptureItemInterop {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);

@@ -107,18 +107,19 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     if gen.sys {
         quote! {}
     } else {
-        let abi = if gen.reader.type_def_is_blittable(def) {
-            quote! { Self }
-        } else {
-            quote! { ::std::mem::ManuallyDrop<Self> }
-        };
-
         let features = gen.cfg_features(cfg);
+        let is_copy = gen.reader.type_def_is_blittable(def);
+
+        let type_kind = if is_copy {
+            quote! { CopyType }
+        } else {
+            quote! { ValueType }
+        };
 
         let mut tokens = quote! {
             #features
-            unsafe impl ::windows::core::Abi for #name {
-                type Abi = #abi;
+            impl ::windows::core::TypeKind for #name {
+                type TypeKind = ::windows::core::#type_kind;
             }
         };
 
@@ -130,20 +131,10 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
             let signature =
                 Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
-            let clone = if gen.reader.type_def_is_blittable(def) {
-                quote! { *from }
-            } else {
-                quote! { from.clone() }
-            };
-
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::RuntimeType for #name {
+                impl ::windows::core::RuntimeType for #name {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                    type DefaultType = Self;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        Ok(#clone)
-                    }
                 }
             });
         }

@@ -45,11 +45,6 @@ impl ID3D11On12Device {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11On12Device, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ID3D11On12Device {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11On12Device {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -65,6 +60,11 @@ unsafe impl ::core::marker::Send for ID3D11On12Device {}
 unsafe impl ::core::marker::Sync for ID3D11On12Device {}
 unsafe impl ::windows::core::Vtable for ID3D11On12Device {
     type Vtable = ID3D11On12Device_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11On12Device {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85611e73_70a9_490e_9614_a9e302777904);
@@ -113,16 +113,11 @@ impl ID3D11On12Device1 {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11On12Device1, ::windows::core::IUnknown, ID3D11On12Device);
-impl ::core::clone::Clone for ID3D11On12Device1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11On12Device1 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -138,6 +133,11 @@ unsafe impl ::core::marker::Send for ID3D11On12Device1 {}
 unsafe impl ::core::marker::Sync for ID3D11On12Device1 {}
 unsafe impl ::windows::core::Vtable for ID3D11On12Device1 {
     type Vtable = ID3D11On12Device1_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11On12Device1 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device1 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdb64df4_ea2f_4c70_b861_aaab1258bb5d);
@@ -175,8 +175,8 @@ impl ID3D11On12Device2 {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).base__.GetD3D12Device)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
@@ -186,8 +186,8 @@ impl ID3D11On12Device2 {
         P1: ::std::convert::Into<::windows::core::InParam<super::Direct3D12::ID3D12CommandQueue>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).UnwrapUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), pcommandqueue.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).UnwrapUnderlyingResource)(::windows::core::Vtable::as_raw(self), presource11.into().abi(), pcommandqueue.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
@@ -199,11 +199,6 @@ impl ID3D11On12Device2 {
     }
 }
 ::windows::core::interface_hierarchy!(ID3D11On12Device2, ::windows::core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
-impl ::core::clone::Clone for ID3D11On12Device2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ID3D11On12Device2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -219,6 +214,11 @@ unsafe impl ::core::marker::Send for ID3D11On12Device2 {}
 unsafe impl ::core::marker::Sync for ID3D11On12Device2 {}
 unsafe impl ::windows::core::Vtable for ID3D11On12Device2 {
     type Vtable = ID3D11On12Device2_Vtbl;
+}
+impl ::core::clone::Clone for ID3D11On12Device2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ID3D11On12Device2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc90f331_4740_43fa_866e_67f12cb58223);
@@ -255,8 +255,8 @@ impl ::core::fmt::Debug for D3D11_RESOURCE_FLAGS {
         f.debug_struct("D3D11_RESOURCE_FLAGS").field("BindFlags", &self.BindFlags).field("MiscFlags", &self.MiscFlags).field("CPUAccessFlags", &self.CPUAccessFlags).field("StructureByteStride", &self.StructureByteStride).finish()
     }
 }
-unsafe impl ::windows::core::Abi for D3D11_RESOURCE_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for D3D11_RESOURCE_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for D3D11_RESOURCE_FLAGS {
     fn eq(&self, other: &Self) -> bool {

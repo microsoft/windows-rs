@@ -55,8 +55,8 @@ impl PCSTR {
     }
 }
 
-unsafe impl Abi for PCSTR {
-    type Abi = Self;
+impl TypeKind for PCSTR {
+    type TypeKind = CopyType;
 }
 
 // This just ensures that `None` can be used for optional PCSTR parameters, which can be quite common

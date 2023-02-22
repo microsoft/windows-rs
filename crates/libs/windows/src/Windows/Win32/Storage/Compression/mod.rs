@@ -128,8 +128,8 @@ impl ::core::default::Default for COMPRESS_ALGORITHM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPRESS_ALGORITHM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -157,8 +157,8 @@ impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPRESS_INFORMATION_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -194,8 +194,8 @@ impl ::core::convert::From<::core::option::Option<COMPRESSOR_HANDLE>> for COMPRE
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPRESSOR_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
@@ -215,8 +215,8 @@ impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
         f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
     fn default() -> Self {

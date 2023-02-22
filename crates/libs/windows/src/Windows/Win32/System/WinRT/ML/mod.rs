@@ -8,16 +8,11 @@ impl ILearningModelDeviceFactoryNative {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Vtable::as_raw(self), value.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILearningModelDeviceFactoryNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILearningModelDeviceFactoryNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelDeviceFactoryNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -31,6 +26,11 @@ impl ::core::fmt::Debug for ILearningModelDeviceFactoryNative {
 }
 unsafe impl ::windows::core::Vtable for ILearningModelDeviceFactoryNative {
     type Vtable = ILearningModelDeviceFactoryNative_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelDeviceFactoryNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
@@ -51,16 +51,11 @@ impl ILearningModelOperatorProviderNative {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> ::windows::core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetRegistry)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>();
+        (::windows::core::Vtable::vtable(self).GetRegistry)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ILearningModelOperatorProviderNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILearningModelOperatorProviderNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelOperatorProviderNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -74,6 +69,11 @@ impl ::core::fmt::Debug for ILearningModelOperatorProviderNative {
 }
 unsafe impl ::windows::core::Vtable for ILearningModelOperatorProviderNative {
     type Vtable = ILearningModelOperatorProviderNative_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelOperatorProviderNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
@@ -96,11 +96,6 @@ impl ILearningModelSessionOptionsNative {
     }
 }
 ::windows::core::interface_hierarchy!(ILearningModelSessionOptionsNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ILearningModelSessionOptionsNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ILearningModelSessionOptionsNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -114,6 +109,11 @@ impl ::core::fmt::Debug for ILearningModelSessionOptionsNative {
 }
 unsafe impl ::windows::core::Vtable for ILearningModelSessionOptionsNative {
     type Vtable = ILearningModelSessionOptionsNative_Vtbl;
+}
+impl ::core::clone::Clone for ILearningModelSessionOptionsNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71e953f_37b4_4564_8658_d8396866db0d);
@@ -134,16 +134,11 @@ impl ITensorNative {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows::core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetD3D12Resource)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        (::windows::core::Vtable::vtable(self).GetD3D12Resource)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(ITensorNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITensorNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITensorNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -157,6 +152,11 @@ impl ::core::fmt::Debug for ITensorNative {
 }
 unsafe impl ::windows::core::Vtable for ITensorNative {
     type Vtable = ITensorNative_Vtbl;
+}
+impl ::core::clone::Clone for ITensorNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
@@ -185,11 +185,6 @@ impl ITensorStaticsNative {
     }
 }
 ::windows::core::interface_hierarchy!(ITensorStaticsNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for ITensorStaticsNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ITensorStaticsNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -203,6 +198,11 @@ impl ::core::fmt::Debug for ITensorStaticsNative {
 }
 unsafe impl ::windows::core::Vtable for ITensorStaticsNative {
     type Vtable = ITensorStaticsNative_Vtbl;
+}
+impl ::core::clone::Clone for ITensorStaticsNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ITensorStaticsNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);

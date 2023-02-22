@@ -37,12 +37,8 @@ unsafe impl Interface for IInspectable {
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }
 
-unsafe impl RuntimeType for IInspectable {
+impl RuntimeType for IInspectable {
     const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"cinterface(IInspectable)");
-    type DefaultType = Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> Result<Self> {
-        from.as_ref().cloned().ok_or(Error::OK)
-    }
 }
 
 impl RuntimeName for IInspectable {}

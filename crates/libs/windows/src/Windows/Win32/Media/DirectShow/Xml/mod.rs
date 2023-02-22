@@ -27,11 +27,6 @@ impl IXMLGraphBuilder {
     }
 }
 ::windows::core::interface_hierarchy!(IXMLGraphBuilder, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXMLGraphBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXMLGraphBuilder {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -46,6 +41,11 @@ impl ::core::fmt::Debug for IXMLGraphBuilder {
 unsafe impl ::windows::core::Vtable for IXMLGraphBuilder {
     type Vtable = IXMLGraphBuilder_Vtbl;
 }
+impl ::core::clone::Clone for IXMLGraphBuilder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLGraphBuilder {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05960_5fbf_11d2_a521_44df07c10000);
 }
@@ -57,7 +57,7 @@ pub struct IXMLGraphBuilder_Vtbl {
     pub BuildFromXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, pxml: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     BuildFromXML: usize,
-    pub SaveToXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, pbstrxml: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SaveToXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, pbstrxml: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub BuildFromXMLFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void, wszfilename: ::windows::core::PCWSTR, wszbaseurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]

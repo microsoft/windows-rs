@@ -122,8 +122,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         let name = type_name.name;
         tokens.combine(&quote! {
             #features
-            unsafe impl ::windows::core::Abi for #ident {
-                type Abi = Self;
+            impl ::windows::core::TypeKind for #ident {
+                type TypeKind = ::windows::core::CopyType;
             }
             #features
             impl ::core::fmt::Debug for #ident {
@@ -190,12 +190,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
             tokens.combine(&quote! {
                 #features
-                unsafe impl ::windows::core::RuntimeType for #ident {
+                impl ::windows::core::RuntimeType for #ident {
                     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(#signature);
-                    type DefaultType = Self;
-                    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-                        Ok(*from)
-                    }
                 }
             });
         }

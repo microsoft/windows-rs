@@ -130,8 +130,8 @@ impl ::core::default::Default for RM_APP_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_APP_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_APP_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_APP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -167,8 +167,8 @@ impl ::core::default::Default for RM_APP_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_APP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_APP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_APP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -196,8 +196,8 @@ impl ::core::default::Default for RM_FILTER_ACTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_FILTER_ACTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_FILTER_ACTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_FILTER_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -227,8 +227,8 @@ impl ::core::default::Default for RM_FILTER_TRIGGER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_FILTER_TRIGGER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_FILTER_TRIGGER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_FILTER_TRIGGER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -262,8 +262,8 @@ impl ::core::default::Default for RM_REBOOT_REASON {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_REBOOT_REASON {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_REBOOT_REASON {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_REBOOT_REASON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -289,8 +289,8 @@ impl ::core::default::Default for RM_SHUTDOWN_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for RM_SHUTDOWN_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_SHUTDOWN_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for RM_SHUTDOWN_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -315,8 +315,8 @@ impl ::core::clone::Clone for RM_FILTER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_FILTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_FILTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO {
@@ -341,8 +341,8 @@ impl ::core::clone::Clone for RM_FILTER_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_FILTER_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_FILTER_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RM_FILTER_INFO_0 {
@@ -377,8 +377,8 @@ impl ::core::fmt::Debug for RM_PROCESS_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_PROCESS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_PROCESS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RM_PROCESS_INFO {
@@ -416,8 +416,8 @@ impl ::core::fmt::Debug for RM_UNIQUE_PROCESS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RM_UNIQUE_PROCESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RM_UNIQUE_PROCESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RM_UNIQUE_PROCESS {

@@ -15,17 +15,12 @@ impl IUriToStreamResolver {
     pub fn UriToStreamAsync(&self, uri: &super::Foundation::Uri) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>();
+            (::windows::core::Vtable::vtable(this).UriToStreamAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         }
     }
 }
 ::windows::core::interface_hierarchy!(IUriToStreamResolver, ::windows::core::IUnknown, ::windows::core::IInspectable);
-impl ::core::clone::Clone for IUriToStreamResolver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IUriToStreamResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -37,15 +32,16 @@ impl ::core::fmt::Debug for IUriToStreamResolver {
         f.debug_tuple("IUriToStreamResolver").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IUriToStreamResolver {
+impl ::windows::core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 unsafe impl ::windows::core::Vtable for IUriToStreamResolver {
     type Vtable = IUriToStreamResolver_Vtbl;
+}
+impl ::core::clone::Clone for IUriToStreamResolver {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IUriToStreamResolver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
@@ -65,6 +61,11 @@ pub struct IWebErrorStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IWebErrorStatics {
     type Vtable = IWebErrorStatics_Vtbl;
 }
+impl ::core::clone::Clone for IWebErrorStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IWebErrorStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 }
@@ -79,8 +80,8 @@ pub struct WebError;
 impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<WebErrorStatus>();
+            (::windows::core::Vtable::vtable(this).GetStatus)(::windows::core::Vtable::as_raw(this), hresult, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -164,20 +165,16 @@ impl ::core::default::Default for WebErrorStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WebErrorStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WebErrorStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WebErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebErrorStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for WebErrorStatus {
+impl ::windows::core::RuntimeType for WebErrorStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

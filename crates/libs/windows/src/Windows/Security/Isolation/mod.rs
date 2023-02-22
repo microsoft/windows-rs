@@ -4,6 +4,11 @@ pub struct IIsolatedWindowsEnvironment(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironment {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
 }
@@ -11,29 +16,29 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub StartProcessSilentlyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: *mut ::core::ffi::c_void, arguments: *mut ::core::ffi::c_void, activator: IsolatedWindowsEnvironmentActivator, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartProcessSilentlyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows::core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     StartProcessSilentlyAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub StartProcessSilentlyWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: *mut ::core::ffi::c_void, arguments: *mut ::core::ffi::c_void, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StartProcessSilentlyWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows::core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     StartProcessSilentlyWithTelemetryAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub ShareFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: *mut ::core::ffi::c_void, requestoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShareFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows::core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ShareFolderAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub ShareFolderWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: *mut ::core::ffi::c_void, requestoptions: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShareFolderWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows::core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ShareFolderWithTelemetryAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub LaunchFileWithUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: *mut ::core::ffi::c_void, argumentstemplate: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LaunchFileWithUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows::core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LaunchFileWithUIAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub LaunchFileWithUIAndTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: *mut ::core::ffi::c_void, argumentstemplate: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub LaunchFileWithUIAndTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows::core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     LaunchFileWithUIAndTelemetryAsync: usize,
     #[cfg(feature = "Foundation")]
@@ -55,6 +60,11 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
 pub struct IIsolatedWindowsEnvironment2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironment2 {
     type Vtable = IIsolatedWindowsEnvironment2_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironment2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
@@ -78,6 +88,11 @@ pub struct IIsolatedWindowsEnvironment3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironment3 {
     type Vtable = IIsolatedWindowsEnvironment3_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironment3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb7fc7d2_d06e_4c26_8ada_dacdaaad03f5);
 }
@@ -87,11 +102,11 @@ pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub GetUserInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
-    pub ShareFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShareFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ShareFileAsync: usize,
     #[cfg(feature = "Foundation")]
-    pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     ShareFileWithTelemetryAsync: usize,
 }
@@ -100,6 +115,11 @@ pub struct IIsolatedWindowsEnvironment3_Vtbl {
 pub struct IIsolatedWindowsEnvironment4(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironment4 {
     type Vtable = IIsolatedWindowsEnvironment4_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironment4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironment4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
@@ -115,6 +135,11 @@ pub struct IIsolatedWindowsEnvironment4_Vtbl {
 pub struct IIsolatedWindowsEnvironmentCreateResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentCreateResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentCreateResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
@@ -133,6 +158,11 @@ pub struct IIsolatedWindowsEnvironmentCreateResult2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentCreateResult2 {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult2_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentCreateResult2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentCreateResult2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
 }
@@ -147,6 +177,11 @@ pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
 pub struct IIsolatedWindowsEnvironmentFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentFactory {
     type Vtable = IIsolatedWindowsEnvironmentFactory_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aca93e7_e804_454d_8466_f9897c20b0f6);
@@ -163,9 +198,9 @@ pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     pub CreateWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
     CreateWithTelemetryAsync: usize,
-    pub GetById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindByOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentownerid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub FindByOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentownerid: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindByOwnerId: usize,
 }
@@ -175,6 +210,11 @@ pub struct IIsolatedWindowsEnvironmentFile(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
 }
@@ -183,7 +223,7 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile {
 pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub HostPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HostPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -192,6 +232,11 @@ pub struct IIsolatedWindowsEnvironmentFile2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentFile2 {
     type Vtable = IIsolatedWindowsEnvironmentFile2_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentFile2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 }
@@ -199,7 +244,7 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentFile2 {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub GuestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GuestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
@@ -207,6 +252,11 @@ pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
 pub struct IIsolatedWindowsEnvironmentHostStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentHostStatics {
     type Vtable = IIsolatedWindowsEnvironmentHostStatics_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentHostStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentHostStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
@@ -227,6 +277,11 @@ pub struct IIsolatedWindowsEnvironmentLaunchFileResult(::windows::core::IUnknown
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentLaunchFileResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentLaunchFileResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
 }
@@ -244,6 +299,11 @@ pub struct IIsolatedWindowsEnvironmentOptions(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 }
@@ -251,17 +311,17 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub EnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetEnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetEnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AllowedClipboardFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::HRESULT,
     pub SetAllowedClipboardFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::HRESULT,
     pub ClipboardCopyPasteDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::HRESULT,
     pub SetClipboardCopyPasteDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::HRESULT,
     pub AvailablePrinters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::HRESULT,
     pub SetAvailablePrinters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::HRESULT,
-    pub SharedHostFolderPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SharedFolderNameInEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ShareHostFolderForUntrustedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharedhostfolderpath: *mut ::core::ffi::c_void, sharefoldernameinenvironment: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SharedHostFolderPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SharedFolderNameInEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ShareHostFolderForUntrustedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharedhostfolderpath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, sharefoldernameinenvironment: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PersistUserProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetPersistUserProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub AllowGraphicsHardwareAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
@@ -275,6 +335,11 @@ pub struct IIsolatedWindowsEnvironmentOptions2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOptions2 {
     type Vtable = IIsolatedWindowsEnvironmentOptions2_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOptions2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 }
@@ -282,14 +347,19 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions2 {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub WindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetWindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub WindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetWindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IIsolatedWindowsEnvironmentOptions3(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOptions3 {
     type Vtable = IIsolatedWindowsEnvironmentOptions3_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOptions3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOptions3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
@@ -310,6 +380,11 @@ pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOwnerRegistrationData {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationData {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
@@ -341,6 +416,11 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::core::I
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
 }
@@ -357,6 +437,11 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics(::windows::core::
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegistrationStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10951754_204b_5ec9_9de3_df792d074a61);
 }
@@ -364,14 +449,19 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentOwnerRegis
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: *mut ::core::ffi::c_void, ownerregistrationdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows::core::HSTRING>, ownerregistrationdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentPostMessageResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentPostMessageResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
@@ -388,6 +478,11 @@ pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
 pub struct IIsolatedWindowsEnvironmentProcess(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentProcess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentProcess {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
@@ -411,6 +506,11 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions(::windows::core::I
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentShareFileRequestOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFileRequestOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 }
@@ -426,6 +526,11 @@ pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
 pub struct IIsolatedWindowsEnvironmentShareFileResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentShareFileResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFileResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
@@ -444,6 +549,11 @@ pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::core:
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFolderRequestOptions {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 }
@@ -460,6 +570,11 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult(::windows::core::IUnknow
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentShareFolderResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentShareFolderResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 }
@@ -475,6 +590,11 @@ pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
 pub struct IIsolatedWindowsEnvironmentStartProcessResult(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentStartProcessResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentStartProcessResult {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
@@ -493,6 +613,11 @@ pub struct IIsolatedWindowsEnvironmentTelemetryParameters(::windows::core::IUnkn
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentTelemetryParameters {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentTelemetryParameters {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 }
@@ -509,6 +634,11 @@ pub struct IIsolatedWindowsEnvironmentUserInfo(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentUserInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentUserInfo {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 }
@@ -516,8 +646,8 @@ unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentUserInfo {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub base__: ::windows::core::IInspectable_Vtbl,
-    pub EnvironmentUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EnvironmentUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub EnvironmentUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub EnvironmentUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")]
     pub TryWaitForSignInAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))]
@@ -528,6 +658,11 @@ pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
 pub struct IIsolatedWindowsEnvironmentUserInfo2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsEnvironmentUserInfo2 {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo2_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsEnvironmentUserInfo2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsEnvironmentUserInfo2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
@@ -547,6 +682,11 @@ pub struct IIsolatedWindowsHostMessengerStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsHostMessengerStatics {
     type Vtable = IIsolatedWindowsHostMessengerStatics_Vtbl;
 }
+impl ::core::clone::Clone for IIsolatedWindowsHostMessengerStatics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedWindowsHostMessengerStatics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 }
@@ -558,13 +698,18 @@ pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
     pub PostMessageToReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiver: usize,
-    pub GetFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows::core::HSTRING>, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IIsolatedWindowsHostMessengerStatics2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Vtable for IIsolatedWindowsHostMessengerStatics2 {
     type Vtable = IIsolatedWindowsHostMessengerStatics2_Vtbl;
+}
+impl ::core::clone::Clone for IIsolatedWindowsHostMessengerStatics2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIsolatedWindowsHostMessengerStatics2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
@@ -586,8 +731,8 @@ impl IsolatedWindowsEnvironment {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -595,8 +740,8 @@ impl IsolatedWindowsEnvironment {
     pub fn StartProcessSilentlyAsync(&self, hostexepath: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StartProcessSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>();
+            (::windows::core::Vtable::vtable(this).StartProcessSilentlyAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -604,8 +749,8 @@ impl IsolatedWindowsEnvironment {
     pub fn StartProcessSilentlyWithTelemetryAsync(&self, hostexepath: &::windows::core::HSTRING, arguments: &::windows::core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>();
+            (::windows::core::Vtable::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -613,8 +758,8 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFolderAsync(&self, hostfolder: &::windows::core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShareFolderAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>();
+            (::windows::core::Vtable::vtable(this).ShareFolderAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -622,8 +767,8 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFolderWithTelemetryAsync(&self, hostfolder: &::windows::core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShareFolderWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>();
+            (::windows::core::Vtable::vtable(this).ShareFolderWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -631,8 +776,8 @@ impl IsolatedWindowsEnvironment {
     pub fn LaunchFileWithUIAsync(&self, appexepath: &::windows::core::HSTRING, argumentstemplate: &::windows::core::HSTRING, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFileWithUIAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>();
+            (::windows::core::Vtable::vtable(this).LaunchFileWithUIAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -640,8 +785,8 @@ impl IsolatedWindowsEnvironment {
     pub fn LaunchFileWithUIAndTelemetryAsync(&self, appexepath: &::windows::core::HSTRING, argumentstemplate: &::windows::core::HSTRING, filepath: &::windows::core::HSTRING, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>();
+            (::windows::core::Vtable::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -649,8 +794,8 @@ impl IsolatedWindowsEnvironment {
     pub fn TerminateAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TerminateAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).TerminateAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -658,8 +803,8 @@ impl IsolatedWindowsEnvironment {
     pub fn TerminateWithTelemetryAsync(&self, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TerminateWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).TerminateWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -681,8 +826,8 @@ impl IsolatedWindowsEnvironment {
     {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PostMessageToReceiverAsync)(::windows::core::Vtable::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>();
+            (::windows::core::Vtable::vtable(this).PostMessageToReceiverAsync)(::windows::core::Vtable::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -694,15 +839,15 @@ impl IsolatedWindowsEnvironment {
     {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>();
+            (::windows::core::Vtable::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     pub fn GetUserInfo(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentUserInfo> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetUserInfo)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentUserInfo>();
+            (::windows::core::Vtable::vtable(this).GetUserInfo)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -710,8 +855,8 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFileAsync(&self, filepath: &::windows::core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShareFileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>();
+            (::windows::core::Vtable::vtable(this).ShareFileAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -719,8 +864,8 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFileWithTelemetryAsync(&self, filepath: &::windows::core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShareFileWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>();
+            (::windows::core::Vtable::vtable(this).ShareFileWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangePriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows::core::Result<()> {
@@ -731,41 +876,36 @@ impl IsolatedWindowsEnvironment {
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(options: &IsolatedWindowsEnvironmentOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>();
+            (::windows::core::Vtable::vtable(this).CreateAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithTelemetryAsync(options: &IsolatedWindowsEnvironmentOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreateWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>();
+            (::windows::core::Vtable::vtable(this).CreateWithTelemetryAsync)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         })
     }
     pub fn GetById(environmentid: &::windows::core::HSTRING) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetById)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(environmentid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironment>();
+            (::windows::core::Vtable::vtable(this).GetById)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(environmentid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindByOwnerId(environmentownerid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).FindByOwnerId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(environmentownerid), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>();
+            (::windows::core::Vtable::vtable(this).FindByOwnerId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(environmentownerid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
     pub fn IIsolatedWindowsEnvironmentFactory<R, F: FnOnce(&IIsolatedWindowsEnvironmentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static SHARED: ::windows::core::FactoryCache<IsolatedWindowsEnvironment, IIsolatedWindowsEnvironmentFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironment {
@@ -779,11 +919,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironment {
         f.debug_tuple("IsolatedWindowsEnvironment").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironment {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironment;{41d24597-c328-4467-b37f-4dfc6f60b6bc})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironment {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironment {
@@ -805,32 +946,27 @@ impl IsolatedWindowsEnvironmentCreateResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentCreateStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentCreateStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Environment(&self) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Environment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironment>();
+            (::windows::core::Vtable::vtable(this).Environment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangeCreationPriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentCreateResult2>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).ChangeCreationPriority)(::windows::core::Vtable::as_raw(this), priority).ok() }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateResult {
@@ -844,11 +980,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateResult {
         f.debug_tuple("IsolatedWindowsEnvironmentCreateResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult;{ef9a5e58-dcd7-45c2-9c85-ab642a715e8e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentCreateResult {
@@ -870,15 +1007,15 @@ impl IsolatedWindowsEnvironmentFile {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+            (::windows::core::Vtable::vtable(this).Id)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HostPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HostPath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).HostPath)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Close(&self) -> ::windows::core::Result<()> {
@@ -888,21 +1025,16 @@ impl IsolatedWindowsEnvironmentFile {
     pub fn GuestPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GuestPath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).GuestPath)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsReadOnly)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentFile {
@@ -916,11 +1048,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentFile {
         f.debug_tuple("IsolatedWindowsEnvironmentFile").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentFile {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentFile;{4d5ae1ef-029f-4101-8c35-fe91bf9cd5f0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentFile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentFile {
@@ -940,16 +1073,16 @@ pub struct IsolatedWindowsEnvironmentHost;
 impl IsolatedWindowsEnvironmentHost {
     pub fn IsReady() -> ::windows::core::Result<bool> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).IsReady)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).IsReady)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostErrors() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).HostErrors)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>>();
+            (::windows::core::Vtable::vtable(this).HostErrors)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -968,28 +1101,23 @@ impl IsolatedWindowsEnvironmentLaunchFileResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentLaunchFileStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentLaunchFileStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn File(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentFile>();
+            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentLaunchFileResult {
@@ -1003,11 +1131,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileResult {
         f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult;{685d4176-f6e0-4569-b1aa-215c0ff5b257})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentLaunchFileResult {
@@ -1036,8 +1165,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn EnvironmentOwnerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnvironmentOwnerId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).EnvironmentOwnerId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetEnvironmentOwnerId(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1047,8 +1176,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormats(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowedClipboardFormats)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            (::windows::core::Vtable::vtable(this).AllowedClipboardFormats)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedClipboardFormats(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
@@ -1058,8 +1187,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn ClipboardCopyPasteDirections(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentClipboardCopyPasteDirections> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ClipboardCopyPasteDirections)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>();
+            (::windows::core::Vtable::vtable(this).ClipboardCopyPasteDirections)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetClipboardCopyPasteDirections(&self, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::Result<()> {
@@ -1069,8 +1198,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AvailablePrinters(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAvailablePrinters> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AvailablePrinters)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentAvailablePrinters>();
+            (::windows::core::Vtable::vtable(this).AvailablePrinters)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAvailablePrinters(&self, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::Result<()> {
@@ -1080,15 +1209,15 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn SharedHostFolderPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SharedHostFolderPath)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).SharedHostFolderPath)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SharedFolderNameInEnvironment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).SharedFolderNameInEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).SharedFolderNameInEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ShareHostFolderForUntrustedItems(&self, sharedhostfolderpath: &::windows::core::HSTRING, sharefoldernameinenvironment: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1098,8 +1227,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn PersistUserProfile(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).PersistUserProfile)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).PersistUserProfile)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetPersistUserProfile(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1109,8 +1238,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowGraphicsHardwareAcceleration(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowGraphicsHardwareAcceleration)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).AllowGraphicsHardwareAcceleration)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowGraphicsHardwareAcceleration(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1120,8 +1249,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowCameraAndMicrophoneAccess(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowCameraAndMicrophoneAccess)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).AllowCameraAndMicrophoneAccess)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowCameraAndMicrophoneAccess(&self, value: bool) -> ::windows::core::Result<()> {
@@ -1131,8 +1260,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn WindowAnnotationOverride(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WindowAnnotationOverride)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).WindowAnnotationOverride)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetWindowAnnotationOverride(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1142,8 +1271,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormatsToEnvironment(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowedClipboardFormatsToEnvironment)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            (::windows::core::Vtable::vtable(this).AllowedClipboardFormatsToEnvironment)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedClipboardFormatsToEnvironment(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
@@ -1153,8 +1282,8 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormatsToHost(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowedClipboardFormatsToHost)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            (::windows::core::Vtable::vtable(this).AllowedClipboardFormatsToHost)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowedClipboardFormatsToHost(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
@@ -1164,18 +1293,13 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn CreationPriority(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentCreationPriority> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CreationPriority)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentCreationPriority>();
+            (::windows::core::Vtable::vtable(this).CreationPriority)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCreationPriority(&self, value: IsolatedWindowsEnvironmentCreationPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe { (::windows::core::Vtable::vtable(this).SetCreationPriority)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentOptions {
@@ -1189,11 +1313,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOptions {
         f.debug_tuple("IsolatedWindowsEnvironmentOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOptions {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions;{b71d98f7-61f0-4008-b207-0bf9eb2d76f2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentOptions {
@@ -1213,8 +1338,8 @@ pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     pub fn Register(ownername: &::windows::core::HSTRING, ownerregistrationdata: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(ownername), ::core::mem::transmute_copy(ownerregistrationdata), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentOwnerRegistrationResult>();
+            (::windows::core::Vtable::vtable(this).Register)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(ownername), ::core::mem::transmute_copy(ownerregistrationdata), &mut result__).from_abi(result__)
         })
     }
     pub fn Unregister(ownername: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -1245,8 +1370,8 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ShareableFolders(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ShareableFolders)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).ShareableFolders)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1254,8 +1379,8 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ProcessesRunnableAsSystem(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessesRunnableAsSystem)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).ProcessesRunnableAsSystem)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1263,8 +1388,8 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ProcessesRunnableAsUser(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ProcessesRunnableAsUser)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).ProcessesRunnableAsUser)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1272,14 +1397,9 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ActivationFileExtensions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ActivationFileExtensions)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>();
+            (::windows::core::Vtable::vtable(this).ActivationFileExtensions)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -1293,11 +1413,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationData {
         f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationData").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationData {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData;{f888ec22-e8cf-56c0-b1df-90af4ad80e84})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationData {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -1319,21 +1440,16 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentOwnerRegistrationStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -1347,11 +1463,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationResult {
         f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult;{6dab9451-6169-55df-8f51-790e99d7277d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -1373,21 +1490,16 @@ impl IsolatedWindowsEnvironmentPostMessageResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentPostMessageStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentPostMessageStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentPostMessageResult {
@@ -1401,11 +1513,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageResult {
         f.debug_tuple("IsolatedWindowsEnvironmentPostMessageResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult;{0dfa28fa-2ef0-4d8f-b341-3171b2df93b1})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentPostMessageResult {
@@ -1427,15 +1540,15 @@ impl IsolatedWindowsEnvironmentProcess {
     pub fn State(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentProcessState> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentProcessState>();
+            (::windows::core::Vtable::vtable(this).State)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExitCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExitCode)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<u32>();
+            (::windows::core::Vtable::vtable(this).ExitCode)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WaitForExit(&self) -> ::windows::core::Result<()> {
@@ -1451,14 +1564,9 @@ impl IsolatedWindowsEnvironmentProcess {
     pub fn WaitForExitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).WaitForExitAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncAction>();
+            (::windows::core::Vtable::vtable(this).WaitForExitAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentProcess {
@@ -1472,11 +1580,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcess {
         f.debug_tuple("IsolatedWindowsEnvironmentProcess").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcess {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess;{a858c3ef-8172-4f10-af93-cbe60af88d09})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcess {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentProcess {
@@ -1505,18 +1614,13 @@ impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     pub fn AllowWrite(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowWrite)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).AllowWrite)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowWrite(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAllowWrite)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -1530,11 +1634,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileRequestOptions {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFileRequestOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOptions {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions;{c9190ed8-0fd0-4946-bb88-117a60737b61})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileRequestOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -1556,28 +1661,23 @@ impl IsolatedWindowsEnvironmentShareFileResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentShareFileStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentShareFileStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn File(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentFile>();
+            (::windows::core::Vtable::vtable(this).File)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFileResult {
@@ -1591,11 +1691,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileResult {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFileResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult;{aec7caa7-9ac6-4bf5-8b91-5c1adf0d7d00})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentShareFileResult {
@@ -1624,18 +1725,13 @@ impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn AllowWrite(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).AllowWrite)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<bool>();
+            (::windows::core::Vtable::vtable(this).AllowWrite)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetAllowWrite(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetAllowWrite)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -1649,11 +1745,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderRequestOptions 
         f.debug_tuple("IsolatedWindowsEnvironmentShareFolderRequestOptions").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestOptions {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions;{c405eb7d-7053-4f6a-9b87-746846ed19b2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderRequestOptions {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -1675,21 +1772,16 @@ impl IsolatedWindowsEnvironmentShareFolderResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentShareFolderStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentShareFolderStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFolderResult {
@@ -1703,11 +1795,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderResult {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFolderResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult;{556ba72e-ca9d-4211-b143-1cedc86eb2fe})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentShareFolderResult {
@@ -1729,28 +1822,23 @@ impl IsolatedWindowsEnvironmentStartProcessResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentStartProcessStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentStartProcessStatus>();
+            (::windows::core::Vtable::vtable(this).Status)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HRESULT>();
+            (::windows::core::Vtable::vtable(this).ExtendedError)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Process(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentProcess> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).Process)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<IsolatedWindowsEnvironmentProcess>();
+            (::windows::core::Vtable::vtable(this).Process)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentStartProcessResult {
@@ -1764,11 +1852,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessResult {
         f.debug_tuple("IsolatedWindowsEnvironmentStartProcessResult").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult;{8fa1dc2f-57da-4bb5-9c06-fa072d2032e2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentStartProcessResult {
@@ -1797,18 +1886,13 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).CorrelationId)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+            (::windows::core::Vtable::vtable(this).CorrelationId)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SetCorrelationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Vtable::vtable(this).SetCorrelationId)(::windows::core::Vtable::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentTelemetryParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentTelemetryParameters {
@@ -1822,11 +1906,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentTelemetryParameters {
         f.debug_tuple("IsolatedWindowsEnvironmentTelemetryParameters").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters;{ebdb3cab-7a3a-4524-a0f4-f96e284d33cd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentTelemetryParameters {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentTelemetryParameters {
@@ -1848,15 +1933,15 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn EnvironmentUserSid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnvironmentUserSid)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).EnvironmentUserSid)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnvironmentUserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).EnvironmentUserName)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::HSTRING>();
+            (::windows::core::Vtable::vtable(this).EnvironmentUserName)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1864,8 +1949,8 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn TryWaitForSignInAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryWaitForSignInAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            (::windows::core::Vtable::vtable(this).TryWaitForSignInAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1873,14 +1958,9 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn TryWaitForSignInWithProgressAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).TryWaitForSignInWithProgressAsync)(::windows::core::Vtable::as_raw(this), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>>();
+            (::windows::core::Vtable::vtable(this).TryWaitForSignInWithProgressAsync)(::windows::core::Vtable::as_raw(this), &mut result__).from_abi(result__)
         }
-    }
-}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentUserInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
     }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentUserInfo {
@@ -1894,11 +1974,12 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentUserInfo {
         f.debug_tuple("IsolatedWindowsEnvironmentUserInfo").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo;{8a9c75ae-69ba-4001-96fc-19a02703b340})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentUserInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
     }
 }
 unsafe impl ::windows::core::Vtable for IsolatedWindowsEnvironmentUserInfo {
@@ -1927,8 +2008,8 @@ impl IsolatedWindowsHostMessenger {
     }
     pub fn GetFileId(filepath: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Vtable::vtable(this).GetFileId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi(result__)
+            let mut result__ = ::windows::core::zeroed::<::windows::core::GUID>();
+            (::windows::core::Vtable::vtable(this).GetFileId)(::windows::core::Vtable::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1972,20 +2053,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentActivator {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentActivator {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2008,8 +2085,8 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentAllowedClipboardForm
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2049,12 +2126,8 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2078,8 +2151,8 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentAvailablePrinters {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2119,12 +2192,8 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2146,8 +2215,8 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentClipboardCopyPasteDi
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2187,12 +2256,8 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections
         Self(self.0.not())
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2214,20 +2279,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentCreateStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2248,20 +2309,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreationPriority {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreationPriority {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentCreationPriority {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreationPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentCreationPriority").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2285,20 +2342,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentHostError {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentHostError {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2323,20 +2376,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentLaunchFileStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentLaunchFileStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2360,20 +2409,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentOwnerRegistrationSta
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2395,20 +2440,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentPostMessageStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentPostMessageStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2430,20 +2471,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentProcessState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentProcessState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2469,20 +2506,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentProgressState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentProgressState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2507,20 +2540,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentShareFileStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentShareFileStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2544,20 +2573,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentShareFolderStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentShareFolderStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2582,20 +2607,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentSignInProgress {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentSignInProgress {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentSignInProgress {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentSignInProgress {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentSignInProgress").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
@@ -2619,20 +2640,16 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentStartProcessStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentStartProcessStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -2651,15 +2668,11 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateProgress {
         f.debug_struct("IsolatedWindowsEnvironmentCreateProgress").field("State", &self.State).field("PercentComplete", &self.PercentComplete).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateProgress {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
+    type TypeKind = ::windows::core::CopyType;
 }
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
+impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
     fn eq(&self, other: &Self) -> bool {
@@ -2734,12 +2747,6 @@ impl<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for HostMessageReceivedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::PartialEq for HostMessageReceivedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2758,16 +2765,18 @@ unsafe impl ::windows::core::Vtable for HostMessageReceivedCallback {
     type Vtable = HostMessageReceivedCallback_Vtbl;
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for HostMessageReceivedCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for HostMessageReceivedCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for HostMessageReceivedCallback {
+impl ::windows::core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faf26ffa-8ce1-4cc1-b278-322d31a5e4a3}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]
@@ -2841,12 +2850,6 @@ impl<F: FnMut(&::windows::core::GUID, ::core::option::Option<&super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for MessageReceivedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::PartialEq for MessageReceivedCallback {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2865,16 +2868,18 @@ unsafe impl ::windows::core::Vtable for MessageReceivedCallback {
     type Vtable = MessageReceivedCallback_Vtbl;
 }
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for MessageReceivedCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MessageReceivedCallback {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
 }
 #[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for MessageReceivedCallback {
+impl ::windows::core::RuntimeType for MessageReceivedCallback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f5b4c8ff-1d9d-4995-9fea-4d15257c0757}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 #[repr(C)]

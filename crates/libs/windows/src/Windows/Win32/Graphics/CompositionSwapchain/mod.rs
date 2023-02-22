@@ -30,11 +30,6 @@ impl ICompositionFramePresentStatistics {
     }
 }
 ::windows::core::interface_hierarchy!(ICompositionFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
-impl ::core::clone::Clone for ICompositionFramePresentStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for ICompositionFramePresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -48,6 +43,11 @@ impl ::core::fmt::Debug for ICompositionFramePresentStatistics {
 }
 unsafe impl ::windows::core::Vtable for ICompositionFramePresentStatistics {
     type Vtable = ICompositionFramePresentStatistics_Vtbl;
+}
+impl ::core::clone::Clone for ICompositionFramePresentStatistics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for ICompositionFramePresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab41d127_c101_4c0a_911d_f9f2e9d08e64);
@@ -98,11 +98,6 @@ impl IIndependentFlipFramePresentStatistics {
     }
 }
 ::windows::core::interface_hierarchy!(IIndependentFlipFramePresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
-impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IIndependentFlipFramePresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -116,6 +111,11 @@ impl ::core::fmt::Debug for IIndependentFlipFramePresentStatistics {
 }
 unsafe impl ::windows::core::Vtable for IIndependentFlipFramePresentStatistics {
     type Vtable = IIndependentFlipFramePresentStatistics_Vtbl;
+}
+impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IIndependentFlipFramePresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c93be27_ad94_4da0_8fd4_2413132d124e);
@@ -145,11 +145,6 @@ impl IPresentStatistics {
     }
 }
 ::windows::core::interface_hierarchy!(IPresentStatistics, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPresentStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -163,6 +158,11 @@ impl ::core::fmt::Debug for IPresentStatistics {
 }
 unsafe impl ::windows::core::Vtable for IPresentStatistics {
     type Vtable = IPresentStatistics_Vtbl;
+}
+impl ::core::clone::Clone for IPresentStatistics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44b8bda_7282_495d_9dd7_ceadd8b4bb86);
@@ -192,11 +192,6 @@ impl IPresentStatusPresentStatistics {
     }
 }
 ::windows::core::interface_hierarchy!(IPresentStatusPresentStatistics, ::windows::core::IUnknown, IPresentStatistics);
-impl ::core::clone::Clone for IPresentStatusPresentStatistics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentStatusPresentStatistics {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -210,6 +205,11 @@ impl ::core::fmt::Debug for IPresentStatusPresentStatistics {
 }
 unsafe impl ::windows::core::Vtable for IPresentStatusPresentStatistics {
     type Vtable = IPresentStatusPresentStatistics_Vtbl;
+}
+impl ::core::clone::Clone for IPresentStatusPresentStatistics {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentStatusPresentStatistics {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ed2a41_79cb_435e_964e_c8553055420c);
@@ -228,20 +228,15 @@ impl IPresentationBuffer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAvailableEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetAvailableEvent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsAvailable(&self) -> ::windows::core::Result<u8> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u8>();
+        (::windows::core::Vtable::vtable(self).IsAvailable)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationBuffer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPresentationBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentationBuffer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -255,6 +250,11 @@ impl ::core::fmt::Debug for IPresentationBuffer {
 }
 unsafe impl ::windows::core::Vtable for IPresentationBuffer {
     type Vtable = IPresentationBuffer_Vtbl;
+}
+impl ::core::clone::Clone for IPresentationBuffer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentationBuffer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e217d3a_5abb_4138_9a13_a775593c89ca);
@@ -278,11 +278,6 @@ impl IPresentationContent {
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationContent, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPresentationContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentationContent {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -296,6 +291,11 @@ impl ::core::fmt::Debug for IPresentationContent {
 }
 unsafe impl ::windows::core::Vtable for IPresentationContent {
     type Vtable = IPresentationContent_Vtbl;
+}
+impl ::core::clone::Clone for IPresentationContent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentationContent {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5668bb79_3d8e_415c_b215_f38020f2d252);
@@ -317,16 +317,11 @@ impl IPresentationFactory {
         (::windows::core::Vtable::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPresentationManager>();
+        (::windows::core::Vtable::vtable(self).CreatePresentationManager)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPresentationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentationFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -340,6 +335,11 @@ impl ::core::fmt::Debug for IPresentationFactory {
 }
 unsafe impl ::windows::core::Vtable for IPresentationFactory {
     type Vtable = IPresentationFactory_Vtbl;
+}
+impl ::core::clone::Clone for IPresentationFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentationFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fb37b58_1d74_4f64_a49c_1f97a80a2ec0);
@@ -360,8 +360,8 @@ impl IPresentationManager {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPresentationBuffer>();
+        (::windows::core::Vtable::vtable(self).AddBufferFromResource)(::windows::core::Vtable::as_raw(self), resource.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -369,8 +369,8 @@ impl IPresentationManager {
     where
         P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePresentationSurface)(::windows::core::Vtable::as_raw(self), compositionsurfacehandle.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPresentationSurface>();
+        (::windows::core::Vtable::vtable(self).CreatePresentationSurface)(::windows::core::Vtable::as_raw(self), compositionsurfacehandle.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         (::windows::core::Vtable::vtable(self).GetNextPresentId)(::windows::core::Vtable::as_raw(self))
@@ -388,8 +388,8 @@ impl IPresentationManager {
         (::windows::core::Vtable::vtable(self).Present)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), riid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut ::core::ffi::c_void>();
+        (::windows::core::Vtable::vtable(self).GetPresentRetiringFence)(::windows::core::Vtable::as_raw(self), riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).CancelPresentsFrom)(::windows::core::Vtable::as_raw(self), presentidtocancelfrom).ok()
@@ -397,29 +397,24 @@ impl IPresentationManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLostEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetLostEvent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::Foundation::HANDLE>();
+        (::windows::core::Vtable::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnablePresentStatisticsKind)(::windows::core::Vtable::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IPresentStatistics>();
+        (::windows::core::Vtable::vtable(self).GetNextPresentStatistics)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationManager, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPresentationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentationManager {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -433,6 +428,11 @@ impl ::core::fmt::Debug for IPresentationManager {
 }
 unsafe impl ::windows::core::Vtable for IPresentationManager {
     type Vtable = IPresentationManager_Vtbl;
+}
+impl ::core::clone::Clone for IPresentationManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentationManager {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb562f82_6292_470a_88b1_843661e7f20c);
@@ -509,11 +509,6 @@ impl IPresentationSurface {
     }
 }
 ::windows::core::interface_hierarchy!(IPresentationSurface, ::windows::core::IUnknown, IPresentationContent);
-impl ::core::clone::Clone for IPresentationSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPresentationSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -527,6 +522,11 @@ impl ::core::fmt::Debug for IPresentationSurface {
 }
 unsafe impl ::windows::core::Vtable for IPresentationSurface {
     type Vtable = IPresentationSurface_Vtbl;
+}
+impl ::core::clone::Clone for IPresentationSurface {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPresentationSurface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956710fb_ea40_4eba_a3eb_4375a0eb4edc);
@@ -574,8 +574,8 @@ impl ::core::default::Default for CompositionFrameInstanceKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CompositionFrameInstanceKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CompositionFrameInstanceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -603,8 +603,8 @@ impl ::core::default::Default for PresentStatisticsKind {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PresentStatisticsKind {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PresentStatisticsKind {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PresentStatisticsKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -632,8 +632,8 @@ impl ::core::default::Default for PresentStatus {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PresentStatus {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PresentStatus {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PresentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -668,8 +668,8 @@ impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CompositionFrameDisplayInstance {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for CompositionFrameDisplayInstance {
@@ -706,8 +706,8 @@ impl ::core::fmt::Debug for PresentationTransform {
         f.debug_struct("PresentationTransform").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PresentationTransform {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PresentationTransform {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PresentationTransform {
     fn eq(&self, other: &Self) -> bool {
@@ -736,8 +736,8 @@ impl ::core::fmt::Debug for SystemInterruptTime {
         f.debug_struct("SystemInterruptTime").field("value", &self.value).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SystemInterruptTime {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SystemInterruptTime {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SystemInterruptTime {
     fn eq(&self, other: &Self) -> bool {

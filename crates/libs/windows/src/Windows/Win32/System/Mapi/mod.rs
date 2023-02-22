@@ -135,8 +135,8 @@ impl ::core::fmt::Debug for MapiFileDesc {
         f.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiFileDesc {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiFileDesc {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiFileDesc {
     fn eq(&self, other: &Self) -> bool {
@@ -170,8 +170,8 @@ impl ::core::fmt::Debug for MapiFileDescW {
         f.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiFileDescW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiFileDescW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiFileDescW {
     fn eq(&self, other: &Self) -> bool {
@@ -204,8 +204,8 @@ impl ::core::fmt::Debug for MapiFileTagExt {
         f.debug_struct("MapiFileTagExt").field("ulReserved", &self.ulReserved).field("cbTag", &self.cbTag).field("lpTag", &self.lpTag).field("cbEncoding", &self.cbEncoding).field("lpEncoding", &self.lpEncoding).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiFileTagExt {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiFileTagExt {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiFileTagExt {
     fn eq(&self, other: &Self) -> bool {
@@ -258,8 +258,8 @@ impl ::core::fmt::Debug for MapiMessage {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiMessage {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiMessage {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiMessage {
     fn eq(&self, other: &Self) -> bool {
@@ -312,8 +312,8 @@ impl ::core::fmt::Debug for MapiMessageW {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiMessageW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiMessageW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiMessageW {
     fn eq(&self, other: &Self) -> bool {
@@ -347,8 +347,8 @@ impl ::core::fmt::Debug for MapiRecipDesc {
         f.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiRecipDesc {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiRecipDesc {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiRecipDesc {
     fn eq(&self, other: &Self) -> bool {
@@ -382,8 +382,8 @@ impl ::core::fmt::Debug for MapiRecipDescW {
         f.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MapiRecipDescW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MapiRecipDescW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MapiRecipDescW {
     fn eq(&self, other: &Self) -> bool {

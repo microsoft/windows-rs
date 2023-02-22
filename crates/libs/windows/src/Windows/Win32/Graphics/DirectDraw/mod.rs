@@ -76,11 +76,6 @@ impl IDDVideoPortContainer {
     }
 }
 ::windows::core::interface_hierarchy!(IDDVideoPortContainer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDDVideoPortContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDDVideoPortContainer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -94,6 +89,11 @@ impl ::core::fmt::Debug for IDDVideoPortContainer {
 }
 unsafe impl ::windows::core::Vtable for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainer_Vtbl;
+}
+impl ::core::clone::Clone for IDDVideoPortContainer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
@@ -141,8 +141,8 @@ impl IDirectDraw {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDirectDrawSurface>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
@@ -163,8 +163,8 @@ impl IDirectDraw {
         (::windows::core::Vtable::vtable(self).GetFourCCCodes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -202,11 +202,6 @@ impl IDirectDraw {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDraw, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDraw {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDraw {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -220,6 +215,11 @@ impl ::core::fmt::Debug for IDirectDraw {
 }
 unsafe impl ::windows::core::Vtable for IDirectDraw {
     type Vtable = IDirectDraw_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDraw {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDraw {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
@@ -289,8 +289,8 @@ impl IDirectDraw2 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDirectDrawSurface>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
@@ -311,8 +311,8 @@ impl IDirectDraw2 {
         (::windows::core::Vtable::vtable(self).GetFourCCCodes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface>();
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -353,11 +353,6 @@ impl IDirectDraw2 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDraw2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDraw2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDraw2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -371,6 +366,11 @@ impl ::core::fmt::Debug for IDirectDraw2 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDraw2 {
     type Vtable = IDirectDraw2_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDraw2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDraw2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
@@ -441,8 +441,8 @@ impl IDirectDraw4 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDirectDrawSurface4>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
@@ -463,8 +463,8 @@ impl IDirectDraw4 {
         (::windows::core::Vtable::vtable(self).GetFourCCCodes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface4> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -509,8 +509,8 @@ impl IDirectDraw4 {
     where
         P0: ::std::convert::Into<super::Gdi::HDC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface4>();
+        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RestoreAllSurfaces)(::windows::core::Vtable::as_raw(self)).ok()
@@ -525,11 +525,6 @@ impl IDirectDraw4 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDraw4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDraw4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDraw4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -543,6 +538,11 @@ impl ::core::fmt::Debug for IDirectDraw4 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDraw4 {
     type Vtable = IDirectDraw4_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDraw4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDraw4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
@@ -623,8 +623,8 @@ impl IDirectDraw7 {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IDirectDrawSurface7>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
+        (::windows::core::Vtable::vtable(self).DuplicateSurface)(::windows::core::Vtable::as_raw(self), param0.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumDisplayModes(&self, param0: u32, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void, param3: LPDDENUMMODESCALLBACK2) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumDisplayModes)(::windows::core::Vtable::as_raw(self), param0, param1, param2, param3).ok()
@@ -645,8 +645,8 @@ impl IDirectDraw7 {
         (::windows::core::Vtable::vtable(self).GetFourCCCodes)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetGDISurface(&self) -> ::windows::core::Result<IDirectDrawSurface7> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
+        (::windows::core::Vtable::vtable(self).GetGDISurface)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetMonitorFrequency)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -691,8 +691,8 @@ impl IDirectDraw7 {
     where
         P0: ::std::convert::Into<super::Gdi::HDC>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawSurface7>();
+        (::windows::core::Vtable::vtable(self).GetSurfaceFromDC)(::windows::core::Vtable::as_raw(self), param0.into(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RestoreAllSurfaces(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).RestoreAllSurfaces)(::windows::core::Vtable::as_raw(self)).ok()
@@ -715,11 +715,6 @@ impl IDirectDraw7 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDraw7, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDraw7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDraw7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -733,6 +728,11 @@ impl ::core::fmt::Debug for IDirectDraw7 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDraw7 {
     type Vtable = IDirectDraw7_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDraw7 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDraw7 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
@@ -827,11 +827,6 @@ impl IDirectDrawClipper {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawClipper, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawClipper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawClipper {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -845,6 +840,11 @@ impl ::core::fmt::Debug for IDirectDrawClipper {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawClipper {
     type Vtable = IDirectDrawClipper_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawClipper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawClipper {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
@@ -887,11 +887,6 @@ impl IDirectDrawColorControl {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawColorControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawColorControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawColorControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -905,6 +900,11 @@ impl ::core::fmt::Debug for IDirectDrawColorControl {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControl_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawColorControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
@@ -928,11 +928,6 @@ impl IDirectDrawGammaControl {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawGammaControl, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawGammaControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -946,6 +941,11 @@ impl ::core::fmt::Debug for IDirectDrawGammaControl {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControl_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawGammaControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
@@ -972,11 +972,6 @@ impl IDirectDrawKernel {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawKernel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -990,6 +985,11 @@ impl ::core::fmt::Debug for IDirectDrawKernel {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawKernel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawKernel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
@@ -1029,11 +1029,6 @@ impl IDirectDrawPalette {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawPalette, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawPalette {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawPalette {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1047,6 +1042,11 @@ impl ::core::fmt::Debug for IDirectDrawPalette {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawPalette {
     type Vtable = IDirectDrawPalette_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawPalette {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawPalette {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
@@ -1133,8 +1133,8 @@ impl IDirectDrawSurface {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1151,8 +1151,8 @@ impl IDirectDrawSurface {
         (::windows::core::Vtable::vtable(self).GetOverlayPosition)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1228,11 +1228,6 @@ impl IDirectDrawSurface {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurface, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurface {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1246,6 +1241,11 @@ impl ::core::fmt::Debug for IDirectDrawSurface {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurface {
     type Vtable = IDirectDrawSurface_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurface {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurface {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
@@ -1376,8 +1376,8 @@ impl IDirectDrawSurface2 {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1394,8 +1394,8 @@ impl IDirectDrawSurface2 {
         (::windows::core::Vtable::vtable(self).GetOverlayPosition)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1480,11 +1480,6 @@ impl IDirectDrawSurface2 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurface2, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurface2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1498,6 +1493,11 @@ impl ::core::fmt::Debug for IDirectDrawSurface2 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurface2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
@@ -1631,8 +1631,8 @@ impl IDirectDrawSurface3 {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1649,8 +1649,8 @@ impl IDirectDrawSurface3 {
         (::windows::core::Vtable::vtable(self).GetOverlayPosition)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -1738,11 +1738,6 @@ impl IDirectDrawSurface3 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurface3, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurface3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1756,6 +1751,11 @@ impl ::core::fmt::Debug for IDirectDrawSurface3 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurface3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
@@ -1890,8 +1890,8 @@ impl IDirectDrawSurface4 {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -1908,8 +1908,8 @@ impl IDirectDrawSurface4 {
         (::windows::core::Vtable::vtable(self).GetOverlayPosition)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -2014,11 +2014,6 @@ impl IDirectDrawSurface4 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurface4, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurface4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2032,6 +2027,11 @@ impl ::core::fmt::Debug for IDirectDrawSurface4 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurface4 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
@@ -2174,8 +2174,8 @@ impl IDirectDrawSurface7 {
         (::windows::core::Vtable::vtable(self).GetCaps)(::windows::core::Vtable::as_raw(self), param0).ok()
     }
     pub unsafe fn GetClipper(&self) -> ::windows::core::Result<IDirectDrawClipper> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawClipper>();
+        (::windows::core::Vtable::vtable(self).GetClipper)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetColorKey(&self, param0: u32, param1: *mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetColorKey)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
@@ -2192,8 +2192,8 @@ impl IDirectDrawSurface7 {
         (::windows::core::Vtable::vtable(self).GetOverlayPosition)(::windows::core::Vtable::as_raw(self), param0, param1).ok()
     }
     pub unsafe fn GetPalette(&self) -> ::windows::core::Result<IDirectDrawPalette> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IDirectDrawPalette>();
+        (::windows::core::Vtable::vtable(self).GetPalette)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPixelFormat(&self, param0: *mut DDPIXELFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetPixelFormat)(::windows::core::Vtable::as_raw(self), param0).ok()
@@ -2310,11 +2310,6 @@ impl IDirectDrawSurface7 {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurface7, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurface7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2328,6 +2323,11 @@ impl ::core::fmt::Debug for IDirectDrawSurface7 {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurface7 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
@@ -2422,11 +2422,6 @@ impl IDirectDrawSurfaceKernel {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawSurfaceKernel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2440,6 +2435,11 @@ impl ::core::fmt::Debug for IDirectDrawSurfaceKernel {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawSurfaceKernel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
@@ -2509,11 +2509,6 @@ impl IDirectDrawVideoPort {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawVideoPort, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawVideoPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2527,6 +2522,11 @@ impl ::core::fmt::Debug for IDirectDrawVideoPort {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPort_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawVideoPort {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
@@ -2575,11 +2575,6 @@ impl IDirectDrawVideoPortNotify {
     }
 }
 ::windows::core::interface_hierarchy!(IDirectDrawVideoPortNotify, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -2593,6 +2588,11 @@ impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
 }
 unsafe impl ::windows::core::Vtable for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotify_Vtbl;
+}
+impl ::core::clone::Clone for IDirectDrawVideoPortNotify {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);
@@ -4512,8 +4512,8 @@ impl ::core::fmt::Debug for ACCESSRECTLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ACCESSRECTLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ACCESSRECTLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ACCESSRECTLIST {
@@ -4553,8 +4553,8 @@ impl ::core::fmt::Debug for ATTACHLIST {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ATTACHLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ATTACHLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for ATTACHLIST {
@@ -4594,8 +4594,8 @@ impl ::core::fmt::Debug for DBLNODE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DBLNODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DBLNODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DBLNODE {
@@ -4634,8 +4634,8 @@ impl ::core::fmt::Debug for DD32BITDRIVERDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD32BITDRIVERDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD32BITDRIVERDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD32BITDRIVERDATA {
@@ -4670,8 +4670,8 @@ impl ::core::fmt::Debug for DDARGB {
         f.debug_struct("DDARGB").field("blue", &self.blue).field("green", &self.green).field("red", &self.red).field("alpha", &self.alpha).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDARGB {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDARGB {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDARGB {
     fn eq(&self, other: &Self) -> bool {
@@ -4707,8 +4707,8 @@ impl ::core::fmt::Debug for DDBLTBATCH {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDBLTBATCH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTBATCH {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDBLTBATCH {
@@ -4756,8 +4756,8 @@ impl ::core::clone::Clone for DDBLTFX {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX {
     fn default() -> Self {
@@ -4775,8 +4775,8 @@ impl ::core::clone::Clone for DDBLTFX_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_0 {
     fn default() -> Self {
@@ -4794,8 +4794,8 @@ impl ::core::clone::Clone for DDBLTFX_1 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_1 {
     fn default() -> Self {
@@ -4813,8 +4813,8 @@ impl ::core::clone::Clone for DDBLTFX_2 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_2 {
     fn default() -> Self {
@@ -4832,8 +4832,8 @@ impl ::core::clone::Clone for DDBLTFX_3 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_3 {
     fn default() -> Self {
@@ -4853,8 +4853,8 @@ impl ::core::clone::Clone for DDBLTFX_4 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDBLTFX_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBLTFX_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDBLTFX_4 {
     fn default() -> Self {
@@ -4877,8 +4877,8 @@ impl ::core::fmt::Debug for DDBOBNEXTFIELDINFO {
         f.debug_struct("DDBOBNEXTFIELDINFO").field("lpSurface", &self.lpSurface).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDBOBNEXTFIELDINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDBOBNEXTFIELDINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDBOBNEXTFIELDINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -4979,8 +4979,8 @@ impl ::core::fmt::Debug for DDCAPS_DX1 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCAPS_DX1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCAPS_DX1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX1 {
     fn eq(&self, other: &Self) -> bool {
@@ -5146,8 +5146,8 @@ impl ::core::fmt::Debug for DDCAPS_DX3 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCAPS_DX3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCAPS_DX3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX3 {
     fn eq(&self, other: &Self) -> bool {
@@ -5338,8 +5338,8 @@ impl ::core::fmt::Debug for DDCAPS_DX5 {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCAPS_DX5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCAPS_DX5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCAPS_DX5 {
     fn eq(&self, other: &Self) -> bool {
@@ -5474,8 +5474,8 @@ impl ::core::clone::Clone for DDCAPS_DX6 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDCAPS_DX6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCAPS_DX6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDCAPS_DX6 {
     fn default() -> Self {
@@ -5549,8 +5549,8 @@ impl ::core::clone::Clone for DDCAPS_DX7 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDCAPS_DX7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCAPS_DX7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDCAPS_DX7 {
     fn default() -> Self {
@@ -5582,8 +5582,8 @@ impl ::core::fmt::Debug for DDCOLORCONTROL {
         f.debug_struct("DDCOLORCONTROL").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lBrightness", &self.lBrightness).field("lContrast", &self.lContrast).field("lHue", &self.lHue).field("lSaturation", &self.lSaturation).field("lSharpness", &self.lSharpness).field("lGamma", &self.lGamma).field("lColorEnable", &self.lColorEnable).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCOLORCONTROL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCOLORCONTROL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCOLORCONTROL {
     fn eq(&self, other: &Self) -> bool {
@@ -5613,8 +5613,8 @@ impl ::core::fmt::Debug for DDCOLORKEY {
         f.debug_struct("DDCOLORKEY").field("dwColorSpaceLowValue", &self.dwColorSpaceLowValue).field("dwColorSpaceHighValue", &self.dwColorSpaceHighValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCOLORKEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCOLORKEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCOLORKEY {
     fn eq(&self, other: &Self) -> bool {
@@ -5644,8 +5644,8 @@ impl ::core::clone::Clone for DDCOMPBUFFERINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDCOMPBUFFERINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCOMPBUFFERINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDCOMPBUFFERINFO {
     fn default() -> Self {
@@ -5770,8 +5770,8 @@ impl ::core::fmt::Debug for DDCORECAPS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDCORECAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDCORECAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDCORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -5862,8 +5862,8 @@ impl ::core::fmt::Debug for DDDEVICEIDENTIFIER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDDEVICEIDENTIFIER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER {
@@ -5908,8 +5908,8 @@ impl ::core::fmt::Debug for DDDEVICEIDENTIFIER2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDDEVICEIDENTIFIER2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDDEVICEIDENTIFIER2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDDEVICEIDENTIFIER2 {
@@ -5944,8 +5944,8 @@ impl ::core::fmt::Debug for DDENABLEIRQINFO {
         f.debug_struct("DDENABLEIRQINFO").field("dwIRQSources", &self.dwIRQSources).field("dwLine", &self.dwLine).field("lpIRQData", &self.lpIRQData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDENABLEIRQINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDENABLEIRQINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDENABLEIRQINFO {
     fn default() -> Self {
@@ -5970,8 +5970,8 @@ impl ::core::fmt::Debug for DDFLIPOVERLAYINFO {
         f.debug_struct("DDFLIPOVERLAYINFO").field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDFLIPOVERLAYINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDFLIPOVERLAYINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDFLIPOVERLAYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6003,8 +6003,8 @@ impl ::core::fmt::Debug for DDFLIPVIDEOPORTINFO {
         f.debug_struct("DDFLIPVIDEOPORTINFO").field("lpVideoPortData", &self.lpVideoPortData).field("lpCurrentSurface", &self.lpCurrentSurface).field("lpTargetSurface", &self.lpTargetSurface).field("dwFlipVPFlags", &self.dwFlipVPFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDFLIPVIDEOPORTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDFLIPVIDEOPORTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDFLIPVIDEOPORTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6035,8 +6035,8 @@ impl ::core::fmt::Debug for DDGAMMARAMP {
         f.debug_struct("DDGAMMARAMP").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGAMMARAMP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGAMMARAMP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGAMMARAMP {
     fn eq(&self, other: &Self) -> bool {
@@ -6065,8 +6065,8 @@ impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPININFO {
         f.debug_struct("DDGETCURRENTAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETCURRENTAUTOFLIPININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETCURRENTAUTOFLIPININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETCURRENTAUTOFLIPININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6096,8 +6096,8 @@ impl ::core::fmt::Debug for DDGETCURRENTAUTOFLIPOUTINFO {
         f.debug_struct("DDGETCURRENTAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETCURRENTAUTOFLIPOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETCURRENTAUTOFLIPOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETCURRENTAUTOFLIPOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6126,8 +6126,8 @@ impl ::core::fmt::Debug for DDGETIRQINFO {
         f.debug_struct("DDGETIRQINFO").field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETIRQINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETIRQINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETIRQINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6156,8 +6156,8 @@ impl ::core::fmt::Debug for DDGETPOLARITYININFO {
         f.debug_struct("DDGETPOLARITYININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETPOLARITYININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETPOLARITYININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPOLARITYININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6186,8 +6186,8 @@ impl ::core::fmt::Debug for DDGETPOLARITYOUTINFO {
         f.debug_struct("DDGETPOLARITYOUTINFO").field("bPolarity", &self.bPolarity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETPOLARITYOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETPOLARITYOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPOLARITYOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6216,8 +6216,8 @@ impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPININFO {
         f.debug_struct("DDGETPREVIOUSAUTOFLIPININFO").field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETPREVIOUSAUTOFLIPININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETPREVIOUSAUTOFLIPININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6247,8 +6247,8 @@ impl ::core::fmt::Debug for DDGETPREVIOUSAUTOFLIPOUTINFO {
         f.debug_struct("DDGETPREVIOUSAUTOFLIPOUTINFO").field("dwSurfaceIndex", &self.dwSurfaceIndex).field("dwVBISurfaceIndex", &self.dwVBISurfaceIndex).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETPREVIOUSAUTOFLIPOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETPREVIOUSAUTOFLIPOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETPREVIOUSAUTOFLIPOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6277,8 +6277,8 @@ impl ::core::fmt::Debug for DDGETTRANSFERSTATUSOUTINFO {
         f.debug_struct("DDGETTRANSFERSTATUSOUTINFO").field("dwTransferID", &self.dwTransferID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDGETTRANSFERSTATUSOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDGETTRANSFERSTATUSOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDGETTRANSFERSTATUSOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6315,8 +6315,8 @@ impl ::core::fmt::Debug for DDHALDDRAWFNS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHALDDRAWFNS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHALDDRAWFNS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHALDDRAWFNS {
@@ -6356,8 +6356,8 @@ impl ::core::clone::Clone for DDHALINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHALINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHALINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHALINFO {
@@ -6390,8 +6390,8 @@ impl ::core::fmt::Debug for DDHALMODEINFO {
         f.debug_struct("DDHALMODEINFO").field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("lPitch", &self.lPitch).field("dwBPP", &self.dwBPP).field("wFlags", &self.wFlags).field("wRefreshRate", &self.wRefreshRate).field("dwRBitMask", &self.dwRBitMask).field("dwGBitMask", &self.dwGBitMask).field("dwBBitMask", &self.dwBBitMask).field("dwAlphaBitMask", &self.dwAlphaBitMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDHALMODEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHALMODEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDHALMODEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6429,8 +6429,8 @@ impl ::core::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_ADDATTACHEDSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_ADDATTACHEDSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -6467,8 +6467,8 @@ impl ::core::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_BEGINMOCOMPFRAMEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_BEGINMOCOMPFRAMEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -6503,8 +6503,8 @@ impl ::core::clone::Clone for DDHAL_BLTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_BLTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_BLTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_BLTDATA {
@@ -6554,8 +6554,8 @@ impl ::core::fmt::Debug for DDHAL_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CALLBACKS {
@@ -6588,8 +6588,8 @@ impl ::core::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CANCREATESURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CANCREATESURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CANCREATESURFACEDATA {
@@ -6621,8 +6621,8 @@ impl ::core::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CANCREATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CANCREATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CANCREATEVPORTDATA {
@@ -6656,8 +6656,8 @@ impl ::core::fmt::Debug for DDHAL_COLORCONTROLDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_COLORCONTROLDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_COLORCONTROLDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_COLORCONTROLDATA {
@@ -6689,8 +6689,8 @@ impl ::core::clone::Clone for DDHAL_CREATEMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CREATEMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CREATEMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEMOCOMPDATA {
@@ -6724,8 +6724,8 @@ impl ::core::fmt::Debug for DDHAL_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CREATEPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CREATEPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEPALETTEDATA {
@@ -6759,8 +6759,8 @@ impl ::core::fmt::Debug for DDHAL_CREATESURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CREATESURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CREATESURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATESURFACEDATA {
@@ -6792,8 +6792,8 @@ impl ::core::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CREATESURFACEEXDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CREATESURFACEEXDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_CREATESURFACEEXDATA {
@@ -6834,8 +6834,8 @@ impl ::core::fmt::Debug for DDHAL_CREATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_CREATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_CREATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_CREATEVPORTDATA {
@@ -6875,8 +6875,8 @@ impl ::core::fmt::Debug for DDHAL_DDCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDCALLBACKS {
@@ -6907,8 +6907,8 @@ impl ::core::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDCOLORCONTROLCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDCOLORCONTROLCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -6943,8 +6943,8 @@ impl ::core::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDEXEBUFCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDEXEBUFCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDEXEBUFCALLBACKS {
@@ -6976,8 +6976,8 @@ impl ::core::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDKERNELCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDKERNELCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDKERNELCALLBACKS {
@@ -7011,8 +7011,8 @@ impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDMISCELLANEOUS2CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDMISCELLANEOUS2CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -7046,8 +7046,8 @@ impl ::core::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDMISCELLANEOUSCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDMISCELLANEOUSCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -7087,8 +7087,8 @@ impl ::core::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDMOTIONCOMPCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDMOTIONCOMPCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -7120,8 +7120,8 @@ impl ::core::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDPALETTECALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDPALETTECALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDPALETTECALLBACKS {
@@ -7165,8 +7165,8 @@ impl ::core::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDSURFACECALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDSURFACECALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDSURFACECALLBACKS {
@@ -7212,8 +7212,8 @@ impl ::core::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DDVIDEOPORTCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DDVIDEOPORTCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -7244,8 +7244,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYDDLOCALDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYDDLOCALDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_DESTROYDDLOCALDATA {
@@ -7284,8 +7284,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYDRIVERDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYDRIVERDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYDRIVERDATA {
@@ -7317,8 +7317,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYMOCOMPDATA {
@@ -7350,8 +7350,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYPALETTEDATA {
@@ -7383,8 +7383,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYSURFACEDATA {
@@ -7416,8 +7416,8 @@ impl ::core::fmt::Debug for DDHAL_DESTROYVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DESTROYVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DESTROYVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DESTROYVPORTDATA {
@@ -7450,8 +7450,8 @@ impl ::core::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_DRVSETCOLORKEYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_DRVSETCOLORKEYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_DRVSETCOLORKEYDATA {
@@ -7485,8 +7485,8 @@ impl ::core::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_ENDMOCOMPFRAMEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_ENDMOCOMPFRAMEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -7522,8 +7522,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_FLIPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_FLIPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPDATA {
@@ -7556,8 +7556,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_FLIPTOGDISURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_FLIPTOGDISURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
@@ -7591,8 +7591,8 @@ impl ::core::fmt::Debug for DDHAL_FLIPVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_FLIPVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_FLIPVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_FLIPVPORTDATA {
@@ -7621,8 +7621,8 @@ impl ::core::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETAVAILDRIVERMEMORYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETAVAILDRIVERMEMORYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -7655,8 +7655,8 @@ impl ::core::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETBLTSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETBLTSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETBLTSTATUSDATA {
@@ -7687,8 +7687,8 @@ impl ::core::fmt::Debug for DDHAL_GETDRIVERINFODATA {
         f.debug_struct("DDHAL_GETDRIVERINFODATA").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).field("dwContext", &self.dwContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDHAL_GETDRIVERINFODATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETDRIVERINFODATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDHAL_GETDRIVERINFODATA {
     fn eq(&self, other: &Self) -> bool {
@@ -7716,8 +7716,8 @@ impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDHAL_GETDRIVERSTATEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETDRIVERSTATEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA {
     fn default() -> Self {
@@ -7735,8 +7735,8 @@ impl ::core::clone::Clone for DDHAL_GETDRIVERSTATEDATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDHAL_GETDRIVERSTATEDATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETDRIVERSTATEDATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA_0 {
     fn default() -> Self {
@@ -7768,8 +7768,8 @@ impl ::core::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETFLIPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETFLIPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETFLIPSTATUSDATA {
@@ -7792,8 +7792,8 @@ impl ::core::clone::Clone for DDHAL_GETHEAPALIGNMENTDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDHAL_GETHEAPALIGNMENTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETHEAPALIGNMENTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDHAL_GETHEAPALIGNMENTDATA {
     fn default() -> Self {
@@ -7822,8 +7822,8 @@ impl ::core::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETINTERNALMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETINTERNALMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
@@ -7854,8 +7854,8 @@ impl ::core::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETMOCOMPCOMPBUFFDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETMOCOMPCOMPBUFFDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -7889,8 +7889,8 @@ impl ::core::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETMOCOMPFORMATSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETMOCOMPFORMATSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
@@ -7923,8 +7923,8 @@ impl ::core::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETMOCOMPGUIDSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETMOCOMPGUIDSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
@@ -7956,8 +7956,8 @@ impl ::core::fmt::Debug for DDHAL_GETSCANLINEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETSCANLINEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETSCANLINEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETSCANLINEDATA {
@@ -7994,8 +7994,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTBANDWIDTHDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTBANDWIDTHDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -8029,8 +8029,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTCONNECTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTCONNECTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTCONNECTDATA {
@@ -8063,8 +8063,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTFIELDDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTFIELDDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTFIELDDATA {
@@ -8096,8 +8096,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTFLIPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTFLIPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -8132,8 +8132,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTINPUTFORMATDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTINPUTFORMATDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -8166,8 +8166,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTLINEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTLINEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTLINEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTLINEDATA {
@@ -8203,8 +8203,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTOUTPUTFORMATDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTOUTPUTFORMATDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -8237,8 +8237,8 @@ impl ::core::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_GETVPORTSIGNALDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_GETVPORTSIGNALDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_GETVPORTSIGNALDATA {
@@ -8274,8 +8274,8 @@ impl ::core::fmt::Debug for DDHAL_LOCKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_LOCKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_LOCKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_LOCKDATA {
@@ -8309,8 +8309,8 @@ impl ::core::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_QUERYMOCOMPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_QUERYMOCOMPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -8349,8 +8349,8 @@ impl ::core::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_RENDERMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_RENDERMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
@@ -8382,8 +8382,8 @@ impl ::core::fmt::Debug for DDHAL_SETCLIPLISTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETCLIPLISTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETCLIPLISTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETCLIPLISTDATA {
@@ -8417,8 +8417,8 @@ impl ::core::fmt::Debug for DDHAL_SETCOLORKEYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETCOLORKEYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETCOLORKEYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETCOLORKEYDATA {
@@ -8453,8 +8453,8 @@ impl ::core::fmt::Debug for DDHAL_SETENTRIESDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETENTRIESDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETENTRIESDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETENTRIESDATA {
@@ -8487,8 +8487,8 @@ impl ::core::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETEXCLUSIVEMODEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETEXCLUSIVEMODEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -8522,8 +8522,8 @@ impl ::core::fmt::Debug for DDHAL_SETMODEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETMODEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETMODEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETMODEDATA {
@@ -8558,8 +8558,8 @@ impl ::core::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETOVERLAYPOSITIONDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETOVERLAYPOSITIONDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -8593,8 +8593,8 @@ impl ::core::fmt::Debug for DDHAL_SETPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SETPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SETPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_SETPALETTEDATA {
@@ -8653,8 +8653,8 @@ impl ::core::fmt::Debug for DDHAL_SYNCSURFACEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SYNCSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SYNCSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_SYNCSURFACEDATA {
@@ -8700,8 +8700,8 @@ impl ::core::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_SYNCVIDEOPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_SYNCVIDEOPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_SYNCVIDEOPORTDATA {
@@ -8741,8 +8741,8 @@ impl ::core::fmt::Debug for DDHAL_UNLOCKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_UNLOCKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_UNLOCKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UNLOCKDATA {
@@ -8777,8 +8777,8 @@ impl ::core::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_UPDATENONLOCALHEAPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_UPDATENONLOCALHEAPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8807,8 +8807,8 @@ impl ::core::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_UPDATEOVERLAYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_UPDATEOVERLAYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATEOVERLAYDATA {
@@ -8846,8 +8846,8 @@ impl ::core::fmt::Debug for DDHAL_UPDATEVPORTDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_UPDATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_UPDATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_UPDATEVPORTDATA {
@@ -8881,8 +8881,8 @@ impl ::core::fmt::Debug for DDHAL_VPORTCOLORDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_VPORTCOLORDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_VPORTCOLORDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_VPORTCOLORDATA {
@@ -8916,8 +8916,8 @@ impl ::core::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_WAITFORVERTICALBLANKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_WAITFORVERTICALBLANKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
@@ -8952,8 +8952,8 @@ impl ::core::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDHAL_WAITFORVPORTSYNCDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDHAL_WAITFORVPORTSYNCDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8979,8 +8979,8 @@ impl ::core::fmt::Debug for DDKERNELCAPS {
         f.debug_struct("DDKERNELCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwIRQCaps", &self.dwIRQCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDKERNELCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDKERNELCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDKERNELCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9009,8 +9009,8 @@ impl ::core::fmt::Debug for DDLOCKININFO {
         f.debug_struct("DDLOCKININFO").field("lpSurfaceData", &self.lpSurfaceData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDLOCKININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDLOCKININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDLOCKININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9039,8 +9039,8 @@ impl ::core::fmt::Debug for DDLOCKOUTINFO {
         f.debug_struct("DDLOCKOUTINFO").field("dwSurfacePtr", &self.dwSurfacePtr).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDLOCKOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDLOCKOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDLOCKOUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9078,8 +9078,8 @@ impl ::core::fmt::Debug for DDMCBUFFERINFO {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDMCBUFFERINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMCBUFFERINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDMCBUFFERINFO {
@@ -9112,8 +9112,8 @@ impl ::core::clone::Clone for DDMCCOMPBUFFERINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDMCCOMPBUFFERINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMCCOMPBUFFERINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDMCCOMPBUFFERINFO {
     fn default() -> Self {
@@ -9145,8 +9145,8 @@ impl ::core::fmt::Debug for DDMOCOMPBUFFERINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDMOCOMPBUFFERINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMOCOMPBUFFERINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDMOCOMPBUFFERINFO {
@@ -9202,8 +9202,8 @@ impl ::core::fmt::Debug for DDMONITORINFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDMONITORINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMONITORINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDMONITORINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9229,8 +9229,8 @@ impl ::core::clone::Clone for DDMORESURFACECAPS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDMORESURFACECAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMORESURFACECAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDMORESURFACECAPS {
     fn default() -> Self {
@@ -9249,8 +9249,8 @@ impl ::core::clone::Clone for DDMORESURFACECAPS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDMORESURFACECAPS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDMORESURFACECAPS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDMORESURFACECAPS_0 {
     fn default() -> Self {
@@ -9278,8 +9278,8 @@ impl ::core::fmt::Debug for DDNONLOCALVIDMEMCAPS {
         f.debug_struct("DDNONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDNONLOCALVIDMEMCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDNONLOCALVIDMEMCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDNONLOCALVIDMEMCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9410,8 +9410,8 @@ impl ::core::fmt::Debug for DDNTCORECAPS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDNTCORECAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDNTCORECAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDNTCORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9490,8 +9490,8 @@ impl ::core::clone::Clone for DDOPTSURFACEDESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDOPTSURFACEDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDOPTSURFACEDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDOPTSURFACEDESC {
     fn default() -> Self {
@@ -9514,8 +9514,8 @@ impl ::core::fmt::Debug for DDOSCAPS {
         f.debug_struct("DDOSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDOSCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDOSCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDOSCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -9549,8 +9549,8 @@ impl ::core::clone::Clone for DDOVERLAYFX {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDOVERLAYFX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDOVERLAYFX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX {
     fn default() -> Self {
@@ -9568,8 +9568,8 @@ impl ::core::clone::Clone for DDOVERLAYFX_0 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDOVERLAYFX_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDOVERLAYFX_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX_0 {
     fn default() -> Self {
@@ -9587,8 +9587,8 @@ impl ::core::clone::Clone for DDOVERLAYFX_1 {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-unsafe impl ::windows::core::Abi for DDOVERLAYFX_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDOVERLAYFX_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDOVERLAYFX_1 {
     fn default() -> Self {
@@ -9613,8 +9613,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT {
     fn default() -> Self {
@@ -9638,8 +9638,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_0 {
     fn default() -> Self {
@@ -9662,8 +9662,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_1 {
     fn default() -> Self {
@@ -9685,8 +9685,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_2 {
     fn default() -> Self {
@@ -9710,8 +9710,8 @@ impl ::core::fmt::Debug for DDPIXELFORMAT_2_0 {
         f.debug_struct("DDPIXELFORMAT_2_0").field("wFlipMSTypes", &self.wFlipMSTypes).field("wBltMSTypes", &self.wBltMSTypes).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDPIXELFORMAT_2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9738,8 +9738,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_3 {
     fn default() -> Self {
@@ -9761,8 +9761,8 @@ impl ::core::clone::Clone for DDPIXELFORMAT_4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDPIXELFORMAT_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDPIXELFORMAT_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDPIXELFORMAT_4 {
     fn default() -> Self {
@@ -9793,8 +9793,8 @@ impl ::core::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDMOTIONCOMP_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDMOTIONCOMP_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_INT {
@@ -9839,8 +9839,8 @@ impl ::core::clone::Clone for DDRAWI_DDMOTIONCOMP_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDMOTIONCOMP_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDMOTIONCOMP_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
@@ -9875,8 +9875,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_GBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_GBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_GBL {
@@ -9916,8 +9916,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_INT {
@@ -9959,8 +9959,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWCLIPPER_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10000,8 +10000,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_GBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_GBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL {
@@ -10025,8 +10025,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_GBL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_GBL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL_0 {
@@ -10058,8 +10058,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_INT {
@@ -10103,8 +10103,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWPALETTE_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
@@ -10146,8 +10146,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL {
@@ -10172,8 +10172,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10197,8 +10197,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_1 {
@@ -10222,8 +10222,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_2 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10247,8 +10247,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_3 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_3 {
@@ -10285,8 +10285,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_MORE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_MORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE {
     fn default() -> Self {
@@ -10305,8 +10305,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     fn default() -> Self {
@@ -10337,8 +10337,8 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWSURFACE_INT {
@@ -10395,8 +10395,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL {
@@ -10420,8 +10420,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL_0 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_LCL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -10445,8 +10445,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_LCL_1 {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_LCL_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_LCL_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -10499,8 +10499,8 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_MORE {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDRAWSURFACE_MORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDRAWSURFACE_MORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DDRAWSURFACE_MORE {
@@ -10533,8 +10533,8 @@ impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDVIDEOPORT_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDVIDEOPORT_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDVIDEOPORT_INT {
@@ -10615,8 +10615,8 @@ impl ::core::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DDVIDEOPORT_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DDVIDEOPORT_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDVIDEOPORT_LCL {
@@ -10737,8 +10737,8 @@ impl ::core::clone::Clone for DDRAWI_DIRECTDRAW_GBL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_GBL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_GBL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DIRECTDRAW_GBL {
@@ -10770,8 +10770,8 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DIRECTDRAW_INT {
@@ -10857,8 +10857,8 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_LCL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRAWI_DIRECTDRAW_LCL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DDRAWI_DIRECTDRAW_LCL {
@@ -10885,8 +10885,8 @@ impl ::core::fmt::Debug for DDRGBA {
         f.debug_struct("DDRGBA").field("red", &self.red).field("green", &self.green).field("blue", &self.blue).field("alpha", &self.alpha).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDRGBA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDRGBA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDRGBA {
     fn eq(&self, other: &Self) -> bool {
@@ -10915,8 +10915,8 @@ impl ::core::fmt::Debug for DDSCAPS {
         f.debug_struct("DDSCAPS").field("dwCaps", &self.dwCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDSCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -10943,8 +10943,8 @@ impl ::core::clone::Clone for DDSCAPS2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSCAPS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSCAPS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSCAPS2 {
     fn default() -> Self {
@@ -10963,8 +10963,8 @@ impl ::core::clone::Clone for DDSCAPS2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSCAPS2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSCAPS2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSCAPS2_0 {
     fn default() -> Self {
@@ -10984,8 +10984,8 @@ impl ::core::clone::Clone for DDSCAPSEX {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSCAPSEX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSCAPSEX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSCAPSEX {
     fn default() -> Self {
@@ -11004,8 +11004,8 @@ impl ::core::clone::Clone for DDSCAPSEX_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSCAPSEX_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSCAPSEX_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSCAPSEX_0 {
     fn default() -> Self {
@@ -11029,8 +11029,8 @@ impl ::core::fmt::Debug for DDSETSTATEININFO {
         f.debug_struct("DDSETSTATEININFO").field("lpSurfaceData", &self.lpSurfaceData).field("lpVideoPortData", &self.lpVideoPortData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDSETSTATEININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSETSTATEININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSETSTATEININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11066,8 +11066,8 @@ impl ::core::fmt::Debug for DDSETSTATEOUTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDSETSTATEOUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSETSTATEOUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDSETSTATEOUTINFO {
@@ -11100,8 +11100,8 @@ impl ::core::fmt::Debug for DDSKIPNEXTFIELDINFO {
         f.debug_struct("DDSKIPNEXTFIELDINFO").field("lpVideoPortData", &self.lpVideoPortData).field("dwSkipFlags", &self.dwSkipFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDSKIPNEXTFIELDINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSKIPNEXTFIELDINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSKIPNEXTFIELDINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11140,8 +11140,8 @@ impl ::core::fmt::Debug for DDSTEREOMODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDSTEREOMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSTEREOMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDSTEREOMODE {
@@ -11219,8 +11219,8 @@ impl ::core::fmt::Debug for DDSURFACEDATA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11281,8 +11281,8 @@ impl ::core::clone::Clone for DDSURFACEDESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC {
     fn default() -> Self {
@@ -11301,8 +11301,8 @@ impl ::core::clone::Clone for DDSURFACEDESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC_0 {
     fn default() -> Self {
@@ -11322,8 +11322,8 @@ impl ::core::clone::Clone for DDSURFACEDESC_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC_1 {
     fn default() -> Self {
@@ -11357,8 +11357,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2 {
     fn default() -> Self {
@@ -11377,8 +11377,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_0 {
     fn default() -> Self {
@@ -11397,8 +11397,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_1 {
     fn default() -> Self {
@@ -11418,8 +11418,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_2 {
     fn default() -> Self {
@@ -11438,8 +11438,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_3 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_3 {
     fn default() -> Self {
@@ -11458,8 +11458,8 @@ impl ::core::clone::Clone for DDSURFACEDESC2_4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DDSURFACEDESC2_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDSURFACEDESC2_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DDSURFACEDESC2_4 {
     fn default() -> Self {
@@ -11487,8 +11487,8 @@ impl ::core::fmt::Debug for DDTRANSFERININFO {
         f.debug_struct("DDTRANSFERININFO").field("lpSurfaceData", &self.lpSurfaceData).field("dwStartLine", &self.dwStartLine).field("dwEndLine", &self.dwEndLine).field("dwTransferID", &self.dwTransferID).field("dwTransferFlags", &self.dwTransferFlags).field("lpDestMDL", &self.lpDestMDL).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDTRANSFERININFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDTRANSFERININFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDTRANSFERININFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11517,8 +11517,8 @@ impl ::core::fmt::Debug for DDTRANSFEROUTINFO {
         f.debug_struct("DDTRANSFEROUTINFO").field("dwBufferPolarity", &self.dwBufferPolarity).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDTRANSFEROUTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDTRANSFEROUTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDTRANSFEROUTINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -11549,8 +11549,8 @@ impl ::core::fmt::Debug for DDVERSIONDATA {
         f.debug_struct("DDVERSIONDATA").field("dwHALVersion", &self.dwHALVersion).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVERSIONDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVERSIONDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVERSIONDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11586,8 +11586,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTBANDWIDTH {
         f.debug_struct("DDVIDEOPORTBANDWIDTH").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwOverlay", &self.dwOverlay).field("dwColorkey", &self.dwColorkey).field("dwYInterpolate", &self.dwYInterpolate).field("dwYInterpAndColorkey", &self.dwYInterpAndColorkey).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTBANDWIDTH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTBANDWIDTH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTBANDWIDTH {
     fn eq(&self, other: &Self) -> bool {
@@ -11654,8 +11654,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTCAPS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -11706,8 +11706,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTCONNECT {
         f.debug_struct("DDVIDEOPORTCONNECT").field("dwSize", &self.dwSize).field("dwPortWidth", &self.dwPortWidth).field("guidTypeID", &self.guidTypeID).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTCONNECT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTCONNECT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTCONNECT {
     fn eq(&self, other: &Self) -> bool {
@@ -11743,8 +11743,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTDATA {
         f.debug_struct("DDVIDEOPORTDATA").field("dwVideoPortId", &self.dwVideoPortId).field("dwVPFlags", &self.dwVPFlags).field("dwOriginOffset", &self.dwOriginOffset).field("dwHeight", &self.dwHeight).field("dwVBIHeight", &self.dwVBIHeight).field("dwDriverReserved1", &self.dwDriverReserved1).field("dwDriverReserved2", &self.dwDriverReserved2).field("dwDriverReserved3", &self.dwDriverReserved3).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -11795,8 +11795,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTDESC {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTDESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTDESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -11856,8 +11856,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDVIDEOPORTINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDVIDEOPORTINFO {
@@ -11892,8 +11892,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTNOTIFY {
         f.debug_struct("DDVIDEOPORTNOTIFY").field("ApproximateTimeStamp", &self.ApproximateTimeStamp).field("lField", &self.lField).field("dwSurfaceIndex", &self.dwSurfaceIndex).field("lDone", &self.lDone).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DDVIDEOPORTNOTIFY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTNOTIFY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DDVIDEOPORTNOTIFY {
     fn eq(&self, other: &Self) -> bool {
@@ -11933,8 +11933,8 @@ impl ::core::fmt::Debug for DDVIDEOPORTSTATUS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DDVIDEOPORTSTATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DDVIDEOPORTSTATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDVIDEOPORTSTATUS {
@@ -11975,8 +11975,8 @@ impl ::core::fmt::Debug for DD_ADDATTACHEDSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_ADDATTACHEDSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_ADDATTACHEDSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_ADDATTACHEDSURFACEDATA {
@@ -12014,8 +12014,8 @@ impl ::core::fmt::Debug for DD_ATTACHLIST {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_ATTACHLIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_ATTACHLIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_ATTACHLIST {
@@ -12059,8 +12059,8 @@ impl ::core::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_BEGINMOCOMPFRAMEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_BEGINMOCOMPFRAMEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_BEGINMOCOMPFRAMEDATA {
@@ -12105,8 +12105,8 @@ impl ::core::clone::Clone for DD_BLTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_BLTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_BLTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_BLTDATA {
@@ -12145,8 +12145,8 @@ impl ::core::fmt::Debug for DD_CALLBACKS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DD_CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for DD_CALLBACKS {
@@ -12174,8 +12174,8 @@ impl ::core::fmt::Debug for DD_CANCREATESURFACEDATA {
         f.debug_struct("DD_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_CANCREATESURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CANCREATESURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CANCREATESURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12207,8 +12207,8 @@ impl ::core::fmt::Debug for DD_CANCREATEVPORTDATA {
         f.debug_struct("DD_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_CANCREATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CANCREATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CANCREATEVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12237,8 +12237,8 @@ impl ::core::fmt::Debug for DD_CLIPPER_GLOBAL {
         f.debug_struct("DD_CLIPPER_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_CLIPPER_GLOBAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CLIPPER_GLOBAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CLIPPER_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12267,8 +12267,8 @@ impl ::core::fmt::Debug for DD_CLIPPER_LOCAL {
         f.debug_struct("DD_CLIPPER_LOCAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_CLIPPER_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CLIPPER_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_CLIPPER_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12304,8 +12304,8 @@ impl ::core::fmt::Debug for DD_COLORCONTROLCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_COLORCONTROLCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_COLORCONTROLCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_COLORCONTROLCALLBACKS {
@@ -12339,8 +12339,8 @@ impl ::core::fmt::Debug for DD_COLORCONTROLDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_COLORCONTROLDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_COLORCONTROLDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_COLORCONTROLDATA {
@@ -12375,8 +12375,8 @@ impl ::core::clone::Clone for DD_CREATEMOCOMPDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_CREATEMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CREATEMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_CREATEMOCOMPDATA {
     fn default() -> Self {
@@ -12409,8 +12409,8 @@ impl ::core::fmt::Debug for DD_CREATEPALETTEDATA {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for DD_CREATEPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CREATEPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DD_CREATEPALETTEDATA {
@@ -12452,8 +12452,8 @@ impl ::core::fmt::Debug for DD_CREATESURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_CREATESURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CREATESURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATESURFACEDATA {
@@ -12493,8 +12493,8 @@ impl ::core::fmt::Debug for DD_CREATESURFACEEXDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_CREATESURFACEEXDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CREATESURFACEEXDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATESURFACEEXDATA {
@@ -12535,8 +12535,8 @@ impl ::core::fmt::Debug for DD_CREATEVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_CREATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_CREATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_CREATEVPORTDATA {
@@ -12579,8 +12579,8 @@ impl ::core::fmt::Debug for DD_D3DBUFCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_D3DBUFCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_D3DBUFCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_D3DBUFCALLBACKS {
@@ -12606,8 +12606,8 @@ impl ::core::fmt::Debug for DD_DESTROYDDLOCALDATA {
         f.debug_struct("DD_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_DESTROYDDLOCALDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DESTROYDDLOCALDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYDDLOCALDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12638,8 +12638,8 @@ impl ::core::fmt::Debug for DD_DESTROYMOCOMPDATA {
         f.debug_struct("DD_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_DESTROYMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DESTROYMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYMOCOMPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12671,8 +12671,8 @@ impl ::core::fmt::Debug for DD_DESTROYPALETTEDATA {
         f.debug_struct("DD_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_DESTROYPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DESTROYPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DESTROYPALETTEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12709,8 +12709,8 @@ impl ::core::fmt::Debug for DD_DESTROYSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_DESTROYSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DESTROYSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DESTROYSURFACEDATA {
@@ -12750,8 +12750,8 @@ impl ::core::fmt::Debug for DD_DESTROYVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_DESTROYVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DESTROYVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DESTROYVPORTDATA {
@@ -12786,8 +12786,8 @@ impl ::core::fmt::Debug for DD_DIRECTDRAW_GLOBAL {
         f.debug_struct("DD_DIRECTDRAW_GLOBAL").field("dhpdev", &self.dhpdev).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_DIRECTDRAW_GLOBAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DIRECTDRAW_GLOBAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DIRECTDRAW_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12816,8 +12816,8 @@ impl ::core::fmt::Debug for DD_DIRECTDRAW_LOCAL {
         f.debug_struct("DD_DIRECTDRAW_LOCAL").field("lpGbl", &self.lpGbl).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_DIRECTDRAW_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DIRECTDRAW_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_DIRECTDRAW_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -12855,8 +12855,8 @@ impl ::core::fmt::Debug for DD_DRVSETCOLORKEYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_DRVSETCOLORKEYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_DRVSETCOLORKEYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_DRVSETCOLORKEYDATA {
@@ -12892,8 +12892,8 @@ impl ::core::fmt::Debug for DD_ENDMOCOMPFRAMEDATA {
         f.debug_struct("DD_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_ENDMOCOMPFRAMEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_ENDMOCOMPFRAMEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_ENDMOCOMPFRAMEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -12934,8 +12934,8 @@ impl ::core::fmt::Debug for DD_FLIPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_FLIPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_FLIPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FLIPDATA {
@@ -12971,8 +12971,8 @@ impl ::core::fmt::Debug for DD_FLIPTOGDISURFACEDATA {
         f.debug_struct("DD_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_FLIPTOGDISURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_FLIPTOGDISURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_FLIPTOGDISURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13011,8 +13011,8 @@ impl ::core::fmt::Debug for DD_FLIPVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_FLIPVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_FLIPVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FLIPVPORTDATA {
@@ -13052,8 +13052,8 @@ impl ::core::fmt::Debug for DD_FREEDRIVERMEMORYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_FREEDRIVERMEMORYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_FREEDRIVERMEMORYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_FREEDRIVERMEMORYDATA {
@@ -13090,8 +13090,8 @@ impl ::core::fmt::Debug for DD_GETAVAILDRIVERMEMORYDATA {
         f.debug_struct("DD_GETAVAILDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("DDSCaps", &self.DDSCaps).field("dwTotal", &self.dwTotal).field("dwFree", &self.dwFree).field("ddRVal", &self.ddRVal).field("GetAvailDriverMemory", &self.GetAvailDriverMemory).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETAVAILDRIVERMEMORYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETAVAILDRIVERMEMORYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETAVAILDRIVERMEMORYDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13129,8 +13129,8 @@ impl ::core::fmt::Debug for DD_GETBLTSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETBLTSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETBLTSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETBLTSTATUSDATA {
@@ -13169,8 +13169,8 @@ impl ::core::fmt::Debug for DD_GETDRIVERINFODATA {
         f.debug_struct("DD_GETDRIVERINFODATA").field("dhpdev", &self.dhpdev).field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidInfo", &self.guidInfo).field("dwExpectedSize", &self.dwExpectedSize).field("lpvData", &self.lpvData).field("dwActualSize", &self.dwActualSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETDRIVERINFODATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETDRIVERINFODATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETDRIVERINFODATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13198,8 +13198,8 @@ impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETDRIVERSTATEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETDRIVERSTATEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_GETDRIVERSTATEDATA {
     fn default() -> Self {
@@ -13218,8 +13218,8 @@ impl ::core::clone::Clone for DD_GETDRIVERSTATEDATA_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETDRIVERSTATEDATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETDRIVERSTATEDATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_GETDRIVERSTATEDATA_0 {
     fn default() -> Self {
@@ -13251,8 +13251,8 @@ impl ::core::fmt::Debug for DD_GETFLIPSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETFLIPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETFLIPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETFLIPSTATUSDATA {
@@ -13283,8 +13283,8 @@ impl ::core::clone::Clone for DD_GETHEAPALIGNMENTDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETHEAPALIGNMENTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETHEAPALIGNMENTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_GETHEAPALIGNMENTDATA {
     fn default() -> Self {
@@ -13308,8 +13308,8 @@ impl ::core::clone::Clone for DD_GETINTERNALMOCOMPDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETINTERNALMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETINTERNALMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_GETINTERNALMOCOMPDATA {
     fn default() -> Self {
@@ -13334,8 +13334,8 @@ impl ::core::clone::Clone for DD_GETMOCOMPCOMPBUFFDATA {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETMOCOMPCOMPBUFFDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETMOCOMPCOMPBUFFDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_GETMOCOMPCOMPBUFFDATA {
     fn default() -> Self {
@@ -13362,8 +13362,8 @@ impl ::core::fmt::Debug for DD_GETMOCOMPFORMATSDATA {
         f.debug_struct("DD_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETMOCOMPFORMATSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETMOCOMPFORMATSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETMOCOMPFORMATSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13395,8 +13395,8 @@ impl ::core::fmt::Debug for DD_GETMOCOMPGUIDSDATA {
         f.debug_struct("DD_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETMOCOMPGUIDSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETMOCOMPGUIDSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETMOCOMPGUIDSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13428,8 +13428,8 @@ impl ::core::fmt::Debug for DD_GETSCANLINEDATA {
         f.debug_struct("DD_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETSCANLINEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETSCANLINEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETSCANLINEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13471,8 +13471,8 @@ impl ::core::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTBANDWIDTHDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTBANDWIDTHDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTBANDWIDTHDATA {
@@ -13509,8 +13509,8 @@ impl ::core::fmt::Debug for DD_GETVPORTCONNECTDATA {
         f.debug_struct("DD_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETVPORTCONNECTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTCONNECTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETVPORTCONNECTDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13548,8 +13548,8 @@ impl ::core::fmt::Debug for DD_GETVPORTFIELDDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTFIELDDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTFIELDDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTFIELDDATA {
@@ -13584,8 +13584,8 @@ impl ::core::fmt::Debug for DD_GETVPORTFLIPSTATUSDATA {
         f.debug_struct("DD_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_GETVPORTFLIPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTFLIPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_GETVPORTFLIPSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -13625,8 +13625,8 @@ impl ::core::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTINPUTFORMATDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTINPUTFORMATDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTINPUTFORMATDATA {
@@ -13667,8 +13667,8 @@ impl ::core::fmt::Debug for DD_GETVPORTLINEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTLINEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTLINEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTLINEDATA {
@@ -13712,8 +13712,8 @@ impl ::core::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTOUTPUTFORMATDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTOUTPUTFORMATDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTOUTPUTFORMATDATA {
@@ -13754,8 +13754,8 @@ impl ::core::fmt::Debug for DD_GETVPORTSIGNALDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_GETVPORTSIGNALDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_GETVPORTSIGNALDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_GETVPORTSIGNALDATA {
@@ -13793,8 +13793,8 @@ impl ::core::clone::Clone for DD_HALINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_HALINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_HALINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_HALINFO {
@@ -13817,8 +13817,8 @@ impl ::core::clone::Clone for DD_HALINFO_V4 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_HALINFO_V4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_HALINFO_V4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_HALINFO_V4 {
     fn default() -> Self {
@@ -13849,8 +13849,8 @@ impl ::core::fmt::Debug for DD_KERNELCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_KERNELCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_KERNELCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_KERNELCALLBACKS {
@@ -13887,8 +13887,8 @@ impl ::core::fmt::Debug for DD_LOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_LOCKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_LOCKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_LOCKDATA {
@@ -13929,8 +13929,8 @@ impl ::core::fmt::Debug for DD_MAPMEMORYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_MAPMEMORYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MAPMEMORYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_MAPMEMORYDATA {
@@ -13972,8 +13972,8 @@ impl ::core::fmt::Debug for DD_MISCELLANEOUS2CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_MISCELLANEOUS2CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MISCELLANEOUS2CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_MISCELLANEOUS2CALLBACKS {
@@ -13999,8 +13999,8 @@ impl ::core::fmt::Debug for DD_MISCELLANEOUSCALLBACKS {
         f.debug_struct("DD_MISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_MISCELLANEOUSCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MISCELLANEOUSCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_MISCELLANEOUSCALLBACKS {
     fn default() -> Self {
@@ -14031,8 +14031,8 @@ impl ::core::fmt::Debug for DD_MORECAPS {
         f.debug_struct("DD_MORECAPS").field("dwSize", &self.dwSize).field("dwAlphaCaps", &self.dwAlphaCaps).field("dwSVBAlphaCaps", &self.dwSVBAlphaCaps).field("dwVSBAlphaCaps", &self.dwVSBAlphaCaps).field("dwSSBAlphaCaps", &self.dwSSBAlphaCaps).field("dwFilterCaps", &self.dwFilterCaps).field("dwSVBFilterCaps", &self.dwSVBFilterCaps).field("dwVSBFilterCaps", &self.dwVSBFilterCaps).field("dwSSBFilterCaps", &self.dwSSBFilterCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_MORECAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MORECAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_MORECAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14058,8 +14058,8 @@ impl ::core::clone::Clone for DD_MORESURFACECAPS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_MORESURFACECAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MORESURFACECAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_MORESURFACECAPS {
     fn default() -> Self {
@@ -14078,8 +14078,8 @@ impl ::core::clone::Clone for DD_MORESURFACECAPS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_MORESURFACECAPS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MORESURFACECAPS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_MORESURFACECAPS_0 {
     fn default() -> Self {
@@ -14118,8 +14118,8 @@ impl ::core::fmt::Debug for DD_MOTIONCOMPCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_MOTIONCOMPCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MOTIONCOMPCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_MOTIONCOMPCALLBACKS {
@@ -14148,8 +14148,8 @@ impl ::core::clone::Clone for DD_MOTIONCOMP_LOCAL {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DD_MOTIONCOMP_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_MOTIONCOMP_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for DD_MOTIONCOMP_LOCAL {
     fn default() -> Self {
@@ -14177,8 +14177,8 @@ impl ::core::fmt::Debug for DD_NONLOCALVIDMEMCAPS {
         f.debug_struct("DD_NONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_NONLOCALVIDMEMCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_NONLOCALVIDMEMCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_NONLOCALVIDMEMCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14216,8 +14216,8 @@ impl ::core::fmt::Debug for DD_NTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_NTCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_NTCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_NTCALLBACKS {
@@ -14242,8 +14242,8 @@ impl ::core::fmt::Debug for DD_NTPRIVATEDRIVERCAPS {
         f.debug_struct("DD_NTPRIVATEDRIVERCAPS").field("dwSize", &self.dwSize).field("dwPrivateCaps", &self.dwPrivateCaps).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_NTPRIVATEDRIVERCAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_NTPRIVATEDRIVERCAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_NTPRIVATEDRIVERCAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -14280,8 +14280,8 @@ impl ::core::fmt::Debug for DD_PALETTECALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for DD_PALETTECALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_PALETTECALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for DD_PALETTECALLBACKS {
@@ -14305,8 +14305,8 @@ impl ::core::fmt::Debug for DD_PALETTE_GLOBAL {
         f.debug_struct("DD_PALETTE_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_PALETTE_GLOBAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_PALETTE_GLOBAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_PALETTE_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
@@ -14336,8 +14336,8 @@ impl ::core::fmt::Debug for DD_PALETTE_LOCAL {
         f.debug_struct("DD_PALETTE_LOCAL").field("dwReserved0", &self.dwReserved0).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_PALETTE_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_PALETTE_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_PALETTE_LOCAL {
     fn eq(&self, other: &Self) -> bool {
@@ -14375,8 +14375,8 @@ impl ::core::fmt::Debug for DD_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_QUERYMOCOMPSTATUSDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_QUERYMOCOMPSTATUSDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_QUERYMOCOMPSTATUSDATA {
@@ -14422,8 +14422,8 @@ impl ::core::fmt::Debug for DD_RENDERMOCOMPDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_RENDERMOCOMPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_RENDERMOCOMPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_RENDERMOCOMPDATA {
@@ -14463,8 +14463,8 @@ impl ::core::fmt::Debug for DD_SETCLIPLISTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SETCLIPLISTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETCLIPLISTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETCLIPLISTDATA {
@@ -14506,8 +14506,8 @@ impl ::core::fmt::Debug for DD_SETCOLORKEYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SETCOLORKEYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETCOLORKEYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETCOLORKEYDATA {
@@ -14550,8 +14550,8 @@ impl ::core::fmt::Debug for DD_SETENTRIESDATA {
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for DD_SETENTRIESDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETENTRIESDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for DD_SETENTRIESDATA {
@@ -14587,8 +14587,8 @@ impl ::core::fmt::Debug for DD_SETEXCLUSIVEMODEDATA {
         f.debug_struct("DD_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_SETEXCLUSIVEMODEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETEXCLUSIVEMODEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_SETEXCLUSIVEMODEDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -14628,8 +14628,8 @@ impl ::core::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SETOVERLAYPOSITIONDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETOVERLAYPOSITIONDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETOVERLAYPOSITIONDATA {
@@ -14671,8 +14671,8 @@ impl ::core::fmt::Debug for DD_SETPALETTEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SETPALETTEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SETPALETTEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SETPALETTEDATA {
@@ -14714,8 +14714,8 @@ impl ::core::fmt::Debug for DD_STEREOMODE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_STEREOMODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_STEREOMODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_STEREOMODE {
@@ -14767,8 +14767,8 @@ impl ::core::fmt::Debug for DD_SURFACECALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACECALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACECALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACECALLBACKS {
@@ -14802,8 +14802,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_GLOBAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL {
@@ -14827,8 +14827,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_GLOBAL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_0 {
@@ -14853,8 +14853,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_GLOBAL_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_1 {
@@ -14878,8 +14878,8 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_GLOBAL_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_GLOBAL_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_GLOBAL_2 {
@@ -14908,8 +14908,8 @@ impl ::core::fmt::Debug for DD_SURFACE_INT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_INT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_INT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SURFACE_INT {
@@ -14949,8 +14949,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL {
@@ -14974,8 +14974,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_LOCAL_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_LOCAL_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL_0 {
@@ -14999,8 +14999,8 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_LOCAL_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_LOCAL_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_LOCAL_1 {
@@ -15027,8 +15027,8 @@ impl ::core::clone::Clone for DD_SURFACE_MORE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SURFACE_MORE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SURFACE_MORE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_SURFACE_MORE {
@@ -15079,8 +15079,8 @@ impl ::core::fmt::Debug for DD_SYNCSURFACEDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SYNCSURFACEDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SYNCSURFACEDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SYNCSURFACEDATA {
@@ -15125,8 +15125,8 @@ impl ::core::fmt::Debug for DD_SYNCVIDEOPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_SYNCVIDEOPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_SYNCVIDEOPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_SYNCVIDEOPORTDATA {
@@ -15166,8 +15166,8 @@ impl ::core::fmt::Debug for DD_UNLOCKDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_UNLOCKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_UNLOCKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UNLOCKDATA {
@@ -15205,8 +15205,8 @@ impl ::core::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
         f.debug_struct("DD_UPDATENONLOCALHEAPDATA").field("lpDD", &self.lpDD).field("dwHeap", &self.dwHeap).field("fpGARTLin", &self.fpGARTLin).field("fpGARTDev", &self.fpGARTDev).field("ulPolicyMaxBytes", &self.ulPolicyMaxBytes).field("ddRVal", &self.ddRVal).field("UpdateNonLocalHeap", &self.UpdateNonLocalHeap).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_UPDATENONLOCALHEAPDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_UPDATENONLOCALHEAPDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_UPDATENONLOCALHEAPDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15240,8 +15240,8 @@ impl ::core::clone::Clone for DD_UPDATEOVERLAYDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_UPDATEOVERLAYDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_UPDATEOVERLAYDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_UPDATEOVERLAYDATA {
@@ -15279,8 +15279,8 @@ impl ::core::fmt::Debug for DD_UPDATEVPORTDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_UPDATEVPORTDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_UPDATEVPORTDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UPDATEVPORTDATA {
@@ -15334,8 +15334,8 @@ impl ::core::fmt::Debug for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_VIDEOPORTCALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_VIDEOPORTCALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DD_VIDEOPORTCALLBACKS {
@@ -15373,8 +15373,8 @@ impl ::core::fmt::Debug for DD_VIDEOPORT_LOCAL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_VIDEOPORT_LOCAL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_VIDEOPORT_LOCAL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_VIDEOPORT_LOCAL {
@@ -15416,8 +15416,8 @@ impl ::core::fmt::Debug for DD_VPORTCOLORDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_VPORTCOLORDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_VPORTCOLORDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_VPORTCOLORDATA {
@@ -15454,8 +15454,8 @@ impl ::core::fmt::Debug for DD_WAITFORVERTICALBLANKDATA {
         f.debug_struct("DD_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DD_WAITFORVERTICALBLANKDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_WAITFORVERTICALBLANKDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DD_WAITFORVERTICALBLANKDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15495,8 +15495,8 @@ impl ::core::fmt::Debug for DD_WAITFORVPORTSYNCDATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DD_WAITFORVPORTSYNCDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DD_WAITFORVPORTSYNCDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_WAITFORVPORTSYNCDATA {
@@ -15550,8 +15550,8 @@ impl ::core::fmt::Debug for DXAPI_INTERFACE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DXAPI_INTERFACE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXAPI_INTERFACE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXAPI_INTERFACE {
@@ -15575,8 +15575,8 @@ impl ::core::fmt::Debug for DX_IRQDATA {
         f.debug_struct("DX_IRQDATA").field("dwIrqFlags", &self.dwIrqFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DX_IRQDATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DX_IRQDATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DX_IRQDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -15607,8 +15607,8 @@ impl ::core::fmt::Debug for HEAPALIAS {
         f.debug_struct("HEAPALIAS").field("fpVidMem", &self.fpVidMem).field("lpAlias", &self.lpAlias).field("dwAliasSize", &self.dwAliasSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HEAPALIAS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPALIAS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPALIAS {
     fn eq(&self, other: &Self) -> bool {
@@ -15640,8 +15640,8 @@ impl ::core::fmt::Debug for HEAPALIASINFO {
         f.debug_struct("HEAPALIASINFO").field("dwRefCnt", &self.dwRefCnt).field("dwFlags", &self.dwFlags).field("dwNumHeaps", &self.dwNumHeaps).field("lpAliases", &self.lpAliases).finish()
     }
 }
-unsafe impl ::windows::core::Abi for HEAPALIASINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPALIASINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for HEAPALIASINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -15674,8 +15674,8 @@ impl ::core::clone::Clone for HEAPALIGNMENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for HEAPALIGNMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HEAPALIGNMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for HEAPALIGNMENT {
     fn default() -> Self {
@@ -15699,8 +15699,8 @@ impl ::core::fmt::Debug for IUNKNOWN_LIST {
         f.debug_struct("IUNKNOWN_LIST").field("lpLink", &self.lpLink).field("lpGuid", &self.lpGuid).field("lpIUnknown", &self.lpIUnknown).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IUNKNOWN_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IUNKNOWN_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IUNKNOWN_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -15736,8 +15736,8 @@ impl ::core::fmt::Debug for MDL {
         f.debug_struct("MDL").field("MdlNext", &self.MdlNext).field("MdlSize", &self.MdlSize).field("MdlFlags", &self.MdlFlags).field("Process", &self.Process).field("lpMappedSystemVa", &self.lpMappedSystemVa).field("lpStartVa", &self.lpStartVa).field("ByteCount", &self.ByteCount).field("ByteOffset", &self.ByteOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MDL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MDL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MDL {
     fn eq(&self, other: &Self) -> bool {
@@ -15772,8 +15772,8 @@ impl ::core::fmt::Debug for PROCESS_LIST {
         f.debug_struct("PROCESS_LIST").field("lpLink", &self.lpLink).field("dwProcessId", &self.dwProcessId).field("dwRefCnt", &self.dwRefCnt).field("dwAlphaDepth", &self.dwAlphaDepth).field("dwZDepth", &self.dwZDepth).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESS_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESS_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESS_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -15797,8 +15797,8 @@ impl ::core::clone::Clone for SURFACEALIGNMENT {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SURFACEALIGNMENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SURFACEALIGNMENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SURFACEALIGNMENT {
     fn default() -> Self {
@@ -15817,8 +15817,8 @@ impl ::core::clone::Clone for SURFACEALIGNMENT_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SURFACEALIGNMENT_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SURFACEALIGNMENT_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SURFACEALIGNMENT_0 {
     fn default() -> Self {
@@ -15844,8 +15844,8 @@ impl ::core::fmt::Debug for SURFACEALIGNMENT_0_0 {
         f.debug_struct("SURFACEALIGNMENT_0_0").field("dwStartAlignment", &self.dwStartAlignment).field("dwPitchAlignment", &self.dwPitchAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SURFACEALIGNMENT_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SURFACEALIGNMENT_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SURFACEALIGNMENT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -15877,8 +15877,8 @@ impl ::core::fmt::Debug for SURFACEALIGNMENT_0_1 {
         f.debug_struct("SURFACEALIGNMENT_0_1").field("dwXAlignment", &self.dwXAlignment).field("dwYAlignment", &self.dwYAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SURFACEALIGNMENT_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SURFACEALIGNMENT_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SURFACEALIGNMENT_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -15911,8 +15911,8 @@ impl ::core::clone::Clone for VIDEOMEMORY {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDEOMEMORY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDEOMEMORY {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY {
@@ -15936,8 +15936,8 @@ impl ::core::clone::Clone for VIDEOMEMORY_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDEOMEMORY_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDEOMEMORY_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY_0 {
@@ -15961,8 +15961,8 @@ impl ::core::clone::Clone for VIDEOMEMORY_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDEOMEMORY_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDEOMEMORY_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDEOMEMORY_1 {
@@ -15992,8 +15992,8 @@ impl ::core::clone::Clone for VIDEOMEMORYINFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for VIDEOMEMORYINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDEOMEMORYINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for VIDEOMEMORYINFO {
     fn default() -> Self {
@@ -16020,8 +16020,8 @@ impl ::core::clone::Clone for VIDMEM {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDMEM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDMEM {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM {
@@ -16045,8 +16045,8 @@ impl ::core::clone::Clone for VIDMEM_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDMEM_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDMEM_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM_0 {
@@ -16070,8 +16070,8 @@ impl ::core::clone::Clone for VIDMEM_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDMEM_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDMEM_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEM_1 {
@@ -16106,8 +16106,8 @@ impl ::core::clone::Clone for VIDMEMINFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VIDMEMINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VIDMEMINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VIDMEMINFO {
@@ -16146,8 +16146,8 @@ impl ::core::clone::Clone for VMEMHEAP {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VMEMHEAP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VMEMHEAP {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for VMEMHEAP {
@@ -16179,8 +16179,8 @@ impl ::core::fmt::Debug for VMEML {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VMEML {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VMEML {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VMEML {
@@ -16231,8 +16231,8 @@ impl ::core::fmt::Debug for VMEMR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for VMEMR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for VMEMR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for VMEMR {

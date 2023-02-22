@@ -59,16 +59,12 @@ impl GUID {
     }
 }
 
-unsafe impl Abi for GUID {
-    type Abi = Self;
+impl RuntimeType for GUID {
+    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
 }
 
-unsafe impl RuntimeType for GUID {
-    const SIGNATURE: ConstBuffer = ConstBuffer::from_slice(b"g16");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> Result<Self> {
-        Ok(*from)
-    }
+impl TypeKind for GUID {
+    type TypeKind = CopyType;
 }
 
 impl std::fmt::Debug for GUID {

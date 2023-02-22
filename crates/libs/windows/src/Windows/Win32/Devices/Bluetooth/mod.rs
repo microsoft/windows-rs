@@ -1998,8 +1998,8 @@ impl ::core::default::Default for AUTHENTICATION_REQUIREMENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for AUTHENTICATION_REQUIREMENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for AUTHENTICATION_REQUIREMENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for AUTHENTICATION_REQUIREMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2031,8 +2031,8 @@ impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_METHOD {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_METHOD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATION_METHOD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_METHOD {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2068,8 +2068,8 @@ impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2101,8 +2101,8 @@ impl ::core::default::Default for BLUETOOTH_IO_CAPABILITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_IO_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_IO_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BLUETOOTH_IO_CAPABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2138,8 +2138,8 @@ impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2163,8 +2163,8 @@ impl ::core::default::Default for BTH_LE_GATT_EVENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_EVENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_EVENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for BTH_LE_GATT_EVENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2196,8 +2196,8 @@ impl ::core::default::Default for IO_CAPABILITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IO_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IO_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IO_CAPABILITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2223,8 +2223,8 @@ impl ::core::default::Default for NodeContainerType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NodeContainerType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NodeContainerType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NodeContainerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2274,8 +2274,8 @@ impl ::core::default::Default for SDP_SPECIFICTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SDP_SPECIFICTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_SPECIFICTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SDP_SPECIFICTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2317,8 +2317,8 @@ impl ::core::default::Default for SDP_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SDP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SDP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2336,8 +2336,8 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BLUETOOTH_ADDRESS {
     fn default() -> Self {
@@ -2356,8 +2356,8 @@ impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_ADDRESS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_ADDRESS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BLUETOOTH_ADDRESS_0 {
     fn default() -> Self {
@@ -2378,8 +2378,8 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE {
     fn default() -> Self {
@@ -2400,8 +2400,8 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
     fn default() -> Self {
@@ -2427,8 +2427,8 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
@@ -2452,8 +2452,8 @@ impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
@@ -2478,8 +2478,8 @@ impl ::core::fmt::Debug for BLUETOOTH_COD_PAIRS {
         f.debug_struct("BLUETOOTH_COD_PAIRS").field("ulCODMask", &self.ulCODMask).field("pcszDescription", &self.pcszDescription).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_COD_PAIRS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_COD_PAIRS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_COD_PAIRS {
     fn eq(&self, other: &Self) -> bool {
@@ -2515,8 +2515,8 @@ impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_DEVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_DEVICE_INFO {
@@ -2552,8 +2552,8 @@ impl ::core::fmt::Debug for BLUETOOTH_DEVICE_SEARCH_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_DEVICE_SEARCH_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BLUETOOTH_DEVICE_SEARCH_PARAMS {
@@ -2585,8 +2585,8 @@ impl ::core::fmt::Debug for BLUETOOTH_FIND_RADIO_PARAMS {
         f.debug_struct("BLUETOOTH_FIND_RADIO_PARAMS").field("dwSize", &self.dwSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_FIND_RADIO_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_FIND_RADIO_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_FIND_RADIO_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -2617,8 +2617,8 @@ impl ::core::fmt::Debug for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
         f.debug_struct("BLUETOOTH_GATT_VALUE_CHANGED_EVENT").field("ChangedAttributeHandle", &self.ChangedAttributeHandle).field("CharacteristicValueDataSize", &self.CharacteristicValueDataSize).field("CharacteristicValue", &self.CharacteristicValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -2647,8 +2647,8 @@ impl ::core::clone::Clone for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
@@ -2674,8 +2674,8 @@ impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_LOCAL_SERVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_LOCAL_SERVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_LOCAL_SERVICE_INFO {
@@ -2699,8 +2699,8 @@ impl ::core::fmt::Debug for BLUETOOTH_NUMERIC_COMPARISON_INFO {
         f.debug_struct("BLUETOOTH_NUMERIC_COMPARISON_INFO").field("NumericValue", &self.NumericValue).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_NUMERIC_COMPARISON_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_NUMERIC_COMPARISON_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2730,8 +2730,8 @@ impl ::core::fmt::Debug for BLUETOOTH_OOB_DATA_INFO {
         f.debug_struct("BLUETOOTH_OOB_DATA_INFO").field("C", &self.C).field("R", &self.R).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_OOB_DATA_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_OOB_DATA_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_OOB_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2760,8 +2760,8 @@ impl ::core::fmt::Debug for BLUETOOTH_PASSKEY_INFO {
         f.debug_struct("BLUETOOTH_PASSKEY_INFO").field("passkey", &self.passkey).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_PASSKEY_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_PASSKEY_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_PASSKEY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2791,8 +2791,8 @@ impl ::core::fmt::Debug for BLUETOOTH_PIN_INFO {
         f.debug_struct("BLUETOOTH_PIN_INFO").field("pin", &self.pin).field("pinLength", &self.pinLength).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_PIN_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_PIN_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BLUETOOTH_PIN_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2821,8 +2821,8 @@ impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BLUETOOTH_RADIO_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_RADIO_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BLUETOOTH_RADIO_INFO {
     fn default() -> Self {
@@ -2879,8 +2879,8 @@ impl ::core::fmt::Debug for BLUETOOTH_SELECT_DEVICE_PARAMS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BLUETOOTH_SELECT_DEVICE_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
@@ -2912,8 +2912,8 @@ impl ::core::fmt::Debug for BTH_DEVICE_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_DEVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_DEVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_DEVICE_INFO {
@@ -2947,8 +2947,8 @@ impl ::core::fmt::Debug for BTH_HCI_EVENT_INFO {
         f.debug_struct("BTH_HCI_EVENT_INFO").field("bthAddress", &self.bthAddress).field("connectionType", &self.connectionType).field("connected", &self.connected).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BTH_HCI_EVENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_HCI_EVENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BTH_HCI_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -2973,8 +2973,8 @@ impl ::core::clone::Clone for BTH_INFO_REQ {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_INFO_REQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_INFO_REQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_INFO_REQ {
     fn default() -> Self {
@@ -2994,8 +2994,8 @@ impl ::core::clone::Clone for BTH_INFO_RSP {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_INFO_RSP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_INFO_RSP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_INFO_RSP {
     fn default() -> Self {
@@ -3014,8 +3014,8 @@ impl ::core::clone::Clone for BTH_INFO_RSP_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_INFO_RSP_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_INFO_RSP_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_INFO_RSP_0 {
     fn default() -> Self {
@@ -3041,8 +3041,8 @@ impl ::core::fmt::Debug for BTH_L2CAP_EVENT_INFO {
         f.debug_struct("BTH_L2CAP_EVENT_INFO").field("bthAddress", &self.bthAddress).field("psm", &self.psm).field("connected", &self.connected).field("initiated", &self.initiated).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BTH_L2CAP_EVENT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_L2CAP_EVENT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BTH_L2CAP_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -3081,8 +3081,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_CHARACTERISTIC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_CHARACTERISTIC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_CHARACTERISTIC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_CHARACTERISTIC {
@@ -3107,8 +3107,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_CHARACTERISTIC_VALUE {
         f.debug_struct("BTH_LE_GATT_CHARACTERISTIC_VALUE").field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_CHARACTERISTIC_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_CHARACTERISTIC_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BTH_LE_GATT_CHARACTERISTIC_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -3140,8 +3140,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR {
@@ -3168,8 +3168,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
@@ -3195,8 +3195,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
@@ -3226,8 +3226,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
@@ -3262,8 +3262,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
@@ -3293,8 +3293,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
@@ -3331,8 +3331,8 @@ impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
@@ -3364,8 +3364,8 @@ impl ::core::clone::Clone for BTH_LE_GATT_SERVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_GATT_SERVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_GATT_SERVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_GATT_SERVICE {
@@ -3389,8 +3389,8 @@ impl ::core::clone::Clone for BTH_LE_UUID {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_UUID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_UUID {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_UUID {
@@ -3414,8 +3414,8 @@ impl ::core::clone::Clone for BTH_LE_UUID_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_LE_UUID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_LE_UUID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_LE_UUID_0 {
@@ -3436,8 +3436,8 @@ impl ::core::clone::Clone for BTH_PING_REQ {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_PING_REQ {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_PING_REQ {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_PING_REQ {
     fn default() -> Self {
@@ -3461,8 +3461,8 @@ impl ::core::fmt::Debug for BTH_PING_RSP {
         f.debug_struct("BTH_PING_RSP").field("dataLen", &self.dataLen).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BTH_PING_RSP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_PING_RSP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BTH_PING_RSP {
     fn eq(&self, other: &Self) -> bool {
@@ -3487,8 +3487,8 @@ impl ::core::clone::Clone for BTH_QUERY_DEVICE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_QUERY_DEVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_QUERY_DEVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_QUERY_DEVICE {
     fn default() -> Self {
@@ -3510,8 +3510,8 @@ impl ::core::clone::Clone for BTH_QUERY_SERVICE {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for BTH_QUERY_SERVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_QUERY_SERVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for BTH_QUERY_SERVICE {
     fn default() -> Self {
@@ -3540,8 +3540,8 @@ impl ::core::fmt::Debug for BTH_RADIO_IN_RANGE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_RADIO_IN_RANGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_RADIO_IN_RANGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for BTH_RADIO_IN_RANGE {
@@ -3577,8 +3577,8 @@ impl ::core::clone::Clone for BTH_SET_SERVICE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BTH_SET_SERVICE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BTH_SET_SERVICE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BTH_SET_SERVICE {
@@ -3615,8 +3615,8 @@ impl ::core::convert::From<::core::option::Option<HANDLE_SDP_TYPE>> for HANDLE_S
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for HANDLE_SDP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for HANDLE_SDP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -3630,8 +3630,8 @@ impl ::core::clone::Clone for RFCOMM_COMMAND {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RFCOMM_COMMAND {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RFCOMM_COMMAND {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RFCOMM_COMMAND {
     fn default() -> Self {
@@ -3651,8 +3651,8 @@ impl ::core::clone::Clone for RFCOMM_COMMAND_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for RFCOMM_COMMAND_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RFCOMM_COMMAND_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for RFCOMM_COMMAND_0 {
     fn default() -> Self {
@@ -3676,8 +3676,8 @@ impl ::core::fmt::Debug for RFCOMM_MSC_DATA {
         f.debug_struct("RFCOMM_MSC_DATA").field("Signals", &self.Signals).field("Break", &self.Break).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RFCOMM_MSC_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RFCOMM_MSC_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RFCOMM_MSC_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3706,8 +3706,8 @@ impl ::core::fmt::Debug for RFCOMM_RLS_DATA {
         f.debug_struct("RFCOMM_RLS_DATA").field("LineStatus", &self.LineStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RFCOMM_RLS_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RFCOMM_RLS_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RFCOMM_RLS_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3742,8 +3742,8 @@ impl ::core::fmt::Debug for RFCOMM_RPN_DATA {
         f.debug_struct("RFCOMM_RPN_DATA").field("Baud", &self.Baud).field("Data", &self.Data).field("FlowControl", &self.FlowControl).field("XonChar", &self.XonChar).field("XoffChar", &self.XoffChar).field("ParameterMask1", &self.ParameterMask1).field("ParameterMask2", &self.ParameterMask2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for RFCOMM_RPN_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for RFCOMM_RPN_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for RFCOMM_RPN_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -3773,8 +3773,8 @@ impl ::core::clone::Clone for SDP_ELEMENT_DATA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA {
@@ -3814,8 +3814,8 @@ impl ::core::clone::Clone for SDP_ELEMENT_DATA_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SDP_ELEMENT_DATA_0 {
@@ -3845,8 +3845,8 @@ impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
@@ -3884,8 +3884,8 @@ impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
@@ -3923,8 +3923,8 @@ impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
@@ -3962,8 +3962,8 @@ impl ::core::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SDP_ELEMENT_DATA_0_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ELEMENT_DATA_0_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
@@ -3996,8 +3996,8 @@ impl ::core::fmt::Debug for SDP_LARGE_INTEGER_16 {
         f.debug_struct("SDP_LARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SDP_LARGE_INTEGER_16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_LARGE_INTEGER_16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SDP_LARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
@@ -4028,8 +4028,8 @@ impl ::core::fmt::Debug for SDP_STRING_TYPE_DATA {
         f.debug_struct("SDP_STRING_TYPE_DATA").field("encoding", &self.encoding).field("mibeNum", &self.mibeNum).field("attributeId", &self.attributeId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SDP_STRING_TYPE_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_STRING_TYPE_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SDP_STRING_TYPE_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -4059,8 +4059,8 @@ impl ::core::fmt::Debug for SDP_ULARGE_INTEGER_16 {
         f.debug_struct("SDP_ULARGE_INTEGER_16").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SDP_ULARGE_INTEGER_16 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SDP_ULARGE_INTEGER_16 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SDP_ULARGE_INTEGER_16 {
     fn eq(&self, other: &Self) -> bool {
@@ -4087,8 +4087,8 @@ impl ::core::clone::Clone for SOCKADDR_BTH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SOCKADDR_BTH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SOCKADDR_BTH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SOCKADDR_BTH {
     fn default() -> Self {
@@ -4112,8 +4112,8 @@ impl ::core::fmt::Debug for SdpAttributeRange {
         f.debug_struct("SdpAttributeRange").field("minAttribute", &self.minAttribute).field("maxAttribute", &self.maxAttribute).finish()
     }
 }
-unsafe impl ::windows::core::Abi for SdpAttributeRange {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SdpAttributeRange {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for SdpAttributeRange {
     fn eq(&self, other: &Self) -> bool {
@@ -4138,8 +4138,8 @@ impl ::core::clone::Clone for SdpQueryUuid {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SdpQueryUuid {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SdpQueryUuid {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SdpQueryUuid {
     fn default() -> Self {
@@ -4159,8 +4159,8 @@ impl ::core::clone::Clone for SdpQueryUuidUnion {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for SdpQueryUuidUnion {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SdpQueryUuidUnion {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for SdpQueryUuidUnion {
     fn default() -> Self {

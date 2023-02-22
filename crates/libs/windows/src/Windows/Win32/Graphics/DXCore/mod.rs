@@ -5,8 +5,8 @@ where
     T: ::windows::core::Interface,
 {
     ::windows::core::link ! ( "dxcore.dll""system" fn DXCoreCreateAdapterFactory ( riid : *const :: windows::core::GUID , ppvfactory : *mut *mut ::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DXCoreCreateAdapterFactory(&<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::std::ptr::null_mut();
+    DXCoreCreateAdapterFactory(&<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
@@ -25,8 +25,8 @@ impl IDXCoreAdapter {
         (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), property, buffersize, propertydata).ok()
     }
     pub unsafe fn GetPropertySize(&self, property: DXCoreAdapterProperty) -> ::windows::core::Result<usize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertySize)(::windows::core::Vtable::as_raw(self), property, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<usize>();
+        (::windows::core::Vtable::vtable(self).GetPropertySize)(::windows::core::Vtable::as_raw(self), property, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsQueryStateSupported(&self, property: DXCoreAdapterState) -> bool {
         (::windows::core::Vtable::vtable(self).IsQueryStateSupported)(::windows::core::Vtable::as_raw(self), property)
@@ -44,16 +44,11 @@ impl IDXCoreAdapter {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IDXCoreAdapter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDXCoreAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDXCoreAdapter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -67,6 +62,11 @@ impl ::core::fmt::Debug for IDXCoreAdapter {
 }
 unsafe impl ::windows::core::Vtable for IDXCoreAdapter {
     type Vtable = IDXCoreAdapter_Vtbl;
+}
+impl ::core::clone::Clone for IDXCoreAdapter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
@@ -94,8 +94,8 @@ impl IDXCoreAdapterFactory {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateAdapterList)(::windows::core::Vtable::as_raw(self), filterattributes.len() as _, ::core::mem::transmute(filterattributes.as_ptr()), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).CreateAdapterList)(::windows::core::Vtable::as_raw(self), filterattributes.len() as _, ::core::mem::transmute(filterattributes.as_ptr()), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -103,8 +103,8 @@ impl IDXCoreAdapterFactory {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAdapterByLuid)(::windows::core::Vtable::as_raw(self), adapterluid, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetAdapterByLuid)(::windows::core::Vtable::as_raw(self), adapterluid, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsNotificationTypeSupported(&self, notificationtype: DXCoreNotificationType) -> bool {
         (::windows::core::Vtable::vtable(self).IsNotificationTypeSupported)(::windows::core::Vtable::as_raw(self), notificationtype)
@@ -113,19 +113,14 @@ impl IDXCoreAdapterFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::IUnknown>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).RegisterEventNotification)(::windows::core::Vtable::as_raw(self), dxcoreobject.into().abi(), notificationtype, callbackfunction, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).RegisterEventNotification)(::windows::core::Vtable::as_raw(self), dxcoreobject.into().abi(), notificationtype, callbackfunction, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).UnregisterEventNotification)(::windows::core::Vtable::as_raw(self), eventcookie).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IDXCoreAdapterFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDXCoreAdapterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDXCoreAdapterFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -139,6 +134,11 @@ impl ::core::fmt::Debug for IDXCoreAdapterFactory {
 }
 unsafe impl ::windows::core::Vtable for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactory_Vtbl;
+}
+impl ::core::clone::Clone for IDXCoreAdapterFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
@@ -164,8 +164,8 @@ impl IDXCoreAdapterList {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAdapter)(::windows::core::Vtable::as_raw(self), index, &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetAdapter)(::windows::core::Vtable::as_raw(self), index, &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         (::windows::core::Vtable::vtable(self).GetAdapterCount)(::windows::core::Vtable::as_raw(self))
@@ -177,8 +177,8 @@ impl IDXCoreAdapterList {
     where
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).GetFactory)(::windows::core::Vtable::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Sort)(::windows::core::Vtable::as_raw(self), preferences.len() as _, ::core::mem::transmute(preferences.as_ptr())).ok()
@@ -188,11 +188,6 @@ impl IDXCoreAdapterList {
     }
 }
 ::windows::core::interface_hierarchy!(IDXCoreAdapterList, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IDXCoreAdapterList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IDXCoreAdapterList {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -206,6 +201,11 @@ impl ::core::fmt::Debug for IDXCoreAdapterList {
 }
 unsafe impl ::windows::core::Vtable for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterList_Vtbl;
+}
+impl ::core::clone::Clone for IDXCoreAdapterList {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);
@@ -250,8 +250,8 @@ impl ::core::default::Default for DXCoreAdapterPreference {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreAdapterPreference {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreAdapterPreference {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXCoreAdapterPreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -303,8 +303,8 @@ impl ::core::default::Default for DXCoreAdapterProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreAdapterProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreAdapterProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXCoreAdapterProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -330,8 +330,8 @@ impl ::core::default::Default for DXCoreAdapterState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreAdapterState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreAdapterState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXCoreAdapterState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -361,8 +361,8 @@ impl ::core::default::Default for DXCoreNotificationType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreNotificationType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreNotificationType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXCoreNotificationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -388,8 +388,8 @@ impl ::core::default::Default for DXCoreSegmentGroup {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreSegmentGroup {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreSegmentGroup {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DXCoreSegmentGroup {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -415,8 +415,8 @@ impl ::core::fmt::Debug for DXCoreAdapterMemoryBudget {
         f.debug_struct("DXCoreAdapterMemoryBudget").field("budget", &self.budget).field("currentUsage", &self.currentUsage).field("availableForReservation", &self.availableForReservation).field("currentReservation", &self.currentReservation).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudget {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreAdapterMemoryBudget {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudget {
     fn eq(&self, other: &Self) -> bool {
@@ -446,8 +446,8 @@ impl ::core::fmt::Debug for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
         f.debug_struct("DXCoreAdapterMemoryBudgetNodeSegmentGroup").field("nodeIndex", &self.nodeIndex).field("segmentGroup", &self.segmentGroup).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     fn eq(&self, other: &Self) -> bool {
@@ -479,8 +479,8 @@ impl ::core::fmt::Debug for DXCoreHardwareID {
         f.debug_struct("DXCoreHardwareID").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSysID", &self.subSysID).field("revision", &self.revision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreHardwareID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreHardwareID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXCoreHardwareID {
     fn eq(&self, other: &Self) -> bool {
@@ -513,8 +513,8 @@ impl ::core::fmt::Debug for DXCoreHardwareIDParts {
         f.debug_struct("DXCoreHardwareIDParts").field("vendorID", &self.vendorID).field("deviceID", &self.deviceID).field("subSystemID", &self.subSystemID).field("subVendorID", &self.subVendorID).field("revisionID", &self.revisionID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DXCoreHardwareIDParts {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DXCoreHardwareIDParts {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DXCoreHardwareIDParts {
     fn eq(&self, other: &Self) -> bool {

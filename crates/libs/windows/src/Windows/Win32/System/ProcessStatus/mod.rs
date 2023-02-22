@@ -267,8 +267,8 @@ impl ::core::default::Default for ENUM_PROCESS_MODULES_EX_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for ENUM_PROCESS_MODULES_EX_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUM_PROCESS_MODULES_EX_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -295,8 +295,8 @@ impl ::core::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
         f.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for ENUM_PAGE_FILE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for ENUM_PAGE_FILE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -327,8 +327,8 @@ impl ::core::fmt::Debug for MODULEINFO {
         f.debug_struct("MODULEINFO").field("lpBaseOfDll", &self.lpBaseOfDll).field("SizeOfImage", &self.SizeOfImage).field("EntryPoint", &self.EntryPoint).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MODULEINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MODULEINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MODULEINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -385,8 +385,8 @@ impl ::core::fmt::Debug for PERFORMANCE_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PERFORMANCE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PERFORMANCE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PERFORMANCE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -435,8 +435,8 @@ impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESS_MEMORY_COUNTERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
@@ -487,8 +487,8 @@ impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PROCESS_MEMORY_COUNTERS_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PROCESS_MEMORY_COUNTERS_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -513,8 +513,8 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_BLOCK {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PSAPI_WORKING_SET_BLOCK {
     fn default() -> Self {
@@ -537,8 +537,8 @@ impl ::core::fmt::Debug for PSAPI_WORKING_SET_BLOCK_0 {
         f.debug_struct("PSAPI_WORKING_SET_BLOCK_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_BLOCK_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_BLOCK_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -563,8 +563,8 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK {
     fn default() -> Self {
@@ -583,8 +583,8 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_BLOCK_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     fn default() -> Self {
@@ -607,8 +607,8 @@ impl ::core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
         f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -637,8 +637,8 @@ impl ::core::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
         f.debug_struct("PSAPI_WORKING_SET_EX_BLOCK_0_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -663,8 +663,8 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_EX_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_EX_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_EX_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PSAPI_WORKING_SET_EX_INFORMATION {
     fn default() -> Self {
@@ -683,8 +683,8 @@ impl ::core::clone::Clone for PSAPI_WORKING_SET_INFORMATION {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WORKING_SET_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WORKING_SET_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PSAPI_WORKING_SET_INFORMATION {
     fn default() -> Self {
@@ -708,8 +708,8 @@ impl ::core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION {
         f.debug_struct("PSAPI_WS_WATCH_INFORMATION").field("FaultingPc", &self.FaultingPc).field("FaultingVa", &self.FaultingVa).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WS_WATCH_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -740,8 +740,8 @@ impl ::core::fmt::Debug for PSAPI_WS_WATCH_INFORMATION_EX {
         f.debug_struct("PSAPI_WS_WATCH_INFORMATION_EX").field("BasicInfo", &self.BasicInfo).field("FaultingThreadId", &self.FaultingThreadId).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PSAPI_WS_WATCH_INFORMATION_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PSAPI_WS_WATCH_INFORMATION_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {

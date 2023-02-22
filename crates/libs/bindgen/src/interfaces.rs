@@ -211,7 +211,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                         type Error = ::windows::core::Error;
                         fn try_from(value: &#ident) -> ::windows::core::Result<Self> {
                             let item = ::std::convert::TryInto::try_into(value)?;
-                            Ok(::windows::core::InParam::owned(item))
+                            Ok(::windows::core::InParam::Owned(item))
                         }
                     }
                 });

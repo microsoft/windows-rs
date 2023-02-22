@@ -101,8 +101,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjGetOnDiskFileState ( destinationfilename : :: windows::core::PCWSTR , filestate : *mut PRJ_FILE_STATE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjGetOnDiskFileState(destinationfilename.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<PRJ_FILE_STATE>();
+    PrjGetOnDiskFileState(destinationfilename.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -131,8 +131,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "projectedfslib.dll""system" fn PrjStartVirtualizing ( virtualizationrootpath : :: windows::core::PCWSTR , callbacks : *const PRJ_CALLBACKS , instancecontext : *const ::core::ffi::c_void , options : *const PRJ_STARTVIRTUALIZING_OPTIONS , namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PrjStartVirtualizing(virtualizationrootpath.into().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>();
+    PrjStartVirtualizing(virtualizationrootpath.into().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
 #[inline]
@@ -204,8 +204,8 @@ impl ::core::default::Default for PRJ_CALLBACK_DATA_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_CALLBACK_DATA_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -231,8 +231,8 @@ impl ::core::default::Default for PRJ_COMPLETE_COMMAND_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_COMPLETE_COMMAND_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -256,8 +256,8 @@ impl ::core::default::Default for PRJ_EXT_INFO_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_EXT_INFO_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_EXT_INFO_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_EXT_INFO_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -289,8 +289,8 @@ impl ::core::default::Default for PRJ_FILE_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_FILE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_FILE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_FILE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -369,8 +369,8 @@ impl ::core::default::Default for PRJ_NOTIFICATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_NOTIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -422,8 +422,8 @@ impl ::core::default::Default for PRJ_NOTIFY_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_NOTIFY_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFY_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_NOTIFY_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -480,8 +480,8 @@ impl ::core::default::Default for PRJ_PLACEHOLDER_ID {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_ID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_ID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_PLACEHOLDER_ID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -507,8 +507,8 @@ impl ::core::default::Default for PRJ_STARTVIRTUALIZING_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_STARTVIRTUALIZING_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -573,8 +573,8 @@ impl ::core::default::Default for PRJ_UPDATE_FAILURE_CAUSES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_UPDATE_FAILURE_CAUSES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_UPDATE_FAILURE_CAUSES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -645,8 +645,8 @@ impl ::core::default::Default for PRJ_UPDATE_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_UPDATE_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_UPDATE_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PRJ_UPDATE_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -714,8 +714,8 @@ impl ::core::fmt::Debug for PRJ_CALLBACKS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_CALLBACKS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_CALLBACKS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PRJ_CALLBACKS {
@@ -761,8 +761,8 @@ impl ::core::fmt::Debug for PRJ_CALLBACK_DATA {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_CALLBACK_DATA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_CALLBACK_DATA {
     fn eq(&self, other: &Self) -> bool {
@@ -787,8 +787,8 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
     fn default() -> Self {
@@ -807,8 +807,8 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     fn default() -> Self {
@@ -831,8 +831,8 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
         f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0").field("DirEntryBufferHandle", &self.DirEntryBufferHandle).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -861,8 +861,8 @@ impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
         f.debug_struct("PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -904,8 +904,8 @@ impl ::core::convert::From<::core::option::Option<PRJ_DIR_ENTRY_BUFFER_HANDLE>> 
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
@@ -920,8 +920,8 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_EXTENDED_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRJ_EXTENDED_INFO {
     fn default() -> Self {
@@ -939,8 +939,8 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_EXTENDED_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for PRJ_EXTENDED_INFO_0 {
     fn default() -> Self {
@@ -963,8 +963,8 @@ impl ::core::fmt::Debug for PRJ_EXTENDED_INFO_0_0 {
         f.debug_struct("PRJ_EXTENDED_INFO_0_0").field("TargetName", &self.TargetName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_EXTENDED_INFO_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_EXTENDED_INFO_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_EXTENDED_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -1004,8 +1004,8 @@ impl ::core::fmt::Debug for PRJ_FILE_BASIC_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_FILE_BASIC_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_FILE_BASIC_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_FILE_BASIC_INFO {
@@ -1050,8 +1050,8 @@ impl ::core::convert::From<::core::option::Option<PRJ_NAMESPACE_VIRTUALIZATION_C
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
@@ -1070,8 +1070,8 @@ impl ::core::fmt::Debug for PRJ_NOTIFICATION_MAPPING {
         f.debug_struct("PRJ_NOTIFICATION_MAPPING").field("NotificationBitMask", &self.NotificationBitMask).field("NotificationRoot", &self.NotificationRoot).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_MAPPING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION_MAPPING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_MAPPING {
     fn eq(&self, other: &Self) -> bool {
@@ -1101,8 +1101,8 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS {
@@ -1131,8 +1131,8 @@ impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_0 {
@@ -1169,8 +1169,8 @@ impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
@@ -1207,8 +1207,8 @@ impl ::core::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
@@ -1250,8 +1250,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO {
@@ -1289,8 +1289,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_INFO_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
@@ -1328,8 +1328,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
@@ -1367,8 +1367,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
@@ -1401,8 +1401,8 @@ impl ::core::fmt::Debug for PRJ_PLACEHOLDER_VERSION_INFO {
         f.debug_struct("PRJ_PLACEHOLDER_VERSION_INFO").field("ProviderID", &self.ProviderID).field("ContentID", &self.ContentID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_PLACEHOLDER_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_PLACEHOLDER_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1435,8 +1435,8 @@ impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_OPTIONS {
         f.debug_struct("PRJ_STARTVIRTUALIZING_OPTIONS").field("Flags", &self.Flags).field("PoolThreadCount", &self.PoolThreadCount).field("ConcurrentThreadCount", &self.ConcurrentThreadCount).field("NotificationMappings", &self.NotificationMappings).field("NotificationMappingsCount", &self.NotificationMappingsCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_OPTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_STARTVIRTUALIZING_OPTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_STARTVIRTUALIZING_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -1466,8 +1466,8 @@ impl ::core::fmt::Debug for PRJ_VIRTUALIZATION_INSTANCE_INFO {
         f.debug_struct("PRJ_VIRTUALIZATION_INSTANCE_INFO").field("InstanceID", &self.InstanceID).field("WriteAlignment", &self.WriteAlignment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PRJ_VIRTUALIZATION_INSTANCE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {

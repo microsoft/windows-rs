@@ -771,8 +771,8 @@ impl ::core::default::Default for CONNECTDLGSTRUCT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTDLGSTRUCT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for CONNECTDLGSTRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -831,8 +831,8 @@ impl ::core::default::Default for DISCDLGSTRUCT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISCDLGSTRUCT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DISCDLGSTRUCT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -893,8 +893,8 @@ impl ::core::default::Default for NETINFOSTRUCT_CHARACTERISTICS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETINFOSTRUCT_CHARACTERISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETINFOSTRUCT_CHARACTERISTICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -953,8 +953,8 @@ impl ::core::default::Default for NETWORK_NAME_FORMAT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_NAME_FORMAT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_NAME_FORMAT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -984,8 +984,8 @@ impl ::core::default::Default for NET_RESOURCE_SCOPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_RESOURCE_SCOPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1013,8 +1013,8 @@ impl ::core::default::Default for NET_RESOURCE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_RESOURCE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_RESOURCE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_RESOURCE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1087,8 +1087,8 @@ impl ::core::default::Default for NET_USE_CONNECT_FLAGS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_USE_CONNECT_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_USE_CONNECT_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1149,8 +1149,8 @@ impl ::core::default::Default for NPDIRECTORY_NOTIFY_OPERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NPDIRECTORY_NOTIFY_OPERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NPDIRECTORY_NOTIFY_OPERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1178,8 +1178,8 @@ impl ::core::default::Default for NP_PROPERTY_DIALOG_SELECTION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NP_PROPERTY_DIALOG_SELECTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1205,8 +1205,8 @@ impl ::core::default::Default for UNC_INFO_LEVEL {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNC_INFO_LEVEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UNC_INFO_LEVEL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1238,8 +1238,8 @@ impl ::core::default::Default for WNET_OPEN_ENUM_USAGE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNET_OPEN_ENUM_USAGE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WNET_OPEN_ENUM_USAGE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1300,8 +1300,8 @@ impl ::core::default::Default for WNPERM_DLG {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WNPERM_DLG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WNPERM_DLG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WNPERM_DLG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1333,8 +1333,8 @@ impl ::core::fmt::Debug for CONNECTDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTDLGSTRUCTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
@@ -1375,8 +1375,8 @@ impl ::core::fmt::Debug for CONNECTDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for CONNECTDLGSTRUCTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
@@ -1417,8 +1417,8 @@ impl ::core::fmt::Debug for DISCDLGSTRUCTA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCTA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISCDLGSTRUCTA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
@@ -1459,8 +1459,8 @@ impl ::core::fmt::Debug for DISCDLGSTRUCTW {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCTW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DISCDLGSTRUCTW {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
@@ -1496,8 +1496,8 @@ impl ::core::fmt::Debug for NETCONNECTINFOSTRUCT {
         f.debug_struct("NETCONNECTINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwFlags", &self.dwFlags).field("dwSpeed", &self.dwSpeed).field("dwDelay", &self.dwDelay).field("dwOptDataSize", &self.dwOptDataSize).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETCONNECTINFOSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETCONNECTINFOSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
     fn eq(&self, other: &Self) -> bool {
@@ -1538,8 +1538,8 @@ impl ::core::fmt::Debug for NETINFOSTRUCT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETINFOSTRUCT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETINFOSTRUCT {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NETINFOSTRUCT {
@@ -1578,8 +1578,8 @@ impl ::core::fmt::Debug for NETRESOURCEA {
         f.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETRESOURCEA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETRESOURCEA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETRESOURCEA {
     fn eq(&self, other: &Self) -> bool {
@@ -1615,8 +1615,8 @@ impl ::core::fmt::Debug for NETRESOURCEW {
         f.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETRESOURCEW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETRESOURCEW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETRESOURCEW {
     fn eq(&self, other: &Self) -> bool {
@@ -1652,8 +1652,8 @@ impl ::core::fmt::Debug for NOTIFYADD {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NOTIFYADD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFYADD {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYADD {
@@ -1693,8 +1693,8 @@ impl ::core::fmt::Debug for NOTIFYCANCEL {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NOTIFYCANCEL {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFYCANCEL {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NOTIFYCANCEL {
@@ -1728,8 +1728,8 @@ impl ::core::fmt::Debug for NOTIFYINFO {
         f.debug_struct("NOTIFYINFO").field("dwNotifyStatus", &self.dwNotifyStatus).field("dwOperationStatus", &self.dwOperationStatus).field("lpContext", &self.lpContext).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NOTIFYINFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NOTIFYINFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NOTIFYINFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1771,8 +1771,8 @@ impl ::core::convert::From<::core::option::Option<NetEnumHandle>> for NetEnumHan
         optional.unwrap_or_default()
     }
 }
-unsafe impl ::windows::core::Abi for NetEnumHandle {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NetEnumHandle {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -1792,8 +1792,8 @@ impl ::core::fmt::Debug for REMOTE_NAME_INFOA {
         f.debug_struct("REMOTE_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REMOTE_NAME_INFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -1824,8 +1824,8 @@ impl ::core::fmt::Debug for REMOTE_NAME_INFOW {
         f.debug_struct("REMOTE_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for REMOTE_NAME_INFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -1854,8 +1854,8 @@ impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOA {
         f.debug_struct("UNIVERSAL_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNIVERSAL_NAME_INFOA {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
     fn eq(&self, other: &Self) -> bool {
@@ -1884,8 +1884,8 @@ impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOW {
         f.debug_struct("UNIVERSAL_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOW {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UNIVERSAL_NAME_INFOW {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {

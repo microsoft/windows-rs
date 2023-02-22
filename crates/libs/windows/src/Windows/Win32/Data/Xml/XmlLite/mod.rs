@@ -19,8 +19,8 @@ where
     P3: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingCodePage ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlReaderInputWithEncodingCodePage(pinputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+    CreateXmlReaderInputWithEncodingCodePage(pinputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, fencodinghint.into(), pwszbaseuri.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -34,8 +34,8 @@ where
     P4: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlReaderInputWithEncodingName ( pinputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , fencodinghint : super::super::super::Foundation:: BOOL , pwszbaseuri : :: windows::core::PCWSTR , ppinput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlReaderInputWithEncodingName(pinputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), fencodinghint.into(), pwszbaseuri.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+    CreateXmlReaderInputWithEncodingName(pinputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), fencodinghint.into(), pwszbaseuri.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -56,8 +56,8 @@ where
     P1: ::std::convert::Into<::windows::core::InParam<super::super::super::System::Com::IMalloc>>,
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingCodePage ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , nencodingcodepage : u32 , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+    CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into().abi(), pmalloc.into().abi(), nencodingcodepage, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -69,8 +69,8 @@ where
     P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
 {
     ::windows::core::link ! ( "xmllite.dll""system" fn CreateXmlWriterOutputWithEncodingName ( poutputstream : * mut::core::ffi::c_void , pmalloc : * mut::core::ffi::c_void , pwszencodingname : :: windows::core::PCWSTR , ppoutput : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    CreateXmlWriterOutputWithEncodingName(poutputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+    CreateXmlWriterOutputWithEncodingName(poutputstream.into().abi(), pmalloc.into().abi(), pwszencodingname.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
@@ -83,8 +83,8 @@ impl IXmlReader {
         (::windows::core::Vtable::vtable(self).SetInput)(::windows::core::Vtable::as_raw(self), pinput.into().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<isize>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()
@@ -93,8 +93,8 @@ impl IXmlReader {
         (::windows::core::Vtable::vtable(self).Read)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute(pnodetype.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn GetNodeType(&self) -> ::windows::core::Result<XmlNodeType> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNodeType)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<XmlNodeType>();
+        (::windows::core::Vtable::vtable(self).GetNodeType)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MoveToFirstAttribute(&self) -> ::windows::core::HRESULT {
         (::windows::core::Vtable::vtable(self).MoveToFirstAttribute)(::windows::core::Vtable::as_raw(self))
@@ -144,20 +144,20 @@ impl IXmlReader {
         (::windows::core::Vtable::vtable(self).IsEmptyElement)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetLineNumber(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLineNumber)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetLineNumber)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLinePosition(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLinePosition)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetLinePosition)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttributeCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetAttributeCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetDepth)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -166,11 +166,6 @@ impl IXmlReader {
     }
 }
 ::windows::core::interface_hierarchy!(IXmlReader, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXmlReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXmlReader {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -184,6 +179,11 @@ impl ::core::fmt::Debug for IXmlReader {
 }
 unsafe impl ::windows::core::Vtable for IXmlReader {
     type Vtable = IXmlReader_Vtbl;
+}
+impl ::core::clone::Clone for IXmlReader {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXmlReader {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
@@ -235,16 +235,11 @@ impl IXmlResolver {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into().abi(), pwszpublicidentifier.into().abi(), pwszsystemidentifier.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).ResolveUri)(::windows::core::Vtable::as_raw(self), pwszbaseuri.into().abi(), pwszpublicidentifier.into().abi(), pwszsystemidentifier.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IXmlResolver, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXmlResolver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXmlResolver {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -258,6 +253,11 @@ impl ::core::fmt::Debug for IXmlResolver {
 }
 unsafe impl ::windows::core::Vtable for IXmlResolver {
     type Vtable = IXmlResolver_Vtbl;
+}
+impl ::core::clone::Clone for IXmlResolver {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXmlResolver {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
@@ -279,8 +279,8 @@ impl IXmlWriter {
         (::windows::core::Vtable::vtable(self).SetOutput)(::windows::core::Vtable::as_raw(self), poutput.into().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<isize>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()
@@ -438,11 +438,6 @@ impl IXmlWriter {
     }
 }
 ::windows::core::interface_hierarchy!(IXmlWriter, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXmlWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXmlWriter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -456,6 +451,11 @@ impl ::core::fmt::Debug for IXmlWriter {
 }
 unsafe impl ::windows::core::Vtable for IXmlWriter {
     type Vtable = IXmlWriter_Vtbl;
+}
+impl ::core::clone::Clone for IXmlWriter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXmlWriter {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
@@ -514,8 +514,8 @@ impl IXmlWriterLite {
         (::windows::core::Vtable::vtable(self).SetOutput)(::windows::core::Vtable::as_raw(self), poutput.into().abi()).ok()
     }
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<isize>();
+        (::windows::core::Vtable::vtable(self).GetProperty)(::windows::core::Vtable::as_raw(self), nproperty, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetProperty)(::windows::core::Vtable::as_raw(self), nproperty, pvalue).ok()
@@ -652,11 +652,6 @@ impl IXmlWriterLite {
     }
 }
 ::windows::core::interface_hierarchy!(IXmlWriterLite, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IXmlWriterLite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IXmlWriterLite {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -670,6 +665,11 @@ impl ::core::fmt::Debug for IXmlWriterLite {
 }
 unsafe impl ::windows::core::Vtable for IXmlWriterLite {
     type Vtable = IXmlWriterLite_Vtbl;
+}
+impl ::core::clone::Clone for IXmlWriterLite {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IXmlWriterLite {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);
@@ -743,8 +743,8 @@ impl ::core::default::Default for DtdProcessing {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DtdProcessing {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DtdProcessing {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DtdProcessing {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -774,8 +774,8 @@ impl ::core::default::Default for XmlConformanceLevel {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlConformanceLevel {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlConformanceLevel {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlConformanceLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -967,8 +967,8 @@ impl ::core::default::Default for XmlError {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlError {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlError {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1014,8 +1014,8 @@ impl ::core::default::Default for XmlNodeType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlNodeType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlNodeType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlNodeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1047,8 +1047,8 @@ impl ::core::default::Default for XmlReadState {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlReadState {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlReadState {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlReadState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1088,8 +1088,8 @@ impl ::core::default::Default for XmlReaderProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlReaderProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlReaderProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlReaderProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1119,8 +1119,8 @@ impl ::core::default::Default for XmlStandalone {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlStandalone {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlStandalone {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlStandalone {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1156,8 +1156,8 @@ impl ::core::default::Default for XmlWriterProperty {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for XmlWriterProperty {
-    type Abi = Self;
+impl ::windows::core::TypeKind for XmlWriterProperty {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for XmlWriterProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

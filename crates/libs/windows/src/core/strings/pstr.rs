@@ -55,6 +55,6 @@ impl PSTR {
     }
 }
 
-unsafe impl Abi for PSTR {
-    type Abi = Self;
+impl TypeKind for PSTR {
+    type TypeKind = CopyType;
 }

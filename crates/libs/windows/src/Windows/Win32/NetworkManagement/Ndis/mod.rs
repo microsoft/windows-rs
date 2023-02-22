@@ -3735,8 +3735,8 @@ impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IF_ADMINISTRATIVE_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IF_ADMINISTRATIVE_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3772,8 +3772,8 @@ impl ::core::default::Default for IF_OPER_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for IF_OPER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IF_OPER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for IF_OPER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3821,8 +3821,8 @@ impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3848,8 +3848,8 @@ impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_MEDIA_STREAM_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3879,8 +3879,8 @@ impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3914,8 +3914,8 @@ impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3945,8 +3945,8 @@ impl ::core::default::Default for NDIS_802_11_POWER_MODE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_POWER_MODE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_POWER_MODE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -3972,8 +3972,8 @@ impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_PRIVACY_FILTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_PRIVACY_FILTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4005,8 +4005,8 @@ impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_RADIO_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_RADIO_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4030,8 +4030,8 @@ impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_RELOAD_DEFAULTS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_RELOAD_DEFAULTS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4061,8 +4061,8 @@ impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_STATUS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4108,8 +4108,8 @@ impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_WEP_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_WEP_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4143,8 +4143,8 @@ impl ::core::default::Default for NDIS_802_5_RING_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_5_RING_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_5_RING_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_802_5_RING_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4178,8 +4178,8 @@ impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_DEVICE_POWER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_DEVICE_POWER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4227,8 +4227,8 @@ impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_FDDI_ATTACHMENT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4270,8 +4270,8 @@ impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_FDDI_LCONNECTION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_FDDI_LCONNECTION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4309,8 +4309,8 @@ impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_FDDI_RING_MGT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_FDDI_RING_MGT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4342,8 +4342,8 @@ impl ::core::default::Default for NDIS_HARDWARE_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_HARDWARE_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_HARDWARE_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_HARDWARE_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4373,8 +4373,8 @@ impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_INTERRUPT_MODERATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4400,8 +4400,8 @@ impl ::core::default::Default for NDIS_MEDIA_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_MEDIA_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_MEDIA_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4465,8 +4465,8 @@ impl ::core::default::Default for NDIS_MEDIUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_MEDIUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_MEDIUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4496,8 +4496,8 @@ impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_NETWORK_CHANGE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_NETWORK_CHANGE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4563,8 +4563,8 @@ impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PHYSICAL_MEDIUM {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PHYSICAL_MEDIUM {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4594,8 +4594,8 @@ impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHORIZATION_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_AUTHORIZATION_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4623,8 +4623,8 @@ impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_CONTROL_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_CONTROL_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4656,8 +4656,8 @@ impl ::core::default::Default for NDIS_PORT_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PORT_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4687,8 +4687,8 @@ impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PROCESSOR_VENDOR {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PROCESSOR_VENDOR {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4734,8 +4734,8 @@ impl ::core::default::Default for NDIS_REQUEST_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_REQUEST_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_REQUEST_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_REQUEST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4767,8 +4767,8 @@ impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4794,8 +4794,8 @@ impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WAN_HEADER_FORMAT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WAN_HEADER_FORMAT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4851,8 +4851,8 @@ impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WAN_MEDIUM_SUBTYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WAN_MEDIUM_SUBTYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4880,8 +4880,8 @@ impl ::core::default::Default for NDIS_WAN_QUALITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WAN_QUALITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WAN_QUALITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDIS_WAN_QUALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4915,8 +4915,8 @@ impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NDK_RDMA_TECHNOLOGY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDK_RDMA_TECHNOLOGY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NDK_RDMA_TECHNOLOGY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4948,8 +4948,8 @@ impl ::core::default::Default for NET_IF_ACCESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_ACCESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_ACCESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4977,8 +4977,8 @@ impl ::core::default::Default for NET_IF_ADMIN_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_ADMIN_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_ADMIN_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5008,8 +5008,8 @@ impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_CONNECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_CONNECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5039,8 +5039,8 @@ impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_DIRECTION_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_DIRECTION_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5068,8 +5068,8 @@ impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_MEDIA_CONNECT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_MEDIA_CONNECT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5097,8 +5097,8 @@ impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_MEDIA_DUPLEX_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_MEDIA_DUPLEX_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5134,8 +5134,8 @@ impl ::core::default::Default for NET_IF_OPER_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_OPER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_OPER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5163,8 +5163,8 @@ impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_RCV_ADDRESS_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5196,8 +5196,8 @@ impl ::core::default::Default for OFFLOAD_CONF_ALGO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_CONF_ALGO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_CONF_ALGO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5227,8 +5227,8 @@ impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_INTEGRITY_ALGO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_INTEGRITY_ALGO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5254,8 +5254,8 @@ impl ::core::default::Default for OFFLOAD_OPERATION_E {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_OPERATION_E {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_OPERATION_E {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for OFFLOAD_OPERATION_E {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5291,8 +5291,8 @@ impl ::core::default::Default for TUNNEL_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TUNNEL_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TUNNEL_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TUNNEL_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5318,8 +5318,8 @@ impl ::core::default::Default for UDP_ENCAP_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for UDP_ENCAP_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for UDP_ENCAP_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for UDP_ENCAP_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5343,8 +5343,8 @@ impl ::core::fmt::Debug for BSSID_INFO {
         f.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for BSSID_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for BSSID_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for BSSID_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -5373,8 +5373,8 @@ impl ::core::fmt::Debug for GEN_GET_NETCARD_TIME {
         f.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GEN_GET_NETCARD_TIME {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GEN_GET_NETCARD_TIME {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GEN_GET_NETCARD_TIME {
     fn eq(&self, other: &Self) -> bool {
@@ -5404,8 +5404,8 @@ impl ::core::fmt::Debug for GEN_GET_TIME_CAPS {
         f.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for GEN_GET_TIME_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for GEN_GET_TIME_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for GEN_GET_TIME_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -5435,8 +5435,8 @@ impl ::core::fmt::Debug for IF_COUNTED_STRING_LH {
         f.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IF_COUNTED_STRING_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IF_COUNTED_STRING_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IF_COUNTED_STRING_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -5466,8 +5466,8 @@ impl ::core::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
         f.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for IF_PHYSICAL_ADDRESS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for IF_PHYSICAL_ADDRESS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -5498,8 +5498,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AI_REQFI {
         f.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AI_REQFI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AI_REQFI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_REQFI {
     fn eq(&self, other: &Self) -> bool {
@@ -5530,8 +5530,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AI_RESFI {
         f.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AI_RESFI {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AI_RESFI {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AI_RESFI {
     fn eq(&self, other: &Self) -> bool {
@@ -5578,8 +5578,8 @@ impl ::core::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_ASSOCIATION_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_ASSOCIATION_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5609,8 +5609,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn eq(&self, other: &Self) -> bool {
@@ -5640,8 +5640,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_EVENT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -5672,8 +5672,8 @@ impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
         f.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_REQUEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_AUTHENTICATION_REQUEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
@@ -5703,8 +5703,8 @@ impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST {
         f.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_BSSID_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5734,8 +5734,8 @@ impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
         f.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_BSSID_LIST_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -5768,8 +5768,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CAPABILITY {
         f.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_CAPABILITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_CAPABILITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
@@ -5802,8 +5802,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION {
         f.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_CONFIGURATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
@@ -5835,8 +5835,8 @@ impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
         f.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION_FH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_CONFIGURATION_FH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
     fn eq(&self, other: &Self) -> bool {
@@ -5867,8 +5867,8 @@ impl ::core::fmt::Debug for NDIS_802_11_FIXED_IEs {
         f.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_FIXED_IEs {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_FIXED_IEs {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
     fn eq(&self, other: &Self) -> bool {
@@ -5902,8 +5902,8 @@ impl ::core::fmt::Debug for NDIS_802_11_KEY {
         f.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -5933,8 +5933,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
         f.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_NETWORK_TYPE_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5964,8 +5964,8 @@ impl ::core::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
         f.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_NON_BCAST_SSID_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_NON_BCAST_SSID_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -5996,8 +5996,8 @@ impl ::core::fmt::Debug for NDIS_802_11_PMKID {
         f.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_PMKID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID {
     fn eq(&self, other: &Self) -> bool {
@@ -6028,8 +6028,8 @@ impl ::core::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
         f.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -6060,8 +6060,8 @@ impl ::core::fmt::Debug for NDIS_802_11_REMOVE_KEY {
         f.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_REMOVE_KEY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_REMOVE_KEY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
     fn eq(&self, other: &Self) -> bool {
@@ -6091,8 +6091,8 @@ impl ::core::fmt::Debug for NDIS_802_11_SSID {
         f.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_SSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_SSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_SSID {
     fn eq(&self, other: &Self) -> bool {
@@ -6171,8 +6171,8 @@ impl ::core::fmt::Debug for NDIS_802_11_STATISTICS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_STATISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -6225,8 +6225,8 @@ impl ::core::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
         f.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_INDICATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_STATUS_INDICATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
     fn eq(&self, other: &Self) -> bool {
@@ -6252,8 +6252,8 @@ impl ::core::clone::Clone for NDIS_802_11_TEST {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_TEST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_TEST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_802_11_TEST {
     fn default() -> Self {
@@ -6272,8 +6272,8 @@ impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_TEST_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_TEST_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_802_11_TEST_0 {
     fn default() -> Self {
@@ -6298,8 +6298,8 @@ impl ::core::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
         f.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_VARIABLE_IEs {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_VARIABLE_IEs {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
     fn eq(&self, other: &Self) -> bool {
@@ -6331,8 +6331,8 @@ impl ::core::fmt::Debug for NDIS_802_11_WEP {
         f.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_802_11_WEP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_802_11_WEP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_802_11_WEP {
     fn eq(&self, other: &Self) -> bool {
@@ -6417,8 +6417,8 @@ impl ::core::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_CO_DEVICE_PROFILE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_CO_DEVICE_PROFILE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
     fn eq(&self, other: &Self) -> bool {
@@ -6475,8 +6475,8 @@ impl ::core::fmt::Debug for NDIS_CO_LINK_SPEED {
         f.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_CO_LINK_SPEED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_CO_LINK_SPEED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_CO_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
@@ -6503,8 +6503,8 @@ impl ::core::clone::Clone for NDIS_GUID {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_GUID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_GUID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_GUID {
     fn default() -> Self {
@@ -6523,8 +6523,8 @@ impl ::core::clone::Clone for NDIS_GUID_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_GUID_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_GUID_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_GUID_0 {
     fn default() -> Self {
@@ -6551,8 +6551,8 @@ impl ::core::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
         f.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_HARDWARE_CROSSTIMESTAMP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
@@ -6650,8 +6650,8 @@ impl ::core::fmt::Debug for NDIS_INTERFACE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_INTERFACE_INFORMATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_INTERFACE_INFORMATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_INTERFACE_INFORMATION {
@@ -6716,8 +6716,8 @@ impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
         f.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -6748,8 +6748,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6778,8 +6778,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6808,8 +6808,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_1").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -6842,8 +6842,8 @@ impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
         f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -6874,8 +6874,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATE {
         f.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IP_OPER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -6906,8 +6906,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS {
         f.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IP_OPER_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS {
     fn eq(&self, other: &Self) -> bool {
@@ -6939,8 +6939,8 @@ impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
         f.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IP_OPER_STATUS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -6970,8 +6970,8 @@ impl ::core::fmt::Debug for NDIS_IRDA_PACKET_INFO {
         f.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_IRDA_PACKET_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_IRDA_PACKET_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7005,8 +7005,8 @@ impl ::core::fmt::Debug for NDIS_LINK_PARAMETERS {
         f.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_LINK_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_LINK_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7036,8 +7036,8 @@ impl ::core::fmt::Debug for NDIS_LINK_SPEED {
         f.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_LINK_SPEED {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_LINK_SPEED {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_SPEED {
     fn eq(&self, other: &Self) -> bool {
@@ -7072,8 +7072,8 @@ impl ::core::fmt::Debug for NDIS_LINK_STATE {
         f.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_LINK_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_LINK_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_LINK_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7104,8 +7104,8 @@ impl ::core::fmt::Debug for NDIS_OBJECT_HEADER {
         f.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_OBJECT_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_OBJECT_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
@@ -7139,8 +7139,8 @@ impl ::core::fmt::Debug for NDIS_OFFLOAD {
         f.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7195,8 +7195,8 @@ impl ::core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_OFFLOAD_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_OFFLOAD_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7227,8 +7227,8 @@ impl ::core::fmt::Debug for NDIS_OPER_STATE {
         f.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_OPER_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_OPER_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7283,8 +7283,8 @@ impl ::core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7318,8 +7318,8 @@ impl ::core::fmt::Debug for NDIS_PM_PACKET_PATTERN {
         f.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PM_PACKET_PATTERN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PM_PACKET_PATTERN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
     fn eq(&self, other: &Self) -> bool {
@@ -7350,8 +7350,8 @@ impl ::core::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
         f.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PM_WAKE_UP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PM_WAKE_UP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7381,8 +7381,8 @@ impl ::core::fmt::Debug for NDIS_PNP_CAPABILITIES {
         f.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PNP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PNP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7415,8 +7415,8 @@ impl ::core::fmt::Debug for NDIS_PORT {
         f.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT {
     fn eq(&self, other: &Self) -> bool {
@@ -7449,8 +7449,8 @@ impl ::core::fmt::Debug for NDIS_PORT_ARRAY {
         f.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_ARRAY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_ARRAY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
@@ -7483,8 +7483,8 @@ impl ::core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
         f.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7537,8 +7537,8 @@ impl ::core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_CHARACTERISTICS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_CHARACTERISTICS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
     fn eq(&self, other: &Self) -> bool {
@@ -7587,8 +7587,8 @@ impl ::core::fmt::Debug for NDIS_PORT_STATE {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_PORT_STATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_PORT_STATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_PORT_STATE {
     fn eq(&self, other: &Self) -> bool {
@@ -7621,8 +7621,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
         f.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_HASH_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_RECEIVE_HASH_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7654,8 +7654,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
         f.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -7691,8 +7691,8 @@ impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
         f.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_PARAMETERS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_RECEIVE_SCALE_PARAMETERS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
@@ -7761,8 +7761,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_STATISTICS_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -7812,8 +7812,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE {
         f.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_STATISTICS_VALUE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE {
     fn eq(&self, other: &Self) -> bool {
@@ -7845,8 +7845,8 @@ impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
         f.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_STATISTICS_VALUE_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -7879,8 +7879,8 @@ impl ::core::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
         f.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_CONNECTION_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7912,8 +7912,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -7943,8 +7943,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -7974,8 +7974,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8005,8 +8005,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8036,8 +8036,8 @@ impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
         f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -8066,8 +8066,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8099,8 +8099,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8130,8 +8130,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8162,8 +8162,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8195,8 +8195,8 @@ impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
         f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8228,8 +8228,8 @@ impl ::core::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
         f.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
@@ -8268,8 +8268,8 @@ impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITIES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TIMESTAMP_CAPABILITIES {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
@@ -8334,8 +8334,8 @@ impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
@@ -8382,8 +8382,8 @@ impl ::core::fmt::Debug for NDIS_VAR_DATA_DESC {
         f.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_VAR_DATA_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_VAR_DATA_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_VAR_DATA_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -8413,8 +8413,8 @@ impl ::core::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
         f.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WAN_PROTOCOL_CAPS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WAN_PROTOCOL_CAPS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
     fn eq(&self, other: &Self) -> bool {
@@ -8452,8 +8452,8 @@ impl ::core::fmt::Debug for NDIS_WLAN_BSSID {
         f.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WLAN_BSSID {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
     fn eq(&self, other: &Self) -> bool {
@@ -8506,8 +8506,8 @@ impl ::core::fmt::Debug for NDIS_WLAN_BSSID_EX {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID_EX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WLAN_BSSID_EX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
     fn eq(&self, other: &Self) -> bool {
@@ -8539,8 +8539,8 @@ impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_WMI_ENUM_ADAPTER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_ENUM_ADAPTER {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
@@ -8566,8 +8566,8 @@ impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_EVENT_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_EVENT_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_EVENT_HEADER {
     fn default() -> Self {
@@ -8592,8 +8592,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8627,8 +8627,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_0").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8664,8 +8664,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_1").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8698,8 +8698,8 @@ impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
         f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -8728,8 +8728,8 @@ impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_METHOD_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_METHOD_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_METHOD_HEADER {
     fn default() -> Self {
@@ -8757,8 +8757,8 @@ impl ::core::fmt::Debug for NDIS_WMI_OFFLOAD {
         f.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8790,8 +8790,8 @@ impl ::core::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
         f.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_OUTPUT_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_OUTPUT_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8820,8 +8820,8 @@ impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_SET_HEADER {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_SET_HEADER {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NDIS_WMI_SET_HEADER {
     fn default() -> Self {
@@ -8851,8 +8851,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
         f.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8884,8 +8884,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
@@ -8919,8 +8919,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -8954,8 +8954,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -8988,8 +8988,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9022,8 +9022,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
         f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -9052,8 +9052,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9086,8 +9086,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9117,8 +9117,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
@@ -9149,8 +9149,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9183,8 +9183,8 @@ impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
         f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -9257,8 +9257,8 @@ impl ::core::fmt::Debug for NDK_ADAPTER_INFO {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDK_ADAPTER_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDK_ADAPTER_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDK_ADAPTER_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9309,8 +9309,8 @@ impl ::core::fmt::Debug for NDK_VERSION {
         f.debug_struct("NDK_VERSION").field("Major", &self.Major).field("Minor", &self.Minor).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NDK_VERSION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NDK_VERSION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NDK_VERSION {
     fn eq(&self, other: &Self) -> bool {
@@ -9341,8 +9341,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS {
         f.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_ADDRESS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
@@ -9373,8 +9373,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IP {
         f.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_ADDRESS_IP {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP {
     fn eq(&self, other: &Self) -> bool {
@@ -9406,8 +9406,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IP6 {
         f.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_ADDRESS_IP6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
     fn eq(&self, other: &Self) -> bool {
@@ -9438,8 +9438,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_IPX {
         f.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IPX {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_ADDRESS_IPX {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IPX {
     fn eq(&self, other: &Self) -> bool {
@@ -9470,8 +9470,8 @@ impl ::core::fmt::Debug for NETWORK_ADDRESS_LIST {
         f.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_LIST {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NETWORK_ADDRESS_LIST {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NETWORK_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
@@ -9501,8 +9501,8 @@ impl ::core::fmt::Debug for NET_IF_ALIAS_LH {
         f.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_ALIAS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_ALIAS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_IF_ALIAS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9533,8 +9533,8 @@ impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
         f.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_IF_RCV_ADDRESS_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9559,8 +9559,8 @@ impl ::core::clone::Clone for NET_LUID_LH {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for NET_LUID_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_LUID_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for NET_LUID_LH {
     fn default() -> Self {
@@ -9583,8 +9583,8 @@ impl ::core::fmt::Debug for NET_LUID_LH_0 {
         f.debug_struct("NET_LUID_LH_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_LUID_LH_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_LUID_LH_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_LUID_LH_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -9615,8 +9615,8 @@ impl ::core::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
         f.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
     }
 }
-unsafe impl ::windows::core::Abi for NET_PHYSICAL_LOCATION_LH {
-    type Abi = Self;
+impl ::windows::core::TypeKind for NET_PHYSICAL_LOCATION_LH {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
     fn eq(&self, other: &Self) -> bool {
@@ -9647,8 +9647,8 @@ impl ::core::fmt::Debug for OFFLOAD_ALGO_INFO {
         f.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_ALGO_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_ALGO_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_ALGO_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -9712,8 +9712,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_SA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_IPSEC_ADD_SA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
@@ -9784,8 +9784,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
@@ -9822,8 +9822,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_SA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_IPSEC_DELETE_SA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_SA {
@@ -9861,8 +9861,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
@@ -9895,8 +9895,8 @@ impl ::core::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
         f.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
@@ -9929,8 +9929,8 @@ impl ::core::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
         f.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for OFFLOAD_SECURITY_ASSOCIATION {
-    type Abi = Self;
+impl ::windows::core::TypeKind for OFFLOAD_SECURITY_ASSOCIATION {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
     fn eq(&self, other: &Self) -> bool {
@@ -9960,8 +9960,8 @@ impl ::core::fmt::Debug for PMKID_CANDIDATE {
         f.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for PMKID_CANDIDATE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PMKID_CANDIDATE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for PMKID_CANDIDATE {
     fn eq(&self, other: &Self) -> bool {
@@ -9991,8 +9991,8 @@ impl ::core::fmt::Debug for TRANSPORT_HEADER_OFFSET {
         f.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TRANSPORT_HEADER_OFFSET {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TRANSPORT_HEADER_OFFSET {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
     fn eq(&self, other: &Self) -> bool {

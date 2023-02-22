@@ -157,8 +157,8 @@ impl ::core::default::Default for TBS_COMMAND_LOCALITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_COMMAND_LOCALITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -190,8 +190,8 @@ impl ::core::default::Default for TBS_COMMAND_PRIORITY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_COMMAND_PRIORITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -214,8 +214,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS {
         f.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
@@ -240,8 +240,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2 {
     fn default() -> Self {
@@ -260,8 +260,8 @@ impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0 {
     fn default() -> Self {
@@ -284,8 +284,8 @@ impl ::core::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
         f.debug_struct("TBS_CONTEXT_PARAMS2_0_0").field("_bitfield", &self._bitfield).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TBS_CONTEXT_PARAMS2_0_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TBS_CONTEXT_PARAMS2_0_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -317,8 +317,8 @@ impl ::core::fmt::Debug for TPM_DEVICE_INFO {
         f.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TPM_DEVICE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPM_DEVICE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -348,8 +348,8 @@ impl ::core::fmt::Debug for TPM_WNF_PROVISIONING {
         f.debug_struct("TPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
-unsafe impl ::windows::core::Abi for TPM_WNF_PROVISIONING {
-    type Abi = Self;
+impl ::windows::core::TypeKind for TPM_WNF_PROVISIONING {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for TPM_WNF_PROVISIONING {
     fn eq(&self, other: &Self) -> bool {

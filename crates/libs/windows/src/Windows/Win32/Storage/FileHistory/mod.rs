@@ -26,8 +26,8 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     ::windows::core::link ! ( "fhsvcctl.dll""system" fn FhServiceOpenPipe ( startserviceifstopped : super::super::Foundation:: BOOL , pipe : *mut super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    FhServiceOpenPipe(startserviceifstopped.into(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>();
+    FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
@@ -103,30 +103,30 @@ impl IFhConfigMgr {
     where
         P0: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetIncludeExcludeRules)(::windows::core::Vtable::as_raw(self), include.into(), category, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFhScopeIterator>();
+        (::windows::core::Vtable::vtable(self).GetIncludeExcludeRules)(::windows::core::Vtable::as_raw(self), include.into(), category, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetLocalPolicy)(::windows::core::Vtable::as_raw(self), localpolicytype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetLocalPolicy)(::windows::core::Vtable::as_raw(self), localpolicytype, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLocalPolicy(&self, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetLocalPolicy)(::windows::core::Vtable::as_raw(self), localpolicytype, policyvalue).ok()
     }
     pub unsafe fn GetBackupStatus(&self) -> ::windows::core::Result<FH_BACKUP_STATUS> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetBackupStatus)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<FH_BACKUP_STATUS>();
+        (::windows::core::Vtable::vtable(self).GetBackupStatus)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBackupStatus(&self, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetBackupStatus)(::windows::core::Vtable::as_raw(self), backupstatus).ok()
     }
     pub unsafe fn GetDefaultTarget(&self) -> ::windows::core::Result<IFhTarget> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDefaultTarget)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFhTarget>();
+        (::windows::core::Vtable::vtable(self).GetDefaultTarget)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ValidateTarget(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ValidateTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<FH_DEVICE_VALIDATION_RESULT>();
+        (::windows::core::Vtable::vtable(self).ValidateTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProvisionAndSetNewTarget(&self, targeturl: &::windows::core::BSTR, targetname: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ProvisionAndSetNewTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl), ::core::mem::transmute_copy(targetname)).ok()
@@ -144,11 +144,6 @@ impl IFhConfigMgr {
     }
 }
 ::windows::core::interface_hierarchy!(IFhConfigMgr, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFhConfigMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFhConfigMgr {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -162,6 +157,11 @@ impl ::core::fmt::Debug for IFhConfigMgr {
 }
 unsafe impl ::windows::core::Vtable for IFhConfigMgr {
     type Vtable = IFhConfigMgr_Vtbl;
+}
+impl ::core::clone::Clone for IFhConfigMgr {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFhConfigMgr {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
@@ -177,7 +177,7 @@ pub struct IFhConfigMgr_Vtbl {
     CreateDefaultConfiguration: usize,
     pub SaveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     AddRemoveExcludeRule: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -189,21 +189,21 @@ pub struct IFhConfigMgr_Vtbl {
     pub GetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
     pub SetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: FH_BACKUP_STATUS) -> ::windows::core::HRESULT,
     pub GetDefaultTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaulttarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
-    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, targetname: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows::core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
+    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows::core::BSTR>, targetname: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangeDefaultTargetRecommendation: usize,
-    pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 pub struct IFhReassociation(::windows::core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<FH_DEVICE_VALIDATION_RESULT> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).ValidateTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<FH_DEVICE_VALIDATION_RESULT>();
+        (::windows::core::Vtable::vtable(self).ValidateTarget)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl), &mut result__).from_abi(result__)
     }
     pub unsafe fn ScanTargetForConfigurations(&self, targeturl: &::windows::core::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).ScanTargetForConfigurations)(::windows::core::Vtable::as_raw(self), ::core::mem::transmute_copy(targeturl)).ok()
@@ -226,11 +226,6 @@ impl IFhReassociation {
     }
 }
 ::windows::core::interface_hierarchy!(IFhReassociation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFhReassociation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFhReassociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -245,6 +240,11 @@ impl ::core::fmt::Debug for IFhReassociation {
 unsafe impl ::windows::core::Vtable for IFhReassociation {
     type Vtable = IFhReassociation_Vtbl;
 }
+impl ::core::clone::Clone for IFhReassociation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFhReassociation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 }
@@ -252,10 +252,10 @@ unsafe impl ::windows::core::Interface for IFhReassociation {
 #[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
-    pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows::core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows::core::HRESULT,
+    pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut *mut ::core::ffi::c_void, pcname: *mut *mut ::core::ffi::c_void, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
+    pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, pcname: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetConfigurationDetails: usize,
     pub SelectConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
@@ -272,16 +272,11 @@ impl IFhScopeIterator {
         (::windows::core::Vtable::vtable(self).MoveToNextItem)(::windows::core::Vtable::as_raw(self)).ok()
     }
     pub unsafe fn GetItem(&self) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetItem)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFhScopeIterator, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFhScopeIterator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFhScopeIterator {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -296,6 +291,11 @@ impl ::core::fmt::Debug for IFhScopeIterator {
 unsafe impl ::windows::core::Vtable for IFhScopeIterator {
     type Vtable = IFhScopeIterator_Vtbl;
 }
+impl ::core::clone::Clone for IFhScopeIterator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFhScopeIterator {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
 }
@@ -304,27 +304,22 @@ unsafe impl ::windows::core::Interface for IFhScopeIterator {
 pub struct IFhScopeIterator_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
     pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
 pub struct IFhTarget(::windows::core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<::windows::core::BSTR> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringProperty)(::windows::core::Vtable::as_raw(self), propertytype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::BSTR>();
+        (::windows::core::Vtable::vtable(self).GetStringProperty)(::windows::core::Vtable::as_raw(self), propertytype, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumericalProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows::core::Result<u64> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetNumericalProperty)(::windows::core::Vtable::as_raw(self), propertytype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u64>();
+        (::windows::core::Vtable::vtable(self).GetNumericalProperty)(::windows::core::Vtable::as_raw(self), propertytype, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFhTarget, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFhTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFhTarget {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -339,6 +334,11 @@ impl ::core::fmt::Debug for IFhTarget {
 unsafe impl ::windows::core::Vtable for IFhTarget {
     type Vtable = IFhTarget_Vtbl;
 }
+impl ::core::clone::Clone for IFhTarget {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
 unsafe impl ::windows::core::Interface for IFhTarget {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 }
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::Interface for IFhTarget {
 #[doc(hidden)]
 pub struct IFhTarget_Vtbl {
     pub base__: ::windows::core::IUnknown_Vtbl,
-    pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::std::mem::MaybeUninit<::windows::core::BSTR>) -> ::windows::core::HRESULT,
     pub GetNumericalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
@@ -462,8 +462,8 @@ impl ::core::default::Default for FH_BACKUP_STATUS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_BACKUP_STATUS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_BACKUP_STATUS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_BACKUP_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -501,8 +501,8 @@ impl ::core::default::Default for FH_DEVICE_VALIDATION_RESULT {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_DEVICE_VALIDATION_RESULT {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_DEVICE_VALIDATION_RESULT {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_DEVICE_VALIDATION_RESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -532,8 +532,8 @@ impl ::core::default::Default for FH_LOCAL_POLICY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_LOCAL_POLICY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_LOCAL_POLICY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_LOCAL_POLICY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -561,8 +561,8 @@ impl ::core::default::Default for FH_PROTECTED_ITEM_CATEGORY {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_PROTECTED_ITEM_CATEGORY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_PROTECTED_ITEM_CATEGORY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_PROTECTED_ITEM_CATEGORY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -592,8 +592,8 @@ impl ::core::default::Default for FH_RETENTION_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_RETENTION_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_RETENTION_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_RETENTION_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -623,8 +623,8 @@ impl ::core::default::Default for FH_TARGET_DRIVE_TYPES {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_TARGET_DRIVE_TYPES {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_TARGET_DRIVE_TYPES {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_TARGET_DRIVE_TYPES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -654,8 +654,8 @@ impl ::core::default::Default for FH_TARGET_PROPERTY_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FH_TARGET_PROPERTY_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FH_TARGET_PROPERTY_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FH_TARGET_PROPERTY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -687,8 +687,8 @@ impl ::core::default::Default for FhBackupStopReason {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for FhBackupStopReason {
-    type Abi = Self;
+impl ::windows::core::TypeKind for FhBackupStopReason {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for FhBackupStopReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

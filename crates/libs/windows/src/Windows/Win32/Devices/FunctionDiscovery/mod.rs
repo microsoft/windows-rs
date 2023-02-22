@@ -10,8 +10,8 @@ impl IFunctionDiscovery {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInstanceCollection)(::windows::core::Vtable::as_raw(self), pszcategory.into().abi(), pszsubcategory.into().abi(), fincludeallsubcategories.into(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstanceCollection>();
+        (::windows::core::Vtable::vtable(self).GetInstanceCollection)(::windows::core::Vtable::as_raw(self), pszcategory.into().abi(), pszsubcategory.into().abi(), fincludeallsubcategories.into(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19,8 +19,8 @@ impl IFunctionDiscovery {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInstance)(::windows::core::Vtable::as_raw(self), pszfunctioninstanceidentity.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).GetInstance)(::windows::core::Vtable::as_raw(self), pszfunctioninstanceidentity.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -48,8 +48,8 @@ impl IFunctionDiscovery {
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P2: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AddInstance)(::windows::core::Vtable::as_raw(self), enumsystemvisibility, pszcategory.into().abi(), pszsubcategory.into().abi(), pszcategoryidentity.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).AddInstance)(::windows::core::Vtable::as_raw(self), enumsystemvisibility, pszcategory.into().abi(), pszsubcategory.into().abi(), pszcategoryidentity.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveInstance<P0, P1, P2>(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: P0, pszsubcategory: P1, pszcategoryidentity: P2) -> ::windows::core::Result<()>
     where
@@ -61,11 +61,6 @@ impl IFunctionDiscovery {
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscovery, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscovery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscovery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -79,6 +74,11 @@ impl ::core::fmt::Debug for IFunctionDiscovery {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscovery {
     type Vtable = IFunctionDiscovery_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscovery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscovery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df99b70_e148_4432_b004_4c9eeb535a5e);
@@ -132,11 +132,6 @@ impl IFunctionDiscoveryNotification {
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscoveryNotification, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscoveryNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscoveryNotification {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -150,6 +145,11 @@ impl ::core::fmt::Debug for IFunctionDiscoveryNotification {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryNotification {
     type Vtable = IFunctionDiscoveryNotification_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscoveryNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryNotification {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6c1ba8_5330_422e_a368_572b244d3f87);
@@ -174,15 +174,15 @@ impl IFunctionDiscoveryProvider {
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionDiscoveryProviderFactory>>,
         P1: ::std::convert::Into<::windows::core::InParam<IFunctionDiscoveryNotification>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctiondiscoveryproviderfactory.into().abi(), pifunctiondiscoverynotification.into().abi(), lciduserdefault, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctiondiscoveryproviderfactory.into().abi(), pifunctiondiscoverynotification.into().abi(), lciduserdefault, &mut result__).from_abi(result__)
     }
     pub unsafe fn Query<P0>(&self, pifunctiondiscoveryproviderquery: P0) -> ::windows::core::Result<IFunctionInstanceCollection>
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionDiscoveryProviderQuery>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pifunctiondiscoveryproviderquery.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstanceCollection>();
+        (::windows::core::Vtable::vtable(self).Query)(::windows::core::Vtable::as_raw(self), pifunctiondiscoveryproviderquery.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EndQuery(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EndQuery)(::windows::core::Vtable::as_raw(self)).ok()
@@ -201,8 +201,8 @@ impl IFunctionDiscoveryProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionInstance>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstancePropertyStoreOpen)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, dwstgaccess, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).InstancePropertyStoreOpen)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, dwstgaccess, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -218,8 +218,8 @@ impl IFunctionDiscoveryProvider {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionInstance>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).InstanceQueryService)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, guidservice, riid, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).InstanceQueryService)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, guidservice, riid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -231,11 +231,6 @@ impl IFunctionDiscoveryProvider {
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscoveryProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscoveryProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -249,6 +244,11 @@ impl ::core::fmt::Debug for IFunctionDiscoveryProvider {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProvider {
     type Vtable = IFunctionDiscoveryProvider_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscoveryProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcde394f_1478_4813_a402_f6fb10657222);
@@ -288,8 +288,8 @@ impl IFunctionDiscoveryProviderFactory {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreatePropertyStore(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreatePropertyStore)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).CreatePropertyStore)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -300,20 +300,15 @@ impl IFunctionDiscoveryProviderFactory {
         P2: ::std::convert::Into<::windows::core::InParam<super::super::UI::Shell::PropertiesSystem::IPropertyStore>>,
         P3: ::std::convert::Into<::windows::core::InParam<IFunctionDiscoveryProvider>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pszsubcategory.into().abi(), pszproviderinstanceidentity.into().abi(), iproviderinstancecontext, pipropertystore.into().abi(), pifunctiondiscoveryprovider.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), pszsubcategory.into().abi(), pszproviderinstanceidentity.into().abi(), iproviderinstancecontext, pipropertystore.into().abi(), pifunctiondiscoveryprovider.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFunctionInstanceCollection(&self) -> ::windows::core::Result<IFunctionInstanceCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateFunctionInstanceCollection)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstanceCollection>();
+        (::windows::core::Vtable::vtable(self).CreateFunctionInstanceCollection)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -327,6 +322,11 @@ impl ::core::fmt::Debug for IFunctionDiscoveryProviderFactory {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProviderFactory {
     type Vtable = IFunctionDiscoveryProviderFactory_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscoveryProviderFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86443ff0_1ad5_4e68_a45a_40c2c329de3b);
@@ -360,20 +360,15 @@ impl IFunctionDiscoveryProviderQuery {
         (::windows::core::Vtable::vtable(self).IsSubcategoryQuery)(::windows::core::Vtable::as_raw(self), pissubcategoryquery, ppszconstraintvalue).ok()
     }
     pub unsafe fn GetQueryConstraints(&self) -> ::windows::core::Result<IProviderQueryConstraintCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetQueryConstraints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IProviderQueryConstraintCollection>();
+        (::windows::core::Vtable::vtable(self).GetQueryConstraints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPropertyConstraints(&self) -> ::windows::core::Result<IProviderPropertyConstraintCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetPropertyConstraints)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IProviderPropertyConstraintCollection>();
+        (::windows::core::Vtable::vtable(self).GetPropertyConstraints)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscoveryProviderQuery, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -387,6 +382,11 @@ impl ::core::fmt::Debug for IFunctionDiscoveryProviderQuery {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryProviderQuery {
     type Vtable = IFunctionDiscoveryProviderQuery_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscoveryProviderQuery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6876ea98_baec_46db_bc20_75a76e267a3a);
@@ -417,16 +417,11 @@ impl IFunctionDiscoveryServiceProvider {
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionInstance>>,
         T: ::windows::core::Interface,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows::core::Vtable::vtable(self).Initialize)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionDiscoveryServiceProvider {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -440,6 +435,11 @@ impl ::core::fmt::Debug for IFunctionDiscoveryServiceProvider {
 }
 unsafe impl ::windows::core::Vtable for IFunctionDiscoveryServiceProvider {
     type Vtable = IFunctionDiscoveryServiceProvider_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionDiscoveryServiceProvider {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryServiceProvider {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
@@ -465,18 +465,18 @@ impl IFunctionInstance {
         (::windows::core::Vtable::vtable(self).base__.QueryService)(::windows::core::Vtable::as_raw(self), guidservice, riid, ppvobject).ok()
     }
     pub unsafe fn GetID(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+        (::windows::core::Vtable::vtable(self).GetID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProviderInstanceID(&self) -> ::windows::core::Result<*mut u16> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetProviderInstanceID)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+        (::windows::core::Vtable::vtable(self).GetProviderInstanceID)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn OpenPropertyStore(&self, dwstgaccess: super::super::System::Com::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).OpenPropertyStore)(::windows::core::Vtable::as_raw(self), dwstgaccess, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).OpenPropertyStore)(::windows::core::Vtable::as_raw(self), dwstgaccess, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetCategory)(::windows::core::Vtable::as_raw(self), ppszcomemcategory, ppszcomemsubcategory).ok()
@@ -484,12 +484,6 @@ impl IFunctionInstance {
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows::core::interface_hierarchy!(IFunctionInstance, ::windows::core::IUnknown, super::super::System::Com::IServiceProvider);
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IFunctionInstance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for IFunctionInstance {
     fn eq(&self, other: &Self) -> bool {
@@ -507,6 +501,12 @@ impl ::core::fmt::Debug for IFunctionInstance {
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Vtable for IFunctionInstance {
     type Vtable = IFunctionInstance_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for IFunctionInstance {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Interface for IFunctionInstance {
@@ -530,8 +530,8 @@ pub struct IFunctionInstance_Vtbl {
 pub struct IFunctionInstanceCollection(::windows::core::IUnknown);
 impl IFunctionInstanceCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -544,8 +544,8 @@ impl IFunctionInstanceCollection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -558,8 +558,8 @@ impl IFunctionInstanceCollection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::core::Result<IFunctionInstance> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), dwindex).ok()
@@ -569,11 +569,6 @@ impl IFunctionInstanceCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionInstanceCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionInstanceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionInstanceCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -587,6 +582,11 @@ impl ::core::fmt::Debug for IFunctionInstanceCollection {
 }
 unsafe impl ::windows::core::Vtable for IFunctionInstanceCollection {
     type Vtable = IFunctionInstanceCollection_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionInstanceCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionInstanceCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
@@ -632,16 +632,11 @@ impl IFunctionInstanceCollectionQuery {
         (::windows::core::Vtable::vtable(self).AddPropertyConstraint)(::windows::core::Vtable::as_raw(self), key, pv, enumpropertyconstraint).ok()
     }
     pub unsafe fn Execute(&self) -> ::windows::core::Result<IFunctionInstanceCollection> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstanceCollection>();
+        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionInstanceCollectionQuery, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionInstanceCollectionQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -655,6 +650,11 @@ impl ::core::fmt::Debug for IFunctionInstanceCollectionQuery {
 }
 unsafe impl ::windows::core::Vtable for IFunctionInstanceCollectionQuery {
     type Vtable = IFunctionInstanceCollectionQuery_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionInstanceCollectionQuery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionInstanceCollectionQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57cc6fd2_c09a_4289_bb72_25f04142058e);
@@ -677,16 +677,11 @@ impl IFunctionInstanceQuery {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Execute(&self) -> ::windows::core::Result<IFunctionInstance> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).Execute)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IFunctionInstanceQuery, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IFunctionInstanceQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IFunctionInstanceQuery {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -700,6 +695,11 @@ impl ::core::fmt::Debug for IFunctionInstanceQuery {
 }
 unsafe impl ::windows::core::Vtable for IFunctionInstanceQuery {
     type Vtable = IFunctionInstanceQuery_Vtbl;
+}
+impl ::core::clone::Clone for IFunctionInstanceQuery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IFunctionInstanceQuery {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
@@ -737,11 +737,6 @@ impl IPNPXAssociation {
     }
 }
 ::windows::core::interface_hierarchy!(IPNPXAssociation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPNPXAssociation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPNPXAssociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -755,6 +750,11 @@ impl ::core::fmt::Debug for IPNPXAssociation {
 }
 unsafe impl ::windows::core::Vtable for IPNPXAssociation {
     type Vtable = IPNPXAssociation_Vtbl;
+}
+impl ::core::clone::Clone for IPNPXAssociation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPNPXAssociation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bd7e521_4da6_42d5_81ba_1981b6b94075);
@@ -794,11 +794,6 @@ impl IPNPXDeviceAssociation {
     }
 }
 ::windows::core::interface_hierarchy!(IPNPXDeviceAssociation, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPNPXDeviceAssociation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPNPXDeviceAssociation {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -812,6 +807,11 @@ impl ::core::fmt::Debug for IPNPXDeviceAssociation {
 }
 unsafe impl ::windows::core::Vtable for IPNPXDeviceAssociation {
     type Vtable = IPNPXDeviceAssociation_Vtbl;
+}
+impl ::core::clone::Clone for IPNPXDeviceAssociation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPNPXDeviceAssociation {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
@@ -829,8 +829,8 @@ pub struct IPNPXDeviceAssociation_Vtbl {
 pub struct IPropertyStoreCollection(::windows::core::IUnknown);
 impl IPropertyStoreCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -843,8 +843,8 @@ impl IPropertyStoreCollection {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Item(&self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -857,8 +857,8 @@ impl IPropertyStoreCollection {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Remove(&self, dwindex: u32) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), dwindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>();
+        (::windows::core::Vtable::vtable(self).Remove)(::windows::core::Vtable::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self, dwindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Delete)(::windows::core::Vtable::as_raw(self), dwindex).ok()
@@ -868,11 +868,6 @@ impl IPropertyStoreCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IPropertyStoreCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPropertyStoreCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPropertyStoreCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -886,6 +881,11 @@ impl ::core::fmt::Debug for IPropertyStoreCollection {
 }
 unsafe impl ::windows::core::Vtable for IPropertyStoreCollection {
     type Vtable = IPropertyStoreCollection_Vtbl;
+}
+impl ::core::clone::Clone for IPropertyStoreCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPropertyStoreCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
@@ -924,8 +924,8 @@ impl IProviderProperties {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionInstance>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -941,8 +941,8 @@ impl IProviderProperties {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IFunctionInstance>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, key, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<super::super::System::Com::StructuredStorage::PROPVARIANT>();
+        (::windows::core::Vtable::vtable(self).GetValue)(::windows::core::Vtable::as_raw(self), pifunctioninstance.into().abi(), iproviderinstancecontext, key, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -954,11 +954,6 @@ impl IProviderProperties {
     }
 }
 ::windows::core::interface_hierarchy!(IProviderProperties, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProviderProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProviderProperties {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -972,6 +967,11 @@ impl ::core::fmt::Debug for IProviderProperties {
 }
 unsafe impl ::windows::core::Vtable for IProviderProperties {
     type Vtable = IProviderProperties_Vtbl;
+}
+impl ::core::clone::Clone for IProviderProperties {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderProperties {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
@@ -1002,8 +1002,8 @@ pub struct IProviderProperties_Vtbl {
 pub struct IProviderPropertyConstraintCollection(::windows::core::IUnknown);
 impl IProviderPropertyConstraintCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1028,11 +1028,6 @@ impl IProviderPropertyConstraintCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IProviderPropertyConstraintCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProviderPropertyConstraintCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1046,6 +1041,11 @@ impl ::core::fmt::Debug for IProviderPropertyConstraintCollection {
 }
 unsafe impl ::windows::core::Vtable for IProviderPropertyConstraintCollection {
     type Vtable = IProviderPropertyConstraintCollection_Vtbl;
+}
+impl ::core::clone::Clone for IProviderPropertyConstraintCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderPropertyConstraintCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4fae42f_5778_4a13_8540_b5fd8c1398dd);
@@ -1081,8 +1081,8 @@ impl IProviderPublishing {
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), enumvisibilityflags, pszsubcategory.into().abi(), pszproviderinstanceidentity.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IFunctionInstance>();
+        (::windows::core::Vtable::vtable(self).CreateInstance)(::windows::core::Vtable::as_raw(self), enumvisibilityflags, pszsubcategory.into().abi(), pszproviderinstanceidentity.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveInstance<P0, P1>(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: P0, pszproviderinstanceidentity: P1) -> ::windows::core::Result<()>
     where
@@ -1093,11 +1093,6 @@ impl IProviderPublishing {
     }
 }
 ::windows::core::interface_hierarchy!(IProviderPublishing, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProviderPublishing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProviderPublishing {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1111,6 +1106,11 @@ impl ::core::fmt::Debug for IProviderPublishing {
 }
 unsafe impl ::windows::core::Vtable for IProviderPublishing {
     type Vtable = IProviderPublishing_Vtbl;
+}
+impl ::core::clone::Clone for IProviderPublishing {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderPublishing {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
@@ -1130,15 +1130,15 @@ pub struct IProviderPublishing_Vtbl {
 pub struct IProviderQueryConstraintCollection(::windows::core::IUnknown);
 impl IProviderQueryConstraintCollection {
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetCount)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Get<P0>(&self, pszconstraintname: P0) -> ::windows::core::Result<*mut u16>
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), pszconstraintname.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut u16>();
+        (::windows::core::Vtable::vtable(self).Get)(::windows::core::Vtable::as_raw(self), pszconstraintname.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Item(&self, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Item)(::windows::core::Vtable::as_raw(self), dwindex, ppszconstraintname, ppszconstraintvalue).ok()
@@ -1154,11 +1154,6 @@ impl IProviderQueryConstraintCollection {
     }
 }
 ::windows::core::interface_hierarchy!(IProviderQueryConstraintCollection, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IProviderQueryConstraintCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IProviderQueryConstraintCollection {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -1172,6 +1167,11 @@ impl ::core::fmt::Debug for IProviderQueryConstraintCollection {
 }
 unsafe impl ::windows::core::Vtable for IProviderQueryConstraintCollection {
     type Vtable = IProviderQueryConstraintCollection_Vtbl;
+}
+impl ::core::clone::Clone for IProviderQueryConstraintCollection {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IProviderQueryConstraintCollection {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c243e11_3261_4bcd_b922_84a873d460ae);
@@ -2240,8 +2240,8 @@ impl ::core::default::Default for PropertyConstraint {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for PropertyConstraint {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PropertyConstraint {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for PropertyConstraint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2267,8 +2267,8 @@ impl ::core::default::Default for QueryCategoryType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QueryCategoryType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QueryCategoryType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QueryCategoryType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2296,8 +2296,8 @@ impl ::core::default::Default for QueryUpdateAction {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for QueryUpdateAction {
-    type Abi = Self;
+impl ::windows::core::TypeKind for QueryUpdateAction {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for QueryUpdateAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -2323,8 +2323,8 @@ impl ::core::default::Default for SystemVisibilityFlags {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for SystemVisibilityFlags {
-    type Abi = Self;
+impl ::windows::core::TypeKind for SystemVisibilityFlags {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for SystemVisibilityFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

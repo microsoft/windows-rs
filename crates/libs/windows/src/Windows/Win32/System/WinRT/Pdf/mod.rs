@@ -6,8 +6,8 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Dxgi::IDXGIDevice>>,
 {
     ::windows::core::link ! ( "windows.data.pdf.dll""system" fn PdfCreateRenderer ( pdevice : * mut::core::ffi::c_void , pprenderer : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PdfCreateRenderer(pdevice.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IPdfRendererNative>();
+    PdfCreateRenderer(pdevice.into().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`*"]
 #[repr(transparent)]
@@ -33,11 +33,6 @@ impl IPdfRendererNative {
     }
 }
 ::windows::core::interface_hierarchy!(IPdfRendererNative, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IPdfRendererNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IPdfRendererNative {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -51,6 +46,11 @@ impl ::core::fmt::Debug for IPdfRendererNative {
 }
 unsafe impl ::windows::core::Vtable for IPdfRendererNative {
     type Vtable = IPdfRendererNative_Vtbl;
+}
+impl ::core::clone::Clone for IPdfRendererNative {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IPdfRendererNative {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9dcd91_d277_4947_8527_07a0daeda94a);
@@ -93,8 +93,8 @@ impl ::core::fmt::Debug for PDF_RENDER_PARAMS {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-unsafe impl ::windows::core::Abi for PDF_RENDER_PARAMS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for PDF_RENDER_PARAMS {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for PDF_RENDER_PARAMS {

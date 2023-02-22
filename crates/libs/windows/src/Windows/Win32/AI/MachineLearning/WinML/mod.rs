@@ -2,15 +2,15 @@
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::core::Result<IMLOperatorRegistry> {
     ::windows::core::link ! ( "windows.ai.machinelearning.dll""system" fn MLCreateOperatorRegistry ( registry : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MLCreateOperatorRegistry(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IMLOperatorRegistry>();
+    MLCreateOperatorRegistry(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[inline]
 pub unsafe fn WinMLCreateRuntime() -> ::windows::core::Result<IWinMLRuntime> {
     ::windows::core::link ! ( "winml.dll""system" fn WinMLCreateRuntime ( runtime : *mut * mut::core::ffi::c_void ) -> :: windows::core::HRESULT );
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WinMLCreateRuntime(result__.as_mut_ptr()).from_abi(result__)
+    let mut result__ = ::windows::core::zeroed::<IWinMLRuntime>();
+    WinMLCreateRuntime(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
 #[repr(transparent)]
@@ -20,8 +20,8 @@ impl IMLOperatorAttributes {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -33,8 +33,8 @@ impl IMLOperatorAttributes {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
@@ -44,11 +44,6 @@ impl IMLOperatorAttributes {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorAttributes, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorAttributes {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -62,6 +57,11 @@ impl ::core::fmt::Debug for IMLOperatorAttributes {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributes_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorAttributes {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorAttributes {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
@@ -87,11 +87,6 @@ impl IMLOperatorKernel {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorKernel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorKernel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -105,6 +100,11 @@ impl ::core::fmt::Debug for IMLOperatorKernel {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorKernel {
     type Vtable = IMLOperatorKernel_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorKernel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c4b4a0_b467_4eaa_a1a6_b961d8d0ed79);
@@ -120,33 +120,28 @@ pub struct IMLOperatorKernel_Vtbl {
 pub struct IMLOperatorKernelContext(::windows::core::IUnknown);
 impl IMLOperatorKernelContext {
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputTensor)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMLOperatorTensor>();
+        (::windows::core::Vtable::vtable(self).GetInputTensor)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensionsizes: &[u32]) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputTensor)(::windows::core::Vtable::as_raw(self), outputindex, dimensionsizes.len() as _, ::core::mem::transmute(dimensionsizes.as_ptr()), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMLOperatorTensor>();
+        (::windows::core::Vtable::vtable(self).GetOutputTensor)(::windows::core::Vtable::as_raw(self), outputindex, dimensionsizes.len() as _, ::core::mem::transmute(dimensionsizes.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::core::Result<IMLOperatorTensor> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputTensor2)(::windows::core::Vtable::as_raw(self), outputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMLOperatorTensor>();
+        (::windows::core::Vtable::vtable(self).GetOutputTensor2)(::windows::core::Vtable::as_raw(self), outputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn AllocateTemporaryData(&self, size: usize) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).AllocateTemporaryData)(::windows::core::Vtable::as_raw(self), size, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).AllocateTemporaryData)(::windows::core::Vtable::as_raw(self), size, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutionInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernelContext, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorKernelContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorKernelContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -160,6 +155,11 @@ impl ::core::fmt::Debug for IMLOperatorKernelContext {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContext_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorKernelContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82536a28_f022_4769_9d3f_8b278f84c0c3);
@@ -182,8 +182,8 @@ impl IMLOperatorKernelCreationContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -195,8 +195,8 @@ impl IMLOperatorKernelCreationContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
@@ -217,32 +217,27 @@ impl IMLOperatorKernelCreationContext {
         (::windows::core::Vtable::vtable(self).IsOutputValid)(::windows::core::Vtable::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<MLOperatorEdgeDescription>();
+        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputEdgeDescription(&self, outputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<MLOperatorEdgeDescription>();
+        (::windows::core::Vtable::vtable(self).GetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn HasTensorShapeDescription(&self) -> bool {
         (::windows::core::Vtable::vtable(self).HasTensorShapeDescription)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetTensorShapeDescription(&self) -> ::windows::core::Result<IMLOperatorTensorShapeDescription> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetTensorShapeDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMLOperatorTensorShapeDescription>();
+        (::windows::core::Vtable::vtable(self).GetTensorShapeDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutionInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetExecutionInterface)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernelCreationContext, ::windows::core::IUnknown, IMLOperatorAttributes);
-impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorKernelCreationContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -256,6 +251,11 @@ impl ::core::fmt::Debug for IMLOperatorKernelCreationContext {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContext_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelCreationContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5459b53d_a0fc_4665_addd_70171ef7e631);
@@ -282,16 +282,11 @@ impl IMLOperatorKernelFactory {
     where
         P0: ::std::convert::Into<::windows::core::InParam<IMLOperatorKernelCreationContext>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateKernel)(::windows::core::Vtable::as_raw(self), context.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IMLOperatorKernel>();
+        (::windows::core::Vtable::vtable(self).CreateKernel)(::windows::core::Vtable::as_raw(self), context.into().abi(), &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorKernelFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorKernelFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorKernelFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -305,6 +300,11 @@ impl ::core::fmt::Debug for IMLOperatorKernelFactory {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactory_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorKernelFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorKernelFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef15ad6f_0dc9_4908_ab35_a575a30dfbf8);
@@ -335,11 +335,6 @@ impl IMLOperatorRegistry {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorRegistry, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorRegistry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorRegistry {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -353,6 +348,11 @@ impl ::core::fmt::Debug for IMLOperatorRegistry {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistry_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorRegistry {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorRegistry {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af9dd2d_b516_4672_9ab5_530c208493ad);
@@ -372,8 +372,8 @@ impl IMLOperatorShapeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -385,8 +385,8 @@ impl IMLOperatorShapeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
@@ -407,12 +407,12 @@ impl IMLOperatorShapeInferenceContext {
         (::windows::core::Vtable::vtable(self).IsOutputValid)(::windows::core::Vtable::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<MLOperatorEdgeDescription>();
+        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetInputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetInputTensorShape)(::windows::core::Vtable::as_raw(self), inputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
@@ -422,11 +422,6 @@ impl IMLOperatorShapeInferenceContext {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorShapeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
-impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorShapeInferenceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -440,6 +435,11 @@ impl ::core::fmt::Debug for IMLOperatorShapeInferenceContext {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContext_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferenceContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x105b6b29_5408_4a68_9959_09b5955a3492);
@@ -469,11 +469,6 @@ impl IMLOperatorShapeInferrer {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorShapeInferrer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorShapeInferrer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorShapeInferrer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -487,6 +482,11 @@ impl ::core::fmt::Debug for IMLOperatorShapeInferrer {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrer_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorShapeInferrer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorShapeInferrer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540be5be_a6c9_40ee_83f6_d2b8b40a7798);
@@ -520,17 +520,12 @@ impl IMLOperatorTensor {
         (::windows::core::Vtable::vtable(self).GetData)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetDataInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDataInterface)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr());
-        <::windows::core::IUnknown as ::windows::core::Abi>::from_abi(result__.assume_init())
+        let mut result__ = ::windows::core::zeroed::<::windows::core::IUnknown>();
+        (::windows::core::Vtable::vtable(self).GetDataInterface)(::windows::core::Vtable::as_raw(self), &mut result__);
+        ::windows::core::from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTensor, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorTensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorTensor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -544,6 +539,11 @@ impl ::core::fmt::Debug for IMLOperatorTensor {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorTensor {
     type Vtable = IMLOperatorTensor_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorTensor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTensor {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe41f41_f430_440e_aece_54416dc8b9db);
@@ -565,8 +565,8 @@ pub struct IMLOperatorTensor_Vtbl {
 pub struct IMLOperatorTensorShapeDescription(::windows::core::IUnknown);
 impl IMLOperatorTensorShapeDescription {
     pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetInputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetInputTensorShape)(::windows::core::Vtable::as_raw(self), inputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
@@ -575,19 +575,14 @@ impl IMLOperatorTensorShapeDescription {
         (::windows::core::Vtable::vtable(self).HasOutputShapeDescription)(::windows::core::Vtable::as_raw(self))
     }
     pub unsafe fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetOutputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), outputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).GetOutputTensorDimensionCount)(::windows::core::Vtable::as_raw(self), outputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOutputTensorShape(&self, outputindex: u32, dimensions: &mut [u32]) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).GetOutputTensorShape)(::windows::core::Vtable::as_raw(self), outputindex, dimensions.len() as _, ::core::mem::transmute(dimensions.as_ptr())).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTensorShapeDescription, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorTensorShapeDescription {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -601,6 +596,11 @@ impl ::core::fmt::Debug for IMLOperatorTensorShapeDescription {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescription_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTensorShapeDescription {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf20e8cbe_3b28_4248_be95_f96fbc6e4643);
@@ -623,8 +623,8 @@ impl IMLOperatorTypeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetAttributeElementCount)(::windows::core::Vtable::as_raw(self), name.into().abi(), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -636,8 +636,8 @@ impl IMLOperatorTypeInferenceContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<u32>();
+        (::windows::core::Vtable::vtable(self).base__.GetStringAttributeElementLength)(::windows::core::Vtable::as_raw(self), name.into().abi(), elementindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStringAttributeElement<P0>(&self, name: P0, elementindex: u32, attributeelement: &mut [u8]) -> ::windows::core::Result<()>
     where
@@ -658,19 +658,14 @@ impl IMLOperatorTypeInferenceContext {
         (::windows::core::Vtable::vtable(self).IsOutputValid)(::windows::core::Vtable::as_raw(self), outputindex)
     }
     pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::core::Result<MLOperatorEdgeDescription> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<MLOperatorEdgeDescription>();
+        (::windows::core::Vtable::vtable(self).GetInputEdgeDescription)(::windows::core::Vtable::as_raw(self), inputindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).SetOutputEdgeDescription)(::windows::core::Vtable::as_raw(self), outputindex, edgedescription).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTypeInferenceContext, ::windows::core::IUnknown, IMLOperatorAttributes);
-impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorTypeInferenceContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -684,6 +679,11 @@ impl ::core::fmt::Debug for IMLOperatorTypeInferenceContext {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContext_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferenceContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec893bb1_f938_427b_8488_c8dcf775f138);
@@ -711,11 +711,6 @@ impl IMLOperatorTypeInferrer {
     }
 }
 ::windows::core::interface_hierarchy!(IMLOperatorTypeInferrer, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IMLOperatorTypeInferrer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IMLOperatorTypeInferrer {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -729,6 +724,11 @@ impl ::core::fmt::Debug for IMLOperatorTypeInferrer {
 }
 unsafe impl ::windows::core::Vtable for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrer_Vtbl;
+}
+impl ::core::clone::Clone for IMLOperatorTypeInferrer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IMLOperatorTypeInferrer {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781aeb48_9bcb_4797_bf77_8bf455217beb);
@@ -754,19 +754,14 @@ impl IWinMLEvaluationContext {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut WINML_BINDING_DESC>();
+        (::windows::core::Vtable::vtable(self).GetValueByName)(::windows::core::Vtable::as_raw(self), name.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).Clear)(::windows::core::Vtable::as_raw(self)).ok()
     }
 }
 ::windows::core::interface_hierarchy!(IWinMLEvaluationContext, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWinMLEvaluationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWinMLEvaluationContext {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -780,6 +775,11 @@ impl ::core::fmt::Debug for IWinMLEvaluationContext {
 }
 unsafe impl ::windows::core::Vtable for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContext_Vtbl;
+}
+impl ::core::clone::Clone for IWinMLEvaluationContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWinMLEvaluationContext {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95848f9e_583d_4054_af12_916387cd8426);
@@ -803,8 +803,8 @@ pub struct IWinMLEvaluationContext_Vtbl {
 pub struct IWinMLModel(::windows::core::IUnknown);
 impl IWinMLModel {
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<*mut WINML_MODEL_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut WINML_MODEL_DESC>();
+        (::windows::core::Vtable::vtable(self).GetDescription)(::windows::core::Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows::core::PWSTR, pvalue: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Vtable::vtable(self).EnumerateMetadata)(::windows::core::Vtable::as_raw(self), index, pkey, pvalue).ok()
@@ -812,22 +812,17 @@ impl IWinMLModel {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateModelInputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumerateModelInputs)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut WINML_VARIABLE_DESC>();
+        (::windows::core::Vtable::vtable(self).EnumerateModelInputs)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateModelOutputs(&self, index: u32) -> ::windows::core::Result<*mut WINML_VARIABLE_DESC> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).EnumerateModelOutputs)(::windows::core::Vtable::as_raw(self), index, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<*mut WINML_VARIABLE_DESC>();
+        (::windows::core::Vtable::vtable(self).EnumerateModelOutputs)(::windows::core::Vtable::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWinMLModel, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWinMLModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWinMLModel {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -841,6 +836,11 @@ impl ::core::fmt::Debug for IWinMLModel {
 }
 unsafe impl ::windows::core::Vtable for IWinMLModel {
     type Vtable = IWinMLModel_Vtbl;
+}
+impl ::core::clone::Clone for IWinMLModel {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWinMLModel {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2eeb6a9_f31f_4055_a521_e30b5b33664a);
@@ -868,8 +868,8 @@ impl IWinMLRuntime {
     where
         P0: ::std::convert::Into<::windows::core::InParam<::windows::core::PCWSTR>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).LoadModel)(::windows::core::Vtable::as_raw(self), path.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWinMLModel>();
+        (::windows::core::Vtable::vtable(self).LoadModel)(::windows::core::Vtable::as_raw(self), path.into().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -877,8 +877,8 @@ impl IWinMLRuntime {
     where
         P0: ::std::convert::Into<::windows::core::InParam<super::super::super::Graphics::Direct3D12::ID3D12Device>>,
     {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateEvaluationContext)(::windows::core::Vtable::as_raw(self), device.into().abi(), result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWinMLEvaluationContext>();
+        (::windows::core::Vtable::vtable(self).CreateEvaluationContext)(::windows::core::Vtable::as_raw(self), device.into().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EvaluateModel<P0>(&self, pcontext: P0) -> ::windows::core::Result<()>
     where
@@ -888,11 +888,6 @@ impl IWinMLRuntime {
     }
 }
 ::windows::core::interface_hierarchy!(IWinMLRuntime, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWinMLRuntime {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWinMLRuntime {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -906,6 +901,11 @@ impl ::core::fmt::Debug for IWinMLRuntime {
 }
 unsafe impl ::windows::core::Vtable for IWinMLRuntime {
     type Vtable = IWinMLRuntime_Vtbl;
+}
+impl ::core::clone::Clone for IWinMLRuntime {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWinMLRuntime {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0425329_40ae_48d9_bce3_829ef7b8a41a);
@@ -926,16 +926,11 @@ pub struct IWinMLRuntime_Vtbl {
 pub struct IWinMLRuntimeFactory(::windows::core::IUnknown);
 impl IWinMLRuntimeFactory {
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::core::Result<IWinMLRuntime> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Vtable::vtable(self).CreateRuntime)(::windows::core::Vtable::as_raw(self), runtimetype, result__.as_mut_ptr()).from_abi(result__)
+        let mut result__ = ::windows::core::zeroed::<IWinMLRuntime>();
+        (::windows::core::Vtable::vtable(self).CreateRuntime)(::windows::core::Vtable::as_raw(self), runtimetype, &mut result__).from_abi(result__)
     }
 }
 ::windows::core::interface_hierarchy!(IWinMLRuntimeFactory, ::windows::core::IUnknown);
-impl ::core::clone::Clone for IWinMLRuntimeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
 impl ::core::cmp::PartialEq for IWinMLRuntimeFactory {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
@@ -949,6 +944,11 @@ impl ::core::fmt::Debug for IWinMLRuntimeFactory {
 }
 unsafe impl ::windows::core::Vtable for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactory_Vtbl;
+}
+impl ::core::clone::Clone for IWinMLRuntimeFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
 }
 unsafe impl ::windows::core::Interface for IWinMLRuntimeFactory {
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa807b84d_4ae5_4bc0_a76a_941aa246bd41);
@@ -985,8 +985,8 @@ impl ::core::default::Default for MLOperatorAttributeType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorAttributeType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorAttributeType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorAttributeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1012,8 +1012,8 @@ impl ::core::default::Default for MLOperatorEdgeType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorEdgeType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorEdgeType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorEdgeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1040,8 +1040,8 @@ impl ::core::default::Default for MLOperatorExecutionType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorExecutionType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorExecutionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1067,8 +1067,8 @@ impl ::core::default::Default for MLOperatorKernelOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorKernelOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorKernelOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorKernelOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1128,8 +1128,8 @@ impl ::core::default::Default for MLOperatorParameterOptions {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorParameterOptions {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorParameterOptions {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorParameterOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1188,8 +1188,8 @@ impl ::core::default::Default for MLOperatorSchemaEdgeTypeFormat {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorSchemaEdgeTypeFormat {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1229,8 +1229,8 @@ impl ::core::default::Default for MLOperatorTensorDataType {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorTensorDataType {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for MLOperatorTensorDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1264,8 +1264,8 @@ impl ::core::default::Default for WINML_BINDING_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINML_BINDING_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_BINDING_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WINML_BINDING_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1297,8 +1297,8 @@ impl ::core::default::Default for WINML_FEATURE_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINML_FEATURE_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_FEATURE_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WINML_FEATURE_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1322,8 +1322,8 @@ impl ::core::default::Default for WINML_RUNTIME_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINML_RUNTIME_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_RUNTIME_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WINML_RUNTIME_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1377,8 +1377,8 @@ impl ::core::default::Default for WINML_TENSOR_DATA_TYPE {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for WINML_TENSOR_DATA_TYPE {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_TENSOR_DATA_TYPE {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for WINML_TENSOR_DATA_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1403,8 +1403,8 @@ impl ::core::fmt::Debug for MLOperatorAttribute {
         f.debug_struct("MLOperatorAttribute").field("name", &self.name).field("type", &self.r#type).field("required", &self.required).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorAttribute {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorAttribute {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MLOperatorAttribute {
     fn eq(&self, other: &Self) -> bool {
@@ -1431,8 +1431,8 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorAttributeNameValue {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorAttributeNameValue {
     fn default() -> Self {
@@ -1453,8 +1453,8 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorAttributeNameValue_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
     fn default() -> Self {
@@ -1473,8 +1473,8 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorEdgeDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorEdgeDescription {
     fn default() -> Self {
@@ -1493,8 +1493,8 @@ impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorEdgeDescription_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorEdgeDescription_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorEdgeDescription_0 {
     fn default() -> Self {
@@ -1519,8 +1519,8 @@ impl ::core::fmt::Debug for MLOperatorEdgeTypeConstraint {
         f.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorEdgeTypeConstraint {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorEdgeTypeConstraint {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MLOperatorEdgeTypeConstraint {
     fn eq(&self, other: &Self) -> bool {
@@ -1569,8 +1569,8 @@ impl ::core::fmt::Debug for MLOperatorKernelDescription {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorKernelDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorKernelDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MLOperatorKernelDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -1623,8 +1623,8 @@ impl ::core::fmt::Debug for MLOperatorSchemaDescription {
             .finish()
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorSchemaDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorSchemaDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MLOperatorSchemaDescription {
     fn eq(&self, other: &Self) -> bool {
@@ -1650,8 +1650,8 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeDescription {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorSchemaEdgeDescription {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorSchemaEdgeDescription {
     fn default() -> Self {
@@ -1671,8 +1671,8 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeDescription_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorSchemaEdgeDescription_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for MLOperatorSchemaEdgeDescription_0 {
     fn default() -> Self {
@@ -1696,8 +1696,8 @@ impl ::core::fmt::Debug for MLOperatorSetId {
         f.debug_struct("MLOperatorSetId").field("domain", &self.domain).field("version", &self.version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for MLOperatorSetId {
-    type Abi = Self;
+impl ::windows::core::TypeKind for MLOperatorSetId {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for MLOperatorSetId {
     fn eq(&self, other: &Self) -> bool {
@@ -1725,8 +1725,8 @@ impl ::core::clone::Clone for WINML_BINDING_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-unsafe impl ::windows::core::Abi for WINML_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC {
@@ -1751,8 +1751,8 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-unsafe impl ::windows::core::Abi for WINML_BINDING_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_BINDING_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::default::Default for WINML_BINDING_DESC_0 {
@@ -1780,8 +1780,8 @@ impl ::core::fmt::Debug for WINML_IMAGE_BINDING_DESC {
         f.debug_struct("WINML_IMAGE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_IMAGE_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_IMAGE_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_IMAGE_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1812,8 +1812,8 @@ impl ::core::fmt::Debug for WINML_IMAGE_VARIABLE_DESC {
         f.debug_struct("WINML_IMAGE_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_IMAGE_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_IMAGE_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_IMAGE_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1841,8 +1841,8 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_MAP_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WINML_MAP_BINDING_DESC {
     fn default() -> Self {
@@ -1861,8 +1861,8 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_MAP_BINDING_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WINML_MAP_BINDING_DESC_0 {
     fn default() -> Self {
@@ -1883,8 +1883,8 @@ impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_1 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WINML_MAP_BINDING_DESC_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_MAP_BINDING_DESC_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WINML_MAP_BINDING_DESC_1 {
     fn default() -> Self {
@@ -1908,8 +1908,8 @@ impl ::core::fmt::Debug for WINML_MAP_VARIABLE_DESC {
         f.debug_struct("WINML_MAP_VARIABLE_DESC").field("KeyType", &self.KeyType).field("Fields", &self.Fields).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_MAP_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_MAP_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_MAP_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1942,8 +1942,8 @@ impl ::core::fmt::Debug for WINML_MODEL_DESC {
         f.debug_struct("WINML_MODEL_DESC").field("Author", &self.Author).field("Name", &self.Name).field("Domain", &self.Domain).field("Description", &self.Description).field("Version", &self.Version).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_MODEL_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_MODEL_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_MODEL_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1978,8 +1978,8 @@ impl ::core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-unsafe impl ::windows::core::Abi for WINML_RESOURCE_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_RESOURCE_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_RESOURCE_BINDING_DESC {
@@ -2008,8 +2008,8 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WINML_SEQUENCE_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_SEQUENCE_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WINML_SEQUENCE_BINDING_DESC {
     fn default() -> Self {
@@ -2030,8 +2030,8 @@ impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC_0 {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for WINML_SEQUENCE_BINDING_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_SEQUENCE_BINDING_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::default::Default for WINML_SEQUENCE_BINDING_DESC_0 {
     fn default() -> Self {
@@ -2054,8 +2054,8 @@ impl ::core::fmt::Debug for WINML_SEQUENCE_VARIABLE_DESC {
         f.debug_struct("WINML_SEQUENCE_VARIABLE_DESC").field("ElementType", &self.ElementType).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_SEQUENCE_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_SEQUENCE_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_SEQUENCE_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2088,8 +2088,8 @@ impl ::core::fmt::Debug for WINML_TENSOR_BINDING_DESC {
         f.debug_struct("WINML_TENSOR_BINDING_DESC").field("DataType", &self.DataType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_TENSOR_BINDING_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_TENSOR_BINDING_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_TENSOR_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2120,8 +2120,8 @@ impl ::core::fmt::Debug for WINML_TENSOR_VARIABLE_DESC {
         f.debug_struct("WINML_TENSOR_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
-unsafe impl ::windows::core::Abi for WINML_TENSOR_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_TENSOR_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for WINML_TENSOR_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -2153,8 +2153,8 @@ impl ::core::clone::Clone for WINML_VARIABLE_DESC {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINML_VARIABLE_DESC {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_VARIABLE_DESC {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINML_VARIABLE_DESC {
@@ -2180,8 +2180,8 @@ impl ::core::clone::Clone for WINML_VARIABLE_DESC_0 {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINML_VARIABLE_DESC_0 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for WINML_VARIABLE_DESC_0 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINML_VARIABLE_DESC_0 {

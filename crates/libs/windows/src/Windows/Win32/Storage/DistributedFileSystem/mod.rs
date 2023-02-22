@@ -320,8 +320,8 @@ impl ::core::default::Default for DFS_NAMESPACE_VERSION_ORIGIN {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DFS_NAMESPACE_VERSION_ORIGIN {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_NAMESPACE_VERSION_ORIGIN {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DFS_NAMESPACE_VERSION_ORIGIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -355,8 +355,8 @@ impl ::core::default::Default for DFS_TARGET_PRIORITY_CLASS {
         Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY_CLASS {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_TARGET_PRIORITY_CLASS {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::fmt::Debug for DFS_TARGET_PRIORITY_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -383,8 +383,8 @@ impl ::core::fmt::Debug for DFS_GET_PKT_ENTRY_STATE_ARG {
         f.debug_struct("DFS_GET_PKT_ENTRY_STATE_ARG").field("DfsEntryPathLen", &self.DfsEntryPathLen).field("ServerNameLen", &self.ServerNameLen).field("ShareNameLen", &self.ShareNameLen).field("Level", &self.Level).field("Buffer", &self.Buffer).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_GET_PKT_ENTRY_STATE_ARG {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_GET_PKT_ENTRY_STATE_ARG {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
     fn eq(&self, other: &Self) -> bool {
@@ -413,8 +413,8 @@ impl ::core::fmt::Debug for DFS_INFO_1 {
         f.debug_struct("DFS_INFO_1").field("EntryPath", &self.EntryPath).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -443,8 +443,8 @@ impl ::core::fmt::Debug for DFS_INFO_100 {
         f.debug_struct("DFS_INFO_100").field("Comment", &self.Comment).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_100 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_100 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_100 {
     fn eq(&self, other: &Self) -> bool {
@@ -473,8 +473,8 @@ impl ::core::fmt::Debug for DFS_INFO_101 {
         f.debug_struct("DFS_INFO_101").field("State", &self.State).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_101 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_101 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_101 {
     fn eq(&self, other: &Self) -> bool {
@@ -503,8 +503,8 @@ impl ::core::fmt::Debug for DFS_INFO_102 {
         f.debug_struct("DFS_INFO_102").field("Timeout", &self.Timeout).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_102 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_102 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_102 {
     fn eq(&self, other: &Self) -> bool {
@@ -534,8 +534,8 @@ impl ::core::fmt::Debug for DFS_INFO_103 {
         f.debug_struct("DFS_INFO_103").field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_103 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_103 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_103 {
     fn eq(&self, other: &Self) -> bool {
@@ -564,8 +564,8 @@ impl ::core::fmt::Debug for DFS_INFO_104 {
         f.debug_struct("DFS_INFO_104").field("TargetPriority", &self.TargetPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_104 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_104 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_104 {
     fn eq(&self, other: &Self) -> bool {
@@ -598,8 +598,8 @@ impl ::core::fmt::Debug for DFS_INFO_105 {
         f.debug_struct("DFS_INFO_105").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_105 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_105 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_105 {
     fn eq(&self, other: &Self) -> bool {
@@ -629,8 +629,8 @@ impl ::core::fmt::Debug for DFS_INFO_106 {
         f.debug_struct("DFS_INFO_106").field("State", &self.State).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_106 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_106 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_106 {
     fn eq(&self, other: &Self) -> bool {
@@ -670,8 +670,8 @@ impl ::core::fmt::Debug for DFS_INFO_107 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for DFS_INFO_107 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_107 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_107 {
@@ -709,8 +709,8 @@ impl ::core::fmt::Debug for DFS_INFO_150 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for DFS_INFO_150 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_150 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_150 {
@@ -747,8 +747,8 @@ impl ::core::fmt::Debug for DFS_INFO_1_32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_1_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_1_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_1_32 {
@@ -783,8 +783,8 @@ impl ::core::fmt::Debug for DFS_INFO_2 {
         f.debug_struct("DFS_INFO_2").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_2 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_2 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -813,8 +813,8 @@ impl ::core::fmt::Debug for DFS_INFO_200 {
         f.debug_struct("DFS_INFO_200").field("FtDfsName", &self.FtDfsName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_200 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_200 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_200 {
     fn eq(&self, other: &Self) -> bool {
@@ -851,8 +851,8 @@ impl ::core::fmt::Debug for DFS_INFO_2_32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_2_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_2_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_2_32 {
@@ -888,8 +888,8 @@ impl ::core::fmt::Debug for DFS_INFO_3 {
         f.debug_struct("DFS_INFO_3").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_3 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_3 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -919,8 +919,8 @@ impl ::core::fmt::Debug for DFS_INFO_300 {
         f.debug_struct("DFS_INFO_300").field("Flags", &self.Flags).field("DfsName", &self.DfsName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_300 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_300 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_300 {
     fn eq(&self, other: &Self) -> bool {
@@ -958,8 +958,8 @@ impl ::core::fmt::Debug for DFS_INFO_3_32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_3_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_3_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_3_32 {
@@ -997,8 +997,8 @@ impl ::core::fmt::Debug for DFS_INFO_4 {
         f.debug_struct("DFS_INFO_4").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_4 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_4 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -1038,8 +1038,8 @@ impl ::core::fmt::Debug for DFS_INFO_4_32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DFS_INFO_4_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_4_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_INFO_4_32 {
@@ -1078,8 +1078,8 @@ impl ::core::fmt::Debug for DFS_INFO_5 {
         f.debug_struct("DFS_INFO_5").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_5 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_5 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -1110,8 +1110,8 @@ impl ::core::fmt::Debug for DFS_INFO_50 {
         f.debug_struct("DFS_INFO_50").field("NamespaceMajorVersion", &self.NamespaceMajorVersion).field("NamespaceMinorVersion", &self.NamespaceMinorVersion).field("NamespaceCapabilities", &self.NamespaceCapabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_50 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_50 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_50 {
     fn eq(&self, other: &Self) -> bool {
@@ -1148,8 +1148,8 @@ impl ::core::fmt::Debug for DFS_INFO_6 {
         f.debug_struct("DFS_INFO_6").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("PropertyFlags", &self.PropertyFlags).field("MetadataSize", &self.MetadataSize).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_6 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_6 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_6 {
     fn eq(&self, other: &Self) -> bool {
@@ -1178,8 +1178,8 @@ impl ::core::fmt::Debug for DFS_INFO_7 {
         f.debug_struct("DFS_INFO_7").field("GenerationGuid", &self.GenerationGuid).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_INFO_7 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_7 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_INFO_7 {
     fn eq(&self, other: &Self) -> bool {
@@ -1222,8 +1222,8 @@ impl ::core::fmt::Debug for DFS_INFO_8 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for DFS_INFO_8 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_8 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_8 {
@@ -1270,8 +1270,8 @@ impl ::core::fmt::Debug for DFS_INFO_9 {
     }
 }
 #[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::core::Abi for DFS_INFO_9 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_INFO_9 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for DFS_INFO_9 {
@@ -1304,8 +1304,8 @@ impl ::core::fmt::Debug for DFS_SITELIST_INFO {
         f.debug_struct("DFS_SITELIST_INFO").field("cSites", &self.cSites).field("Site", &self.Site).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_SITELIST_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_SITELIST_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_SITELIST_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1335,8 +1335,8 @@ impl ::core::fmt::Debug for DFS_SITENAME_INFO {
         f.debug_struct("DFS_SITENAME_INFO").field("SiteFlags", &self.SiteFlags).field("SiteName", &self.SiteName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_SITENAME_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_SITENAME_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_SITENAME_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1367,8 +1367,8 @@ impl ::core::fmt::Debug for DFS_STORAGE_INFO {
         f.debug_struct("DFS_STORAGE_INFO").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_STORAGE_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1404,8 +1404,8 @@ impl ::core::fmt::Debug for DFS_STORAGE_INFO_0_32 {
     }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_0_32 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_STORAGE_INFO_0_32 {
+    type TypeKind = ::windows::core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
@@ -1440,8 +1440,8 @@ impl ::core::fmt::Debug for DFS_STORAGE_INFO_1 {
         f.debug_struct("DFS_STORAGE_INFO_1").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_STORAGE_INFO_1 {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_STORAGE_INFO_1 {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_STORAGE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -1475,8 +1475,8 @@ impl ::core::fmt::Debug for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
         f.debug_struct("DFS_SUPPORTED_NAMESPACE_VERSION_INFO").field("DomainDfsMajorVersion", &self.DomainDfsMajorVersion).field("DomainDfsMinorVersion", &self.DomainDfsMinorVersion).field("DomainDfsCapabilities", &self.DomainDfsCapabilities).field("StandaloneDfsMajorVersion", &self.StandaloneDfsMajorVersion).field("StandaloneDfsMinorVersion", &self.StandaloneDfsMinorVersion).field("StandaloneDfsCapabilities", &self.StandaloneDfsCapabilities).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -1507,8 +1507,8 @@ impl ::core::fmt::Debug for DFS_TARGET_PRIORITY {
         f.debug_struct("DFS_TARGET_PRIORITY").field("TargetPriorityClass", &self.TargetPriorityClass).field("TargetPriorityRank", &self.TargetPriorityRank).field("Reserved", &self.Reserved).finish()
     }
 }
-unsafe impl ::windows::core::Abi for DFS_TARGET_PRIORITY {
-    type Abi = Self;
+impl ::windows::core::TypeKind for DFS_TARGET_PRIORITY {
+    type TypeKind = ::windows::core::CopyType;
 }
 impl ::core::cmp::PartialEq for DFS_TARGET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
