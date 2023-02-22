@@ -395,8 +395,8 @@ impl IRestrictedErrorInfo {
         (Vtable::vtable(self).GetErrorDetails)(Vtable::as_raw(self), description as *mut _, error as *mut _, restricteddescription as *mut _, capabilitysid as *mut _).ok()
     }
     pub unsafe fn GetReference(&self) -> Result<BSTR> {
-        let mut result__ = std::mem::MaybeUninit::zeroed();
-        (Vtable::vtable(self).GetReference)(Vtable::as_raw(self), std::mem::transmute(&mut result__)).from_abi(result__)
+        let mut result__ = zeroed::<BSTR>();
+        (Vtable::vtable(self).GetReference)(Vtable::as_raw(self), &mut result__).from_abi(result__)
     }
 }
 impl std::clone::Clone for IRestrictedErrorInfo {
@@ -423,7 +423,7 @@ unsafe impl Interface for IRestrictedErrorInfo {
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: IUnknown_Vtbl,
     pub GetErrorDetails: unsafe extern "system" fn(this: *mut c_void, description: *mut BSTR, error: *mut HRESULT, restricteddescription: *mut BSTR, capabilitysid: *mut BSTR) -> HRESULT,
-    pub GetReference: unsafe extern "system" fn(this: *mut c_void, reference: *mut BSTR) -> HRESULT,
+    pub GetReference: unsafe extern "system" fn(this: *mut c_void, reference: *mut std::mem::MaybeUninit<BSTR>) -> HRESULT,
 }
 
 #[repr(transparent)]

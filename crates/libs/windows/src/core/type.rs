@@ -11,7 +11,9 @@ pub struct CopyType;
 pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized {
     type Abi;
     type Default;
+    /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
+    /// # Safety
     unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
 }
